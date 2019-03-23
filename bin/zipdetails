@@ -139,7 +139,7 @@ my %Extras = (
 
       # The Header ID mappings defined by Info-ZIP and third parties are:
 
-      0x0065,  ['IBM S/390 attributes - uncompressed', undef],
+      0x0065,  ['IBM S/390 attributes - uncompressed', \&decodeMVS],
       0x0066,  ['IBM S/390 attributes - compressed', undef],
       0x07c8,  ['Info-ZIP Macintosh (old, J. Lee)', undef],
       0x2605,  ['ZipIt Macintosh (first version)', undef],
@@ -180,7 +180,7 @@ my %Extras = (
 
        );
 
-my $VERSION = "1.09" ;
+my $VERSION = "1.10" ;
 
 my $FH;
 
@@ -1461,6 +1461,24 @@ sub decode_NT_security
         myRead(my $payload, $plen);
         out $plen, "  Extra Payload", hexDump($payload);
     }
+}
+
+sub decodeMVS
+{
+    my $len = shift;
+    my $context = shift;
+
+    # data in Big-Endian
+    myRead(my $data, $len);
+    my $ID = unpack("N", $data);
+
+    if ($ID == 0xE9F3F9F0)
+    {
+        out($data, "  ID", "'Z390'");
+        substr($data, 0, 4) = '';
+    }
+
+    out($data, "  Extra Payload", hexDump($data));
 }
 
 sub printAes
