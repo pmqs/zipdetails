@@ -1201,7 +1201,7 @@ sub decode_Zip64
     }
 
     if (full32 $z64Data->[2] ) {
-        out_VV "  Offset to Central Dir";        
+        out_VV "  Offset to Local Dir";        
     }
 
     if ($z64Data->[3] == 0xFFFF ) {
