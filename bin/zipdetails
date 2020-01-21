@@ -180,7 +180,7 @@ my %Extras = (
 
        );
 
-my $VERSION = "1.11" ;
+my $VERSION = "1.12" ;
 
 my $FH;
 
@@ -2102,8 +2102,8 @@ zipdetails - display the internal structure of zip files
 
 =head1 DESCRIPTION
 
-Zipdetails displays information about the internal record structure of the
-zip file. It is not concerned with displaying any details of the compressed
+Zipdetails displays information about the internal record structure of 
+zip files. It is not concerned with displaying any details of the compressed
 data stored in the zip file.
 
 The program assumes prior understanding of the internal structure of a Zip
@@ -2159,7 +2159,7 @@ The offset from the start of the file in hex.
 
 =item *
 
-The length of the filed in hex.
+The length of the field in hex.
 
 =item *
 
@@ -2168,6 +2168,21 @@ file.
 
 =back
 
+=head1 LIMITATIONS
+
+The following zip file features are not supported by this program:
+
+=over 5
+
+=item *
+
+Multi-part archives.
+
+=item *
+
+Any of the strong encryption features defined in the "APPNOTE" document.
+
+=back
 
 =head1 TODO 
 
@@ -2184,7 +2199,7 @@ L<https://rt.cpan.org/Public/Dist/Display.html?Name=IO-Compress>.
 =head1 SEE ALSO
 
 
-The primary reference for Zip files is the "appnote" document available at
+The primary reference for Zip files is the "APPNOTE" document available at
 L<http://www.pkware.com/documents/casestudies/APPNOTE.TXT>.
 
 An alternative reference is the Info-Zip appnote. This is available from
@@ -2205,7 +2220,7 @@ Paul Marquess F<pmqs@cpan.org>.
 
 =head1 COPYRIGHT 
 
-Copyright (c) 2011-2019 Paul Marquess. All rights reserved.
+Copyright (c) 2011-2020 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. 
