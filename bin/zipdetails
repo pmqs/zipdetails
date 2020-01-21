@@ -177,7 +177,7 @@ my %Extras = (
       0x7875,  ['Unix Extra Type 3', \&decode_ux],
       0x9901,  ['AES Encryption', \&decode_AES],
       0xa11e,  ['Data Stream Alignment', undef],
-      0xA220,  ['Open Packaging Growth Hint', undef ],
+      0xA220,  ['Open Packaging Growth Hint', \&decode_GrowthHint ],
       0xCAFE,  ['Java Executable', \&decode_Java_exe],
       0xfb4a,  ['SMS/QDOS', undef],
 
@@ -1324,6 +1324,24 @@ sub decode_AES
     out $bmethod, "  Compression Method", compressionMethod($method) ;
 
     $context->{AesStrength} = $strength ;
+}
+
+sub decode_GrowthHint
+{
+    my $len = shift;
+    my $context = shift;
+    my $inCentralHdr = $context->{InCentralDir} ;
+
+    return if $len == 0 ;
+
+    out_v "  Signature" ;
+    out_v "  Initial Value";
+
+    my $padding;
+    myRead($padding, $len - 4);
+    my $data = hexDump($padding);
+
+    out2 $padding, "Padding", $data;
 }
 
 sub decode_UX
