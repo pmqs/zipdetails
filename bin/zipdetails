@@ -1589,9 +1589,6 @@ sub scanCentralDirectory
         my $comment_length     = unpack("v", substr($buffer, 32, 2));
         my $locHeaderOffset    = unpack("V", substr($buffer, 42, 4));
 
-        $START = $locHeaderOffset
-            if ! defined $START;
-
         skip($fh, $filename_length ) ;
 
         if ($extra_length)
@@ -1654,6 +1651,11 @@ sub scanCentralDirectory
 
     # @CD = sort { $a->[0]->cmp($b->[0]) } @CD ;
     @CD = sort { $a->[0] <=> $b->[0] } @CD ;
+
+    # Set the first LFH offset.
+    $START = $CD[0]->[0]
+        if $#CD > 0;
+
     return (1, @CD);
 }
 
