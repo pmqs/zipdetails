@@ -725,7 +725,7 @@ while (1)
             }
         }
 
-        printf "\n\nUnexpecded END at offset %08X, value %s\n", $here, Value_V($signature);
+        printf "\n\nUnexpected END at offset %08X, value %s\n", $here, Value_V($signature);
         last;
     }
 
