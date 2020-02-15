@@ -1131,7 +1131,7 @@ sub walkExtra
         # non-standard extra sub-fields.
         my $remaining = $XLEN - $offset;
         if ($remaining < ZIP_EXTRA_SUBFIELD_HEADER_SIZE) {
-            # There is not enough. Consum whatever is there and return so parsing
+            # There is not enough. Consume whatever is there and return so parsing
             # can continue.
             myRead($payload, $remaining);
             my $data = hexDump($payload);
