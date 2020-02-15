@@ -1127,7 +1127,7 @@ sub walkExtra
         ++ $count;
 
         # Detect if there is not enough data for an extra ID and length.
-        # Android zipalign and zipflinger are prime candidates for this
+        # Android zipalign and zipflinger are prime candidates for these
         # non-standard extra sub-fields.
         my $remaining = $XLEN - $offset;
         if ($remaining < ZIP_EXTRA_SUBFIELD_HEADER_SIZE) {
@@ -1164,10 +1164,13 @@ sub walkExtra
 
         if (! defined $decoder)
         {
-            myRead($payload, $subLen);
-            my $data = hexDump($payload);
+            if ($subLen)
+            {
+                myRead($payload, $subLen);
+                my $data = hexDump($payload);
 
-            out2 $payload, "Extra Payload", $data;
+                out2 $payload, "Extra Payload", $data;
+            }
         }
         else
         {
