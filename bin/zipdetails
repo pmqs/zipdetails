@@ -1656,9 +1656,9 @@ sub scanCentralDirectory
     # @CD = sort { $a->[0]->cmp($b->[0]) } @CD ;
     @CD = sort { $a->[0] <=> $b->[0] } @CD ;
 
-    # Set the first LFH offset.
+    # Set the first Local File Header offset.
     $START = $CD[0]->[0]
-        if $#CD > 0;
+        if @CD ;
 
     return (1, @CD);
 }
