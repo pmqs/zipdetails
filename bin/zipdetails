@@ -115,8 +115,10 @@ my %Lookup = (
     ZIP64_END_CENTRAL_REC_HDR_SIG, \&Zip64EndCentralHeader,
     ZIP64_END_CENTRAL_LOC_HDR_SIG, \&Zip64EndCentralLocator,
 
-    # TODO - Archive Encryption Headers
+    # TODO - Archive Encryption Headers & digital signature
     #ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG
+    #ZIP_DIGITAL_SIGNATURE_SIG
+    #ZIP_ARCHIVE_EXTRA_DATA_SIG
 );
 
 my %Extras = (
@@ -183,7 +185,7 @@ my %Extras = (
 
        );
 
-my $VERSION = "1.12" ;
+my $VERSION = "1.13" ;
 
 my $FH;
 
@@ -624,6 +626,68 @@ sub read_C
     return ($b, unpack "C", $b);
 }
 
+sub seekTo
+{
+    my $offset = shift ;
+    my $loc = shift ;
+
+    $loc = SEEK_SET
+        if ! defined $loc ;
+
+    $FH->seek($offset, $loc);
+    $OFFSET = new U64($offset);
+}
+
+sub scanForSignature
+{
+    my %sigs =
+        map { $_ => 1         }
+        map { substr $_, 2, 2 } # don't want the initial "PK"
+        map { pack "V", $_    }
+        (
+                ZIP_LOCAL_HDR_SIG                 ,
+                ZIP_DATA_HDR_SIG                  ,
+                ZIP_CENTRAL_HDR_SIG               ,
+                ZIP_END_CENTRAL_HDR_SIG           ,
+                ZIP64_END_CENTRAL_REC_HDR_SIG     ,
+                ZIP64_END_CENTRAL_LOC_HDR_SIG     ,
+                # ZIP_ARCHIVE_EXTRA_DATA_SIG        ,
+                # ZIP_DIGITAL_SIGNATURE_SIG         ,
+                # ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG ,
+        );
+
+    my $start = $FH->tell();
+
+    my $last = '';
+    my $buffer ;
+    while ($FH->read($buffer, 1024 * 1000))
+    {
+        my $combine = substr($last, -4) . $buffer ;
+        $last = $buffer;
+        my $ix = index($combine, "PK") ;
+
+        next
+            if $ix == -1;
+
+        my $rest = substr($combine, $ix+2, 2);
+
+        next
+            unless length $rest == 2 && $sigs{$rest} ;
+
+        my $v = unpack("v", $rest) ;
+        print "MATCH PK [$rest][$v]\n";
+
+        # possible match
+        my $here = $FH->tell();
+        seekTo($here - length($combine) + $ix);
+
+        return 1;
+    }
+
+    return 0;
+}
+
+my $is64In32 = 0;
 
 my $opt_verbose = 0;
 while (@ARGV && $ARGV[0] =~ /^-/)
@@ -681,8 +745,9 @@ if(0)
     $FH->seek(0, SEEK_SET) ;
 }
 
+my @Messages = ();
 
-our ($CdExists, @CentralDirectory) = scanCentralDirectory($FH);
+our ($CdExists, $CdOffset, @CentralDirectory) = scanCentralDirectory($FH);
 
 die "No Central Directory records found\n"
     if ! $CdExists ;
@@ -692,6 +757,9 @@ $FH->seek(0, SEEK_SET) ;
 
 outSomeData($START, "PREFIX DATA")
     if defined $START && $START > 0 ;
+
+my $skippedFrom = 0 ;
+my $skippedContent = 0 ;
 
 while (1)
 {
@@ -716,7 +784,7 @@ while (1)
             my $locOffset = $CentralDirectory[0][0];
             my $delta = $locOffset - $here ;
 
-            if ($here  < $locOffset ) {
+            if ($here + 4 == $locOffset ) {
                 for (0 .. 3) {
                     $FH->ungetc(ord(substr($buffer, $_, 1)))
                 }
@@ -725,12 +793,43 @@ while (1)
             }
         }
 
-        printf "\n\nUnexpected END at offset %08X, value %s\n", $here, Value_V($signature);
-        last;
+
+        if ($here < $CdOffset)
+        {
+            # next
+            #     if scanForSignature() ;
+
+            $skippedFrom = $FH->tell() ;
+            $skippedContent = $CdOffset - $skippedFrom ;
+
+            print "\nWARNING!\nZip local header not found.\n";
+            printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
+
+            push @Messages,
+                sprintf("Expected Zip header not found at offset 0x%X, ", $skippedFrom) .
+                sprintf("skipped 0x%X bytes\n", $skippedContent);
+
+            seekTo($CdOffset);
+
+            next;
+        }
+        else
+        {
+            printf "\n\nUnexpected END at offset %08X, value %s\n", $here, Value_V($signature);
+
+            last;
+        }
     }
 
     $ZIP64 = 0 if $signature != ZIP_DATA_HDR_SIG ;
     $handler->($signature, $buffer);
+}
+
+if (@Messages)
+{
+    my $count = scalar @Messages ;
+    print "\nWARNINGS\n\n";
+    print "* $_\n" for @Messages ;
 }
 
 print "Done\n";
@@ -779,7 +878,7 @@ sub LocalHeader
 
     my $filename ;
     myRead($filename, $filenameLength);
-    out $filename, "Filename",  "'". $filename . "'";
+    outputFilename($filename);
 
     my $cl64 = new U64 $compressedLength ;
     my %ExtraContext = ();
@@ -814,6 +913,20 @@ sub LocalHeader
     }
 }
 
+sub outputFilename
+{
+    my $filename = shift;
+
+    if (length $filename > 256)
+    {
+        my $f = substr($filename, 0, 256) ;
+        out $f, "Filename",  "'". $f . "' ...";
+    }
+    else
+    {
+        out $filename, "Filename",  "'". $filename . "'";
+    }
+}
 
 sub CentralHeader
 {
@@ -869,7 +982,8 @@ sub CentralHeader
 
     my $filename ;
     myRead($filename, $filenameLength);
-    out $filename, "Filename",  "'". $filename . "'";
+    outputFilename($filename);
+
 
     my %ExtraContext = ();
     if ($extraLength)
@@ -933,8 +1047,10 @@ sub Zip64EndCentralHeader
     out_VV "Offset to Central dir";
 
     # TODO -
-    die "Unsupported Size ($size) in Zip64EndCentralHeader\n"
-        if $size !=  44;
+    if ($size != 44)
+    {
+        push @Messages,  "Unsupported Size field in Zip64EndCentralHeader: should be 44, got $size\n"
+    }
 }
 
 
@@ -1660,7 +1776,7 @@ sub scanCentralDirectory
     $START = $CD[0]->[0]
         if @CD ;
 
-    return (1, @CD);
+    return (1, $offset, @CD);
 }
 
 
@@ -1724,6 +1840,9 @@ sub findCentralDirectoryOffset
     $fh->seek(-22, SEEK_END) ;
     my $here = $fh->tell();
 
+    my $is64bit = $here > 0xFFFFFFFF;
+    my $over64bit = $here  & (~ 0xFFFFFFFF);
+
     my $buffer;
     $fh->read($buffer, 22) == 22
     # TODO - fix this
@@ -1731,6 +1850,7 @@ sub findCentralDirectoryOffset
 
     my $zip64 = 0;
     my $centralDirOffset ;
+
     if ( unpack("V", $buffer) == ZIP_END_CENTRAL_HDR_SIG ) {
         $centralDirOffset = unpack("V", substr($buffer, 16,  4));
     }
@@ -1775,8 +1895,22 @@ sub findCentralDirectoryOffset
         }
     }
 
-    $centralDirOffset = offsetFromZip64($fh, $here)
-        if full32 $centralDirOffset ;
+    if (full32 $centralDirOffset)
+    {
+        $centralDirOffset = offsetFromZip64($fh, $here)
+    }
+    elsif ($is64bit)
+    {
+        # use-case is where a 64-bit zip file doesn't use the 64-bit
+        # extensions.
+        print "EOCD not 64-bit $centralDirOffset ($here)\n" ;
+
+        push @Messages,
+            sprintf "Zip file > 4Gig. Expected 'Offset to Central Dir' to be 0xFFFFFFFF, got 0x%X\n", $centralDirOffset;
+
+        $centralDirOffset += $over64bit;
+        $is64In32 = 1;
+    }
 
     return $centralDirOffset ;
 }
@@ -1856,7 +1990,16 @@ sub _dosToUnixTime
             $low  = shift ;
         }
         elsif (@_ == 1) {
-            $low  = shift ;
+            my $value = shift ;
+            if ($value > MAX32)
+            {
+                $high = $value >> 32 ;
+                $low  = $value & MAX32;
+            }
+            else
+            {
+                $low  = $value ;
+            }
         }
 
         bless [$low, $high], $class;
@@ -2250,4 +2393,3 @@ Copyright (c) 2011-2020 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
