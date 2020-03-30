@@ -186,7 +186,7 @@ my %Extras = (
 
        );
 
-my $VERSION = "2.00" ;
+my $VERSION = "2.01" ;
 
 my $FH;
 
@@ -694,9 +694,10 @@ my $opt_scan = 0;
 
 $Getopt::Long::bundling = 1 ;
 
-GetOptions("h"      => \&Usage,
-           "v"      => \$opt_verbose,
-           "scan"   => \$opt_scan,
+GetOptions("h"       => \&Usage,
+           "v"       => \$opt_verbose,
+           "scan"    => \$opt_scan,
+           "version" => sub { print "$VERSION\n"; exit },
     )
   or Usage("Invalid command line option\n");
 
@@ -2277,11 +2278,12 @@ Display details about the internal structure of a Zip file.
 This is zipdetails version $VERSION
 
 OPTIONS
-     -h     display help
-     -scan  enable scannng mode.
-            Blindly scan the file looking for zip headers
-            Expect false-positives.
-     -v     Verbose - output more stuff
+     -h        display help
+     --scan    enable scannng mode.
+               Blindly scan the file looking for zip headers
+               Expect false-positives.
+     -v        Verbose - output more stuff
+     --version Print version number
 
 Copyright (c) 2011-2020 Paul Marquess. All rights reserved.
 
@@ -2302,6 +2304,7 @@ zipdetails - display the internal structure of zip files
 
     zipdetails [-v][--scan] zipfile.zip
     zipdetails -h
+    zipdetails --version
 
 =head1 DESCRIPTION
 
@@ -2341,18 +2344,22 @@ results.
 
 =over 5
 
-=item -v
+=item -h
 
-Enable Verbose mode. See L<"Verbose Output">.
+Display help
 
 =item --scan
 
 Walk the zip file loking for possible zip records. Can be error-prone.
 See L<"Scan-Mode">
 
-=item -h
+=item -v
 
-Display help
+Enable Verbose mode. See L<"Verbose Output">.
+
+=item --version
+
+Display version number of the program and exit.
 
 =back
 
