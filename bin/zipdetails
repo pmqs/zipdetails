@@ -1844,12 +1844,10 @@ sub offsetFromZip64
             return $cd64 ;
         }
 
-        # TODO - fix this
-        die "zzz";
+        die "Cannot find 'Zip64 end of central directory record': 0x06054b50\nTry running with --scan option.\n";
     }
 
-    # TODO - fix this
-    die "zzz";
+    die "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50 \nTry running with --scan option.\n";
 }
 
 use constant Pack_ZIP_END_CENTRAL_HDR_SIG => pack("V", ZIP_END_CENTRAL_HDR_SIG);
