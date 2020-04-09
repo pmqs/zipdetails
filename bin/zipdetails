@@ -2324,6 +2324,13 @@ of the file.  If that is found, it will then walk through the zip records
 starting at the beginning of the file. Any badly formed zip data structures
 encountered are likely to terminate the program.
 
+If the program finds any structural problems with the zip file it will
+print a summary at the end of the output report. The set of error cases
+reported is very much a work in progress, so don't rely on this feature to
+find all the possible errors in a zip file. If you have suggestions for
+use-cases where this could be enhanced please consider creating an
+enhancement request (see L<"SUPPORT">).
+
 =head2 Scan-Mode
 
 If you do have a potentially corrupt zip file, particulatly where the
