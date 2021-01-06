@@ -1154,9 +1154,9 @@ sub GeneralPurposeBits
 
     if ($method == ZIP_CM_DEFLATE)
     {
-        my $mid = $gp & 0x03;
+        my $mid = ($gp >> 1) & 0x03 ;
 
-        out1 "[Bits 1-2]", "$mid '$lookup{$mid >> 1}'";
+        out1 "[Bits 1-2]", "$mid '$lookup{$mid}'";
     }
 
     if ($method == ZIP_CM_LZMA)
