@@ -203,6 +203,8 @@ my $TRAILING = 0 ;
 my $PAYLOADLIMIT = 256; # U64->new( 256 );
 my $ZERO = U64->new( 0 );
 
+my $SEEN = Seen->new();
+
 sub prOff
 {
     my $offset = shift;
@@ -853,6 +855,8 @@ exit ;
 
 sub dislayMessages
 {
+    $SEEN->short_summary();
+
     if (@Messages)
     {
         my $count = scalar @Messages ;
@@ -873,6 +877,8 @@ sub LocalHeader
 {
     my $signature = shift ;
     my $data = shift ;
+
+    my $from_offset = $FH->tell() - 4;
 
     print "\n";
     ++ $LocalHeaderCount;
@@ -947,6 +953,8 @@ sub LocalHeader
         myRead($auth, 10);
         out $auth, "AES Auth",  hexDump($auth);
     }
+
+    # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
 }
 
 sub outputFilename
@@ -972,6 +980,8 @@ sub CentralHeader
 {
     my $signature = shift ;
     my $data = shift ;
+
+    my $from_offset = $FH->tell() - 4;
 
     ++ $CentralHeaderCount;
     print "\n";
@@ -1040,6 +1050,11 @@ sub CentralHeader
         myRead($comment, $comment_length);
         out $comment, "Comment",  "'". $comment . "'";
     }
+
+
+    $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, $lcl_hdr_offset, $lcl_hdr_offset + $compressedLength, $crc) ;
+
+    # $SEEN->save("CENTRAL HEADER #" . sprintf("%X", $CentralHeaderCount), $filename, $from_offset, $FH-tell());
 }
 
 sub decodeZipVer
@@ -2278,6 +2293,106 @@ sub _dosToUnixTime
         }
 
     }
+}
+
+{
+    package Seen;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = ( overlaps     => [],
+                       duplicates   => [],
+                       detail       => [],
+                       duplicate_count  => 0,
+                       operlap_count    => 0,
+                     ) ;
+
+        bless \%object, $class;
+    }
+
+    sub save
+    {
+        my $self = shift ;
+        my $hdrId = shift;
+        my $name = shift;
+        my $from_offset = shift;
+        my $to_offset = shift ;
+        my $crc = shift;
+
+        $name = 'X' x length $name
+            if $opt_Redact;
+
+        for my $entry ( @{ $self->{detail} } )
+        {
+            if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
+            {
+                $self->{duplicate_count} ++;
+                print "$hdrId: '$name' matches with $entry->{str}\n"
+            }
+            elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
+                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
+               )
+            {
+                # die "overlap!"
+                # push @{ $self->{overlap} },
+                $self->{operlap_count} ++;
+
+                print "$hdrId: '$name' overlaps with $entry->{str}\n"
+            }
+        }
+
+        # warn "ADD $from_offset $to_offset $hdrId: $name\n";
+        push @{ $self->{detail} },
+             {
+                from => $from_offset,
+                to   => $to_offset,
+                id   => $hdrId,
+                crc  => $crc,
+                name => $name,
+                str  => "$hdrId: '$name'",
+             } ;
+    }
+
+    sub short_summary
+    {
+        my $self = shift;
+
+        my $duplicates = $self->{duplicate_count};
+        push @Messages, "$duplicates duplicate entries"
+            if $duplicates;
+
+        my $overlaps = $self->{overlap_count};
+        push @Messages, "$overlaps overlap entries"
+            if $overlaps;
+    }
+
+    sub summary
+    {
+        my $self = shift ;
+
+        for my $outer ( sort { $a->{from} <=> $b->{from} } @{ $self->{detail} } )
+        {
+            my $from_offset = $outer->{from};
+            my $to_offset = $outer->{to};
+            my $hdrId = $outer->{id};
+            my $name = $outer->{name};
+
+            for my $entry ( sort { $a->{from} <=> $b->{from} } @{ $self->{detail} } )
+            {
+                # next if
+                if ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
+                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
+                )
+                {
+                    # die "overlap!"
+                    die $entry->{str} . " overlaps with $hdrId: '$name'\n"
+                }
+            }
+        }
+    }
+
 }
 
 sub Usage
