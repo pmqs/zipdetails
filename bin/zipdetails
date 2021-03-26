@@ -504,6 +504,7 @@ sub outSomeData
 {
     my $size = shift;
     my $message = shift;
+    my $redact = shift ;
 
     if ($size > 0) {
         if ($size > $PAYLOADLIMIT) {
@@ -512,6 +513,8 @@ sub outSomeData
             # printf "outSomeData %X %X $size %X\n", $before, $FH->tell(), $size;
         } else {
             myRead(my $buffer, $size );
+            $buffer = "X" x $size
+                if $redact;
             out $buffer, $message, xDump $buffer ;
         }
     }
@@ -693,12 +696,15 @@ my $is64In32 = 0;
 
 my $opt_verbose = 0;
 my $opt_scan = 0;
+my $opt_Redact = 0;
+
 
 $Getopt::Long::bundling = 1 ;
 
 GetOptions("h"       => \&Usage,
            "v"       => \$opt_verbose,
            "scan"    => \$opt_scan,
+           "redact"  => \$opt_Redact,
            "version" => sub { print "$VERSION\n"; exit },
     )
   or Usage("Invalid command line option\n");
@@ -927,7 +933,7 @@ sub LocalHeader
 
     # if ($CDcompressedLength->getHigh() || $CDcompressedLength->getLow()) {
     if ($CDcompressedLength) {
-        outSomeData($CDcompressedLength, "PAYLOAD") ;
+        outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
     }
 
     if ($compressedMethod == 99) {
@@ -940,6 +946,10 @@ sub LocalHeader
 sub outputFilename
 {
     my $filename = shift;
+
+    # Redact everything apart from directory seperators
+    $filename =~ s([^/])(X)g
+        if $opt_Redact;
 
     if (length $filename > 256)
     {
@@ -2279,6 +2289,7 @@ This is zipdetails version $VERSION
 
 OPTIONS
      -h        display help
+     --redact  Hide filenames in the output
      --scan    enable scannng mode.
                Blindly scan the file looking for zip headers
                Expect false-positives.
@@ -2302,7 +2313,7 @@ zipdetails - display the internal structure of zip files
 
 =head1 SYNOPSIS
 
-    zipdetails [-v][--scan] zipfile.zip
+    zipdetails [-v][--scan] [--redact] zipfile.zip
     zipdetails -h
     zipdetails --version
 
@@ -2354,6 +2365,11 @@ results.
 =item -h
 
 Display help
+
+=item --redact
+
+Obscure filenames in the output. Handy for the use case where the zip files
+ciontains sensitive data that cannot be shared.
 
 =item --scan
 
