@@ -880,9 +880,15 @@ sub LocalHeader
 
     my $buffer;
 
-    my ($loc, $CDcompressedLength) ;
-    ($loc, $CDcompressedLength) = @{ shift @CentralDirectory }
+    my ($loc, $CDcompressedLength, $cdZip64) ;
+    ($loc, $CDcompressedLength, $cdZip64) = @{ shift @CentralDirectory }
         if ! $opt_scan ;
+
+    # Central directory said this was Zip64
+    # some zip files don't have the Zip64 field in the local header
+    # TODO -- add a message to flag the inconsistency
+    $ZIP64 = 1
+        if $cdZip64;
 
     out_C  "Extract Zip Spec", \&decodeZipVer;
     out_C  "Extract OS", \&decodeOS;
@@ -1742,6 +1748,7 @@ sub scanCentralDirectory
         my $extra_length       = unpack("v", substr($buffer, 30, 2));
         my $comment_length     = unpack("v", substr($buffer, 32, 2));
         my $locHeaderOffset    = unpack("V", substr($buffer, 42, 4));
+        my $zip64 = 0;
 
         skip($fh, $filename_length ) ;
 
@@ -1756,6 +1763,8 @@ sub scanCentralDirectory
 
             if ($zip64Extended)
             {
+                $zip64 = 1;
+
                 if ($uncompressedLength == 0xFFFFFFFF)
                 {
                     $uncompressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
@@ -1774,7 +1783,7 @@ sub scanCentralDirectory
             }
         }
 
-        my $got = [$locHeaderOffset, $compressedLength] ;
+        my $got = [$locHeaderOffset, $compressedLength, $zip64] ;
 
         # my $v64 = U64->new( $compressedLength );
         # my $loc64 = U64->new( $locHeaderOffset );
