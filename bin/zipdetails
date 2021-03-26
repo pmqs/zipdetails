@@ -1787,17 +1787,19 @@ sub scanCentralDirectory
 
             if ($zip64Extended)
             {
-                $zip64 = 1;
 
                 if ($uncompressedLength == 0xFFFFFFFF)
                 {
                     $uncompressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
                     # $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
+                    $zip64 = 1;
                 }
                 if ($compressedLength == 0xFFFFFFFF)
                 {
                     $compressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
                     # $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
+                    $zip64 = 1;
+
                 }
                 if ($locHeaderOffset == 0xFFFFFFFF)
                 {
