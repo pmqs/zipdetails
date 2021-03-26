@@ -957,13 +957,22 @@ sub LocalHeader
     # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
 }
 
-sub outputFilename
+sub redactFilename
 {
     my $filename = shift;
 
     # Redact everything apart from directory seperators
     $filename =~ s([^/])(X)g
         if $opt_Redact;
+
+    return $filename;
+}
+
+sub outputFilename
+{
+    my $filename = shift;
+
+    $filename = redactFilename($filename) ;
 
     if (length $filename > 256)
     {
@@ -2321,8 +2330,7 @@ sub _dosToUnixTime
         my $to_offset = shift ;
         my $crc = shift;
 
-        $name = 'X' x length $name
-            if $opt_Redact;
+        $name = ::redactFilename($name) ;
 
         for my $entry ( @{ $self->{detail} } )
         {
