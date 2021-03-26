@@ -153,7 +153,7 @@ Running `zipdetails` will gives this output
     007E Comment Length        0000
     0080 Disk Start            0000
     0082 Int File Attributes   0001
-        [Bit 0]               1 Text Data
+         [Bit 0]               1 Text Data
     0084 Ext File Attributes   81B40000
     0088 Local Header Offset   00000000
     008C Filename              'letters.txt'
@@ -174,7 +174,7 @@ Running `zipdetails` will gives this output
     00B7 Comment Length        0000
     00B9 Disk Start            0000
     00BB Int File Attributes   0001
-        [Bit 0]               1 Text Data
+         [Bit 0]               1 Text Data
     00BD Ext File Attributes   81B40000
     00C1 Local Header Offset   0000002F
     00C5 Filename              'numbers.txt'
@@ -214,10 +214,10 @@ Here is the same zip file dumped using the `zipdetails` <-v> option:
     001A 0002 0B 00       Filename Length       000B
     001C 0002 00 00       Extra Length          0000
     001E 000B 6C 65 74 74 Filename              'letters.txt'
-            65 72 73 2E
-            74 78 74
+              65 72 73 2E
+              74 78 74
     0029 0006 61 62 63 64 PAYLOAD               abcde.
-            65 0A
+              65 0A
 
     002F 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
     0033 0001 0A          Extract Zip Spec      0A '1.0'
@@ -231,10 +231,10 @@ Here is the same zip file dumped using the `zipdetails` <-v> option:
     0049 0002 0B 00       Filename Length       000B
     004B 0002 00 00       Extra Length          0000
     004D 000B 6E 75 6D 62 Filename              'numbers.txt'
-            65 72 73 2E
-            74 78 74
+              65 72 73 2E
+              74 78 74
     0058 0006 31 32 33 34 PAYLOAD               12345.
-            35 0A
+              35 0A
 
     005E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
     0062 0001 1E          Created Zip Spec      1E '3.0'
@@ -252,12 +252,12 @@ Here is the same zip file dumped using the `zipdetails` <-v> option:
     007E 0002 00 00       Comment Length        0000
     0080 0002 00 00       Disk Start            0000
     0082 0002 01 00       Int File Attributes   0001
-                        [Bit 0]               1 Text Data
+                          [Bit 0]               1 Text Data
     0084 0004 00 00 B4 81 Ext File Attributes   81B40000
     0088 0004 00 00 00 00 Local Header Offset   00000000
     008C 000B 6C 65 74 74 Filename              'letters.txt'
-            65 72 73 2E
-            74 78 74
+              65 72 73 2E
+              74 78 74
 
     0097 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
     009B 0001 1E          Created Zip Spec      1E '3.0'
@@ -275,12 +275,12 @@ Here is the same zip file dumped using the `zipdetails` <-v> option:
     00B7 0002 00 00       Comment Length        0000
     00B9 0002 00 00       Disk Start            0000
     00BB 0002 01 00       Int File Attributes   0001
-                        [Bit 0]               1 Text Data
+                          [Bit 0]               1 Text Data
     00BD 0004 00 00 B4 81 Ext File Attributes   81B40000
     00C1 0004 2F 00 00 00 Local Header Offset   0000002F
     00C5 000B 6E 75 6D 62 Filename              'numbers.txt'
-            65 72 73 2E
-            74 78 74
+              65 72 73 2E
+              74 78 74
 
     00D0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
     00D4 0002 00 00       Number of this disk   0000
