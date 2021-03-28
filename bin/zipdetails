@@ -445,7 +445,7 @@ sub outer
     $cb2->(@value)
         if defined $cb2 ;
 
-    return $value[0];
+    return defined $value[1] ? @value : $value[0];
 }
 
 sub out_C
@@ -857,6 +857,9 @@ sub dislayMessages
 {
     $SEEN->short_summary();
 
+    $SEEN->summary();
+
+
     if (@Messages)
     {
         my $count = scalar @Messages ;
@@ -882,19 +885,14 @@ sub LocalHeader
 
     print "\n";
     ++ $LocalHeaderCount;
-    out $data, "LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount) , Value_V($signature);
+    my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
+    out $data, "LOCAL HEADER #$hexHdrCount" , Value_V($signature);
 
     my $buffer;
 
     my ($loc, $CDcompressedLength, $cdZip64) ;
     ($loc, $CDcompressedLength, $cdZip64) = @{ shift @CentralDirectory }
         if ! $opt_scan ;
-
-    # Central directory said this was Zip64
-    # some zip files don't have the Zip64 field in the local header
-    # TODO -- add a message to flag the inconsistency
-    $ZIP64 = 1
-        if $cdZip64;
 
     out_C  "Extract Zip Spec", \&decodeZipVer;
     out_C  "Extract OS", \&decodeOS;
@@ -929,6 +927,21 @@ sub LocalHeader
         walkExtra($extraLength, \%ExtraContext);
     }
 
+
+    my $msg ;
+    if ($cdZip64 && ! $ZIP64)
+    {
+        # Central directory said this was Zip64
+        # some zip files don't have the Zip64 field in the local header
+        # seems to be a streaming issue.
+        $msg = "Missing Zip64 extra field in Local Header #$hexHdrCount\n";
+
+        push @Messages, $msg ;
+        $ZIP64 = 1 ;
+    }
+
+
+
     my $size = 0;
     $size = printAes(\%ExtraContext)
         if $compressedMethod == 99 ;
@@ -953,6 +966,10 @@ sub LocalHeader
         myRead($auth, 10);
         out $auth, "AES Auth",  hexDump($auth);
     }
+
+    print "WARNING: $msg"
+        if $msg;
+
 
     # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
 }
@@ -1044,7 +1061,10 @@ sub CentralHeader
     outputFilename($filename);
 
 
-    my %ExtraContext = ();
+    my %ExtraContext = ( CRC => $crc,
+                         LocalHdrOffset => U64->new( $lcl_hdr_offset),
+                         CompressedLength => U64->new($compressedLength));
+
     if ($extraLength)
     {
         my @z64 = ($uncompressedLength, $compressedLength, $lcl_hdr_offset, $disk_start);
@@ -1061,7 +1081,8 @@ sub CentralHeader
     }
 
 
-    $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, $lcl_hdr_offset, $lcl_hdr_offset + $compressedLength, $crc) ;
+    # $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, $lcl_hdr_offset, $lcl_hdr_offset + $compressedLength, $crc) ;
+    $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
 
     # $SEEN->save("CENTRAL HEADER #" . sprintf("%X", $CentralHeaderCount), $filename, $from_offset, $FH-tell());
 }
@@ -1383,11 +1404,14 @@ sub decode_Zip64
     }
 
     if (full32 $z64Data->[1] ) {
-        out_VV "  Compressed Size";
+        my @data = out_VV "  Compressed Size";
+        $context->{CompressedLength} = U64->new(@data);
     }
 
     if (full32 $z64Data->[2] ) {
-        out_VV "  Offset to Local Dir";
+        my @data = out_VV "  Offset to Local Dir";
+        $context->{LocalHdrOffset} = U64->new(@data);
+
     }
 
     if ($z64Data->[3] == 0xFFFF ) {
@@ -2259,6 +2283,22 @@ sub _dosToUnixTime
         return $self->cmp($other) > 0 ;
     }
 
+    sub ge
+    {
+        my $self = shift;
+        my $other = shift;
+
+        return $self->cmp($other) >= 0 ;
+    }
+
+    sub le
+    {
+        my $self = shift;
+        my $other = shift;
+
+        return $self->cmp($other) <= 0 ;
+    }
+
     sub cmp
     {
         my $self = shift;
@@ -2328,28 +2368,33 @@ sub _dosToUnixTime
         my $self = shift ;
         my $hdrId = shift;
         my $name = shift;
-        my $from_offset = shift;
-        my $to_offset = shift ;
-        my $crc = shift;
+        my $extras = shift;
+
+        my $from_offset = $extras->{LocalHdrOffset};
+        my $to_offset = $from_offset->clone() ;
+        $to_offset->add($extras->{CompressedLength}) ;
+        $to_offset->subtract(1) ;
+
+        my $crc = $extras->{CRC};
 
         $name = ::redactFilename($name) ;
 
         for my $entry ( @{ $self->{detail} } )
         {
-            if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
+            if ( $from_offset->equal($entry->{from}) && $to_offset->equal($entry->{to}) && $crc == $entry->{crc})
             {
                 $self->{duplicate_count} ++;
                 print "$hdrId: '$name' matches with $entry->{str}\n"
             }
-            elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
-                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
+            elsif ( ($from_offset->ge($entry->{from}) && $from_offset->le($entry->{to}) ) ||
+                    ($to_offset->ge($entry->{from}) && $to_offset->le($entry->{to}) )
                )
             {
                 # die "overlap!"
                 # push @{ $self->{overlap} },
-                $self->{operlap_count} ++;
+                $self->{overlap_count} ++;
 
-                print "$hdrId: '$name' overlaps with $entry->{str}\n"
+                print "$hdrId: '$name' overlaps with $entry->{str}\n";
             }
         }
 
@@ -2358,6 +2403,7 @@ sub _dosToUnixTime
              {
                 from => $from_offset,
                 to   => $to_offset,
+                length => $extras->{CompressedLength},
                 id   => $hdrId,
                 crc  => $crc,
                 name => $name,
@@ -2382,24 +2428,20 @@ sub _dosToUnixTime
     {
         my $self = shift ;
 
-        for my $outer ( sort { $a->{from} <=> $b->{from} } @{ $self->{detail} } )
-        {
-            my $from_offset = $outer->{from};
-            my $to_offset = $outer->{to};
-            my $hdrId = $outer->{id};
-            my $name = $outer->{name};
+        # disable for now
+        return;
 
-            for my $entry ( sort { $a->{from} <=> $b->{from} } @{ $self->{detail} } )
-            {
-                # next if
-                if ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
-                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
-                )
-                {
-                    # die "overlap!"
-                    die $entry->{str} . " overlaps with $hdrId: '$name'\n"
-                }
-            }
+        print "\n";
+        for my $entry ( sort { $a->{from}->cmp($b->{from}) } @{ $self->{detail} } )
+
+        {
+            my $from_offset = $entry->{from};
+            my $to_offset = $entry->{to};
+            my $hdrId = $entry->{id};
+            my $name = $entry->{name};
+            print "$hdrId\t" . ::Value_U64($entry->{from}) . "\n";
+
+
         }
     }
 
