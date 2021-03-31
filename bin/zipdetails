@@ -890,8 +890,8 @@ sub LocalHeader
 
     my $buffer;
 
-    my ($loc, $CDcompressedLength, $cdZip64) ;
-    ($loc, $CDcompressedLength, $cdZip64) = @{ shift @CentralDirectory }
+    my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes) ;
+    ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes) = @{ shift @CentralDirectory }
         if ! $opt_scan ;
 
     out_C  "Extract Zip Spec", \&decodeZipVer;
@@ -928,16 +928,24 @@ sub LocalHeader
     }
 
 
-    my $msg ;
+    my @msg ;
     if ($cdZip64 && ! $ZIP64)
     {
         # Central directory said this was Zip64
         # some zip files don't have the Zip64 field in the local header
         # seems to be a streaming issue.
-        $msg = "Missing Zip64 extra field in Local Header #$hexHdrCount\n";
+        push @msg, "Missing Zip64 extra field in Local Header #$hexHdrCount\n";
 
-        push @Messages, $msg ;
-        $ZIP64 = 1 ;
+        if (! $zip64Sizes)
+        {
+            # Central has a ZIP64 entry that doesn't have sizes
+            # Local doesn't have a Zip 64 at all
+            push @msg, "Unzip may complain about 'overlapped components' #$hexHdrCount\n";
+        }
+        else
+        {
+            $ZIP64 = 1
+        }
     }
 
 
@@ -967,8 +975,10 @@ sub LocalHeader
         out $auth, "AES Auth",  hexDump($auth);
     }
 
-    print "WARNING: $msg"
-        if $msg;
+    print "WARNING: $_"
+        for @msg;
+
+    push @Messages, @msg ;
 
 
     # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
@@ -1081,10 +1091,7 @@ sub CentralHeader
     }
 
 
-    # $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, $lcl_hdr_offset, $lcl_hdr_offset + $compressedLength, $crc) ;
     $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
-
-    # $SEEN->save("CENTRAL HEADER #" . sprintf("%X", $CentralHeaderCount), $filename, $from_offset, $FH-tell());
 }
 
 sub decodeZipVer
@@ -1796,7 +1803,8 @@ sub scanCentralDirectory
         my $extra_length       = unpack("v", substr($buffer, 30, 2));
         my $comment_length     = unpack("v", substr($buffer, 32, 2));
         my $locHeaderOffset    = unpack("V", substr($buffer, 42, 4));
-        my $zip64 = 0;
+        my $cdZip64 = 0;
+        my $zip64Sizes = 0;
 
         skip($fh, $filename_length ) ;
 
@@ -1806,23 +1814,24 @@ sub scanCentralDirectory
             # $self->smartReadExact(\$extraField, $extra_length);
 
             # Check for Zip64
-            # my $zip64Extended = findID("\x01\x00", $extraField);
+            # my SizesExtended = findID("\x01\x00", $extraField);
             my $zip64Extended = findID(0x0001, $extraField);
 
             if ($zip64Extended)
             {
+                $cdZip64 = 1;
 
                 if ($uncompressedLength == 0xFFFFFFFF)
                 {
                     $uncompressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
                     # $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
-                    $zip64 = 1;
+                    $zip64Sizes = 1;
                 }
                 if ($compressedLength == 0xFFFFFFFF)
                 {
                     $compressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
                     # $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
-                    $zip64 = 1;
+                    $zip64Sizes = 1;
 
                 }
                 if ($locHeaderOffset == 0xFFFFFFFF)
@@ -1833,7 +1842,7 @@ sub scanCentralDirectory
             }
         }
 
-        my $got = [$locHeaderOffset, $compressedLength, $zip64] ;
+        my $got = [$locHeaderOffset, $compressedLength, $cdZip64, $zip64Sizes] ;
 
         # my $v64 = U64->new( $compressedLength );
         # my $loc64 = U64->new( $locHeaderOffset );
@@ -2545,7 +2554,7 @@ Display help
 =item --redact
 
 Obscure filenames in the output. Handy for the use case where the zip files
-ciontains sensitive data that cannot be shared.
+contains sensitive data that cannot be shared.
 
 =item --scan
 
