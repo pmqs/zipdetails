@@ -1663,14 +1663,31 @@ sub decode_Xceed_unicode
 
     my $data ;
 
-    # guess the fields used for this one
+    # No public definition available, so guess the fields used for this one
+    # Data analysis based on output from Fiddler (https://www.telerik.com/fiddler),
+    # which uses this field
+
+    # First 4 bytes appear to be "NUCX" all the time
     myRead($data, 4);
     out $data, "  ID", $data;
 
+    # Next 2 bytes contains a count of the remaining bytes/2
+    # Probably the number of UTF-16 characters, including the
+    # optional NULL prefix
     out_v "  Length";
-    out_v "  Null";
 
-    myRead($data, $len - 8);
+    # next is a UTF16 encode filename
+    # sometimes preceeded by a two Null bytes
+
+    myRead($data, $len - 6);
+
+    my $prefix = substr($data, 0, 2);
+    if ($prefix eq "\x00\x00")
+    {
+        # Found the Null prefix
+        out $prefix, "  Null", '0000';
+        substr($data, 0, 2) = '';
+    }
 
     out $data, "  UTF16LE Name", decode("UTF16LE", $data);
 }
