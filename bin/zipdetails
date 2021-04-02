@@ -5,13 +5,18 @@
 # Display info on the contents of a Zip file
 #
 
+use 5.010; # for unpack "Q<"
+
 BEGIN { pop @INC if $INC[-1] eq '.' }
 use strict;
 use warnings ;
+no  warnings 'portable'; # for unpacking > 2^32
 
 use IO::File;
 use Encode;
 use Getopt::Long;
+
+use constant MAX32 => 0xFFFFFFFF ;
 
 # Compression types
 use constant ZIP_CM_STORE                      => 0 ;
@@ -198,10 +203,10 @@ my $LocalHeaderCount = 0;
 my $CentralHeaderCount = 0;
 
 my $START;
-my $OFFSET = U64->new( 0 );
+my $OFFSET = 0 ;
 my $TRAILING = 0 ;
-my $PAYLOADLIMIT = 256; # U64->new( 256 );
-my $ZERO = U64->new( 0 );
+my $PAYLOADLIMIT = 256;
+my $ZERO = 0 ;
 
 my $SEEN = Seen->new();
 
@@ -209,7 +214,7 @@ sub prOff
 {
     my $offset = shift;
     my $s = offset($OFFSET);
-    $OFFSET->add($offset);
+    $OFFSET += $offset;
     return $s;
 }
 
@@ -217,25 +222,7 @@ sub offset
 {
     my $v = shift ;
 
-    if (ref $v eq 'U64') {
-        my $hi = $v->getHigh();
-        my $lo = $v->getLow();
-
-        if ($hi)
-        {
-            my $hiNib = $NIBBLES - 8 ;
-            sprintf("%0${hiNib}X", $hi) .
-            sprintf("%08X", $lo);
-        }
-        else
-        {
-            sprintf("%0${NIBBLES}X", $lo);
-        }
-    }
-    else {
-        sprintf("%0${NIBBLES}X", $v);
-    }
-
+    sprintf("%0${NIBBLES}X", $v);
 }
 
 my ($OFF,  $LENGTH,  $CONTENT, $TEXT, $VALUE) ;
@@ -409,8 +396,10 @@ sub Value
       { return Value_v(@value) }
     elsif ($letter eq 'V')
       { return Value_V(@value) }
-    elsif ($letter eq 'VV')
-      { return Value_VV(@value) }
+    elsif ($letter eq 'Q<')
+      { return Value_Q(@value) }
+    else
+      { die "here letter $letter"}
 }
 
 sub outer
@@ -436,7 +425,7 @@ sub outer
         }
 
         $v = "'" . $v unless $v =~ /^'/;
-        $v .= "'"  unless $v =~ /'$/;
+        $v .= "'"     unless $v =~ /'$/;
         $hex .= " $v" ;
     }
 
@@ -445,7 +434,7 @@ sub outer
     $cb2->(@value)
         if defined $cb2 ;
 
-    return defined $value[1] ? @value : $value[0];
+    return $value[0];
 }
 
 sub out_C
@@ -475,32 +464,14 @@ sub out_V
     outer($name, 'V', 4, $cb1, $cb2);
 }
 
-sub out_VV
+sub out_Q
 {
     my $name = shift ;
     my $cb1  = shift ;
     my $cb2  = shift ;
 
-    outer($name, 'VV', 8, $cb1, $cb2);
+    outer($name, 'Q<', 8, $cb1, $cb2);
 }
-
-# sub outSomeData
-# {
-#     my $size = shift;
-#     my $message = shift;
-
-#     my $size64 = U64::mkU64($size);
-
-#     if ($size64->gt($ZERO)) {
-#         my $size32 = $size64->getLow();
-#         if ($size64->gt($PAYLOADLIMIT) ) {
-#             out0 $size32, $message;
-#         } else {
-#             myRead(my $buffer, $size32 );
-#             out $buffer, $message, xDump $buffer ;
-#         }
-#     }
-# }
 
 sub outSomeData
 {
@@ -512,7 +483,6 @@ sub outSomeData
         if ($size > $PAYLOADLIMIT) {
             my $before = $FH->tell();
             out0 $size, $message;
-            # printf "outSomeData %X %X $size %X\n", $before, $FH->tell(), $size;
         } else {
             myRead(my $buffer, $size );
             $buffer = "X" x $size
@@ -554,62 +524,23 @@ sub Value_V
     sprintf "%08X", $v;
 }
 
-sub unpackValue_VV
+sub unpackValue_Q
 {
-    my ($lo, $hi) = unpack ("V V", $_[0]);
-    Value_VV($lo, $hi);
+    my $v = unpack ("Q<", $_[0]);
+    Value_Q($v);
 }
 
-sub Value_U64
+sub Value_Q
 {
-    my $u64 = shift ;
-    Value_VV($u64->getLow(), $u64->getHigh());
+    my $v = shift ;
+    sprintf "%016X", $v;
 }
 
-sub Value_VV
-{
-    my $lo = defined $_[0] ? $_[0] : 0;
-    my $hi = defined $_[1] ? $_[1] : 0;
-
-    if ($hi == 0)
-    {
-        sprintf "%016X", $lo;
-    }
-    else
-    {
-        sprintf("%08X", $hi) .
-        sprintf "%08X", $lo;
-    }
-}
-
-sub Value_VV64
-{
-    my $buffer = shift;
-
-    # This needs perl 5.10
-    # return unpack "Q<", $buffer;
-
-    my ($lo, $hi) = unpack ("V V" , $buffer);
-    no warnings 'uninitialized';
-    return $hi * (0xFFFFFFFF+1) + $lo;
-}
-
-sub read_U64
+sub read_Q
 {
     my $b ;
     myRead($b, 8);
-    my ($lo, $hi) = unpack ("V V" , $b);
-    no warnings 'uninitialized';
-    return ($b, U64->new( $hi, $lo) );
-}
-
-sub read_VV
-{
-    my $b ;
-    myRead($b, 8);
-    my ($lo, $hi) = unpack ("V V" , $b);
-    no warnings 'uninitialized';
-    return ($b, $hi * (0xFFFFFFFF+1) + $lo);
+    return unpack ("Q<" , $b);
 }
 
 sub read_V
@@ -643,7 +574,7 @@ sub seekTo
         if ! defined $loc ;
 
     $FH->seek($offset, $loc);
-    $OFFSET = new U64($offset);
+    $OFFSET = $offset;
 }
 
 sub scanForSignature
@@ -728,11 +659,7 @@ $FH = IO::File->new( "<$filename" )
 
 my $FILELEN = -s $filename ;
 $TRAILING = -s $filename ;
-$NIBBLES = U64::nibbles(-s $filename) ;
-#$NIBBLES = int ($NIBBLES / 4) + ( ($NIBBLES % 4) ? 1 : 0 );
-#$NIBBLES = 4 * $NIBBLES;
-# Minimum of 4 nibbles
-$NIBBLES = 4 if $NIBBLES < 4 ;
+$NIBBLES = nibbles(-s $filename) ;
 
 die "$filename too short to be a zip file\n"
     if $FILELEN <  22 ;
@@ -775,7 +702,7 @@ our ($CdExists, $CdOffset, @CentralDirectory) = scanCentralDirectory($FH);
 die "No Central Directory records found\n"
     if ! $CdExists ;
 
-$OFFSET->reset();
+$OFFSET = 0 ;
 $FH->seek(0, SEEK_SET) ;
 
 outSomeData($START, "PREFIX DATA")
@@ -917,7 +844,7 @@ sub LocalHeader
     myRead($filename, $filenameLength);
     outputFilename($filename);
 
-    my $cl64 = U64->new( $compressedLength );
+    my $cl64 = $compressedLength;
     my %ExtraContext = ();
     if ($extraLength)
     {
@@ -960,11 +887,8 @@ sub LocalHeader
     $CDcompressedLength = $compressedLength
         if $opt_scan ;
 
-    # $CDcompressedLength->subtract($size)
-        # if $size ;
     $CDcompressedLength -= $size;
 
-    # if ($CDcompressedLength->getHigh() || $CDcompressedLength->getLow()) {
     if ($CDcompressedLength) {
         outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
     }
@@ -1026,8 +950,8 @@ sub CentralHeader
 
     out_C "Created Zip Spec", \&decodeZipVer;
     out_C "Created OS", \&decodeOS;
-    out_C  "Extract Zip Spec", \&decodeZipVer;
-    out_C  "Extract OS", \&decodeOS;
+    out_C "Extract Zip Spec", \&decodeZipVer;
+    out_C "Extract OS", \&decodeOS;
 
     my ($bgp, $gpFlag) = read_v();
     my ($bcm, $compressedMethod) = read_v();
@@ -1072,8 +996,8 @@ sub CentralHeader
 
 
     my %ExtraContext = ( CRC => $crc,
-                         LocalHdrOffset => U64->new( $lcl_hdr_offset),
-                         CompressedLength => U64->new($compressedLength));
+                         LocalHdrOffset   => $lcl_hdr_offset,
+                         CompressedLength => $compressedLength);
 
     if ($extraLength)
     {
@@ -1123,9 +1047,9 @@ sub Zip64EndCentralHeader
     my $buff;
     myRead($buff, 8);
 
-    out $buff, "Size of record",       unpackValue_VV($buff);
+    out $buff, "Size of record", unpackValue_Q($buff);
 
-    my $size  = Value_VV64($buff);
+    my $size  = unpack "Q<", $buff;
 
     out_C  "Created Zip Spec", \&decodeZipVer;
     out_C  "Created OS", \&decodeOS;
@@ -1133,10 +1057,10 @@ sub Zip64EndCentralHeader
     out_C  "Extract OS", \&decodeOS;
     out_V  "Number of this disk";
     out_V  "Central Dir Disk no";
-    out_VV "Entries in this disk";
-    out_VV "Total Entries";
-    out_VV "Size of Central Dir";
-    out_VV "Offset to Central dir";
+    out_Q  "Entries in this disk";
+    out_Q  "Total Entries";
+    out_Q  "Size of Central Dir";
+    out_Q  "Offset to Central dir";
 
     # TODO -
     if ($size != 44)
@@ -1155,7 +1079,7 @@ sub Zip64EndCentralLocator
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
     out_V  "Central Dir Disk no";
-    out_VV "Offset to Central dir";
+    out_Q  "Offset to Central dir";
     out_V  "Total no of Disks";
 }
 
@@ -1195,8 +1119,8 @@ sub DataHeader
 
     if ($ZIP64)
     {
-        out_VV "Compressed Length" ;
-        out_VV "Uncompressed Length" ;
+        out_Q "Compressed Length" ;
+        out_Q "Uncompressed Length" ;
     }
     else
     {
@@ -1261,12 +1185,7 @@ sub seekSet
     my $size = $_[1];
 
     use Fcntl qw(SEEK_SET);
-    if (ref $size eq 'U64') {
-        seek($fh, $size->get64bit(), SEEK_SET);
-    }
-    else {
-        seek($fh, $size, SEEK_SET);
-    }
+    seek($fh, $size, SEEK_SET);
 
 }
 
@@ -1276,12 +1195,7 @@ sub skip
     my $size = $_[1];
 
     use Fcntl qw(SEEK_CUR);
-    if (ref $size eq 'U64') {
-        seek($fh, $size->get64bit(), SEEK_CUR);
-    }
-    else {
-        seek($fh, $size, SEEK_CUR);
-    }
+    seek($fh, $size, SEEK_CUR);
 
 }
 
@@ -1394,7 +1308,7 @@ sub walkExtra
 
 sub full32
 {
-    return $_[0] == 0xFFFFFFFF ;
+    return $_[0] == MAX32 ;
 }
 
 sub decode_Zip64
@@ -1407,18 +1321,15 @@ sub decode_Zip64
     $ZIP64 = 1;
 
     if (full32 $z64Data->[0] ) {
-        out_VV "  Uncompressed Size";
+        out_Q "  Uncompressed Size";
     }
 
     if (full32 $z64Data->[1] ) {
-        my @data = out_VV "  Compressed Size";
-        $context->{CompressedLength} = U64->new(@data);
+        $context->{CompressedLength} = out_Q "  Compressed Size";
     }
 
     if (full32 $z64Data->[2] ) {
-        my @data = out_VV "  Offset to Local Dir";
-        $context->{LocalHdrOffset} = U64->new(@data);
-
+        $context->{LocalHdrOffset} = out_Q "  Offset to Local Dir";
     }
 
     if ($z64Data->[3] == 0xFFFF ) {
@@ -1428,17 +1339,15 @@ sub decode_Zip64
 
 sub Ntfs2Unix
 {
+    my $m = shift;
     my $v = shift;
-    my $u64 = shift;
 
     # NTFS offset is 19DB1DED53E8000
 
-    my $hex = Value_U64($u64) ;
-    my $NTFS_OFFSET = U64->new( 0x19DB1DE, 0xD53E8000 );
-    $u64->subtract($NTFS_OFFSET);
-    my $elapse = $u64->get64bit();
-    my $ns = ($elapse % 10000000) * 100;
-    $elapse = int ($elapse/10000000);
+    my $hex = Value_Q($v) ;
+    $v -= 0x19DB1DED53E8000 ;
+    my $ns = ($v % 10000000) * 100;
+    my $elapse = int ($v/10000000);
     return "$hex '" . localtime($elapse) .
            " " . sprintf("%0dns'", $ns);
 }
@@ -1452,13 +1361,13 @@ sub decode_NTFS_Filetimes
     out_v "  Tag1";
     out_v "  Size1" ;
 
-    my ($m, $s1) = read_U64;
+    my ($m, $s1) = read_Q;
     out $m, "  Mtime", Ntfs2Unix($m, $s1);
 
-    my ($c, $s2) = read_U64;
+    my ($c, $s2) = read_Q;
     out $c, "  Ctime", Ntfs2Unix($m, $s2);
 
-    my ($a, $s3) = read_U64;
+    my ($a, $s3) = read_Q;
     out $m, "  Atime", Ntfs2Unix($m, $s3);
 }
 
@@ -1838,48 +1747,25 @@ sub scanCentralDirectory
             {
                 $cdZip64 = 1;
 
-                if ($uncompressedLength == 0xFFFFFFFF)
+                if ($uncompressedLength == MAX32)
                 {
-                    $uncompressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
-                    # $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
+                    $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
                     $zip64Sizes = 1;
                 }
-                if ($compressedLength == 0xFFFFFFFF)
+                if ($compressedLength == MAX32)
                 {
-                    $compressedLength = Value_VV64  substr($zip64Extended, 0, 8, "");
-                    # $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
+                    $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
                     $zip64Sizes = 1;
 
                 }
-                if ($locHeaderOffset == 0xFFFFFFFF)
+                if ($locHeaderOffset == MAX32)
                 {
-                    $locHeaderOffset = Value_VV64  substr($zip64Extended, 0, 8, "");
-                    # $locHeaderOffset = unpack "Q<", substr($zip64Extended, 0, 8, "");
+                    $locHeaderOffset = unpack "Q<", substr($zip64Extended, 0, 8, "");
                 }
             }
         }
 
         my $got = [$locHeaderOffset, $compressedLength, $cdZip64, $zip64Sizes] ;
-
-        # my $v64 = U64->new( $compressedLength );
-        # my $loc64 = U64->new( $locHeaderOffset );
-        # my $got = [$loc64, $v64] ;
-
-        # if (full32 $compressedLength || full32  $locHeaderOffset) {
-        #     $fh->read($buffer, $extra_length) ;
-        #     # TODO - fix this
-        #     die "xxx $offset $comment_length $filename_length $extra_length" . length($buffer)
-        #         if length($buffer) != $extra_length;
-        #     $got = get64Extra($buffer, full32($uncompressedLength),
-        #                          $v64,
-        #                          $loc64);
-
-        #     # If not Zip64 extra field, assume size is 0xFFFFFFFF
-        #     #$v64 = $got if defined $got;
-        # }
-        # else {
-        #     skip($fh, $extra_length) ;
-        # }
 
         skip($fh, $comment_length ) ;
 
@@ -1918,7 +1804,7 @@ sub offsetFromZip64
          $here $got $!" ;
 
     if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_LOC_HDR_SIG ) {
-        my $cd64 = Value_VV64 substr($buffer,  8, 8);
+        my $cd64 = unpack "Q<", substr($buffer,  8, 8);
 
         $fh->seek($cd64, SEEK_SET) ;
 
@@ -1931,12 +1817,12 @@ sub offsetFromZip64
             $fh->read($buffer, 8) ==  8
             # TODO - fix this
                 or die "xxx" ;
-            my $size  = Value_VV64($buffer);
+            my $size  = unpack "Q<", $buffer;
             $fh->read($buffer, $size) ==  $size
             # TODO - fix this
                 or die "xxx" ;
 
-            my $cd64 =  Value_VV64 substr($buffer,  36, 8);
+            my $cd64 =  unpack "Q<", substr($buffer,  36, 8);
 
             return $cd64 ;
         }
@@ -1960,8 +1846,8 @@ sub findCentralDirectoryOffset
     $fh->seek(-22, SEEK_END) ;
     my $here = $fh->tell();
 
-    my $is64bit = $here > 0xFFFFFFFF;
-    my $over64bit = $here  & (~ 0xFFFFFFFF);
+    my $is64bit = $here > MAX32;
+    my $over64bit = $here  & (~ MAX32);
 
     my $buffer;
     $fh->read($buffer, 22) == 22
@@ -2089,288 +1975,37 @@ sub _dosToUnixTime
     return $time_t;
 }
 
-
+sub nibbles
 {
-    package U64;
+    my @nibbles = (
+        [ 16 => 0x1000000000000000 ],
+        [ 15 => 0x100000000000000 ],
+        [ 14 => 0x10000000000000 ],
+        [ 13 => 0x1000000000000 ],
+        [ 12 => 0x100000000000 ],
+        [ 11 => 0x10000000000 ],
+        [ 10 => 0x1000000000 ],
+        [  9 => 0x100000000 ],
+        [  8 => 0x10000000 ],
+        [  7 => 0x1000000 ],
+        [  6 => 0x100000 ],
+        [  5 => 0x10000 ],
+        [  4 => 0x1000 ],
+        [  4 => 0x100 ],
+        [  4 => 0x10 ],
+        [  4 => 0x1 ],
+    );
+    my $value = shift ;
 
-    use constant MAX32 => 0xFFFFFFFF ;
-    use constant HI_1 => MAX32 + 1 ;
-    use constant LOW   => 0 ;
-    use constant HIGH  => 1;
-
-    sub new
+    for my $pair (@nibbles)
     {
-        my $class = shift ;
+        my ($count, $limit) = @{ $pair };
 
-        my $high = 0 ;
-        my $low  = 0 ;
-
-        if (@_ == 2) {
-            $high = shift ;
-            $low  = shift ;
-        }
-        elsif (@_ == 1) {
-            my $value = shift ;
-            if ($value > MAX32)
-            {
-                $high = $value >> 32 ;
-                $low  = $value & MAX32;
-            }
-            else
-            {
-                $low  = $value ;
-            }
-        }
-
-        bless [$low, $high], $class;
-    }
-
-    sub newUnpack_V64
-    {
-        my $string = shift;
-
-        my ($low, $hi) = unpack "V V", $string ;
-        bless [ $low, $hi ], "U64";
-    }
-
-    sub newUnpack_V32
-    {
-        my $string = shift;
-
-        my $low = unpack "V", $string ;
-        bless [ $low, 0 ], "U64";
-    }
-
-    sub reset
-    {
-        my $self = shift;
-        $self->[HIGH] = $self->[LOW] = 0;
-    }
-
-    sub clone
-    {
-        my $self = shift;
-        bless [ @$self ], ref $self ;
-    }
-
-    sub mkU64
-    {
-        my $value = shift;
-
-        return $value
-            if ref $value eq 'U64';
-
-        bless [  $value, 0 ], "U64" ;
-    }
-
-    sub getHigh
-    {
-        my $self = shift;
-        return $self->[HIGH];
-    }
-
-    sub getLow
-    {
-        my $self = shift;
-        return $self->[LOW];
-    }
-
-    sub get32bit
-    {
-        my $self = shift;
-        return $self->[LOW];
-    }
-
-    sub get64bit
-    {
-        my $self = shift;
-        # Not using << here because the result will still be
-        # a 32-bit value on systems where int size is 32-bits
-        return $self->[HIGH] * HI_1 + $self->[LOW];
-    }
-
-    sub add
-    {
-        my $self = shift;
-        my $value = shift;
-
-        if (ref $value eq 'U64') {
-            $self->[HIGH] += $value->[HIGH] ;
-            $value = $value->[LOW];
-        }
-
-        my $available = MAX32 - $self->[LOW] ;
-
-        if ($value > $available) {
-           ++ $self->[HIGH] ;
-           $self->[LOW] = $value - $available - 1;
-        }
-        else {
-           $self->[LOW] += $value ;
-        }
-
-    }
-
-    sub subtract
-    {
-        my $self = shift;
-        my $value = shift;
-
-        if (ref $value eq 'U64') {
-
-            if ($value->[HIGH]) {
-                die "unsupport subtract option"
-                    if $self->[HIGH] == 0 ||
-                       $value->[HIGH] > $self->[HIGH] ;
-
-               $self->[HIGH] -= $value->[HIGH] ;
-            }
-
-            $value = $value->[LOW] ;
-        }
-
-        if ($value > $self->[LOW]) {
-           -- $self->[HIGH] ;
-           $self->[LOW] = MAX32 - $value + $self->[LOW] + 1;
-        }
-        else {
-           $self->[LOW] -= $value;
-        }
-    }
-
-    sub rshift
-    {
-        my $self = shift;
-        my $count = shift;
-
-        for (1 .. $count)
-        {
-            $self->[LOW] >>= 1;
-            $self->[LOW] |= 0x80000000
-                if $self->[HIGH] & 1 ;
-            $self->[HIGH] >>= 1;
-        }
-    }
-
-    sub is64bit
-    {
-        my $self = shift;
-        return $self->[HIGH] > 0 ;
-    }
-
-    sub getPacked_V64
-    {
-        my $self = shift;
-
-        return pack "V V", @$self ;
-    }
-
-    sub getPacked_V32
-    {
-        my $self = shift;
-
-        return pack "V", $self->[LOW] ;
-    }
-
-    sub pack_V64
-    {
-        my $low  = shift;
-
-        return pack "V V", $low, 0;
-    }
-
-    sub max32
-    {
-        my $self = shift;
-        return $self->[HIGH] == 0 && $self->[LOW] == MAX32;
-    }
-
-    sub stringify
-    {
-        my $self = shift;
-
-        return "High [$self->[HIGH]], Low [$self->[LOW]]";
-    }
-
-    sub equal
-    {
-        my $self = shift;
-        my $other = shift;
-
-        return $self->[LOW]  == $other->[LOW] &&
-               $self->[HIGH] == $other->[HIGH] ;
-    }
-
-    sub gt
-    {
-        my $self = shift;
-        my $other = shift;
-
-        return $self->cmp($other) > 0 ;
-    }
-
-    sub ge
-    {
-        my $self = shift;
-        my $other = shift;
-
-        return $self->cmp($other) >= 0 ;
-    }
-
-    sub le
-    {
-        my $self = shift;
-        my $other = shift;
-
-        return $self->cmp($other) <= 0 ;
-    }
-
-    sub cmp
-    {
-        my $self = shift;
-        my $other = shift ;
-
-        if ($self->[LOW] == $other->[LOW]) {
-            return $self->[HIGH] - $other->[HIGH] ;
-        }
-        else {
-            return $self->[LOW] - $other->[LOW] ;
-        }
-    }
-
-    sub nibbles
-    {
-        my @nibbles = (
-            [ 16 => HI_1 * 0x10000000 ],
-            [ 15 => HI_1 * 0x1000000 ],
-            [ 14 => HI_1 * 0x100000 ],
-            [ 13 => HI_1 * 0x10000 ],
-            [ 12 => HI_1 * 0x1000 ],
-            [ 11 => HI_1 * 0x100 ],
-            [ 10 => HI_1 * 0x10 ],
-            [  9 => HI_1 * 0x1 ],
-
-            [  8 => 0x10000000 ],
-            [  7 => 0x1000000 ],
-            [  6 => 0x100000 ],
-            [  5 => 0x10000 ],
-            [  4 => 0x1000 ],
-            [  3 => 0x100 ],
-            [  2 => 0x10 ],
-            [  1 => 0x1 ],
-        );
-        my $value = shift ;
-
-        for my $pair (@nibbles)
-        {
-            my ($count, $limit) = @{ $pair };
-
-            return $count
-                if $value >= $limit ;
-        }
-
+        return $count
+            if $value >= $limit ;
     }
 }
+
 
 {
     package Seen;
@@ -2397,9 +2032,8 @@ sub _dosToUnixTime
         my $extras = shift;
 
         my $from_offset = $extras->{LocalHdrOffset};
-        my $to_offset = $from_offset->clone() ;
-        $to_offset->add($extras->{CompressedLength}) ;
-        $to_offset->subtract(1) ;
+        my $to_offset = $from_offset ;
+        $to_offset += $extras->{CompressedLength} - 1 ;
 
         my $crc = $extras->{CRC};
 
@@ -2407,13 +2041,13 @@ sub _dosToUnixTime
 
         for my $entry ( @{ $self->{detail} } )
         {
-            if ( $from_offset->equal($entry->{from}) && $to_offset->equal($entry->{to}) && $crc == $entry->{crc})
+            if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
             {
                 $self->{duplicate_count} ++;
                 print "$hdrId: '$name' matches with $entry->{str}\n"
             }
-            elsif ( ($from_offset->ge($entry->{from}) && $from_offset->le($entry->{to}) ) ||
-                    ($to_offset->ge($entry->{from}) && $to_offset->le($entry->{to}) )
+            elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
+                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
                )
             {
                 # die "overlap!"
@@ -2465,7 +2099,7 @@ sub _dosToUnixTime
             my $to_offset = $entry->{to};
             my $hdrId = $entry->{id};
             my $name = $entry->{name};
-            print "$hdrId\t" . ::Value_U64($entry->{from}) . "\n";
+            print "$hdrId\t" . $entry->{from} . "\n";
 
 
         }
