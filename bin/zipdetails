@@ -540,7 +540,7 @@ sub read_Q
 {
     my $b ;
     myRead($b, 8);
-    return unpack ("Q<" , $b);
+    return ($b, unpack ("Q<" , $b));
 }
 
 sub read_V
@@ -630,6 +630,7 @@ my $is64In32 = 0;
 my $opt_verbose = 0;
 my $opt_scan = 0;
 my $opt_Redact = 0;
+my $opt_utc = 0;
 
 
 $Getopt::Long::bundling = 1 ;
@@ -638,6 +639,7 @@ GetOptions("h"       => \&Usage,
            "v"       => \$opt_verbose,
            "scan"    => \$opt_scan,
            "redact"  => \$opt_Redact,
+           "utc" => \$opt_utc,
            "version" => sub { print "$VERSION\n"; exit },
     )
   or Usage("Invalid command line option\n");
@@ -1348,7 +1350,7 @@ sub Ntfs2Unix
     $v -= 0x19DB1DED53E8000 ;
     my $ns = ($v % 10000000) * 100;
     my $elapse = int ($v/10000000);
-    return "$hex '" . localtime($elapse) .
+    return "$hex '" . getT($elapse) .
            " " . sprintf("%0dns'", $ns);
 }
 
@@ -1371,11 +1373,20 @@ sub decode_NTFS_Filetimes
     out $m, "  Atime", Ntfs2Unix($m, $s3);
 }
 
+sub getT
+{
+    my $time = shift ;
+
+    if ($opt_utc)
+     { return scalar gmtime($time) }
+    else
+      { return scalar localtime($time) }
+}
 sub getTime
 {
     my $time = shift ;
 
-    return "'" . localtime($time) . "'" ;
+    return "'" . getT($time) . "'";
 }
 
 sub decode_UT
@@ -2178,6 +2189,10 @@ find all the possible errors in a zip file. If you have suggestions for
 use-cases where this could be enhanced please consider creating an
 enhancement request (see L<"SUPPORT">).
 
+Date/time fields are found in zip files are displayed in local time. Use
+the C<--utc> option to display these fields in Coordinated Universal Time
+(UTC).
+
 =head2 Scan-Mode
 
 If you do have a potentially corrupt zip file, particulatly where the
@@ -2211,6 +2226,11 @@ contains sensitive data that cannot be shared.
 
 Walk the zip file loking for possible zip records. Can be error-prone.
 See L<"Scan-Mode">
+
+=item --utc
+
+By default, date/time fields are displayed in local time. Use this option
+to display them in in Coordinated Universal Time (UTC).
 
 =item -v
 
