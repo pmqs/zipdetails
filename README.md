@@ -33,6 +33,10 @@ find all the possible errors in a zip file. If you have suggestions for
 use-cases where this could be enhanced please consider creating an
 enhancement request (see ["SUPPORT"](#support)).
 
+Date/time fields are found in zip files are displayed in local time. Use
+the `--utc` option to display these fields in Coordinated Universal Time
+(UTC).
+
 ## Scan-Mode
 
 If you do have a potentially corrupt zip file, particulatly where the
@@ -58,12 +62,17 @@ results.
 - --redact
 
     Obscure filenames in the output. Handy for the use case where the zip files
-    ciontains sensitive data that cannot be shared.
+    contains sensitive data that cannot be shared.
 
 - --scan
 
     Walk the zip file loking for possible zip records. Can be error-prone.
     See ["Scan-Mode"](#scan-mode)
+
+- --utc
+
+    By default, date/time fields are displayed in local time. Use this option
+    to display them in in Coordinated Universal Time (UTC).
 
 - -v
 
