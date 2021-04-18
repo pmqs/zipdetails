@@ -1,0 +1,48 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      15 '2.1'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0002
+0008 Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+000A Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+000E CRC                   F90EE7FF
+0012 Compressed Length     00000109
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+0130 CENTRAL HEADER #1     02014B50
+0134 Created Zip Spec      15 '2.1'
+0135 Created OS            00 'MS-DOS'
+0136 Extract Zip Spec      15 '2.1'
+0137 Extract OS            00 'MS-DOS'
+0138 General Purpose Flag  0002
+013A Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+013C Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+0140 CRC                   F90EE7FF
+0144 Compressed Length     00000109
+0148 Uncompressed Length   000001BE
+014C Filename Length       0009
+014E Extra Length          0000
+0150 Comment Length        0000
+0152 Disk Start            0000
+0154 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0156 Ext File Attributes   00000020
+     [Bit 5]               Archive
+015A Local Header Offset   00000000
+015E Filename              'lorem.txt'
+
+0167 END CENTRAL HEADER    06054B50
+016B Number of this disk   0000
+016D Central Dir Disk no   0000
+016F Entries in this disk  0001
+0171 Total Entries         0001
+0173 Size of Central Dir   00000037
+0177 Offset to Central Dir 00000130
+017B Comment Length        0000
+Done

@@ -1,0 +1,83 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 33          Extract Zip Spec      33 '5.1'
+0005 0001 03          Extract OS            03 'Unix'
+0006 0002 01 00       General Purpose Flag  0001
+                      [Bit  0]              1 'Encryption'
+0008 0002 63 00       Compression Method    0063 'AES Encryption'
+000A 0004 15 9E 89 52 Last Mod Time         52899E15 'Fri Apr  9 18:48:42 2021'
+000E 0004 00 00 00 00 CRC                   00000000
+0012 0004 26 01 00 00 Compressed Length     00000126
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 0B 00       Extra Length          000B
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 0002 01 99       Extra ID #0001        9901 'AES Encryption'
+0029 0002 07 00         Length              0007
+002B 0002 02 00         Vendor Version      0002 'AE-2'
+002D 0002 41 45         Vendor ID           4541 'AE'
+002F 0001 03            Encryption Strength 03 '256-bit encryption key'
+0030 0002 08 00         Compression Method  0008 'Deflated'
+0032 0010 E8 5F 1A 17 AES Salt              E8 5F 1A 17 39 DD 1D 14 57 28 D8 9D
+          39 DD 1D 14                       C1 66 C8 9C
+          57 28 D8 9D
+          C1 66 C8 9C
+0042 0002 D6 F1       AES Pwd Ver           D6 F1
+0044 010A ...         PAYLOAD
+014E 000A 09 2A FE D9 AES Auth              09 2A FE D9 C7 40 B7 31 C1 F4
+          C7 40 B7 31
+          C1 F4
+
+0158 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+015C 0001 3F          Created Zip Spec      3F '6.3'
+015D 0001 03          Created OS            03 'Unix'
+015E 0001 33          Extract Zip Spec      33 '5.1'
+015F 0001 03          Extract OS            03 'Unix'
+0160 0002 01 00       General Purpose Flag  0001
+                      [Bit  0]              1 'Encryption'
+0162 0002 63 00       Compression Method    0063 'AES Encryption'
+0164 0004 15 9E 89 52 Last Mod Time         52899E15 'Fri Apr  9 18:48:42 2021'
+0168 0004 00 00 00 00 CRC                   00000000
+016C 0004 26 01 00 00 Compressed Length     00000126
+0170 0004 BE 01 00 00 Uncompressed Length   000001BE
+0174 0002 09 00       Filename Length       0009
+0176 0002 2F 00       Extra Length          002F
+0178 0002 00 00       Comment Length        0000
+017A 0002 00 00       Disk Start            0000
+017C 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+017E 0004 20 80 ED 81 Ext File Attributes   81ED8020
+                      [Bit 5]               Archive
+0182 0004 00 00 00 00 Local Header Offset   00000000
+0186 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+018F 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
+0191 0002 20 00         Length              0020
+0193 0004 00 00 00 00   Reserved            00000000
+0197 0002 01 00         Tag1                0001
+0199 0002 18 00         Size1               0018
+019B 0008 80 8A 8D F5   Mtime               01D72D70F58D8A80 'Fri Apr  9 18:48:41
+          70 2D D7 01                       2021 0ns'
+01A3 0008 00 F1 38 09   Ctime               01D72D710938F100 'Fri Apr  9 18:49:14
+          71 2D D7 01                       2021 0ns'
+01AB 0008 80 8A 8D F5   Atime               01D72D70F58D8A80 'Fri Apr  9 18:48:41
+          70 2D D7 01                       2021 0ns'
+01B3 0002 01 99       Extra ID #0002        9901 'AES Encryption'
+01B5 0002 07 00         Length              0007
+01B7 0002 02 00         Vendor Version      0002 'AE-2'
+01B9 0002 41 45         Vendor ID           4541 'AE'
+01BB 0001 03            Encryption Strength 03 '256-bit encryption key'
+01BC 0002 08 00         Compression Method  0008 'Deflated'
+
+01BE 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01C2 0002 00 00       Number of this disk   0000
+01C4 0002 00 00       Central Dir Disk no   0000
+01C6 0002 01 00       Entries in this disk  0001
+01C8 0002 01 00       Total Entries         0001
+01CA 0004 66 00 00 00 Size of Central Dir   00000066
+01CE 0004 58 01 00 00 Offset to Central Dir 00000158
+01D2 0002 00 00       Comment Length        0000
+Done

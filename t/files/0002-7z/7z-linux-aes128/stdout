@@ -1,0 +1,74 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      33 '5.1'
+0005 Extract OS            03 'Unix'
+0006 General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+0008 Compression Method    0063 'AES Encryption'
+000A Last Mod Time         52899E15 'Fri Apr  9 18:48:42 2021'
+000E CRC                   00000000
+0012 Compressed Length     0000011E
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          000B
+001E Filename              'lorem.txt'
+0027 Extra ID #0001        9901 'AES Encryption'
+0029   Length              0007
+002B   Vendor Version      0002 'AE-2'
+002D   Vendor ID           4541 'AE'
+002F   Encryption Strength 01 '128-bit encryption key'
+0030   Compression Method  0008 'Deflated'
+0032 AES Salt              D6 48 6A 73 27 42 67 9A
+003A AES Pwd Ver           20 51
+003C PAYLOAD
+0146 AES Auth              90 46 ED 87 95 55 12 F2 06 03
+
+0150 CENTRAL HEADER #1     02014B50
+0154 Created Zip Spec      3F '6.3'
+0155 Created OS            03 'Unix'
+0156 Extract Zip Spec      33 '5.1'
+0157 Extract OS            03 'Unix'
+0158 General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+015A Compression Method    0063 'AES Encryption'
+015C Last Mod Time         52899E15 'Fri Apr  9 18:48:42 2021'
+0160 CRC                   00000000
+0164 Compressed Length     0000011E
+0168 Uncompressed Length   000001BE
+016C Filename Length       0009
+016E Extra Length          002F
+0170 Comment Length        0000
+0172 Disk Start            0000
+0174 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0176 Ext File Attributes   81ED8020
+     [Bit 5]               Archive
+017A Local Header Offset   00000000
+017E Filename              'lorem.txt'
+0187 Extra ID #0001        000A 'NTFS FileTimes'
+0189   Length              0020
+018B   Reserved            00000000
+018F   Tag1                0001
+0191   Size1               0018
+0193   Mtime               01D72D70F58D8A80 'Fri Apr  9 18:48:41
+                           2021 0ns'
+019B   Ctime               01D72D710938F100 'Fri Apr  9 18:49:14
+                           2021 0ns'
+01A3   Atime               01D72D70F58D8A80 'Fri Apr  9 18:48:41
+                           2021 0ns'
+01AB Extra ID #0002        9901 'AES Encryption'
+01AD   Length              0007
+01AF   Vendor Version      0002 'AE-2'
+01B1   Vendor ID           4541 'AE'
+01B3   Encryption Strength 01 '128-bit encryption key'
+01B4   Compression Method  0008 'Deflated'
+
+01B6 END CENTRAL HEADER    06054B50
+01BA Number of this disk   0000
+01BC Central Dir Disk no   0000
+01BE Entries in this disk  0001
+01C0 Total Entries         0001
+01C2 Size of Central Dir   00000066
+01C6 Offset to Central Dir 00000150
+01CA Comment Length        0000
+Done

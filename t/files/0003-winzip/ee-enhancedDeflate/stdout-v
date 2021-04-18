@@ -1,0 +1,52 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 15          Extract Zip Spec      15 '2.1'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 02 00       General Purpose Flag  0002
+0008 0002 09 00       Compression Method    0009 'Enhanced Deflating using
+                                            Deflate64(tm)'
+000A 0004 E1 B2 F5 50 Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+000E 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0004 09 01 00 00 Compressed Length     00000109
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 00 00       Extra Length          0000
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 0109 ...         PAYLOAD
+
+0130 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0134 0001 15          Created Zip Spec      15 '2.1'
+0135 0001 00          Created OS            00 'MS-DOS'
+0136 0001 15          Extract Zip Spec      15 '2.1'
+0137 0001 00          Extract OS            00 'MS-DOS'
+0138 0002 02 00       General Purpose Flag  0002
+013A 0002 09 00       Compression Method    0009 'Enhanced Deflating using
+                                            Deflate64(tm)'
+013C 0004 E1 B2 F5 50 Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+0140 0004 FF E7 0E F9 CRC                   F90EE7FF
+0144 0004 09 01 00 00 Compressed Length     00000109
+0148 0004 BE 01 00 00 Uncompressed Length   000001BE
+014C 0002 09 00       Filename Length       0009
+014E 0002 00 00       Extra Length          0000
+0150 0002 00 00       Comment Length        0000
+0152 0002 00 00       Disk Start            0000
+0154 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0156 0004 20 00 00 00 Ext File Attributes   00000020
+                      [Bit 5]               Archive
+015A 0004 00 00 00 00 Local Header Offset   00000000
+015E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+
+0167 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+016B 0002 00 00       Number of this disk   0000
+016D 0002 00 00       Central Dir Disk no   0000
+016F 0002 01 00       Entries in this disk  0001
+0171 0002 01 00       Total Entries         0001
+0173 0004 37 00 00 00 Size of Central Dir   00000037
+0177 0004 30 01 00 00 Offset to Central Dir 00000130
+017B 0002 00 00       Comment Length        0000
+Done

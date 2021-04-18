@@ -1,0 +1,55 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      3F '6.3'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+0008 Compression Method    000E 'LZMA'
+000A Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000015B
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 LZMA Version          0914 '9.20'
+0029 LZMA Properties Size  0005
+002B LZMA Info             5E '
+       PosStateBits        2
+       LiteralPosStateBits 0
+       LiteralContextBits  4
+002C LZMA Dictionary Size  00001000
+0030 PAYLOAD
+
+0182 CENTRAL HEADER #1     02014B50
+0186 Created Zip Spec      3F '6.3'
+0187 Created OS            00 'MS-DOS'
+0188 Extract Zip Spec      3F '6.3'
+0189 Extract OS            00 'MS-DOS'
+018A General Purpose Flag  0000
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+018C Compression Method    000E 'LZMA'
+018E Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+0192 CRC                   F90EE7FF
+0196 Compressed Length     0000015B
+019A Uncompressed Length   000001BE
+019E Filename Length       0009
+01A0 Extra Length          0000
+01A2 Comment Length        0000
+01A4 Disk Start            0000
+01A6 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+01A8 Ext File Attributes   00000020
+     [Bit 5]               Archive
+01AC Local Header Offset   00000000
+01B0 Filename              'lorem.txt'
+
+01B9 END CENTRAL HEADER    06054B50
+01BD Number of this disk   0000
+01BF Central Dir Disk no   0000
+01C1 Entries in this disk  0001
+01C3 Total Entries         0001
+01C5 Size of Central Dir   00000037
+01C9 Offset to Central Dir 00000182
+01CD Comment Length        0000
+Done

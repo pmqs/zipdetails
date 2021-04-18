@@ -1,0 +1,46 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    005F 'XZ'
+000A Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000018C
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+01B3 CENTRAL HEADER #1     02014B50
+01B7 Created Zip Spec      14 '2.0'
+01B8 Created OS            00 'MS-DOS'
+01B9 Extract Zip Spec      14 '2.0'
+01BA Extract OS            00 'MS-DOS'
+01BB General Purpose Flag  0000
+01BD Compression Method    005F 'XZ'
+01BF Last Mod Time         50F5B2E1 'Tue Jul 21 21:23:02 2020'
+01C3 CRC                   F90EE7FF
+01C7 Compressed Length     0000018C
+01CB Uncompressed Length   000001BE
+01CF Filename Length       0009
+01D1 Extra Length          0000
+01D3 Comment Length        0000
+01D5 Disk Start            0000
+01D7 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+01D9 Ext File Attributes   00000020
+     [Bit 5]               Archive
+01DD Local Header Offset   00000000
+01E1 Filename              'lorem.txt'
+
+01EA END CENTRAL HEADER    06054B50
+01EE Number of this disk   0000
+01F0 Central Dir Disk no   0000
+01F2 Entries in this disk  0001
+01F4 Total Entries         0001
+01F6 Size of Central Dir   00000037
+01FA Offset to Central Dir 000001B3
+01FE Comment Length        0000
+Done
