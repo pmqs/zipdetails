@@ -59,12 +59,15 @@ for my $dir (sort keys %dirs)
 
         diag "testing $dir/" . basename($zipfile) . " $opt";
 
-        my $golden_stdout = readFile("$dir/stdout$opt");
-        my $golden_stderr = '';
-        $golden_stderr = readFile("$dir/stderr$opt")
-            if -e "$dir/stderr$opt" ;
+        my $golden_stdout_file = "$dir/stdout$opt";
+        my $golden_stderr_file = "$dir/stderr$opt";
 
-        my ($status, $stdout, $stderr) = run $zipfile, $opt ;
+        my $golden_stdout = readFile($golden_stdout_file);
+        my $golden_stderr = '';
+        $golden_stderr = readFile($golden_stderr_file)
+            if -e $golden_stderr_file ;
+
+        my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
 
         is $status, 0, "Exit Status 0";
         is $stdout, $golden_stdout, "Expected stdout";
@@ -79,10 +82,24 @@ exit;
 sub run
 {
     my $filename = shift ;
-    my $opt = shift || "";
+    my $opt = shift ;
+    my $stdout_golden = shift ;
+    my $stderr_golden = shift ;
 
-    my $stdout = "$tempdir/stdout";
-    my $stderr = "$tempdir/stderr";
+    my $keep = defined $ENV{ZIPDETAILS_TEST_KEEP_OUTPUT};
+    my $stdout ;
+    my $stderr ;
+
+    if (1 || $keep)
+    {
+        $stdout = $stdout_golden . ".got";
+        $stderr = $stderr_golden . ".got";
+    }
+    else
+    {
+        $stdout = "$tempdir/stdout";
+        $stderr = "$tempdir/stderr";
+    }
 
     unlink $stdout
         if -e $stdout;
@@ -97,7 +114,8 @@ sub run
     my $out = readFile($stdout);
     my $err = readFile($stderr);
 
-    unlink $stdout, $stderr;
+    unlink $stdout, $stderr
+        unless $keep;
 
     return ($got, $out, $err) ;
 }

@@ -639,7 +639,7 @@ GetOptions("h"       => \&Usage,
            "v"       => \$opt_verbose,
            "scan"    => \$opt_scan,
            "redact"  => \$opt_Redact,
-           "utc" => \$opt_utc,
+           "utc"     => \$opt_utc,
            "version" => sub { print "$VERSION\n"; exit },
     )
   or Usage("Invalid command line option\n");
@@ -834,7 +834,7 @@ sub LocalHeader
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
 
-    out_V "Last Mod Time", sub { scalar getTime(_dosToUnixTime($_[0])) };
+    out_V "Last Mod Time", sub { getTime(_dosToUnixTime($_[0])) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -963,7 +963,7 @@ sub CentralHeader
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
 
-    out_V "Last Mod Time", sub { scalar getTime(_dosToUnixTime($_[0])) };
+    out_V "Last Mod Time", sub { getTime(_dosToUnixTime($_[0])) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -1380,8 +1380,9 @@ sub getT
     if ($opt_utc)
      { return scalar gmtime($time) }
     else
-      { return scalar localtime($time) }
+     { return scalar localtime($time) }
 }
+
 sub getTime
 {
     my $time = shift ;
@@ -1981,6 +1982,9 @@ sub _dosToUnixTime
 
     use POSIX 'mktime';
 
+    # Force mktime to return a UTC time
+    local $ENV{TZ} = "UTC";
+
     my $time_t = mktime( $sec, $min, $hour, $mday, $mon, $year, 0, 0, -1 );
     return 0 if ! defined $time_t;
     return $time_t;
@@ -2140,6 +2144,7 @@ OPTIONS
      --scan    enable scannng mode.
                Blindly scan the file looking for zip headers
                Expect false-positives.
+     --utc     Display date/time fields in UTC
      -v        Verbose - output more stuff
      --version Print version number
 
@@ -2160,7 +2165,7 @@ zipdetails - display the internal structure of zip files
 
 =head1 SYNOPSIS
 
-    zipdetails [-v][--scan] [--redact] zipfile.zip
+    zipdetails [-v][--scan][--redact][--utc] zipfile.zip
     zipdetails -h
     zipdetails --version
 
