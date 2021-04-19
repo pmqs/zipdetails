@@ -4,7 +4,7 @@ zipdetails - display the internal structure of zip files
 
 # SYNOPSIS
 
-    zipdetails [-v][--scan] [--redact] zipfile.zip
+    zipdetails [-v][--scan][--redact][--utc] zipfile.zip
     zipdetails -h
     zipdetails --version
 
