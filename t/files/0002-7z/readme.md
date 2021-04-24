@@ -15,4 +15,4 @@ create zip files as follows
 
 # Notes
 
-7z on Linux creates the NTFS extra field in th ecentral directory
+7z on Linux creates the NTFS extra field in the central directory
