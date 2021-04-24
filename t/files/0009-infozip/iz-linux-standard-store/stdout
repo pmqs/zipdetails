@@ -1,0 +1,68 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      0A '1.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+000E CRC                   F90EE7FF
+0012 Compressed Length     000001BE
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          001C
+001E Filename              'lorem.txt'
+0027 Extra ID #0001        5455 'UT: Extended Timestamp'
+0029   Length              0009
+002B   Flags               '03 mod access'
+002C   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+0030   Access Time         60843DE7 'Sat Apr 24 15:48:55 2021'
+0034 Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0036   Length              000B
+0038   Version             01
+0039   UID Size            04
+003A   UID                 000003E8
+003E   GID Size            04
+003F   GID                 000003E8
+0043 PAYLOAD
+
+0201 CENTRAL HEADER #1     02014B50
+0205 Created Zip Spec      1E '3.0'
+0206 Created OS            03 'Unix'
+0207 Extract Zip Spec      0A '1.0'
+0208 Extract OS            00 'MS-DOS'
+0209 General Purpose Flag  0000
+020B Compression Method    0000 'Stored'
+020D Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+0211 CRC                   F90EE7FF
+0215 Compressed Length     000001BE
+0219 Uncompressed Length   000001BE
+021D Filename Length       0009
+021F Extra Length          0018
+0221 Comment Length        0000
+0223 Disk Start            0000
+0225 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0227 Ext File Attributes   81ED0000
+022B Local Header Offset   00000000
+022F Filename              'lorem.txt'
+0238 Extra ID #0001        5455 'UT: Extended Timestamp'
+023A   Length              0005
+023C   Flags               '03 mod access'
+023D   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+0241 Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0243   Length              000B
+0245   Version             01
+0246   UID Size            04
+0247   UID                 000003E8
+024B   GID Size            04
+024C   GID                 000003E8
+
+0250 END CENTRAL HEADER    06054B50
+0254 Number of this disk   0000
+0256 Central Dir Disk no   0000
+0258 Entries in this disk  0001
+025A Total Entries         0001
+025C Size of Central Dir   0000004F
+0260 Offset to Central Dir 00000201
+0264 Comment Length        0000
+Done
