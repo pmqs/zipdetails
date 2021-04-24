@@ -1,0 +1,61 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 3F          Extract Zip Spec      3F '6.3'
+0005 0001 03          Extract OS            03 'Unix'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 62 00       Compression Method    0062 'PPMd version I, Rev 1'
+000A 0004 22 A3 89 52 Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
+000E 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0004 06 01 00 00 Compressed Length     00000106
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 00 00       Extra Length          0000
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 0106 ...         PAYLOAD
+
+012D 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0131 0001 3F          Created Zip Spec      3F '6.3'
+0132 0001 03          Created OS            03 'Unix'
+0133 0001 3F          Extract Zip Spec      3F '6.3'
+0134 0001 03          Extract OS            03 'Unix'
+0135 0002 00 00       General Purpose Flag  0000
+0137 0002 62 00       Compression Method    0062 'PPMd version I, Rev 1'
+0139 0004 22 A3 89 52 Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
+013D 0004 FF E7 0E F9 CRC                   F90EE7FF
+0141 0004 06 01 00 00 Compressed Length     00000106
+0145 0004 BE 01 00 00 Uncompressed Length   000001BE
+0149 0002 09 00       Filename Length       0009
+014B 0002 24 00       Extra Length          0024
+014D 0002 00 00       Comment Length        0000
+014F 0002 00 00       Disk Start            0000
+0151 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+0153 0004 20 80 ED 81 Ext File Attributes   81ED8020
+                      [Bit 5]               Archive
+0157 0004 00 00 00 00 Local Header Offset   00000000
+015B 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0164 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
+0166 0002 20 00         Length              0020
+0168 0004 00 00 00 00   Reserved            00000000
+016C 0002 01 00         Tag1                0001
+016E 0002 18 00         Size1               0018
+0170 0008 00 E8 B8 0A   Mtime               01D72D760AB8E800 'Fri Apr  9 19:25:04
+          76 2D D7 01                       2021 0ns'
+0178 0008 00 17 76 95   Ctime               01D7392095761700 'Sat Apr 24 15:43:34
+          20 39 D7 01                       2021 0ns'
+0180 0008 00 E8 B8 0A   Atime               01D734492C3A6380 'Sun Apr 18 11:51:31
+          76 2D D7 01                       2021 0ns'
+
+0188 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+018C 0002 00 00       Number of this disk   0000
+018E 0002 00 00       Central Dir Disk no   0000
+0190 0002 01 00       Entries in this disk  0001
+0192 0002 01 00       Total Entries         0001
+0194 0004 5B 00 00 00 Size of Central Dir   0000005B
+0198 0004 2D 01 00 00 Offset to Central Dir 0000012D
+019C 0002 00 00       Comment Length        0000
+Done

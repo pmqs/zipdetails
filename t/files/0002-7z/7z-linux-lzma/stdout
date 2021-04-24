@@ -1,0 +1,66 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      3F '6.3'
+0005 Extract OS            03 'Unix'
+0006 General Purpose Flag  0000
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+0008 Compression Method    000E 'LZMA'
+000A Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000014F
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 LZMA Version          1002 '16.2'
+0029 LZMA Properties Size  0005
+002B LZMA Info             5D '(Default)'
+       PosStateBits        2
+       LiteralPosStateBits 0
+       LiteralContextBits  3
+002C LZMA Dictionary Size  00001000
+0030 PAYLOAD
+
+0176 CENTRAL HEADER #1     02014B50
+017A Created Zip Spec      3F '6.3'
+017B Created OS            03 'Unix'
+017C Extract Zip Spec      3F '6.3'
+017D Extract OS            03 'Unix'
+017E General Purpose Flag  0000
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+0180 Compression Method    000E 'LZMA'
+0182 Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
+0186 CRC                   F90EE7FF
+018A Compressed Length     0000014F
+018E Uncompressed Length   000001BE
+0192 Filename Length       0009
+0194 Extra Length          0024
+0196 Comment Length        0000
+0198 Disk Start            0000
+019A Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+019C Ext File Attributes   81ED8020
+     [Bit 5]               Archive
+01A0 Local Header Offset   00000000
+01A4 Filename              'lorem.txt'
+01AD Extra ID #0001        000A 'NTFS FileTimes'
+01AF   Length              0020
+01B1   Reserved            00000000
+01B5   Tag1                0001
+01B7   Size1               0018
+01B9   Mtime               01D72D760AB8E800 'Fri Apr  9 19:25:04
+                           2021 0ns'
+01C1   Ctime               01D7392095761700 'Sat Apr 24 15:43:34
+                           2021 0ns'
+01C9   Atime               01D734492C3A6380 'Sun Apr 18 11:51:31
+                           2021 0ns'
+
+01D1 END CENTRAL HEADER    06054B50
+01D5 Number of this disk   0000
+01D7 Central Dir Disk no   0000
+01D9 Entries in this disk  0001
+01DB Total Entries         0001
+01DD Size of Central Dir   0000005B
+01E1 Offset to Central Dir 00000176
+01E5 Comment Length        0000
+Done
