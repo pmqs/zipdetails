@@ -33,7 +33,7 @@ class mkZip
         final ZipArchiveEntry inflatedEntry = new ZipArchiveEntry("inflated.txt");
         inflatedEntry.setMethod(ZipEntry.DEFLATED);
 
-        inflatedEntry.setAlignment(1024);
+        inflatedEntry.setAlignment(64);
         zipOutput.putArchiveEntry(inflatedEntry);
         zipOutput.write("Hello Deflated\n".getBytes(StandardCharsets.UTF_8));
         zipOutput.closeArchiveEntry();
@@ -41,7 +41,7 @@ class mkZip
         final ZipArchiveEntry storedEntry = new ZipArchiveEntry("stored.txt");
         storedEntry.setMethod(ZipEntry.STORED);
 
-        ResourceAlignmentExtraField resourceAlignment = new ResourceAlignmentExtraField(1025, true, 3);
+        ResourceAlignmentExtraField resourceAlignment = new ResourceAlignmentExtraField(32, true, 3);
         storedEntry.addExtraField(resourceAlignment) ;
         // storedEntry.setAlignment(1024);
         zipOutput.putArchiveEntry(storedEntry);

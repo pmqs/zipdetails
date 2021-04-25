@@ -6,183 +6,115 @@
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
 0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         52985A96 'Sat Apr 24 11:20:44 2021'
+000A Last Mod Time         52996BA0 'Sun Apr 25 13:29:00 2021'
 000E CRC                   8CCD1B31
 0012 Compressed Length     00000011
 0016 Uncompressed Length   0000000F
 001A Filename Length       000C
-001C Extra Length          03D6
+001C Extra Length          0056
 001E Filename              'inflated.txt'
 002A Extra ID #0001        0001 'ZIP64'
 002C   Length              0010
 002E   Uncompressed Size   000000000000000F
 0036   Compressed Size     0000000000000011
 003E Extra ID #0002        A11E 'Data Stream Alignment'
-0040   Length              03BE
-0042   Alignment           0400
+0040   Length              003E
+0042   Alignment           0040
        [Bit   15]          0    'Recompress False'
-       [Bits 0-14]         400 'Minimal Alignment 1024'
+       [Bits 0-14]         40 'Minimal Alignment 64'
 0044   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
                            00 00 00 00 00 00 00 00 00 00 00 00 00
                            00 00 00 00 00 00 00 00 00 00 00 00 00
                            00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00
-0400 PAYLOAD               .H...WpIM.I,IM...
+                           00 00 00 00 00 00 00 00
+0080 PAYLOAD               .H...WpIM.I,IM...
 
-0411 LOCAL HEADER #2       04034B50
-0415 Extract Zip Spec      0A '1.0'
-0416 Extract OS            00 'MS-DOS'
-0417 General Purpose Flag  0800
+0091 LOCAL HEADER #2       04034B50
+0095 Extract Zip Spec      0A '1.0'
+0096 Extract OS            00 'MS-DOS'
+0097 General Purpose Flag  0800
      [Bit 11]              1 'Language Encoding'
-0419 Compression Method    0000 'Stored'
-041B Last Mod Time         52985A96 'Sat Apr 24 11:20:44 2021'
-041F CRC                   4430A97E
-0423 Compressed Length     0000000D
-0427 Uncompressed Length   0000000D
-042B Filename Length       000A
-042D Extra Length          001A
-042F Filename              'stored.txt'
-0439 Extra ID #0001        0001 'ZIP64'
-043B   Length              0010
-043D   Uncompressed Size   000000000000000D
-0445   Compressed Size     000000000000000D
-044D Extra ID #0002        A11E 'Data Stream Alignment'
-044F   Length              0002
-0451   Alignment           8401
+0099 Compression Method    0000 'Stored'
+009B Last Mod Time         52996BA0 'Sun Apr 25 13:29:00 2021'
+009F CRC                   4430A97E
+00A3 Compressed Length     0000000D
+00A7 Uncompressed Length   0000000D
+00AB Filename Length       000A
+00AD Extra Length          0027
+00AF Filename              'stored.txt'
+00B9 Extra ID #0001        0001 'ZIP64'
+00BB   Length              0010
+00BD   Uncompressed Size   000000000000000D
+00C5   Compressed Size     000000000000000D
+00CD Extra ID #0002        A11E 'Data Stream Alignment'
+00CF   Length              000F
+00D1   Alignment           8020
        [Bit   15]          1    'Recompress True'
-       [Bits 0-14]         401 'Minimal Alignment 1025'
-0453 PAYLOAD               Hello Stored.
+       [Bits 0-14]         20 'Minimal Alignment 32'
+00D3   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
+00E0 PAYLOAD               Hello Stored.
 
-0460 CENTRAL HEADER #1     02014B50
-0464 Created Zip Spec      14 '2.0'
-0465 Created OS            00 'MS-DOS'
-0466 Extract Zip Spec      14 '2.0'
-0467 Extract OS            00 'MS-DOS'
-0468 General Purpose Flag  0800
+00ED CENTRAL HEADER #1     02014B50
+00F1 Created Zip Spec      14 '2.0'
+00F2 Created OS            00 'MS-DOS'
+00F3 Extract Zip Spec      14 '2.0'
+00F4 Extract OS            00 'MS-DOS'
+00F5 General Purpose Flag  0800
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-046A Compression Method    0008 'Deflated'
-046C Last Mod Time         52985A96 'Sat Apr 24 11:20:44 2021'
-0470 CRC                   8CCD1B31
-0474 Compressed Length     00000011
-0478 Uncompressed Length   0000000F
-047C Filename Length       000C
-047E Extra Length          0006
-0480 Comment Length        0000
-0482 Disk Start            0000
-0484 Int File Attributes   0000
+00F7 Compression Method    0008 'Deflated'
+00F9 Last Mod Time         52996BA0 'Sun Apr 25 13:29:00 2021'
+00FD CRC                   8CCD1B31
+0101 Compressed Length     00000011
+0105 Uncompressed Length   0000000F
+0109 Filename Length       000C
+010B Extra Length          0006
+010D Comment Length        0000
+010F Disk Start            0000
+0111 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
-0486 Ext File Attributes   00000000
-048A Local Header Offset   00000000
-048E Filename              'inflated.txt'
-049A Extra ID #0001        A11E 'Data Stream Alignment'
-049C   Length              0002
-049E   Alignment           0400
+0113 Ext File Attributes   00000000
+0117 Local Header Offset   00000000
+011B Filename              'inflated.txt'
+0127 Extra ID #0001        A11E 'Data Stream Alignment'
+0129   Length              0002
+012B   Alignment           0040
        [Bit   15]          0    'Recompress False'
-       [Bits 0-14]         400 'Minimal Alignment 1024'
+       [Bits 0-14]         40 'Minimal Alignment 64'
 
-04A0 CENTRAL HEADER #2     02014B50
-04A4 Created Zip Spec      14 '2.0'
-04A5 Created OS            00 'MS-DOS'
-04A6 Extract Zip Spec      0A '1.0'
-04A7 Extract OS            00 'MS-DOS'
-04A8 General Purpose Flag  0800
+012D CENTRAL HEADER #2     02014B50
+0131 Created Zip Spec      14 '2.0'
+0132 Created OS            00 'MS-DOS'
+0133 Extract Zip Spec      0A '1.0'
+0134 Extract OS            00 'MS-DOS'
+0135 General Purpose Flag  0800
      [Bit 11]              1 'Language Encoding'
-04AA Compression Method    0000 'Stored'
-04AC Last Mod Time         52985A96 'Sat Apr 24 11:20:44 2021'
-04B0 CRC                   4430A97E
-04B4 Compressed Length     0000000D
-04B8 Uncompressed Length   0000000D
-04BC Filename Length       000A
-04BE Extra Length          0006
-04C0 Comment Length        0000
-04C2 Disk Start            0000
-04C4 Int File Attributes   0000
+0137 Compression Method    0000 'Stored'
+0139 Last Mod Time         52996BA0 'Sun Apr 25 13:29:00 2021'
+013D CRC                   4430A97E
+0141 Compressed Length     0000000D
+0145 Uncompressed Length   0000000D
+0149 Filename Length       000A
+014B Extra Length          0006
+014D Comment Length        0000
+014F Disk Start            0000
+0151 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
-04C6 Ext File Attributes   00000000
-04CA Local Header Offset   00000411
-04CE Filename              'stored.txt'
-04D8 Extra ID #0001        A11E 'Data Stream Alignment'
-04DA   Length              0002
-04DC   Alignment           8401
+0153 Ext File Attributes   00000000
+0157 Local Header Offset   00000091
+015B Filename              'stored.txt'
+0165 Extra ID #0001        A11E 'Data Stream Alignment'
+0167   Length              0002
+0169   Alignment           8020
        [Bit   15]          1    'Recompress True'
-       [Bits 0-14]         401 'Minimal Alignment 1025'
+       [Bits 0-14]         20 'Minimal Alignment 32'
 
-04DE END CENTRAL HEADER    06054B50
-04E2 Number of this disk   0000
-04E4 Central Dir Disk no   0000
-04E6 Entries in this disk  0002
-04E8 Total Entries         0002
-04EA Size of Central Dir   0000007E
-04EE Offset to Central Dir 00000460
-04F2 Comment Length        0000
+016B END CENTRAL HEADER    06054B50
+016F Number of this disk   0000
+0171 Central Dir Disk no   0000
+0173 Entries in this disk  0002
+0175 Total Entries         0002
+0177 Size of Central Dir   0000007E
+017B Offset to Central Dir 000000ED
+017F Comment Length        0000
 Done
