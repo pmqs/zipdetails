@@ -9,7 +9,7 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-plan tests => 29 * 10 ;
+plan tests => 30 * 10 ;
 
 sub run;
 
@@ -26,9 +26,11 @@ my $tempdir = tempdir(CLEANUP => 1);
 
 my %dirs;
 my $exts = join "|",  qw( zip zipx saz xlsx docx jar par tar war) ;
+my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
+
 find(
         sub { $dirs{$File::Find::dir} = $_
-                 if /\.($exts)$/;
+                 if /\.($exts)$/ && ! $skip_dirs{ $File::Find::dir };
              },
              't/files'
     );

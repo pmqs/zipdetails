@@ -186,7 +186,7 @@ my %Extras = (
       0x7855,  ['Unix Extra type 2', \&decode_Ux],
       0x7875,  ['Unix Extra Type 3', \&decode_ux],
       0x9901,  ['AES Encryption', \&decode_AES],
-      0xa11e,  ['Data Stream Alignment', undef],
+      0xa11e,  ['Data Stream Alignment', \&decode_DataStreamAlignment],
       0xA220,  ['Open Packaging Growth Hint', \&decode_GrowthHint ],
       0xCAFE,  ['Java Executable', \&decode_Java_exe],
       0xfb4a,  ['SMS/QDOS', undef],
@@ -1319,14 +1319,16 @@ sub decode_Zip64
     my $context = shift;
 
     my $z64Data = $context->{Zip64};
+    my $inCentralHdr = $context->{InCentralDir} ;
+    my $inLocalHdr = ! $inCentralHdr ;
 
     $ZIP64 = 1;
 
-    if (full32 $z64Data->[0] ) {
+    if ($inLocalHdr || full32 $z64Data->[0]) {
         out_Q "  Uncompressed Size";
     }
 
-    if (full32 $z64Data->[1] ) {
+    if ($inLocalHdr || full32 $z64Data->[1]) {
         $context->{CompressedLength} = out_Q "  Compressed Size";
     }
 
@@ -1478,6 +1480,37 @@ sub decode_GrowthHint
 
     out2 $padding, "Padding", $data;
 }
+
+sub decode_DataStreamAlignment
+{
+    my $len = shift;
+    my $context = shift;
+    my $inCentralHdr = $context->{InCentralDir} ;
+
+    return if $len == 0 ;
+
+    my ($data, $alignment) = read_v();
+
+    out $data, "  Alignment", Value_v($alignment) ;
+
+    my $recompress_value = $alignment & 0x8000 ? 1 : 0;
+
+    my $recompressing = $recompress_value ? "True" : "False";
+    $alignment &= 0x7FFF ;
+    my $hexAl =  sprintf("%X", $alignment);
+
+    out1 "  [Bit   15]",  "$recompress_value    'Recompress $recompressing'";
+    out1 "  [Bits 0-14]", "$hexAl 'Minimal Alignment $alignment'";
+
+    if (! $inCentralHdr && $len - 2 > 0)
+    {
+        my $padding;
+        myRead($padding, $len - 2);
+
+        out2 $padding, "Padding", hexDump($padding);
+    }
+}
+
 
 sub decode_UX
 {
