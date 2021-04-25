@@ -1,4 +1,6 @@
 
+7z man page is https://documentation.help/7-Zip/start.htm
+
 create zip files as follows
 
     7z a  7z-linux-aes128.zip    lorem.txt -mem=aes128    -ppassword
