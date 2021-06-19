@@ -3,6 +3,8 @@
 
 Apache Commons Compress lives at http://commons.apache.org/proper/commons-compress/
 
+GitHub repository at https://github.com/apache/commons-compress
+
 This library supports the Data Stream Alignment extra field (A11E) -- method to create is ZipArchiveEntry.setAlignment
 
 # Testing
