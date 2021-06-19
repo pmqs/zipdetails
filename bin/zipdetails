@@ -754,7 +754,7 @@ while (1)
             $skippedFrom = $FH->tell() ;
             $skippedContent = $CdOffset - $skippedFrom ;
 
-            print "\nWARNING!\nZip local header not found.\n";
+            printf "\nWARNING!\nZip local header not found at offset 0x%X\n", $skippedFrom;
             printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
 
             push @Messages,
