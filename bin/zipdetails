@@ -335,6 +335,11 @@ sub hexDump
     return $out;
 }
 
+sub hexValue
+{
+    return sprintf("%X", $_[0]);
+}
+
 sub out
 {
     my $data = shift;
@@ -600,28 +605,40 @@ sub scanForSignature
     my $start = $FH->tell();
 
     my $last = '';
+    my $offset = 0;
     my $buffer ;
+    BUFFER:
     while ($FH->read($buffer, 1024 * 1000))
     {
-        my $combine = substr($last, -4) . $buffer ;
-        $last = $buffer;
-        my $ix = index($combine, "PK") ;
+        my $combine = $last . $buffer ;
 
-        next
-            if $ix == -1;
+        my $ix = 0;
+        while (1)
+        {
+            $ix = index($combine, "PK", $ix) ;
 
-        my $rest = substr($combine, $ix+2, 2);
+            if ($ix == -1)
+            {
+                $last = '';
+                next BUFFER;
+            }
 
-        next
-            unless length $rest == 2 && $sigs{$rest} ;
+            my $rest = substr($combine, $ix + 2, 2);
 
-        my $v = unpack("v", $rest) ;
+            if (! $sigs{$rest})
+            {
+                $ix += 2;
+                next;
+            }
 
-        # possible match
-        my $here = $FH->tell();
-        seekTo($here - length($combine) + $ix);
+            # possible match
+            my $here = $FH->tell();
+            seekTo($here - length($combine) + $ix);
 
-        return 1;
+            return 1;
+        }
+
+        $last = substr($combine, $ix+4);
     }
 
     return 0;
