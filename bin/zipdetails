@@ -11,6 +11,7 @@ BEGIN { pop @INC if $INC[-1] eq '.' }
 use strict;
 use warnings ;
 no  warnings 'portable'; # for unpacking > 2^32
+use feature 'state';
 
 use IO::File;
 use Encode;
@@ -207,6 +208,7 @@ my $OFFSET = 0 ;
 my $TRAILING = 0 ;
 my $PAYLOADLIMIT = 256;
 my $ZERO = 0 ;
+my $APK = 0 ;
 
 my $SEEN = Seen->new();
 
@@ -748,6 +750,12 @@ while (1)
 
         if ($here < $CdOffset)
         {
+            if ($APK)
+            {
+                scanApkBlock($buffer);
+                next;
+            }
+
             # next
             #     if scanForSignature() ;
 
@@ -1745,6 +1753,103 @@ sub printLzmaProperties
     return $len;
 }
 
+sub readFromOffset
+{
+    # my $fh = shift;
+    my $offset = shift;
+    my $len = shift;
+
+    seekTo($offset) ;
+
+    my $buffer;
+    myRead($buffer, $len);
+    # $fh->read($buffer, $len) == $len
+    length $buffer == $len
+        or return '';
+
+    return $buffer;
+}
+
+sub chckForAPKSigningBlock
+{
+    my $fh = shift;
+    my $cdOffset = shift;
+
+    # APK Signing Block comes directy before the Central directory
+
+    # If offset less than
+    #
+    #   len1     8
+    #   id       4
+    #   kv with zero len 8
+    #   len1     8
+    #   magic   16
+    #   ----------
+    #           44
+
+    return 0
+        if $cdOffset < 44;
+
+    # Step 1 - 16 bytes before CD is literal string "APK Sig Block 42"
+    my $magicOffset = $cdOffset - 16;
+    my $buffer = readFromOffset($magicOffset, 16);
+
+    return 0
+        if $buffer ne "APK Sig Block 42" ;
+print "FOUND APK Sig Block 42\n";
+
+    # Step 2 - read the two length fields
+    #          and check they are identical
+    $buffer = readFromOffset($cdOffset - 16 - 8, 8);
+    my $len2 = unpack("Q<", $buffer);
+
+    my $startApkOffset = $cdOffset - 16 - 8 - $len2 ;
+
+    $buffer = readFromOffset($cdOffset - 8 - $len2, 8);
+    my $len1 = unpack("Q<", $buffer);
+
+    return 0
+        if $len1 != $len2;
+
+    return $cdOffset - 16 - 8;
+}
+
+sub scanApkBlock
+{
+    my $fourbytes = shift;
+
+    state $IDs = {
+            0x7109871a  => " 'APK Signature v2'",
+            0xf05368c0  => " 'APK Signature v3'",
+    } ;
+
+    seekTo($FH->tell() - 4) ;
+    print "\nAPK SIGNING BLOCK\n";
+    out_Q "APK Length 1";
+
+    my $magicOffset = $FH->tell() + $APK;
+    while ($FH->tell() < $APK)
+    {
+         my ($bytes, $id, $len);
+        ($bytes, $id) = read_V;
+        out $bytes, "ID", Value_V($id) . ($IDs->{$id} //'');
+
+        ($bytes, $len) = read_V ;
+        out $bytes, "Length", $len;
+
+        outSomeData($len, "Payload");
+    }
+
+    out_Q "APK Length 2";
+
+    my $magic ;
+    myRead($magic, 16);
+
+    out $magic, "Magic", qq['$magic'];
+
+
+}
+
 sub scanCentralDirectory
 {
     my $fh = shift;
@@ -1962,6 +2067,8 @@ sub findCentralDirectoryOffset
         $centralDirOffset += $over64bit;
         $is64In32 = 1;
     }
+
+    $APK = chckForAPKSigningBlock($fh, $centralDirOffset);
 
     return $centralDirOffset ;
 }
