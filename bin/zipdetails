@@ -1796,7 +1796,6 @@ sub chckForAPKSigningBlock
 
     return 0
         if $buffer ne "APK Sig Block 42" ;
-print "FOUND APK Sig Block 42\n";
 
     # Step 2 - read the two length fields
     #          and check they are identical
