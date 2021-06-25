@@ -25,7 +25,7 @@ $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 my $tempdir = tempdir(CLEANUP => 1);
 
 my %dirs;
-my $exts = join "|",  qw( zip zipx saz xlsx docx jar par tar war) ;
+my $exts = join "|",  qw( zip zipx saz xlsx docx jar par tar war apk) ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
 
 find(
