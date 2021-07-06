@@ -1,4 +1,3 @@
-FOUND APK Sig Block 42
 
 0000 LOCAL HEADER #1       04034B50
 0004 Extract Zip Spec      14 '2.0'
@@ -6,7 +5,7 @@ FOUND APK Sig Block 42
 0006 General Purpose Flag  0002
      [Bits 1-2]            1 'Maximum Compression'
 0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         4B4B6B68 'Wed Oct 11 14:27:16 2017'
+000A Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
 000E CRC                   6B2C50D5
 0012 Compressed Length     00000052
 0016 Uncompressed Length   00000098
@@ -18,13 +17,13 @@ FOUND APK Sig Block 42
                            l-
 
 APK SIGNING BLOCK
-0083 APK Length 1          00000000000001C4
+0083 APK Length #1         00000000000001C4
 008B ID                    000001A4
-008F Length                0
+008F Length                00000000
 0093 ID                    7109871A 'APK Signature v2'
-0097 Length                412
+0097 Length                0000019C
 009B Payload
-0237 APK Length 2          00000000000001C4
+0237 APK Length #2         00000000000001C4
 023F Magic                 'APK Sig Block 42'
 
 024F CENTRAL HEADER #1     02014B50
@@ -35,7 +34,7 @@ APK SIGNING BLOCK
 0257 General Purpose Flag  0002
      [Bits 1-2]            1 'Maximum Compression'
 0259 Compression Method    0008 'Deflated'
-025B Last Mod Time         4B4B6B68 'Wed Oct 11 14:27:16 2017'
+025B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
 025F CRC                   6B2C50D5
 0263 Compressed Length     00000052
 0267 Uncompressed Length   00000098

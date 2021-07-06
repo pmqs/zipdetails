@@ -1,4 +1,3 @@
-FOUND APK Sig Block 42
 
 0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
 0004 0001 14          Extract Zip Spec      14 '2.0'
@@ -6,7 +5,7 @@ FOUND APK Sig Block 42
 0006 0002 02 00       General Purpose Flag  0002
                       [Bits 1-2]            1 'Maximum Compression'
 0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 14:27:16 2017'
+000A 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
 000E 0004 D5 50 2C 6B CRC                   6B2C50D5
 0012 0004 52 00 00 00 Compressed Length     00000052
 0016 0004 98 00 00 00 Uncompressed Length   00000098
@@ -40,14 +39,14 @@ FOUND APK Sig Block 42
           6C 2D
 
 APK SIGNING BLOCK
-0083 0008 C4 01 00 00 APK Length 1          00000000000001C4
+0083 0008 C4 01 00 00 APK Length #1         00000000000001C4
           00 00 00 00
 008B 0004 A4 01 00 00 ID                    000001A4
-008F 0004 00 00 00 00 Length                0
+008F 0004 00 00 00 00 Length                00000000
 0093 0004 1A 87 09 71 ID                    7109871A 'APK Signature v2'
-0097 0004 9C 01 00 00 Length                412
+0097 0004 9C 01 00 00 Length                0000019C
 009B 019C ...         Payload
-0237 0008 C4 01 00 00 APK Length 2          00000000000001C4
+0237 0008 C4 01 00 00 APK Length #2         00000000000001C4
           00 00 00 00
 023F 0010 41 50 4B 20 Magic                 'APK Sig Block 42'
           53 69 67 20
@@ -62,7 +61,7 @@ APK SIGNING BLOCK
 0257 0002 02 00       General Purpose Flag  0002
                       [Bits 1-2]            1 'Maximum Compression'
 0259 0002 08 00       Compression Method    0008 'Deflated'
-025B 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 14:27:16 2017'
+025B 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
 025F 0004 D5 50 2C 6B CRC                   6B2C50D5
 0263 0004 52 00 00 00 Compressed Length     00000052
 0267 0004 98 00 00 00 Uncompressed Length   00000098

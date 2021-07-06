@@ -1,0 +1,533 @@
+
+00000 LOCAL HEADER #1       04034B50
+00004 Extract Zip Spec      14 '2.0'
+00005 Extract OS            00 'MS-DOS'
+00006 General Purpose Flag  0808
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit  3]              1 'Streamed'
+      [Bit 11]              1 'Language Encoding'
+00008 Compression Method    0008 'Deflated'
+0000A Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+0000E CRC                   ED116085
+00012 Compressed Length     0009D7AD
+00016 Uncompressed Length   0017FFC8
+0001A Filename Length       000B
+0001C Extra Length          0000
+0001E Filename              'classes.dex'
+00029 PAYLOAD
+
+9D7D6 STREAMING DATA HEADER 08074B50
+9D7DA CRC                   ED116085
+9D7DE Compressed Length     0009D7AD
+9D7E2 Uncompressed Length   0017FFC8
+
+9D7E6 LOCAL HEADER #2       04034B50
+9D7EA Extract Zip Spec      0A '1.0'
+9D7EB Extract OS            00 'MS-DOS'
+9D7EC General Purpose Flag  0000
+9D7EE Compression Method    0000 'Stored'
+9D7F0 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9D7F4 CRC                   8B55FA12
+9D7F8 Compressed Length     00000035
+9D7FC Uncompressed Length   00000035
+9D800 Filename Length       0024
+9D802 Extra Length          0000
+9D804 Filename              'android-support-multidex.version.txt'
+9D828 PAYLOAD               git.version=802420556e424ddb3ca499b49cb9
+                            d27daf3927bf.
+
+9D85D LOCAL HEADER #3       04034B50
+9D861 Extract Zip Spec      00 '0.0'
+9D862 Extract OS            00 'MS-DOS'
+9D863 General Purpose Flag  0000
+      [Bits 1-2]            0 'Normal Compression'
+9D865 Compression Method    0008 'Deflated'
+9D867 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9D86B CRC                   D180E506
+9D86F Compressed Length     00000563
+9D873 Uncompressed Length   00001754
+9D877 Filename Length       0013
+9D879 Extra Length          0000
+9D87B Filename              'AndroidManifest.xml'
+9D88E PAYLOAD
+
+9DDF1 LOCAL HEADER #4       04034B50
+9DDF5 Extract Zip Spec      00 '0.0'
+9DDF6 Extract OS            00 'MS-DOS'
+9DDF7 General Purpose Flag  0000
+9DDF9 Compression Method    0000 'Stored'
+9DDFB Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9DDFF CRC                   5C699007
+9DE03 Compressed Length     00000469
+9DE07 Uncompressed Length   00000469
+9DE0B Filename Length       002D
+9DE0D Extra Length          0000
+9DE0F Filename              'res/drawable-mdpi-
+                            v4/ic_shortcut_axt_logo.png'
+9DE3C PAYLOAD
+
+9E2A5 LOCAL HEADER #5       04034B50
+9E2A9 Extract Zip Spec      00 '0.0'
+9E2AA Extract OS            00 'MS-DOS'
+9E2AB General Purpose Flag  0000
+9E2AD Compression Method    0000 'Stored'
+9E2AF Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9E2B3 CRC                   CEC9122E
+9E2B7 Compressed Length     00000661
+9E2BB Uncompressed Length   00000661
+9E2BF Filename Length       002D
+9E2C1 Extra Length          0000
+9E2C3 Filename              'res/drawable-hdpi-
+                            v4/ic_shortcut_axt_logo.png'
+9E2F0 PAYLOAD
+
+9E951 LOCAL HEADER #6       04034B50
+9E955 Extract Zip Spec      00 '0.0'
+9E956 Extract OS            00 'MS-DOS'
+9E957 General Purpose Flag  0000
+9E959 Compression Method    0000 'Stored'
+9E95B Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9E95F CRC                   20CC95EB
+9E963 Compressed Length     00000991
+9E967 Uncompressed Length   00000991
+9E96B Filename Length       002E
+9E96D Extra Length          0003
+9E96F Filename              'res/drawable-xhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+9E99D Malformed Extra Data  00 00 00
+9E9A0 PAYLOAD
+
+9F331 LOCAL HEADER #7       04034B50
+9F335 Extract Zip Spec      00 '0.0'
+9F336 Extract OS            00 'MS-DOS'
+9F337 General Purpose Flag  0000
+9F339 Compression Method    0000 'Stored'
+9F33B Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+9F33F CRC                   593AA15F
+9F343 Compressed Length     00000D7B
+9F347 Uncompressed Length   00000D7B
+9F34B Filename Length       002F
+9F34D Extra Length          0002
+9F34F Filename              'res/drawable-xxhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+9F37E Malformed Extra Data  00 00
+9F380 PAYLOAD
+
+A00FB LOCAL HEADER #8       04034B50
+A00FF Extract Zip Spec      00 '0.0'
+A0100 Extract OS            00 'MS-DOS'
+A0101 General Purpose Flag  0000
+A0103 Compression Method    0000 'Stored'
+A0105 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A0109 CRC                   D80480CE
+A010D Compressed Length     000013E1
+A0111 Uncompressed Length   000013E1
+A0115 Filename Length       0030
+A0117 Extra Length          0003
+A0119 Filename              'res/drawable-xxxhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+A0149 Malformed Extra Data  00 00 00
+A014C PAYLOAD
+
+A152D LOCAL HEADER #9       04034B50
+A1531 Extract Zip Spec      00 '0.0'
+A1532 Extract OS            00 'MS-DOS'
+A1533 General Purpose Flag  0000
+A1535 Compression Method    0000 'Stored'
+A1537 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A153B CRC                   BD85EEB3
+A153F Compressed Length     0000076C
+A1543 Uncompressed Length   0000076C
+A1547 Filename Length       000E
+A1549 Extra Length          0003
+A154B Filename              'resources.arsc'
+A1559 Malformed Extra Data  00 00 00
+A155C PAYLOAD
+
+A1CC8 LOCAL HEADER #A       04034B50
+A1CCC Extract Zip Spec      14 '2.0'
+A1CCD Extract OS            00 'MS-DOS'
+A1CCE General Purpose Flag  0000
+A1CD0 Compression Method    0000 'Stored'
+A1CD2 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A1CD6 CRC                   046C3C66
+A1CDA Compressed Length     0000007C
+A1CDE Uncompressed Length   0000007C
+A1CE2 Filename Length       0046
+A1CE4 Extra Length          0000
+A1CE6 Filename              'META-
+                            INF/services/com.google.protobuf.Generat
+                            edExtensionRegistryLoader'
+A1D2C PAYLOAD               com.google.protobuf.third_party_android_
+                            androidx_test_services__test_services_99
+                            e84c17GeneratedExtensionRegistryLite$Loa
+                            der.
+
+A1DA8 LOCAL HEADER #B       04034B50
+A1DAC Extract Zip Spec      14 '2.0'
+A1DAD Extract OS            00 'MS-DOS'
+A1DAE General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A1DB0 Compression Method    0008 'Deflated'
+A1DB2 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A1DB6 CRC                   D8EC7154
+A1DBA Compressed Length     00000218
+A1DBE Uncompressed Length   00000417
+A1DC2 Filename Length       0010
+A1DC4 Extra Length          0000
+A1DC6 Filename              'META-INF/CERT.SF'
+A1DD6 PAYLOAD
+
+A1FEE LOCAL HEADER #C       04034B50
+A1FF2 Extract Zip Spec      14 '2.0'
+A1FF3 Extract OS            00 'MS-DOS'
+A1FF4 General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A1FF6 Compression Method    0008 'Deflated'
+A1FF8 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A1FFC CRC                   3049443B
+A2000 Compressed Length     000002D8
+A2004 Uncompressed Length   00000376
+A2008 Filename Length       0011
+A200A Extra Length          0000
+A200C Filename              'META-INF/CERT.DSA'
+A201D PAYLOAD
+
+A22F5 LOCAL HEADER #D       04034B50
+A22F9 Extract Zip Spec      14 '2.0'
+A22FA Extract OS            00 'MS-DOS'
+A22FB General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A22FD Compression Method    0008 'Deflated'
+A22FF Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A2303 CRC                   D09B816A
+A2307 Compressed Length     000001E5
+A230B Uncompressed Length   000003C2
+A230F Filename Length       0014
+A2311 Extra Length          0000
+A2313 Filename              'META-INF/MANIFEST.MF'
+A2327 PAYLOAD
+
+APK SIGNING BLOCK
+A250C Null Padding
+A3000 APK Length #1         0000000000000FF8
+A3008 ID                    00000504
+A300C Length                00000000
+A3010 ID                    7109871A 'APK Signature v2'
+A3014 Length                000004FC
+A3018 Payload
+A3514 ID                    00000505
+A3518 Length                00000000
+A351C ID                    F05368C0 'APK Signature v3'
+A3520 Length                000004FD
+A3524 Payload
+A3A21 ID                    000005BF
+A3A25 Length                00000000
+A3A29 ID                    42726577
+A3A2D Length                00000000
+A3A31 Null Padding
+A3FE8 APK Length #2         0000000000000FF8
+A3FF0 Magic                 'APK Sig Block 42'
+
+A4000 CENTRAL HEADER #1     02014B50
+A4004 Created Zip Spec      14 '2.0'
+A4005 Created OS            00 'MS-DOS'
+A4006 Extract Zip Spec      14 '2.0'
+A4007 Extract OS            00 'MS-DOS'
+A4008 General Purpose Flag  0808
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit  3]              1 'Streamed'
+      [Bit 11]              1 'Language Encoding'
+A400A Compression Method    0008 'Deflated'
+A400C Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4010 CRC                   ED116085
+A4014 Compressed Length     0009D7AD
+A4018 Uncompressed Length   0017FFC8
+A401C Filename Length       000B
+A401E Extra Length          0000
+A4020 Comment Length        0000
+A4022 Disk Start            0000
+A4024 Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A4026 Ext File Attributes   00000000
+A402A Local Header Offset   00000000
+A402E Filename              'classes.dex'
+
+A4039 CENTRAL HEADER #2     02014B50
+A403D Created Zip Spec      1E '3.0'
+A403E Created OS            03 'Unix'
+A403F Extract Zip Spec      0A '1.0'
+A4040 Extract OS            00 'MS-DOS'
+A4041 General Purpose Flag  0000
+A4043 Compression Method    0000 'Stored'
+A4045 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4049 CRC                   8B55FA12
+A404D Compressed Length     00000035
+A4051 Uncompressed Length   00000035
+A4055 Filename Length       0024
+A4057 Extra Length          0000
+A4059 Comment Length        0000
+A405B Disk Start            0000
+A405D Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A405F Ext File Attributes   81A00000
+A4063 Local Header Offset   0009D7E6
+A4067 Filename              'android-support-multidex.version.txt'
+
+A408B CENTRAL HEADER #3     02014B50
+A408F Created Zip Spec      00 '0.0'
+A4090 Created OS            00 'MS-DOS'
+A4091 Extract Zip Spec      00 '0.0'
+A4092 Extract OS            00 'MS-DOS'
+A4093 General Purpose Flag  0000
+      [Bits 1-2]            0 'Normal Compression'
+A4095 Compression Method    0008 'Deflated'
+A4097 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A409B CRC                   D180E506
+A409F Compressed Length     00000563
+A40A3 Uncompressed Length   00001754
+A40A7 Filename Length       0013
+A40A9 Extra Length          0000
+A40AB Comment Length        0000
+A40AD Disk Start            0000
+A40AF Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A40B1 Ext File Attributes   00000000
+A40B5 Local Header Offset   0009D85D
+A40B9 Filename              'AndroidManifest.xml'
+
+A40CC CENTRAL HEADER #4     02014B50
+A40D0 Created Zip Spec      00 '0.0'
+A40D1 Created OS            00 'MS-DOS'
+A40D2 Extract Zip Spec      00 '0.0'
+A40D3 Extract OS            00 'MS-DOS'
+A40D4 General Purpose Flag  0000
+A40D6 Compression Method    0000 'Stored'
+A40D8 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A40DC CRC                   5C699007
+A40E0 Compressed Length     00000469
+A40E4 Uncompressed Length   00000469
+A40E8 Filename Length       002D
+A40EA Extra Length          0000
+A40EC Comment Length        0000
+A40EE Disk Start            0000
+A40F0 Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A40F2 Ext File Attributes   00000000
+A40F6 Local Header Offset   0009DDF1
+A40FA Filename              'res/drawable-mdpi-
+                            v4/ic_shortcut_axt_logo.png'
+
+A4127 CENTRAL HEADER #5     02014B50
+A412B Created Zip Spec      00 '0.0'
+A412C Created OS            00 'MS-DOS'
+A412D Extract Zip Spec      00 '0.0'
+A412E Extract OS            00 'MS-DOS'
+A412F General Purpose Flag  0000
+A4131 Compression Method    0000 'Stored'
+A4133 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4137 CRC                   CEC9122E
+A413B Compressed Length     00000661
+A413F Uncompressed Length   00000661
+A4143 Filename Length       002D
+A4145 Extra Length          0000
+A4147 Comment Length        0000
+A4149 Disk Start            0000
+A414B Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A414D Ext File Attributes   00000000
+A4151 Local Header Offset   0009E2A5
+A4155 Filename              'res/drawable-hdpi-
+                            v4/ic_shortcut_axt_logo.png'
+
+A4182 CENTRAL HEADER #6     02014B50
+A4186 Created Zip Spec      00 '0.0'
+A4187 Created OS            00 'MS-DOS'
+A4188 Extract Zip Spec      00 '0.0'
+A4189 Extract OS            00 'MS-DOS'
+A418A General Purpose Flag  0000
+A418C Compression Method    0000 'Stored'
+A418E Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4192 CRC                   20CC95EB
+A4196 Compressed Length     00000991
+A419A Uncompressed Length   00000991
+A419E Filename Length       002E
+A41A0 Extra Length          0000
+A41A2 Comment Length        0000
+A41A4 Disk Start            0000
+A41A6 Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A41A8 Ext File Attributes   00000000
+A41AC Local Header Offset   0009E951
+A41B0 Filename              'res/drawable-xhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+
+A41DE CENTRAL HEADER #7     02014B50
+A41E2 Created Zip Spec      00 '0.0'
+A41E3 Created OS            00 'MS-DOS'
+A41E4 Extract Zip Spec      00 '0.0'
+A41E5 Extract OS            00 'MS-DOS'
+A41E6 General Purpose Flag  0000
+A41E8 Compression Method    0000 'Stored'
+A41EA Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A41EE CRC                   593AA15F
+A41F2 Compressed Length     00000D7B
+A41F6 Uncompressed Length   00000D7B
+A41FA Filename Length       002F
+A41FC Extra Length          0000
+A41FE Comment Length        0000
+A4200 Disk Start            0000
+A4202 Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A4204 Ext File Attributes   00000000
+A4208 Local Header Offset   0009F331
+A420C Filename              'res/drawable-xxhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+
+A423B CENTRAL HEADER #8     02014B50
+A423F Created Zip Spec      00 '0.0'
+A4240 Created OS            00 'MS-DOS'
+A4241 Extract Zip Spec      00 '0.0'
+A4242 Extract OS            00 'MS-DOS'
+A4243 General Purpose Flag  0000
+A4245 Compression Method    0000 'Stored'
+A4247 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A424B CRC                   D80480CE
+A424F Compressed Length     000013E1
+A4253 Uncompressed Length   000013E1
+A4257 Filename Length       0030
+A4259 Extra Length          0000
+A425B Comment Length        0000
+A425D Disk Start            0000
+A425F Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A4261 Ext File Attributes   00000000
+A4265 Local Header Offset   000A00FB
+A4269 Filename              'res/drawable-xxxhdpi-
+                            v4/ic_shortcut_axt_logo.png'
+
+A4299 CENTRAL HEADER #9     02014B50
+A429D Created Zip Spec      00 '0.0'
+A429E Created OS            00 'MS-DOS'
+A429F Extract Zip Spec      00 '0.0'
+A42A0 Extract OS            00 'MS-DOS'
+A42A1 General Purpose Flag  0000
+A42A3 Compression Method    0000 'Stored'
+A42A5 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A42A9 CRC                   BD85EEB3
+A42AD Compressed Length     0000076C
+A42B1 Uncompressed Length   0000076C
+A42B5 Filename Length       000E
+A42B7 Extra Length          0000
+A42B9 Comment Length        0000
+A42BB Disk Start            0000
+A42BD Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A42BF Ext File Attributes   00000000
+A42C3 Local Header Offset   000A152D
+A42C7 Filename              'resources.arsc'
+
+A42D5 CENTRAL HEADER #A     02014B50
+A42D9 Created Zip Spec      14 '2.0'
+A42DA Created OS            00 'MS-DOS'
+A42DB Extract Zip Spec      14 '2.0'
+A42DC Extract OS            00 'MS-DOS'
+A42DD General Purpose Flag  0000
+A42DF Compression Method    0000 'Stored'
+A42E1 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A42E5 CRC                   046C3C66
+A42E9 Compressed Length     0000007C
+A42ED Uncompressed Length   0000007C
+A42F1 Filename Length       0046
+A42F3 Extra Length          0000
+A42F5 Comment Length        0000
+A42F7 Disk Start            0000
+A42F9 Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A42FB Ext File Attributes   00000000
+A42FF Local Header Offset   000A1CC8
+A4303 Filename              'META-
+                            INF/services/com.google.protobuf.Generat
+                            edExtensionRegistryLoader'
+
+A4349 CENTRAL HEADER #B     02014B50
+A434D Created Zip Spec      14 '2.0'
+A434E Created OS            00 'MS-DOS'
+A434F Extract Zip Spec      14 '2.0'
+A4350 Extract OS            00 'MS-DOS'
+A4351 General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A4353 Compression Method    0008 'Deflated'
+A4355 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4359 CRC                   D8EC7154
+A435D Compressed Length     00000218
+A4361 Uncompressed Length   00000417
+A4365 Filename Length       0010
+A4367 Extra Length          0000
+A4369 Comment Length        0000
+A436B Disk Start            0000
+A436D Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A436F Ext File Attributes   00000000
+A4373 Local Header Offset   000A1DA8
+A4377 Filename              'META-INF/CERT.SF'
+
+A4387 CENTRAL HEADER #C     02014B50
+A438B Created Zip Spec      14 '2.0'
+A438C Created OS            00 'MS-DOS'
+A438D Extract Zip Spec      14 '2.0'
+A438E Extract OS            00 'MS-DOS'
+A438F General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A4391 Compression Method    0008 'Deflated'
+A4393 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A4397 CRC                   3049443B
+A439B Compressed Length     000002D8
+A439F Uncompressed Length   00000376
+A43A3 Filename Length       0011
+A43A5 Extra Length          0000
+A43A7 Comment Length        0000
+A43A9 Disk Start            0000
+A43AB Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A43AD Ext File Attributes   00000000
+A43B1 Local Header Offset   000A1FEE
+A43B5 Filename              'META-INF/CERT.DSA'
+
+A43C6 CENTRAL HEADER #D     02014B50
+A43CA Created Zip Spec      14 '2.0'
+A43CB Created OS            00 'MS-DOS'
+A43CC Extract Zip Spec      14 '2.0'
+A43CD Extract OS            00 'MS-DOS'
+A43CE General Purpose Flag  0800
+      [Bits 1-2]            0 'Normal Compression'
+      [Bit 11]              1 'Language Encoding'
+A43D0 Compression Method    0008 'Deflated'
+A43D2 Last Mod Time         3C210000 'Fri Jan  1 00:00:00 2010'
+A43D6 CRC                   D09B816A
+A43DA Compressed Length     000001E5
+A43DE Uncompressed Length   000003C2
+A43E2 Filename Length       0014
+A43E4 Extra Length          0000
+A43E6 Comment Length        0000
+A43E8 Disk Start            0000
+A43EA Int File Attributes   0000
+      [Bit 0]               0 'Binary Data'
+A43EC Ext File Attributes   00000000
+A43F0 Local Header Offset   000A22F5
+A43F4 Filename              'META-INF/MANIFEST.MF'
+
+A4408 END CENTRAL HEADER    06054B50
+A440C Number of this disk   0000
+A440E Central Dir Disk no   0000
+A4410 Entries in this disk  000D
+A4412 Total Entries         000D
+A4414 Size of Central Dir   00000408
+A4418 Offset to Central Dir 000A4000
+A441C Comment Length        0000
+Done

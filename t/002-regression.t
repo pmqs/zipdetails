@@ -9,7 +9,7 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-plan tests => 30 * 10 ;
+plan tests => 32 * 10 ;
 
 sub run;
 
@@ -92,7 +92,7 @@ sub run
     my $stdout ;
     my $stderr ;
 
-    if (1 || $keep)
+    if ($keep)
     {
         $stdout = $stdout_golden . ".got";
         $stderr = $stderr_golden . ".got";
