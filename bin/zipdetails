@@ -1306,12 +1306,20 @@ sub walkExtra
         # non-standard extra sub-fields.
         my $remaining = $XLEN - $offset;
         if ($remaining < ZIP_EXTRA_SUBFIELD_HEADER_SIZE) {
-            # There is not enough. Consume whatever is there and return so parsing
+            # There is not enough left.
+            # Consume whatever is there and return so parsing
             # can continue.
             myRead($payload, $remaining);
             my $data = hexDump($payload);
 
-            out $payload, "Malformed Extra Data", $data;
+            if ($payload =~ /^\x00+$/)
+            {
+                out $payload, "Null Padding in Extra";
+            }
+            else
+            {
+                out $payload, "Malformed Extra Data", $data;
+            }
 
             return undef;
         }
@@ -1319,8 +1327,22 @@ sub walkExtra
         myRead($id, ZIP_EXTRA_SUBFIELD_ID_SIZE);
         $offset += ZIP_EXTRA_SUBFIELD_ID_SIZE;
         my $lookID = unpack "v", $id ;
-        my ($who, $decoder) =  @{ defined $Extras{$lookID} ? $Extras{$lookID} : ['', undef] };
-        #my ($who, $decoder) =  @{ $Extras{unpack "v", $id} || ['', undef] };
+        if ($lookID == 0)
+        {
+            # check for null padding at end of extra
+            my $here = $FH->tell();
+            my $rest;
+            myRead($rest, $XLEN - $offset);
+            if ($rest =~ /^\x00+$/)
+            {
+                out $id . $rest, "Null Padding in Extra";
+                return undef;
+            }
+
+            seekTo($here);
+        }
+        
+        my ($who, $decoder) =  @{ $Extras{$lookID} // ['', undef ] };
 
         $who = "$id: $who"
             if $id =~ /\w\w/ ;
