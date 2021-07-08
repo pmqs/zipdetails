@@ -12,6 +12,7 @@ WriteMakefile(
     PREREQ_PM       => { 'Getopt::Long' => 0,
 		                 'IO::File'     => 0,
                          'Encode'       => 0,
+                         'Fcntl'        => 0,
 		                },
     ABSTRACT        => 'Display details about the internal structure of Zip files',
     AUTHOR          => 'Paul Marquess <pmqs@cpan.org>',
