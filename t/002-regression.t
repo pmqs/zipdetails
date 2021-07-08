@@ -27,6 +27,7 @@ my $tempdir = tempdir(CLEANUP => 1);
 my %dirs;
 my $exts = join "|",  qw( zip zipx saz xlsx docx jar par tar war apk) ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
+my @failed = ();
 
 find(
         sub { $dirs{$File::Find::dir} = $_
@@ -71,12 +72,22 @@ for my $dir (sort keys %dirs)
 
         my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
 
-        is $status, 0, "Exit Status 0";
-        is $stdout, $golden_stdout, "Expected stdout";
-        is $stderr, $golden_stderr, "Expected stderr";
+        my $ok = 1;
+        $ok &= is $status, 0, "Exit Status 0";
+        $ok &= is $stdout, $golden_stdout, "Expected stdout";
+        $ok &= is $stderr, $golden_stderr, "Expected stderr";
+
+        push @failed, $dir
+            unless $ok;
 
         unlink <$tempdir/*> ;
     }
+}
+
+if (@failed)
+{
+    diag "Failed tests are" ;
+    diag "  $_" for @failed;
 }
 
 exit;
