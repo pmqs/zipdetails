@@ -14,6 +14,18 @@ WriteMakefile(
                          'Encode'       => 0,
                          'Fcntl'        => 0,
 		                },
+
+     ( eval { ExtUtils::MakeMaker->VERSION(6.55_03) }
+        ? ( BUILD_REQUIRES    => { 'Cwd'            => 0,
+                                   'Test::More'     => 0,
+                                   'File::Temp'     => 0,
+                                   'File::Basename' => 0,
+                                   'Data::Dumper'   => 0,
+                                }
+          )
+        : ()
+     ),
+
     ABSTRACT        => 'Display details about the internal structure of Zip files',
     AUTHOR          => 'Paul Marquess <pmqs@cpan.org>',
     EXE_FILES       => ['bin/zipdetails'],
