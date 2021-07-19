@@ -345,24 +345,21 @@ A2327 001E5 ...         PAYLOAD
 
 APK SIGNING BLOCK
 A250C 00AF4 ...         Null Padding
-A3000 00008 F8 0F 00 00 APK Length #1         0000000000000FF8
+A3000 00008 F8 0F 00 00 Block Length Copy #1  0000000000000FF8
             00 00 00 00
-A3008 00004 04 05 00 00 ID                    00000504
-A300C 00004 00 00 00 00 Length                00000000
-A3010 00004 1A 87 09 71 ID                    7109871A 'APK Signature v2'
-A3014 00004 FC 04 00 00 Length                000004FC
-A3018 004FC ...         Payload
-A3514 00004 05 05 00 00 ID                    00000505
-A3518 00004 00 00 00 00 Length                00000000
-A351C 00004 C0 68 53 F0 ID                    F05368C0 'APK Signature v3'
-A3520 00004 FD 04 00 00 Length                000004FD
-A3524 004FD ...         Payload
-A3A21 00004 BF 05 00 00 ID                    000005BF
-A3A25 00004 00 00 00 00 Length                00000000
-A3A29 00004 77 65 72 42 ID                    42726577
-A3A2D 00004 00 00 00 00 Length                00000000
-A3A31 005B7 ...         Null Padding
-A3FE8 00008 F8 0F 00 00 APK Length #2         0000000000000FF8
+A3008 00008 04 05 00 00 ID/Value Length #1    0000000000000504
+            00 00 00 00
+A3010 00004 1A 87 09 71   ID                  7109871A 'APK Signature v2'
+A3014 00500 ...           Value
+A3514 00008 05 05 00 00 ID/Value Length #2    0000000000000505
+            00 00 00 00
+A351C 00004 C0 68 53 F0   ID                  F05368C0 'APK Signature v3'
+A3520 00501 ...           Value
+A3A21 00008 BF 05 00 00 ID/Value Length #3    00000000000005BF
+            00 00 00 00
+A3A29 00004 77 65 72 42   ID                  42726577 'Verity Padding Block'
+A3A2D 005BB ...           Value
+A3FE8 00008 F8 0F 00 00 Block Length Copy #2  0000000000000FF8
             00 00 00 00
 A3FF0 00010 41 50 4B 20 Magic                 'APK Sig Block 42'
             53 69 67 20

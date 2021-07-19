@@ -39,14 +39,13 @@
           6C 2D
 
 APK SIGNING BLOCK
-0083 0008 C4 01 00 00 APK Length #1         00000000000001C4
+0083 0008 C4 01 00 00 Block Length Copy #1  00000000000001C4
           00 00 00 00
-008B 0004 A4 01 00 00 ID                    000001A4
-008F 0004 00 00 00 00 Length                00000000
-0093 0004 1A 87 09 71 ID                    7109871A 'APK Signature v2'
-0097 0004 9C 01 00 00 Length                0000019C
-009B 019C ...         Payload
-0237 0008 C4 01 00 00 APK Length #2         00000000000001C4
+008B 0008 A4 01 00 00 ID/Value Length #1    00000000000001A4
+          00 00 00 00
+0093 0004 1A 87 09 71   ID                  7109871A 'APK Signature v2'
+0097 01A0 ...           Value
+0237 0008 C4 01 00 00 Block Length Copy #2  00000000000001C4
           00 00 00 00
 023F 0010 41 50 4B 20 Magic                 'APK Sig Block 42'
           53 69 67 20

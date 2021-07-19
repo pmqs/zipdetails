@@ -213,23 +213,17 @@ A2327 PAYLOAD
 
 APK SIGNING BLOCK
 A250C Null Padding
-A3000 APK Length #1         0000000000000FF8
-A3008 ID                    00000504
-A300C Length                00000000
-A3010 ID                    7109871A 'APK Signature v2'
-A3014 Length                000004FC
-A3018 Payload
-A3514 ID                    00000505
-A3518 Length                00000000
-A351C ID                    F05368C0 'APK Signature v3'
-A3520 Length                000004FD
-A3524 Payload
-A3A21 ID                    000005BF
-A3A25 Length                00000000
-A3A29 ID                    42726577
-A3A2D Length                00000000
-A3A31 Null Padding
-A3FE8 APK Length #2         0000000000000FF8
+A3000 Block Length Copy #1  0000000000000FF8
+A3008 ID/Value Length #1    0000000000000504
+A3010   ID                  7109871A 'APK Signature v2'
+A3014   Value
+A3514 ID/Value Length #2    0000000000000505
+A351C   ID                  F05368C0 'APK Signature v3'
+A3520   Value
+A3A21 ID/Value Length #3    00000000000005BF
+A3A29   ID                  42726577 'Verity Padding Block'
+A3A2D   Value
+A3FE8 Block Length Copy #2  0000000000000FF8
 A3FF0 Magic                 'APK Sig Block 42'
 
 A4000 CENTRAL HEADER #1     02014B50

@@ -194,7 +194,7 @@ my %Extras = (
 
        );
 
-my $VERSION = "2.02" ;
+my $VERSION = "2.03" ;
 
 my $FH;
 
@@ -1341,7 +1341,7 @@ sub walkExtra
 
             seekTo($here);
         }
-        
+
         my ($who, $decoder) =  @{ $Extras{$lookID} // ['', undef ] };
 
         $who = "$id: $who"
@@ -1884,8 +1884,14 @@ sub chckForAPKSigningBlock
 sub scanApkBlock
 {
     state $IDs = {
-            0x7109871a  => " 'APK Signature v2'",
-            0xf05368c0  => " 'APK Signature v3'",
+            0x7109871a  => "APK Signature v2",
+            0xf05368c0  => "APK Signature v3",
+            0x42726577  => "Verity Padding Block", # from https://android.googlesource.com/platform/tools/apksig/+/master/src/main/java/com/android/apksig/internal/apk/ApkSigningBlockUtils.java
+            0x6dff800d  => "Source Stamp",
+            0x504b4453  => "Dependency Info",
+            0x71777777  => "APK Channel Block",
+            0xff3b5998  => "Zero Block",
+            0x2146444e  => "Play Metadata",
     } ;
 
 
@@ -1893,28 +1899,24 @@ sub scanApkBlock
     print "\nAPK SIGNING BLOCK\n";
 
     scanApkPadding('');
-    out_Q "APK Length #1";
+    out_Q "Block Length Copy #1";
+    my $ix = 1;
 
     while ($FH->tell() < $APK - 8)
     {
          my ($bytes, $id, $len);
+        ($bytes, $len) = read_Q ;
+        out $bytes, "ID/Value Length #" . sprintf("%X", $ix), Value_Q($len);
+
         ($bytes, $id) = read_V;
 
-        if ($id == 0)
-        {
-            scanApkPadding($bytes);
-            next;
-        }
+        out $bytes, "  ID", Value_V($id) . " '" . ($IDs->{$id} // 'Unknown ID') . "'";
 
-        out $bytes, "ID", Value_V($id) . ($IDs->{$id} //'');
-
-        ($bytes, $len) = read_V ;
-        out $bytes, "Length", Value_V($len);
-
-        outSomeData($len, "Payload");
+        outSomeData($len-4, "  Value");
+        ++ $ix;
     }
 
-    out_Q "APK Length #2";
+    out_Q "Block Length Copy #2";
 
     my $magic ;
     myRead($magic, 16);

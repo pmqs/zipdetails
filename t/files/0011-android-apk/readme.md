@@ -2,6 +2,7 @@
 
 See [Application Signing](https://source.android.com/security/apksigning) for APK signature scheme
 
+Also [Easter Egg in APK Files: What Is Frosting](https://bi-zone.medium.com/easter-egg-in-apk-files-what-is-frosting-f356aa9f4d1) for soe more APK IDs
 
 ## Small V2 APK file
 `signed-release.apk` sourced from [ApkGolf](https://github.com/fractalwrench/ApkGolf) via https://issues.apache.org/jira/browse/COMPRESS-455
