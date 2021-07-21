@@ -10,13 +10,17 @@ zipdetails - display the internal structure of zip files
 
 # DESCRIPTION
 
-`zipdetails` displays information about the internal record structure of zip
-files. It is not concerned with displaying any details of the compressed
-data stored in the zip file.
+This program creates a detailed report on the internal structure of zip
+files. For each item of metadata within a zip file the program will output
 
-The program assumes prior understanding of the internal structure of a Zip
-file. You should have a copy of the Zip [APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT)
-file at hand to help understand the output from this program.
+- the offset into the zip file where the item is located.
+- a textual representation for the item.
+- an optional hex dump of the item.
+
+The program assumes a prior understanding of the internal structure of Zip
+files. You should have a copy of the Zip
+[APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT) file
+at hand to help understand the output from this program.
 
 ## Default Behaviour
 
@@ -44,7 +48,7 @@ central directory at the end of the file is absent/incomplete, you can try
 usng the `--scan` option to search for zip records that are still present.
 
 When Scan-mode is enabled, the program will walk the zip file from the
-start blindly looking for the 4-byte signatures that preceed each of the
+start, blindly looking for the 4-byte signatures that preceed each of the
 zip data structures. If it finds any of the recognised signatures it will
 attempt to dump the associated zip record. For very large zip files, this
 operation can take a long time to run.
@@ -207,9 +211,9 @@ If the `-v` option is present, column 1 is expanded to include
 - A hex dump of the bytes in field in the order they are stored in the zip
 file.
 
-Here is the same zip file dumped using the `zipdetails` <-v> option:
+Here is the same zip file dumped using the `zipdetails` `-v` option:
 
-    $ zipdetails -v  test.zip
+    $ zipdetails -v test.zip
 
     0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
     0004 0001 0A          Extract Zip Spec      0A '1.0'
