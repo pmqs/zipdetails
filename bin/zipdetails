@@ -1511,6 +1511,8 @@ sub decode_UT
 
 sub decode_AES
 {
+    # ref https://www.winzip.com/win/es/aes_info.html
+
     my $len = shift;
     my $context = shift;
 
@@ -1762,6 +1764,8 @@ sub decodeMVS
 
 sub printAes
 {
+    # ref https://www.winzip.com/win/es/aes_info.html
+
     my $context = shift ;
 
     my %saltSize = (
@@ -2766,6 +2770,8 @@ L<APPNOTE.TXT|http://www.pkware.com/documents/casestudies/APPNOTE.TXT>.
 An alternative reference is the Info-Zip appnote. This is available from
 L<ftp://ftp.info-zip.org/pub/infozip/doc/>
 
+For details of WinZip AES encryption see L<AES Encryption Information:
+Encryption Specification AE-1 and AE-2|https://www.winzip.com/win/es/aes_info.html>.
 
 The C<zipinfo> program that comes with the info-zip distribution
 (L<http://www.info-zip.org/>) can also display details of the structure of
