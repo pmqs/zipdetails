@@ -1,0 +1,574 @@
+CHANGES
+-------
+
+2.100 9 April 2022
+
+  * Update VERSION to 2.100
+    Sat Apr 9 15:00:39 2022 +0100
+    486bd74541c5cab85664c93fa5190fa4842ee301
+
+  * Change 2021 to 2022
+    Sat Apr 9 14:56:52 2022 +0100
+    21fe47eeee5985f7dd96879fc36f4d12bf334420
+
+  * Update MANIFEST with all test files
+    Sat Apr 9 14:55:42 2022 +0100
+    8f8b8cd6b1b1c3f80b5b13f4f835cad080886610
+
+  * NTFS Timestamps displayed in wrong order
+    Sat Apr 9 14:39:35 2022 +0100
+    https://github.com/pmqs/zipdetails/issues/4
+    d5f6a47126d04d010e6cd0a558aa7857d9f367ae
+
+  * remember central directory index & offset
+    Mon Apr 4 22:13:36 2022 +0100
+    3762446e7d4f453a3b4563fe9d27fde43ff780bb
+
+  * less strict about missing zip64 in loal header
+    Sat Jul 24 10:14:17 2021 +0100
+    3ff4aa477c115c86f0ea3ed0858ed49c4b15c6c6
+
+  * Add references to WinZip AES encryption
+    Wed Jul 21 17:14:26 2021 +0100
+    96c0a831473b28e22011048b23fa47920ccc5390
+
+  * documentation updates
+    Wed Jul 21 11:26:07 2021 +0100
+    4909e8faa1ee554b7491a283eff6243e770f7e49
+
+  * Fixes for APK parsing
+    Mon Jul 19 09:57:51 2021 +0100
+    a0eac231a88ebbbeee10f0dda8f544acf68c5c3a
+
+  * Add BUILD_REQUIRES
+    Thu Jul 8 17:39:16 2021 +0100
+    f5bd8e8a288a7c621b81551b710ccb99ba95daa4
+
+  * Disply list of failed tests
+    Thu Jul 8 17:34:01 2021 +0100
+    5debefbc1a63ff417ea4508dc7f06136e3ad5cd3
+
+  * Add Fcntl to PREREQ_PM
+    Thu Jul 8 17:29:33 2021 +0100
+    dcd6c55faca6a19282ea9f4f23c39228fc2649a5
+
+  * Get "make clean" to delete ".got" files
+    Thu Jul 8 17:19:22 2021 +0100
+    b4dd9bb11ad80dbc9b261959d233e19d44e4ffcd
+
+  * Merge branch 'main' of https://github.com/pmqs/zipdetails
+    Wed Jul 7 16:32:06 2021 +0100
+    264fead903febf619c7c894bf22387b10ed7b8d9
+
+  * another fix for zipalign
+    Wed Jul 7 16:31:22 2021 +0100
+    9786371d0b367342707c770cbf87ecb87bb77845
+
+  * another fox fr zipalign
+    Wed Jul 7 16:24:27 2021 +0100
+    ad148e7e764e3de096f99637f4330ca24f12f11c
+
+  * Add support for zipalign padding
+    Wed Jul 7 15:55:33 2021 +0100
+    5a4371d8ca493b5a94fd5cf1781dc6d1b14dc394
+
+  * Deal with padding in APK files
+    Tue Jul 6 09:58:32 2021 +0100
+    563251dc06d63a6568daf06facbfd291b3e27545
+
+  * add APK to list of zip extensions
+    Fri Jun 25 15:45:06 2021 +0100
+    9f3e9ea85e2dc32b10eaca20a9483e4eb284b901
+
+  * fixes to scan mode
+    Thu Jun 24 22:41:13 2021 +0100
+    1a08ad2dd04876cc8f18ab5c9756ffebb33cedaa
+
+  * remove debug line
+    Thu Jun 24 12:53:38 2021 +0100
+    ea16a58d2b5040561d7575ab1e4ae09de455d9e0
+
+  * Add support for Android APK
+    Thu Jun 24 11:35:04 2021 +0100
+    d1caeb0afb6ac24175684f028797593fa80729dd
+
+  * add extra detail in warning
+    Sat Jun 19 20:11:27 2021 +0100
+    3369ef55e4f127072ecfb65f31c9d7099f2cfa25
+
+  * Add link to GitHub repository
+    Sat Jun 19 09:36:02 2021 +0100
+    50e73648c017af81d9d5548ab498dcfd7a48a24c
+
+  * Add perl 5.34
+    Fri May 28 10:59:17 2021 +0100
+    532cbd3acdf9f85299ce5b2d7b201bc01427b03a
+
+  * fix for data stream alignment tests
+    Sun Apr 25 13:31:18 2021 +0100
+    e1741fb5e3d4fc9483fd2e29341e4f77b308a2ea
+
+  * add apache-commons-compress
+    Sun Apr 25 13:15:07 2021 +0100
+    3f6317a4da904345a1b501738a8cd8b435fcbc05
+
+  * Add DataStreamAlignment
+    Sun Apr 25 13:14:09 2021 +0100
+    b1d1a15e2d717d8a9bc3906ef395ac128cf922a3
+
+  * add 7z documentation homepage
+    Sun Apr 25 09:00:29 2021 +0100
+    4d8608382a912ac51ec15503c9482930ce9aa028
+
+  * add *.class
+    Sat Apr 24 22:01:16 2021 +0100
+    9d871a1d3f63d1087ace989e7567828df4cf725f
+
+  * Add tests for infozip
+    Sat Apr 24 21:28:21 2021 +0100
+    057e90f912a7c54b0502c50de52406654159adf8
+
+  * add lzma & ppmd to 7z
+    Sat Apr 24 21:10:32 2021 +0100
+    461263f261042e046a0d3899c4a638f7d3877dfb
+
+  * fix typo
+    Sat Apr 24 15:51:11 2021 +0100
+    f4c1fa3c666850f456bc3e6b5a22b0e071a31f69
+
+  * typo in OS #10 - should be Windows
+    Mon Apr 19 23:04:48 2021 +0100
+    3b493c1d84cd4e5c5514294a8e4b67c4ad437724
+
+  * Add UTC option to Synopsis
+    Mon Apr 19 22:27:57 2021 +0100
+    d71e5c9e2b883d5d4ff5c551776f3ec398426518
+
+  * Add Jar file to tests
+    Mon Apr 19 22:19:21 2021 +0100
+    e12bcce47896883013bf61bf939f984852ae8321
+
+  * Add MVS test files
+    Mon Apr 19 21:52:59 2021 +0100
+    114fa3317df643df41f4ea90cc0e0f258de176a6
+
+  * fixes for UTC
+    Mon Apr 19 21:49:50 2021 +0100
+    cc55b2eb6e6066faffa16ed2071e41b90ffc1548
+
+  * add more test zips
+    Sun Apr 18 13:40:18 2021 +0100
+    3fb43446f347688befadc102a5f102b99a815686
+
+  * fix number of tests
+    Sun Apr 18 13:37:06 2021 +0100
+    4e8c2d86b9adcccb888d3f654432bb1cef7aa059
+
+  * add more tests
+    Sun Apr 18 13:28:28 2021 +0100
+    c24489b2860c8bdbb0a2935ce8490a95c6357da7
+
+  * Add verbose option to make test
+    Sun Apr 18 13:25:21 2021 +0100
+    29a78005f2d275359f8aa0ce95f31683b1d0f4ff
+
+  * changes to add github workflow tests
+    Sun Apr 18 13:11:46 2021 +0100
+    c1f8981dc24c39e7ad9f0e92e310f6535f6cc2b5
+
+  * create gitignore
+    Sat Apr 17 16:56:57 2021 +0100
+    780a7740fcf2a901bdb07d57042508b196e239cd
+
+  * Merge branch 'main' of https://github.com/pmqs/zipdetails into main
+    Sat Apr 17 16:43:04 2021 +0100
+    f77b443b10d22d072eabc31767f051ef7a36f536
+
+  * Add UTC option
+    Sat Apr 17 16:31:19 2021 +0100
+    ca05097178458f04a5d53fef119bb227b101fa6e
+
+  * remove trailing whitespace in ZipIt Macintosh
+    Sat Apr 10 09:13:39 2021 +0100
+    7849d3171c72e4837a88249c108d787736fe9312
+
+  * remove trailing space after BZIP2
+    Fri Apr 9 21:04:16 2021 +0100
+    13af916598fd713acdbb9ec82b2fd3db462273ad
+
+  * add utc option
+    Fri Apr 9 19:15:28 2021 +0100
+    f19d5271692d486530914832aec55c16a8583e2e
+
+  * remove U64 class & assume a 64-bit Perl
+    Fri Apr 2 11:37:38 2021 +0100
+    03d099661c3d605a52600cac7468ef8f81d4ac49
+
+  * beef-up processing of the Xceed extra field
+    Wed Mar 31 12:36:41 2021 +0100
+    5cbedd445cd8b4cac285601792dd7e09585cbff2
+
+  * Add overlapped components warning
+    Wed Mar 31 11:21:01 2021 +0100
+    b296ff06a7f4ff490cf4f6fbda9ab0b67a01aad7
+
+  * more fixes
+    Sun Mar 28 22:38:07 2021 +0100
+    5fe7c32cc70e1c4d91fd579134ffce053d5936f6
+
+  * more fixes
+    Sun Mar 28 22:38:07 2021 +0100
+    66ed43f0c1795a6993aed6d6df383752cec4120a
+
+  * extra processing for 64/32 bit data descriptor
+    Fri Mar 26 22:26:11 2021 +0000
+    7a79ba1b56c3b0929c6cfbacb6cfdffcfda149c5
+
+  * extra processing for 64/32 bit data descriptor
+    Fri Mar 26 22:26:11 2021 +0000
+    b4f113222e55e03a2dbd1bc56c612cc840035cb6
+
+  * fix indentation
+    Fri Mar 26 16:37:29 2021 +0000
+    a1a30f661b6f28b0ae0a6fb7283f0fd30fcc5e40
+
+  * fix indentation
+    Fri Mar 26 16:37:29 2021 +0000
+    ff5383c2f14d05ba2389aef831467440432fb2ab
+
+  * fix indentation
+    Fri Mar 26 16:36:27 2021 +0000
+    5a2eb29bd89fc859dc9e3a8d9e4cb7656e4b8420
+
+  * fix indentation
+    Fri Mar 26 16:36:27 2021 +0000
+    247d2b13fd290506390e35db8a6719bd4029e865
+
+  * tidy redact code
+    Fri Mar 26 16:32:27 2021 +0000
+    df78f9bb6eda58720a6697e017ee7b982eeb84e4
+
+  * tidy redact code
+    Fri Mar 26 16:32:27 2021 +0000
+    c9f99bd7672ab739763f62a046b29f9c1fb21316
+
+  * initial work for zipbomb/overlap detection
+    Fri Mar 26 16:17:01 2021 +0000
+    9de702d8c62c1f5fbdd8d628538841ef48a8a4ef
+
+  * initial work for zipbomb/overlap detection
+    Fri Mar 26 16:17:01 2021 +0000
+    5e346053cd7c5d67693d6736d021f23f77ec9534
+
+  * setup README
+    Fri Mar 26 15:47:14 2021 +0000
+    ac9d13e27b48a76040ac2795cafc433ef8f20798
+
+  * setup README
+    Fri Mar 26 15:47:14 2021 +0000
+    22f9b6d82bacea488047346570b4aa1effa4cdcf
+
+  * add code to deal with a zip64 central header, but a non-zip64 local header
+    Fri Mar 26 15:13:43 2021 +0000
+    f4bd4d10cff7f31530ea7a45c0c00af148cc6715
+
+  * add code to deal with a zip64 central header, but a non-zip64 local header
+    Fri Mar 26 15:13:43 2021 +0000
+    80caa7e3050bb154e7feb4d1099b83d167d44c20
+
+  * add redact option
+    Fri Mar 26 15:05:47 2021 +0000
+    7f5cfcbc2d4a0ca0d2294ceeb603d5c1e370b47d
+
+  * add redact option
+    Fri Mar 26 15:05:47 2021 +0000
+    c7f874a112846ffda3dd00bd354ba124049c5d2d
+
+  * documentation updates
+    Fri Mar 26 14:52:17 2021 +0000
+    a4f30989bd4e05ab42f4af68b993972f4a1fccd3
+
+  * documentation updates
+    Fri Mar 26 14:52:17 2021 +0000
+    26bcf1872524c936abc599ce656f0512888682b5
+
+2.02 21 March 2021
+
+  * update copyright date to 2021
+    Sun Mar 21 14:19:29 2021 +0000
+    2dce04b7c70704099f1dc05d5b1793014a249c7f
+
+  * update to version 2.02
+    Sun Mar 21 14:19:29 2021 +0000
+    62913c21ba1554403f67a7123a4b06cc84c148b9
+
+  * more fixes for defalte bitmask
+    Sun Mar 21 14:19:29 2021 +0000
+    8ad8cade95ec0b10ad927f2beebcd46d3807523d
+
+  * fix bitmask for deflate compression level
+    Sun Mar 21 14:19:29 2021 +0000
+    a1f0dcbe069138064dea7838d1842b91ee9cbee0
+
+  * Avoid using indirect calls
+    Sun Mar 21 14:19:29 2021 +0000
+    8e4fee8c9e36dfef6298f38a249d20d5d6d61063
+
+  * Added Zstandard & MP3 compression IDs Taken from APPNOTE version 6.3.8
+    Sun Mar 21 14:19:29 2021 +0000
+    4ffa85992d01e86fa7dce19b607c81365970d422
+
+  * small update
+    Sun Mar 21 14:19:28 2021 +0000
+    c86d96dea58a1d11d41f0ecde8e8aaadaec41747
+
+  * Better error messages for missing Zip64 records
+    Sun Mar 21 14:19:28 2021 +0000
+    402cc347697ff8dd1831f1da001029058852a7f8
+
+  * Add note about warning output
+    Sun Mar 21 14:19:28 2021 +0000
+    ba820fa4214705b76a1b2d26aaf150660213aec3
+
+  * Add --version option
+    Sun Mar 21 14:19:28 2021 +0000
+    697270c75715f759c6a6261c024862fddab13dca
+
+  * Version 2
+    Sun Mar 21 14:19:28 2021 +0000
+    d7f48cfd477bf8d9da0badd789b73136015a7f14
+
+  * Beef up some error cases
+    Sun Mar 21 14:19:28 2021 +0000
+    99d7ee60a00623d632c6845efb507fd5471bb8e2
+
+  * Rename a couple of unused signatures
+    Sun Mar 21 14:19:28 2021 +0000
+    2e69b5cc1526e955d062b3aa461a491c403070be
+
+  * update comment
+    Sun Mar 21 14:19:28 2021 +0000
+    0f6279419a978484cf12adcb5b2da0de303a1c68
+
+  * fix typo
+    Sun Mar 21 14:19:28 2021 +0000
+    7c33431ffc868f973d996167a93ee1c5d80c8d8a
+
+  * Don't output "Extra Payload" if length is zero
+    Sun Mar 21 14:19:28 2021 +0000
+    73126124ff2a268ce6066009df53988308271a0e
+
+  * Recover from bad extra subfield
+    Sun Mar 21 14:19:28 2021 +0000
+    06f88cea11059c4f44e2f6e569e0142cd84cbe8c
+
+  * Fix typo
+    Sun Mar 21 14:19:28 2021 +0000
+    f915cc6f4a69e4ff5e094fb0b62204c43886e082
+
+  * Fix wrong START offset
+    Sun Mar 21 14:19:28 2021 +0000
+    0db47154ce5033efec98327ca9ac5bc2ece4374a
+
+  * Typo for Implode string "Shannon-Fano Trees"
+    Sun Mar 21 14:19:28 2021 +0000
+    ffe1364565c03254f9dd7a796cd335f7881367c6
+
+  * some small documentation updates.
+    Sun Mar 21 14:19:28 2021 +0000
+    9da9168b5e4573830d57c845d136b131d665484a
+
+  * Add decoder for 'Open Packaging Growth Hint'
+    Sun Mar 21 14:19:28 2021 +0000
+    6f8e411780d62dd980e926a2aca72a2e9f965625
+
+  * update compression method 16
+    Sun Mar 21 14:19:28 2021 +0000
+    e3259e302e6ffc7747227cec162cbebf22f8fa2b
+
+  * Add extra fields 0x20-0x23 from APPNOTE 6.3.5
+    Sun Mar 21 14:19:28 2021 +0000
+    a2a8f035984c40dea980ef4e4f65d9ee3692ba1f
+
+  * remove trailing whitespace
+    Sun Mar 21 14:19:28 2021 +0000
+    8041a654464b2eb4e147199fa36825cb31a6b947
+
+  * minor documentation changes
+    Sun Mar 21 14:19:28 2021 +0000
+    0f0c9cfe7757f870966f0c7c0d0bcc6093b59c67
+
+  * Add support section
+    Sun Mar 21 14:19:28 2021 +0000
+    9c2c1a2e3454e16d32ad37a1bba43c7055456b08
+
+  * Update to version 1.11
+    Sun Mar 21 14:19:28 2021 +0000
+    c8ee63ae341cadc2f7f011237959cb6666d637e3
+
+  * Zip64 extra field typo
+    Sun Mar 21 14:19:28 2021 +0000
+    14c543edd17d4af48141018cee8a9d6ae1877a98
+
+  * update year to 2019
+    Sun Mar 21 14:19:28 2021 +0000
+    a19285fed0befdeb5e26f067534a9afa0bd9867c
+
+  * zipdetails - some support for MVS (Z390) zip files
+    Sun Mar 21 14:19:28 2021 +0000
+    df66dd2975ff40e77f986def6528259bce62d838
+
+  * import IO-Compress 2.082
+    Sun Mar 21 14:19:28 2021 +0000
+    87f0738eeb356725017efbe26d9db4d6358b7752
+
+  * import IO-Compress 2.080
+    Sun Mar 21 14:19:28 2021 +0000
+    546dc7617fc695d0e39ef5d6cd57b9f5f8ffdbce
+
+  * import IO-Compress 2.070
+    Sun Mar 21 14:19:28 2021 +0000
+    43c2c16eec28e66900058750aa5374443b2c36e8
+
+  * import IO-Compress 2.061
+    Sun Mar 21 14:19:28 2021 +0000
+    9ac9664cbdb961a03831bb0a49009dcdb00b4d73
+
+  * import IO-Compress 2.047
+    Sun Mar 21 14:19:28 2021 +0000
+    53635bb30f2ca097340d2667c6793308cb4f5541
+
+  * import IO-Compress 2.046
+    Sun Mar 21 14:19:28 2021 +0000
+    d120729f7299a63833361d85292b5e298ab4f0ff
+
+  * import IO-Compress 2.044
+    Sun Mar 21 14:19:28 2021 +0000
+    af9ff3d580f55b06ba36681ae8958ddd796b2f60
+
+  * update copyright date to 2021
+    Sun Feb 14 12:24:44 2021 +0000
+    18b01c893d6a135cc4c2582a52eb149235fa4351
+
+  * update to version 2.02
+    Wed Jan 6 17:00:56 2021 +0000
+    4dcfb5db35bfa7de1231d90c0cf228da1f9690bd
+
+  * more fixes for defalte bitmask
+    Wed Jan 6 09:47:30 2021 +0000
+    522aba970e62a0bd42b781e934067a53890b9634
+
+  * fix bitmask for deflate compression level
+    Tue Jan 5 17:35:40 2021 +0000
+    a112fa01de85b228be51a5a40498b9a30ee969a0
+
+  * Avoid using indirect calls
+    Tue Jun 23 14:26:40 2020 -0600
+    36390d5562dbc799d4a8bbf7ec32ddf3317f504f
+
+  * Added Zstandard & MP3 compression IDs Taken from APPNOTE version 6.3.8
+    Wed Jul 15 20:15:25 2020 +0100
+    646cfed7d41627bda78468504fdd7dc48fcef531
+
+  * small update
+    Thu Apr 9 17:38:06 2020 +0100
+    1e8030251f180798caabd339ed682d52c01959de
+
+  * Better error messages for missing Zip64 records
+    Thu Apr 9 16:56:24 2020 +0100
+    c96d459e53e011d4e6d03a7a9ee4c9a1deac6bc9
+
+  * Add note about warning output
+    Thu Apr 9 16:32:58 2020 +0100
+    26d9531e5fc3495a9213e01504e62ad4379b361d
+
+  * Add --version option
+    Mon Mar 30 17:28:00 2020 +0100
+    4a8d65009ad43526fde2a257638b305ce5f30e47
+
+  * Version 2
+    Mon Mar 30 15:25:25 2020 +0100
+    4678fe58a3a258f04215d8a67150a5d1ba4afcd5
+
+  * Beef up some error cases
+    Sat Mar 28 14:47:30 2020 +0000
+    925e1fa80abfc6ac3aec950f07cb1e2f8f9b35e4
+
+  * Rename a couple of unused signatures
+    Sat Feb 22 14:48:20 2020 +0000
+    0fc59d7d180cfe518bf3109642b4b07a6cb4c787
+
+  * update comment
+    Sat Feb 15 19:26:48 2020 +0000
+    995cd0a75ff5b4aa8aa8a2a503054196030001e8
+
+  * fix typo
+    Sat Feb 15 19:07:56 2020 +0000
+    6f4213758e981c6d8c7bc86dde86bedcb475a95a
+
+  * Don't output "Extra Payload" if length is zero
+    Sat Feb 15 19:06:35 2020 +0000
+    b2f5440b2374d5bf5f5d71cb2e811a5499bf268a
+
+  * Recover from bad extra subfield
+    Fri Feb 14 14:14:54 2020 -0800
+    0799420f5a316e3c3a25f8b731419dce5d1236aa
+
+  * Fix typo
+    Fri Feb 14 13:25:16 2020 -0800
+    62afd347e6b009de105f3989de12fc7181008dd8
+
+  * Fix wrong START offset
+    Thu Feb 13 11:58:27 2020 -0800
+    3afb3ac56e5061401ff94f3f29d9517726f344df
+
+  * Typo for Implode string "Shannon-Fano Trees"
+    Wed Jan 22 22:37:56 2020 +0000
+    dd6af95207cbeb497cdfb45074ae41559a2b8283
+
+  * some small documentation updates.
+    Wed Jan 22 20:11:46 2020 +0000
+    91360f6b54b7c3617e68512865f82c32fd649d7a
+
+  * Add decoder for 'Open Packaging Growth Hint'
+    Tue Jan 21 22:54:41 2020 +0000
+    40b28a4aab09ad1ab048a3225bb2167b5117f32d
+
+  * update compression method 16
+    Tue Jan 21 22:31:38 2020 +0000
+    d3a2f300048853c9eb5de4c71d5f74f2f3d10374
+
+  * Add extra fields 0x20-0x23 from APPNOTE 6.3.5
+    Tue Jan 21 22:18:55 2020 +0000
+    3c646399b724daf420c08c35e72a11990d81f076
+
+  * remove trailing whitespace
+    Tue Jan 21 22:12:59 2020 +0000
+    89bd8162f5d51358e5e3b76404b62a96b0f6c901
+
+  * minor documentation changes
+    Tue Jan 21 22:07:43 2020 +0000
+    b793cb4e0b3c0c36cc2919dbf67218338d8e12ed
+
+  * Add support section
+    Tue Oct 15 19:43:19 2019 +0100
+    eefcff48d72ba141f8f49e250a0d098e2d3b0e61
+
+  * Update to version 1.11
+    Mon Oct 7 18:53:07 2019 +0100
+    e64948925a80a184357ec9b3ad1015c2e5cdf436
+
+  * Zip64 extra field typo
+    Mon Oct 7 18:40:00 2019 +0100
+    26a33354518e5c5cf65f08b825062a9056546250
+
+  * update year to 2019
+    Sat Mar 23 15:52:09 2019 +0000
+    4d41bd6d3eb7b1f233b555578ba698c6ab99da3e
+
+  * zipdetails - some support for MVS (Z390) zip files
+    Sat Mar 23 15:35:06 2019 +0000
+    56155f2dee0bc625dff142f046a223d40ee53f1a
+
+
+
