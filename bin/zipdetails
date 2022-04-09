@@ -1445,11 +1445,11 @@ sub decode_NTFS_Filetimes
     my ($m, $s1) = read_Q;
     out $m, "  Mtime", Ntfs2Unix($m, $s1);
 
-    my ($c, $s2) = read_Q;
-    out $c, "  Ctime", Ntfs2Unix($m, $s2);
-
     my ($a, $s3) = read_Q;
     out $m, "  Atime", Ntfs2Unix($m, $s3);
+
+    my ($c, $s2) = read_Q;
+    out $c, "  Ctime", Ntfs2Unix($m, $s2);
 }
 
 sub getT
