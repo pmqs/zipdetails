@@ -2,7 +2,9 @@ Makefile.PL
 MANIFEST
 README.md
 bin/zipdetails
-t/001-syntax.tt/files/0012-zipalign/lorem.txt
+lib/App/zipdetails.pm
+t/001-syntax.t
+t/files/0012-zipalign/lorem.txt
 t/files/0012-zipalign/zipalign.zip
 t/files/0012-zipalign/readme.md
 t/files/0012-zipalign/stdout

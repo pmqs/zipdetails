@@ -17,6 +17,8 @@ use IO::File;
 use Encode;
 use Getopt::Long;
 
+my $VERSION = "2.101" ;
+
 use constant MAX32 => 0xFFFFFFFF ;
 
 # Compression types
@@ -194,7 +196,6 @@ my %Extras = (
 
        );
 
-my $VERSION = "2.100" ;
 
 my $FH;
 
