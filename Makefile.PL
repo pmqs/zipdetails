@@ -8,7 +8,7 @@ use ExtUtils::MakeMaker 5.16 ;
 
 WriteMakefile(
     NAME            => 'App::zipdetails',
-    VERSION         => '2.101',
+    VERSION         => '2.102',
     PREREQ_PM       => { 'Getopt::Long' => 0,
 		                 'IO::File'     => 0,
                          'Encode'       => 0,
