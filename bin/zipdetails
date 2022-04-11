@@ -2282,7 +2282,7 @@ sub nibbles
                        duplicates   => [],
                        detail       => [],
                        duplicate_count  => 0,
-                       operlap_count    => 0,
+                       overlap_count    => 0,
                      ) ;
 
         bless \%object, $class;
