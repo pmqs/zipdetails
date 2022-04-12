@@ -15,7 +15,7 @@ if (!eval { pack "Q", 1 }) {
 
 WriteMakefile(
     NAME            => 'App::zipdetails',
-    VERSION_FROM    => 'lib/IO/App/zipdetails',
+    VERSION_FROM    => 'lib/App/zipdetails.pm',
     PREREQ_PM       => { 'Getopt::Long' => 0,
 		                 'IO::File'     => 0,
                          'Encode'       => 0,
