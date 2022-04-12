@@ -7,6 +7,14 @@
 
 use 5.010; # for unpack "Q<"
 
+BEGIN {
+    if (!eval { pack "Q", 1 }) {
+        warn "zipdetails requires 64 bit integers, ",
+                "this Perl has 32 bit integers.\n";
+        exit(1);
+    }
+}
+
 BEGIN { pop @INC if $INC[-1] eq '.' }
 use strict;
 use warnings ;
