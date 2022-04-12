@@ -6,6 +6,13 @@ require 5.010 ;
 
 use ExtUtils::MakeMaker 5.16 ;
 
+# Check for a 32-bit Perl
+if (!eval { pack "Q", 1 }) {
+    warn "zipdetails requires 64 bit integers, ",
+            "this Perl has 32 bit integers.\n";
+    exit(1);
+}
+
 WriteMakefile(
     NAME            => 'App::zipdetails',
     VERSION         => '2.103',
