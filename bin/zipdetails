@@ -2238,12 +2238,9 @@ sub _dosToUnixTime
     my $sec  = ( ( $dt << 1  ) & 0x3e );
 
 
-    use POSIX 'mktime';
+    use POSIX ;
 
-    # Force mktime to return a UTC time
-    local $ENV{TZ} = "UTC";
-
-    my $time_t = mktime( $sec, $min, $hour, $mday, $mon, $year, 0, 0, -1 );
+    my $time_t = POSIX::mktime( $sec, $min, $hour, $mday, $mon, $year, 0, 0, 0 );
     return 0 if ! defined $time_t;
     return $time_t;
 }
