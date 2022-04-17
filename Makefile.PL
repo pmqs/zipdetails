@@ -20,6 +20,7 @@ WriteMakefile(
 		                 'IO::File'     => 0,
                          'Encode'       => 0,
                          'Fcntl'        => 0,
+                         'Time::Local'  => 0,
 		                },
 
      ( eval { ExtUtils::MakeMaker->VERSION(6.55_03) }
