@@ -15,8 +15,8 @@ mkZip.java file derived from src/test/java/org/apache/commons/compress/archivers
 
     wget https://apache.mirrors.nublue.co.uk//commons/compress/binaries/commons-compress-1.20-bin.zip
     unzip  commons-compress-1.20-bin.zip
-    javac  -cp commons-compress-1.20/commons-compress-1.20.jar mkzip.java
-    java -cp .:commons-compress-1.20/commons-compress-1.20.jar mkZip
+    javac  -cp commons-compress-1.20/commons-compress-1.20.jar:/usr/share/java/commons-io.jar mkzip.java
+    java -cp .:commons-compress-1.20/commons-compress-1.20.jar:/usr/share/java/commons-io.jar mkZip
 
 # Observations with Commons Compress 1.20
 
@@ -50,7 +50,7 @@ local header incomplete Zip64
     }
 
 
-compressed & uncomressed lengths not FFFF
+compressed & uncompressed lengths not FFFF
 
     0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
     0004 0001 14          Extract Zip Spec      14 '2.0'
