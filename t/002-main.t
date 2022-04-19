@@ -9,7 +9,7 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-plan tests => 33 * 10 ;
+plan tests => 34 * 10 ;
 
 sub run;
 
@@ -31,7 +31,7 @@ my @failed = ();
 
 find(
         sub { $dirs{$File::Find::dir} = $_
-                 if /\.($exts)$/ && ! $skip_dirs{ $File::Find::dir };
+                 if /\.($exts)$/i && ! $skip_dirs{ $File::Find::dir };
              },
              't/files'
     );

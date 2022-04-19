@@ -147,7 +147,7 @@ my %Extras = (
       0x0008,  ['Extended Language Encoding', undef],
       0x0009,  ['OS/2 extended attributes', undef],
       0x000a,  ['NTFS FileTimes', \&decode_NTFS_Filetimes],
-      0x000c,  ['OpenVMS', undef],
+      0x000c,  ['OpenVMS', \&decode_OpenVMS],
       0x000d,  ['Unix', undef],
       0x000e,  ['Stream & Fork Descriptors', undef],
       0x000f,  ['Patch Descriptor', undef],
@@ -1460,6 +1460,168 @@ sub decode_NTFS_Filetimes
 
     my ($c, $s2) = read_Q;
     out $c, "  Ctime", Ntfs2Unix($m, $s2);
+}
+
+sub OpenVMS_DateTime
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    my ($data, $value) = read_Q();
+
+    my $datetime = "No Date Time'";
+    if ($value != 0)
+    {
+        my $v =  $value - 0x007C95674C3DA5C0 ;
+        my $ns = ($v % 10000000) * 100 ;
+        my $seconds = int($v / 10000000) ;
+        $datetime = getT($seconds) .
+           " " . sprintf("%0dns'", $ns);
+    }
+
+    out2 $data, "  Attribute", Value_Q($value) . " '$datetime";
+}
+
+sub OpenVMS_DumpBytes
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    myRead(my $data, $size);
+
+    out($data, "    Attribute", hexDump($data));
+
+}
+
+sub OpenVMS_4ByteValue
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    my ($data, $value) = read_V();
+
+    out2 $data, "  Attribute", Value_V($value);
+}
+
+sub OpenVMS_UCHAR
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    state $FCH = {
+        0     => 'FCH$M_WASCONTIG',
+        1     => 'FCH$M_NOBACKUP',
+        2     => 'FCH$M_WRITEBACK',
+        3     => 'FCH$M_READCHECK',
+        4     => 'FCH$M_WRITCHECK',
+        5     => 'FCH$M_CONTIGB',
+        6     => 'FCH$M_LOCKED',
+        6     => 'FCH$M_CONTIG',
+        11    => 'FCH$M_BADACL',
+        12    => 'FCH$M_SPOOL',
+        13    => 'FCH$M_DIRECTORY',
+        14    => 'FCH$M_BADBLOCK',
+        15    => 'FCH$M_MARKDEL',
+        16    => 'FCH$M_NOCHARGE',
+        17    => 'FCH$M_ERASE',
+        18    => 'FCH$M_SHELVED',
+        20    => 'FCH$M_SCRATCH',
+        21    => 'FCH$M_NOMOVE',
+        22    => 'FCH$M_NOSHELVABLE',
+    } ;
+
+    my ($data, $value) = read_V();
+
+    out2 $data, "  Attribute", Value_V($value);
+
+    for my $bit ( sort { $a <=> $b } keys %{ $FCH } )
+    {
+        # print "$bit\n";
+        if ($value & (1 << $bit) )
+        {
+            out1 "      [Bit $bit]", $FCH->{$bit} ;
+        }
+    }
+}
+
+sub OpenVMS_2ByteValue
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    my ($data, $value) = read_v();
+
+    out2 $data, "  Attribute", Value_v($value);
+}
+
+sub OpenVMS_revision
+{
+    my $ix = shift;
+    my $tag = shift;
+    my $size = shift;
+
+    my ($data, $value) = read_v();
+
+    out2 $data, "  Attribute", Value_v($value) . "'Revision Count " . Value_v($value) . "'";
+}
+
+sub decode_OpenVMS
+{
+    my $len = shift;
+    my $context = shift;
+
+    state $openVMS_tags = {
+        0x04    => [ 'ATR$C_RECATTR',   \&OpenVMS_DumpBytes  ],
+        0x03    => [ 'ATR$C_UCHAR',     \&OpenVMS_UCHAR      ],
+        0x11    => [ 'ATR$C_CREDATE',   \&OpenVMS_DateTime   ],
+        0x12    => [ 'ATR$C_REVDATE',   \&OpenVMS_DateTime   ],
+        0x13    => [ 'ATR$C_EXPDATE',   \&OpenVMS_DateTime   ],
+        0x14    => [ 'ATR$C_BAKDATE',   \&OpenVMS_DateTime   ],
+        0x0D    => [ 'ATR$C_ASCDATES',  \&OpenVMS_revision   ],
+        0x15    => [ 'ATR$C_UIC',       \&OpenVMS_4ByteValue ],
+        0x16    => [ 'ATR$C_FPRO',      \&OpenVMS_DumpBytes  ],
+        0x17    => [ 'ATR$C_RPRO',      \&OpenVMS_2ByteValue ],
+        0x1D    => [ 'ATR$C_JOURNAL',   \&OpenVMS_DumpBytes  ],
+        0x1F    => [ 'ATR$C_ADDACLENT', \&OpenVMS_DumpBytes  ],
+    } ;
+
+    out_V "  CRC";
+    $len -= 4;
+
+    my $ix = 1;
+    while ($len)
+    {
+        my ($data, $tag) = read_v();
+        my $tagname = 'Unknown Tag';
+        my $decoder = undef;
+
+        if ($openVMS_tags->{$tag})
+        {
+            ($tagname, $decoder) = @{ $openVMS_tags->{$tag} } ;
+        }
+
+        my $ixt = Value_v $ix;
+        out2 $data,  "Tag# $ixt", Value_v($tag) . " '" . $tagname . "'" ;
+        my $size = out_v "    Size";
+
+        if (defined $decoder)
+        {
+            $decoder->($ix, $tag, $size) ;
+        }
+        else
+        {
+            outSomeData($size, "    Attribute");
+        }
+
+        ++ $ix;
+        $len -= $size + 2 + 2;
+    }
+
 }
 
 sub getT
