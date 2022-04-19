@@ -141,16 +141,16 @@ sub readFile
 {
     my $f = shift ;
 
-    my @strings ;
+    open (F, "<$f")
+        or die "Cannot open $f: $!\n" ;
 
-    {
-        open (F, "<$f")
-            or die "Cannot open $f: $!\n" ;
-        binmode F;
-        @strings = <F> ;
-        close F ;
-    }
+    binmode F;
+    local $/;
+    my $data = <F> ;
 
-    return @strings if wantarray ;
-    return join "", @strings ;
+    # normalise EOL
+    $data =~ s/\r\n/\n/g;
+    close F ;
+
+    return $data;
 }
