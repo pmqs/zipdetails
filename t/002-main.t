@@ -127,6 +127,10 @@ sub run
     my $out = readFile($stdout);
     my $err = readFile($stderr);
 
+    # normalise EOL
+    $out =~ s/\r\n/\n/g;
+    $err =~ s/\r\n/\n/g;
+
     unlink $stdout, $stderr
         unless $keep;
 
