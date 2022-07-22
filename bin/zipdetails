@@ -252,6 +252,10 @@ sub setupFormat
     my $width = '@' . ('>' x ($nibbles -1));
     my $space = " " x length($width);
 
+    # Fill mode can split on space or newline chars
+    # Spliting on hyphen works differently from Perl 5.20 onwards
+    $: = " \n";
+
     my $fmt ;
 
     if ($wantVerbose) {
