@@ -692,7 +692,7 @@ die "$filename not a standard file\n"
 
 $FH = IO::File->new( "<$filename" )
     or die "Cannot open $filename: $!\n";
-
+binmode($FH);
 
 my $FILELEN = -s $filename ;
 $TRAILING = -s $filename ;
