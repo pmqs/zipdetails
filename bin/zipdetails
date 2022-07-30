@@ -91,7 +91,7 @@ my %ZIP_CompressionMethods =
          15 => 'Reserved by PKWARE',
          16 => 'IBM z/OS CMPSC Compression',
          17 => 'Reserved by PKWARE',
-         18 => 'File is compressed using IBM TERSE (new)',
+         18 => 'IBM/TERSE or Xceed BWT', # APPNOTE has IBM/TERSE. Xceed reuses it unofficially
          19 => 'IBM LZ77 z Architecture (PFS)',
          93 => 'Zstandard',
          94 => 'MP3',
@@ -1914,9 +1914,9 @@ sub decode_NT_security
 
         out_C "  Version" ;
 
-        out_v "  Type";
+        out_v "  CType", sub { "'" . ($ZIP_CompressionMethods{$_[0]} || "Unknown Method") . "'" };
 
-        out_V "  NameCRC32" ;
+        out_V "  CRC" ;
 
         my $plen = $len - 4 - 1 - 2 - 4;
         myRead(my $payload, $plen);
