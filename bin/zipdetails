@@ -1920,7 +1920,7 @@ sub decode_NT_security
 
         my $plen = $len - 4 - 1 - 2 - 4;
         myRead(my $payload, $plen);
-        out $plen, "  Extra Payload", hexDump($payload);
+        out $payload, "  Extra Payload", hexDump($payload);
     }
 }
 
