@@ -81,6 +81,7 @@ https://sourceforge.net/p/infozip/bugs/69/
 * UTF8?
 * self extractor
 * symlinks
+* zip64
 
 
 
