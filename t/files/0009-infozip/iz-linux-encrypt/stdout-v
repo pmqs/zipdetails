@@ -1,0 +1,83 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 09 00       General Purpose Flag  0009
+                      [Bit  0]              1 'Encryption'
+                      [Bits 1-2]            0 'Normal Compression'
+                      [Bit  3]              1 'Streamed'
+0008 0002 08 00       Compression Method    0008 'Deflated'
+000A 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+000E 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0004 1A 01 00 00 Compressed Length     0000011A
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 1C 00       Extra Length          001C
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0029 0002 09 00         Length              0009
+002B 0001 03            Flags               '03 mod access'
+002C 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+0030 0004 A3 CD E7 62   Access Time         62E7CDA3 'Mon Aug  1 12:57:07 2022'
+0034 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0036 0002 0B 00         Length              000B
+0038 0001 01            Version             01
+0039 0001 04            UID Size            04
+003A 0004 E8 03 00 00   UID                 000003E8
+003E 0001 04            GID Size            04
+003F 0004 E8 03 00 00   GID                 000003E8
+0043 011A ...         PAYLOAD
+
+015D 0004 50 4B 07 08 STREAMING DATA HEADER 08074B50
+0161 0004 FF E7 0E F9 CRC                   F90EE7FF
+0165 0004 1A 01 00 00 Compressed Length     0000011A
+0169 0004 BE 01 00 00 Uncompressed Length   000001BE
+
+016D 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0171 0001 1E          Created Zip Spec      1E '3.0'
+0172 0001 03          Created OS            03 'Unix'
+0173 0001 14          Extract Zip Spec      14 '2.0'
+0174 0001 00          Extract OS            00 'MS-DOS'
+0175 0002 09 00       General Purpose Flag  0009
+                      [Bit  0]              1 'Encryption'
+                      [Bits 1-2]            0 'Normal Compression'
+                      [Bit  3]              1 'Streamed'
+0177 0002 08 00       Compression Method    0008 'Deflated'
+0179 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+017D 0004 FF E7 0E F9 CRC                   F90EE7FF
+0181 0004 1A 01 00 00 Compressed Length     0000011A
+0185 0004 BE 01 00 00 Uncompressed Length   000001BE
+0189 0002 09 00       Filename Length       0009
+018B 0002 18 00       Extra Length          0018
+018D 0002 00 00       Comment Length        0000
+018F 0002 00 00       Disk Start            0000
+0191 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0193 0004 00 00 ED 81 Ext File Attributes   81ED0000
+0197 0004 00 00 00 00 Local Header Offset   00000000
+019B 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+01A4 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+01A6 0002 05 00         Length              0005
+01A8 0001 03            Flags               '03 mod access'
+01A9 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+01AD 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+01AF 0002 0B 00         Length              000B
+01B1 0001 01            Version             01
+01B2 0001 04            UID Size            04
+01B3 0004 E8 03 00 00   UID                 000003E8
+01B7 0001 04            GID Size            04
+01B8 0004 E8 03 00 00   GID                 000003E8
+
+01BC 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01C0 0002 00 00       Number of this disk   0000
+01C2 0002 00 00       Central Dir Disk no   0000
+01C4 0002 01 00       Entries in this disk  0001
+01C6 0002 01 00       Total Entries         0001
+01C8 0004 4F 00 00 00 Size of Central Dir   0000004F
+01CC 0004 6D 01 00 00 Offset to Central Dir 0000016D
+01D0 0002 00 00       Comment Length        0000
+Done
