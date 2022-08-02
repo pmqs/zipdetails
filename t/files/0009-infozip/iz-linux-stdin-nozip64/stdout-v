@@ -1,0 +1,47 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0008 0002 08 00       Compression Method    0008 'Deflated'
+000A 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+000E 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0004 0E 01 00 00 Compressed Length     0000010E
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 01 00       Filename Length       0001
+001C 0002 00 00       Extra Length          0000
+001E 0001 2D          Filename              '-'
+001F 010E ...         PAYLOAD
+
+012D 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0131 0001 1E          Created Zip Spec      1E '3.0'
+0132 0001 03          Created OS            03 'Unix'
+0133 0001 14          Extract Zip Spec      14 '2.0'
+0134 0001 00          Extract OS            00 'MS-DOS'
+0135 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0137 0002 08 00       Compression Method    0008 'Deflated'
+0139 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+013D 0004 FF E7 0E F9 CRC                   F90EE7FF
+0141 0004 0E 01 00 00 Compressed Length     0000010E
+0145 0004 BE 01 00 00 Uncompressed Length   000001BE
+0149 0002 01 00       Filename Length       0001
+014B 0002 00 00       Extra Length          0000
+014D 0002 00 00       Comment Length        0000
+014F 0002 00 00       Disk Start            0000
+0151 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0153 0004 00 00 ED 81 Ext File Attributes   81ED0000
+0157 0004 00 00 00 00 Local Header Offset   00000000
+015B 0001 2D          Filename              '-'
+
+015C 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0160 0002 00 00       Number of this disk   0000
+0162 0002 00 00       Central Dir Disk no   0000
+0164 0002 01 00       Entries in this disk  0001
+0166 0002 01 00       Total Entries         0001
+0168 0004 2F 00 00 00 Size of Central Dir   0000002F
+016C 0004 2D 01 00 00 Offset to Central Dir 0000012D
+0170 0002 00 00       Comment Length        0000
+Done

@@ -1,0 +1,47 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000010E
+0016 Uncompressed Length   000001BE
+001A Filename Length       0001
+001C Extra Length          0000
+001E Filename              '-'
+001F PAYLOAD
+
+012D CENTRAL HEADER #1     02014B50
+0131 Created Zip Spec      1E '3.0'
+0132 Created OS            03 'Unix'
+0133 Extract Zip Spec      14 '2.0'
+0134 Extract OS            00 'MS-DOS'
+0135 General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+0137 Compression Method    0008 'Deflated'
+0139 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+013D CRC                   F90EE7FF
+0141 Compressed Length     0000010E
+0145 Uncompressed Length   000001BE
+0149 Filename Length       0001
+014B Extra Length          0000
+014D Comment Length        0000
+014F Disk Start            0000
+0151 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0153 Ext File Attributes   81ED0000
+0157 Local Header Offset   00000000
+015B Filename              '-'
+
+015C END CENTRAL HEADER    06054B50
+0160 Number of this disk   0000
+0162 Central Dir Disk no   0000
+0164 Entries in this disk  0001
+0166 Total Entries         0001
+0168 Size of Central Dir   0000002F
+016C Offset to Central Dir 0000012D
+0170 Comment Length        0000
+Done
