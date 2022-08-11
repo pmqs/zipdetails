@@ -93,6 +93,7 @@ my %ZIP_CompressionMethods =
          17 => 'Reserved by PKWARE',
          18 => 'IBM/TERSE or Xceed BWT', # APPNOTE has IBM/TERSE. Xceed reuses it unofficially
          19 => 'IBM LZ77 z Architecture (PFS)',
+         92 => 'Reference', # Winzip Only from version 25
          93 => 'Zstandard',
          94 => 'MP3',
          95 => 'XZ',
@@ -198,6 +199,7 @@ my %Extras = (
       0x7855,  ['Unix Extra type 2', \&decode_Ux],
       0x7875,  ['Unix Extra Type 3', \&decode_ux],
       0x9901,  ['AES Encryption', \&decode_AES],
+      0x9903,  ['Reference', \&decode_Reference], # Added in WinZip ver 25
       0xa11e,  ['Data Stream Alignment', \&decode_DataStreamAlignment],
       0xA220,  ['Open Packaging Growth Hint', \&decode_GrowthHint ],
       0xCAFE,  ['Java Executable', \&decode_Java_exe],
@@ -961,7 +963,15 @@ sub LocalHeader
     $CDcompressedLength -= $size;
 
     if ($CDcompressedLength) {
-        outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
+
+        if ($compressedMethod == 92 && $CDcompressedLength == 20) {
+            # Payload for a Reference is the SHA-1 hash of the uncompressed content
+            myRead(my $sha1, 20);
+            out $sha1, "PAYLOAD",  "SHA-1 Hash: " . hexDump($sha1);
+        }
+        else {
+            outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
+        }
     }
 
     if ($compressedMethod == 99) {
@@ -1716,6 +1726,24 @@ sub decode_AES
     out $bmethod, "  Compression Method", compressionMethod($method) ;
 
     $context->{AesStrength} = $strength ;
+}
+
+sub decode_Reference
+{
+    # ref https://www.winzip.com/en/support/compression-methods/
+
+    my $len = shift;
+    my $context = shift;
+
+    out_V "  CRC";
+    myRead(my $uuid, 16);
+    # UUID is big endian
+    out2 $uuid, "UUID",
+        unpack('H*', substr($uuid, 0, 4)) . '-' .
+        unpack('H*', substr($uuid, 4, 2)) . '-' .
+        unpack('H*', substr($uuid, 6, 2)) . '-' .
+        unpack('H*', substr($uuid, 8, 2)) . '-' .
+        unpack('H*', substr($uuid, 10, 6)) ;
 }
 
 sub decode_GrowthHint
