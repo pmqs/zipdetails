@@ -1,0 +1,64 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+0008 Compression Method    0063 'AES Encryption'
+000A Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
+000E CRC                   F90EE7FF
+0012 Compressed Length     00000126
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          000B
+001E Filename              'lorem.txt'
+0027 Extra ID #0001        9901 'AES Encryption'
+0029   Length              0007
+002B   Vendor Version      0001 'AE-1'
+002D   Vendor ID           4541 'AE'
+002F   Encryption Strength 03 '256-bit encryption key'
+0030   Compression Method  0008 'Deflated'
+0032 AES Salt              7A 44 48 12 C7 3E 34 BE 5E 0A 58 9B 19
+                           B0 3B 0C
+0042 AES Pwd Ver           E5 35
+0044 PAYLOAD
+014E AES Auth              3B 4D 4D BF 98 3B 8F 2C 7D 5B
+
+0158 CENTRAL HEADER #1     02014B50
+015C Created Zip Spec      14 '2.0'
+015D Created OS            00 'MS-DOS'
+015E Extract Zip Spec      14 '2.0'
+015F Extract OS            00 'MS-DOS'
+0160 General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+0162 Compression Method    0063 'AES Encryption'
+0164 Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
+0168 CRC                   F90EE7FF
+016C Compressed Length     00000126
+0170 Uncompressed Length   000001BE
+0174 Filename Length       0009
+0176 Extra Length          000B
+0178 Comment Length        0000
+017A Disk Start            0000
+017C Int File Attributes   0001
+     [Bit 0]               1 Text Data
+017E Ext File Attributes   00000020
+     [Bit 5]               Archive
+0182 Local Header Offset   00000000
+0186 Filename              'lorem.txt'
+018F Extra ID #0001        9901 'AES Encryption'
+0191   Length              0007
+0193   Vendor Version      0001 'AE-1'
+0195   Vendor ID           4541 'AE'
+0197   Encryption Strength 03 '256-bit encryption key'
+0198   Compression Method  0008 'Deflated'
+
+019A END CENTRAL HEADER    06054B50
+019E Number of this disk   0000
+01A0 Central Dir Disk no   0000
+01A2 Entries in this disk  0001
+01A4 Total Entries         0001
+01A6 Size of Central Dir   00000042
+01AA Offset to Central Dir 00000158
+01AE Comment Length        0000
+Done

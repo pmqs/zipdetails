@@ -9,7 +9,7 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-plan tests => 39 * 10 ;
+plan tests => 42 * 10 ;
 
 sub run;
 
