@@ -1,0 +1,88 @@
+
+000000000 000000004 50 4B 03 04 LOCAL HEADER #1       04034B50
+000000004 000000001 2D          Extract Zip Spec      2D '4.5'
+000000005 000000001 00          Extract OS            00 'MS-DOS'
+000000006 000000002 00 00       General Purpose Flag  0000
+000000008 000000002 00 00       Compression Method    0000 'Stored'
+00000000A 000000004 14 74 07 55 Last Mod Time         55077414 'Sun Aug  7 14:32:40 2022'
+00000000E 000000004 8D EF 02 D2 CRC                   D202EF8D
+000000012 000000004 FF FF FF FF Compressed Length     FFFFFFFF
+000000016 000000004 FF FF FF FF Uncompressed Length   FFFFFFFF
+00000001A 000000002 0A 00       Filename Length       000A
+00000001C 000000002 14 00       Extra Length          0014
+00000001E 00000000A 34 67 69 67 Filename              '4gig-plus1'
+                    2D 70 6C 75
+                    73 31
+000000028 000000002 01 00       Extra ID #0001        0001 'ZIP64'
+00000002A 000000002 10 00         Length              0010
+00000002C 000000008 00 00 00 00   Uncompressed Size   0000000100000000
+                    01 00 00 00
+000000034 000000008 00 00 00 00   Compressed Size     0000000100000000
+                    01 00 00 00
+00000003C 100000000 ...         PAYLOAD
+
+10000003C 000000004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+100000040 000000001 2D          Created Zip Spec      2D '4.5'
+100000041 000000001 00          Created OS            00 'MS-DOS'
+100000042 000000001 2D          Extract Zip Spec      2D '4.5'
+100000043 000000001 00          Extract OS            00 'MS-DOS'
+100000044 000000002 00 00       General Purpose Flag  0000
+100000046 000000002 00 00       Compression Method    0000 'Stored'
+100000048 000000004 14 74 07 55 Last Mod Time         55077414 'Sun Aug  7 14:32:40 2022'
+10000004C 000000004 8D EF 02 D2 CRC                   D202EF8D
+100000050 000000004 FF FF FF FF Compressed Length     FFFFFFFF
+100000054 000000004 FF FF FF FF Uncompressed Length   FFFFFFFF
+100000058 000000002 0A 00       Filename Length       000A
+10000005A 000000002 14 00       Extra Length          0014
+10000005C 000000002 00 00       Comment Length        0000
+10000005E 000000002 00 00       Disk Start            0000
+100000060 000000002 00 00       Int File Attributes   0000
+                                [Bit 0]               0 'Binary Data'
+100000062 000000004 20 00 00 00 Ext File Attributes   00000020
+                                [Bit 5]               Archive
+100000066 000000004 00 00 00 00 Local Header Offset   00000000
+10000006A 00000000A 34 67 69 67 Filename              '4gig-plus1'
+                    2D 70 6C 75
+                    73 31
+100000074 000000002 01 00       Extra ID #0001        0001 'ZIP64'
+100000076 000000002 10 00         Length              0010
+100000078 000000008 00 00 00 00   Uncompressed Size   0000000100000000
+                    01 00 00 00
+100000080 000000008 00 00 00 00   Compressed Size     0000000100000000
+                    01 00 00 00
+
+100000088 000000004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
+                                RECORD
+10000008C 000000008 2C 00 00 00 Size of record        000000000000002C
+                    00 00 00 00
+100000094 000000001 2D          Created Zip Spec      2D '4.5'
+100000095 000000001 00          Created OS            00 'MS-DOS'
+100000096 000000001 2D          Extract Zip Spec      2D '4.5'
+100000097 000000001 00          Extract OS            00 'MS-DOS'
+100000098 000000004 00 00 00 00 Number of this disk   00000000
+10000009C 000000004 00 00 00 00 Central Dir Disk no   00000000
+1000000A0 000000008 01 00 00 00 Entries in this disk  0000000000000001
+                    00 00 00 00
+1000000A8 000000008 01 00 00 00 Total Entries         0000000000000001
+                    00 00 00 00
+1000000B0 000000008 4C 00 00 00 Size of Central Dir   000000000000004C
+                    00 00 00 00
+1000000B8 000000008 3C 00 00 00 Offset to Central dir 000000010000003C
+                    01 00 00 00
+
+1000000C0 000000004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                                LOCATOR
+1000000C4 000000004 00 00 00 00 Central Dir Disk no   00000000
+1000000C8 000000008 88 00 00 00 Offset to Central dir 0000000100000088
+                    01 00 00 00
+1000000D0 000000004 01 00 00 00 Total no of Disks     00000001
+
+1000000D4 000000004 50 4B 05 06 END CENTRAL HEADER    06054B50
+1000000D8 000000002 00 00       Number of this disk   0000
+1000000DA 000000002 00 00       Central Dir Disk no   0000
+1000000DC 000000002 01 00       Entries in this disk  0001
+1000000DE 000000002 01 00       Total Entries         0001
+1000000E0 000000004 4C 00 00 00 Size of Central Dir   0000004C
+1000000E4 000000004 FF FF FF FF Offset to Central Dir FFFFFFFF
+1000000E8 000000002 00 00       Comment Length        0000
+Done
