@@ -36,7 +36,6 @@ find(
              't/files'
     );
 
-SKIP:
 for my $dir (sort keys %dirs)
 {
     SKIP:
@@ -72,10 +71,8 @@ for my $dir (sort keys %dirs)
             my $golden_stdout_file = "$dir/stdout$opt";
             my $golden_stderr_file = "$dir/stderr$opt";
 
-            my $golden_stdout = readFile($golden_stdout_file);
-            my $golden_stderr = '';
-            $golden_stderr = readFile($golden_stderr_file)
-                if -e $golden_stderr_file ;
+            my $golden_stdout = readOutFile($golden_stdout_file);
+            my $golden_stderr = readOutFile($golden_stderr_file);
 
             my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
 
@@ -99,6 +96,22 @@ if (@failed)
 }
 
 exit;
+
+sub readOutFile
+{
+    my $basename = shift;
+
+    if (! -e $basename && -e "$basename.bz2")
+    {
+        return `$BZIP2 -d -c $basename`;
+    }
+    if (-e $basename )
+    {
+        return readFile($basename);
+    }
+
+    return "";
+}
 
 sub run
 {
