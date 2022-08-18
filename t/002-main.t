@@ -17,7 +17,7 @@ sub run;
 my $tempdir = tempdir(CLEANUP => 1);
 my $HERE = getcwd;
 
-my $BZIP2 = findBzip2();
+my $ZSTD = findZstd();
 
 
 my $Perl = ($ENV{'FULLPERL'} or $^X or 'perl') ;
@@ -25,7 +25,7 @@ $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 
 my %dirs;
 my @exts = qw( zip zipx saz xlsx docx jar par tar war apk xpi) ;
-my $exts = join "|",  @exts, map { "$_.bz2" } @exts ;
+my $exts = join "|",  @exts, map { "$_.zst" } @exts ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
 my @failed = ();
 
@@ -43,19 +43,19 @@ for my $dir (sort keys %dirs)
         my $z = $dirs{$dir};
         my $zipfile = "$dir/$z";
 
-        if ($z =~ /bz2$/)
+        if ($z =~ /zst$/)
         {
-            skip "BZIP2 not available for test $dir/" . basename($zipfile), $tests_per_zip
-                if ! $BZIP2;
+            skip "ZSTD not available for test $dir/" . basename($zipfile), $tests_per_zip
+                if ! $ZSTD;
 
             chdir $tempdir
                 or die "cannot chdir: $!\n";
 
             $zipfile = $tempdir . '/' . $z;
-            $zipfile =~ s/\.bz2$//;
+            $zipfile =~ s/\.zst$//;
 
-            system("$BZIP2 -d -c $HERE/$dir/$z >$zipfile") == 0
-                or die "cannot bunzip2: $!\n";
+            system("$ZSTD -d -o $zipfile $HERE/$dir/$z") == 0
+                or die "cannot unzstd: $!\n";
 
             chdir $HERE
                 or die "cannot chdir: $!\n";
@@ -101,9 +101,9 @@ sub readOutFile
 {
     my $basename = shift;
 
-    if (! -e $basename && -e "$basename.bz2")
+    if (! -e $basename && -e "$basename.zst")
     {
-        return `$BZIP2 -d -c $basename`;
+        return `$ZSTD -d -c $basename`;
     }
     if (-e $basename )
     {
@@ -158,32 +158,32 @@ sub run
     return ($got, $out, $err) ;
 }
 
-sub findBzip2
+sub findZstd
 {
-    # Check external bzip2 is available
-    my $name  = $^O =~ /mswin/i ? 'bzip2.exe' : 'bzip2';
+    # Check external Zstd is available
+    my $name  = $^O =~ /mswin/i ? 'zstd.exe' : 'zstd';
     my $split = $^O =~ /mswin/i ? ";" : ":";
 
-    my $bzip2 ;
+    my $zstd ;
     for my $dir (reverse split $split, $ENV{PATH})
     {
-        $bzip2 = File::Spec->catfile($dir,$name)
+        $zstd = File::Spec->catfile($dir,$name)
             if -x File::Spec->catfile($dir,$name)
     }
 
-    # Handle spaces in path to bzip2
-    $bzip2 =  qq["$bzip2"]
-        if defined $bzip2 && $bzip2 =~ /\s/;
+    # Handle spaces in path to zstd
+    $zstd =  qq["$zstd"]
+        if defined $zstd && $zstd =~ /\s/;
 
     return undef
-        if ! ExternalBzip2Works($bzip2);
+        if ! ExternalZstdWorks($zstd);
 
-    return $bzip2 ;
+    return $zstd ;
 }
 
-sub ExternalBzip2Works
+sub ExternalZstdWorks
 {
-    my $bzip2 = shift ;
+    my $zstd = shift ;
 
     my $outfile = $tempdir . '/testfile';
 
@@ -193,11 +193,11 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus odio id
  est.  Quintus cenum parat.
 };
 
-    writeWithBzip2($bzip2, $outfile, $content)
+    writeWithZstd($zstd, $outfile, $content)
         or return 0;
 
     my $got ;
-    readWithBzip2($bzip2, $outfile, $got)
+    readWithZstd($zstd, $outfile, $got)
         or return 0;
 
     if ($content ne $got)
@@ -209,14 +209,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus odio id
     return 1 ;
 }
 
-sub readWithBzip2
+sub readWithZstd
 {
-    my $bzip2 = shift ;
+    my $zstd = shift ;
     my $file = shift ;
 
     my $outfile = $tempdir . '/outfile';
 
-    my $comp = "$bzip2 -d -c" ;
+    my $comp = "$zstd -d -c" ;
 
     if ( system("$comp $file >$outfile") == 0 )
     {
@@ -232,9 +232,9 @@ sub readWithBzip2
     return 0 ;
 }
 
-sub writeWithBzip2
+sub writeWithZstd
 {
-    my $bzip2 = shift ;
+    my $zstd = shift ;
     my $file = shift ;
     my $content = shift ;
     my $options = shift || '';
@@ -244,7 +244,7 @@ sub writeWithBzip2
     writeFile($infile, $content);
 
     unlink $file ;
-    my $comp = "$bzip2 -c $options $infile >$file" ;
+    my $comp = "$zstd -c $options $infile >$file" ;
 
     return 1
         if system($comp) == 0 ;
