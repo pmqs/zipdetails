@@ -9,23 +9,23 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-plan tests => 38 * 10 ;
+my $tests_per_zip = 10;
+plan tests => 44 * $tests_per_zip ;
 
 sub run;
 
+my $tempdir = tempdir(CLEANUP => 1);
 my $HERE = getcwd;
 
-my $Inc = join " ", map qq["-I$_"] => @INC;
-$Inc = '"-MExtUtils::testlib"'
-    if ! $ENV{PERL_CORE} && eval " require ExtUtils::testlib; " ;
+my $ZSTD = findZstd();
+
 
 my $Perl = ($ENV{'FULLPERL'} or $^X or 'perl') ;
 $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 
-my $tempdir = tempdir(CLEANUP => 1);
-
 my %dirs;
-my $exts = join "|",  qw( zip zipx saz xlsx docx jar par tar war apk xpi) ;
+my @exts = qw( zip zipx saz xlsx docx jar par tar war apk xpi) ;
+my $exts = join "|",  @exts, map { "$_.zst" } @exts ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
 my @failed = ();
 
@@ -38,20 +38,24 @@ find(
 
 for my $dir (sort keys %dirs)
 {
-    my $z = $dirs{$dir};
-    for my $opt ('', '-v')
+    SKIP:
     {
+        my $z = $dirs{$dir};
         my $zipfile = "$dir/$z";
 
-        if ($z =~ /tar$/)
+        if ($z =~ /zst$/)
         {
+            skip "ZSTD not available for test $dir/" . basename($zipfile), $tests_per_zip
+                if ! $ZSTD;
+
             chdir $tempdir
                 or die "cannot chdir: $!\n";
-            system("tar xf $HERE/$dir/$z") == 0
-                or die "cannot untar";
 
             $zipfile = $tempdir . '/' . $z;
-            $zipfile =~ s/\.tar$//;
+            $zipfile =~ s/\.zst$//;
+
+            system("$ZSTD -d -o $zipfile $HERE/$dir/$z") == 0
+                or die "cannot unzstd: $!\n";
 
             chdir $HERE
                 or die "cannot chdir: $!\n";
@@ -60,25 +64,26 @@ for my $dir (sort keys %dirs)
         die "No zip file '$z' '$zipfile' in '$dir'"
             if ! -e $zipfile;
 
-        diag "testing $dir/" . basename($zipfile) . " $opt";
+        for my $opt ('', '-v')
+        {
+            diag "testing $dir/" . basename($zipfile) . " $opt";
 
-        my $golden_stdout_file = "$dir/stdout$opt";
-        my $golden_stderr_file = "$dir/stderr$opt";
+            my $golden_stdout_file = "$dir/stdout$opt";
+            my $golden_stderr_file = "$dir/stderr$opt";
 
-        my $golden_stdout = readFile($golden_stdout_file);
-        my $golden_stderr = '';
-        $golden_stderr = readFile($golden_stderr_file)
-            if -e $golden_stderr_file ;
+            my $golden_stdout = readOutFile($golden_stdout_file);
+            my $golden_stderr = readOutFile($golden_stderr_file);
 
-        my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
+            my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
 
-        my $ok = 1;
-        $ok &= is $status, 0, "Exit Status 0";
-        $ok &= is $stdout, $golden_stdout, "Expected stdout";
-        $ok &= is $stderr, $golden_stderr, "Expected stderr";
+            my $ok = 1;
+            $ok &= is $status, 0, "Exit Status 0";
+            $ok &= is $stdout, $golden_stdout, "Expected stdout";
+            $ok &= is $stderr, $golden_stderr, "Expected stderr";
 
-        push @failed, $dir
-            unless $ok;
+            push @failed, $dir
+                unless $ok;
+        }
 
         unlink <$tempdir/*> ;
     }
@@ -91,6 +96,22 @@ if (@failed)
 }
 
 exit;
+
+sub readOutFile
+{
+    my $basename = shift;
+
+    if (! -e $basename && -e "$basename.zst")
+    {
+        return `$ZSTD -d -c $basename`;
+    }
+    if (-e $basename )
+    {
+        return readFile($basename);
+    }
+
+    return "";
+}
 
 sub run
 {
@@ -137,6 +158,102 @@ sub run
     return ($got, $out, $err) ;
 }
 
+sub findZstd
+{
+    # Check external Zstd is available
+    my $name  = $^O =~ /mswin/i ? 'zstd.exe' : 'zstd';
+    my $split = $^O =~ /mswin/i ? ";" : ":";
+
+    my $zstd ;
+    for my $dir (reverse split $split, $ENV{PATH})
+    {
+        $zstd = File::Spec->catfile($dir,$name)
+            if -x File::Spec->catfile($dir,$name)
+    }
+
+    # Handle spaces in path to zstd
+    $zstd =  qq["$zstd"]
+        if defined $zstd && $zstd =~ /\s/;
+
+    return undef
+        if ! ExternalZstdWorks($zstd);
+
+    return $zstd ;
+}
+
+sub ExternalZstdWorks
+{
+    my $zstd = shift ;
+
+    my $outfile = $tempdir . '/testfile';
+
+    my $content = qq {
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut tempus odio id
+ dolor. Camelus perlus.  Larrius in lumen numen.  Dolor en quiquum filia
+ est.  Quintus cenum parat.
+};
+
+    writeWithZstd($zstd, $outfile, $content)
+        or return 0;
+
+    my $got ;
+    readWithZstd($zstd, $outfile, $got)
+        or return 0;
+
+    if ($content ne $got)
+    {
+        diag "Uncompressed content is wrong";
+        return 0 ;
+    }
+
+    return 1 ;
+}
+
+sub readWithZstd
+{
+    my $zstd = shift ;
+    my $file = shift ;
+
+    my $outfile = $tempdir . '/outfile';
+
+    my $comp = "$zstd -d -c" ;
+
+    if ( system("$comp $file >$outfile") == 0 )
+    {
+        $_[0] = readFile($outfile);
+        unlink $file ;
+
+        return 1
+    }
+
+    diag "'$comp' failed: \$?=$? \$!=$!";
+    unlink $file ;
+
+    return 0 ;
+}
+
+sub writeWithZstd
+{
+    my $zstd = shift ;
+    my $file = shift ;
+    my $content = shift ;
+    my $options = shift || '';
+
+    my $infile = $tempdir . '/infile';
+
+    writeFile($infile, $content);
+
+    unlink $file ;
+    my $comp = "$zstd -c $options $infile >$file" ;
+
+    return 1
+        if system($comp) == 0 ;
+
+    diag "'$comp' failed: \$?=$? \$!=$!";
+    return 0 ;
+}
+
+
 sub readFile
 {
     my $f = shift ;
@@ -153,4 +270,15 @@ sub readFile
     close F ;
 
     return $data;
+}
+
+sub writeFile
+{
+    my $filename = shift;
+    my $content = shift;
+
+    open my $fh, '>', $filename;
+    print $fh $content;
+    close $fh;
+
 }
