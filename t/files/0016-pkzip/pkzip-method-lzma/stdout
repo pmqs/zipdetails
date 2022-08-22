@@ -1,0 +1,126 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      3F '6.3'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0800
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+     [Bit 11]              1 'Language Encoding'
+0008 Compression Method    000E 'LZMA'
+000A Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+000E CRC                   F90EE7FF
+0012 Compressed Length     00000154
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 LZMA Version          0441 '4.65'
+0029 LZMA Properties Size  0005
+002B LZMA Info             5D '(Default)'
+       PosStateBits        2
+       LiteralPosStateBits 0
+       LiteralContextBits  3
+002C LZMA Dictionary Size  00001000
+0030 PAYLOAD
+
+017B LOCAL HEADER #2       04034B50
+017F Extract Zip Spec      3F '6.3'
+0180 Extract OS            00 'MS-DOS'
+0181 General Purpose Flag  0800
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+     [Bit 11]              1 'Language Encoding'
+0183 Compression Method    000E 'LZMA'
+0185 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+0189 CRC                   41F5C83C
+018D Compressed Length     00000154
+0191 Uncompressed Length   000001BF
+0195 Filename Length       000A
+0197 Extra Length          0000
+0199 Filename              'lorem2.txt'
+01A3 LZMA Version          0441 '4.65'
+01A5 LZMA Properties Size  0005
+01A7 LZMA Info             5D '(Default)'
+       PosStateBits        2
+       LiteralPosStateBits 0
+       LiteralContextBits  3
+01A8 LZMA Dictionary Size  00001000
+01AC PAYLOAD
+
+02F7 CENTRAL HEADER #1     02014B50
+02FB Created Zip Spec      41 '6.5'
+02FC Created OS            00 'MS-DOS'
+02FD Extract Zip Spec      3F '6.3'
+02FE Extract OS            00 'MS-DOS'
+02FF General Purpose Flag  0800
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+     [Bit 11]              1 'Language Encoding'
+0301 Compression Method    000E 'LZMA'
+0303 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+0307 CRC                   F90EE7FF
+030B Compressed Length     00000154
+030F Uncompressed Length   000001BE
+0313 Filename Length       0009
+0315 Extra Length          0024
+0317 Comment Length        0000
+0319 Disk Start            0000
+031B Int File Attributes   0001
+     [Bit 0]               1 Text Data
+031D Ext File Attributes   00000020
+     [Bit 5]               Archive
+0321 Local Header Offset   00000000
+0325 Filename              'lorem.txt'
+032E Extra ID #0001        000A 'NTFS FileTimes'
+0330   Length              0020
+0332   Reserved            00000000
+0336   Tag1                0001
+0338   Size1               0018
+033A   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
+                           2022 0ns'
+0342   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+034A   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
+                           2022 60572500ns'
+
+0352 CENTRAL HEADER #2     02014B50
+0356 Created Zip Spec      41 '6.5'
+0357 Created OS            00 'MS-DOS'
+0358 Extract Zip Spec      3F '6.3'
+0359 Extract OS            00 'MS-DOS'
+035A General Purpose Flag  0800
+     [Bit 1]               0 'LZMA EOS Marker Not Present'
+     [Bit 11]              1 'Language Encoding'
+035C Compression Method    000E 'LZMA'
+035E Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+0362 CRC                   41F5C83C
+0366 Compressed Length     00000154
+036A Uncompressed Length   000001BF
+036E Filename Length       000A
+0370 Extra Length          0024
+0372 Comment Length        0000
+0374 Disk Start            0000
+0376 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0378 Ext File Attributes   00000020
+     [Bit 5]               Archive
+037C Local Header Offset   0000017B
+0380 Filename              'lorem2.txt'
+038A Extra ID #0001        000A 'NTFS FileTimes'
+038C   Length              0020
+038E   Reserved            00000000
+0392   Tag1                0001
+0394   Size1               0018
+0396   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
+                           2022 217947600ns'
+039E   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+03A6   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
+                           2022 980371500ns'
+
+03AE END CENTRAL HEADER    06054B50
+03B2 Number of this disk   0000
+03B4 Central Dir Disk no   0000
+03B6 Entries in this disk  0002
+03B8 Total Entries         0002
+03BA Size of Central Dir   000000B7
+03BE Offset to Central Dir 000002F7
+03C2 Comment Length        0000
+Done
