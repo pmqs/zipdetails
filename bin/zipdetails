@@ -948,19 +948,27 @@ sub LocalHeader
     #     }
     # }
 
-
+    my $pk_encrypted = ($gpFlag & (ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK|ZIP_GP_FLAG_ENCRYPTED_MASK)) && $compressedMethod != 99;
 
     my $size = 0;
-    $size = printAes(\%ExtraContext)
-        if $compressedMethod == 99 ;
-
-    $size += printLzmaProperties()
-        if $compressedMethod == ZIP_CM_LZMA ;
 
     $CDcompressedLength = $compressedLength
         if $opt_scan ;
 
-    $CDcompressedLength -= $size;
+    if (! $pk_encrypted)
+    {
+        if ($compressedMethod == 99) # AES Encryption
+        {
+            $size = printAes(\%ExtraContext)
+        }
+        elsif ($compressedMethod == ZIP_CM_LZMA)
+        {
+
+            $size += printLzmaProperties()
+        }
+
+        $CDcompressedLength -= $size;
+    }
 
     if ($CDcompressedLength) {
 
