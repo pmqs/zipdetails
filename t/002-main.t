@@ -10,7 +10,7 @@ use File::Basename;
 use File::Find;
 
 my $tests_per_zip = 10;
-plan tests => 53 * $tests_per_zip ;
+plan tests => 55 * $tests_per_zip ;
 
 sub run;
 
