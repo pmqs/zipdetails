@@ -9,8 +9,8 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-my $tests_per_zip = 10;
-plan tests => 55 * $tests_per_zip ;
+my $tests_per_zip = 5 * 2 * 3 ;
+plan tests => 82 * $tests_per_zip ;
 
 sub run;
 
@@ -64,25 +64,28 @@ for my $dir (sort keys %dirs)
         die "No zip file '$z' '$zipfile' in '$dir'"
             if ! -e $zipfile;
 
-        for my $opt ('', '-v')
+        for my $opt1 ('', '-v')
         {
-            diag "testing $dir/" . basename($zipfile) . " $opt";
+            for my $opt2 ('', '--scan', '--walk')
+            {
+                diag "Testing $dir/" . basename($zipfile) . " $opt1 $opt2";
 
-            my $golden_stdout_file = "$dir/stdout$opt";
-            my $golden_stderr_file = "$dir/stderr$opt";
+                my $golden_stdout_file = getOutputFilename( $dir, 'stdout', $opt1, $opt2);
+                my $golden_stderr_file = getOutputFilename( $dir, 'stderr', $opt1, $opt2);
 
-            my $golden_stdout = readOutFile($golden_stdout_file);
-            my $golden_stderr = readOutFile($golden_stderr_file);
+                my $golden_stdout = readOutFile($golden_stdout_file);
+                my $golden_stderr = readOutFile($golden_stderr_file);
 
-            my ($status, $stdout, $stderr) = run $zipfile, $opt, $golden_stdout_file, $golden_stderr_file ;
+                my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
 
-            my $ok = 1;
-            $ok &= is $status, 0, "Exit Status 0";
-            $ok &= is $stdout, $golden_stdout, "Expected stdout";
-            $ok &= is $stderr, $golden_stderr, "Expected stderr";
+                my $ok = 1;
+                $ok &= is $status, 0, "Exit Status 0";
+                $ok &= is $stdout, $golden_stdout, "Expected stdout";
+                $ok &= is $stderr, $golden_stderr, "Expected stderr";
 
-            push @failed, $dir
-                unless $ok;
+                push @failed, "$dir $opt1 $opt2"
+                    unless $ok;
+            }
         }
 
         unlink <$tempdir/*> ;
@@ -101,6 +104,8 @@ sub readOutFile
 {
     my $basename = shift;
 
+    return "" unless $basename;
+
     if (! -e $basename && -e "$basename.zst")
     {
         return `$ZSTD -d -c $basename`;
@@ -116,7 +121,8 @@ sub readOutFile
 sub run
 {
     my $filename = shift ;
-    my $opt = shift ;
+    my $opt1 = shift ;
+    my $opt2 = shift ;
     my $stdout_golden = shift ;
     my $stderr_golden = shift ;
 
@@ -144,7 +150,7 @@ sub run
     ok ! -e $stdout, "stdout file does not exist" ;
     ok ! -e $stderr, "stderr file does not exist" ;
 
-    my $got = system("$Perl ./bin/zipdetails --utc $opt $filename >$stdout 2>$stderr");
+    my $got = system("$Perl ./bin/zipdetails --utc $opt1 $opt2 $filename >$stdout 2>$stderr");
     my $out = readFile($stdout);
     my $err = readFile($stderr);
 
@@ -216,7 +222,7 @@ sub readWithZstd
 
     my $outfile = $tempdir . '/outfile';
 
-    my $comp = "$zstd -d -c" ;
+    my $comp = "$zstd --no-progress -d -c" ;
 
     if ( system("$comp $file >$outfile") == 0 )
     {
@@ -244,7 +250,7 @@ sub writeWithZstd
     writeFile($infile, $content);
 
     unlink $file ;
-    my $comp = "$zstd -c $options $infile >$file" ;
+    my $comp = "$zstd --no-progress -c $options $infile >$file" ;
 
     return 1
         if system($comp) == 0 ;
@@ -281,4 +287,20 @@ sub writeFile
     print $fh $content;
     close $fh;
 
+}
+
+sub getOutputFilename
+{
+    my $dir  = shift ;
+    my $base = shift ;
+    my $opt1 = shift ;
+    my $opt2 = shift ;
+
+    return "$dir/$base$opt1$opt2"
+        if -e "$dir/$base$opt1$opt2";
+
+    return "$dir/$base$opt1"
+        if -e "$dir/$base$opt1";
+
+    return "" ;
 }

@@ -1,5 +1,14 @@
 # pkzip (aka SecureZIP)
 
+Executable lives at "C:\Program Files\PKWARE\PKZIPC\pkzipc.exe"
+
+## Encrypted CD plus a comment
+
+need a zip with cd encrypted + a zip comment to test the logic that finds the CD records.
+
+
+    pkzipc -add -header="This is a comment"  -passphrase=password  -cd=encrypt pkzip-zip64-store-passphrase-cd-header-comment.zip lorem.txt lorem2.txt
+
 ## default
 
     pkzipc -add pkzip-default.zip lorem.txt

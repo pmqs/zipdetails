@@ -45,7 +45,7 @@
                            uncompressed'
 0141   Length              0060
 0143   ID                  'Z390'
-01A3   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00 06
+0147   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00 06
                            00 04 6D 10 00 06 00 5C 00 50 00 07 00
                            05 00 00 01 00 07 00 06 00 00 2D 00 05
                            00 07 80 00 0C 00 0B 00 06 C5 D7 F4 F0
@@ -54,15 +54,15 @@
                            00 08 00 93 00 00 00 01 00 06 00 9D 40
                            00
 
-01FF END CENTRAL HEADER    06054B50
-0203 Number of this disk   0000
-0205 Central Dir Disk no   0000
-0207 Entries in this disk  0001
-0209 Total Entries         0001
-020B Size of Central Dir   000000BD
-020F Offset to Central Dir 000000E6
-0213 Comment Length        0018
-0215 Comment               'PKZIP for z/OS by PKWARE'
+01A3 END CENTRAL HEADER    06054B50
+01A7 Number of this disk   0000
+01A9 Central Dir Disk no   0000
+01AB Entries in this disk  0001
+01AD Total Entries         0001
+01AF Size of Central Dir   000000BD
+01B3 Offset to Central Dir 000000E6
+01B7 Comment Length        0018
+01B9 Comment               'PKZIP for z/OS by PKWARE'
 
-022D TRAILING DATA
+01D1 TRAILING DATA
 Done

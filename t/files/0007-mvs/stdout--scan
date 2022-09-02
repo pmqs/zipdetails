@@ -1,0 +1,66 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0006
+     [Bits 1-2]            3 'Super Fast Compression'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         4E596446 'Mon Feb 25 12:34:12 2019'
+000E CRC                   547BD734
+0012 Compressed Length     0000009D
+0016 Uncompressed Length   00000149
+001A Filename Length       002B
+001C Extra Length          0000
+001E Filename              'SYS19056/T123412/RA000/MNE#ZIPL/TESTING
+                           /H0D'
+0049 PAYLOAD               ..A..0...}....?A.0(.<........_d.-...j.A<
+                           }eR.......h.Cb..O:.TFv....
+                           4.-N..+..&M.4Ht..........)U...F!........
+                           .a.~.j...y...N.....G.......8K..Uv.../f..
+                           _...>.i...
+
+00E6 CENTRAL HEADER #1     02014B50
+00EA Created Zip Spec      96 '15.0'
+00EB Created OS            0B 'MVS or NTFS'
+00EC Extract Zip Spec      14 '2.0'
+00ED Extract OS            00 'MS-DOS'
+00EE General Purpose Flag  0006
+     [Bits 1-2]            3 'Super Fast Compression'
+00F0 Compression Method    0008 'Deflated'
+00F2 Last Mod Time         4E596446 'Mon Feb 25 12:34:12 2019'
+00F6 CRC                   547BD734
+00FA Compressed Length     0000009D
+00FE Uncompressed Length   00000149
+0102 Filename Length       002B
+0104 Extra Length          0064
+0106 Comment Length        0000
+0108 Disk Start            0000
+010A Int File Attributes   0001
+     [Bit 0]               1 Text Data
+010C Ext File Attributes   00000000
+0110 Local Header Offset   00000000
+0114 Filename              'SYS19056/T123412/RA000/MNE#ZIPL/TESTING
+                           /H0D'
+013F Extra ID #0001        0065 'IBM S/390 attributes -
+                           uncompressed'
+0141   Length              0060
+0143   ID                  'Z390'
+0147   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00 06
+                           00 04 6D 10 00 06 00 5C 00 50 00 07 00
+                           05 00 00 01 00 07 00 06 00 00 2D 00 05
+                           00 07 80 00 0C 00 0B 00 06 C5 D7 F4 F0
+                           F0 F4 00 08 00 65 20 19 02 25 00 08 00
+                           66 20 19 02 25 00 08 00 90 07 0B EC 00
+                           00 08 00 93 00 00 00 01 00 06 00 9D 40
+                           00
+
+01A3 END CENTRAL HEADER    06054B50
+01A7 Number of this disk   0000
+01A9 Central Dir Disk no   0000
+01AB Entries in this disk  0001
+01AD Total Entries         0001
+01AF Size of Central Dir   000000BD
+01B3 Offset to Central Dir 000000E6
+01B7 Comment Length        0018
+01B9 Comment               'PKZIP for z/OS by PKWARE'
+Done

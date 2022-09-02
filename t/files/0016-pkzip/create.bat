@@ -15,7 +15,7 @@ pkzipc -add -204 pkzip-204.zip lorem*.txt
 @REM Create a file 64bit file
 
 
-@REM zip64 stored 
+@REM zip64 stored
 
 perl -e "open(F, '>xxx'); seek(F, 0xFFFFFFFF-1, 1); print F qq[X]"
 pkzipc -add -store pkzip-zip64-store-4gig xxx

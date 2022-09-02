@@ -97,31 +97,8 @@
 013F 0002 65 00       Extra ID #0001        0065 'IBM S/390 attributes -
                                             uncompressed'
 0141 0002 60 00         Length              0060
-0143 0060 E9 F3 F9 F0   ID                  'Z390'
-          00 06 00 01
-          40 00 00 05
-          00 02 90 00
-          06 00 04 6D
-          10 00 06 00
-          5C 00 50 00
-          07 00 05 00
-          00 01 00 07
-          00 06 00 00
-          2D 00 05 00
-          07 80 00 0C
-          00 0B 00 06
-          C5 D7 F4 F0
-          F0 F4 00 08
-          00 65 20 19
-          02 25 00 08
-          00 66 20 19
-          02 25 00 08
-          00 90 07 0B
-          EC 00 00 08
-          00 93 00 00
-          00 01 00 06
-          00 9D 40 00
-01A3 005C 00 06 00 01   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00
+0143 0004 E9 F3 F9 F0   ID                  'Z390'
+0147 005C 00 06 00 01   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00
           40 00 00 05                       06 00 04 6D 10 00 06 00 5C 00 50 00
           00 02 90 00                       07 00 05 00 00 01 00 07 00 06 00 00
           06 00 04 6D                       2D 00 05 00 07 80 00 0C 00 0B 00 06
@@ -145,20 +122,20 @@
           00 01 00 06
           00 9D 40 00
 
-01FF 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0203 0002 00 00       Number of this disk   0000
-0205 0002 00 00       Central Dir Disk no   0000
-0207 0002 01 00       Entries in this disk  0001
-0209 0002 01 00       Total Entries         0001
-020B 0004 BD 00 00 00 Size of Central Dir   000000BD
-020F 0004 E6 00 00 00 Offset to Central Dir 000000E6
-0213 0002 18 00       Comment Length        0018
-0215 0018 50 4B 5A 49 Comment               'PKZIP for z/OS by PKWARE'
+01A3 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01A7 0002 00 00       Number of this disk   0000
+01A9 0002 00 00       Central Dir Disk no   0000
+01AB 0002 01 00       Entries in this disk  0001
+01AD 0002 01 00       Total Entries         0001
+01AF 0004 BD 00 00 00 Size of Central Dir   000000BD
+01B3 0004 E6 00 00 00 Offset to Central Dir 000000E6
+01B7 0002 18 00       Comment Length        0018
+01B9 0018 50 4B 5A 49 Comment               'PKZIP for z/OS by PKWARE'
           50 20 66 6F
           72 20 7A 2F
           4F 53 20 62
           79 20 50 4B
           57 41 52 45
 
-022D 595B ...         TRAILING DATA
+01D1 595B ...         TRAILING DATA
 Done
