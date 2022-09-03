@@ -1,0 +1,112 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      19 '2.5'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+0008 Compression Method    000A 'PKWARE Data Compression Library
+                           Imploding'
+000A Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000015D
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+0184 LOCAL HEADER #2       04034B50
+0188 Extract Zip Spec      19 '2.5'
+0189 Extract OS            00 'MS-DOS'
+018A General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+018C Compression Method    000A 'PKWARE Data Compression Library
+                           Imploding'
+018E Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+0192 CRC                   41F5C83C
+0196 Compressed Length     0000015F
+019A Uncompressed Length   000001BF
+019E Filename Length       000A
+01A0 Extra Length          0000
+01A2 Filename              'lorem2.txt'
+01AC PAYLOAD
+
+030B CENTRAL HEADER #1     02014B50
+030F Created Zip Spec      41 '6.5'
+0310 Created OS            00 'MS-DOS'
+0311 Extract Zip Spec      19 '2.5'
+0312 Extract OS            00 'MS-DOS'
+0313 General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+0315 Compression Method    000A 'PKWARE Data Compression Library
+                           Imploding'
+0317 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+031B CRC                   F90EE7FF
+031F Compressed Length     0000015D
+0323 Uncompressed Length   000001BE
+0327 Filename Length       0009
+0329 Extra Length          0024
+032B Comment Length        0000
+032D Disk Start            0000
+032F Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0331 Ext File Attributes   00000020
+     [Bit 5]               Archive
+0335 Local Header Offset   00000000
+0339 Filename              'lorem.txt'
+0342 Extra ID #0001        000A 'NTFS FileTimes'
+0344   Length              0020
+0346   Reserved            00000000
+034A   Tag1                0001
+034C   Size1               0018
+034E   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
+                           2022 0ns'
+0356   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+035E   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
+                           2022 60572500ns'
+
+0366 CENTRAL HEADER #2     02014B50
+036A Created Zip Spec      41 '6.5'
+036B Created OS            00 'MS-DOS'
+036C Extract Zip Spec      19 '2.5'
+036D Extract OS            00 'MS-DOS'
+036E General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+0370 Compression Method    000A 'PKWARE Data Compression Library
+                           Imploding'
+0372 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+0376 CRC                   41F5C83C
+037A Compressed Length     0000015F
+037E Uncompressed Length   000001BF
+0382 Filename Length       000A
+0384 Extra Length          0024
+0386 Comment Length        0000
+0388 Disk Start            0000
+038A Int File Attributes   0001
+     [Bit 0]               1 Text Data
+038C Ext File Attributes   00000020
+     [Bit 5]               Archive
+0390 Local Header Offset   00000184
+0394 Filename              'lorem2.txt'
+039E Extra ID #0001        000A 'NTFS FileTimes'
+03A0   Length              0020
+03A2   Reserved            00000000
+03A6   Tag1                0001
+03A8   Size1               0018
+03AA   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
+                           2022 217947600ns'
+03B2   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+03BA   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
+                           2022 980371500ns'
+
+03C2 END CENTRAL HEADER    06054B50
+03C6 Number of this disk   0000
+03C8 Central Dir Disk no   0000
+03CA Entries in this disk  0002
+03CC Total Entries         0002
+03CE Size of Central Dir   000000B7
+03D2 Offset to Central Dir 0000030B
+03D6 Comment Length        0000
+Done

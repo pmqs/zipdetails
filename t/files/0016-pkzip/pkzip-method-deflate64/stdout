@@ -1,0 +1,112 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      15 '2.1'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+0008 Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+000A Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000010E
+0016 Uncompressed Length   000001BE
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+0135 LOCAL HEADER #2       04034B50
+0139 Extract Zip Spec      15 '2.1'
+013A Extract OS            00 'MS-DOS'
+013B General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+013D Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+013F Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+0143 CRC                   41F5C83C
+0147 Compressed Length     00000110
+014B Uncompressed Length   000001BF
+014F Filename Length       000A
+0151 Extra Length          0000
+0153 Filename              'lorem2.txt'
+015D PAYLOAD
+
+026D CENTRAL HEADER #1     02014B50
+0271 Created Zip Spec      41 '6.5'
+0272 Created OS            00 'MS-DOS'
+0273 Extract Zip Spec      15 '2.1'
+0274 Extract OS            00 'MS-DOS'
+0275 General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+0277 Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+0279 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
+027D CRC                   F90EE7FF
+0281 Compressed Length     0000010E
+0285 Uncompressed Length   000001BE
+0289 Filename Length       0009
+028B Extra Length          0024
+028D Comment Length        0000
+028F Disk Start            0000
+0291 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0293 Ext File Attributes   00000020
+     [Bit 5]               Archive
+0297 Local Header Offset   00000000
+029B Filename              'lorem.txt'
+02A4 Extra ID #0001        000A 'NTFS FileTimes'
+02A6   Length              0020
+02A8   Reserved            00000000
+02AC   Tag1                0001
+02AE   Size1               0018
+02B0   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
+                           2022 0ns'
+02B8   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+02C0   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
+                           2022 60572500ns'
+
+02C8 CENTRAL HEADER #2     02014B50
+02CC Created Zip Spec      41 '6.5'
+02CD Created OS            00 'MS-DOS'
+02CE Extract Zip Spec      15 '2.1'
+02CF Extract OS            00 'MS-DOS'
+02D0 General Purpose Flag  0800
+     [Bit 11]              1 'Language Encoding'
+02D2 Compression Method    0009 'Enhanced Deflating using
+                           Deflate64(tm)'
+02D4 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
+02D8 CRC                   41F5C83C
+02DC Compressed Length     00000110
+02E0 Uncompressed Length   000001BF
+02E4 Filename Length       000A
+02E6 Extra Length          0024
+02E8 Comment Length        0000
+02EA Disk Start            0000
+02EC Int File Attributes   0001
+     [Bit 0]               1 Text Data
+02EE Ext File Attributes   00000020
+     [Bit 5]               Archive
+02F2 Local Header Offset   00000135
+02F6 Filename              'lorem2.txt'
+0300 Extra ID #0001        000A 'NTFS FileTimes'
+0302   Length              0020
+0304   Reserved            00000000
+0308   Tag1                0001
+030A   Size1               0018
+030C   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
+                           2022 217947600ns'
+0314   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
+                           2022 714627400ns'
+031C   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
+                           2022 980371500ns'
+
+0324 END CENTRAL HEADER    06054B50
+0328 Number of this disk   0000
+032A Central Dir Disk no   0000
+032C Entries in this disk  0002
+032E Total Entries         0002
+0330 Size of Central Dir   000000B7
+0334 Offset to Central Dir 0000026D
+0338 Comment Length        0000
+Done

@@ -93,7 +93,7 @@ Offset from VMS epoch (1 November 1858) to Unix epoch (1 Jan 1970) is 3506716800
 ## Sample OpenVMS zip files
 https://ftp.zx.net.nz/pub/archive/ftp.hp.com/pub/openvms/opensource/
 
-The file `FW80_ZIP.ZIP`, used in th etest harness, came from here.
+The file `FW80_ZIP.ZIP`, used in the test harness, came from here.
 
 ## VMS man pages
 http://sdpha2.ucsd.edu/Lab_Equip_Manuals/vms_io_users_manual.pdf

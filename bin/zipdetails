@@ -56,10 +56,9 @@ use constant ZIP_CENTRAL_HDR_SIG               => 0x02014b50;
 use constant ZIP_END_CENTRAL_HDR_SIG           => 0x06054b50;
 use constant ZIP64_END_CENTRAL_REC_HDR_SIG     => 0x06064b50;
 use constant ZIP64_END_CENTRAL_LOC_HDR_SIG     => 0x07064b50;
-use constant ZIP_ARCHIVE_EXTRA_DATA_SIG        => 0x08064b50;
 use constant ZIP_DIGITAL_SIGNATURE_SIG         => 0x05054b50;
-
 use constant ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG => 0x08064b50;
+
 
 # Extra sizes
 use constant ZIP_EXTRA_HEADER_SIZE          => 2 ;
@@ -129,17 +128,21 @@ my %OS_Lookup = (
 
 
 my %Lookup = (
+    # Core Signatures
     ZIP_LOCAL_HDR_SIG,             \&LocalHeader,
     ZIP_DATA_HDR_SIG,              \&DataHeader,
     ZIP_CENTRAL_HDR_SIG,           \&CentralHeader,
     ZIP_END_CENTRAL_HDR_SIG,       \&EndCentralHeader,
+
+    # Zip64
     ZIP64_END_CENTRAL_REC_HDR_SIG, \&Zip64EndCentralHeader,
     ZIP64_END_CENTRAL_LOC_HDR_SIG, \&Zip64EndCentralLocator,
 
-    # TODO - Archive Encryption Headers & digital signature
-    #ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG
-    #ZIP_DIGITAL_SIGNATURE_SIG
-    #ZIP_ARCHIVE_EXTRA_DATA_SIG
+    #  Digital signature (pkzip)
+    ZIP_DIGITAL_SIGNATURE_SIG,     \&DigitalSignature,
+
+    #  Archive Encryption Headers (pkzip)
+    ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG,  \&ArchiveExtraDataRecord,
 );
 
 my %Extras = (
@@ -155,7 +158,7 @@ my %Extras = (
       0x0014,  ['PKCS#7 Store for X.509 Certificates', undef],
       0x0015,  ['X.509 Certificate ID and Signature for individual file', undef],
       0x0016,  ['X.509 Certificate ID for Central Directory', undef],
-      0x0017,  ['Strong Encryption Header', undef],
+      0x0017,  ['Strong Encryption Header', \&decode_strong_encryption],
       0x0018,  ['Record Management Controls', undef],
       0x0019,  ['PKCS#7 Encryption Recipient Certificate List', undef],
       0x0020,  ['Reserved for Timestamp record', undef],
@@ -188,8 +191,8 @@ my %Extras = (
       0x5455,  ['Extended Timestamp', \&decode_UT],
       0x554e,  ['Xceed unicode extra field', \&decode_Xceed_unicode],
       0x5855,  ['Info-ZIP Unix (original; also OS/2, NT, etc.)', \&decode_UX],
-      0x5a4c,  ['ZipArchive Unicode Filename', undef],
-      0x5a4d,  ['ZipArchive Offsets Array', undef],
+      0x5a4c,  ['ZipArchive Unicode Filename', undef],  # https://www.artpol-software.com/ZipArchive
+      0x5a4d,  ['ZipArchive Offsets Array', undef],     # https://www.artpol-software.com/ZipArchive
       0x6375,  ['Info-ZIP Unicode Comment', \&decode_up ],
       0x6542,  ['BeOS (BeBox, PowerMac, etc.)', undef],
       0x6854,  ['Theos', undef],
@@ -208,6 +211,49 @@ my %Extras = (
        );
 
 
+# Zip64EndCentralHeader version 2
+my %HashIDLookup  = (
+        0x0000 => 'none',
+        0x0001 => 'CRC32',
+        0x8003 => 'MD5',
+        0x8004 => 'SHA1',
+        0x8007 => 'RIPEMD160',
+        0x800C => 'SHA256',
+        0x800D => 'SHA384',
+        0x800E => 'SHA512',
+    );
+
+
+# Zip64EndCentralHeader version 2, Strong Encryption Header & DecryptionHeader
+my %AlgIdLookup = (
+        0x6601 => "DES",
+        0x6602 => "RC2 (version needed to extract < 5.2)",
+        0x6603 => "3DES 168",
+        0x6609 => "3DES 112",
+        0x660E => "AES 128",
+        0x660F => "AES 192",
+        0x6610 => "AES 256",
+        0x6702 => "RC2 (version needed to extract >= 5.2)",
+        0x6720 => "Blowfish",
+        0x6721 => "Twofish",
+        0x6801 => "RC4",
+        0xFFFF => "Unknown algorithm",
+    );
+
+# Zip64EndCentralHeader version 2, Strong Encryption Header & DecryptionHeader
+my %FlagsLookup = (
+        0x0001 => "Password required to decrypt",
+        0x0002 => "Certificates only",
+        0x0003 => "Password or certificate required to decrypt",
+
+        # Values > 0x0003 reserved for certificate processing
+    );
+
+# Strong Encryption Header & DecryptionHeader
+my %HashAlgLookup = (
+        0x8004  => 'SHA1',
+    );
+
 my $FH;
 
 my $ZIP64 = 0 ;
@@ -223,6 +269,7 @@ my $ZERO = 0 ;
 my $APK = 0 ;
 my $START_APK = 0;
 my $APK_LEN = 0;
+my $Encrypted_CD = 0;
 
 my $SEEN = Seen->new();
 
@@ -356,6 +403,17 @@ sub hexDump
 sub hexValue
 {
     return sprintf("%X", $_[0]);
+}
+
+sub outHexdump
+{
+    my $size = shift;
+    my $text = shift;
+
+    myRead(my $payload, $size);
+    out($payload, $text, hexDump($payload));
+
+    return $size;
 }
 
 sub out
@@ -602,8 +660,24 @@ sub seekTo
     $OFFSET = $FH->tell();
 }
 
+sub rewindRelative
+{
+    my $offset = shift ;
+
+    $FH->seek(-$offset, SEEK_CUR);
+    $OFFSET -= $offset;
+}
+
 sub scanForSignature
 {
+    my $walk = shift;
+
+    # $count is only used to when 'walk' is enabled.
+    # Want to scan for a PK header at the start of the file.
+    # All other PK headers are should be directly after the previous PK record.
+    state $count = 0;
+    $count += $walk;
+
     my %sigs =
         map { $_ => 1         }
         map { substr $_, 2, 2 } # don't want the initial "PK"
@@ -615,48 +689,56 @@ sub scanForSignature
                 ZIP_END_CENTRAL_HDR_SIG           ,
                 ZIP64_END_CENTRAL_REC_HDR_SIG     ,
                 ZIP64_END_CENTRAL_LOC_HDR_SIG     ,
-                # ZIP_ARCHIVE_EXTRA_DATA_SIG        ,
-                # ZIP_DIGITAL_SIGNATURE_SIG         ,
-                # ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG ,
+                # ZIP_ARCHIVE_EXTRA_DATA_SIG      ,
+                ZIP_DIGITAL_SIGNATURE_SIG         ,
+                ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG ,
         );
 
     my $start = $FH->tell();
 
-    my $last = '';
-    my $offset = 0;
-    my $buffer ;
-    BUFFER:
-    while ($FH->read($buffer, 1024 * 1000))
-    {
-        my $combine = $last . $buffer ;
+    # TODO -- Fix this?
+    if (1 || $count <= 1) {
 
-        my $ix = 0;
-        while (1)
+        my $last = '';
+        my $offset = 0;
+        my $buffer ;
+
+        BUFFER:
+        while ($FH->read($buffer, 1024 * 1000))
         {
-            $ix = index($combine, "PK", $ix) ;
+            my $combine = $last . $buffer ;
 
-            if ($ix == -1)
+            my $ix = 0;
+            while (1)
             {
-                $last = '';
-                next BUFFER;
+                $ix = index($combine, "PK", $ix) ;
+
+                if ($ix == -1)
+                {
+                    $last = '';
+                    next BUFFER;
+                }
+
+                my $rest = substr($combine, $ix + 2, 2);
+
+                if (! $sigs{$rest})
+                {
+                    $ix += 2;
+                    next;
+                }
+
+                # possible match
+                my $here = $FH->tell();
+                seekTo($here - length($combine) + $ix);
+
+                return 1;
             }
 
-            my $rest = substr($combine, $ix + 2, 2);
-
-            if (! $sigs{$rest})
-            {
-                $ix += 2;
-                next;
-            }
-
-            # possible match
-            my $here = $FH->tell();
-            seekTo($here - length($combine) + $ix);
-
-            return 1;
+            $last = substr($combine, $ix+4);
         }
-
-        $last = substr($combine, $ix+4);
+    }
+    else {
+        return ! $FH->eof();
     }
 
     return 0;
@@ -666,6 +748,7 @@ my $is64In32 = 0;
 
 my $opt_verbose = 0;
 my $opt_scan = 0;
+my $opt_walk = 0;
 my $opt_Redact = 0;
 my $opt_utc = 0;
 
@@ -675,6 +758,7 @@ $Getopt::Long::bundling = 1 ;
 GetOptions("h"       => \&Usage,
            "v"       => \$opt_verbose,
            "scan"    => \$opt_scan,
+           "walk"    => \$opt_walk,
            "redact"  => \$opt_Redact,
            "utc"     => \$opt_utc,
            "version" => sub { print "$VERSION\n"; exit },
@@ -717,12 +801,12 @@ if(0)
 
 my @Messages = ();
 
-if ($opt_scan)
+if ($opt_scan || $opt_walk || $Encrypted_CD)
 {
     my $foundCentralHeader = 0;
     my $lastEndsAt = 0;
 
-    while(scanForSignature())
+    while(scanForSignature($opt_walk))
     {
         my $here = $FH->tell();
 
@@ -740,19 +824,23 @@ if ($opt_scan)
                 seekTo($lastEndsAt+4);
 
                 scanApkBlock();
-                seekTo($here);
-                next;
             }
 
-            seekTo($here + 4);
+            seekTo($here );
+            next;
         }
 
         my $handler = $Lookup{$signature};
+        if (!defined $handler) {
+            die "xxx";
+        }
+
         $handler->($signature, $buffer);
 
         $lastEndsAt = $FH->tell();
 
-        seekTo($here + 4) ;
+        seekTo($here + 4)
+            if $opt_scan;
     }
 
     dislayMessages();
@@ -760,7 +848,7 @@ if ($opt_scan)
 
 }
 
-our ($CdExists, $CdOffset, @CentralDirectory) = scanCentralDirectory($FH);
+our ($CdExists, $CdOffset, $CdSize, @CentralDirectory) = scanCentralDirectory($FH);
 
 die "No Central Directory records found\n"
     if ! $CdExists ;
@@ -807,7 +895,14 @@ while (1)
         }
 
 
-        if ($here < $CdOffset)
+        if ($here == $CdOffset && $Encrypted_CD)
+        {
+            # rewind the invalid signature
+            rewindRelative(4);
+            EncryptedCD();
+            next;
+        }
+        elsif ($here < $CdOffset)
         {
             if ($APK)
             {
@@ -821,7 +916,7 @@ while (1)
             $skippedFrom = $FH->tell() ;
             $skippedContent = $CdOffset - $skippedFrom ;
 
-            printf "\nWARNING!\nZip local header not found at offset 0x%X\n", $skippedFrom;
+            printf "\nWARNING!\nExpected Zip header not found at offset 0x%X\n", $here;
             printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
 
             push @Messages,
@@ -887,7 +982,7 @@ sub LocalHeader
     my $buffer;
 
     my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
-    if (! $opt_scan)
+    if (! $opt_scan && ! $opt_walk && @CentralDirectory)
     {
         ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) = @{ shift @CentralDirectory } ;
         # my $cdi = sprintf("%X", $cdIndex) ;
@@ -948,19 +1043,34 @@ sub LocalHeader
     #     }
     # }
 
-
+    my $pk_encrypted = ($gpFlag & (ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK|ZIP_GP_FLAG_ENCRYPTED_MASK)) && $compressedMethod != 99;
 
     my $size = 0;
-    $size = printAes(\%ExtraContext)
-        if $compressedMethod == 99 ;
 
-    $size += printLzmaProperties()
-        if $compressedMethod == ZIP_CM_LZMA ;
+    # If no CD scanned, get compressed length from local header.
+    # Zip64 extra field takes priority
+    $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength
+        if $opt_scan || $opt_walk || $Encrypted_CD;
 
-    $CDcompressedLength = $compressedLength
-        if $opt_scan ;
+    if (! $pk_encrypted)
+    {
+        if ($compressedMethod == 99) # AES Encryption
+        {
+            $size = printAes(\%ExtraContext)
+        }
+        elsif ($compressedMethod == ZIP_CM_LZMA)
+        {
 
-    $CDcompressedLength -= $size;
+            $size += printLzmaProperties()
+        }
+
+        $CDcompressedLength -= $size;
+    }
+    else
+    {
+        $CDcompressedLength -= DecryptionHeader()
+            if $gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK ;
+    }
 
     if ($CDcompressedLength) {
 
@@ -987,6 +1097,134 @@ sub LocalHeader
 
 
     # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
+}
+
+use constant Pack_ZIP_DIGITAL_SIGNATURE_SIG => pack("V", ZIP_DIGITAL_SIGNATURE_SIG);
+
+sub findDigitalSignature
+{
+    my $cdSize = shift;
+
+    my $here = $FH->tell();
+
+    my $data ;
+    myRead($data, $cdSize);
+
+    seekTo($here);
+
+    # find SIG
+    my $ix = index($data, Pack_ZIP_DIGITAL_SIGNATURE_SIG);
+    if ($ix > -1)
+    {
+        # check size of signature meaans it is directly after the encrypted CD
+        my $sigSize = unpack "v", substr($data, $ix+4, 2);
+        if ($ix + 4 + 2 + $sigSize == $cdSize)
+        {
+            # return size of digital signature record
+            return 4 + 2 + $sigSize ;
+        }
+    }
+
+    return 0;
+}
+
+sub EncryptedCD
+{
+    # Forst thing in th encrypted CD is the Decryption Header
+    my $decryptHeaderSize = DecryptionHeader(1);
+
+    # Check for digital signature record in theCD
+    # It needs to be the very last thing in the CD
+    my $sigSize = findDigitalSignature($CdSize - $decryptHeaderSize);
+
+    print "\n";
+    outSomeData($CdSize - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
+}
+
+sub DecryptionHeader
+{
+    # APPNOTE 6.3.9, sec 7.2.4
+
+    # -Decryption Header:
+    # Value     Size     Description
+    # -----     ----     -----------
+    # IVSize    2 bytes  Size of initialization vector (IV)
+    # IVData    IVSize   Initialization vector for this file
+    # Size      4 bytes  Size of remaining decryption header data
+    # Format    2 bytes  Format definition for this record
+    # AlgID     2 bytes  Encryption algorithm identifier
+    # Bitlen    2 bytes  Bit length of encryption key
+    # Flags     2 bytes  Processing flags
+    # ErdSize   2 bytes  Size of Encrypted Random Data
+    # ErdData   ErdSize  Encrypted Random Data
+    # Reserved1 4 bytes  Reserved certificate processing data
+    # Reserved2 (var)    Reserved for certificate processing data
+    # VSize     2 bytes  Size of password validation data
+    # VData     VSize-4  Password validation data
+    # VCRC32    4 bytes  Standard ZIP CRC32 of password validation data
+
+    my $central = shift ;
+
+    if ($central)
+    {
+        print "\nCENTRAL HEADER DECRYPTION RECORD\n";
+    }
+    else
+    {
+        print "\nDECRYPTION HEADER RECORD\n";
+    }
+
+    my $bytecount = 2;
+
+    my $IVSize = out_v "IVSize";
+    outHexdump($IVSize, "IVData");
+    $bytecount += $IVSize;
+
+    my $Size = out_V "Size";
+    $bytecount += $Size + 4;
+
+    out_v "Format";
+    out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
+    out_v "BitLen";
+    out_v "Flags", sub { $FlagsLookup{ $_[0] } // "Reserved for certificate processing" } ;
+
+    my $ErdSize = out_v "ErdSize";
+    outHexdump($ErdSize, "ErdData");
+
+    my $Reserved1_RCount = out_V "RCount";
+    Reserved2($Reserved1_RCount);
+
+    my $VSize = out_v "VSize";
+    outHexdump($VSize-4, "VData");
+
+    out_V "VCRC32";
+
+    return $bytecount ;
+}
+
+sub Reserved2
+{
+    # APPNOTE 6.3.9, sec 7.4.3 & 7.4.4
+
+    my $recipients = shift;
+
+    return 0
+        if $recipients == 0;
+
+    out_v "HashAlg", sub { $HashAlgLookup{ $_[0] } // "Unknown algorithm" } ;
+    my $HSize = out_v "HSize" ;
+
+    my $ix = 1;
+    for (0 .. $recipients-1)
+    {
+        my $hex = sprintf("Key #%X", $ix) ;
+        my $RESize = out_v "RESize $hex";
+
+        outHexdump($HSize, "REHData $hex");
+        outHexdump($RESize - $HSize, "REKData $hex");
+
+        ++ $ix;
+    }
 }
 
 sub redactFilename
@@ -1119,22 +1357,24 @@ sub decodeOS
 
 sub Zip64EndCentralHeader
 {
+    # Extra ID is 0x0001
+
+    # APPNOTE 6.3.9, section 4.3.14, 7.3.3, 7.3.4 & APPENDIX C
+
+    # TODO - APPNOTE allows an extensible data sector at end of this record (see APPNOTE 6.3.9, section 4.3.14.4)
+    # The code below does NOT take this into account.
+
     my $signature = shift ;
     my $data = shift ;
 
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR RECORD", Value_V($signature);
 
-    my $buff;
-    myRead($buff, 8);
-
-    out $buff, "Size of record", unpackValue_Q($buff);
-
-    my $size  = unpack "Q<", $buff;
+    my $size = out_Q "Size of record";
 
     out_C  "Created Zip Spec", \&decodeZipVer;
     out_C  "Created OS", \&decodeOS;
-    out_C  "Extract Zip Spec", \&decodeZipVer;
+    my $extractSpec = out_C  "Extract Zip Spec", \&decodeZipVer;
     out_C  "Extract OS", \&decodeOS;
     out_V  "Number of this disk";
     out_V  "Central Dir Disk no";
@@ -1143,11 +1383,44 @@ sub Zip64EndCentralHeader
     out_Q  "Size of Central Dir";
     out_Q  "Offset to Central dir";
 
-    # TODO -
-    if ($size != 44)
+    # Length of 44 means typical version 1 header
+    return if $size == 44 ;
+
+    # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
+    # See APPNOTE 6.3.9, section, 7.3.3
+
+    if ($extractSpec >= 0x3E)
     {
-        push @Messages,  "Unsupported Size field in Zip64EndCentralHeader: should be 44, got $size\n"
+        # Version 2 header (see APPNOTE 6.3.7, section  7.3.4, )
+        # Can use version 2 header to infer presence of encrypted CD
+        $Encrypted_CD = 1 ;
+
+        # Compression Method    2 bytes    Method used to compress the
+        #                                  Central Directory
+        # Compressed Size       8 bytes    Size of the compressed data
+        # Original   Size       8 bytes    Original uncompressed size
+        # AlgId                 2 bytes    Encryption algorithm ID
+        # BitLen                2 bytes    Encryption key length
+        # Flags                 2 bytes    Encryption flags
+        # HashID                2 bytes    Hash algorithm identifier
+        # Hash Length           2 bytes    Length of hash data
+        # Hash Data             (variable) Hash data
+
+        my ($bcm, $compressedMethod) = read_v();
+        out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
+        out_Q "Compressed Length";
+        out_Q "Uncompressed Length";
+        out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
+        out_v "BitLen";
+        out_v "Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
+        out_v "HashID", sub { $HashIDLookup{ $_[0] } // "Unknown ID" } ;
+
+        my $hashLen = out_v "Hash Length ";
+        outHexdump($hashLen, "Hash Data");
     }
+
+    # TODO - handle 'zip64 extensible data sector' here
+    # See APPNOTE 6.3.9, section 4.3.14.3 & APPENDIX C
 }
 
 
@@ -1210,6 +1483,33 @@ sub DataHeader
     }
 }
 
+sub ArchiveExtraDataRecord
+{
+    # TODO - not seen an example of this record
+
+    # APPNOTE 6.3.9, sec 4.3.11
+
+    my $signature = shift ;
+    my $data = shift ;
+
+    out $data, "ARCHIVE EXTRA DATA RECORD", Value_V($signature);
+
+    my $size = out_v "Size of record";
+    outHexdump("Field data", $size);
+}
+
+sub DigitalSignature
+{
+    my $signature = shift ;
+    my $data = shift ;
+
+    print "\n";
+    out $data, "DIGITAL SIGNATURE RECORD", Value_V($signature);
+    my $Size = out_v "Size of record";
+
+    myRead(my $payload, $Size);
+    out $payload, "Signature", hexDump($payload);
+}
 
 sub GeneralPurposeBits
 {
@@ -1255,6 +1555,8 @@ sub GeneralPurposeBits
     out1 "[Bit 11]", "1 'Language Encoding'"  if $gp & ZIP_GP_FLAG_LANGUAGE_ENCODING;
     out1 "[Bit 12]", "1 'Pkware Enhanced Compression'"  if $gp & 1 <<12 ;
     out1 "[Bit 13]", "1 'Encrypted Central Dir'"  if $gp & 1 <<13 ;
+
+    $Encrypted_CD = 1 if $gp & 1 <<13 ;
 
     return ();
 }
@@ -1425,20 +1727,26 @@ sub decode_Zip64
 
     $ZIP64 = 1;
 
-    if ($inLocalHdr || full32 $z64Data->[0]) {
+    my $left = $len;
+
+    if ($left >= 8 && ($inLocalHdr || full32 $z64Data->[0])) {
         out_Q "  Uncompressed Size";
+        $left -= 8;
     }
 
-    if ($inLocalHdr || full32 $z64Data->[1]) {
+    if ($left >= 8 && ($inLocalHdr || full32 $z64Data->[1])) {
         $context->{CompressedLength} = out_Q "  Compressed Size";
+        $left -= 8;
     }
 
-    if (full32 $z64Data->[2] ) {
+    if ($left >= 8 && full32 $z64Data->[2] ) {
         $context->{LocalHdrOffset} = out_Q "  Offset to Local Dir";
+        $left -= 8;
     }
 
-    if ($z64Data->[3] == 0xFFFF ) {
+    if ($left >= 4 && $z64Data->[3] == 0xFFFF ) {
         out_V "  Disk Number";
+        $left -= 4;
     }
 }
 
@@ -1954,6 +2262,7 @@ sub decode_NT_security
 
 sub decodeMVS
 {
+    # APPNOTE 6.3.9, Appendix 
     my $len = shift;
     my $context = shift;
 
@@ -1961,14 +2270,47 @@ sub decodeMVS
     myRead(my $data, $len);
     my $ID = unpack("N", $data);
 
-    if ($ID == 0xE9F3F9F0)
+    if ($ID == 0xE9F3F9F0) # EBCDIC for "Z390"
     {
-        out($data, "  ID", "'Z390'");
-        substr($data, 0, 4) = '';
+        my $d = substr($data, 0, 4, '') ;
+        out($d, "  ID", "'Z390'");
     }
 
     out($data, "  Extra Payload", hexDump($data));
 }
+
+sub decode_strong_encryption
+{
+    # APPNOTE 6.3.9, sec 4.5.12 & 7.4.2
+
+    my $len = shift;
+    my $context = shift;
+
+    out_v "  Format";
+    out_v "  AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
+    out_v "  BitLen";
+    out_v "  Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
+
+    # see 7.4.2 for this part
+    my $recipients = out_V "  Recipients";
+
+    if ($recipients)
+    {
+        out_v "  HashAlg", sub { $HashAlgLookup{ $_[0] } // "Unknown algorithm" } ;
+        my $HSize = out_v "  HSize" ;
+
+        my $ix = 1;
+        for (0 .. $recipients-1)
+        {
+            myRead(my $payload, $HSize);
+            my $data = hexDump($payload);
+
+            out2 $payload, sprintf("Key #%X", $ix), $data;
+            ++ $ix;
+        }
+    }
+}
+
 
 sub printAes
 {
@@ -2169,7 +2511,7 @@ sub scanCentralDirectory
     # 2 64-bit CD
 
     my @CD = ();
-    my $offset = findCentralDirectoryOffset($fh);
+    my ($offset, $size) = findCentralDirectoryOffset($fh);
 
     return ()
         if ! defined $offset;
@@ -2243,7 +2585,7 @@ sub scanCentralDirectory
     $START = $CD[0]->[0]
         if @CD ;
 
-    return (1, $offset, @CD);
+    return (1, $offset, $size, @CD);
 }
 
 
@@ -2260,10 +2602,7 @@ sub offsetFromZip64
     my $got = 0;
     ($got = $fh->read($buffer, 20)) == 20
     # TODO - fix this
-        or die "xxx
-
-
-         $here $got $!" ;
+        or die "xxx  $here $got $!" ;
 
     if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_LOC_HDR_SIG ) {
         my $cd64 = unpack "Q<", substr($buffer,  8, 8);
@@ -2284,9 +2623,22 @@ sub offsetFromZip64
             # TODO - fix this
                 or die "xxx" ;
 
-            my $cd64 =  unpack "Q<", substr($buffer,  36, 8);
+            # Version 1 header is 44 bytes (assuming no extensible data sector)
+            # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
+            # Can use version 2 header to infer presence of encrypted CD
 
-            return $cd64 ;
+            # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+
+            if ($size > 44)
+            {
+                $opt_walk = 1;
+                $Encrypted_CD = 1;
+            }
+
+            my $cdSize   =  unpack "Q<", substr($buffer,  28, 8);
+            my $cdOffset =  unpack "Q<", substr($buffer,  36, 8);
+
+            return ($cdOffset, $cdSize) ;
         }
 
         die "Cannot find 'Zip64 end of central directory record': 0x06054b50\nTry running with --scan option.\n" ;
@@ -2317,9 +2669,15 @@ sub findCentralDirectoryOffset
         or die "xxx" ;
 
     my $zip64 = 0;
+    my $centralDirSize ;
     my $centralDirOffset ;
+    my $entriesOnThisDisk ;
+    my $totalEntries ;
 
     if ( unpack("V", $buffer) == ZIP_END_CENTRAL_HDR_SIG ) {
+        $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
+        $totalEntries     = unpack("v", substr($buffer, 10,  2));
+        $centralDirSize   = unpack("V", substr($buffer, 12,  4));
         $centralDirOffset = unpack("V", substr($buffer, 16,  4));
     }
     else {
@@ -2346,7 +2704,10 @@ sub findCentralDirectoryOffset
 
             if ($pos >= 0 && $want - $pos > 22) {
                 $here = $seekTo + $pos ;
+                $entriesOnThisDisk= unpack("v", substr($buffer, $pos + 8,   2));
+                $totalEntries     = unpack("v", substr($buffer, $pos + 10,  2));
                 $centralDirOffset = unpack("V", substr($buffer, $pos + 16,  4));
+                $centralDirSize   = unpack("V", substr($buffer, $pos + 12,  4));
                 my $commentLength = unpack("V", substr($buffer, $pos + 20,  2));
                 $commentLength = 0 if ! defined $commentLength ;
 
@@ -2363,9 +2724,11 @@ sub findCentralDirectoryOffset
         }
     }
 
-    if (full32 $centralDirOffset)
+    # pkzip sets entriesOnThisDisk to 0 and totalEntries to 0xFFFF
+    # when it uses an encrypted CD
+    if (full32($centralDirOffset) || full32($totalEntries) || $entriesOnThisDisk == 0)
     {
-        $centralDirOffset = offsetFromZip64($fh, $here)
+        ($centralDirOffset, $centralDirSize) = offsetFromZip64($fh, $here)
     }
     elsif ($is64bit)
     {
@@ -2382,7 +2745,7 @@ sub findCentralDirectoryOffset
 
     ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($fh, $centralDirOffset);
 
-    return $centralDirOffset ;
+    return ($centralDirOffset, $centralDirSize) ;
 }
 
 sub findID

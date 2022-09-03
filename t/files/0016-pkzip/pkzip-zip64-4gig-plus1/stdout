@@ -1,0 +1,87 @@
+
+000000000 LOCAL HEADER #1       04034B50
+000000004 Extract Zip Spec      2D '4.5'
+000000005 Extract OS            00 'MS-DOS'
+000000006 General Purpose Flag  0800
+          [Bit 11]              1 'Language Encoding'
+000000008 Compression Method    0000 'Stored'
+00000000A Last Mod Time         55076F51 'Sun Aug  7 13:58:34 2022'
+00000000E CRC                   B7B2364B
+000000012 Compressed Length     FFFFFFFF
+000000016 Uncompressed Length   FFFFFFFF
+00000001A Filename Length       0003
+00000001C Extra Length          0014
+00000001E Filename              'xxx'
+000000021 Extra ID #0001        0001 'ZIP64'
+000000023   Length              0010
+000000025   Uncompressed Size   0000000100000000
+00000002D   Compressed Size     0000000100000000
+000000035 PAYLOAD
+
+100000035 CENTRAL HEADER #1     02014B50
+100000039 Created Zip Spec      41 '6.5'
+10000003A Created OS            00 'MS-DOS'
+10000003B Extract Zip Spec      2D '4.5'
+10000003C Extract OS            00 'MS-DOS'
+10000003D General Purpose Flag  0800
+          [Bit 11]              1 'Language Encoding'
+10000003F Compression Method    0000 'Stored'
+100000041 Last Mod Time         55076F51 'Sun Aug  7 13:58:34 2022'
+100000045 CRC                   B7B2364B
+100000049 Compressed Length     FFFFFFFF
+10000004D Uncompressed Length   FFFFFFFF
+100000051 Filename Length       0003
+100000053 Extra Length          0038
+100000055 Comment Length        0000
+100000057 Disk Start            0000
+100000059 Int File Attributes   0000
+          [Bit 0]               0 'Binary Data'
+10000005B Ext File Attributes   00000020
+          [Bit 5]               Archive
+10000005F Local Header Offset   00000000
+100000063 Filename              'xxx'
+100000066 Extra ID #0001        0001 'ZIP64'
+100000068   Length              0010
+10000006A   Uncompressed Size   0000000100000000
+100000072   Compressed Size     0000000100000000
+10000007A Extra ID #0002        000A 'NTFS FileTimes'
+10000007C   Length              0020
+10000007E   Reserved            00000000
+100000082   Tag1                0001
+100000084   Size1               0018
+100000086   Mtime               01D8AA5D6699660E 'Sun Aug  7 12:58:33
+                                2022 743924600ns'
+10000008E   Atime               01D8AA5D6699660E 'Sun Aug  7 12:58:33
+                                2022 743924600ns'
+100000096   Ctime               01D8AA5D3145EAD3 'Sun Aug  7 12:57:04
+                                2022 277576300ns'
+
+10000009E ZIP64 END CENTRAL DIR 06064B50
+          RECORD
+1000000A2 Size of record        000000000000002C
+1000000AA Created Zip Spec      41 '6.5'
+1000000AB Created OS            00 'MS-DOS'
+1000000AC Extract Zip Spec      2D '4.5'
+1000000AD Extract OS            00 'MS-DOS'
+1000000AE Number of this disk   00000000
+1000000B2 Central Dir Disk no   00000000
+1000000B6 Entries in this disk  0000000000000001
+1000000BE Total Entries         0000000000000001
+1000000C6 Size of Central Dir   0000000000000069
+1000000CE Offset to Central dir 0000000100000035
+
+1000000D6 ZIP64 END CENTRAL DIR 07064B50
+          LOCATOR
+1000000DA Central Dir Disk no   00000000
+1000000DE Offset to Central dir 000000010000009E
+1000000E6 Total no of Disks     00000001
+
+1000000EA END CENTRAL HEADER    06054B50
+1000000EE Number of this disk   0000
+1000000F0 Central Dir Disk no   0000
+1000000F2 Entries in this disk  0001
+1000000F4 Total Entries         0001
+1000000F6 Size of Central Dir   00000069
+1000000FA Offset to Central Dir FFFFFFFF
+1000000FE Comment Length        0000
+Done
