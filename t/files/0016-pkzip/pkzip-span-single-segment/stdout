@@ -1,0 +1,64 @@
+
+0000 SPLIT ARCHIVE         30304B50
+     SINGLE-SEGMENT MARKER
+
+0004 LOCAL HEADER #1       04034B50
+0008 Extract Zip Spec      14 '2.0'
+0009 Extract OS            00 'MS-DOS'
+000A General Purpose Flag  0800
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+000C Compression Method    0008 'Deflated'
+000E Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
+0012 CRC                   F90EE7FF
+0016 Compressed Length     0000010E
+001A Uncompressed Length   000001BE
+001E Filename Length       0009
+0020 Extra Length          0000
+0022 Filename              'lorem.txt'
+002B PAYLOAD
+
+0139 CENTRAL HEADER #1     02014B50
+013D Created Zip Spec      41 '6.5'
+013E Created OS            00 'MS-DOS'
+013F Extract Zip Spec      14 '2.0'
+0140 Extract OS            00 'MS-DOS'
+0141 General Purpose Flag  0800
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+0143 Compression Method    0008 'Deflated'
+0145 Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
+0149 CRC                   F90EE7FF
+014D Compressed Length     0000010E
+0151 Uncompressed Length   000001BE
+0155 Filename Length       0009
+0157 Extra Length          0024
+0159 Comment Length        0000
+015B Disk Start            0000
+015D Int File Attributes   0001
+     [Bit 0]               1 Text Data
+015F Ext File Attributes   00000020
+     [Bit 5]               Archive
+0163 Local Header Offset   00000004
+0167 Filename              'lorem.txt'
+0170 Extra ID #0001        000A 'NTFS FileTimes'
+0172   Length              0020
+0174   Reserved            00000000
+0178   Tag1                0001
+017A   Size1               0018
+017C   Mtime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
+                           2022 847907600ns'
+0184   Atime               01D8C107FBE7C58E 'Mon Sep  5 09:15:04
+                           2022 263207800ns'
+018C   Ctime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
+                           2022 847907600ns'
+
+0194 END CENTRAL HEADER    06054B50
+0198 Number of this disk   0000
+019A Central Dir Disk no   0000
+019C Entries in this disk  0001
+019E Total Entries         0001
+01A0 Size of Central Dir   0000005B
+01A4 Offset to Central Dir 00000139
+01A8 Comment Length        0000
+Done

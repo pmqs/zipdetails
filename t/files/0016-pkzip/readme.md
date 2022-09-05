@@ -112,3 +112,10 @@ information on licensing this product.
         )   -subj "/CN=cert3.com"
 
     openssl pkcs12 -export -out cert3.p12 -inkey cert3.key -in cert3.crt
+
+## Spanned Archives
+
+    truncate -s1m onemeg
+    pkzipc -add -store -span=360 pkzip-span-multi-segment.zip onemeg
+
+    pkzipc -add -store -span=360 pkzip-span-single-segment.zip lorem.txt

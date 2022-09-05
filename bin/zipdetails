@@ -58,7 +58,7 @@ use constant ZIP64_END_CENTRAL_REC_HDR_SIG     => 0x06064b50;
 use constant ZIP64_END_CENTRAL_LOC_HDR_SIG     => 0x07064b50;
 use constant ZIP_DIGITAL_SIGNATURE_SIG         => 0x05054b50;
 use constant ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG => 0x08064b50;
-
+use constant ZIP_SINGLE_SEGMENT_MARKER         => 0x30304b50;
 
 # Extra sizes
 use constant ZIP_EXTRA_HEADER_SIZE          => 2 ;
@@ -133,6 +133,7 @@ my %Lookup = (
     ZIP_DATA_HDR_SIG,              \&DataHeader,
     ZIP_CENTRAL_HDR_SIG,           \&CentralHeader,
     ZIP_END_CENTRAL_HDR_SIG,       \&EndCentralHeader,
+    ZIP_SINGLE_SEGMENT_MARKER,     \&SingleSegmentMarker,
 
     # Zip64
     ZIP64_END_CENTRAL_REC_HDR_SIG, \&Zip64EndCentralHeader,
@@ -692,6 +693,7 @@ sub scanForSignature
                 # ZIP_ARCHIVE_EXTRA_DATA_SIG      ,
                 ZIP_DIGITAL_SIGNATURE_SIG         ,
                 ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG ,
+                ZIP_SINGLE_SEGMENT_MARKER            ,
         );
 
     my $start = $FH->tell();
@@ -856,8 +858,8 @@ die "No Central Directory records found\n"
 $OFFSET = 0 ;
 $FH->seek(0, SEEK_SET) ;
 
-outSomeData($START, "PREFIX DATA")
-    if defined $START && $START > 0 ;
+# outSomeData($START, "PREFIX DATA")
+#     if defined $START && $START > 0 ;
 
 my $skippedFrom = 0 ;
 my $skippedContent = 0 ;
@@ -1463,8 +1465,35 @@ sub EndCentralHeader
 
 sub DataHeader
 {
+
+    # Data header record or Spanned archive marker.
+    #
+
+    # ZIP_DATA_HDR_SIG at start of file flags a spanned zip file.
+    # If it is a true marker, the next four bytes MUST be a ZIP_LOCAL_HDR_SIG
+    # See APPNOTE 6.3.9, sec 8.5.3, 8.5.4 & 8.5.5
+
+    # If not at start of file, assume a Data Header Record
+    # See APPNOTE 6.3.9, sec 4.3.9 & 4.3.9.3
+
     my $signature = shift ;
     my $data = shift ;
+
+    my $here = $FH->tell();
+
+    if ($here == 4)
+    {
+        # Is this a Spanned Archive Marker?
+        my (undef, $next_sig) = read_V();
+        seekTo($here);
+
+        if ($next_sig == ZIP_LOCAL_HDR_SIG)
+        {
+            print "\n";
+            out $data, "SPLIT ARCHIVE MULTI-SEGMENT MARKER", Value_V($signature);
+            return;
+        }
+    }
 
     print "\n";
     out $data, "STREAMING DATA HEADER", Value_V($signature);
@@ -1480,6 +1509,29 @@ sub DataHeader
     {
         out_V "Compressed Length" ;
         out_V "Uncompressed Length" ;
+    }
+}
+
+sub SingleSegmentMarker
+{
+    # ZIP_SINGLE_SEGMENT_MARKER at start of file flags a spanned zip file.
+    # If this ia a true marker, the next four bytes MUST be a ZIP_LOCAL_HDR_SIG
+    # See APPNOTE 6.3.9, sec 8.5.3, 8.5.4 & 8.5.5
+
+    my $signature = shift ;
+    my $data = shift ;
+
+    my $here = $FH->tell();
+
+    if ($here == 4)
+    {
+        my (undef, $next_sig) = read_V();
+        if ($next_sig == ZIP_LOCAL_HDR_SIG)
+        {
+            print "\n";
+            out $data, "SPLIT ARCHIVE SINGLE-SEGMENT MARKER", Value_V($signature);
+        }
+        seekTo($here);
     }
 }
 
@@ -2262,7 +2314,7 @@ sub decode_NT_security
 
 sub decodeMVS
 {
-    # APPNOTE 6.3.9, Appendix 
+    # APPNOTE 6.3.9, Appendix
     my $len = shift;
     my $context = shift;
 
