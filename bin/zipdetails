@@ -2010,7 +2010,7 @@ sub decode_UT
 
 sub decode_AES
 {
-    # ref https://www.winzip.com/win/es/aes_info.html
+    # ref https://www.winzip.com/en/support/aes-encryption/
 
     my $len = shift;
     my $context = shift;
@@ -2315,7 +2315,7 @@ sub decode_strong_encryption
 
 sub printAes
 {
-    # ref https://www.winzip.com/win/es/aes_info.html
+    # ref https://www.winzip.com/en/support/aes-encryption/
 
     my $context = shift ;
 
@@ -3393,7 +3393,7 @@ An alternative reference is the Info-Zip appnote. This is available from
 L<ftp://ftp.info-zip.org/pub/infozip/doc/>
 
 For details of WinZip AES encryption see L<AES Encryption Information:
-Encryption Specification AE-1 and AE-2|https://www.winzip.com/win/es/aes_info.html>.
+Encryption Specification AE-1 and AE-2|https://www.winzip.com/en/support/aes-encryption/>.
 
 The C<zipinfo> program that comes with the info-zip distribution
 (L<http://www.info-zip.org/>) can also display details of the structure of

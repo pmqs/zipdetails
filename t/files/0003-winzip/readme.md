@@ -54,6 +54,8 @@ Create three files rae have same content: f1, f2, f3.
 
 ## Encryption
 
+See https://www.winzip.com/en/support/aes-encryption/
+
     wzzip -a -spassword winzip-encrypt-std.zip lorem.txt
     wzzip -a -spassword -yc winzip-encrypt-aes128.zip lorem.txt
     wzzip -a -spassword -ycAES256 winzip-encrypt-aes256.zip lorem.txt

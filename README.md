@@ -374,7 +374,7 @@ An alternative reference is the Info-Zip appnote. This is available from
 [ftp://ftp.info-zip.org/pub/infozip/doc/](ftp://ftp.info-zip.org/pub/infozip/doc/)
 
 For details of WinZip AES encryption see [AES Encryption Information:
-Encryption Specification AE-1 and AE-2](https://www.winzip.com/win/es/aes_info.html).
+Encryption Specification AE-1 and AE-2](https://www.winzip.com/en/support/aes-encryption/).
 
 The `zipinfo` program that comes with the info-zip distribution
 ([http://www.info-zip.org/](http://www.info-zip.org/)) can also display details of the structure of
