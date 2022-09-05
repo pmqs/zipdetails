@@ -4,7 +4,7 @@ zipdetails - display the internal structure of zip files
 
 # SYNOPSIS
 
-    zipdetails [-v][--scan][--redact][--utc] zipfile.zip
+    zipdetails [-v][--walk][--scan][--redact][--utc] zipfile.zip
     zipdetails -h
     zipdetails --version
 
@@ -19,16 +19,18 @@ files. For each item of metadata within a zip file the program will output
 
 The program assumes a prior understanding of the internal structure of Zip
 files. You should have a copy of the Zip
-[APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT) file
+[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT) file
 at hand to help understand the output from this program.
 
 ## Default Behaviour
 
 By default the program expects to be given a well-formed zip file.  It will
 navigate the Zip file by first parsing the zip central directory at the end
-of the file.  If that is found, it will then walk through the zip records
-starting at the beginning of the file. Any badly formed zip data structures
-encountered are likely to terminate the program.
+of the file.  If the central directory is found, it will then walk
+sequentally through the zip records starting at the beginning of the file.
+Badly formed zip data structures encountered are likely to terminate the
+program. if you do encounter an unexpected termination please report it
+(see ["SUPPORT"](#support)).
 
 If the program finds any structural problems with the zip file it will
 print a summary at the end of the output report. The set of error cases
@@ -37,25 +39,45 @@ find all the possible errors in a zip file. If you have suggestions for
 use-cases where this could be enhanced please consider creating an
 enhancement request (see ["SUPPORT"](#support)).
 
-Date/time fields are found in zip files are displayed in local time. Use
-the `--utc` option to display these fields in Coordinated Universal Time
+Date/time fields found in zip files are displayed in local time. Use the
+`--utc` option to display these fields in Coordinated Universal Time
 (UTC).
 
-## Scan-Mode
+## Analysis of corrupt or non-standard zip files
 
-If you do have a potentially corrupt zip file, particulatly where the
-central directory at the end of the file is absent/incomplete, you can try
-usng the `--scan` option to search for zip records that are still present.
+If you have a corrupt or non-standard zip file, particulatly one where the
+central directory metadata at the end of the file is absent/incomplete, you
+can use either the `--walk` option or the `--scan` option to search for
+any zip metadata that is still present in the file.
 
-When Scan-mode is enabled, the program will walk the zip file from the
-start, blindly looking for the 4-byte signatures that preceed each of the
-zip data structures. If it finds any of the recognised signatures it will
-attempt to dump the associated zip record. For very large zip files, this
-operation can take a long time to run.
+When either of these options is enabled, this program will bypass the
+initial step of reading the central directory at the end of the file and
+simply scan the zip file sequentially from the start of the file looking
+for zip metedata records. Although this can be error prone, for the most
+part it will find any zip file metadata that is still present in the file.
 
-Note that the 4-byte signatures used in zip files can sometimes match with
-random data stored in the zip file, so care is needed interpreting the
-results.
+The difference between the two options is how aggressive the sequential
+scan is: `--walk` is optimistic, while `--scan` is pessimistic.
+
+To underatand the difference in more detail you need to know a bit about
+how zip file metadata is structured. Under the hood, a zip file uses a
+series of 4-byte signatures to flag the start of a each of the metadata
+records it uses. When the `--walk` or the `--scan` option is enabled both
+work identically by scanning the file from the beginning looking for any
+the of these valid 4-byte metadata signatures. When a 4-byte signature is
+found both options will blindly assume that it has found a vald metadata
+record and display it.
+
+In the case of the `--walk` option it optimistically assumes that it has
+found a real zip metatada record and so starts the scan for the next record
+directly after the record it has just output.
+
+The `--scan` option is pessimistic and assumes the 4-byte signature
+sequence may have been a false-positive, so before starting the scan for
+the next resord, it will rewind to the location in the file directly after
+the 4-byte sequecce it just processed. This means it will rescan data that
+has already been processed. For very lage zip files the `--scan` option
+can be really realy slow, so  trying the `--walk` option first.
 
 ## OPTIONS
 
@@ -70,8 +92,10 @@ results.
 
 - --scan
 
-    Walk the zip file loking for possible zip records. Can be error-prone.
-    See ["Scan-Mode"](#scan-mode)
+    Pessimistically scan the zip file loking for possible zip records. Can be
+    error-prone. For very large zip files this option is very slow. Consider
+    using the `--walk` option first.  See ["Analysis of corrupt or
+    non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
 
 - --utc
 
@@ -85,6 +109,11 @@ results.
 - --version
 
     Display version number of the program and exit.
+
+- --walk
+
+    Optimistically walk the zip file looking for possible zip records.
+    See ["Analysis of corrupt or non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
 
 ## Default Output
 
@@ -309,8 +338,21 @@ Here is the same zip file dumped using the `zipdetails` `-v` option:
 
 The following zip file features are not supported by this program:
 
-- Multi-part archives.
-- The strong encryption features defined in the [APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT) document.
+- Multi-part/Split/Spanned Zip Archives.
+
+    If you have one, or more, parts of a multi-part zip file this program
+    cannot give an overall report on the combined parts of zip file.
+
+    The best you can do is run with either the `--scan` or `--walk` options
+    against individual parts. Some will contains zipfile metadata which will be
+    detected and some will only contain compressed payload data.
+
+- Encrypted Central Directory
+
+    When pkzip strong encryption is enabled in a zip file this program can
+    still parse most the metadata in the zip file.  The only exception is when
+    the Central Directory of a zip file is encrypted -- in this case this
+    program cannot parse that data structure at all.
 
 # TODO
 
@@ -326,13 +368,13 @@ General feedback/questions/bug reports should be sent to
 # SEE ALSO
 
 The primary reference for Zip files is
-[APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT).
+[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT).
 
 An alternative reference is the Info-Zip appnote. This is available from
 [ftp://ftp.info-zip.org/pub/infozip/doc/](ftp://ftp.info-zip.org/pub/infozip/doc/)
 
 For details of WinZip AES encryption see [AES Encryption Information:
-Encryption Specification AE-1 and AE-2](https://www.winzip.com/win/es/aes_info.html).
+Encryption Specification AE-1 and AE-2](https://www.winzip.com/en/support/aes-encryption/).
 
 The `zipinfo` program that comes with the info-zip distribution
 ([http://www.info-zip.org/](http://www.info-zip.org/)) can also display details of the structure of
