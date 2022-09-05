@@ -19,7 +19,7 @@ files. For each item of metadata within a zip file the program will output
 
 The program assumes a prior understanding of the internal structure of Zip
 files. You should have a copy of the Zip
-[APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT) file
+[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT) file
 at hand to help understand the output from this program.
 
 ## Default Behaviour
@@ -368,7 +368,7 @@ General feedback/questions/bug reports should be sent to
 # SEE ALSO
 
 The primary reference for Zip files is
-[APPNOTE.TXT](http://www.pkware.com/documents/casestudies/APPNOTE.TXT).
+[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT).
 
 An alternative reference is the Info-Zip appnote. This is available from
 [ftp://ftp.info-zip.org/pub/infozip/doc/](ftp://ftp.info-zip.org/pub/infozip/doc/)
