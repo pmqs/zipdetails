@@ -2035,6 +2035,9 @@ sub getTime
 {
     my $time = shift ;
 
+    return "'Invalid Date or Time'"
+        if ! defined $time;
+
     return "'" . getT($time) . "'";
 }
 
@@ -2892,10 +2895,14 @@ sub _dosToUnixTime
     my $sec  = ( ( $dt << 1  ) & 0x3e );
 
     use Time::Local ;
-    my $time_t = Time::Local::timegm( $sec, $min, $hour, $mday, $mon, $year);
+    my $time_t;
+    eval
+    {
+        $time_t = Time::Local::timegm( $sec, $min, $hour, $mday, $mon, $year);
+    } or return undef;
 
-    return 0 if ! defined $time_t;
     return $time_t;
+
 }
 
 sub nibbles
