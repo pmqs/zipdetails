@@ -273,6 +273,7 @@ my $APK_LEN = 0;
 my $Encrypted_CD = 0;
 
 my $SEEN = Seen->new();
+my $CentralDirectory = CentralDirectory->new();
 
 sub prOff
 {
@@ -851,10 +852,11 @@ if ($opt_scan || $opt_walk || $Encrypted_CD)
 
 }
 
-our ($CdExists, $CdOffset, $CdSize, @CentralDirectory) = scanCentralDirectory($FH);
+scanCentralDirectory($FH);
 
-die "No Central Directory records found\n"
-    if ! $CdExists ;
+# die "No Central Directory records found\n"
+#     # if ! $CdExists ;
+#     if ! $CentralDirectory->exists() ;
 
 $OFFSET = 0 ;
 $FH->seek(0, SEEK_SET) ;
@@ -883,9 +885,10 @@ while (1)
 
     if (!defined $handler)
     {
-        if (@CentralDirectory) {
+        if ($CentralDirectory->exists()) {
+
             # Should be at offset that central directory says
-            my $locOffset = $CentralDirectory[0][0];
+            my $locOffset = $CentralDirectory->getNextLocalOffset();
             my $delta = $locOffset - $here ;
 
             if ($here + 4 == $locOffset ) {
@@ -898,14 +901,14 @@ while (1)
         }
 
 
-        if ($here == $CdOffset && $Encrypted_CD)
+        if ($here == $CentralDirectory->{CentralDirectoryOffset} && $Encrypted_CD)
         {
             # rewind the invalid signature
             rewindRelative(4);
             EncryptedCD();
             next;
         }
-        elsif ($here < $CdOffset)
+        elsif ($here < $CentralDirectory->{CentralDirectoryOffset})
         {
             if ($APK)
             {
@@ -917,7 +920,7 @@ while (1)
             #     if scanForSignature() ;
 
             $skippedFrom = $FH->tell() ;
-            $skippedContent = $CdOffset - $skippedFrom ;
+            $skippedContent = $CentralDirectory->{CentralDirectoryOffset} - $skippedFrom ;
 
             printf "\nWARNING!\nExpected Zip header not found at offset 0x%X\n", $here;
             printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
@@ -926,7 +929,7 @@ while (1)
                 sprintf("Expected Zip header not found at offset 0x%X, ", $skippedFrom) .
                 sprintf("skipped 0x%X bytes\n", $skippedContent);
 
-            seekTo($CdOffset);
+            seekTo($CentralDirectory->{CentralDirectoryOffset});
 
             next;
         }
@@ -983,11 +986,30 @@ sub LocalHeader
     out $data, "LOCAL HEADER #$hexHdrCount" , Value_V($signature);
 
     my $buffer;
+    my $orphan = 0;
 
     my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
-    if (! $opt_scan && ! $opt_walk && @CentralDirectory)
+    if (! $opt_scan && ! $opt_walk && $CentralDirectory->exists())
     {
-        ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) = @{ shift @CentralDirectory } ;
+        my $cdEntry = $CentralDirectory->getByLocalOffset($from_offset);
+
+        if (! $cdEntry)
+        {
+            out1 "Orphan Entry: No matching central directory\n" ;
+            $orphan = 1 ;
+        }
+
+        $CDcompressedLength = $cdEntry->{compressedLength};
+        $cdZip64 = $cdEntry->{zip64ExtraPresent};
+        $zip64Sizes = $cdEntry->{zip64SizesPresent};
+        $cdIndex = $cdEntry->{index};
+        $cdEntryOffset = $cdEntry->{centralHeaderOffset} ;
+
+        if ($cdIndex && $cdIndex != $LocalHeaderCount)
+        {
+            # die "$cdIndex != $LocalHeaderCount"
+        }
+
         # my $cdi = sprintf("%X", $cdIndex) ;
         # out1 "CENTRAL HEADER #$cdi", sprintf "Offset %s\n", Value_Q($cdEntryOffset);
     }
@@ -1138,10 +1160,10 @@ sub EncryptedCD
 
     # Check for digital signature record in theCD
     # It needs to be the very last thing in the CD
-    my $sigSize = findDigitalSignature($CdSize - $decryptHeaderSize);
+    my $sigSize = findDigitalSignature($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize);
 
     print "\n";
-    outSomeData($CdSize - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
+    outSomeData($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
 }
 
 sub DecryptionHeader
@@ -2566,6 +2588,9 @@ sub scanCentralDirectory
     my @CD = ();
     my ($offset, $size) = findCentralDirectoryOffset($fh);
 
+    $CentralDirectory->{CentralDirectoryOffset} = $offset;
+    $CentralDirectory->{CentralDirectorySize} = $size;
+
     return ()
         if ! defined $offset;
 
@@ -2589,7 +2614,8 @@ sub scanCentralDirectory
         my $cdZip64 = 0;
         my $zip64Sizes = 0;
 
-        skip($fh, $filename_length ) ;
+        # skip($fh, $filename_length ) ;
+        $fh->read(my $filename, $filename_length) ;
 
         if ($extra_length)
         {
@@ -2624,10 +2650,25 @@ sub scanCentralDirectory
 
         my $got = [$locHeaderOffset, $compressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset] ;
 
+        my $cdEntry = CentralDirectoryEntry->new();
+
+        $cdEntry->{index} = $cdIndex;
+        $cdEntry->{centralHeaderOffset} = $cdEntryOffset;
+        $cdEntry->{localHeaderOffset} = $locHeaderOffset;
+        $cdEntry->{compressedLength} = $compressedLength;
+        $cdEntry->{uncompressedLength} = $uncompressedLength;
+        $cdEntry->{zip64ExtraPresent} = $cdZip64;
+        $cdEntry->{zip64SizesPresent} = $zip64Sizes;
+        $cdEntry->{filename} = $filename;
+
+        $CentralDirectory->addEntry($cdEntry);
+
         skip($fh, $comment_length ) ;
 
         push @CD, $got ;
     }
+
+    $CentralDirectory->sortByLocalOffset();
 
     $fh->seek($here, SEEK_SET) ;
 
@@ -2987,6 +3028,109 @@ sub nibbles
         }
     }
 
+}
+
+{
+    package CentralDirectoryEntry;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'index'                 => 0,
+                        'uncompressedLength'    => 0,
+                        'compressedLength'      => 0,
+                        'filename'              => '',
+                        'localHeaderOffset'     => 0,
+                        'centralHeaderOffset'   => 0,
+                        'zip64ExtraPresent'     => 0,
+                        'zip64SizesPresent'     => 0,
+                     ) ;
+
+        bless \%object, $class;
+    }
+}
+
+{
+    package CentralDirectory;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'entries'       => [],
+                        'count'         => 0,
+                        'byLocalOffset' => {},
+                        'offset2Index' => {},
+                        'matchedWithLocalHeader' => {},
+                        'CentralDirectoryOffset'      => 0,
+                        'CentralDirectorySize'      => 0,
+                        'zip64'         => 0,
+                        'encryptedCD'   => 0,
+
+                     ) ;
+
+        bless \%object, $class;
+    }
+
+    sub addEntry
+    {
+        my $self = shift ;
+        my $entry = shift ;
+
+        push @{ $self->{entries} }, $entry;
+
+        # TODO - add code to check for duplicates
+
+        my $localHeaderOffset = $entry->{localHeaderOffset} ;
+        $self->{byLocalOffset}{$localHeaderOffset} = $entry;
+        $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
+        $self->{offset2Index} = $self->{count} ++;
+    }
+
+    sub exists
+    {
+        my $self = shift ;
+
+        # return $self->{count} ;
+        return scalar @{ $self->{entries} };
+    }
+
+    sub sortByLocalOffset
+    {
+        my $self = shift ;
+
+        sort { $a->{localHeaderOffset} <=> $b->{localHeaderOffset} }
+             @{ $self->{entries} };
+    }
+
+    sub getByLocalOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        # TODO - what happens if none exists?
+        my $entry = $self->{byLocalOffset}{$offset} ;
+        delete $self->{matchedWithLocalHeader} ;
+        return $entry ;
+    }
+
+    sub getNextLocalOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        my $index = $self->{offset2Index} ;
+
+        if ($index + 1 >= $self->{count})
+        {
+            return 0;
+        }
+
+        return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+    }
 }
 
 sub Usage
