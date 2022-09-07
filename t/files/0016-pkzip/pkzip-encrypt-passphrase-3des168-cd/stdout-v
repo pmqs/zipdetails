@@ -9,7 +9,7 @@
                       [Bit 11]              1 'Language Encoding'
                       [Bit 13]              1 'Encrypted Central Dir'
 0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 00 00 00 00 Last Mod Time         00000000 'Thu Jan  1 00:00:00 1970'
+000A 0004 00 00 00 00 Last Mod Time         00000000 'No Date/Time'
 000E 0004 00 00 00 00 CRC                   00000000
 0012 0004 3E 02 00 00 Compressed Length     0000023E
 0016 0004 00 00 00 00 Uncompressed Length   00000000
@@ -109,7 +109,7 @@ DECRYPTION HEADER RECORD
                       [Bit 11]              1 'Language Encoding'
                       [Bit 13]              1 'Encrypted Central Dir'
 0265 0002 08 00       Compression Method    0008 'Deflated'
-0267 0004 00 00 00 00 Last Mod Time         00000000 'Thu Jan  1 00:00:00 1970'
+0267 0004 00 00 00 00 Last Mod Time         00000000 'No Date/Time'
 026B 0004 00 00 00 00 CRC                   00000000
 026F 0004 46 02 00 00 Compressed Length     00000246
 0273 0004 00 00 00 00 Uncompressed Length   00000000

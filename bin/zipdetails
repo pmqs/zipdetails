@@ -1025,7 +1025,7 @@ sub LocalHeader
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
 
-    out_V "Last Mod Time", sub { getTime(_dosToUnixTime($_[0])) };
+    out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -1305,7 +1305,7 @@ sub CentralHeader
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
 
-    out_V "Last Mod Time", sub { getTime(_dosToUnixTime($_[0])) };
+    out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -2039,6 +2039,44 @@ sub getTime
         if ! defined $time;
 
     return "'" . getT($time) . "'";
+}
+
+sub LastModTime
+{
+    my $value = shift ;
+
+    return "'No Date/Time'"
+        if $value == 0;
+
+    return getTime(_dosToUnixTime($value))
+}
+
+sub _dosToUnixTime
+{
+    my $dt = shift;
+
+    # Mozilla xpi files have empty datetime
+    # This is not a valid Dos datetime value
+    return 0 if $dt == 0 ;
+
+    my $year = ( ( $dt >> 25 ) & 0x7f ) + 80;
+    my $mon  = ( ( $dt >> 21 ) & 0x0f ) - 1;
+    my $mday = ( ( $dt >> 16 ) & 0x1f );
+
+    my $hour = ( ( $dt >> 11 ) & 0x1f );
+    my $min  = ( ( $dt >> 5  ) & 0x3f );
+    my $sec  = ( ( $dt << 1  ) & 0x3e );
+
+    use Time::Local ;
+    my $time_t;
+    eval
+    {
+        # Use eval to catch crazy dates
+        $time_t = Time::Local::timegm( $sec, $min, $hour, $mday, $mon, $year);
+    } or return undef;
+
+    return $time_t;
+
 }
 
 sub decode_UT
@@ -2878,32 +2916,6 @@ sub findID
     return undef ;
 }
 
-
-sub _dosToUnixTime
-{
-    my $dt = shift;
-
-    # Mozilla xpi files have invalid datetime
-    return 0 if $dt == 0 ;
-
-    my $year = ( ( $dt >> 25 ) & 0x7f ) + 80;
-    my $mon  = ( ( $dt >> 21 ) & 0x0f ) - 1;
-    my $mday = ( ( $dt >> 16 ) & 0x1f );
-
-    my $hour = ( ( $dt >> 11 ) & 0x1f );
-    my $min  = ( ( $dt >> 5  ) & 0x3f );
-    my $sec  = ( ( $dt << 1  ) & 0x3e );
-
-    use Time::Local ;
-    my $time_t;
-    eval
-    {
-        $time_t = Time::Local::timegm( $sec, $min, $hour, $mday, $mon, $year);
-    } or return undef;
-
-    return $time_t;
-
-}
 
 sub nibbles
 {
