@@ -1,4 +1,11 @@
 
+# Env variables
+#
+# ZIPDETAILS_TEST_MATCH         only run test that match regex
+# ZIPDETAILS_TEST_KEEP_OUTPUT   keep the output from all tests
+# ZIPDETAILS_TEST_DIFF          run "diff" is the output isn't correct
+# ZIPDETAILS_TEST_REFRESH       refresh the stdout/stderr files
+
 use strict;
 use warnings;
 
@@ -13,6 +20,7 @@ my $tests_per_zip = 5 * 2 * 3 ;
 plan tests => 83 * $tests_per_zip ;
 
 sub run;
+sub compareWithGolden;
 
 my $tempdir = tempdir(CLEANUP => 1);
 my $HERE = getcwd;
@@ -42,6 +50,12 @@ for my $dir (sort keys %dirs)
     {
         my $z = $dirs{$dir};
         my $zipfile = "$dir/$z";
+
+        if (defined $ENV{ZIPDETAILS_TEST_MATCH})
+        {
+            skip "Test '$dir' doesn't match ZIPDETAILS_TEST_MATCH/" . basename($zipfile), $tests_per_zip
+                unless $zipfile =~ /$ENV{ZIPDETAILS_TEST_MATCH}/;
+        }
 
         if ($z =~ /zst$/)
         {
@@ -80,8 +94,8 @@ for my $dir (sort keys %dirs)
 
                 my $ok = 1;
                 $ok &= is $status, 0, "Exit Status 0";
-                $ok &= is $stdout, $golden_stdout, "Expected stdout";
-                $ok &= is $stderr, $golden_stderr, "Expected stderr";
+                $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout";
+                $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stdout";
 
                 push @failed, "$dir $opt1 $opt2"
                     unless $ok;
@@ -303,4 +317,56 @@ sub getOutputFilename
         if -e "$dir/$base$opt1";
 
     return "" ;
+}
+
+sub compareWithGolden
+{
+    my $golden_filename = shift;
+    my $got = shift;
+    my $expected = shift;
+    my $message = shift;
+
+    my $ok;
+
+    if($ENV{ZIPDETAILS_TEST_DIFF})
+    {
+        writeFile("$tempdir/got", $got);
+        writeFile("$tempdir/expected", $expected);
+        my $diff =  `diff $tempdir/got $tempdir/expected`;
+        $ok = $? == 0 ;
+        ok $ok, $message ;
+
+        diag $diff
+            if ! $ok;
+    }
+    else
+    {
+        $ok = is $got, $expected, $message ;
+    }
+
+    refresh($golden_filename, $got);
+
+    return $ok;
+}
+
+sub refresh
+{
+    my $filename = shift ;
+    my $data = shift ;
+
+    return if length $data == 0;
+
+    return
+        unless $ENV{ZIPDETAILS_TEST_REFRESH};
+
+    diag "Refreshing $filename";
+
+    my $zst = ($filename =~ s/.zst$//) ;
+
+    writeFile($filename, $data);
+
+    if ($zst)
+    {
+        system "zstd --rm $filename";
+    }
 }
