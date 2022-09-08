@@ -3,7 +3,7 @@
 #
 # ZIPDETAILS_TEST_MATCH         only run test that match regex
 # ZIPDETAILS_TEST_KEEP_OUTPUT   keep the output from all tests
-# ZIPDETAILS_TEST_DIFF          run "diff" is the output isn't correct
+# ZIPDETAILS_TEST_DIFF          run "diff" if the output isn't correct
 # ZIPDETAILS_TEST_REFRESH       refresh the stdout/stderr files
 
 use strict;
