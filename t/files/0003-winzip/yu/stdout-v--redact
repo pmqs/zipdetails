@@ -1,0 +1,104 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0008 0002 08 00       Compression Method    0008 'Deflated'
+000A 0004 98 B3 F3 50 Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
+000E 0004 9D F9 7A CA CRC                   CA7AF99D
+0012 0004 0B 00 00 00 Compressed Length     0000000B
+0016 0004 06 00 00 00 Uncompressed Length   00000006
+001A 0002 05 00       Filename Length       0005
+001C 0002 00 00       Extra Length          0000
+001E 0005 58 58 58 58 Filename              'XXXXX'
+          58
+0023 000B 58 58 58 58 PAYLOAD               XXXXXXXXXXX
+          58 58 58 58
+          58 58 58
+
+002E 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
+0032 0001 14          Extract Zip Spec      14 '2.0'
+0033 0001 00          Extract OS            00 'MS-DOS'
+0034 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0036 0002 08 00       Compression Method    0008 'Deflated'
+0038 0004 10 B4 F3 50 Last Mod Time         50F3B410 'Sun Jul 19 22:32:32 2020'
+003C 0004 9D F9 7A CA CRC                   CA7AF99D
+0040 0004 0B 00 00 00 Compressed Length     0000000B
+0044 0004 06 00 00 00 Uncompressed Length   00000006
+0048 0002 04 00       Filename Length       0004
+004A 0002 0E 00       Extra Length          000E
+004C 0004 58 58 58 58 Filename              'XXXX'
+0050 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0052 0002 0A 00         Length              000A
+0054 0001 01            Version             01
+0055 0004 F5 A7 E1 D1   NameCRC32           D1E1A7F5
+0059 0005 58 58 58 58   UnicodeName         'XXXXX'
+          58
+005E 000B 58 58 58 58 PAYLOAD               XXXXXXXXXXX
+          58 58 58 58
+          58 58 58
+
+0069 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+006D 0001 14          Created Zip Spec      14 '2.0'
+006E 0001 00          Created OS            00 'MS-DOS'
+006F 0001 14          Extract Zip Spec      14 '2.0'
+0070 0001 00          Extract OS            00 'MS-DOS'
+0071 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0073 0002 08 00       Compression Method    0008 'Deflated'
+0075 0004 98 B3 F3 50 Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
+0079 0004 9D F9 7A CA CRC                   CA7AF99D
+007D 0004 0B 00 00 00 Compressed Length     0000000B
+0081 0004 06 00 00 00 Uncompressed Length   00000006
+0085 0002 05 00       Filename Length       0005
+0087 0002 00 00       Extra Length          0000
+0089 0002 00 00       Comment Length        0000
+008B 0002 00 00       Disk Start            0000
+008D 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+008F 0004 20 00 00 00 Ext File Attributes   00000020
+                      [Bit 5]               Archive
+0093 0004 00 00 00 00 Local Header Offset   00000000
+0097 0005 58 58 58 58 Filename              'XXXXX'
+          58
+
+009C 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
+00A0 0001 14          Created Zip Spec      14 '2.0'
+00A1 0001 00          Created OS            00 'MS-DOS'
+00A2 0001 14          Extract Zip Spec      14 '2.0'
+00A3 0001 00          Extract OS            00 'MS-DOS'
+00A4 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+00A6 0002 08 00       Compression Method    0008 'Deflated'
+00A8 0004 10 B4 F3 50 Last Mod Time         50F3B410 'Sun Jul 19 22:32:32 2020'
+00AC 0004 9D F9 7A CA CRC                   CA7AF99D
+00B0 0004 0B 00 00 00 Compressed Length     0000000B
+00B4 0004 06 00 00 00 Uncompressed Length   00000006
+00B8 0002 04 00       Filename Length       0004
+00BA 0002 0E 00       Extra Length          000E
+00BC 0002 00 00       Comment Length        0000
+00BE 0002 00 00       Disk Start            0000
+00C0 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+00C2 0004 20 00 00 00 Ext File Attributes   00000020
+                      [Bit 5]               Archive
+00C6 0004 2E 00 00 00 Local Header Offset   0000002E
+00CA 0004 58 58 58 58 Filename              'XXXX'
+00CE 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+00D0 0002 0A 00         Length              000A
+00D2 0001 01            Version             01
+00D3 0004 F5 A7 E1 D1   NameCRC32           D1E1A7F5
+00D7 0005 58 58 58 58   UnicodeName         'XXXXX'
+          58
+
+00DC 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+00E0 0002 00 00       Number of this disk   0000
+00E2 0002 00 00       Central Dir Disk no   0000
+00E4 0002 02 00       Entries in this disk  0002
+00E6 0002 02 00       Total Entries         0002
+00E8 0004 73 00 00 00 Size of Central Dir   00000073
+00EC 0004 69 00 00 00 Offset to Central Dir 00000069
+00F0 0002 00 00       Comment Length        0000
+Done

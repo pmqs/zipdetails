@@ -50,7 +50,7 @@ Create three files rae have same content: f1, f2, f3.
 
 ## Filename encoding
 
-    wzzip -a -yu
+    wzzip -a -yu -C
 
 ## Encryption
 

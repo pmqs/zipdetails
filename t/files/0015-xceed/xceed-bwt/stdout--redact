@@ -10,7 +10,7 @@
 0016 Uncompressed Length   00000016
 001A Filename Length       000F
 001C Extra Length          008F
-001E Filename              'F1/TestFile.txt'
+001E Filename              'XX/XXXXXXXXXXXX'
 002D Extra ID #0001        4453 'SD: Windows NT security
                            descriptor'
 002F   Length              0063
@@ -29,8 +29,8 @@
 0096   Length              0024
 0098   ID                  NUCX
 009C   Length              000F
-009E   UTF16LE Name        'F1\TestFile.txt'
-00BC PAYLOAD               51.....`....f.  ."....!.@.@..)z....~.
+009E   UTF16LE Name        'XXXXXXXXXXXXXXX'
+00BC PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 00E1 LOCAL HEADER #2       04034B50
 00E5 Extract Zip Spec      14 '2.0'
@@ -43,7 +43,7 @@
 00F7 Uncompressed Length   00000015
 00FB Filename Length       000F
 00FD Extra Length          008F
-00FF Filename              'F2/TestFile.txt'
+00FF Filename              'XX/XXXXXXXXXXXX'
 010E Extra ID #0001        4453 'SD: Windows NT security
                            descriptor'
 0110   Length              0063
@@ -62,8 +62,8 @@
 0177   Length              0024
 0179   ID                  NUCX
 017D   Length              000F
-017F   UTF16LE Name        'F2\TestFile.txt'
-019D PAYLOAD               51.....@....f.  ."....i....%.6.d...
+017F   UTF16LE Name        'XXXXXXXXXXXXXXX'
+019D PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 01C0 LOCAL HEADER #3       04034B50
 01C4 Extract Zip Spec      14 '2.0'
@@ -76,7 +76,7 @@
 01D6 Uncompressed Length   00000015
 01DA Filename Length       000F
 01DC Extra Length          008F
-01DE Filename              'F3/TestFile.txt'
+01DE Filename              'XX/XXXXXXXXXXXX'
 01ED Extra ID #0001        4453 'SD: Windows NT security
                            descriptor'
 01EF   Length              0063
@@ -95,8 +95,8 @@
 0256   Length              0024
 0258   ID                  NUCX
 025C   Length              000F
-025E   UTF16LE Name        'F3\TestFile.txt'
-027C PAYLOAD               51.....@....f.  ."....i....%.6.d...
+025E   UTF16LE Name        'XXXXXXXXXXXXXXX'
+027C PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 029F LOCAL HEADER #4       04034B50
 02A3 Extract Zip Spec      14 '2.0'
@@ -109,7 +109,7 @@
 02B5 Uncompressed Length   00000015
 02B9 Filename Length       000F
 02BB Extra Length          008F
-02BD Filename              'F4/TestFile.txt'
+02BD Filename              'XX/XXXXXXXXXXXX'
 02CC Extra ID #0001        4453 'SD: Windows NT security
                            descriptor'
 02CE   Length              0063
@@ -128,8 +128,8 @@
 0335   Length              0024
 0337   ID                  NUCX
 033B   Length              000F
-033D   UTF16LE Name        'F4\TestFile.txt'
-035B PAYLOAD               51.....@....f.  ."....i....%.6.d...
+033D   UTF16LE Name        'XXXXXXXXXXXXXXX'
+035B PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 037E LOCAL HEADER #5       04034B50
 0382 Extract Zip Spec      14 '2.0'
@@ -142,7 +142,7 @@
 0394 Uncompressed Length   00000015
 0398 Filename Length       000F
 039A Extra Length          008F
-039C Filename              'F5/TestFile.txt'
+039C Filename              'XX/XXXXXXXXXXXX'
 03AB Extra ID #0001        4453 'SD: Windows NT security
                            descriptor'
 03AD   Length              0063
@@ -161,8 +161,8 @@
 0414   Length              0024
 0416   ID                  NUCX
 041A   Length              000F
-041C   UTF16LE Name        'F5\TestFile.txt'
-043A PAYLOAD               51.....@....f.  ."....i....%.6.d...
+041C   UTF16LE Name        'XXXXXXXXXXXXXXX'
+043A PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 045D CENTRAL HEADER #1     02014B50
 0461 Created Zip Spec      15 '2.1'
@@ -184,7 +184,7 @@
 0483 Ext File Attributes   00000020
      [Bit 5]               Archive
 0487 Local Header Offset   00000000
-048B Filename              'F1/TestFile.txt'
+048B Filename              'XX/XXXXXXXXXXXX'
 049A Extra ID #0001        000A 'NTFS FileTimes'
 049C   Length              0020
 049E   Reserved            00000000
@@ -205,7 +205,7 @@
 04CA   ID                  NUCX
 04CE   Length              000F
 04D0   Null                0000
-04D2   UTF16LE Name        'F1\TestFile.txt'
+04D2   UTF16LE Name        'XXXXXXXXXXXXXXX'
 
 04F0 CENTRAL HEADER #2     02014B50
 04F4 Created Zip Spec      15 '2.1'
@@ -227,7 +227,7 @@
 0516 Ext File Attributes   00000020
      [Bit 5]               Archive
 051A Local Header Offset   000000E1
-051E Filename              'F2/TestFile.txt'
+051E Filename              'XX/XXXXXXXXXXXX'
 052D Extra ID #0001        000A 'NTFS FileTimes'
 052F   Length              0020
 0531   Reserved            00000000
@@ -248,7 +248,7 @@
 055D   ID                  NUCX
 0561   Length              000F
 0563   Null                0000
-0565   UTF16LE Name        'F2\TestFile.txt'
+0565   UTF16LE Name        'XXXXXXXXXXXXXXX'
 
 0583 CENTRAL HEADER #3     02014B50
 0587 Created Zip Spec      15 '2.1'
@@ -270,7 +270,7 @@
 05A9 Ext File Attributes   00000020
      [Bit 5]               Archive
 05AD Local Header Offset   000001C0
-05B1 Filename              'F3/TestFile.txt'
+05B1 Filename              'XX/XXXXXXXXXXXX'
 05C0 Extra ID #0001        000A 'NTFS FileTimes'
 05C2   Length              0020
 05C4   Reserved            00000000
@@ -291,7 +291,7 @@
 05F0   ID                  NUCX
 05F4   Length              000F
 05F6   Null                0000
-05F8   UTF16LE Name        'F3\TestFile.txt'
+05F8   UTF16LE Name        'XXXXXXXXXXXXXXX'
 
 0616 CENTRAL HEADER #4     02014B50
 061A Created Zip Spec      15 '2.1'
@@ -313,7 +313,7 @@
 063C Ext File Attributes   00000020
      [Bit 5]               Archive
 0640 Local Header Offset   0000029F
-0644 Filename              'F4/TestFile.txt'
+0644 Filename              'XX/XXXXXXXXXXXX'
 0653 Extra ID #0001        000A 'NTFS FileTimes'
 0655   Length              0020
 0657   Reserved            00000000
@@ -334,7 +334,7 @@
 0683   ID                  NUCX
 0687   Length              000F
 0689   Null                0000
-068B   UTF16LE Name        'F4\TestFile.txt'
+068B   UTF16LE Name        'XXXXXXXXXXXXXXX'
 
 06A9 CENTRAL HEADER #5     02014B50
 06AD Created Zip Spec      15 '2.1'
@@ -356,7 +356,7 @@
 06CF Ext File Attributes   00000020
      [Bit 5]               Archive
 06D3 Local Header Offset   0000037E
-06D7 Filename              'F5/TestFile.txt'
+06D7 Filename              'XX/XXXXXXXXXXXX'
 06E6 Extra ID #0001        000A 'NTFS FileTimes'
 06E8   Length              0020
 06EA   Reserved            00000000
@@ -377,7 +377,7 @@
 0716   ID                  NUCX
 071A   Length              000F
 071C   Null                0000
-071E   UTF16LE Name        'F5\TestFile.txt'
+071E   UTF16LE Name        'XXXXXXXXXXXXXXX'
 
 073C END CENTRAL HEADER    06054B50
 0740 Number of this disk   0000

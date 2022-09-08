@@ -5,92 +5,61 @@
 0006 General Purpose Flag  0000
      [Bits 1-2]            0 'Normal Compression'
 0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
-000E CRC                   CA7AF99D
-0012 Compressed Length     0000000B
-0016 Uncompressed Length   00000006
-001A Filename Length       0005
-001C Extra Length          0000
-001E Filename              'abcde'
-0023 PAYLOAD               .....ancde.
+000A Last Mod Time         552854F5 'Thu Sep  8 10:39:42 2022'
+000E CRC                   F90EE7FF
+0012 Compressed Length     0000010A
+0016 Uncompressed Length   000001BE
+001A Filename Length       0008
+001C Extra Length          0012
+001E Filename              'Caf‚.txt'
+0026 Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0028   Length              000E
+002A   Version             01
+002B   NameCRC32           59E10CD9
+002F   UnicodeName         'CafÃ©.txt'
+0038 PAYLOAD
 
-002E LOCAL HEADER #2       04034B50
-0032 Extract Zip Spec      14 '2.0'
-0033 Extract OS            00 'MS-DOS'
-0034 General Purpose Flag  0000
+0142 CENTRAL HEADER #1     02014B50
+0146 Created Zip Spec      14 '2.0'
+0147 Created OS            00 'MS-DOS'
+0148 Extract Zip Spec      14 '2.0'
+0149 Extract OS            00 'MS-DOS'
+014A General Purpose Flag  0000
      [Bits 1-2]            0 'Normal Compression'
-0036 Compression Method    0008 'Deflated'
-0038 Last Mod Time         50F3B410 'Sun Jul 19 22:32:32 2020'
-003C CRC                   CA7AF99D
-0040 Compressed Length     0000000B
-0044 Uncompressed Length   00000006
-0048 Filename Length       0004
-004A Extra Length          000E
-004C Filename              'Caf‚'
-0050 Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
-0052   Length              000A
-0054   Version             01
-0055   NameCRC32           D1E1A7F5
-0059   UnicodeName         CafÃ©
-005E PAYLOAD               .....ancde.
-
-0069 CENTRAL HEADER #1     02014B50
-006D Created Zip Spec      14 '2.0'
-006E Created OS            00 'MS-DOS'
-006F Extract Zip Spec      14 '2.0'
-0070 Extract OS            00 'MS-DOS'
-0071 General Purpose Flag  0000
-     [Bits 1-2]            0 'Normal Compression'
-0073 Compression Method    0008 'Deflated'
-0075 Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
-0079 CRC                   CA7AF99D
-007D Compressed Length     0000000B
-0081 Uncompressed Length   00000006
-0085 Filename Length       0005
-0087 Extra Length          0000
-0089 Comment Length        0000
-008B Disk Start            0000
-008D Int File Attributes   0001
+014C Compression Method    0008 'Deflated'
+014E Last Mod Time         552854F5 'Thu Sep  8 10:39:42 2022'
+0152 CRC                   F90EE7FF
+0156 Compressed Length     0000010A
+015A Uncompressed Length   000001BE
+015E Filename Length       0008
+0160 Extra Length          0020
+0162 Comment Length        0004
+0164 Disk Start            0000
+0166 Int File Attributes   0001
      [Bit 0]               1 Text Data
-008F Ext File Attributes   00000020
+0168 Ext File Attributes   00000020
      [Bit 5]               Archive
-0093 Local Header Offset   00000000
-0097 Filename              'abcde'
+016C Local Header Offset   00000000
+0170 Filename              'Caf‚.txt'
+0178 Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+017A   Length              000E
+017C   Version             01
+017D   NameCRC32           59E10CD9
+0181   UnicodeName         'CafÃ©.txt'
+018A Extra ID #0002        6375 'uc: Info-ZIP Unicode Comment'
+018C   Length              000A
+018E   Version             01
+018F   ComCRC32            00000000
+0193   UnicodeCom          'CafÃ©'
+0198 Comment               'Caf‚'
 
-009C CENTRAL HEADER #2     02014B50
-00A0 Created Zip Spec      14 '2.0'
-00A1 Created OS            00 'MS-DOS'
-00A2 Extract Zip Spec      14 '2.0'
-00A3 Extract OS            00 'MS-DOS'
-00A4 General Purpose Flag  0000
-     [Bits 1-2]            0 'Normal Compression'
-00A6 Compression Method    0008 'Deflated'
-00A8 Last Mod Time         50F3B410 'Sun Jul 19 22:32:32 2020'
-00AC CRC                   CA7AF99D
-00B0 Compressed Length     0000000B
-00B4 Uncompressed Length   00000006
-00B8 Filename Length       0004
-00BA Extra Length          000E
-00BC Comment Length        0000
-00BE Disk Start            0000
-00C0 Int File Attributes   0001
-     [Bit 0]               1 Text Data
-00C2 Ext File Attributes   00000020
-     [Bit 5]               Archive
-00C6 Local Header Offset   0000002E
-00CA Filename              'Caf‚'
-00CE Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
-00D0   Length              000A
-00D2   Version             01
-00D3   NameCRC32           D1E1A7F5
-00D7   UnicodeName         CafÃ©
-
-00DC END CENTRAL HEADER    06054B50
-00E0 Number of this disk   0000
-00E2 Central Dir Disk no   0000
-00E4 Entries in this disk  0002
-00E6 Total Entries         0002
-00E8 Size of Central Dir   00000073
-00EC Offset to Central Dir 00000069
-00F0 Comment Length        0000
+019C END CENTRAL HEADER    06054B50
+01A0 Number of this disk   0000
+01A2 Central Dir Disk no   0000
+01A4 Entries in this disk  0001
+01A6 Total Entries         0001
+01A8 Size of Central Dir   0000005A
+01AC Offset to Central Dir 00000142
+01B0 Comment Length        0004
+01B2 Comment               'Café'
 Done

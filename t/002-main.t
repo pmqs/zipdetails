@@ -16,8 +16,9 @@ use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
 
-my $tests_per_zip = 5 * 2 * 3 ;
-plan tests => 83 * $tests_per_zip ;
+my $tests_per_zip = 5  ;
+my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
+plan tests => 83 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -53,13 +54,13 @@ for my $dir (sort keys %dirs)
 
         if (defined $ENV{ZIPDETAILS_TEST_MATCH})
         {
-            skip "Test '$dir' doesn't match ZIPDETAILS_TEST_MATCH/" . basename($zipfile), $tests_per_zip
+            skip "Test '$dir' doesn't match ZIPDETAILS_TEST_MATCH/" . basename($zipfile), $tests_per_zip_full
                 unless $zipfile =~ /$ENV{ZIPDETAILS_TEST_MATCH}/;
         }
 
         if ($z =~ /zst$/)
         {
-            skip "ZSTD not available for test $dir/" . basename($zipfile), $tests_per_zip
+            skip "ZSTD not available for test $dir/" . basename($zipfile), $tests_per_zip_full
                 if ! $ZSTD;
 
             chdir $tempdir
@@ -82,23 +83,32 @@ for my $dir (sort keys %dirs)
         {
             for my $opt2 ('', '--scan', '--walk')
             {
-                diag "Testing $dir/" . basename($zipfile) . " $opt1 $opt2";
+                SKIP:
+                for my $opt3 ('', '--redact')
+                {
+                    diag "Testing $dir/" . basename($zipfile) . " $opt1 $opt2 $opt3";
 
-                my $golden_stdout_file = getOutputFilename( $dir, 'stdout', $opt1, $opt2);
-                my $golden_stderr_file = getOutputFilename( $dir, 'stderr', $opt1, $opt2);
+                    my $golden_stdout_file = getOutputFilename( $dir, 'stdout', $opt1, $opt2, $opt3);
+                    my $golden_stderr_file = getOutputFilename( $dir, 'stderr', $opt1, $opt2, $opt3);
 
-                my $golden_stdout = readOutFile($golden_stdout_file);
-                my $golden_stderr = readOutFile($golden_stderr_file);
+                    my $golden_stdout = readOutFile($golden_stdout_file);
+                    my $golden_stderr = readOutFile($golden_stderr_file);
 
-                my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
+                    if ($opt3 && $golden_stdout !~ /$opt3$/)
+                    {
+                        skip "No Redact test for " . basename($zipfile), $tests_per_zip;
+                    }
 
-                my $ok = 1;
-                $ok &= is $status, 0, "Exit Status 0";
-                $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout";
-                $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stdout";
+                    my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
 
-                push @failed, "$dir $opt1 $opt2"
-                    unless $ok;
+                    my $ok = 1;
+                    $ok &= is $status, 0, "Exit Status 0";
+                    $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout";
+                    $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stdout";
+
+                    push @failed, "$dir $opt1 $opt2"
+                        unless $ok;
+                }
             }
         }
 
@@ -309,9 +319,10 @@ sub getOutputFilename
     my $base = shift ;
     my $opt1 = shift ;
     my $opt2 = shift ;
+    my $opt3 = shift ;
 
-    return "$dir/$base$opt1$opt2"
-        if -e "$dir/$base$opt1$opt2";
+    return "$dir/$base$opt1$opt2$opt3"
+        if -e "$dir/$base$opt1$opt2$opt3";
 
     return "$dir/$base$opt1"
         if -e "$dir/$base$opt1";

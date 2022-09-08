@@ -194,7 +194,7 @@ my %Extras = (
       0x5855,  ['Info-ZIP Unix (original; also OS/2, NT, etc.)', \&decode_UX],
       0x5a4c,  ['ZipArchive Unicode Filename', undef],  # https://www.artpol-software.com/ZipArchive
       0x5a4d,  ['ZipArchive Offsets Array', undef],     # https://www.artpol-software.com/ZipArchive
-      0x6375,  ['Info-ZIP Unicode Comment', \&decode_up ],
+      0x6375,  ['Info-ZIP Unicode Comment', \&decode_uc ],
       0x6542,  ['BeOS (BeBox, PowerMac, etc.)', undef],
       0x6854,  ['Theos', undef],
       0x7075,  ['Info-ZIP Unicode Path', \&decode_up ],
@@ -1252,12 +1252,23 @@ sub Reserved2
     }
 }
 
+sub redactData
+{
+    my $data = shift;
+
+    # Redact everything apart from directory seperators
+    $data =~ s(.)(X)g
+        if $opt_Redact;
+
+    return $data;
+}
+
 sub redactFilename
 {
     my $filename = shift;
 
     # Redact everything apart from directory seperators
-    $filename =~ s([^/])(X)g
+    $filename =~ s(.)(X)g
         if $opt_Redact;
 
     return $filename;
@@ -1266,17 +1277,18 @@ sub redactFilename
 sub outputFilename
 {
     my $filename = shift;
+    my $message = shift // "Filename";
 
     $filename = redactFilename($filename) ;
 
-    if (length $filename > 256)
+    # if (length $filename > 256)
+    # {
+    #     my $f = substr($filename, 0, 256) ;
+    #     out $f, $message,  "'". $f . "' ...";
+    # }
+    # else
     {
-        my $f = substr($filename, 0, 256) ;
-        out $f, "Filename",  "'". $f . "' ...";
-    }
-    else
-    {
-        out $filename, "Filename",  "'". $filename . "'";
+        out $filename, $message,  "'". $filename . "'";
     }
 }
 
@@ -1355,7 +1367,7 @@ sub CentralHeader
     {
         my $comment ;
         myRead($comment, $comment_length);
-        out $comment, "Comment",  "'". $comment . "'";
+        outputFilename $comment, "Comment";
     }
 
 
@@ -1482,7 +1494,8 @@ sub EndCentralHeader
     {
         my $comment ;
         myRead($comment, $comment_length);
-        out $comment, "Comment", "'$comment'";
+        outputFilename $comment, "Comment";
+
     }
 }
 
@@ -2305,6 +2318,8 @@ sub decode_Java_exe
 
 sub decode_up
 {
+    # APPNOTE 6.3.9, sec 4.6.9
+
     my $len = shift;
     my $context = shift;
 
@@ -2314,7 +2329,23 @@ sub decode_up
 
     myRead(my $data, $len - 5);
 
-    out $data, "  UnicodeName", $data;
+    outputFilename($data, "  UnicodeName");
+}
+
+sub decode_uc
+{
+    # APPNOTE 6.3.9, sec 4.6.8
+
+    my $len = shift;
+    my $context = shift;
+
+
+    out_C "  Version";
+    out_V "  ComCRC32";
+
+    myRead(my $data, $len - 5);
+
+    outputFilename($data, "  UnicodeCom");
 }
 
 sub decode_Xceed_unicode
@@ -2350,7 +2381,7 @@ sub decode_Xceed_unicode
         substr($data, 0, 2) = '';
     }
 
-    out $data, "  UTF16LE Name", decode("UTF16LE", $data);
+    out redactData($data), "  UTF16LE Name", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
 }
 
 
