@@ -18,7 +18,7 @@ use File::Find;
 
 my $tests_per_zip = 5  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 83 * $tests_per_zip_full ;
+plan tests => 86 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -90,6 +90,7 @@ for my $dir (sort keys %dirs)
 
                     my $golden_stdout_file = getOutputFilename( $dir, 'stdout', $opt1, $opt2, $opt3);
                     my $golden_stderr_file = getOutputFilename( $dir, 'stderr', $opt1, $opt2, $opt3);
+                    my $exit_status = -e "$dir/exit-error" ? 1 : 0 ;
 
                     my $golden_stdout = readOutFile($golden_stdout_file);
                     my $golden_stderr = readOutFile($golden_stderr_file);
@@ -102,9 +103,9 @@ for my $dir (sort keys %dirs)
                     my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
 
                     my $ok = 1;
-                    $ok &= is $status, 0, "Exit Status 0";
+                    $ok &= is $status, $exit_status, "Exit Status is $exit_status";
                     $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout";
-                    $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stdout";
+                    $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stderr";
 
                     push @failed, "$dir $opt1 $opt2"
                         unless $ok;
@@ -175,6 +176,7 @@ sub run
     ok ! -e $stderr, "stderr file does not exist" ;
 
     my $got = system("$Perl ./bin/zipdetails --utc $opt1 $opt2 $filename >$stdout 2>$stderr");
+    $got = $? >>= 8;
     my $out = readFile($stdout);
     my $err = readFile($stderr);
 
@@ -339,7 +341,7 @@ sub compareWithGolden
 
     my $ok;
 
-    if($ENV{ZIPDETAILS_TEST_DIFF})
+    if($ENV{ZIPDETAILS_TEST_DIFF} && $got ne $expected)
     {
         writeFile("$tempdir/got", $got);
         writeFile("$tempdir/expected", $expected);

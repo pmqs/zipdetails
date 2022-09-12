@@ -28,6 +28,8 @@ use Getopt::Long;
 
 my $VERSION = "2.108" ;
 
+sub fatal ;
+
 use constant MAX32 => 0xFFFFFFFF ;
 
 # Compression types
@@ -270,10 +272,11 @@ my $ZERO = 0 ;
 my $APK = 0 ;
 my $START_APK = 0;
 my $APK_LEN = 0;
-my $Encrypted_CD = 0;
 
 my $SEEN = Seen->new();
 my $CentralDirectory = CentralDirectory->new();
+my $EOCD_Present = 0;
+my $Encrypted_CD = 0;
 
 sub prOff
 {
@@ -484,7 +487,7 @@ sub Value
     elsif ($letter eq 'Q<')
       { return Value_Q(@value) }
     else
-      { die "here letter $letter"}
+      { fatal "here letter $letter"}
 }
 
 sub outer
@@ -770,26 +773,30 @@ GetOptions("h"       => \&Usage,
 
 
 Usage("No zipfile") unless @ARGV == 1;
-Usage("Cannot specify both '--walk' and '--scan'") if $opt_walk && $opt_scan ;
+Usage("Cannot specify both '--walk' and '--scan'")
+    if $opt_walk && $opt_scan ;
 
 my $filename = shift @ARGV;
 
-die "$filename does not exist\n"
+fatal "No such file"
     unless -e $filename ;
 
-die "$filename not a standard file\n"
+fatal "is a directory"
+    if -d $filename ;
+
+fatal "not a standard file"
     unless -f $filename ;
 
 $FH = IO::File->new( "<$filename" )
-    or die "Cannot open $filename: $!\n";
+    or fatal "$!";
 binmode($FH);
 
 my $FILELEN = -s $filename ;
 $TRAILING = -s $filename ;
 $NIBBLES = nibbles(-s $filename) ;
 
-die "$filename too short to be a zip file\n"
-    if $FILELEN <  22 ;
+fatal "file is empty"
+    if $FILELEN == 0 ;
 
 setupFormat($opt_verbose, $NIBBLES);
 
@@ -805,8 +812,9 @@ if(0)
 
 my @Messages = ();
 
-if ($opt_scan || $opt_walk || $Encrypted_CD)
+if ($opt_scan || $opt_walk)
 {
+    my $foundZipRecords = 0;
     my $foundCentralHeader = 0;
     my $lastEndsAt = 0;
 
@@ -836,9 +844,10 @@ if ($opt_scan || $opt_walk || $Encrypted_CD)
 
         my $handler = $Lookup{$signature};
         if (!defined $handler) {
-            die "xxx";
+            fatal "xxx";
         }
 
+        $foundZipRecords = 1;
         $handler->($signature, $buffer);
 
         $lastEndsAt = $FH->tell();
@@ -847,6 +856,9 @@ if ($opt_scan || $opt_walk || $Encrypted_CD)
             if $opt_scan;
     }
 
+    fatal "Not a zip file"
+        unless $foundZipRecords ;
+
     dislayMessages();
     exit;
 
@@ -854,9 +866,8 @@ if ($opt_scan || $opt_walk || $Encrypted_CD)
 
 scanCentralDirectory($FH);
 
-# die "No Central Directory records found\n"
-#     # if ! $CdExists ;
-#     if ! $CentralDirectory->exists() ;
+fatal "No Zip metadata found", "Try running with --walk' or '--scan' options"
+    if ! $CentralDirectory->exists() && ! $EOCD_Present ;
 
 $OFFSET = 0 ;
 $FH->seek(0, SEEK_SET) ;
@@ -901,7 +912,7 @@ while (1)
         }
 
 
-        if ($here == $CentralDirectory->{CentralDirectoryOffset} && $Encrypted_CD)
+        if ($here == $CentralDirectory->{CentralDirectoryOffset} && $EOCD_Present)
         {
             # rewind the invalid signature
             rewindRelative(4);
@@ -1007,7 +1018,7 @@ sub LocalHeader
 
         if ($cdIndex && $cdIndex != $LocalHeaderCount)
         {
-            # die "$cdIndex != $LocalHeaderCount"
+            # fatal "$cdIndex != $LocalHeaderCount"
         }
 
         # my $cdi = sprintf("%X", $cdIndex) ;
@@ -1075,7 +1086,7 @@ sub LocalHeader
     # If no CD scanned, get compressed length from local header.
     # Zip64 extra field takes priority
     $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength
-        if $opt_scan || $opt_walk || $Encrypted_CD;
+        if $opt_scan || $opt_walk || ! $CentralDirectory->exists();
 
     if (! $pk_encrypted)
     {
@@ -1694,11 +1705,19 @@ sub myRead
     }
 
     my $len = length $$got;
-    die "Truncated file (got $len, wanted $wantSize): $!\n"
+    fatal "Truncated file (got $len, wanted $wantSize): $!\n"
         if length $$got != $wantSize;
 }
 
+sub fatal
+{
+    my $message = shift;
 
+    warn "zipdetails: error processing '$filename': $message\n";
+    warn $_ . "\n"
+        for @_;
+    exit 1;
+}
 
 
 sub walkExtra
@@ -2272,7 +2291,7 @@ sub decodeLitteEndian
     }
     else {
         # TODO - fix this
-        die "unsupported\n";
+        fatal "unsupported\n";
     }
 
     my $got = 0 ;
@@ -2762,13 +2781,13 @@ sub offsetFromZip64
 
     $fh->seek($here - 20, SEEK_SET)
     # TODO - fix this
-        or die "xx $!" ;
+        or fatal "xx $!" ;
 
     my $buffer;
     my $got = 0;
     ($got = $fh->read($buffer, 20)) == 20
     # TODO - fix this
-        or die "xxx  $here $got $!" ;
+        or fatal "xxx  $here $got $!" ;
 
     if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_LOC_HDR_SIG ) {
         my $cd64 = unpack "Q<", substr($buffer,  8, 8);
@@ -2777,17 +2796,17 @@ sub offsetFromZip64
 
         $fh->read($buffer, 4) == 4
         # TODO - fix this
-            or die "xxx" ;
+            or fatal "xxx" ;
 
         if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_REC_HDR_SIG ) {
 
             $fh->read($buffer, 8) ==  8
             # TODO - fix this
-                or die "xxx" ;
+                or fatal "xxx" ;
             my $size  = unpack "Q<", $buffer;
             $fh->read($buffer, $size) ==  $size
             # TODO - fix this
-                or die "xxx" ;
+                or fatal "xxx" ;
 
             # Version 1 header is 44 bytes (assuming no extensible data sector)
             # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
@@ -2807,10 +2826,10 @@ sub offsetFromZip64
             return ($cdOffset, $cdSize) ;
         }
 
-        die "Cannot find 'Zip64 end of central directory record': 0x06054b50\nTry running with --scan option.\n" ;
+        fatal "Cannot find 'Zip64 end of central directory record': 0x06054b50\nTry running with --scan option.\n" ;
     }
 
-    die "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50 \nTry running with --scan option.\n" ;
+    fatal "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50 \nTry running with --scan option.\n" ;
 }
 
 use constant Pack_ZIP_END_CENTRAL_HDR_SIG => pack("V", ZIP_END_CENTRAL_HDR_SIG);
@@ -2832,7 +2851,7 @@ sub findCentralDirectoryOffset
     my $buffer;
     $fh->read($buffer, 22) == 22
     # TODO - fix this
-        or die "xxx" ;
+        or fatal "xxx" ;
 
     my $zip64 = 0;
     my $centralDirSize ;
@@ -2861,11 +2880,11 @@ sub findCentralDirectoryOffset
             }
             $fh->seek( $seekTo, SEEK_SET)
             # TODO - fix this
-                or die "xxx $!" ;
+                or fatal "xxx $!" ;
             my $got;
             ($got = $fh->read($buffer, $want)) == $want
             # TODO - fix this
-                or die "xxx $got  $!" ;
+                or fatal "xxx $got  $!" ;
             my $pos = rindex( $buffer, Pack_ZIP_END_CENTRAL_HDR_SIG);
 
             if ($pos >= 0 && $want - $pos > 22) {
@@ -2887,8 +2906,11 @@ sub findCentralDirectoryOffset
 
             return undef
                 if $want == $fileLen;
+
         }
     }
+
+    $EOCD_Present = 1;
 
     # pkzip sets entriesOnThisDisk to 0 and totalEntries to 0xFFFF
     # when it uses an encrypted CD
@@ -3023,7 +3045,7 @@ sub nibbles
                     ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
                )
             {
-                # die "overlap!"
+                # fatal "overlap!"
                 # push @{ $self->{overlap} },
                 $self->{overlap_count} ++;
 
