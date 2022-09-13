@@ -798,6 +798,9 @@ $NIBBLES = nibbles(-s $filename) ;
 fatal "file is empty"
     if $FILELEN == 0 ;
 
+fatal "file is too short to be a zip file"
+    if $FILELEN <  22 ;
+    
 setupFormat($opt_verbose, $NIBBLES);
 
 if(0)
