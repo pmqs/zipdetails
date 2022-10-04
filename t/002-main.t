@@ -421,6 +421,12 @@ sub compareBytesWithZipFile
     my $filename = shift ;
     my $stdout = shift;
 
+    if (! -f $filename)
+    {
+        ok 1, 'Not a standard file' ;
+        return 1;
+    }
+
     if ($opt1 ne '-v')
     {
         ok 1, 'Not Verbose' ;
