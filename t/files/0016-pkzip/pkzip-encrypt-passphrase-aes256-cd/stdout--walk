@@ -109,6 +109,47 @@ DECRYPTION HEADER RECORD
 03B6 VCRC32                8280394F
 03BA PAYLOAD
 
+CENTRAL HEADER DECRYPTION RECORD
+04DA IVSize                0010
+04DC IVData                B6 28 EF 20 17 B8 BF 43 9D 43 8A D7 E3
+                           43 47 E0
+04EC Size                  00000120
+04F0 Format                0003
+04F2 AlgId                 6610 'AES 256'
+04F4 BitLen                0100
+04F6 Flags                 0001 'Password required to decrypt'
+04F8 ErdSize               0090
+04FA ErdData               63 0C C0 F2 C8 35 55 80 BB 83 EB B2 F4
+                           AC EF 55 9D 6D 6A CA 89 2B CC BB 88 05
+                           69 0F 34 90 76 AB 68 C0 85 1F E0 31 3D
+                           0A FA 56 1D AB DE 3C 7E 4D 0C 5D AD AE
+                           A0 16 76 C1 77 B7 9D 6E 12 6D 8A 05 60
+                           89 0B 59 F3 22 D0 E7 FE BE 58 A9 DD B8
+                           5A 8A 25 E0 FB E9 9C C6 66 FF 12 99 0F
+                           2D 2E 1C 43 2A 76 A2 D7 32 DD 38 8C 1B
+                           BE 80 03 84 AF 02 48 41 7B 61 B7 F1 FC
+                           24 FF BE F4 75 13 73 3F 84 75 8C B8 9F
+                           B0 E2 28 36 2A AE 67 D1 90 DA 03 8E 4B
+                           06
+058A RCount                00000000
+058E VSize                 0080
+0590 VData                 7B 59 A5 83 99 72 0A 0D 14 D8 D2 4E 33
+                           DD 82 1C D7 1F 45 20 3F 13 08 91 F4 F5
+                           43 B6 E7 21 B6 BE 0B C5 01 92 57 4E 7B
+                           B2 6F 9A 06 17 00 D2 DB 1B 92 20 D2 E2
+                           57 CF AD 64 59 10 7F 84 16 73 A4 77 CB
+                           CB 66 CE 5B A3 74 CC CA CF 12 A0 4C 19
+                           D6 FF ED DE F2 38 13 81 11 AF 1D 0E 0C
+                           69 42 CE 74 76 C2 BF A8 58 07 F8 E7 CA
+                           2F BB B7 C4 F0 68 50 E3 CA 6F 8F 25 96
+                           AA 01 46 B7 57 A8 6D
+060C VCRC32                74296D1F
+
+0610 ENCRYPTED CENTRAL     .G..<...?my....+3....WT.Wj..b....MJ.....
+     DIRECTORY             /=.....>..[..c*.....E.r.2.......A.......
+                           ..m..+..D...q..e...tC.VrLN_....(c..jzR..
+                           .8...p.!...U)dyqz.S.{...
+
 06A0 ZIP64 END CENTRAL DIR 06064B50
      RECORD
 06A4 Size of record        000000000000004C

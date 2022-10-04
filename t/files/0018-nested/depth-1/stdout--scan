@@ -1,0 +1,96 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      0A '1.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         553C80FA 'Wed Sep 28 16:07:52 2022'
+000E CRC                   783A76E3
+0012 Compressed Length     00000182
+0016 Uncompressed Length   00000182
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'inner.zip'
+0027 PAYLOAD
+
+0027 LOCAL HEADER #2       04034B50
+002B Extract Zip Spec      14 '2.0'
+002C Extract OS            00 'MS-DOS'
+002D General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+002F Compression Method    0008 'Deflated'
+0031 Last Mod Time         553C7837 'Wed Sep 28 15:01:46 2022'
+0035 CRC                   F90EE7FF
+0039 Compressed Length     0000010E
+003D Uncompressed Length   000001BE
+0041 Filename Length       0009
+0043 Extra Length          0000
+0045 Filename              'lorem.txt'
+004E PAYLOAD
+
+015C CENTRAL HEADER #1     02014B50
+0160 Created Zip Spec      1E '3.0'
+0161 Created OS            03 'Unix'
+0162 Extract Zip Spec      14 '2.0'
+0163 Extract OS            00 'MS-DOS'
+0164 General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+0166 Compression Method    0008 'Deflated'
+0168 Last Mod Time         553C7837 'Wed Sep 28 15:01:46 2022'
+016C CRC                   F90EE7FF
+0170 Compressed Length     0000010E
+0174 Uncompressed Length   000001BE
+0178 Filename Length       0009
+017A Extra Length          0000
+017C Comment Length        0000
+017E Disk Start            0000
+0180 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0182 Ext File Attributes   81FD0000
+0186 Local Header Offset   00000000
+018A Filename              'lorem.txt'
+
+0193 END CENTRAL HEADER    06054B50
+0197 Number of this disk   0000
+0199 Central Dir Disk no   0000
+019B Entries in this disk  0001
+019D Total Entries         0001
+019F Size of Central Dir   00000037
+01A3 Offset to Central Dir 00000135
+01A7 Comment Length        0000
+
+01A9 CENTRAL HEADER #2     02014B50
+01AD Created Zip Spec      1E '3.0'
+01AE Created OS            03 'Unix'
+01AF Extract Zip Spec      0A '1.0'
+01B0 Extract OS            00 'MS-DOS'
+01B1 General Purpose Flag  0000
+01B3 Compression Method    0000 'Stored'
+01B5 Last Mod Time         553C80FA 'Wed Sep 28 16:07:52 2022'
+01B9 CRC                   783A76E3
+01BD Compressed Length     00000182
+01C1 Uncompressed Length   00000182
+01C5 Filename Length       0009
+01C7 Extra Length          0000
+01C9 Comment Length        0000
+01CB Disk Start            0000
+01CD Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+01CF Ext File Attributes   81B40000
+01D3 Local Header Offset   00000000
+01D7 Filename              'inner.zip'
+### CENTRAL HEADER ref Local #2: 'inner.zip' overlaps with CENTRAL HEADER ref Local #1: 'lorem.txt' 0->181 vs 0->10D
+
+01E0 END CENTRAL HEADER    06054B50
+01E4 Number of this disk   0000
+01E6 Central Dir Disk no   0000
+01E8 Entries in this disk  0001
+01EA Total Entries         0001
+01EC Size of Central Dir   00000037
+01F0 Offset to Central Dir 000001A9
+01F4 Comment Length        0000
+
+WARNINGS
+
+* 1 overlap entries
+Done

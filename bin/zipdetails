@@ -25,10 +25,15 @@ use feature 'state';
 use IO::File;
 use Encode;
 use Getopt::Long;
+# use List::Util qw(min max);
 
 my $VERSION = "2.108" ;
 
 sub fatal ;
+sub fatal_tryWalk;
+sub fatal_truncated ;
+sub warning ;
+sub need ;
 
 use constant MAX32 => 0xFFFFFFFF ;
 
@@ -47,6 +52,8 @@ use constant ZIP_GP_FLAG_PATCHED_MASK          => (1 << 5) ;
 use constant ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK => (1 << 6) ;
 use constant ZIP_GP_FLAG_LZMA_EOS_PRESENT      => (1 << 1) ;
 use constant ZIP_GP_FLAG_LANGUAGE_ENCODING     => (1 << 11) ;
+use constant ZIP_GP_FLAG_PKWARE_ENHANCED_COMP  => (1 << 12) ;
+use constant ZIP_GP_FLAG_ENCRYPTED_CD          => (1 << 13) ;
 
 # Internal File Attributes
 use constant ZIP_IFA_TEXT_MASK                 => 1;
@@ -71,6 +78,8 @@ use constant ZIP_EXTRA_SUBFIELD_HEADER_SIZE => ZIP_EXTRA_SUBFIELD_ID_SIZE +
                                                ZIP_EXTRA_SUBFIELD_LEN_SIZE;
 use constant ZIP_EXTRA_SUBFIELD_MAX_SIZE    => ZIP_EXTRA_MAX_SIZE -
                                                ZIP_EXTRA_SUBFIELD_HEADER_SIZE;
+
+use constant ZIP_EOCD_MIN_SIZE              => 22 ;
 
 my %ZIP_CompressionMethods =
     (
@@ -128,25 +137,75 @@ my %OS_Lookup = (
     30  => "AtheOS/Syllable",
     );
 
+{
+    package Signatures ;
 
-my %Lookup = (
-    # Core Signatures
-    ZIP_LOCAL_HDR_SIG,             \&LocalHeader,
-    ZIP_DATA_HDR_SIG,              \&DataHeader,
-    ZIP_CENTRAL_HDR_SIG,           \&CentralHeader,
-    ZIP_END_CENTRAL_HDR_SIG,       \&EndCentralHeader,
-    ZIP_SINGLE_SEGMENT_MARKER,     \&SingleSegmentMarker,
+    my %Lookup = (
+        # Map unpacked signature to
+        #   decoder
+        #   name
+        #   central flag
 
-    # Zip64
-    ZIP64_END_CENTRAL_REC_HDR_SIG, \&Zip64EndCentralHeader,
-    ZIP64_END_CENTRAL_LOC_HDR_SIG, \&Zip64EndCentralLocator,
+        # Core Signatures
+        ::ZIP_LOCAL_HDR_SIG,             [ \&::LocalHeader, "Local Header", 0 ],
+        ::ZIP_DATA_HDR_SIG,              [ \&::DataHeader,   "Data Descriptor", 0 ],
+        ::ZIP_CENTRAL_HDR_SIG,           [ \&::CentralHeader, "Central Header", 1 ],
+        ::ZIP_END_CENTRAL_HDR_SIG,       [ \&::EndCentralHeader, "End Central Directory", 1 ],
+        ::ZIP_SINGLE_SEGMENT_MARKER,     [ \&::SingleSegmentMarker, "Single Segment aArker", 0],
 
-    #  Digital signature (pkzip)
-    ZIP_DIGITAL_SIGNATURE_SIG,     \&DigitalSignature,
+        # Zip64
+        ::ZIP64_END_CENTRAL_REC_HDR_SIG, [ \&::Zip64EndCentralHeader, "Zip64 End Central Directory", 1 ],
+        ::ZIP64_END_CENTRAL_LOC_HDR_SIG, [ \&::Zip64EndCentralLocator, "Zip64 End Central Directory Locator", 1 ],
 
-    #  Archive Encryption Headers (pkzip)
-    ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG,  \&ArchiveExtraDataRecord,
-);
+        #  Digital signature (pkzip)
+        ::ZIP_DIGITAL_SIGNATURE_SIG,     [ \&::DigitalSignature, "Digital Signature", 1 ],
+
+        #  Archive Encryption Headers (pkzip) - never seen this one
+        ::ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG,  [ \&::ArchiveExtraDataRecord, "Archive Extra Record", 1 ],
+    );
+
+    sub decoder
+    {
+        my $signature = shift ;
+
+        return undef
+            unless exists $Lookup{$signature};
+
+        return $Lookup{$signature}[0];
+    }
+
+    sub name
+    {
+        my $signature = shift ;
+
+        return 'UNKNOWN'
+            unless exists $Lookup{$signature};
+
+        return $Lookup{$signature}[1];
+    }
+
+    sub isCentralHeader
+    {
+        my $signature = shift ;
+
+        return undef
+            unless exists $Lookup{$signature};
+
+        return $Lookup{$signature}[2];
+    }
+
+    sub getSigsForScan
+    {
+        my %sigs =
+            # map { $_ => 1         }
+            # map { substr($_->[0], 2, 2) => $_->[1] } # don't want the initial "PK"
+            map { substr(pack("V", $_), 2, 2) => $_           }
+            keys %Lookup ;
+
+        return %sigs;
+    }
+
+}
 
 my %Extras = (
       0x0001,  ['ZIP64', \&decode_Zip64],
@@ -261,8 +320,10 @@ my $FH;
 
 my $ZIP64 = 0 ;
 my $NIBBLES = 8;
+
 my $LocalHeaderCount = 0;
 my $CentralHeaderCount = 0;
+my $WarningCount = 0;
 
 my $START;
 my $OFFSET = 0 ;
@@ -275,8 +336,8 @@ my $APK_LEN = 0;
 
 my $SEEN = Seen->new();
 my $CentralDirectory = CentralDirectory->new();
+my $HeaderOffsetIndex = HeaderOffsetIndex->new();
 my $EOCD_Present = 0;
-my $Encrypted_CD = 0;
 
 sub prOff
 {
@@ -567,6 +628,8 @@ sub outSomeData
     my $message = shift;
     my $redact = shift ;
 
+    # return if $size == 0;
+
     if ($size > 0) {
         if ($size > $PAYLOADLIMIT) {
             my $before = $FH->tell();
@@ -578,6 +641,19 @@ sub outSomeData
             out $buffer, $message, xDump $buffer ;
         }
     }
+}
+
+sub outSomeDataParagraph
+{
+    my $size = shift;
+    my $message = shift;
+    my $redact = shift ;
+
+    return if $size == 0;
+
+    print "\n";
+    outSomeData($size, $message, $redact);
+
 }
 
 sub unpackValue_C
@@ -670,7 +746,26 @@ sub rewindRelative
     my $offset = shift ;
 
     $FH->seek(-$offset, SEEK_CUR);
-    $OFFSET -= $offset;
+    # $OFFSET -= $offset;
+    $OFFSET = $FH->tell();
+}
+
+sub deltaToNextSignature
+{
+    my $start = $FH->tell();
+
+    my $got = scanForSignature(1);
+
+    my $delta = $FH->tell() - $start ;
+        # say sprintf "GOT %X %X", $start, $FH->tell();
+    seekTo($start);
+
+    if ($got)
+    {
+        return $delta ;
+    }
+
+    return 0 ;
 }
 
 sub scanForSignature
@@ -683,22 +778,7 @@ sub scanForSignature
     state $count = 0;
     $count += $walk;
 
-    my %sigs =
-        map { $_ => 1         }
-        map { substr $_, 2, 2 } # don't want the initial "PK"
-        map { pack "V", $_    }
-        (
-                ZIP_LOCAL_HDR_SIG                 ,
-                ZIP_DATA_HDR_SIG                  ,
-                ZIP_CENTRAL_HDR_SIG               ,
-                ZIP_END_CENTRAL_HDR_SIG           ,
-                ZIP64_END_CENTRAL_REC_HDR_SIG     ,
-                ZIP64_END_CENTRAL_LOC_HDR_SIG     ,
-                # ZIP_ARCHIVE_EXTRA_DATA_SIG      ,
-                ZIP_DIGITAL_SIGNATURE_SIG         ,
-                ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG ,
-                ZIP_SINGLE_SEGMENT_MARKER            ,
-        );
+    my %sigs = Signatures::getSigsForScan();
 
     my $start = $FH->tell();
 
@@ -737,15 +817,21 @@ sub scanForSignature
                 my $here = $FH->tell();
                 seekTo($here - length($combine) + $ix);
 
-                return 1;
+                my @caller = ();# caller;
+                my $name = Signatures::name($sigs{$rest});
+                # printf("### scanForSignature %X\t%X (%X)\t$name\t@caller\n", $start, $FH->tell(), $FH->tell() - $start) ;
+                return $sigs{$rest};
             }
 
             $last = substr($combine, $ix+4);
         }
     }
     else {
+        die "FIX THIS";
         return ! $FH->eof();
     }
+
+    # printf("scanForSignature %X\t%X (%X)\t%s\n", $start, $FH->tell(), $FH->tell() - $start, 'NO MATCH') ;
 
     return 0;
 }
@@ -799,59 +885,103 @@ fatal "file is empty"
     if $FILELEN == 0 ;
 
 fatal "file is too short to be a zip file"
-    if $FILELEN <  22 ;
-    
+    if $FILELEN <  ZIP_EOCD_MIN_SIZE ;
+
 setupFormat($opt_verbose, $NIBBLES);
-
-if(0)
-{
-    # Sanity check that this is a Zip file
-    my ($buffer, $signature) = read_V();
-
-    warn "$filename doesn't look like a zip file\n"
-        if $signature != ZIP_LOCAL_HDR_SIG ;
-    $FH->seek(0, SEEK_SET) ;
-}
 
 my @Messages = ();
 
 if ($opt_scan || $opt_walk)
 {
+    # Main loop for walk/scan processing
+
     my $foundZipRecords = 0;
     my $foundCentralHeader = 0;
     my $lastEndsAt = 0;
+    my $lastSignature = 0;
+    my $lastHeader = {};
 
-    while(scanForSignature($opt_walk))
+    my $output_encryptedCD = 0;
+
+    while(my $s = scanForSignature($opt_walk))
     {
         my $here = $FH->tell();
+        my $delta = $here - $lastEndsAt ;
+
+        # delta can only be negative when '--scan' is used
+        if ($delta < 0 )
+        {
+            # nested or overlap
+            # check if nested
+            # remember & check if matching entry in CD
+            # printf("### WARNING: OVERLAP/NESTED Record found 0x%X 0x%X $delta\n", $here, $lastEndsAt) ;
+        }
+        elsif ($here != $lastEndsAt)
+        {
+            # scanForSignature had to skip bytes to find the next signature
+
+            # some special cases that don't have signatures need to be checked first
+
+            seekTo($lastEndsAt);
+
+            if (! $output_encryptedCD && $CentralDirectory->isEncryptedCD())
+            {
+                displayEncryptedCD();
+                $output_encryptedCD = 1;
+                $lastEndsAt = $FH->tell();
+                next;
+            }
+            elsif ($lastSignature eq ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
+            {
+                # Assume we have the payload when streaming is ebabled
+                outSomeData($delta, "PAYLOAD", $opt_Redact) ;
+                $lastEndsAt = $FH->tell();
+                next;
+            }
+            elsif (Signatures::isCentralHeader($s) && $foundCentralHeader == 0)
+            {
+                # check for an APK header directly before the first central header
+                $foundCentralHeader = 1;
+
+                ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($FH, $here, 0) ;
+
+                if ($START_APK)
+                {
+                    seekTo($lastEndsAt+4);
+
+                    scanApkBlock();
+                    $lastEndsAt = $FH->tell();
+                    next;
+                }
+
+                seekTo($lastEndsAt);
+            }
+
+            # Not a special case, so output generic padding message
+            if ($delta > 0)
+            {
+                outSomeDataParagraph($delta, "UNEXPECTED PADDING");
+                $lastEndsAt = $FH->tell();
+                next;
+            }
+            else
+            {
+                seekTo($here);
+            }
+
+        }
 
         my ($buffer, $signature) = read_V();
 
-        # check for an APK header directly before the first central header
-        if ($signature == ZIP_CENTRAL_HDR_SIG && $foundCentralHeader == 0)
-        {
-            $foundCentralHeader = 1;
+        $lastSignature = $signature;
 
-            ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($FH, $here) ;
-
-            if ($START_APK)
-            {
-                seekTo($lastEndsAt+4);
-
-                scanApkBlock();
-            }
-
-            seekTo($here );
-            next;
-        }
-
-        my $handler = $Lookup{$signature};
+        my $handler = Signatures::decoder($signature);
         if (!defined $handler) {
             fatal "xxx";
         }
 
         $foundZipRecords = 1;
-        $handler->($signature, $buffer);
+        $lastHeader = $handler->($signature, $buffer) // {'streamed' => 0};
 
         $lastEndsAt = $FH->tell();
 
@@ -866,99 +996,179 @@ if ($opt_scan || $opt_walk)
     exit;
 
 }
-
-scanCentralDirectory($FH);
-
-fatal "No Zip metadata found", "Try running with --walk' or '--scan' options"
-    if ! $CentralDirectory->exists() && ! $EOCD_Present ;
-
-$OFFSET = 0 ;
-$FH->seek(0, SEEK_SET) ;
-
-# outSomeData($START, "PREFIX DATA")
-#     if defined $START && $START > 0 ;
-
-my $skippedFrom = 0 ;
-my $skippedContent = 0 ;
-
-while (1)
+else
 {
-    last if $FH->eof();
+    # Main loop for non-walk/scan processing
 
-    my $here = $FH->tell();
-    if ($here >= $TRAILING) {
-        print "\n" ;
-        outSomeData($FILELEN - $TRAILING, "TRAILING DATA");
-        last;
+    scanCentralDirectory($FH);
 
-    }
+    fatal_tryWalk "No Zip metadata found"
+        if ! $CentralDirectory->exists() && ! $EOCD_Present ;
 
-    my ($buffer, $signature) = read_V();
+    # $HeaderOffsetIndex->dump();
 
-    my $handler = $Lookup{$signature};
+    $OFFSET = 0 ;
+    $FH->seek(0, SEEK_SET) ;
 
-    if (!defined $handler)
+    # outSomeData($START, "PREFIX DATA")
+    #     if defined $START && $START > 0 ;
+
+
+    my $expectedOffset = 0;
+    my $expectedSignature = 0;
+    my $foundCentralHeader = 0;
+    my $processedAPK = 0;
+    my $processedECD = 0;
+
+    # my $lastWasLocalHeader = 0;
+    # my $inCentralHeader = 0;
+
+    while (1)
     {
-        if ($CentralDirectory->exists()) {
+        last if $FH->eof();
 
-            # Should be at offset that central directory says
-            my $locOffset = $CentralDirectory->getNextLocalOffset();
-            my $delta = $locOffset - $here ;
+        my $here = $FH->tell();
 
-            if ($here + 4 == $locOffset ) {
-                for (0 .. 3) {
-                    $FH->ungetc(ord(substr($buffer, $_, 1)))
-                }
-                outSomeData($delta, "UNEXPECTED PADDING");
-                next;
-            }
+        if ($here >= $TRAILING) {
+            outSomeDataParagraph($FILELEN - $TRAILING, "TRAILING DATA");
+            last;
         }
 
+        my ($buffer, $signature) = read_V();
 
-        if ($here == $CentralDirectory->{CentralDirectoryOffset} && $EOCD_Present)
+        # Check for split archive marker at start of file
+        if ($here == 0 && $signature == ZIP_SINGLE_SEGMENT_MARKER)
         {
-            # rewind the invalid signature
-            rewindRelative(4);
-            EncryptedCD();
-            next;
-        }
-        elsif ($here < $CentralDirectory->{CentralDirectoryOffset})
-        {
-            if ($APK)
-            {
-                scanApkBlock();
-                next;
-            }
-
-            # next
-            #     if scanForSignature() ;
-
-            $skippedFrom = $FH->tell() ;
-            $skippedContent = $CentralDirectory->{CentralDirectoryOffset} - $skippedFrom ;
-
-            printf "\nWARNING!\nExpected Zip header not found at offset 0x%X\n", $here;
-            printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
-
-            push @Messages,
-                sprintf("Expected Zip header not found at offset 0x%X, ", $skippedFrom) .
-                sprintf("skipped 0x%X bytes\n", $skippedContent);
-
-            seekTo($CentralDirectory->{CentralDirectoryOffset});
-
-            next;
+            #  let it drop through
+            $expectedSignature = ZIP_SINGLE_SEGMENT_MARKER;
+            $expectedOffset = 0;
         }
         else
         {
-            printf "\n\nUnexpected END at offset %08X, value %s\n", $here, Value_V($signature);
-
-            last;
+            ($expectedOffset, $expectedSignature) = $HeaderOffsetIndex->getNextIndex() ;
         }
+
+        # if ($here != $expectedOffset && $signature != ZIP_DATA_HDR_SIG)
+        # {
+        #     rewindRelative(4);
+        #     my $delta = $expectedOffset - $here ;
+        #     outSomeDataParagraph($delta, "UNEXPECTED PADDING");
+        #     $HeaderOffsetIndex->rewindIndex();
+        #     next;
+        # }
+
+        # Need to check for use-case where
+        # * there is a ZIP_DATA_HDR_SIG directly after a ZIP_LOCAL_HDR_SIG.
+        #   The HeaderOffsetIndex object doesn't have visibility of it.
+        # * APK header directly before the CD
+
+        if (defined $expectedOffset && $here != $expectedOffset && ( $CentralDirectory->exists() || $EOCD_Present) )
+        {
+            if ($here > $expectedOffset)
+            {
+                # TODO -- what to so if $here > expectedOffset
+                fatal "fix me 1";
+            }
+
+            # If get here then $here is less than $expectedOffset
+
+
+            # check for an APK header directly before the first central header
+            if (Signatures::isCentralHeader($expectedSignature) && $START_APK && ! $processedAPK )
+            {
+                # my ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($FH, $here, 0) ;
+
+                seekTo($here+4);
+                # rewindRelative(4);
+                scanApkBlock();
+                $HeaderOffsetIndex->rewindIndex();
+                $processedAPK = 1;
+                next;
+            }
+
+            # Check Encrypted Central Directory
+            # if ($CentralHeaderSignatures{$expectedSignature} && $CentralDirectory->isEncryptedCD() && ! $processedECD)
+            # {
+            #     # rewind the invalid signature
+            #     seekTo($here);
+            #     # rewindRelative(4);
+            #     displayEncryptedCD();
+            #     $processedECD = 1;
+            #     next;
+            # }
+
+            if ($signature != ZIP_DATA_HDR_SIG)
+            {
+                rewindRelative(4);
+                my $delta = $expectedOffset - $here ;
+                outSomeDataParagraph($delta, "UNEXPECTED PADDING");
+                $HeaderOffsetIndex->rewindIndex();
+                next;
+            }
+
+            # ZIP_DATA_HDR_SIG drops through
+        }
+
+        my $handler = Signatures::decoder($signature);
+
+        if (!defined $handler)
+        {
+            # if ($CentralDirectory->exists()) {
+
+            #     # Should be at offset that central directory says
+            #     my $locOffset = $CentralDirectory->getNextLocalOffset();
+            #     my $delta = $locOffset - $here ;
+
+            #     if ($here + 4 == $locOffset ) {
+            #         for (0 .. 3) {
+            #             $FH->ungetc(ord(substr($buffer, $_, 1)))
+            #         }
+            #         outSomeData($delta, "UNEXPECTED PADDING");
+            #         next;
+            #     }
+            # }
+
+
+            # if ($here == $CentralDirectory->{CentralDirectoryOffset} && $EOCD_Present && $CentralDirectory->isEncryptedCD())
+            # {
+            #     # rewind the invalid signature
+            #     rewindRelative(4);
+            #     displayEncryptedCD();
+            #     next;
+            # }
+            # elsif ($here < $CentralDirectory->{CentralDirectoryOffset})
+            # {
+            #     # next
+            #     #     if scanForSignature() ;
+
+            #     my $skippedFrom = $FH->tell() ;
+            #     my $skippedContent = $CentralDirectory->{CentralDirectoryOffset} - $skippedFrom ;
+
+            #     printf "\nWARNING!\nExpected Zip header not found at offset 0x%X\n", $here;
+            #     printf "Skipping 0x%x bytes to Central Directory...\n", $skippedContent;
+
+            #     push @Messages,
+            #         sprintf("Expected Zip header not found at offset 0x%X, ", $skippedFrom) .
+            #         sprintf("skipped 0x%X bytes\n", $skippedContent);
+
+            #     seekTo($CentralDirectory->{CentralDirectoryOffset});
+
+            #     next;
+            # }
+            # else
+            {
+                fatal sprintf "Unexpected Zip Signature '%X' at offset 0x%08X\n", Value_V($signature), $here ;
+                last;
+            }
+        }
+
+        $ZIP64 = 0 if $signature != ZIP_DATA_HDR_SIG ;
+        $handler->($signature, $buffer);
+        # $lastWasLocalHeader = $signature == ZIP_LOCAL_HDR_SIG ;
+        $HeaderOffsetIndex->rewindIndex()
+            if $signature == ZIP_DATA_HDR_SIG ;
     }
-
-    $ZIP64 = 0 if $signature != ZIP_DATA_HDR_SIG ;
-    $handler->($signature, $buffer);
 }
-
 
 dislayMessages();
 
@@ -966,6 +1176,9 @@ exit ;
 
 sub dislayMessages
 {
+    print "\nWarning Count: $WarningCount\n"
+        if $WarningCount;
+
     $SEEN->short_summary();
 
     $SEEN->summary();
@@ -994,9 +1207,9 @@ sub LocalHeader
 
     my $from_offset = $FH->tell() - 4;
 
-    print "\n";
     ++ $LocalHeaderCount;
     my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
+    print "\n";
     out $data, "LOCAL HEADER #$hexHdrCount" , Value_V($signature);
 
     my $buffer;
@@ -1091,6 +1304,8 @@ sub LocalHeader
     $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength
         if $opt_scan || $opt_walk || ! $CentralDirectory->exists();
 
+    my $payloadOffset = $FH->tell();
+
     if (! $pk_encrypted)
     {
         if ($compressedMethod == 99) # AES Encryption
@@ -1105,10 +1320,9 @@ sub LocalHeader
 
         $CDcompressedLength -= $size;
     }
-    else
+    elsif ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK)
     {
-        $CDcompressedLength -= DecryptionHeader()
-            if $gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK ;
+        $CDcompressedLength -= DecryptionHeader();
     }
 
     if ($CDcompressedLength) {
@@ -1136,6 +1350,15 @@ sub LocalHeader
 
 
     # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
+
+    return {
+                'localHeader'   => 1,
+                'streamed'      => $gpFlag & ZIP_GP_FLAG_STREAMING_MASK,
+                'offset'        => $from_offset,
+                'length'        => $FH->tell() - $from_offset,
+                'payloadLength' => $CDcompressedLength,
+                'payloadOffset' => $payloadOffset,
+        } ;
 }
 
 use constant Pack_ZIP_DIGITAL_SIGNATURE_SIG => pack("V", ZIP_DIGITAL_SIGNATURE_SIG);
@@ -1167,17 +1390,21 @@ sub findDigitalSignature
     return 0;
 }
 
-sub EncryptedCD
+sub displayEncryptedCD
 {
-    # Forst thing in th encrypted CD is the Decryption Header
+    # First thing in the encrypted CD is the Decryption Header
     my $decryptHeaderSize = DecryptionHeader(1);
 
-    # Check for digital signature record in theCD
+    # Check for digital signature record in the CD
     # It needs to be the very last thing in the CD
-    my $sigSize = findDigitalSignature($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize);
 
+    # my $sigSize = findDigitalSignature($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize);
+    # outSomeData($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
+
+    my $delta = deltaToNextSignature();
     print "\n";
-    outSomeData($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
+    outSomeData($delta, "ENCRYPTED CENTRAL DIRECTORY")
+        if $delta;
 }
 
 sub DecryptionHeader
@@ -1386,6 +1613,8 @@ sub CentralHeader
 
 
     $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
+
+    return {};
 }
 
 sub decodeZipVer
@@ -1444,7 +1673,8 @@ sub Zip64EndCentralHeader
     {
         # Version 2 header (see APPNOTE 6.3.7, section  7.3.4, )
         # Can use version 2 header to infer presence of encrypted CD
-        $Encrypted_CD = 1 ;
+        $CentralDirectory->setEncryptedCD();
+
 
         # Compression Method    2 bytes    Method used to compress the
         #                                  Central Directory
@@ -1472,6 +1702,8 @@ sub Zip64EndCentralHeader
 
     # TODO - handle 'zip64 extensible data sector' here
     # See APPNOTE 6.3.9, section 4.3.14.3 & APPENDIX C
+
+    return {};
 }
 
 
@@ -1483,9 +1715,14 @@ sub Zip64EndCentralLocator
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
+    need 16, "Zip64 End Central Locator";
+
+    # TODO - check values for traces of multi-part + crazy values
     out_V  "Central Dir Disk no";
     out_Q  "Offset to Central dir";
     out_V  "Total no of Disks";
+
+    return {};
 }
 
 sub EndCentralHeader
@@ -1496,6 +1733,9 @@ sub EndCentralHeader
     print "\n";
     out $data, "END CENTRAL HEADER", Value_V($signature);
 
+    need 18, "End Central Header";
+
+    # TODO - check values for traces of multi-part + crazy values
     out_v "Number of this disk";
     out_v "Central Dir Disk no";
     out_v "Entries in this disk";
@@ -1506,11 +1746,14 @@ sub EndCentralHeader
 
     if ($comment_length)
     {
+        need $comment_length, "End Central Header, Comment field";
+
         my $comment ;
         myRead($comment, $comment_length);
         outputFilename $comment, "Comment";
-
     }
+
+    return {};
 }
 
 sub DataHeader
@@ -1560,6 +1803,8 @@ sub DataHeader
         out_V "Compressed Length" ;
         out_V "Uncompressed Length" ;
     }
+
+    return {};
 }
 
 sub SingleSegmentMarker
@@ -1583,6 +1828,8 @@ sub SingleSegmentMarker
         }
         seekTo($here);
     }
+
+    return {};
 }
 
 sub ArchiveExtraDataRecord
@@ -1598,6 +1845,8 @@ sub ArchiveExtraDataRecord
 
     my $size = out_v "Size of record";
     outHexdump("Field data", $size);
+
+    return {};
 }
 
 sub DigitalSignature
@@ -1611,6 +1860,8 @@ sub DigitalSignature
 
     myRead(my $payload, $Size);
     out $payload, "Signature", hexDump($payload);
+
+    return {};
 }
 
 sub GeneralPurposeBits
@@ -1652,13 +1903,14 @@ sub GeneralPurposeBits
 
     out1 "[Bit  3]", "1 'Streamed'"           if $gp & ZIP_GP_FLAG_STREAMING_MASK;
     out1 "[Bit  4]", "1 'Enhanced Deflating'" if $gp & 1 << 4;
-    out1 "[Bit  5]", "1 'Compressed Patched'" if $gp & 1 << 5 ;
+    out1 "[Bit  5]", "1 'Compressed Patched'" if $gp & ZIP_GP_FLAG_PATCHED_MASK ;
     out1 "[Bit  6]", "1 'Strong Encryption'"  if $gp & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK;
     out1 "[Bit 11]", "1 'Language Encoding'"  if $gp & ZIP_GP_FLAG_LANGUAGE_ENCODING;
-    out1 "[Bit 12]", "1 'Pkware Enhanced Compression'"  if $gp & 1 <<12 ;
-    out1 "[Bit 13]", "1 'Encrypted Central Dir'"  if $gp & 1 <<13 ;
+    out1 "[Bit 12]", "1 'Pkware Enhanced Compression'"  if $gp & ZIP_GP_FLAG_PKWARE_ENHANCED_COMP ;
+    out1 "[Bit 13]", "1 'Encrypted Central Dir'"  if $gp & ZIP_GP_FLAG_ENCRYPTED_CD ;
 
-    $Encrypted_CD = 1 if $gp & 1 <<13 ;
+    $CentralDirectory->setEncryptedCD()
+        if $gp & ZIP_GP_FLAG_ENCRYPTED_CD ;
 
     return ();
 }
@@ -1712,6 +1964,34 @@ sub myRead
         if length $$got != $wantSize;
 }
 
+sub need
+{
+    my $byteCount = shift ;
+    my $message = shift ;
+
+    # return $FILELEN - $FH->tell() >= $byteCount;
+
+    my $here = $FH->tell() ;
+    my $available = $FILELEN - $here ;
+    $available >= $byteCount
+        || fatal sprintf("Unexpected EOF at 0x%X in $message.", $here),
+                 sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
+}
+
+sub fatal_truncated
+{
+    my $message = shift;
+    fatal_tryWalk("truncated file", $message, @_);
+
+}
+
+sub fatal_tryWalk
+{
+    my $message = shift;
+
+    fatal($message, @_, "Try running with --walk' or '--scan' options");
+}
+
 sub fatal
 {
     my $message = shift;
@@ -1720,6 +2000,14 @@ sub fatal
     warn $_ . "\n"
         for @_;
     exit 1;
+}
+
+sub warning
+{
+    my $message  = shift;
+
+    print "# WARNING: $message\n";
+    ++ $WarningCount ;
 }
 
 
@@ -1754,11 +2042,13 @@ sub walkExtra
 
             if ($payload =~ /^\x00+$/)
             {
+                # All nulls
                 out $payload, "Null Padding in Extra";
             }
             else
             {
-                out $payload, "Malformed Extra Data", $data;
+                out $payload, "Extra Data", $data;
+                warning "Extra Data Malformed";
             }
 
             return undef;
@@ -1785,9 +2075,9 @@ sub walkExtra
         my ($who, $decoder) =  @{ $Extras{$lookID} // ['', undef ] };
 
         $who = "$id: $who"
-            if $id =~ /\w\w/ ;
+            if $id =~ /\w\w/ && $who;
 
-        $who = "'$who'";
+        $who = "'$who'" if $who ;
         out $id, "Extra ID #" . Value_v($count), unpackValue_v($id) . " $who" ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
@@ -1796,8 +2086,15 @@ sub walkExtra
         $subLen =  unpack("v", $buff);
         out2 $buff, "Length", Value_v($subLen) ;
 
-        return undef
-            if $offset + $subLen > $XLEN ;
+        $remaining = $XLEN - $offset;
+        if ($subLen > $remaining )
+        {
+            warning sprintf "Extra Field Length 0x%x > bytes remaining 0x%X\n", $subLen, $remaining;
+            outSomeData $remaining, "  Extra Payload";
+            return undef;
+        }
+
+        # check here + subLen < EOF
 
         if (! defined $decoder)
         {
@@ -1888,10 +2185,10 @@ sub decode_NTFS_Filetimes
     out $m, "  Mtime", Ntfs2Unix($m, $s1);
 
     my ($a, $s3) = read_Q;
-    out $m, "  Atime", Ntfs2Unix($m, $s3);
+    out $a, "  Atime", Ntfs2Unix($a, $s3);
 
     my ($c, $s2) = read_Q;
-    out $c, "  Ctime", Ntfs2Unix($m, $s2);
+    out $c, "  Ctime", Ntfs2Unix($c, $s2);
 }
 
 sub OpenVMS_DateTime
@@ -2562,8 +2859,10 @@ sub chckForAPKSigningBlock
 {
     my $fh = shift;
     my $cdOffset = shift;
+    my $cdSize = shift;
 
     # APK Signing Block comes directy before the Central directory
+    # See https://source.android.com/security/apksigning/v2
 
     # If offset less than
     #
@@ -2576,7 +2875,7 @@ sub chckForAPKSigningBlock
     #           44
 
     return (0, 0, '')
-        if $cdOffset < 44;
+        if $cdOffset < 44 || $FILELEN - $cdSize < 44 ;
 
     # Step 1 - 16 bytes before CD is literal string "APK Sig Block 42"
     my $magicOffset = $cdOffset - 16;
@@ -2680,8 +2979,8 @@ sub scanCentralDirectory
     # 2 64-bit CD
 
     my @CD = ();
-    my ($offset, $size) = findCentralDirectoryOffset($fh);
 
+    my ($offset, $size) = findCentralDirectoryOffset($fh);
     $CentralDirectory->{CentralDirectoryOffset} = $offset;
     $CentralDirectory->{CentralDirectorySize} = $size;
 
@@ -2693,10 +2992,14 @@ sub scanCentralDirectory
     # Now walk the Central Directory Records
     my $buffer ;
     my $cdIndex = 0;
+    my $cdEntryOffset = 0;
+
     while ($fh->read($buffer, 46) == 46  &&
            unpack("V", $buffer) == ZIP_CENTRAL_HDR_SIG) {
 
         my $cdEntryOffset = $fh->tell() - 46;
+        $HeaderOffsetIndex->addOffset($cdEntryOffset, ZIP_CENTRAL_HDR_SIG) ;
+
         ++ $cdIndex ;
 
         my $compressedLength   = unpack("V", substr($buffer, 20, 4));
@@ -2744,6 +3047,8 @@ sub scanCentralDirectory
 
         my $got = [$locHeaderOffset, $compressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset] ;
 
+        $HeaderOffsetIndex->addOffset($locHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
+
         my $cdEntry = CentralDirectoryEntry->new();
 
         $cdEntry->{index} = $cdIndex;
@@ -2762,77 +3067,89 @@ sub scanCentralDirectory
         push @CD, $got ;
     }
 
+    $FH->seek($fh->tell() - 46, SEEK_SET);
+
+    # Check for Digital Signature
+    $HeaderOffsetIndex->addOffset($fh->tell() - 4, ZIP_DIGITAL_SIGNATURE_SIG)
+        if $fh->read($buffer, 4) == 4  &&
+            unpack("V", $buffer) == ZIP_DIGITAL_SIGNATURE_SIG ;
+
     $CentralDirectory->sortByLocalOffset();
+    $HeaderOffsetIndex->sortOffsets();
 
     $fh->seek($here, SEEK_SET) ;
 
-    # @CD = sort { $a->[0]->cmp($b->[0]) } @CD ;
     @CD = sort { $a->[0] <=> $b->[0] } @CD ;
 
     # Set the first Local File Header offset.
     $START = $CD[0]->[0]
         if @CD ;
 
-    return (1, $offset, $size, @CD);
 }
 
+use constant ZIP64_END_CENTRAL_LOC_HDR_SIZE     => 20;
+use constant ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE => 56;
 
 sub offsetFromZip64
 {
     my $fh = shift ;
     my $here = shift;
+    my $eocdSize = shift;
 
-    $fh->seek($here - 20, SEEK_SET)
-    # TODO - fix this
-        or fatal "xx $!" ;
+    # check enough bytes available for zip64 locator record
+    fatal_truncated "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50"
+        if $here < ZIP64_END_CENTRAL_LOC_HDR_SIZE ;
+
+    $fh->seek($here - ZIP64_END_CENTRAL_LOC_HDR_SIZE, SEEK_SET) ;
+    $here = $FH->tell();
 
     my $buffer;
     my $got = 0;
-    ($got = $fh->read($buffer, 20)) == 20
-    # TODO - fix this
-        or fatal "xxx  $here $got $!" ;
+    $fh->read($buffer, ZIP64_END_CENTRAL_LOC_HDR_SIZE);
 
-    if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_LOC_HDR_SIG ) {
-        my $cd64 = unpack "Q<", substr($buffer,  8, 8);
+    fatal_tryWalk "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50"
+        if unpack("V", $buffer) != ZIP64_END_CENTRAL_LOC_HDR_SIG ;
 
-        $fh->seek($cd64, SEEK_SET) ;
+    $HeaderOffsetIndex->addOffset($fh->tell() - ZIP64_END_CENTRAL_LOC_HDR_SIZE, ZIP64_END_CENTRAL_LOC_HDR_SIG) ;
 
-        $fh->read($buffer, 4) == 4
-        # TODO - fix this
-            or fatal "xxx" ;
+    my $cd64 = unpack "Q<", substr($buffer,  8, 8);
+    my $delta = $here - $cd64;
+    fatal_tryWalk sprintf "Value 0x%X invalid for 'relative offset to zip64' field in 'Zip64 end of central directory locator'", $cd64
+        if $cd64 > $FILELEN || $cd64 > $here;
 
-        if ( unpack("V", $buffer) == ZIP64_END_CENTRAL_REC_HDR_SIG ) {
+    # check enough bytes available
+    fatal_tryWalk sprintf "Size of 'Zip64 end of central directory record' 0x%X too small", $cd64
+        if $delta < ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE;
 
-            $fh->read($buffer, 8) ==  8
-            # TODO - fix this
-                or fatal "xxx" ;
-            my $size  = unpack "Q<", $buffer;
-            $fh->read($buffer, $size) ==  $size
-            # TODO - fix this
-                or fatal "xxx" ;
+    # Seek to Zip64 end of central directory record
+    $fh->seek($cd64, SEEK_SET) ;
+    $HeaderOffsetIndex->addOffset($fh->tell(), ZIP64_END_CENTRAL_REC_HDR_SIG) ;
 
-            # Version 1 header is 44 bytes (assuming no extensible data sector)
-            # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
-            # Can use version 2 header to infer presence of encrypted CD
+    $fh->read($buffer, ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE) ;
 
-            # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+    my $sig = unpack("V", substr($buffer, 0, 4)) ;
+    fatal_tryWalk sprintf "Cannot find 'Zip64 end of central directory record': expected 0x06054b50 but got 0x%X", $sig
+        if $sig != ZIP64_END_CENTRAL_REC_HDR_SIG ;
 
-            if ($size > 44)
-            {
-                $opt_walk = 1;
-                $Encrypted_CD = 1;
-            }
+    # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
+    # See APPNOTE 6.3.9, section, 7.3.3
 
-            my $cdSize   =  unpack "Q<", substr($buffer,  28, 8);
-            my $cdOffset =  unpack "Q<", substr($buffer,  36, 8);
+    # Version 1 header is 44 bytes (assuming no extensible data sector)
+    # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
 
-            return ($cdOffset, $cdSize) ;
-        }
+    my $extractSpec = unpack "C",  substr($buffer, 15, 1);
+    my $cdSize      = unpack "Q<", substr($buffer, 40, 8);
+    my $cdOffset    = unpack "Q<", substr($buffer, 48, 8);
 
-        fatal "Cannot find 'Zip64 end of central directory record': 0x06054b50\nTry running with --scan option.\n" ;
+    # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+
+    if ($extractSpec >= 0x3E)
+    {
+        $opt_walk = 1;
+        $CentralDirectory->setEncryptedCD();
     }
 
-    fatal "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50 \nTry running with --scan option.\n" ;
+    return ($cdOffset, $cdSize) ;
 }
 
 use constant Pack_ZIP_END_CENTRAL_HDR_SIG => pack("V", ZIP_END_CENTRAL_HDR_SIG);
@@ -2845,28 +3162,34 @@ sub findCentralDirectoryOffset
     # know exactly where the end of central directory record
     # should be.
 
-    $fh->seek(-22, SEEK_END) ;
+    need ZIP_EOCD_MIN_SIZE, "End of central directory record (EOCD)";
+
+    $fh->seek(-ZIP_EOCD_MIN_SIZE, SEEK_END) ;
     my $here = $fh->tell();
 
     my $is64bit = $here > MAX32;
     my $over64bit = $here  & (~ MAX32);
 
     my $buffer;
-    $fh->read($buffer, 22) == 22
-    # TODO - fix this
-        or fatal "xxx" ;
+    $fh->read($buffer, ZIP_EOCD_MIN_SIZE);
 
     my $zip64 = 0;
     my $centralDirSize ;
     my $centralDirOffset ;
     my $entriesOnThisDisk ;
     my $totalEntries ;
+    my $commentLength = 0;
+    my $trailingBytes = 0;
 
     if ( unpack("V", $buffer) == ZIP_END_CENTRAL_HDR_SIG ) {
+
+        $HeaderOffsetIndex->addOffset($here, ZIP_END_CENTRAL_HDR_SIG) ;
+
         $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
         $totalEntries     = unpack("v", substr($buffer, 10,  2));
         $centralDirSize   = unpack("V", substr($buffer, 12,  4));
         $centralDirOffset = unpack("V", substr($buffer, 16,  4));
+        $commentLength    = unpack("v", substr($buffer, 20,  2));
     }
     else {
         $fh->seek(0, SEEK_END) ;
@@ -2881,28 +3204,25 @@ sub findCentralDirectoryOffset
                 $seekTo = 0;
                 $want = $fileLen ;
             }
-            $fh->seek( $seekTo, SEEK_SET)
-            # TODO - fix this
-                or fatal "xxx $!" ;
-            my $got;
-            ($got = $fh->read($buffer, $want)) == $want
-            # TODO - fix this
-                or fatal "xxx $got  $!" ;
+            $fh->seek( $seekTo, SEEK_SET);
+             $fh->read($buffer, $want) ;
             my $pos = rindex( $buffer, Pack_ZIP_END_CENTRAL_HDR_SIG);
 
-            if ($pos >= 0 && $want - $pos > 22) {
+            if ($pos >= 0 && $want - $pos > ZIP_EOCD_MIN_SIZE) {
                 $here = $seekTo + $pos ;
+                $HeaderOffsetIndex->addOffset($here, ZIP_END_CENTRAL_HDR_SIG) ;
+
                 $entriesOnThisDisk= unpack("v", substr($buffer, $pos + 8,   2));
                 $totalEntries     = unpack("v", substr($buffer, $pos + 10,  2));
                 $centralDirOffset = unpack("V", substr($buffer, $pos + 16,  4));
                 $centralDirSize   = unpack("V", substr($buffer, $pos + 12,  4));
-                my $commentLength = unpack("V", substr($buffer, $pos + 20,  2));
-                $commentLength = 0 if ! defined $commentLength ;
+                $commentLength    = unpack("v", substr($buffer, $pos + 20,  2)) // 0;
 
-                my $expectedEof = $fileLen - $want + $pos + 22 + $commentLength  ;
+                my $expectedEof = $fileLen - $want + $pos + ZIP_EOCD_MIN_SIZE + $commentLength  ;
                 # check for trailing data after end of zip
                 if ($expectedEof < $fileLen ) {
                     $TRAILING = $expectedEof ;
+                    $trailingBytes = $FILELEN - $expectedEof ;
                 }
                 last ;
             }
@@ -2915,11 +3235,18 @@ sub findCentralDirectoryOffset
 
     $EOCD_Present = 1;
 
+    # Empty zip file can just contain an EOCD record
+    return (0, 0)
+        if ZIP_EOCD_MIN_SIZE + $commentLength + $trailingBytes  == $FILELEN ;
+
+    # return (0, 0)
+    #     if  $totalEntries == 0 && $entriesOnThisDisk == 0;
+
     # pkzip sets entriesOnThisDisk to 0 and totalEntries to 0xFFFF
     # when it uses an encrypted CD
     if (full32($centralDirOffset) || full32($totalEntries) || $entriesOnThisDisk == 0)
     {
-        ($centralDirOffset, $centralDirSize) = offsetFromZip64($fh, $here)
+        ($centralDirOffset, $centralDirSize) = offsetFromZip64($fh, $here, ZIP_EOCD_MIN_SIZE + $commentLength + $trailingBytes)
     }
     elsif ($is64bit)
     {
@@ -2934,7 +3261,10 @@ sub findCentralDirectoryOffset
         $is64In32 = 1;
     }
 
-    ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($fh, $centralDirOffset);
+    return (0, 0)
+        if  $totalEntries == 0 && $entriesOnThisDisk == 0;
+
+    ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($fh, $centralDirOffset, ZIP_EOCD_MIN_SIZE + $commentLength);
 
     return ($centralDirOffset, $centralDirSize) ;
 }
@@ -3042,7 +3372,15 @@ sub nibbles
             if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
             {
                 $self->{duplicate_count} ++;
-                print "$hdrId: '$name' matches with $entry->{str}\n"
+                print "### $hdrId: '$name' matches with $entry->{str}\n"
+            }
+            elsif ($from_offset >= $entry->{from} && $to_offset <= $entry->{to} )
+            {
+                # fatal "overlap!"
+                # push @{ $self->{overlap} },
+                $self->{overlap_count} ++;
+
+                printf "### $hdrId: '$name' nested with $entry->{str} %X->%X vs %x->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
             }
             elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
                     ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
@@ -3052,7 +3390,7 @@ sub nibbles
                 # push @{ $self->{overlap} },
                 $self->{overlap_count} ++;
 
-                print "$hdrId: '$name' overlaps with $entry->{str}\n";
+                printf "### $hdrId: '$name' overlaps with $entry->{str} %X->%X vs %x->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
             }
         }
 
@@ -3097,9 +3435,88 @@ sub nibbles
             my $to_offset = $entry->{to};
             my $hdrId = $entry->{id};
             my $name = $entry->{name};
-            print "$hdrId\t" . $entry->{from} . "\n";
+            print "### $hdrId\t" . $entry->{from} . "\n";
+        }
+    }
+
+}
+
+{
+    package HeaderOffsetIndex;
 
 
+
+
+    # Store a list of header offsets recorded when scannning the central directory
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'offsetIndex'       => [],
+                        'offset2Index'      => {},
+                        'offset2Signature'  => {},
+                        'currentIndex'      => -1,
+                        'currentSignature'  => 0,
+                        # 'sigNames'          => $sigNames,
+                     ) ;
+
+        bless \%object, $class;
+    }
+
+    sub sortOffsets
+    {
+        my $self = shift ;
+
+        @{ $self->{offsetIndex} } = sort { $a->[0] <=> $b->[0] }
+                                    @{ $self->{offsetIndex} };
+        my $ix = 0;
+        $self->{offset2Index}{$_} = $ix++
+            for @{ $self->{offsetIndex} } ;
+    }
+
+    sub addOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+        my $signature = shift ;
+
+        my $name = Signatures::name($signature);
+        # printf "### HeaderOffsetIndex::addOffset(%X, [$name]\n", $offset;
+
+        push @{ $self->{offsetIndex} }, [ $offset, $signature ] ;
+        $self->{offset2Signature}{$offset} = $signature;
+    }
+
+    sub getNextIndex
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        $self->{currentIndex} ++;
+        my $data =  ${ $self->{offsetIndex} }[$self->{currentIndex}] // [0, 0] ;
+        return @$data   ;
+    }
+
+    sub rewindIndex
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        $self->{currentIndex} --;
+    }
+
+    sub dump
+    {
+        my $self = shift;
+
+        say "### HeaderOffsetIndex";
+        say "###   Offset\tSignature";
+        for my $x ( @{ $self->{offsetIndex} } )
+        {
+            my ($offset, $sig) = @$x;
+            printf "###   %X\t\t" . Signatures::name($sig) . "\n", $offset;
         }
     }
 
@@ -3205,6 +3622,26 @@ sub nibbles
         }
 
         return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+    }
+
+    sub inCD
+    {
+        my $self = shift ;
+        $FH->tell() >= $self->{CentralDirectoryOffset};
+    }
+
+    sub setEncryptedCD
+    {
+        my $self = shift ;
+
+        $self->{encryptedCD} = 1 ;
+
+    }
+
+    sub isEncryptedCD
+    {
+        my $self = shift ;
+        return $self->{encryptedCD} ;
     }
 }
 

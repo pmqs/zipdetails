@@ -26888,7 +26888,7 @@
 279F00 000002 1D 00         Tag# 000B           001D 'ATR$C_JOURNAL'
 279F02 000002 01 00           Size              0001
 279F04 000001 00              Attribute         00
-CENTRAL HEADER ref Local #190: 'zip/freeware_readme.txt' overlaps with CENTRAL HEADER ref Local #2: 'acorn/acornzip.c'
+### CENTRAL HEADER ref Local #190: 'zip/freeware_readme.txt' overlaps with CENTRAL HEADER ref Local #2: 'acorn/acornzip.c' 0->14F vs 2d->1637
 
 279F05 000004 50 4B 01 02 CENTRAL HEADER #191   02014B50
 279F09 000001 17          Created Zip Spec      17 '2.3'
@@ -26963,8 +26963,8 @@ CENTRAL HEADER ref Local #190: 'zip/freeware_readme.txt' overlaps with CENTRAL H
 279FC0 000002 1D 00         Tag# 000B           001D 'ATR$C_JOURNAL'
 279FC2 000002 01 00           Size              0001
 279FC4 000001 00              Attribute         00
-CENTRAL HEADER ref Local #191: 'zip/zip.axp_exe' overlaps with CENTRAL HEADER ref Local #2: 'acorn/acornzip.c'
-CENTRAL HEADER ref Local #191: 'zip/zip.axp_exe' overlaps with CENTRAL HEADER ref Local #1B: 'amiga/match_68.a'
+### CENTRAL HEADER ref Local #191: 'zip/zip.axp_exe' overlaps with CENTRAL HEADER ref Local #2: 'acorn/acornzip.c' 208->EDAD vs 2d->1637
+### CENTRAL HEADER ref Local #191: 'zip/zip.axp_exe' overlaps with CENTRAL HEADER ref Local #1B: 'amiga/match_68.a' 208->EDAD vs e69e->F16F
 
 279FC5 000004 50 4B 01 02 CENTRAL HEADER #192   02014B50
 279FC9 000001 17          Created Zip Spec      17 '2.3'
@@ -27039,8 +27039,8 @@ CENTRAL HEADER ref Local #191: 'zip/zip.axp_exe' overlaps with CENTRAL HEADER re
 27A080 000002 1D 00         Tag# 000B           001D 'ATR$C_JOURNAL'
 27A082 000002 01 00           Size              0001
 27A084 000001 00              Attribute         00
-CENTRAL HEADER ref Local #192: 'zip/zip.i64_exe' overlaps with CENTRAL HEADER ref Local #1B: 'amiga/match_68.a'
-CENTRAL HEADER ref Local #192: 'zip/zip.i64_exe' overlaps with CENTRAL HEADER ref Local #3E: 'CHANGES'
+### CENTRAL HEADER ref Local #192: 'zip/zip.i64_exe' overlaps with CENTRAL HEADER ref Local #1B: 'amiga/match_68.a' EE5E->24598 vs e69e->F16F
+### CENTRAL HEADER ref Local #192: 'zip/zip.i64_exe' overlaps with CENTRAL HEADER ref Local #3E: 'CHANGES' EE5E->24598 vs 1e31d->249FD
 
 27A085 000004 50 4B 01 02 CENTRAL HEADER #193   02014B50
 27A089 000001 17          Created Zip Spec      17 '2.3'
@@ -27116,8 +27116,8 @@ CENTRAL HEADER ref Local #192: 'zip/zip.i64_exe' overlaps with CENTRAL HEADER re
 27A145 000002 1D 00         Tag# 000B           001D 'ATR$C_JOURNAL'
 27A147 000002 01 00           Size              0001
 27A149 000001 00              Attribute         00
-CENTRAL HEADER ref Local #193: 'zip/zip.vax_vaxc_exe' overlaps with CENTRAL HEADER ref Local #3E: 'CHANGES'
-CENTRAL HEADER ref Local #193: 'zip/zip.vax_vaxc_exe' overlaps with CENTRAL HEADER ref Local #55: 'cmsmvs/zipvmc.exec'
+### CENTRAL HEADER ref Local #193: 'zip/zip.vax_vaxc_exe' overlaps with CENTRAL HEADER ref Local #3E: 'CHANGES' 24649->2CCC6 vs 1e31d->249FD
+### CENTRAL HEADER ref Local #193: 'zip/zip.vax_vaxc_exe' overlaps with CENTRAL HEADER ref Local #55: 'cmsmvs/zipvmc.exec' 24649->2CCC6 vs 2cb1e->2CCDE
 
 27A14A 000004 50 4B 01 02 CENTRAL HEADER #194   02014B50
 27A14E 000001 17          Created Zip Spec      17 '2.3'
@@ -27189,7 +27189,7 @@ CENTRAL HEADER ref Local #193: 'zip/zip.vax_vaxc_exe' overlaps with CENTRAL HEAD
 27A201 000002 1D 00         Tag# 000B           001D 'ATR$C_JOURNAL'
 27A203 000002 01 00           Size              0001
 27A205 000001 00              Attribute         00
-CENTRAL HEADER ref Local #194: 'zip/zip.zip' overlaps with CENTRAL HEADER ref Local #56: 'crc32.c'
+### CENTRAL HEADER ref Local #194: 'zip/zip.zip' overlaps with CENTRAL HEADER ref Local #56: 'crc32.c' 2CD7C->21981B vs 2cd18->2D0B6
 
 27A206 000004 50 4B 01 02 CENTRAL HEADER #195   02014B50
 27A20A 000001 17          Created Zip Spec      17 '2.3'

@@ -1,0 +1,49 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 FA 80 3C 55 Last Mod Time         553C80FA 'Wed Sep 28 16:07:52 2022'
+000E 0004 E3 76 3A 78 CRC                   783A76E3
+0012 0004 82 01 00 00 Compressed Length     00000182
+0016 0004 82 01 00 00 Uncompressed Length   00000182
+001A 0002 09 00       Filename Length       0009
+001C 0002 00 00       Extra Length          0000
+001E 0009 69 6E 6E 65 Filename              'inner.zip'
+          72 2E 7A 69
+          70
+0027 0182 ...         PAYLOAD
+
+01A9 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+01AD 0001 1E          Created Zip Spec      1E '3.0'
+01AE 0001 03          Created OS            03 'Unix'
+01AF 0001 0A          Extract Zip Spec      0A '1.0'
+01B0 0001 00          Extract OS            00 'MS-DOS'
+01B1 0002 00 00       General Purpose Flag  0000
+01B3 0002 00 00       Compression Method    0000 'Stored'
+01B5 0004 FA 80 3C 55 Last Mod Time         553C80FA 'Wed Sep 28 16:07:52 2022'
+01B9 0004 E3 76 3A 78 CRC                   783A76E3
+01BD 0004 82 01 00 00 Compressed Length     00000182
+01C1 0004 82 01 00 00 Uncompressed Length   00000182
+01C5 0002 09 00       Filename Length       0009
+01C7 0002 00 00       Extra Length          0000
+01C9 0002 00 00       Comment Length        0000
+01CB 0002 00 00       Disk Start            0000
+01CD 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+01CF 0004 00 00 B4 81 Ext File Attributes   81B40000
+01D3 0004 00 00 00 00 Local Header Offset   00000000
+01D7 0009 69 6E 6E 65 Filename              'inner.zip'
+          72 2E 7A 69
+          70
+
+01E0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01E4 0002 00 00       Number of this disk   0000
+01E6 0002 00 00       Central Dir Disk no   0000
+01E8 0002 01 00       Entries in this disk  0001
+01EA 0002 01 00       Total Entries         0001
+01EC 0004 37 00 00 00 Size of Central Dir   00000037
+01F0 0004 A9 01 00 00 Offset to Central Dir 000001A9
+01F4 0002 00 00       Comment Length        0000
+Done

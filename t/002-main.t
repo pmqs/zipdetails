@@ -6,6 +6,8 @@
 # ZIPDETAILS_TEST_DIFF          run "diff" if the output isn't correct
 # ZIPDETAILS_TEST_REFRESH       refresh the stdout/stderr files
 
+use 5.010;
+
 use strict;
 use warnings;
 
@@ -15,10 +17,12 @@ use Data::Dumper ;
 use File::Temp qw( tempdir);
 use File::Basename;
 use File::Find;
+use Fcntl qw(SEEK_SET);
 
-my $tests_per_zip = 5  ;
+
+my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 86 * $tests_per_zip_full ;
+plan tests => 94 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -54,7 +58,8 @@ for my $dir (sort keys %dirs)
 
         if (defined $ENV{ZIPDETAILS_TEST_MATCH})
         {
-            skip "Test '$dir' doesn't match ZIPDETAILS_TEST_MATCH/" . basename($zipfile), $tests_per_zip_full
+            # skip "Test '$dir' doesn't match ZIPDETAILS_TEST_MATCH/" . basename($zipfile), $tests_per_zip_full
+            next
                 unless $zipfile =~ /$ENV{ZIPDETAILS_TEST_MATCH}/;
         }
 
@@ -86,11 +91,12 @@ for my $dir (sort keys %dirs)
                 SKIP:
                 for my $opt3 ('', '--redact')
                 {
-                    diag "Testing $dir/" . basename($zipfile) . " $opt1 $opt2 $opt3";
+                    my $test = "$dir/" . basename($zipfile) . " $opt1 $opt2 $opt3";
+                    diag "Testing $test" ;
 
-                    my $golden_stdout_file = getOutputFilename( $dir, 'stdout', $opt1, $opt2, $opt3);
-                    my $golden_stderr_file = getOutputFilename( $dir, 'stderr', $opt1, $opt2, $opt3);
-                    my $exit_status = -e "$dir/exit-error" ? 1 : 0 ;
+                    my ($golden_stdout_name, $golden_stdout_file) = getOutputFilename( $dir, 'stdout', $opt1, $opt2, $opt3);
+                    my ($golden_stderr_name, $golden_stderr_file) = getOutputFilename( $dir, 'stderr', $opt1, $opt2, $opt3);
+                    my ($exit_filename, $exit_status) = getExitStatus( $dir, $opt1, $opt2, $opt3); ;
 
                     my $golden_stdout = readOutFile($golden_stdout_file);
                     my $golden_stderr = readOutFile($golden_stderr_file);
@@ -103,9 +109,11 @@ for my $dir (sort keys %dirs)
                     my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
 
                     my $ok = 1;
-                    $ok &= is $status, $exit_status, "Exit Status is $exit_status";
-                    $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout";
-                    $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stderr";
+                    $ok &= is $status, $exit_status, "Exit Status is $exit_status [got $status] from [$exit_filename] for '$test'";
+                    $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout[$golden_stdout_name] for '$test'";
+                    $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stderr[$golden_stderr_name] for '$test'";
+
+                    $ok &= compareBytesWithZipFile($opt1, $zipfile, $stdout);
 
                     push @failed, "$dir $opt1 $opt2"
                         unless $ok;
@@ -323,13 +331,36 @@ sub getOutputFilename
     my $opt2 = shift ;
     my $opt3 = shift ;
 
-    return "$dir/$base$opt1$opt2$opt3"
+    return ("$base$opt1$opt2$opt3", "$dir/$base$opt1$opt2$opt3")
         if -e "$dir/$base$opt1$opt2$opt3";
 
-    return "$dir/$base$opt1"
+    return  ("$base$opt1", "$dir/$base$opt1")
         if -e "$dir/$base$opt1";
 
-    return "" ;
+    return ("", "") ;
+}
+
+sub getExitStatus
+{
+    my $dir  = shift ;
+    my $opt1 = shift ;
+    my $opt2 = shift ;
+    my $opt3 = shift ;
+
+    my %files = map { m/^(.+)=(\d+)$/ && $1 => $2 }
+                <$dir/exit-status*>;
+
+    for my $name ("$dir/exit-status$opt1$opt2$opt3",
+                  "$dir/exit-status$opt1$opt2",
+                  "$dir/exit-status$opt1",
+                  "$dir/exit-status",
+        )
+    {
+        return ($name, $files{$name})
+            if exists $files{$name};
+    }
+
+    return ("default", 0) ;
 }
 
 sub compareWithGolden
@@ -345,7 +376,7 @@ sub compareWithGolden
     {
         writeFile("$tempdir/got", $got);
         writeFile("$tempdir/expected", $expected);
-        my $diff =  `diff $tempdir/got $tempdir/expected`;
+        my $diff =  `diff -c $tempdir/got $tempdir/expected`;
         $ok = $? == 0 ;
         ok $ok, $message ;
 
@@ -383,3 +414,105 @@ sub refresh
         system "zstd --rm $filename";
     }
 }
+
+sub compareBytesWithZipFile
+{
+    my $opt1 = shift ;
+    my $filename = shift ;
+    my $stdout = shift;
+
+    if ($opt1 ne '-v')
+    {
+        ok 1, 'Not Verbose' ;
+        return 1;
+    }
+
+    # open my $in, '<', $stdout
+    #     or die "Cannot open $stdout: $!\n";
+    open my $fh, '<', $filename
+        or die "Cannot open $filename: $!\n";
+
+    my $hexValue = '(?: [[:xdigit:]] )+' ;
+    my $hexByte  = '[[:xdigit:]] [[:xdigit:]]' ;
+
+    my $offset = 0;
+    my $count = 0;
+    my $padding = 0;
+    my @stdin = split "\n", $stdout;
+
+    for (@stdin)
+    {
+        next if /^\s*$/ ;
+
+        # substr($_, 21, -1, '');
+        # s/\s+//;
+        # $offset = substr($_, 0, 4) ;
+        # $count  = substr($_, 4,) ;
+
+        if (/ ^ ( ( $hexValue ) \s+ ( $hexValue ) ) ( (?: \s $hexByte ){1,4} )/x)
+        {
+            # Match this
+            # 000000 000004 50 4B 03 04 LOCAL HEADER #1       04034B50
+            # <=======================>
+
+            $padding = length($1);
+
+            next if /UNEXPECTED PADDING/;
+
+            {
+                # silence "Hexadecimal number > 0xffffffff non-portable"
+                no warnings 'portable';
+                $offset = hex($2);
+                $count = hex($3) ;
+            }
+
+            my $valuesString = $4;
+            $valuesString =~ s/\s+//g;
+            my $binaryValue = pack "H*", $valuesString;
+            my $len = length($binaryValue) ;
+            # say sprintf "xxxx 0x%X $count $valuesString $len ", $offset;
+
+            seek($fh, $offset, SEEK_SET)
+                or die "Cannot seek to $offset: $!\n";
+            read($fh, my $data, $len) == $len
+                or die "Error reading $len bytes @ offset $offset: $!\n";
+            $data eq $binaryValue
+                or die sprintf "Binary mismatch in $filename \@ 0x%X : Got[%s] Want[$valuesString]",
+                        $offset,
+                        unpack("H*", $data);
+
+            $offset += length($binaryValue);
+
+        }
+        elsif (/ ^ \s{$padding} (  (?: \s ${hexByte} ){1,4} ) /x)
+        {
+
+            # Match this
+            #               66 72 65 65
+            #
+
+            my $valuesString = $1;
+            $valuesString =~ s/\s+//g;
+            my $binaryValue = pack "H*", $valuesString;
+            my $len = length($binaryValue) ;
+            # say sprintf "yyyy 0x%X $count $valuesString $len ", $offset;
+
+            seek($fh, $offset, SEEK_SET)
+                or die "Cannot seek to $offset: $!\n";
+            read($fh, my $data, $len) == $len
+                or die "Error reading $len bytes @ offset $offset: $!\n";
+            $data eq $binaryValue
+                or die sprintf "Binary mismatch in $filename \@ 0x%X : Got[%s] Want[$valuesString]",
+                        $offset,
+                        unpack("H*", $data);
+
+            $offset += length($binaryValue);
+
+        }
+
+    }
+
+    ok 1, 'Bytes Match';
+    return 1;
+}
+

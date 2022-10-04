@@ -203,6 +203,126 @@ DECRYPTION HEADER RECORD
 03B6 0004 8F DA A5 21 VCRC32                21A5DA8F
 03BA 0120 ...         PAYLOAD
 
+CENTRAL HEADER DECRYPTION RECORD
+04DA 0002 10 00       IVSize                0010
+04DC 0010 7E CC F5 DE IVData                7E CC F5 DE BB 5D 10 24 87 18 48 21
+          BB 5D 10 24                       8A 40 C3 9B
+          87 18 48 21
+          8A 40 C3 9B
+04EC 0004 20 01 00 00 Size                  00000120
+04F0 0002 03 00       Format                0003
+04F2 0002 10 66       AlgId                 6610 'AES 256'
+04F4 0002 00 01       BitLen                0100
+04F6 0002 01 00       Flags                 0001 'Password required to decrypt'
+04F8 0002 90 00       ErdSize               0090
+04FA 0090 C4 09 41 04 ErdData               C4 09 41 04 F4 B6 06 27 AF 84 CD 5B
+          F4 B6 06 27                       DA 7D F6 79 37 40 95 6F 7E F0 09 25
+          AF 84 CD 5B                       CB 80 93 50 A2 0C 00 17 42 20 4A 91
+          DA 7D F6 79                       5A 4B 7B FD 6C 08 01 0D 06 18 75 D1
+          37 40 95 6F                       07 2A 6D A3 DA AC E3 7C 5D 01 0E 3B
+          7E F0 09 25                       5B 11 A3 F2 34 D6 28 B0 1E 08 B4 B9
+          CB 80 93 50                       A4 42 AB 18 16 74 92 EC BC 8A ED 94
+          A2 0C 00 17                       10 45 5E FE 55 70 EF 75 51 A8 6F 60
+          42 20 4A 91                       00 2F 98 EB 0D AB 6F 26 FA A7 B6 65
+          5A 4B 7B FD                       82 7F 0C 88 C7 BF 12 C8 39 D2 36 87
+          6C 08 01 0D                       D7 E4 C4 15 8F E1 6C 7C 0E 64 EA 80
+          06 18 75 D1                       28 72 27 58 58 59 33 31 E7 53 A3 4F
+          07 2A 6D A3
+          DA AC E3 7C
+          5D 01 0E 3B
+          5B 11 A3 F2
+          34 D6 28 B0
+          1E 08 B4 B9
+          A4 42 AB 18
+          16 74 92 EC
+          BC 8A ED 94
+          10 45 5E FE
+          55 70 EF 75
+          51 A8 6F 60
+          00 2F 98 EB
+          0D AB 6F 26
+          FA A7 B6 65
+          82 7F 0C 88
+          C7 BF 12 C8
+          39 D2 36 87
+          D7 E4 C4 15
+          8F E1 6C 7C
+          0E 64 EA 80
+          28 72 27 58
+          58 59 33 31
+          E7 53 A3 4F
+058A 0004 00 00 00 00 RCount                00000000
+058E 0002 80 00       VSize                 0080
+0590 007C F2 29 32 E5 VData                 F2 29 32 E5 41 3B 9A D8 F3 98 BE 0D
+          41 3B 9A D8                       89 AA EE 0B 36 70 E9 73 A3 92 66 7F
+          F3 98 BE 0D                       DA E4 4A 5A EF 62 D8 AE 85 A2 58 5F
+          89 AA EE 0B                       18 FF 2D C8 E9 BF D8 23 DD 97 96 F5
+          36 70 E9 73                       66 77 97 7C 0E E5 2A B1 61 D8 E6 41
+          A3 92 66 7F                       8B 2F 39 8E E9 8A B7 D0 A4 8C 57 A3
+          DA E4 4A 5A                       26 AB 83 00 3D E8 A8 08 4D 92 9A 2F
+          EF 62 D8 AE                       DD CD 9A CE AC 03 5B A2 47 A3 DD 8E
+          85 A2 58 5F                       7D AF B8 2D ED 2E 2D BC 9C 30 86 36
+          18 FF 2D C8                       15 80 51 DF 27 1E 4D 5C E0 7A 16 9F
+          E9 BF D8 23                       1C 49 D1 FE
+          DD 97 96 F5
+          66 77 97 7C
+          0E E5 2A B1
+          61 D8 E6 41
+          8B 2F 39 8E
+          E9 8A B7 D0
+          A4 8C 57 A3
+          26 AB 83 00
+          3D E8 A8 08
+          4D 92 9A 2F
+          DD CD 9A CE
+          AC 03 5B A2
+          47 A3 DD 8E
+          7D AF B8 2D
+          ED 2E 2D BC
+          9C 30 86 36
+          15 80 51 DF
+          27 1E 4D 5C
+          E0 7A 16 9F
+          1C 49 D1 FE
+060C 0004 9F A3 67 E0 VCRC32                E067A39F
+
+0610 0090 C0 F8 95 EA ENCRYPTED CENTRAL     ......G....S.<71b9...D...|N..360...j.
+          87 B4 47 8B DIRECTORY             .L..Kc....|..{.....V..%...(.JK.z..r.j
+          CE 93 FA 53                       ..VEBg..<...W.Zi...t.+nV.w.v..Oi...@x
+          BF 3C 37 31                       ..[.%....A...Z...)...dbr.8^2C....
+          62 39 8D A4
+          0D 44 BB 06
+          F4 7C 4E DE
+          DF 33 36 30
+          2E 18 D1 6A
+          8E B2 4C A5
+          C6 4B 63 E4
+          A1 12 B1 7C
+          B7 DB 7B 01
+          CA 98 8E B5
+          56 AF 02 25
+          FA 19 86 28
+          8C 4A 4B DA
+          7A 9F C7 72
+          B6 6A EE 87
+          56 45 42 67
+          8F F3 3C 98
+          2E DD 57 0B
+          5A 69 AC D0
+          1A 74 C3 2B
+          6E 56 87 77
+          F1 76 B2 00
+          4F 69 01 FF
+          09 40 78 BD
+          91 5B D0 25
+          C7 01 C0 9E
+          41 09 11 CD
+          5A AD 1F E2
+          29 95 00 F7
+          64 62 72 0E
+          38 5E 32 43
+          C3 0A CC BB
+
 06A0 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
                       RECORD
 06A4 0008 4C 00 00 00 Size of record        000000000000004C

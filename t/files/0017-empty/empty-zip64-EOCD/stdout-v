@@ -1,0 +1,36 @@
+
+0000 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
+                      RECORD
+0004 0008 2C 00 00 00 Size of record        000000000000002C
+          00 00 00 00
+000C 0001 1E          Created Zip Spec      1E '3.0'
+000D 0001 03          Created OS            03 'Unix'
+000E 0001 2D          Extract Zip Spec      2D '4.5'
+000F 0001 00          Extract OS            00 'MS-DOS'
+0010 0004 00 00 00 00 Number of this disk   00000000
+0014 0004 00 00 00 00 Central Dir Disk no   00000000
+0018 0008 00 00 00 00 Entries in this disk  0000000000000000
+          00 00 00 00
+0020 0008 00 00 00 00 Total Entries         0000000000000000
+          00 00 00 00
+0028 0008 00 00 00 00 Size of Central Dir   0000000000000000
+          00 00 00 00
+0030 0008 00 00 00 00 Offset to Central dir 0000000000000000
+          00 00 00 00
+
+0038 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                      LOCATOR
+003C 0004 00 00 00 00 Central Dir Disk no   00000000
+0040 0008 00 00 00 00 Offset to Central dir 0000000000000000
+          00 00 00 00
+0048 0004 01 00 00 00 Total no of Disks     00000001
+
+004C 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0050 0002 00 00       Number of this disk   0000
+0052 0002 00 00       Central Dir Disk no   0000
+0054 0002 00 00       Entries in this disk  0000
+0056 0002 00 00       Total Entries         0000
+0058 0004 00 00 00 00 Size of Central Dir   00000000
+005C 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
+0060 0002 00 00       Comment Length        0000
+Done
