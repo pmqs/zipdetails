@@ -3164,7 +3164,7 @@ sub findCentralDirectoryOffset
 
     need ZIP_EOCD_MIN_SIZE, "End of central directory record (EOCD)";
 
-    $fh->seek(-ZIP_EOCD_MIN_SIZE, SEEK_END) ;
+    $fh->seek(-ZIP_EOCD_MIN_SIZE(), SEEK_END) ;
     my $here = $fh->tell();
 
     my $is64bit = $here > MAX32;
