@@ -1271,6 +1271,8 @@ sub LocalHeader
         my @z64 = ($uncompressedLength, $compressedLength, 1, 1);
         $ExtraContext{Zip64} = \@z64 ;
         $ExtraContext{InCentralDir} = 0;
+        $ExtraContext{Index} = $hexHdrCount;
+        $ExtraContext{Filename} = $filename;
         walkExtra($extraLength, \%ExtraContext);
     }
 
@@ -1541,8 +1543,9 @@ sub CentralHeader
     my $from_offset = $FH->tell() - 4;
 
     ++ $CentralHeaderCount;
+    my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
     print "\n";
-    out $data, "CENTRAL HEADER #" . sprintf("%X", $CentralHeaderCount) . "", Value_V($signature);
+    out $data, "CENTRAL HEADER #$hexHdrCount", Value_V($signature);
     my $buffer;
 
     out_C "Created Zip Spec", \&decodeZipVer;
@@ -1601,6 +1604,8 @@ sub CentralHeader
         my @z64 = ($uncompressedLength, $compressedLength, $lcl_hdr_offset, $disk_start);
         $ExtraContext{Zip64} = \@z64 ;
         $ExtraContext{InCentralDir} = 1;
+        $ExtraContext{Index} = $hexHdrCount;
+        $ExtraContext{Filename} = $filename;
         walkExtra($extraLength, \%ExtraContext);
     }
 
@@ -1701,7 +1706,7 @@ sub Zip64EndCentralHeader
     }
 
     # TODO - handle 'zip64 extensible data sector' here
-    # See APPNOTE 6.3.9, section 4.3.14.3 & APPENDIX C
+    # See APPNOTE 6.3.9, section 4.3.14.3, 4.3.14.4 & APPENDIX C
 
     return {};
 }
@@ -2024,6 +2029,8 @@ sub walkExtra
     my $payload ;
 
     my $count = 0 ;
+    my $message = $context->{InCentralDir} ? "Central Header" : "Local Header";
+    $message .= " $context->{Index} for '$context->{Filename}'" ;
 
     while ($offset < $XLEN) {
 
@@ -2037,6 +2044,9 @@ sub walkExtra
             # There is not enough left.
             # Consume whatever is there and return so parsing
             # can continue.
+
+            need $remaining, "";
+
             myRead($payload, $remaining);
             my $data = hexDump($payload);
 
