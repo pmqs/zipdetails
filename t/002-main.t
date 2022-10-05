@@ -438,6 +438,7 @@ sub compareBytesWithZipFile
     open my $fh, '<', $filename
         or die "Cannot open $filename: $!\n";
 
+    binmode $fh ; # for windows
     my $hexValue = '(?: [[:xdigit:]] )+' ;
     my $hexByte  = '[[:xdigit:]] [[:xdigit:]]' ;
 
