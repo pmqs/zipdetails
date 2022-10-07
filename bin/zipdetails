@@ -1543,7 +1543,7 @@ sub CentralHeader
     my $from_offset = $FH->tell() - 4;
 
     ++ $CentralHeaderCount;
-    my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
+    my $hexHdrCount = sprintf("%X", $CentralHeaderCount) ;
     print "\n";
     out $data, "CENTRAL HEADER #$hexHdrCount", Value_V($signature);
     my $buffer;
