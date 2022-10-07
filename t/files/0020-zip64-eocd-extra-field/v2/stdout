@@ -1,0 +1,47 @@
+
+0000 UNEXPECTED PADDING
+
+1CD0 ZIP64 END CENTRAL DIR 06064B50
+     RECORD
+1CD4 Size of record        0000000000000057
+1CDC Created Zip Spec      41 '6.5'
+1CDD Created OS            00 'MS-DOS'
+1CDE Extract Zip Spec      3E '6.2'
+1CDF Extract OS            00 'MS-DOS'
+1CE0 Number of this disk   00000000
+1CE4 Central Dir Disk no   00000000
+1CE8 Entries in this disk  0000000000000000
+1CF0 Total Entries         0000000000000002
+1CF8 Size of Central Dir   0000000000000F76
+1D00 Offset to Central dir 0000000000000D5A
+1D08 Compression Method    0008 'Deflated'
+1D0A Compressed Length     0000000000000F76
+1D12 Uncompressed Length   0000000000000B2A
+1D1A AlgId                 6610 'AES 256'
+1D1C BitLen                0100
+1D1E Flags                 4102 'reserved for certificate
+                           processing'
+1D20 HashID                0001 'CRC32'
+1D22 Hash Length           0004
+1D24 Hash Data             EF C1 91 26
+1D28 Extra ID #0001        4231
+1D2A   Length              0003
+1D2C   Extra Payload       78 78 78
+1D2F Extra ID #0002        4443
+1D31   Length              0000
+
+1D33 ZIP64 END CENTRAL DIR 07064B50
+     LOCATOR
+1D37 Central Dir Disk no   00000000
+1D3B Offset to Central dir 0000000000001CD0
+1D43 Total no of Disks     00000001
+
+1D47 END CENTRAL HEADER    06054B50
+1D4B Number of this disk   0000
+1D4D Central Dir Disk no   0000
+1D4F Entries in this disk  0000
+1D51 Total Entries         FFFF
+1D53 Size of Central Dir   00000F76
+1D57 Offset to Central Dir 00000D5A
+1D5B Comment Length        0000
+Done
