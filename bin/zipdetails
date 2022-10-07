@@ -1669,7 +1669,10 @@ sub Zip64EndCentralHeader
     out_Q  "Offset to Central dir";
 
     # Length of 44 means typical version 1 header
-    return if $size == 44 ;
+    return
+        if $size == 44 ;
+
+    my $remaining = $size - 44;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
     # See APPNOTE 6.3.9, section, 7.3.3
@@ -1703,10 +1706,20 @@ sub Zip64EndCentralHeader
 
         my $hashLen = out_v "Hash Length ";
         outHexdump($hashLen, "Hash Data");
+
+        $remaining -= $hashLen + 28;
     }
 
-    # TODO - handle 'zip64 extensible data sector' here
-    # See APPNOTE 6.3.9, section 4.3.14.3, 4.3.14.4 & APPENDIX C
+    if ($remaining)
+    {
+        # Handle 'zip64 extensible data sector' here
+        # See APPNOTE 6.3.9, section 4.3.14.3, 4.3.14.4 & APPENDIX C
+        # Not seen a real example of this. Tested with hand crafted files.
+        my %ExtraContext = ( CRC => 0,
+                         LocalHdrOffset   => 0,
+                         CompressedLength => 0);
+        walkExtra($remaining, \%ExtraContext);
+    }
 
     return {};
 }
@@ -2029,8 +2042,8 @@ sub walkExtra
     my $payload ;
 
     my $count = 0 ;
-    my $message = $context->{InCentralDir} ? "Central Header" : "Local Header";
-    $message .= " $context->{Index} for '$context->{Filename}'" ;
+    # my $message = $context->{InCentralDir} ? "Central Header" : "Local Header";
+    # $message .= " $context->{Index} for '$context->{Filename}'" ;
 
     while ($offset < $XLEN) {
 

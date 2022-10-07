@@ -22,7 +22,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 95 * $tests_per_zip_full ;
+plan tests => 97 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -376,7 +376,7 @@ sub compareWithGolden
     {
         writeFile("$tempdir/got", $got);
         writeFile("$tempdir/expected", $expected);
-        my $diff =  `diff -c $tempdir/got $tempdir/expected`;
+        my $diff =  `diff -u $tempdir/got $tempdir/expected`;
         $ok = $? == 0 ;
         ok $ok, $message ;
 
