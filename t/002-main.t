@@ -29,6 +29,7 @@ sub compareWithGolden;
 
 my $tempdir = tempdir(CLEANUP => 1);
 my $HERE = getcwd;
+my $zipdetails_binary = "$HERE/bin/zipdetails";
 
 my $ZSTD = findZstd();
 
@@ -183,7 +184,12 @@ sub run
     ok ! -e $stdout, "stdout file does not exist" ;
     ok ! -e $stderr, "stderr file does not exist" ;
 
-    my $got = system("$Perl ./bin/zipdetails --utc $opt1 $opt2 $filename >$stdout 2>$stderr");
+    my $basename = basename($filename);
+    say "basename is $basename";
+    my $dir = dirname($filename);
+
+    my $got = system("cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr");
+
     $got = $? >>= 8;
     my $out = readFile($stdout);
     my $err = readFile($stderr);
