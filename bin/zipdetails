@@ -468,7 +468,7 @@ sub hexDump
 
 sub hexValue
 {
-    return sprintf("%X", $_[0]);
+    return sprintf("0x%X", $_[0]);
 }
 
 sub outHexdump
@@ -1036,6 +1036,9 @@ else
 
         my ($buffer, $signature) = read_V();
 
+        $expectedOffset = undef;
+        $expectedSignature = undef;
+
         # Check for split archive marker at start of file
         if ($here == 0 && $signature == ZIP_SINGLE_SEGMENT_MARKER)
         {
@@ -1045,7 +1048,12 @@ else
         }
         else
         {
-            ($expectedOffset, $expectedSignature) = $HeaderOffsetIndex->getNextIndex() ;
+            my $expectedEntry = $HeaderOffsetIndex->getNextIndex() ;
+            if ($expectedEntry)
+            {
+                $expectedOffset = $expectedEntry->offset();
+                $expectedSignature = $expectedEntry->signature();
+            }
         }
 
         # if ($here != $expectedOffset && $signature != ZIP_DATA_HDR_SIG)
@@ -1735,10 +1743,30 @@ sub Zip64EndCentralLocator
 
     need 16, "Zip64 End Central Locator";
 
-    # TODO - check values for traces of multi-part + crazy values
+    my $headerStart = $FH->tell() - 4;
+
+    # my ($nextRecord, $deltaActuallyAvailable) = $HeaderOffsetIndex->checkForOverlap(16);
+
+    # if ($deltaActuallyAvailable)
+    # {
+    #     fatal_truncated_record(
+    #         sprintf("ZIP64 END CENTRAL DIR LOCATOR \@%X truncated", $FH->tell() - 4),
+    #         sprintf("Need 0x%X bytes, have 0x%X available", 16, $deltaActuallyAvailable),
+    #         sprintf("Next Record is %s \@0x%X", $nextRecord->name(), $nextRecord->offset())
+    #         )
+    # }
+
+    # TODO - check values for traces of multi-part + crazy offsets
     out_V  "Central Dir Disk no";
-    out_Q  "Offset to Central dir";
-    out_V  "Total no of Disks";
+    my $offset = out_Q  "Offset to Central dir";
+    my $totalDisks = out_V  "Total no of Disks";
+
+    if ($totalDisks > 0)
+    {
+        my $message = offsetIsValid($offset, $headerStart);
+        warning("'Zip64 End Central Locator' field @ " . hexValue($FH->tell() - 12) . " in 'Offset to Central dir' is invalid: $message")
+            if $message ;
+    }
 
     return {};
 }
@@ -1996,10 +2024,36 @@ sub need
                  sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
 }
 
+sub offsetIsValid
+{
+    my $offset = shift;
+    my $headerStart = shift;
+    my $must_point_back = shift // 1;
+
+    my $delta = $offset - $FILELEN + 1 ;
+
+    return sprintf("value 0x%X is 0x%X bytes past EOF", $offset, $delta)
+        if $delta > 0 ;
+
+    return sprintf "value %s must be less that %s", hexValue($offset), hexValue($headerStart)
+        if $must_point_back && $offset >= $headerStart;
+
+    return undef ;
+}
+
 sub fatal_truncated
 {
     my $message = shift;
     fatal_tryWalk("truncated file", $message, @_);
+
+}
+
+sub fatal_truncated_record
+{
+    my $record = shift;
+    my $need = shift;
+
+    fatal_tryWalk("truncated record $record - need $need bytes ", @_);
 
 }
 
@@ -3130,15 +3184,25 @@ sub offsetFromZip64
     my $got = 0;
     $fh->read($buffer, ZIP64_END_CENTRAL_LOC_HDR_SIZE);
 
-    fatal_tryWalk "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50"
-        if unpack("V", $buffer) != ZIP64_END_CENTRAL_LOC_HDR_SIG ;
+    my $gotSig = unpack("V", $buffer);
+    fatal_tryWalk sprintf("Expected signature for 'Zip64 end of central directory locator' (0x07064b50) not found @ 0x%X, got 0x%X", $here - 4, $gotSig)
+        if $gotSig != ZIP64_END_CENTRAL_LOC_HDR_SIG ;
 
     $HeaderOffsetIndex->addOffset($fh->tell() - ZIP64_END_CENTRAL_LOC_HDR_SIZE, ZIP64_END_CENTRAL_LOC_HDR_SIG) ;
 
+
     my $cd64 = unpack "Q<", substr($buffer,  8, 8);
+    my $totalDisks = unpack "V", substr($buffer,  16, 4);
+
     my $delta = $here - $cd64;
-    fatal_tryWalk sprintf "Value 0x%X invalid for 'relative offset to zip64' field in 'Zip64 end of central directory locator'", $cd64
-        if $cd64 > $FILELEN || $cd64 > $here;
+
+    if ($totalDisks > 0)
+    {
+        # Check for corrupt offset
+        my $message = offsetIsValid($cd64, $here);
+        fatal_tryWalk("'Zip64 End Central Locator' field @ " . hexValue($here + 8) . " in 'Offset to Central dir' is invalid: $message")
+            if $message ;
+    }
 
     # check enough bytes available
     fatal_tryWalk sprintf "Size of 'Zip64 end of central directory record' 0x%X too small", $cd64
@@ -3465,10 +3529,40 @@ sub nibbles
 }
 
 {
+    package HeaderOffsetEntry;
+
+    sub new
+    {
+        my $class = shift ;
+        my $offset = shift ;
+        my $signature = shift;
+
+        bless [ $offset, $signature, Signatures::name($signature)] , $class;
+
+    }
+
+    sub offset
+    {
+        my $self = shift;
+        return $self->[0];
+    }
+
+    sub signature
+    {
+        my $self = shift;
+        return $self->[1];
+    }
+
+    sub name
+    {
+        my $self = shift;
+        return $self->[2];
+    }
+
+}
+
+{
     package HeaderOffsetIndex;
-
-
-
 
     # Store a list of header offsets recorded when scannning the central directory
 
@@ -3508,7 +3602,7 @@ sub nibbles
         my $name = Signatures::name($signature);
         # printf "### HeaderOffsetIndex::addOffset(%X, [$name]\n", $offset;
 
-        push @{ $self->{offsetIndex} }, [ $offset, $signature ] ;
+        push @{ $self->{offsetIndex} }, HeaderOffsetEntry->new($offset, $signature) ;
         $self->{offset2Signature}{$offset} = $signature;
     }
 
@@ -3518,8 +3612,8 @@ sub nibbles
         my $offset = shift ;
 
         $self->{currentIndex} ++;
-        my $data =  ${ $self->{offsetIndex} }[$self->{currentIndex}] // [0, 0] ;
-        return @$data   ;
+
+        return ${ $self->{offsetIndex} }[$self->{currentIndex}] // undef
     }
 
     sub rewindIndex
@@ -3539,8 +3633,25 @@ sub nibbles
         for my $x ( @{ $self->{offsetIndex} } )
         {
             my ($offset, $sig) = @$x;
-            printf "###   %X\t\t" . Signatures::name($sig) . "\n", $offset;
+            printf "###   %X\t\t" . $x->name() . "\n", $x->offset();
         }
+    }
+
+    sub checkForOverlap
+    {
+        my $self = shift ;
+        my $need = shift;
+
+        my $needOffset = $FH->tell() + $need;
+
+        for my $hdrOffset (@{ $self->{offsetIndex} })
+        {
+            my $delta = $hdrOffset - $needOffset;
+            return [$self->{offsetIndex}{$hdrOffset}, $needOffset - $hdrOffset]
+                if $delta <= 0 ;
+        }
+
+        return [undef, undef];
     }
 
 }
