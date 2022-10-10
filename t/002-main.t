@@ -191,6 +191,8 @@ sub run
     # say "basename is $basename";
     my $dir = dirname($filename);
 
+    diag "cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr";
+    system "ls -l $dir";
     my $got = system("cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr");
 
     $got = $? >>= 8;
