@@ -78,8 +78,6 @@ for my $dir (sort keys %dirs)
             system("$ZSTD -d -o $zipfile $HERE/$dir/$z") == 0
                 or die "cannot unzstd: $!\n";
 
-say "# XXX1 $tempdir $zipfile [" . join(" ", <$tempdir/*>) . "]";
-
             chdir $HERE
                 or die "cannot chdir: $!\n";
         }
@@ -193,16 +191,12 @@ sub run
     # say "basename is $basename";
     my $dir = dirname($filename);
 
-    diag "cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr";
-say "# YYY $dir $basename [" . join(" ", <$dir/*>) . "]";
+    my $here = getcwd;
+    chdir $dir;
 
-my $here = getcwd;
-chdir $dir;
-
-    # my $got = system("cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr");
     my $got = system(qq[$Perl $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
 
-chdir $here;
+    chdir $here;
 
     $got = $? >>= 8;
     my $out = readFile($stdout);
