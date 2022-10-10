@@ -77,7 +77,7 @@ for my $dir (sort keys %dirs)
 
             system("$ZSTD -d -o $zipfile $HERE/$dir/$z") == 0
                 or die "cannot unzstd: $!\n";
-
+system "echo XXX && ls -al $tempdir";
             chdir $HERE
                 or die "cannot chdir: $!\n";
         }
@@ -192,7 +192,7 @@ sub run
     my $dir = dirname($filename);
 
     diag "cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr";
-    system "ls -l $dir";
+    system "echo YYY && ls -al $dir";
     my $got = system("cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr");
 
     $got = $? >>= 8;
