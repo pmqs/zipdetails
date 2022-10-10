@@ -85,6 +85,8 @@ for my $dir (sort keys %dirs)
         die "No zip file '$z' '$zipfile' in '$dir'"
             if ! -e $zipfile;
 
+        my %controlData = parseControl($dir);
+
         for my $opt1 ('', '-v')
         {
             for my $opt2 ('', '--scan', '--walk')
@@ -95,13 +97,14 @@ for my $dir (sort keys %dirs)
                     my $test = "$dir/" . basename($zipfile) . " $opt1 $opt2 $opt3";
                     diag "Testing $test" ;
 
-                    my ($golden_stdout_name, $golden_stdout_file) = getOutputFilename( $dir, 'stdout', $opt1, $opt2, $opt3);
-                    my ($golden_stderr_name, $golden_stderr_file) = getOutputFilename( $dir, 'stderr', $opt1, $opt2, $opt3);
-                    my ($exit_filename, $exit_status) = getExitStatus( $dir, $opt1, $opt2, $opt3); ;
+                    my $ctlData = reconcileControl(\%controlData, $opt1, $opt2, $opt3);
+
+                    my ($golden_stdout_name, $golden_stdout_file) = ($ctlData->{'stdout'}, "$dir/$ctlData->{stdout}");
+                    my ($golden_stderr_name, $golden_stderr_file) = ($ctlData->{'stderr'}, "$dir/$ctlData->{stderr}");
+                    my $exit_status = $ctlData->{'exit-status'};
 
                     my $golden_stdout = readOutFile($golden_stdout_file);
                     my $golden_stderr = readOutFile($golden_stderr_file);
-
                     if ($opt3 && $golden_stdout !~ /$opt3$/)
                     {
                         skip "No Redact test for " . basename($zipfile), $tests_per_zip;
@@ -110,7 +113,7 @@ for my $dir (sort keys %dirs)
                     my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
 
                     my $ok = 1;
-                    $ok &= is $status, $exit_status, "Exit Status is $exit_status [got $status] from [$exit_filename] for '$test'";
+                    $ok &= is $status, $exit_status, "Exit Status is $exit_status [got $status] for '$test'";
                     $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout[$golden_stdout_name] for '$test'";
                     $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stderr[$golden_stderr_name] for '$test'";
 
@@ -140,11 +143,11 @@ sub readOutFile
 
     return "" unless $basename;
 
-    if (! -e $basename && -e "$basename.zst")
+    if (! -e $basename && -f "$basename.zst")
     {
         return `$ZSTD -d -c $basename`;
     }
-    if (-e $basename )
+    if (-f $basename )
     {
         return readFile($basename);
     }
@@ -185,7 +188,7 @@ sub run
     ok ! -e $stderr, "stderr file does not exist" ;
 
     my $basename = basename($filename);
-    say "basename is $basename";
+    # say "basename is $basename";
     my $dir = dirname($filename);
 
     my $got = system("cd $dir && $Perl $zipdetails_binary --utc $opt1 $opt2 $basename >$stdout 2>$stderr");
@@ -328,6 +331,38 @@ sub writeFile
     close $fh;
 
 }
+
+sub reconcileControl
+{
+    my $control = shift;
+    my $opt1 = shift ;
+    my $opt2 = shift ;
+    my $opt3 = shift ;
+
+    for my $name ("$opt1$opt2$opt3",
+                  "$opt1$opt2",
+                  "$opt1",
+                  "",
+        )
+    {
+        if ($control->{$name})
+        {
+            return $control->{$name};
+        }
+    }
+
+    die "xxx"
+
+}
+
+# sub getOutputFilenameNew
+# {
+#     my $dir  = shift ;
+#     my $base = shift ;
+#     my $ctl = shift ;
+
+#     return ("$base$opt1$opt2$opt3", "$dir/$base$opt1$opt2$opt3") ;
+# }
 
 sub getOutputFilename
 {
@@ -522,10 +557,90 @@ sub compareBytesWithZipFile
             $offset += length($binaryValue);
 
         }
-
     }
 
     ok 1, 'Bytes Match';
     return 1;
 }
 
+sub parseControl
+{
+    my $directory = shift;
+
+    my $filename = "$directory/control";
+
+    state $keywords = { map { $_ => 1}
+                        qw( exit-status stdout stderr )
+                    };
+
+    return ( '' => {
+                    'exit-status' => 0,
+                    'stdout'      => 'stdout',
+                    'stderr'      => '',
+                    },
+            '-v' => {
+                    'exit-status' => 0,
+                    'stdout'      => 'stdout-v',
+                    'stderr'      => '',
+                    }
+            )
+        if !-e $filename ;
+
+    # default
+    #     exit-status 0
+    #     stdout      stdout
+    #     stderr      NULL
+    #
+    # -v --walk
+    #     exit-status 0
+    #     stdout      stdout-v
+    #     stderr      NULL
+    #
+    # -v --walk --redact
+    #     same-as     -v --walk
+
+    my @records ;
+    my %results;
+
+    {
+        local $/ = ""; # paragraph mode
+
+        open my $fh, '<', $filename
+            or die "Cannot open '$filename': $!\n";
+
+        @records = map { [ split "\n", $_ ] }
+                   <$fh>;
+
+        close $fh;
+    }
+
+    for my $record (@records)
+    {
+        my @lines = grep { ! /^\s*$/ && ! /^\s*#/ }
+                    @$record;
+
+        my $type = shift @lines;
+        $type =~ s/\s+//g;
+        $type = ''
+            if lc $type eq 'default';
+
+        for my $line (@lines)
+        {
+            next if $line =~ /^\s*$/;
+            $line =~ /^\s*(\S+)\s+(\S+)/;
+            my $keyword = lc $1;
+            my $value = $2;
+
+            $value = ''
+                if lc $value eq 'null';
+
+            die "Invalid keyword '$keyword' in $filename\n"
+                unless $keywords->{$keyword} ;
+
+            $results{$type}{$keyword} = $value;
+        }
+    }
+
+    return %results;
+
+}
