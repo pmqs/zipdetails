@@ -1799,7 +1799,7 @@ sub Zip64EndCentralLocator
 
     if ($totalDisks > 0)
     {
-        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($FH->tell() - 12) . " in 'Zip64 End Central Locator' is invalid";
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($FH->tell() - 12) . " in '" . Signatures::name($signature) . "' is invalid";
         checkOffsetValue($zip64EndCentralDirOffset, $startRecordOffset, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
     }
 
@@ -3323,8 +3323,10 @@ sub offsetFromZip64
     my $here = shift;
     my $eocdSize = shift;
 
+    #### Zip64 end of central directory locator
+
     # check enough bytes available for zip64 locator record
-    fatal_truncated "Cannot find signature for 'Zip64 end of central directory locator': 0x07064b50"
+    fatal_truncated "Cannot find signature for " .  Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) # 'Zip64 end of central directory locator': 0x07064b50"
         if $here < ZIP64_END_CENTRAL_LOC_HDR_SIZE ;
 
     $fh->seek($here - ZIP64_END_CENTRAL_LOC_HDR_SIZE, SEEK_SET) ;
@@ -3335,7 +3337,8 @@ sub offsetFromZip64
     $fh->read($buffer, ZIP64_END_CENTRAL_LOC_HDR_SIZE);
 
     my $gotSig = unpack("V", $buffer);
-    fatal_tryWalk sprintf("Expected signature for 'Zip64 end of central directory locator' (0x07064b50) not found @ 0x%X, got 0x%X", $here - 4, $gotSig)
+    # fatal_tryWalk sprintf("Expected signature for "'Zip64 end of central directory locator' (0x07064b50) not found @ 0x%X, got 0x%X", $here - 4, $gotSig)
+    fatal_tryWalk sprintf("Expected signature for " . Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) . " not found @ 0x%X, got 0x%X", $here - 4, $gotSig)
         if $gotSig != ZIP64_END_CENTRAL_LOC_HDR_SIG ;
 
     $HeaderOffsetIndex->addOffset($fh->tell() - ZIP64_END_CENTRAL_LOC_HDR_SIZE, ZIP64_END_CENTRAL_LOC_HDR_SIG) ;
@@ -3348,12 +3351,20 @@ sub offsetFromZip64
 
     if ($totalDisks > 0)
     {
-        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in 'Zip64 End Central Locator' is invalid";
+        # my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in 'Zip64 End Central Locator' is invalid";
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in '" . Signatures::name(ZIP64_END_CENTRAL_LOC_HDR_SIG) . "' is invalid";
         checkOffsetValue($cd64, $here, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG, 1) ;
     }
 
+    #### Zip64 end of central directory record
+
+    my $zip64eocd_name = "'" . Signatures::name(ZIP64_END_CENTRAL_REC_HDR_SIG) . "'";
+    my $zip64eocd_name_value = Signatures::nameAndHex(ZIP64_END_CENTRAL_REC_HDR_SIG);
+    my $zip64eocd_value = Signatures::hexValue(ZIP64_END_CENTRAL_REC_HDR_SIG);
+
     # check enough bytes available
-    fatal_tryWalk sprintf "Size of 'Zip64 End of Central Directory Record' 0x%X too small", $cd64
+    # fatal_tryWalk sprintf "Size of 'Zip64 End of Central Directory Record' 0x%X too small", $cd64
+    fatal_tryWalk sprintf "Size of $zip64eocd_name 0x%X too small", $cd64
         if $delta < ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE;
 
     # Seek to Zip64 End of Central Directory Record
@@ -3363,7 +3374,7 @@ sub offsetFromZip64
     $fh->read($buffer, ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE) ;
 
     my $sig = unpack("V", substr($buffer, 0, 4)) ;
-    fatal_tryWalk sprintf "Cannot find 'Zip64 End of Central Directory Record': expected 0x06054b50 but got 0x%X", $sig
+    fatal_tryWalk sprintf "Cannot find zip64eocd_name: expected $zip64eocd_value but got 0x%X", $sig
         if $sig != ZIP64_END_CENTRAL_REC_HDR_SIG ;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
@@ -3388,7 +3399,7 @@ sub offsetFromZip64
 
     if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in $zip64eocd_name is invalid";
         checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1, $extractSpec < 0x3E) ;
     }
 
