@@ -842,9 +842,7 @@ sub scanForSignature
                 my $here = $FH->tell();
                 seekTo($here - length($combine) + $ix);
 
-                my @caller = ();# caller;
                 my $name = Signatures::name($sigs{$rest});
-                # printf("### scanForSignature %X\t%X (%X)\t$name\t@caller\n", $start, $FH->tell(), $FH->tell() - $start) ;
                 return $sigs{$rest};
             }
 
@@ -1622,7 +1620,7 @@ sub CentralHeader
     my $locHeaderOffset     = out_V "Local Header Offset";
 
     {
-        my $commonMessage = "'Local Header Offset' field @ " . hexValue($startRecordOffset + 42) . " in 'Central directory file header' is invalid";
+        my $commonMessage = "'Local Header Offset' field @ " . hexValue($startRecordOffset + 42) . " in '" . Signatures::name($signature) .  "' is invalid";
         checkOffsetValue($locHeaderOffset, $startRecordOffset, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
     }
 
@@ -3234,7 +3232,7 @@ sub scanCentralDirectory
             # 2. offset points forward in the file
             # 3. value at offset is not a CD record signature
 
-            my $commonMessage = "'Local Header Offset' field @ " . hexValue($startHeader + 42) . " in 'Central directory file header' is invalid";
+            my $commonMessage = "'Local Header Offset' field @ " . hexValue($startHeader + 42) . " in '" . Signatures::name(ZIP_CENTRAL_HDR_SIG) . "' is invalid";
             checkOffsetValue($locHeaderOffset, $startHeader, $commonMessage, ZIP_LOCAL_HDR_SIG, 1) ;
         }
 
