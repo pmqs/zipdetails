@@ -83,9 +83,10 @@
 01F8 ZIP64 END CENTRAL DIR 07064B50
      LOCATOR
 01FC Central Dir Disk no   00000000
-0200 Offset to Central dir 0000000000000222
+0200 Offset to Zip64 EOCD  0000000000000222
 0208 Total no of Disks     00000001
-# WARNING: 'Zip64 End Central Locator' field @ 0x200 in 'Offset to Central dir' is invalid: value 0x222 is 0x1 bytes past EOF
+# WARNING: 'Offset to Zip64 End of Central Directory Record' field @ 0x200 in 'Zip64 End Central Locator' is invalid
+#          value 0x222 is 0x1 bytes past EOF
 
 020C END CENTRAL HEADER    06054B50
 0210 Number of this disk   0000

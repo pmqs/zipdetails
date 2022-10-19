@@ -36,6 +36,7 @@ sub warning ;
 sub need ;
 
 use constant MAX32 => 0xFFFFFFFF ;
+use constant MAX16 => 0xFFFF ;
 
 # Compression types
 use constant ZIP_CM_STORE                      => 0 ;
@@ -147,15 +148,15 @@ my %OS_Lookup = (
         #   central flag
 
         # Core Signatures
-        ::ZIP_LOCAL_HDR_SIG,             [ \&::LocalHeader, "Local Header", 0 ],
+        ::ZIP_LOCAL_HDR_SIG,             [ \&::LocalHeader, "Local File Header", 0 ],
         ::ZIP_DATA_HDR_SIG,              [ \&::DataHeader,   "Data Descriptor", 0 ],
-        ::ZIP_CENTRAL_HDR_SIG,           [ \&::CentralHeader, "Central Header", 1 ],
+        ::ZIP_CENTRAL_HDR_SIG,           [ \&::CentralHeader, "Central Directory Header", 1 ],
         ::ZIP_END_CENTRAL_HDR_SIG,       [ \&::EndCentralHeader, "End Central Directory", 1 ],
-        ::ZIP_SINGLE_SEGMENT_MARKER,     [ \&::SingleSegmentMarker, "Single Segment aArker", 0],
+        ::ZIP_SINGLE_SEGMENT_MARKER,     [ \&::SingleSegmentMarker, "Single Segment Marker", 0],
 
         # Zip64
-        ::ZIP64_END_CENTRAL_REC_HDR_SIG, [ \&::Zip64EndCentralHeader, "Zip64 End Central Directory", 1 ],
-        ::ZIP64_END_CENTRAL_LOC_HDR_SIG, [ \&::Zip64EndCentralLocator, "Zip64 End Central Directory Locator", 1 ],
+        ::ZIP64_END_CENTRAL_REC_HDR_SIG, [ \&::Zip64EndCentralHeader, "Zip64 End of Central Directory Record", 1 ],
+        ::ZIP64_END_CENTRAL_LOC_HDR_SIG, [ \&::Zip64EndCentralLocator, "Zip64 End of Central Directory Locator", 1 ],
 
         #  Digital signature (pkzip)
         ::ZIP_DIGITAL_SIGNATURE_SIG,     [ \&::DigitalSignature, "Digital Signature", 1 ],
@@ -182,6 +183,25 @@ my %OS_Lookup = (
             unless exists $Lookup{$signature};
 
         return $Lookup{$signature}[1];
+    }
+
+    sub hexValue
+    {
+        my $signature = shift ;
+        sprintf "0x%X", $signature ;
+    }
+
+    sub hexValue32
+    {
+        my $signature = shift ;
+        sprintf "0x%08X", $signature ;
+    }
+
+    sub nameAndHex
+    {
+        my $signature = shift ;
+
+        return "'" . name($signature) . "' (" . hexValue32($signature) . ")"
     }
 
     sub isCentralHeader
@@ -469,6 +489,11 @@ sub hexDump
 sub hexValue
 {
     return sprintf("0x%X", $_[0]);
+}
+
+sub hexValue32
+{
+    return sprintf("0x%08X", $_[0]);
 }
 
 sub outHexdump
@@ -1596,7 +1621,12 @@ sub CentralHeader
     out1 "[Bit 5]",  "Archive"
         if $ext_file_attrib & 0x20 ;
 
-    my $lcl_hdr_offset     = out_V "Local Header Offset";
+    my $locHeaderOffset     = out_V "Local Header Offset";
+
+    {
+        my $commonMessage = "'Local Header Offset' field @ " . hexValue($from_offset + 42) . " in 'Central directory file header' is invalid";
+        checkOffsetValue($locHeaderOffset, $from_offset, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
+    }
 
     my $filename ;
     myRead($filename, $filenameLength);
@@ -1604,12 +1634,12 @@ sub CentralHeader
 
 
     my %ExtraContext = ( CRC => $crc,
-                         LocalHdrOffset   => $lcl_hdr_offset,
+                         LocalHdrOffset   => $locHeaderOffset,
                          CompressedLength => $compressedLength);
 
     if ($extraLength)
     {
-        my @z64 = ($uncompressedLength, $compressedLength, $lcl_hdr_offset, $disk_start);
+        my @z64 = ($uncompressedLength, $compressedLength, $locHeaderOffset, $disk_start);
         $ExtraContext{Zip64} = \@z64 ;
         $ExtraContext{InCentralDir} = 1;
         $ExtraContext{Index} = $hexHdrCount;
@@ -1625,7 +1655,7 @@ sub CentralHeader
     }
 
 
-    $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
+    # $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
 
     return {};
 }
@@ -1663,18 +1693,28 @@ sub Zip64EndCentralHeader
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR RECORD", Value_V($signature);
 
+    my $here = $FH->tell() - 4;
+
     my $size = out_Q "Size of record";
 
-    out_C  "Created Zip Spec", \&decodeZipVer;
-    out_C  "Created OS", \&decodeOS;
-    my $extractSpec = out_C  "Extract Zip Spec", \&decodeZipVer;
-    out_C  "Extract OS", \&decodeOS;
-    out_V  "Number of this disk";
-    out_V  "Central Dir Disk no";
-    out_Q  "Entries in this disk";
-    out_Q  "Total Entries";
-    out_Q  "Size of Central Dir";
-    out_Q  "Offset to Central dir";
+    need $size, "ZIP64 End Central Directory Record";
+
+                              out_C  "Created Zip Spec", \&decodeZipVer;
+                              out_C  "Created OS", \&decodeOS;
+    my $extractSpec         = out_C  "Extract Zip Spec", \&decodeZipVer;
+                              out_C  "Extract OS", \&decodeOS;
+    my $diskNumber          = out_V  "Number of this disk";
+    my $cdDiskNumber        = out_V  "Central Dir Disk no";
+    my $entriesOnThisDisk   = out_Q  "Entries in this disk";
+    my $totalEntries        = out_Q  "Total Entries";
+    my $centralDirSize      = out_Q  "Size of Central Dir";
+    my $centralDirOffset    = out_Q  "Offset to Central dir";
+
+    if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+    {
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
+        checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
+    }
 
     # Length of 44 means typical version 1 header
     return
@@ -1741,7 +1781,7 @@ sub Zip64EndCentralLocator
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
-    need 16, "Zip64 End Central Locator";
+    need 16, "Zip64 End Central Directory Locator";
 
     my $headerStart = $FH->tell() - 4;
 
@@ -1758,17 +1798,57 @@ sub Zip64EndCentralLocator
 
     # TODO - check values for traces of multi-part + crazy offsets
     out_V  "Central Dir Disk no";
-    my $offset = out_Q  "Offset to Central dir";
+    my $zip64EndCentralDirOffset = out_Q  "Offset to Zip64 EOCD";
     my $totalDisks = out_V  "Total no of Disks";
 
     if ($totalDisks > 0)
     {
-        my $message = offsetIsValid($offset, $headerStart);
-        warning("'Zip64 End Central Locator' field @ " . hexValue($FH->tell() - 12) . " in 'Offset to Central dir' is invalid: $message")
-            if $message ;
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($FH->tell() - 12) . " in 'Zip64 End Central Locator' is invalid";
+        checkOffsetValue($zip64EndCentralDirOffset, $headerStart, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
     }
 
     return {};
+}
+
+sub needZip64EOCDLocator
+{
+    # zip64 end of central directory field needed if amy of the fields
+    # in the End Central Header record are maxed out
+
+    my $diskNumber          = shift ;
+    my $cdDiskNumber        = shift ;
+    my $entriesOnThisDisk   = shift ;
+    my $totalEntries        = shift ;
+    my $centralDirSize      = shift ;
+    my $centralDirOffset    = shift ;
+
+    return  (full16($diskNumber)        || # 4.4.19
+             full16($cdDiskNumber)      || # 4.4.20
+             full16($entriesOnThisDisk) || # 4.4.21
+             full16($totalEntries)      || # 4.4.22
+             full32($centralDirSize)    || # 4.4.23
+             full32($centralDirOffset)     # 4.4.24
+             ) ;
+}
+
+sub emptyArchive
+{
+    my $offset = shift;
+    my $diskNumber          = shift ;
+    my $cdDiskNumber        = shift ;
+    my $entriesOnThisDisk   = shift ;
+    my $totalEntries        = shift ;
+    my $centralDirSize      = shift ;
+    my $centralDirOffset    = shift ;
+
+    return  (#$offset == 0           &&
+             $diskNumber == 0        &&
+             $cdDiskNumber == 0      &&
+             $entriesOnThisDisk == 0 &&
+             $totalEntries == 0      &&
+             $centralDirSize == 0    &&
+             $centralDirOffset== 0
+             ) ;
 }
 
 sub EndCentralHeader
@@ -1779,15 +1859,25 @@ sub EndCentralHeader
     print "\n";
     out $data, "END CENTRAL HEADER", Value_V($signature);
 
+    my $here = $FH->tell() - 4;
+
     need 18, "End Central Header";
 
     # TODO - check values for traces of multi-part + crazy values
-    out_v "Number of this disk";
-    out_v "Central Dir Disk no";
-    out_v "Entries in this disk";
-    out_v "Total Entries";
-    out_V "Size of Central Dir";
-    out_V "Offset to Central Dir";
+    my $diskNumber          = out_v "Number of this disk";
+    my $cdDiskNumber        = out_v "Central Dir Disk no";
+    my $entriesOnThisDisk   = out_v "Entries in this disk";
+    my $totalEntries        = out_v "Total Entries";
+    my $centralDirSize      = out_V "Size of Central Dir";
+    my $centralDirOffset    = out_V "Offset to Central Dir";
+
+    if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
+        ! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+    {
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in 'End of central directory record' is invalid";
+        checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG) ;
+    }
+
     my $comment_length = out_v "Comment Length";
 
     if ($comment_length)
@@ -2028,7 +2118,11 @@ sub offsetIsValid
 {
     my $offset = shift;
     my $headerStart = shift;
-    my $must_point_back = shift // 1;
+    my $commonMessage = shift ;
+    my $expectedSignature = shift ;
+    my $dereferencePointer = shift;
+
+    my $must_point_back = 1;
 
     my $delta = $offset - $FILELEN + 1 ;
 
@@ -2038,7 +2132,34 @@ sub offsetIsValid
     return sprintf "value %s must be less that %s", hexValue($offset), hexValue($headerStart)
         if $must_point_back && $offset >= $headerStart;
 
+    if ($dereferencePointer)
+    {
+        my $gotSig = readSignatureFromOffset($offset);
+        my $v = hexValue32($gotSig);
+        return 'expected value @ ' .  hexValue($offset) . " should decode to signature for " . Signatures::nameAndHex($expectedSignature) . ". Got $v" # . hexValue32($gotSig)
+            if $gotSig != $expectedSignature ;
+    }
+
     return undef ;
+}
+
+sub checkOffsetValue
+{
+    my $offset = shift;
+    my $headerStart = shift;
+    my $commonMessage = shift ;
+    my $expectedSignature = shift ;
+    my $fatal = shift // 0;
+    my $dereferencePointer = shift // 1;
+
+    my $message = offsetIsValid($offset, $headerStart, $commonMessage, $expectedSignature, $dereferencePointer);
+    if ($message)
+    {
+        fatal_tryWalk($commonMessage, $message)
+            if $fatal;
+        warning($commonMessage, $message)
+            if ! $fatal;
+    }
 }
 
 sub fatal_truncated
@@ -2079,6 +2200,7 @@ sub warning
     my $message  = shift;
 
     print "# WARNING: $message\n";
+    print "#          $_\n" for @_ ;
     ++ $WarningCount ;
 }
 
@@ -2198,6 +2320,11 @@ sub walkExtra
 sub full32
 {
     return $_[0] == MAX32 ;
+}
+
+sub full16
+{
+    return $_[0] == MAX16 ;
 }
 
 sub decode_Zip64
@@ -2932,6 +3059,18 @@ sub readFromOffset
     return $buffer;
 }
 
+sub readSignatureFromOffset
+{
+    my $offset = shift ;
+
+    my $here = $FH->tell();
+    my $buffer = readFromOffset($offset, 4);
+    my $gotSig = unpack("V", $buffer) ;
+    seekTo($here);
+    return $gotSig;
+}
+
+
 sub chckForAPKSigningBlock
 {
     my $fh = shift;
@@ -3074,6 +3213,8 @@ sub scanCentralDirectory
     while ($fh->read($buffer, 46) == 46  &&
            unpack("V", $buffer) == ZIP_CENTRAL_HDR_SIG) {
 
+        my $startHeader = $fh->tell() - 46;
+
         my $cdEntryOffset = $fh->tell() - 46;
         $HeaderOffsetIndex->addOffset($cdEntryOffset, ZIP_CENTRAL_HDR_SIG) ;
 
@@ -3087,6 +3228,16 @@ sub scanCentralDirectory
         my $locHeaderOffset    = unpack("V", substr($buffer, 42, 4));
         my $cdZip64 = 0;
         my $zip64Sizes = 0;
+
+        {
+            # Check for corrupt offset
+            # 1. ponting paset EOF
+            # 2. offset points forward in the file
+            # 3. value at offset is not a CD record signature
+
+            my $commonMessage = "'Local Header Offset' field @ " . hexValue($startHeader + 42) . " in 'Central directory file header' is invalid";
+            checkOffsetValue($locHeaderOffset, $startHeader, $commonMessage, ZIP_LOCAL_HDR_SIG, 1) ;
+        }
 
         # skip($fh, $filename_length ) ;
         $fh->read(my $filename, $filename_length) ;
@@ -3198,24 +3349,22 @@ sub offsetFromZip64
 
     if ($totalDisks > 0)
     {
-        # Check for corrupt offset
-        my $message = offsetIsValid($cd64, $here);
-        fatal_tryWalk("'Zip64 End Central Locator' field @ " . hexValue($here + 8) . " in 'Offset to Central dir' is invalid: $message")
-            if $message ;
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in 'Zip64 End Central Locator' is invalid";
+        checkOffsetValue($cd64, $here, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG, 1) ;
     }
 
     # check enough bytes available
-    fatal_tryWalk sprintf "Size of 'Zip64 end of central directory record' 0x%X too small", $cd64
+    fatal_tryWalk sprintf "Size of 'Zip64 End of Central Directory Record' 0x%X too small", $cd64
         if $delta < ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE;
 
-    # Seek to Zip64 end of central directory record
+    # Seek to Zip64 End of Central Directory Record
     $fh->seek($cd64, SEEK_SET) ;
     $HeaderOffsetIndex->addOffset($fh->tell(), ZIP64_END_CENTRAL_REC_HDR_SIG) ;
 
     $fh->read($buffer, ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE) ;
 
     my $sig = unpack("V", substr($buffer, 0, 4)) ;
-    fatal_tryWalk sprintf "Cannot find 'Zip64 end of central directory record': expected 0x06054b50 but got 0x%X", $sig
+    fatal_tryWalk sprintf "Cannot find 'Zip64 End of Central Directory Record': expected 0x06054b50 but got 0x%X", $sig
         if $sig != ZIP64_END_CENTRAL_REC_HDR_SIG ;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
@@ -3224,11 +3373,13 @@ sub offsetFromZip64
     # Version 1 header is 44 bytes (assuming no extensible data sector)
     # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
 
-    my $extractSpec = unpack "C",  substr($buffer, 15, 1);
-    my $cdSize      = unpack "Q<", substr($buffer, 40, 8);
-    my $cdOffset    = unpack "Q<", substr($buffer, 48, 8);
-
-    # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+    my $extractSpec         = unpack "C",  substr($buffer, 14, 1);
+    my $diskNumber          = unpack "V",  substr($buffer, 16, 4);
+    my $cdDiskNumber        = unpack "V",  substr($buffer, 20, 4);
+    my $entriesOnThisDisk   = unpack "Q<", substr($buffer, 24, 8);
+    my $totalEntries        = unpack "Q<", substr($buffer, 32, 8);
+    my $centralDirSize      = unpack "Q<", substr($buffer, 40, 8);
+    my $centralDirOffset    = unpack "Q<", substr($buffer, 48, 8);
 
     if ($extractSpec >= 0x3E)
     {
@@ -3236,7 +3387,15 @@ sub offsetFromZip64
         $CentralDirectory->setEncryptedCD();
     }
 
-    return ($cdOffset, $cdSize) ;
+    if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+    {
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
+        checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1, $extractSpec < 0x3E) ;
+    }
+
+    # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+
+    return ($centralDirOffset, $centralDirSize) ;
 }
 
 use constant Pack_ZIP_END_CENTRAL_HDR_SIG => pack("V", ZIP_END_CENTRAL_HDR_SIG);
@@ -3261,10 +3420,12 @@ sub findCentralDirectoryOffset
     $fh->read($buffer, ZIP_EOCD_MIN_SIZE);
 
     my $zip64 = 0;
-    my $centralDirSize ;
-    my $centralDirOffset ;
+    my $diskNumber ;
+    my $cdDiskNumber ;
     my $entriesOnThisDisk ;
     my $totalEntries ;
+    my $centralDirSize ;
+    my $centralDirOffset ;
     my $commentLength = 0;
     my $trailingBytes = 0;
 
@@ -3272,6 +3433,9 @@ sub findCentralDirectoryOffset
 
         $HeaderOffsetIndex->addOffset($here, ZIP_END_CENTRAL_HDR_SIG) ;
 
+        $diskNumber       = unpack("v", substr($buffer, 4,   2));
+        $cdDiskNumber     = unpack("v", substr($buffer, 6,   2));
+        $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
         $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
         $totalEntries     = unpack("v", substr($buffer, 10,  2));
         $centralDirSize   = unpack("V", substr($buffer, 12,  4));
@@ -3299,10 +3463,12 @@ sub findCentralDirectoryOffset
                 $here = $seekTo + $pos ;
                 $HeaderOffsetIndex->addOffset($here, ZIP_END_CENTRAL_HDR_SIG) ;
 
+                $diskNumber       = unpack("v", substr($buffer, $pos + 4,   2));
+                $cdDiskNumber     = unpack("v", substr($buffer, $pos + 6,   2));
                 $entriesOnThisDisk= unpack("v", substr($buffer, $pos + 8,   2));
                 $totalEntries     = unpack("v", substr($buffer, $pos + 10,  2));
-                $centralDirOffset = unpack("V", substr($buffer, $pos + 16,  4));
                 $centralDirSize   = unpack("V", substr($buffer, $pos + 12,  4));
+                $centralDirOffset = unpack("V", substr($buffer, $pos + 16,  4));
                 $commentLength    = unpack("v", substr($buffer, $pos + 20,  2)) // 0;
 
                 my $expectedEof = $fileLen - $want + $pos + ZIP_EOCD_MIN_SIZE + $commentLength  ;
@@ -3329,9 +3495,8 @@ sub findCentralDirectoryOffset
     # return (0, 0)
     #     if  $totalEntries == 0 && $entriesOnThisDisk == 0;
 
-    # pkzip sets entriesOnThisDisk to 0 and totalEntries to 0xFFFF
-    # when it uses an encrypted CD
-    if (full32($centralDirOffset) || full32($totalEntries) || $entriesOnThisDisk == 0)
+    if (needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize) &&
+        ! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize))
     {
         ($centralDirOffset, $centralDirSize) = offsetFromZip64($fh, $here, ZIP_EOCD_MIN_SIZE + $commentLength + $trailingBytes)
     }
@@ -3346,6 +3511,14 @@ sub findCentralDirectoryOffset
 
         $centralDirOffset += $over64bit;
         $is64In32 = 1;
+    }
+    else
+    {
+        if ($centralDirSize)
+        {
+            my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in 'End of central directory record' is invalid";
+            checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1) ;
+        }
     }
 
     return (0, 0)

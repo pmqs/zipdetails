@@ -63,6 +63,8 @@
 019D 0002 01 00       Total Entries         0001
 019F 0004 37 00 00 00 Size of Central Dir   00000037
 01A3 0004 35 01 00 00 Offset to Central Dir 00000135
+# WARNING: 'Offset to Central Directory' field @ 0x1A3 in 'End of central directory record' is invalid
+#          expected value @ 0x135 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x3CA952E6
 01A7 0002 00 00       Comment Length        0000
 
 01A9 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
@@ -87,7 +89,6 @@
 01D7 0009 69 6E 6E 65 Filename              'inner.zip'
           72 2E 7A 69
           70
-### CENTRAL HEADER ref Local #2: 'inner.zip' overlaps with CENTRAL HEADER ref Local #1: 'lorem.txt' 0->181 vs 0->10D
 
 01E0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 01E4 0002 00 00       Number of this disk   0000
@@ -98,7 +99,5 @@
 01F0 0004 A9 01 00 00 Offset to Central Dir 000001A9
 01F4 0002 00 00       Comment Length        0000
 
-WARNINGS
-
-* 1 overlap entries
+Warning Count: 1
 Done
