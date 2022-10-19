@@ -151,7 +151,7 @@ my %OS_Lookup = (
         ::ZIP_LOCAL_HDR_SIG,             [ \&::LocalHeader, "Local File Header", 0 ],
         ::ZIP_DATA_HDR_SIG,              [ \&::DataHeader,   "Data Descriptor", 0 ],
         ::ZIP_CENTRAL_HDR_SIG,           [ \&::CentralHeader, "Central Directory Header", 1 ],
-        ::ZIP_END_CENTRAL_HDR_SIG,       [ \&::EndCentralHeader, "End Central Directory", 1 ],
+        ::ZIP_END_CENTRAL_HDR_SIG,       [ \&::EndCentralHeader, "End Central Directory Record", 1 ],
         ::ZIP_SINGLE_SEGMENT_MARKER,     [ \&::SingleSegmentMarker, "Single Segment Marker", 0],
 
         # Zip64
@@ -1707,7 +1707,7 @@ sub Zip64EndCentralHeader
 
     if (! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 48) . " in '" . Signatures::name($signature) . "' is invalid";
         checkOffsetValue($centralDirOffset, $startRecordOffset, $commonMessage, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
     }
 
@@ -1867,7 +1867,7 @@ sub EndCentralHeader
     if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
         ! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 16) . " in 'End of central directory record' is invalid";
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 16) . " in '"  . Signatures::name($signature) .  "' is invalid";
         checkOffsetValue($centralDirOffset, $startRecordOffset, $commonMessage, ZIP_CENTRAL_HDR_SIG) ;
     }
 
@@ -3524,7 +3524,7 @@ sub findCentralDirectoryOffset
     {
         if ($centralDirSize)
         {
-            my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in 'End of central directory record' is invalid";
+            my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in '" . Signatures::name(ZIP_END_CENTRAL_HDR_SIG) . "' is invalid";
             checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1) ;
         }
     }
