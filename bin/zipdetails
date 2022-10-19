@@ -1006,7 +1006,7 @@ if ($opt_scan || $opt_walk)
         }
 
         $foundZipRecords = 1;
-        $lastHeader = $handler->($signature, $buffer) // {'streamed' => 0};
+        $lastHeader = $handler->($signature, $buffer, $FH->tell() - 4) // {'streamed' => 0};
 
         $lastEndsAt = $FH->tell();
 
@@ -1196,7 +1196,7 @@ else
         }
 
         $ZIP64 = 0 if $signature != ZIP_DATA_HDR_SIG ;
-        $handler->($signature, $buffer);
+        $handler->($signature, $buffer, $FH->tell() - 4);
         # $lastWasLocalHeader = $signature == ZIP_LOCAL_HDR_SIG ;
         $HeaderOffsetIndex->rewindIndex()
             if $signature == ZIP_DATA_HDR_SIG ;
@@ -1237,8 +1237,7 @@ sub LocalHeader
 {
     my $signature = shift ;
     my $data = shift ;
-
-    my $from_offset = $FH->tell() - 4;
+    my $startRecordOffset = shift ;
 
     ++ $LocalHeaderCount;
     my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
@@ -1251,7 +1250,7 @@ sub LocalHeader
     my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
     if (! $opt_scan && ! $opt_walk && $CentralDirectory->exists())
     {
-        my $cdEntry = $CentralDirectory->getByLocalOffset($from_offset);
+        my $cdEntry = $CentralDirectory->getByLocalOffset($startRecordOffset);
 
         if (! $cdEntry)
         {
@@ -1384,13 +1383,13 @@ sub LocalHeader
     push @Messages, @msg ;
 
 
-    # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $from_offset, $from_offset + $CDcompressedLength);
+    # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $startRecordOffset, $startRecordOffset + $CDcompressedLength);
 
     return {
                 'localHeader'   => 1,
                 'streamed'      => $gpFlag & ZIP_GP_FLAG_STREAMING_MASK,
-                'offset'        => $from_offset,
-                'length'        => $FH->tell() - $from_offset,
+                'offset'        => $startRecordOffset,
+                'length'        => $FH->tell() - $startRecordOffset,
                 'payloadLength' => $CDcompressedLength,
                 'payloadOffset' => $payloadOffset,
         } ;
@@ -1572,8 +1571,7 @@ sub CentralHeader
 {
     my $signature = shift ;
     my $data = shift ;
-
-    my $from_offset = $FH->tell() - 4;
+    my $startRecordOffset = shift ;
 
     ++ $CentralHeaderCount;
     my $hexHdrCount = sprintf("%X", $CentralHeaderCount) ;
@@ -1624,8 +1622,8 @@ sub CentralHeader
     my $locHeaderOffset     = out_V "Local Header Offset";
 
     {
-        my $commonMessage = "'Local Header Offset' field @ " . hexValue($from_offset + 42) . " in 'Central directory file header' is invalid";
-        checkOffsetValue($locHeaderOffset, $from_offset, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
+        my $commonMessage = "'Local Header Offset' field @ " . hexValue($startRecordOffset + 42) . " in 'Central directory file header' is invalid";
+        checkOffsetValue($locHeaderOffset, $startRecordOffset, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
     }
 
     my $filename ;
@@ -1689,11 +1687,10 @@ sub Zip64EndCentralHeader
 
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR RECORD", Value_V($signature);
-
-    my $here = $FH->tell() - 4;
 
     my $size = out_Q "Size of record";
 
@@ -1710,10 +1707,10 @@ sub Zip64EndCentralHeader
     my $centralDirSize      = out_Q  "Size of Central Dir";
     my $centralDirOffset    = out_Q  "Offset to Central dir";
 
-    if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+    if (! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
-        checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 48) . " in 'Zip64 End of Central Directory Record' is invalid";
+        checkOffsetValue($centralDirOffset, $startRecordOffset, $commonMessage, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
     }
 
     # Length of 44 means typical version 1 header
@@ -1777,13 +1774,12 @@ sub Zip64EndCentralLocator
 {
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
     need 16, "Zip64 End Central Directory Locator";
-
-    my $headerStart = $FH->tell() - 4;
 
     # my ($nextRecord, $deltaActuallyAvailable) = $HeaderOffsetIndex->checkForOverlap(16);
 
@@ -1804,7 +1800,7 @@ sub Zip64EndCentralLocator
     if ($totalDisks > 0)
     {
         my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($FH->tell() - 12) . " in 'Zip64 End Central Locator' is invalid";
-        checkOffsetValue($zip64EndCentralDirOffset, $headerStart, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
+        checkOffsetValue($zip64EndCentralDirOffset, $startRecordOffset, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
     }
 
     return {};
@@ -1855,11 +1851,10 @@ sub EndCentralHeader
 {
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     print "\n";
     out $data, "END CENTRAL HEADER", Value_V($signature);
-
-    my $here = $FH->tell() - 4;
 
     need 18, "End Central Header";
 
@@ -1872,10 +1867,10 @@ sub EndCentralHeader
     my $centralDirOffset    = out_V "Offset to Central Dir";
 
     if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
-        ! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+        ! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in 'End of central directory record' is invalid";
-        checkOffsetValue($centralDirOffset, $here, $commonMessage, ZIP_CENTRAL_HDR_SIG) ;
+        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 16) . " in 'End of central directory record' is invalid";
+        checkOffsetValue($centralDirOffset, $startRecordOffset, $commonMessage, ZIP_CENTRAL_HDR_SIG) ;
     }
 
     my $comment_length = out_v "Comment Length";
@@ -1907,6 +1902,7 @@ sub DataHeader
 
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     my $here = $FH->tell();
 
@@ -1951,6 +1947,7 @@ sub SingleSegmentMarker
 
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     my $here = $FH->tell();
 
@@ -1976,6 +1973,7 @@ sub ArchiveExtraDataRecord
 
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     out $data, "ARCHIVE EXTRA DATA RECORD", Value_V($signature);
 
@@ -1989,6 +1987,7 @@ sub DigitalSignature
 {
     my $signature = shift ;
     my $data = shift ;
+    my $startRecordOffset = shift ;
 
     print "\n";
     out $data, "DIGITAL SIGNATURE RECORD", Value_V($signature);
