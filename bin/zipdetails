@@ -1692,7 +1692,7 @@ sub Zip64EndCentralHeader
 
     my $size = out_Q "Size of record";
 
-    need $size, "ZIP64 End Central Directory Record";
+    need $size, Signatures::name($signature);
 
                               out_C  "Created Zip Spec", \&decodeZipVer;
                               out_C  "Created OS", \&decodeOS;
@@ -1777,8 +1777,8 @@ sub Zip64EndCentralLocator
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
-    need 16, "Zip64 End Central Directory Locator";
-
+    need 16, Signatures::name($signature);
+    
     # my ($nextRecord, $deltaActuallyAvailable) = $HeaderOffsetIndex->checkForOverlap(16);
 
     # if ($deltaActuallyAvailable)
@@ -1854,7 +1854,7 @@ sub EndCentralHeader
     print "\n";
     out $data, "END CENTRAL HEADER", Value_V($signature);
 
-    need 18, "End Central Header";
+    need 18, Signatures::name($signature);
 
     # TODO - check values for traces of multi-part + crazy values
     my $diskNumber          = out_v "Number of this disk";
@@ -1875,7 +1875,7 @@ sub EndCentralHeader
 
     if ($comment_length)
     {
-        need $comment_length, "End Central Header, Comment field";
+        need $comment_length,  Signatures::name($signature) . ", Comment field";
 
         my $comment ;
         myRead($comment, $comment_length);
@@ -3416,7 +3416,7 @@ sub findCentralDirectoryOffset
     # know exactly where the end of central directory record
     # should be.
 
-    need ZIP_EOCD_MIN_SIZE, "End of central directory record (EOCD)";
+    need ZIP_EOCD_MIN_SIZE, Signatures::name(ZIP_END_CENTRAL_HDR_SIG);
 
     $fh->seek(-ZIP_EOCD_MIN_SIZE(), SEEK_END) ;
     my $here = $fh->tell();
