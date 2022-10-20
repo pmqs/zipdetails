@@ -1025,7 +1025,7 @@ else
 
     scanCentralDirectory($FH);
 
-    fatal_tryWalk "No Zip metadata found"
+    fatal_tryWalk "No Zip metadata found at end of file"
         if ! $CentralDirectory->exists() && ! $EOCD_Present ;
 
     # $HeaderOffsetIndex->dump();
@@ -1242,6 +1242,8 @@ sub LocalHeader
     print "\n";
     out $data, "LOCAL HEADER #$hexHdrCount" , Value_V($signature);
 
+    need 26, Signatures::name($signature);
+
     my $buffer;
     my $orphan = 0;
 
@@ -1290,6 +1292,8 @@ sub LocalHeader
     my $filenameLength     = out_v "Filename Length";
     my $extraLength        = out_v "Extra Length";
 
+    need $filenameLength, Signatures::name($signature), 'Filename';
+
     my $filename ;
     myRead($filename, $filenameLength);
     outputFilename($filename);
@@ -1298,6 +1302,8 @@ sub LocalHeader
     my %ExtraContext = ();
     if ($extraLength)
     {
+        need $extraLength, Signatures::name($signature), 'Extra';
+
         my @z64 = ($uncompressedLength, $compressedLength, 1, 1);
         $ExtraContext{Zip64} = \@z64 ;
         $ExtraContext{InCentralDir} = 0;
@@ -1327,6 +1333,7 @@ sub LocalHeader
     #     }
     # }
 
+
     my $pk_encrypted = ($gpFlag & (ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK|ZIP_GP_FLAG_ENCRYPTED_MASK)) && $compressedMethod != 99;
 
     my $size = 0;
@@ -1337,6 +1344,9 @@ sub LocalHeader
         if $opt_scan || $opt_walk || ! $CentralDirectory->exists();
 
     my $payloadOffset = $FH->tell();
+
+    need $CDcompressedLength, 'PAYLOAD'
+        if $CDcompressedLength ;
 
     if (! $pk_encrypted)
     {
@@ -1573,9 +1583,12 @@ sub CentralHeader
 
     ++ $CentralHeaderCount;
     my $hexHdrCount = sprintf("%X", $CentralHeaderCount) ;
+
     print "\n";
     out $data, "CENTRAL HEADER #$hexHdrCount", Value_V($signature);
     my $buffer;
+
+    need 42, Signatures::name($signature);
 
     out_C "Created Zip Spec", \&decodeZipVer;
     out_C "Created OS", \&decodeOS;
@@ -1624,6 +1637,8 @@ sub CentralHeader
         checkOffsetValue($locHeaderOffset, $startRecordOffset, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
     }
 
+    need $filenameLength, Signatures::name($signature), 'Filename';
+
     my $filename ;
     myRead($filename, $filenameLength);
     outputFilename($filename);
@@ -1635,6 +1650,8 @@ sub CentralHeader
 
     if ($extraLength)
     {
+        need $extraLength, Signatures::name($signature), 'Extra';
+
         my @z64 = ($uncompressedLength, $compressedLength, $locHeaderOffset, $disk_start);
         $ExtraContext{Zip64} = \@z64 ;
         $ExtraContext{InCentralDir} = 1;
@@ -1645,6 +1662,8 @@ sub CentralHeader
 
     if ($comment_length)
     {
+        need $comment_length, Signatures::name($signature), 'Comment';
+
         my $comment ;
         myRead($comment, $comment_length);
         outputFilename $comment, "Comment";
@@ -1689,6 +1708,8 @@ sub Zip64EndCentralHeader
 
     print "\n";
     out $data, "ZIP64 END CENTRAL DIR RECORD", Value_V($signature);
+
+    need 8, Signatures::name($signature);
 
     my $size = out_Q "Size of record";
 
@@ -1778,7 +1799,7 @@ sub Zip64EndCentralLocator
     out $data, "ZIP64 END CENTRAL DIR LOCATOR", Value_V($signature);
 
     need 16, Signatures::name($signature);
-    
+
     # my ($nextRecord, $deltaActuallyAvailable) = $HeaderOffsetIndex->checkForOverlap(16);
 
     # if ($deltaActuallyAvailable)
@@ -1875,7 +1896,7 @@ sub EndCentralHeader
 
     if ($comment_length)
     {
-        need $comment_length,  Signatures::name($signature) . ", Comment field";
+        need $comment_length,  Signatures::name($signature), "Comment";
 
         my $comment ;
         myRead($comment, $comment_length);
@@ -1920,6 +1941,8 @@ sub DataHeader
 
     print "\n";
     out $data, "STREAMING DATA HEADER", Value_V($signature);
+
+    need $ZIP64 ? 20 : 12, Signatures::name($signature);
 
     out_V "CRC";
 
@@ -1975,7 +1998,12 @@ sub ArchiveExtraDataRecord
 
     out $data, "ARCHIVE EXTRA DATA RECORD", Value_V($signature);
 
+    need 2, Signatures::name($signature);
+
     my $size = out_v "Size of record";
+
+    need $size, Signatures::name($signature);
+
     outHexdump("Field data", $size);
 
     return {};
@@ -1989,7 +2017,12 @@ sub DigitalSignature
 
     print "\n";
     out $data, "DIGITAL SIGNATURE RECORD", Value_V($signature);
+
+    need 2, Signatures::name($signature);
     my $Size = out_v "Size of record";
+
+    need $Size, Signatures::name($signature);
+
 
     myRead(my $payload, $Size);
     out $payload, "Signature", hexDump($payload);
@@ -2101,14 +2134,30 @@ sub need
 {
     my $byteCount = shift ;
     my $message = shift ;
+    my $field = shift // '';
 
     # return $FILELEN - $FH->tell() >= $byteCount;
-
     my $here = $FH->tell() ;
     my $available = $FILELEN - $here ;
-    $available >= $byteCount
-        || fatal sprintf("Unexpected EOF at 0x%X in $message.", $here),
-                 sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
+    if ($available < $byteCount)
+    {
+        my @message ;
+
+        if ($field)
+        {
+            push @message, "file truncated while reading '$field' field in '$message' \@ " . hexValue($here);
+        }
+        else
+        {
+            push @message, "file truncated while reading '$message' \@ " . hexValue($here);
+        }
+
+        push @message, sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
+        push @message, "Try running with --walk' or '--scan' options"
+            if ! $opt_scan && ! $opt_walk ;
+
+        fatal @message;
+    }
 }
 
 sub offsetIsValid
