@@ -2334,7 +2334,7 @@ sub walkExtra
         $remaining = $XLEN - $offset;
         if ($subLen > $remaining )
         {
-            warning sprintf "Extra Field Length 0x%x > bytes remaining 0x%X\n", $subLen, $remaining;
+            warning sprintf "'Length' field @ 0x%x in 'Extra ID' 0x%4X ($who) invalid: value 0x%x > 0x%X bytes remaining\n", $FH->tell() -2, $lookID,  $subLen, $remaining;
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -3002,6 +3002,7 @@ sub decode_strong_encryption
     my $len = shift;
     my $context = shift;
 
+    # TODO check for overflow is contents > $len
     out_v "  Format";
     out_v "  AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
     out_v "  BitLen";
@@ -3513,7 +3514,7 @@ sub findCentralDirectoryOffset
                 $want = $fileLen ;
             }
             $fh->seek( $seekTo, SEEK_SET);
-             $fh->read($buffer, $want) ;
+            $fh->read($buffer, $want) ;
             my $pos = rindex( $buffer, Pack_ZIP_END_CENTRAL_HDR_SIG);
 
             if ($pos >= 0 && $want - $pos > ZIP_EOCD_MIN_SIZE) {

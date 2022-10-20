@@ -1,0 +1,76 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0008 0002 08 00       Compression Method    0008 'Deflated'
+000A 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+000E 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0004 0E 01 00 00 Compressed Length     0000010E
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 1C 00       Extra Length          001C
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0029 0002 09 00         Length              0009
+002B 0001 03            Flags               '03 mod access'
+002C 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+0030 0004 E7 3D 84 60   Access Time         60843DE7 'Sat Apr 24 15:48:55 2021'
+0034 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0036 0002 0C 00         Length              000C
+# WARNING: 'Length' field @ 0x36 in 'Extra ID' 0x7875 ('ux: Unix Extra Type 3') invalid: value 0xc > 0xB bytes remaining
+
+0038 000B 01 04 E8 03   Extra Payload       ...........
+          00 00 04 E8
+          03 00 00
+0043 010E ...         PAYLOAD
+
+0151 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0155 0001 1E          Created Zip Spec      1E '3.0'
+0156 0001 03          Created OS            03 'Unix'
+0157 0001 14          Extract Zip Spec      14 '2.0'
+0158 0001 00          Extract OS            00 'MS-DOS'
+0159 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+015B 0002 08 00       Compression Method    0008 'Deflated'
+015D 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
+0161 0004 FF E7 0E F9 CRC                   F90EE7FF
+0165 0004 0E 01 00 00 Compressed Length     0000010E
+0169 0004 BE 01 00 00 Uncompressed Length   000001BE
+016D 0002 09 00       Filename Length       0009
+016F 0002 18 00       Extra Length          0018
+0171 0002 00 00       Comment Length        0000
+0173 0002 00 00       Disk Start            0000
+0175 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0177 0004 00 00 ED 81 Ext File Attributes   81ED0000
+017B 0004 00 00 00 00 Local Header Offset   00000000
+017F 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0188 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+018A 0002 05 00         Length              0005
+018C 0001 03            Flags               '03 mod access'
+018D 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
+0191 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0193 0002 0B 00         Length              000B
+0195 0001 01            Version             01
+0196 0001 04            UID Size            04
+0197 0004 E8 03 00 00   UID                 000003E8
+019B 0001 04            GID Size            04
+019C 0004 E8 03 00 00   GID                 000003E8
+
+01A0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01A4 0002 00 00       Number of this disk   0000
+01A6 0002 00 00       Central Dir Disk no   0000
+01A8 0002 01 00       Entries in this disk  0001
+01AA 0002 01 00       Total Entries         0001
+01AC 0004 4F 00 00 00 Size of Central Dir   0000004F
+01B0 0004 51 01 00 00 Offset to Central Dir 00000151
+01B4 0002 00 00       Comment Length        0000
+
+Warning Count: 1
+Done
