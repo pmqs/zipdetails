@@ -1,0 +1,29 @@
+default
+    exit-status 1
+    stdout      NULL
+    stderr      stderr
+
+-v
+    exit-status 1
+    stdout      NULL
+    stderr      stderr
+
+--walk
+    exit-status 1
+    stdout      stdout--walk--scan
+    stderr      stderr--walk--scan
+
+-v --walk
+    exit-status 1
+    stdout      stdout-v--walk--scan
+    stderr      stderr--walk--scan
+
+--scan
+    exit-status 1
+    stdout      stdout--walk--scan
+    stderr      stderr--walk--scan
+
+-v --scan
+    exit-status 1
+    stdout      stdout-v--walk--scan
+    stderr      stderr--walk--scan
