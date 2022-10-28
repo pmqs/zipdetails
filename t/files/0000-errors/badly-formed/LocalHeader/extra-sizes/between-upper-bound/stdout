@@ -1,0 +1,53 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0012
+001E Filename              'filename'
+0026 Extra ID #0001        5855 'UX: Info-ZIP Unix (original; also
+                           OS/2, NT, etc.)'
+0028   Length              000E
+# WARNING: 'Length' field @ 0x28 in 'Extra ID' 0x5855 (Info-ZIP Unix (original; also OS/2, NT, etc.)) invalid: expected 0xC, got 0xE
+
+002A   Extra Payload       xxxxxxxxxxxxxx
+0038 PAYLOAD               abcde
+
+003D CENTRAL HEADER #1     02014B50
+0041 Created Zip Spec      14 '2.0'
+0042 Created OS            03 'Unix'
+0043 Extract Zip Spec      14 '2.0'
+0044 Extract OS            00 'MS-DOS'
+0045 General Purpose Flag  0000
+0047 Compression Method    0000 'Stored'
+0049 Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
+004D CRC                   8587D865
+0051 Compressed Length     00000005
+0055 Uncompressed Length   00000005
+0059 Filename Length       0008
+005B Extra Length          0000
+005D Comment Length        0000
+005F Disk Start            0000
+0061 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0063 Ext File Attributes   81A40000
+0067 Local Header Offset   00000000
+006B Filename              'filename'
+
+0073 END CENTRAL HEADER    06054B50
+0077 Number of this disk   0000
+0079 Central Dir Disk no   0000
+007B Entries in this disk  0001
+007D Total Entries         0001
+007F Size of Central Dir   00000036
+0083 Offset to Central Dir 0000003D
+0087 Comment Length        0000
+
+Warning Count: 1
+Done
