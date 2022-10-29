@@ -85,8 +85,8 @@
 01FC Central Dir Disk no   00000000
 0200 Offset to Zip64 EOCD  00000000000000C0
 0208 Total no of Disks     00000001
-# WARNING: 'Offset to Zip64 End of Central Directory Record' field @ 0x200 in 'Zip64 End of Central Directory Locator' is invalid
-#          expected value @ 0xC0 should decode to signature for 'Zip64 End of Central Directory Record' (0x06064B50). Got 0x364F4878
+# ERROR: 'Offset to Zip64 End of Central Directory Record' field @ 0x200 in 'Zip64 End of Central Directory Locator' is invalid
+#        expected value @ 0xC0 should decode to signature for 'Zip64 End of Central Directory Record' (0x06064B50). Got 0x364F4878
 
 020C END CENTRAL HEADER    06054B50
 0210 Number of this disk   0000
@@ -97,5 +97,5 @@
 021C Offset to Central Dir FFFFFFFF
 0220 Comment Length        0000
 
-Warning Count: 1
+Error Count: 1
 Done

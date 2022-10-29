@@ -354,7 +354,9 @@ my $NIBBLES = 8;
 
 my $LocalHeaderCount = 0;
 my $CentralHeaderCount = 0;
+my $InfoCount = 0;
 my $WarningCount = 0;
+my $ErrorCount = 0;
 
 my $START;
 my $OFFSET = 0 ;
@@ -1223,9 +1225,13 @@ exit ;
 
 sub dislayMessages
 {
+    print "\nError Count: $ErrorCount\n"
+        if $ErrorCount;
     print "\nWarning Count: $WarningCount\n"
         if $WarningCount;
-
+    print "\nInfo Count: $InfoCount\n"
+        if $InfoCount;
+        
     $SEEN->short_summary();
 
     $SEEN->summary();
@@ -2221,8 +2227,8 @@ sub checkOffsetValue
     {
         fatal_tryWalk($commonMessage, $message)
             if $fatal;
-        # TODO -- change to error
-        warning($commonMessage, $message)
+
+        error $commonMessage, $message
             if ! $fatal;
     }
 }
@@ -2269,13 +2275,22 @@ sub warning
     ++ $WarningCount ;
 }
 
+sub error
+{
+    my $message  = shift;
+
+    print "# ERROR: $message\n";
+    print "#        $_\n" for @_ ;
+    ++ $ErrorCount ;
+}
+
 sub info
 {
     my $message  = shift;
 
     print "# INFO: $message\n";
     print "#       $_\n" for @_ ;
-    ++ $WarningCount ;
+    ++ $InfoCount ;
 }
 
 sub walkExtra

@@ -76,9 +76,9 @@
 00DA Total Entries         0002
 00DC Size of Central Dir   00000072
 00E0 Offset to Central Dir 000000D1
-# WARNING: 'Offset to Central Directory' field @ 0xE0 in 'End Central Directory Record' is invalid
-#          value 0xD1 must be less that 0xD0
+# ERROR: 'Offset to Central Directory' field @ 0xE0 in 'End Central Directory Record' is invalid
+#        value 0xD1 must be less that 0xD0
 00E4 Comment Length        0000
 
-Warning Count: 1
+Error Count: 1
 Done
