@@ -14,7 +14,7 @@
 0026 Extra ID #0001        5855 'UX: Info-ZIP Unix (original; also
                            OS/2, NT, etc.)'
 0028   Length              000E
-# WARNING: 'Length' field @ 0x28 in 'Extra ID' 0x5855 (Info-ZIP Unix (original; also OS/2, NT, etc.)) invalid: expected 0xC, got 0xE
+# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x5855 (Info-ZIP Unix (original; also OS/2, NT, etc.)) invalid: expected 0xC, got 0xE
 
 002A   Extra Payload       xxxxxxxxxxxxxx
 0038 PAYLOAD               abcde
@@ -49,5 +49,5 @@
 0083 Offset to Central Dir 0000003D
 0087 Comment Length        0000
 
-Warning Count: 1
+Error Count: 1
 Done

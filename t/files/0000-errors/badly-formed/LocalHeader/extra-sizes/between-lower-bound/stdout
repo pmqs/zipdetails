@@ -13,7 +13,7 @@
 001E Filename              'filename'
 0026 Extra ID #0001        5455 'UT: Extended Timestamp'
 0028   Length              0000
-# WARNING: 'Length' field @ 0x28 in 'Extra ID' 0x5455 (Extended Timestamp) invalid: expected value must be betweem 0x1 and 0xD, got 0x0
+# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x5455 (Extended Timestamp) invalid: expected value must be betweem 0x1 and 0xD, got 0x0
 
 002A PAYLOAD               abcde
 
@@ -47,5 +47,5 @@
 0075 Offset to Central Dir 0000002F
 0079 Comment Length        0000
 
-Warning Count: 1
+Error Count: 1
 Done

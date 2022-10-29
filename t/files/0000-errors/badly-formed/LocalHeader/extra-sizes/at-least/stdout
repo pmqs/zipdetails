@@ -13,7 +13,7 @@
 001E Filename              'filename'
 0026 Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
 0028   Length              0001
-# WARNING: 'Length' field @ 0x28 in 'Extra ID' 0x7075 (Info-ZIP Unicode Path) invalid: expected must be at least 0x5, got 0x1
+# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x7075 (Info-ZIP Unicode Path) invalid: expected must be at least 0x5, got 0x1
 
 002A   Extra Payload       1
 002B PAYLOAD               abcde
@@ -48,5 +48,5 @@
 0076 Offset to Central Dir 00000030
 007A Comment Length        0000
 
-Warning Count: 1
+Error Count: 1
 Done

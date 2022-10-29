@@ -1231,7 +1231,7 @@ sub dislayMessages
         if $WarningCount;
     print "\nInfo Count: $InfoCount\n"
         if $InfoCount;
-        
+
     $SEEN->short_summary();
 
     $SEEN->summary();
@@ -2335,7 +2335,7 @@ sub walkExtra
             else
             {
                 out $payload, "Extra Data", $data;
-                warning "Extra Data Malformed";
+                error "'Extra Data' Malformed";
             }
 
             return undef;
@@ -2376,7 +2376,7 @@ sub walkExtra
         $remaining = $XLEN - $offset;
         if ($subLen > $remaining )
         {
-            warning sprintf "'Length' field @ 0x%X in 'Extra ID' 0x%4X ($who) invalid: value 0x%X > 0x%X bytes remaining\n", $FH->tell() -2, $lookID,  $subLen, $remaining;
+            error sprintf "'Length' field @ 0x%X in 'Extra ID' 0x%4X ($who) invalid: value 0x%X > 0x%X bytes remaining\n", $FH->tell() -2, $lookID,  $subLen, $remaining;
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -2434,7 +2434,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                warning sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
+                error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -2443,7 +2443,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                warning sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected value must be betweem %s and %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min), hexValue($max), hexValue($size);
+                error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected value must be betweem %s and %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min), hexValue($max), hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -2454,7 +2454,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            warning sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected must be at least %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
+            error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected must be at least %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }
