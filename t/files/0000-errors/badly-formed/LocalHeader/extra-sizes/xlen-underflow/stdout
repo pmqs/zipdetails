@@ -1,0 +1,53 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         555D8A6A 'Sat Oct 29 17:19:20 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0009
+001E Filename              'filename'
+0026 Extra ID #0001        FFFF 'DUMMY'
+0028   Length              0005
+002A   Data                34333231
+# ERROR: Internal Error after processing Extra field. Should be at offset 0x2F, actually at 0x2E
+Please report error to https://github.com/pmqs/zipdetails/issues
+002E   Extra Payload       5
+002F PAYLOAD               abcde
+
+0034 CENTRAL HEADER #1     02014B50
+0038 Created Zip Spec      14 '2.0'
+0039 Created OS            03 'Unix'
+003A Extract Zip Spec      14 '2.0'
+003B Extract OS            00 'MS-DOS'
+003C General Purpose Flag  0000
+003E Compression Method    0000 'Stored'
+0040 Last Mod Time         555D8A6A 'Sat Oct 29 17:19:20 2022'
+0044 CRC                   8587D865
+0048 Compressed Length     00000005
+004C Uncompressed Length   00000005
+0050 Filename Length       0008
+0052 Extra Length          0000
+0054 Comment Length        0000
+0056 Disk Start            0000
+0058 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+005A Ext File Attributes   81A40000
+005E Local Header Offset   00000000
+0062 Filename              'filename'
+
+006A END CENTRAL HEADER    06054B50
+006E Number of this disk   0000
+0070 Central Dir Disk no   0000
+0072 Entries in this disk  0001
+0074 Total Entries         0001
+0076 Size of Central Dir   00000036
+007A Offset to Central Dir 00000034
+007E Comment Length        0000
+
+Error Count: 1
+Done

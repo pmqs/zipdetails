@@ -300,9 +300,12 @@ my %Extras = (
       0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            2, undef,   2, undef ],
       0xCAFE,  ['Java Executable',                                          \&decode_Java_exe,              0, 0,       0, 0],
       0xfb4a,  ['SMS/QDOS',                                                 undef],
-
        );
 
+      # Dummy entry only used in test harness, so only enable when ZIPDETAILS_TESTHARNESS is set
+      $Extras{0xFFFF} =
+               ['DUMMY',                                                    \&decode_DUMMY,                 undef, undef, undef, undef]
+            if $ENV{ZIPDETAILS_TESTHARNESS} ;
 
 # Zip64EndCentralHeader version 2
 my %HashIDLookup  = (
@@ -2260,9 +2263,20 @@ sub fatal
 {
     my $message = shift;
 
-    warn "zipdetails: error processing '$filename': $message\n";
+    warn "FATAL: $message\n";
     warn $_ . "\n"
         for @_;
+    exit 1;
+}
+
+sub internalFatal
+{
+    my $message = shift;
+
+    warn "FATAL: Internal Error: $message\n";
+    warn $_ . "\n"
+        for @_;
+    warn "Please report error to https://github.com/pmqs/zipdetails/issues\n";
     exit 1;
 }
 
@@ -2281,6 +2295,17 @@ sub error
 
     print "# ERROR: $message\n";
     print "#        $_\n" for @_ ;
+    ++ $ErrorCount ;
+}
+
+sub internalError
+{
+    my $message  = shift;
+
+    print "# ERROR: $message\n";
+    print "#        $_\n" for @_ ;
+    print "Please report error to https://github.com/pmqs/zipdetails/issues\n";
+
     ++ $ErrorCount ;
 }
 
@@ -2308,8 +2333,7 @@ sub walkExtra
     my $payload ;
 
     my $count = 0 ;
-    # my $message = $context->{InCentralDir} ? "Central Header" : "Local Header";
-    # $message .= " $context->{Index} for '$context->{Filename}'" ;
+    my $endExtraOffset = $FH->tell() + $XLEN ;
 
     while ($offset < $XLEN) {
 
@@ -2395,7 +2419,24 @@ sub walkExtra
         {
             if (testExtraLimits($lookID, $subLen, $context->{InCentralDir}))
             {
+                my $endExtraOffset = $FH->tell() + $subLen;
                 $decoder->($subLen, $context) ;
+
+                # Belt & Braces - should now be at $endExtraOffset
+                # error here means issue in an extra handler
+                # should noy happen, but just in case
+                # TODO -- need tests for this
+                my $here = $FH->tell() ;
+                if ($here > $endExtraOffset)
+                {
+                    # gone too far, so need to bomb out now
+                    internalFatal sprintf "Overflow processing Extra field. Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here);
+                }
+                elsif ($here < $endExtraOffset)
+                {
+                    internalError sprintf "Internal Error after processing Extra field. Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here);
+                    outSomeData $endExtraOffset - $here, "  Extra Payload";
+                }
             }
             # else
             # {
@@ -2853,6 +2894,14 @@ sub decode_Reference
         unpack('H*', substr($uuid, 6, 2)) . '-' .
         unpack('H*', substr($uuid, 8, 2)) . '-' .
         unpack('H*', substr($uuid, 10, 6)) ;
+}
+
+sub decode_DUMMY
+{
+    my $len = shift;
+    my $context = shift;
+
+    out_V "  Data";
 }
 
 sub decode_GrowthHint

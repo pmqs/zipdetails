@@ -22,7 +22,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 117 * $tests_per_zip_full ;
+plan tests => 119 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -42,6 +42,8 @@ my @exts = qw( zip zipx saz xlsx docx jar par tar war apk xpi) ;
 my $exts = join "|",  @exts, map { "$_.zst" } @exts ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
 my @failed = ();
+
+$ENV{ZIPDETAILS_TESTHARNESS} = 1 ;
 
 find(
         sub { $dirs{$File::Find::dir} = $_
