@@ -3025,10 +3025,25 @@ sub decode_ux
     return if $len == 0 ;
     out_C "  Version" ;
     my $uidSize = out_C "  UID Size";
+    my $available = $len - 1 ;
+    if ($available < $uidSize)
+    {
+        outSomeData($available, "  Badly formed extra data");
+        # TODO - need warning
+        return;
+    }
+
     myRead(my $data, $uidSize);
     out2 $data, "UID", decodeLitteEndian($data);
 
     my $gidSize = out_C "  GID Size";
+    $available -= 1 ;
+    if ($available < $gidSize)
+    {
+        outSomeData($available, "  Badly formed extra data");
+        # TODO - need warning
+        return;
+    }
     myRead($data, $gidSize);
     out2 $data, "GID", decodeLitteEndian($data);
 
@@ -3165,13 +3180,40 @@ sub decode_strong_encryption
     out_v "  BitLen";
     out_v "  Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
 
-    # see 7.4.2 for this part
+    # see APPNOTE 6.3.9, sec 7.4.2 for this part
     my $recipients = out_V "  Recipients";
+
+    my $available = $len - 12;
 
     if ($recipients)
     {
+        if ($available < 2)
+        {
+            outSomeData($available, "  Badly formed extra data");
+            # TODO - need warning
+            return;
+        }
+
         out_v "  HashAlg", sub { $HashAlgLookup{ $_[0] } // "Unknown algorithm" } ;
+        $available -= 2;
+
+        if ($available < 2)
+        {
+            outSomeData($available, "  Badly formed extra data");
+            # TODO - need warning
+            return;
+        }
+
         my $HSize = out_v "  HSize" ;
+        $available -= 2;
+
+        # should have $recipients * $HSize bytes available
+        if ($recipients * $HSize != $available)
+        {
+            outSomeData($available, "  Badly formed extra data");
+            # TODO - need warning
+            return;
+        }
 
         my $ix = 1;
         for (0 .. $recipients-1)
