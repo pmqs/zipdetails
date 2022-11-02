@@ -1,4 +1,4 @@
-## Zip64 end of central directory extra filed
+## Zip64 end of central directory extra field
 
 
 Not seen in the wild, so test file have been hand crafted
