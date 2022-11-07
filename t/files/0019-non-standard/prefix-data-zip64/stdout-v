@@ -1,0 +1,186 @@
+
+0000 0004 61 62 63 64 UNEXPECTED PADDING    abcd
+
+0004 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0008 0001 2D          Extract Zip Spec      2D '4.5'
+0009 0001 00          Extract OS            00 'MS-DOS'
+000A 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+000C 0002 08 00       Compression Method    0008 'Deflated'
+000E 0004 11 55 62 55 Last Mod Time         55625511 'Wed Nov  2 10:40:34 2022'
+0012 0004 36 C6 60 BB CRC                   BB60C636
+0016 0004 FF FF FF FF Compressed Length     FFFFFFFF
+001A 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+001E 0002 0A 00       Filename Length       000A
+0020 0002 30 00       Extra Length          0030
+0022 000A 6C 6F 72 65 Filename              'lorem1.txt'
+          6D 31 2E 74
+          78 74
+002C 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+002E 0002 09 00         Length              0009
+0030 0001 03            Flags               '03 mod access'
+0031 0004 22 49 62 63   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
+0035 0004 22 49 62 63   Access Time         63624922 'Wed Nov  2 10:40:34 2022'
+0039 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+003B 0002 0B 00         Length              000B
+003D 0001 01            Version             01
+003E 0001 04            UID Size            04
+003F 0004 E8 03 00 00   UID                 000003E8
+0043 0001 04            GID Size            04
+0044 0004 E8 03 00 00   GID                 000003E8
+0048 0002 01 00       Extra ID #0003        0001 'ZIP64'
+004A 0002 10 00         Length              0010
+004C 0008 BF 01 00 00   Uncompressed Size   00000000000001BF
+          00 00 00 00
+0054 0008 10 01 00 00   Compressed Size     0000000000000110
+          00 00 00 00
+005C 0110 ...         PAYLOAD
+
+016C 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
+0170 0001 2D          Extract Zip Spec      2D '4.5'
+0171 0001 00          Extract OS            00 'MS-DOS'
+0172 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0174 0002 08 00       Compression Method    0008 'Deflated'
+0176 0004 11 55 62 55 Last Mod Time         55625511 'Wed Nov  2 10:40:34 2022'
+017A 0004 FF E7 0E F9 CRC                   F90EE7FF
+017E 0004 FF FF FF FF Compressed Length     FFFFFFFF
+0182 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+0186 0002 09 00       Filename Length       0009
+0188 0002 30 00       Extra Length          0030
+018A 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0193 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0195 0002 09 00         Length              0009
+0197 0001 03            Flags               '03 mod access'
+0198 0004 22 49 62 63   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
+019C 0004 22 49 62 63   Access Time         63624922 'Wed Nov  2 10:40:34 2022'
+01A0 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+01A2 0002 0B 00         Length              000B
+01A4 0001 01            Version             01
+01A5 0001 04            UID Size            04
+01A6 0004 E8 03 00 00   UID                 000003E8
+01AA 0001 04            GID Size            04
+01AB 0004 E8 03 00 00   GID                 000003E8
+01AF 0002 01 00       Extra ID #0003        0001 'ZIP64'
+01B1 0002 10 00         Length              0010
+01B3 0008 BE 01 00 00   Uncompressed Size   00000000000001BE
+          00 00 00 00
+01BB 0008 0E 01 00 00   Compressed Size     000000000000010E
+          00 00 00 00
+01C3 010E ...         PAYLOAD
+
+02D1 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+02D5 0001 1E          Created Zip Spec      1E '3.0'
+02D6 0001 03          Created OS            03 'Unix'
+02D7 0001 2D          Extract Zip Spec      2D '4.5'
+02D8 0001 00          Extract OS            00 'MS-DOS'
+02D9 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+02DB 0002 08 00       Compression Method    0008 'Deflated'
+02DD 0004 11 55 62 55 Last Mod Time         55625511 'Wed Nov  2 10:40:34 2022'
+02E1 0004 36 C6 60 BB CRC                   BB60C636
+02E5 0004 10 01 00 00 Compressed Length     00000110
+02E9 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+02ED 0002 0A 00       Filename Length       000A
+02EF 0002 24 00       Extra Length          0024
+02F1 0002 00 00       Comment Length        0000
+02F3 0002 00 00       Disk Start            0000
+02F5 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+02F7 0004 00 00 ED 81 Ext File Attributes   81ED0000
+02FB 0004 00 00 00 00 Local Header Offset   00000000 [Actual Offset is 00000004]
+02FF 000A 6C 6F 72 65 Filename              'lorem1.txt'
+          6D 31 2E 74
+          78 74
+0309 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+030B 0002 05 00         Length              0005
+030D 0001 03            Flags               '03 mod access'
+030E 0004 22 49 62 63   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
+0312 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0314 0002 0B 00         Length              000B
+0316 0001 01            Version             01
+0317 0001 04            UID Size            04
+0318 0004 E8 03 00 00   UID                 000003E8
+031C 0001 04            GID Size            04
+031D 0004 E8 03 00 00   GID                 000003E8
+0321 0002 01 00       Extra ID #0003        0001 'ZIP64'
+0323 0002 08 00         Length              0008
+0325 0008 BF 01 00 00   Uncompressed Size   00000000000001BF
+          00 00 00 00
+
+032D 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
+0331 0001 1E          Created Zip Spec      1E '3.0'
+0332 0001 03          Created OS            03 'Unix'
+0333 0001 2D          Extract Zip Spec      2D '4.5'
+0334 0001 00          Extract OS            00 'MS-DOS'
+0335 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0337 0002 08 00       Compression Method    0008 'Deflated'
+0339 0004 11 55 62 55 Last Mod Time         55625511 'Wed Nov  2 10:40:34 2022'
+033D 0004 FF E7 0E F9 CRC                   F90EE7FF
+0341 0004 0E 01 00 00 Compressed Length     0000010E
+0345 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+0349 0002 09 00       Filename Length       0009
+034B 0002 24 00       Extra Length          0024
+034D 0002 00 00       Comment Length        0000
+034F 0002 00 00       Disk Start            0000
+0351 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0353 0004 00 00 ED 81 Ext File Attributes   81ED0000
+0357 0004 68 01 00 00 Local Header Offset   00000168 [Actual Offset is 0000016C]
+035B 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0364 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0366 0002 05 00         Length              0005
+0368 0001 03            Flags               '03 mod access'
+0369 0004 22 49 62 63   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
+036D 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+036F 0002 0B 00         Length              000B
+0371 0001 01            Version             01
+0372 0001 04            UID Size            04
+0373 0004 E8 03 00 00   UID                 000003E8
+0377 0001 04            GID Size            04
+0378 0004 E8 03 00 00   GID                 000003E8
+037C 0002 01 00       Extra ID #0003        0001 'ZIP64'
+037E 0002 08 00         Length              0008
+0380 0008 BE 01 00 00   Uncompressed Size   00000000000001BE
+          00 00 00 00
+
+0388 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
+                      RECORD
+038C 0008 2C 00 00 00 Size of record        000000000000002C
+          00 00 00 00
+0394 0001 1E          Created Zip Spec      1E '3.0'
+0395 0001 03          Created OS            03 'Unix'
+0396 0001 2D          Extract Zip Spec      2D '4.5'
+0397 0001 00          Extract OS            00 'MS-DOS'
+0398 0004 00 00 00 00 Number of this disk   00000000
+039C 0004 00 00 00 00 Central Dir Disk no   00000000
+03A0 0008 02 00 00 00 Entries in this disk  0000000000000002
+          00 00 00 00
+03A8 0008 02 00 00 00 Total Entries         0000000000000002
+          00 00 00 00
+03B0 0008 B7 00 00 00 Size of Central Dir   00000000000000B7
+          00 00 00 00
+03B8 0008 CD 02 00 00 Offset to Central dir 00000000000002CD [Actual Offset is
+          00 00 00 00                       00000000000002D1]
+
+03C0 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                      LOCATOR
+03C4 0004 00 00 00 00 Central Dir Disk no   00000000
+03C8 0008 84 03 00 00 Offset to Zip64 EOCD  0000000000000384 [Actual Offset is
+          00 00 00 00                       0000000000000388]
+03D0 0004 01 00 00 00 Total no of Disks     00000001
+
+03D4 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+03D8 0002 00 00       Number of this disk   0000
+03DA 0002 00 00       Central Dir Disk no   0000
+03DC 0002 02 00       Entries in this disk  0002
+03DE 0002 02 00       Total Entries         0002
+03E0 0004 B7 00 00 00 Size of Central Dir   000000B7
+03E4 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
+03E8 0002 00 00       Comment Length        0000
+Done

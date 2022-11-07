@@ -22227,8 +22227,6 @@
 219703 Total Entries         018F
 219705 Size of Central Dir   00008554
 219709 Offset to Central Dir 001E437D
-# ERROR: 'Offset to Central Directory' field @ 0x219709 in 'End Central Directory Record' is invalid
-#        expected value @ 0x1E437D should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x7207D88E
 21970D Comment Length        01B9
 21970F Comment               '
                              ZIP V2.32 - Info-ZIP's portable Zip,
@@ -22939,7 +22937,7 @@
        [Bit 0]               0 'Binary Data'
 279E63 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-279E67 Local Header Offset   00000000
+279E67 Local Header Offset   00000000 [Actual Offset is 0002CE28]
 279E6B Filename              'zip/freeware_readme.txt'
 279E82 Extra ID #0001        000C 'OpenVMS'
 279E84   Length              007F
@@ -23002,7 +23000,9 @@
        [Bit 0]               0 'Binary Data'
 279F2B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-279F2F Local Header Offset   00000208
+279F2F Local Header Offset   00000208 [Actual Offset is 0002D030]
+# ERROR: 'Local Header Offset' field @ 0x279F2F in 'Central Directory Header' is invalid
+#        expected value @ 0x2D030 should decode to signature for 'Local File Header' (0x04034B50). Got 0x5E37267E
 279F33 Filename              'zip/zip.axp_exe'
 279F42 Extra ID #0001        000C 'OpenVMS'
 279F44   Length              007F
@@ -23066,7 +23066,9 @@
        [Bit 0]               0 'Binary Data'
 279FEB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-279FEF Local Header Offset   0000EE5E
+279FEF Local Header Offset   0000EE5E [Actual Offset is 0003BC86]
+# ERROR: 'Local Header Offset' field @ 0x279FEF in 'Central Directory Header' is invalid
+#        expected value @ 0x3BC86 should decode to signature for 'Local File Header' (0x04034B50). Got 0xCE97B3E9
 279FF3 Filename              'zip/zip.i64_exe'
 27A002 Extra ID #0001        000C 'OpenVMS'
 27A004   Length              007F
@@ -23130,7 +23132,9 @@
        [Bit 0]               0 'Binary Data'
 27A0AB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A0AF Local Header Offset   00024649
+27A0AF Local Header Offset   00024649 [Actual Offset is 00051471]
+# ERROR: 'Local Header Offset' field @ 0x27A0AF in 'Central Directory Header' is invalid
+#        expected value @ 0x51471 should decode to signature for 'Local File Header' (0x04034B50). Got 0xE55D5056
 27A0B3 Filename              'zip/zip.vax_vaxc_exe'
 27A0C7 Extra ID #0001        000C 'OpenVMS'
 27A0C9   Length              007F
@@ -23193,7 +23197,9 @@
        [Bit 0]               0 'Binary Data'
 27A170 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A174 Local Header Offset   0002CD7C
+27A174 Local Header Offset   0002CD7C [Actual Offset is 00059BA4]
+# ERROR: 'Local Header Offset' field @ 0x27A174 in 'Central Directory Header' is invalid
+#        expected value @ 0x59BA4 should decode to signature for 'Local File Header' (0x04034B50). Got 0x1D8B0795
 27A178 Filename              'zip/zip.zip'
 27A183 Extra ID #0001        000C 'OpenVMS'
 27A185   Length              007F
@@ -23256,7 +23262,9 @@
        [Bit 0]               0 'Binary Data'
 27A22C Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A230 Local Header Offset   002198C8
+27A230 Local Header Offset   002198C8 [Actual Offset is 002466F0]
+# ERROR: 'Local Header Offset' field @ 0x27A230 in 'Central Directory Header' is invalid
+#        expected value @ 0x2466F0 should decode to signature for 'Local File Header' (0x04034B50). Got 0x062D8256
 27A234 Filename              'zip/zipcloak.axp_exe'
 27A248 Extra ID #0001        000C 'OpenVMS'
 27A24A   Length              007F
@@ -23320,7 +23328,9 @@
        [Bit 0]               0 'Binary Data'
 27A2F1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A2F5 Local Header Offset   0021EEAD
+27A2F5 Local Header Offset   0021EEAD [Actual Offset is 0024BCD5]
+# ERROR: 'Local Header Offset' field @ 0x27A2F5 in 'Central Directory Header' is invalid
+#        expected value @ 0x24BCD5 should decode to signature for 'Local File Header' (0x04034B50). Got 0x97AA0DCD
 27A2F9 Filename              'zip/zipcloak.i64_exe'
 27A30D Extra ID #0001        000C 'OpenVMS'
 27A30F   Length              007F
@@ -23384,7 +23394,9 @@
        [Bit 0]               0 'Binary Data'
 27A3B6 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A3BA Local Header Offset   00227145
+27A3BA Local Header Offset   00227145 [Actual Offset is 00253F6D]
+# ERROR: 'Local Header Offset' field @ 0x27A3BA in 'Central Directory Header' is invalid
+#        expected value @ 0x253F6D should decode to signature for 'Local File Header' (0x04034B50). Got 0x5DBA542B
 27A3BE Filename              'zip/zipcloak.vax_vaxc_exe'
 27A3D7 Extra ID #0001        000C 'OpenVMS'
 27A3D9   Length              007F
@@ -23448,7 +23460,9 @@
        [Bit 0]               0 'Binary Data'
 27A480 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A484 Local Header Offset   0022A28A
+27A484 Local Header Offset   0022A28A [Actual Offset is 002570B2]
+# ERROR: 'Local Header Offset' field @ 0x27A484 in 'Central Directory Header' is invalid
+#        expected value @ 0x2570B2 should decode to signature for 'Local File Header' (0x04034B50). Got 0x64DADBBA
 27A488 Filename              'zip/zipnote.axp_exe'
 27A49B Extra ID #0001        000C 'OpenVMS'
 27A49D   Length              007F
@@ -23512,7 +23526,9 @@
        [Bit 0]               0 'Binary Data'
 27A544 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A548 Local Header Offset   0022ECDC
+27A548 Local Header Offset   0022ECDC [Actual Offset is 0025BB04]
+# ERROR: 'Local Header Offset' field @ 0x27A548 in 'Central Directory Header' is invalid
+#        expected value @ 0x25BB04 should decode to signature for 'Local File Header' (0x04034B50). Got 0x5EFC2F7F
 27A54C Filename              'zip/zipnote.i64_exe'
 27A55F Extra ID #0001        000C 'OpenVMS'
 27A561   Length              007F
@@ -23576,7 +23592,9 @@
        [Bit 0]               0 'Binary Data'
 27A608 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A60C Local Header Offset   00235970
+27A60C Local Header Offset   00235970 [Actual Offset is 00262798]
+# ERROR: 'Local Header Offset' field @ 0x27A60C in 'Central Directory Header' is invalid
+#        expected value @ 0x262798 should decode to signature for 'Local File Header' (0x04034B50). Got 0x7906F4BE
 27A610 Filename              'zip/zipnote.vax_vaxc_exe'
 27A628 Extra ID #0001        000C 'OpenVMS'
 27A62A   Length              007F
@@ -23640,7 +23658,9 @@
        [Bit 0]               0 'Binary Data'
 27A6D1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A6D5 Local Header Offset   0023844F
+27A6D5 Local Header Offset   0023844F [Actual Offset is 00265277]
+# ERROR: 'Local Header Offset' field @ 0x27A6D5 in 'Central Directory Header' is invalid
+#        expected value @ 0x265277 should decode to signature for 'Local File Header' (0x04034B50). Got 0x0FF3F1EB
 27A6D9 Filename              'zip/zipsplit.axp_exe'
 27A6ED Extra ID #0001        000C 'OpenVMS'
 27A6EF   Length              007F
@@ -23704,7 +23724,9 @@
        [Bit 0]               0 'Binary Data'
 27A796 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A79A Local Header Offset   0023D4D4
+27A79A Local Header Offset   0023D4D4 [Actual Offset is 0026A2FC]
+# ERROR: 'Local Header Offset' field @ 0x27A79A in 'Central Directory Header' is invalid
+#        expected value @ 0x26A2FC should decode to signature for 'Local File Header' (0x04034B50). Got 0x265D20B5
 27A79E Filename              'zip/zipsplit.i64_exe'
 27A7B2 Extra ID #0001        000C 'OpenVMS'
 27A7B4   Length              007F
@@ -23768,7 +23790,9 @@
        [Bit 0]               0 'Binary Data'
 27A85B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A85F Local Header Offset   002450AD
+27A85F Local Header Offset   002450AD [Actual Offset is 00271ED5]
+# ERROR: 'Local Header Offset' field @ 0x27A85F in 'Central Directory Header' is invalid
+#        expected value @ 0x271ED5 should decode to signature for 'Local File Header' (0x04034B50). Got 0x7DDBB8B5
 27A863 Filename              'zip/zipsplit.vax_vaxc_exe'
 27A87C Extra ID #0001        000C 'OpenVMS'
 27A87E   Length              007F
@@ -23832,7 +23856,9 @@
        [Bit 0]               0 'Binary Data'
 27A925 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A929 Local Header Offset   00248050
+27A929 Local Header Offset   00248050 [Actual Offset is 00274E78]
+# ERROR: 'Local Header Offset' field @ 0x27A929 in 'Central Directory Header' is invalid
+#        expected value @ 0x274E78 should decode to signature for 'Local File Header' (0x04034B50). Got 0x42FE7463
 27A92D Filename              'zip/zip_cli.axp_exe'
 27A940 Extra ID #0001        000C 'OpenVMS'
 27A942   Length              007F
@@ -23896,7 +23922,9 @@
        [Bit 0]               0 'Binary Data'
 27A9E9 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27A9ED Local Header Offset   00258962
+27A9ED Local Header Offset   00258962 [Actual Offset is 0028578A]
+# ERROR: 'Local Header Offset' field @ 0x27A9ED in 'Central Directory Header' is invalid
+#        value 0x28578A must be less that 0x27A9C3
 27A9F1 Filename              'zip/zip_cli.i64_exe'
 27AA04 Extra ID #0001        000C 'OpenVMS'
 27AA06   Length              007F
@@ -23960,7 +23988,9 @@
        [Bit 0]               0 'Binary Data'
 27AAAD Ext File Attributes   816D0001
        [Bit 0]               Read-Only
-27AAB1 Local Header Offset   0027068E
+27AAB1 Local Header Offset   0027068E [Actual Offset is 0029D4B6]
+# ERROR: 'Local Header Offset' field @ 0x27AAB1 in 'Central Directory Header' is invalid
+#        value 0x29D4B6 must be less that 0x27AA87
 27AAB5 Filename              'zip/zip_cli.vax_vaxc_exe'
 27AACD Extra ID #0001        000C 'OpenVMS'
 27AACF   Length              007F
@@ -24010,8 +24040,10 @@
 27AB58 Entries in this disk  0011
 27AB5A Total Entries         0011
 27AB5C Size of Central Dir   00000D13
-27AB60 Offset to Central Dir 00279E3D
+27AB60 Offset to Central Dir 00279E3D [Actual Offset is 002A6C65]
+# ERROR: 'Offset to Central Directory' field @ 0x27AB60 in 'End Central Directory Record' is invalid
+#        value 0x2A6C65 must be less that 0x27AB50
 27AB64 Comment Length        0000
 
-Error Count: 399
+Error Count: 415
 Done

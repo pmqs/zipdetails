@@ -57,8 +57,6 @@
 019D Total Entries         0001
 019F Size of Central Dir   00000037
 01A3 Offset to Central Dir 00000135
-# ERROR: 'Offset to Central Directory' field @ 0x1A3 in 'End Central Directory Record' is invalid
-#        expected value @ 0x135 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x3CA952E6
 01A7 Comment Length        0000
 
 01A9 CENTRAL HEADER #2     02014B50
@@ -79,7 +77,7 @@
 01CD Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 01CF Ext File Attributes   81B40000
-01D3 Local Header Offset   00000000
+01D3 Local Header Offset   00000000 [Actual Offset is 00000027]
 01D7 Filename              'inner.zip'
 
 01E0 END CENTRAL HEADER    06054B50
@@ -88,7 +86,9 @@
 01E8 Entries in this disk  0001
 01EA Total Entries         0001
 01EC Size of Central Dir   00000037
-01F0 Offset to Central Dir 000001A9
+01F0 Offset to Central Dir 000001A9 [Actual Offset is 000001D0]
+# ERROR: 'Offset to Central Directory' field @ 0x1F0 in 'End Central Directory Record' is invalid
+#        expected value @ 0x1D0 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x0081B400
 01F4 Comment Length        0000
 
 Error Count: 1

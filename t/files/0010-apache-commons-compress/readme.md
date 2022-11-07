@@ -5,7 +5,9 @@ Apache Commons Compress lives at http://commons.apache.org/proper/commons-compre
 
 GitHub repository at https://github.com/apache/commons-compress
 
-This library supports the Data Stream Alignment extra field (A11E) -- method to create is ZipArchiveEntry.setAlignment
+Jira is https://issues.apache.org/jira/projects/COMPRESS/issues/COMPRESS-598?filter=allopenissues
+
+This library supports the Data Stream Alignment extra field (A11E) -- method to create is `ZipArchiveEntry.setAlignment`
 
 # Testing
 
