@@ -63,6 +63,7 @@
 019D 0002 01 00       Total Entries         0001
 019F 0004 37 00 00 00 Size of Central Dir   00000037
 01A3 0004 35 01 00 00 Offset to Central Dir 00000135
+# INFO: found 0x27 bytes before beginning of zipfile
 01A7 0002 00 00       Comment Length        0000
 
 01A9 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
@@ -100,4 +101,5 @@
 01F4 0002 00 00       Comment Length        0000
 
 Error Count: 1
+Info Count: 1
 Done

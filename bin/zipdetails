@@ -952,6 +952,7 @@ if ($opt_scan || $opt_walk)
 
     my $output_encryptedCD = 0;
 
+    reportPrefixData();
     while(my $s = scanForSignature($opt_walk))
     {
         my $here = $FH->tell();
@@ -1009,6 +1010,8 @@ if ($opt_scan || $opt_walk)
             # Not a special case, so output generic padding message
             if ($delta > 0)
             {
+                reportPrefixData($delta)
+                    if $lastEndsAt == 0 ;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
                 $POSSIBLE_PREFIX_DELTA = $delta
                     if $lastEndsAt ==  0;
@@ -1169,6 +1172,8 @@ else
             {
                 rewindRelative(4);
                 my $delta = $expectedOffset - $here ;
+                reportPrefixData($delta)
+                    if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
                 $HeaderOffsetIndex->rewindIndex();
                 next;
@@ -1244,11 +1249,14 @@ exit ;
 
 sub dislayMessages
 {
-    print "\nError Count: $ErrorCount\n"
+    print "\n"
+        if $ErrorCount ||$WarningCount || $InfoCount ;
+
+    print "Error Count: $ErrorCount\n"
         if $ErrorCount;
-    print "\nWarning Count: $WarningCount\n"
+    print "Warning Count: $WarningCount\n"
         if $WarningCount;
-    print "\nInfo Count: $InfoCount\n"
+    print "Info Count: $InfoCount\n"
         if $InfoCount;
 
     $SEEN->short_summary();
@@ -2244,6 +2252,8 @@ sub testPossiblePrefix
         $PREFIX_DELTA = $POSSIBLE_PREFIX_DELTA;
         $POSSIBLE_PREFIX_DELTA = 0;
 
+        reportPrefixData();
+
         return 1
     }
 
@@ -2306,6 +2316,8 @@ sub offsetIsValid
                 if $gotSig != $expectedSignature ;
 
             $PREFIX_DELTA = $possibleDelta;
+            reportPrefixData();
+
             return undef;
         }
         else
@@ -2415,6 +2427,16 @@ sub internalError
     print "Please report error to https://github.com/pmqs/zipdetails/issues\n";
 
     ++ $ErrorCount ;
+}
+
+sub reportPrefixData
+{
+    my $delta = shift // $PREFIX_DELTA ;
+    state $reported = 0;
+    return if $reported || $delta == 0;
+
+    info "found " . hexValue($delta) . " bytes before beginning of zipfile" ;
+    $reported = 1;
 }
 
 sub info
