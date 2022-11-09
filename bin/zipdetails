@@ -1503,7 +1503,7 @@ sub displayEncryptedCD
 
 sub DecryptionHeader
 {
-    # APPNOTE 6.3.9, sec 7.2.4
+    # APPNOTE 6.3.10, sec 7.2.4
 
     # -Decryption Header:
     # Value     Size     Description
@@ -1564,7 +1564,7 @@ sub DecryptionHeader
 
 sub Reserved2
 {
-    # APPNOTE 6.3.9, sec 7.4.3 & 7.4.4
+    # APPNOTE 6.3.10, sec 7.4.3 & 7.4.4
 
     my $recipients = shift;
 
@@ -1756,9 +1756,9 @@ sub Zip64EndCentralHeader
 {
     # Extra ID is 0x0001
 
-    # APPNOTE 6.3.9, section 4.3.14, 7.3.3, 7.3.4 & APPENDIX C
+    # APPNOTE 6.3.10, section 4.3.14, 7.3.3, 7.3.4 & APPENDIX C
 
-    # TODO - APPNOTE allows an extensible data sector at end of this record (see APPNOTE 6.3.9, section 4.3.14.4)
+    # TODO - APPNOTE allows an extensible data sector at end of this record (see APPNOTE 6.3.10, section 4.3.14.4)
     # The code below does NOT take this into account.
 
     my $signature = shift ;
@@ -1805,7 +1805,7 @@ sub Zip64EndCentralHeader
     my $remaining = $size - 44;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
-    # See APPNOTE 6.3.9, section, 7.3.3
+    # See APPNOTE 6.3.10, section, 7.3.3
 
     if ($extractSpec >= 0x3E)
     {
@@ -1843,7 +1843,7 @@ sub Zip64EndCentralHeader
     if ($remaining)
     {
         # Handle 'zip64 extensible data sector' here
-        # See APPNOTE 6.3.9, section 4.3.14.3, 4.3.14.4 & APPENDIX C
+        # See APPNOTE 6.3.10, section 4.3.14.3, 4.3.14.4 & APPENDIX C
         # Not seen a real example of this. Tested with hand crafted files.
         my %ExtraContext = ( CRC => 0,
                          LocalHdrOffset   => 0,
@@ -1999,10 +1999,10 @@ sub DataHeader
 
     # ZIP_DATA_HDR_SIG at start of file flags a spanned zip file.
     # If it is a true marker, the next four bytes MUST be a ZIP_LOCAL_HDR_SIG
-    # See APPNOTE 6.3.9, sec 8.5.3, 8.5.4 & 8.5.5
+    # See APPNOTE 6.3.10, sec 8.5.3, 8.5.4 & 8.5.5
 
     # If not at start of file, assume a Data Header Record
-    # See APPNOTE 6.3.9, sec 4.3.9 & 4.3.9.3
+    # See APPNOTE 6.3.10, sec 4.3.9 & 4.3.9.3
 
     my $signature = shift ;
     my $data = shift ;
@@ -2049,7 +2049,7 @@ sub SingleSegmentMarker
 {
     # ZIP_SINGLE_SEGMENT_MARKER at start of file flags a spanned zip file.
     # If this ia a true marker, the next four bytes MUST be a ZIP_LOCAL_HDR_SIG
-    # See APPNOTE 6.3.9, sec 8.5.3, 8.5.4 & 8.5.5
+    # See APPNOTE 6.3.10, sec 8.5.3, 8.5.4 & 8.5.5
 
     my $signature = shift ;
     my $data = shift ;
@@ -2075,7 +2075,7 @@ sub ArchiveExtraDataRecord
 {
     # TODO - not seen an example of this record
 
-    # APPNOTE 6.3.9, sec 4.3.11
+    # APPNOTE 6.3.10, sec 4.3.11
 
     my $signature = shift ;
     my $data = shift ;
@@ -3041,7 +3041,7 @@ sub decode_DUMMY
 
 sub decode_GrowthHint
 {
-    # APPNOTE 6.3.9, sec 4.6.10
+    # APPNOTE 6.3.10, sec 4.6.10
 
     my $len = shift;
     my $context = shift;
@@ -3061,7 +3061,7 @@ sub decode_GrowthHint
 
 sub decode_DataStreamAlignment
 {
-    # APPNOTE 6.3.9, sec 4.6.11
+    # APPNOTE 6.3.10, sec 4.6.11
 
     my $len = shift;
     my $context = shift;
@@ -3194,7 +3194,7 @@ sub decode_Java_exe
 
 sub decode_up
 {
-    # APPNOTE 6.3.9, sec 4.6.9
+    # APPNOTE 6.3.10, sec 4.6.9
 
     my $len = shift;
     my $context = shift;
@@ -3210,7 +3210,7 @@ sub decode_up
 
 sub decode_uc
 {
-    # APPNOTE 6.3.9, sec 4.6.8
+    # APPNOTE 6.3.10, sec 4.6.8
 
     my $len = shift;
     my $context = shift;
@@ -3286,7 +3286,7 @@ sub decode_NT_security
 
 sub decodeMVS
 {
-    # APPNOTE 6.3.9, Appendix
+    # APPNOTE 6.3.10, Appendix
     my $len = shift;
     my $context = shift;
 
@@ -3305,7 +3305,7 @@ sub decodeMVS
 
 sub decode_strong_encryption
 {
-    # APPNOTE 6.3.9, sec 4.5.12 & 7.4.2
+    # APPNOTE 6.3.10, sec 4.5.12 & 7.4.2
 
     my $len = shift;
     my $context = shift;
@@ -3316,7 +3316,7 @@ sub decode_strong_encryption
     out_v "  BitLen";
     out_v "  Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
 
-    # see APPNOTE 6.3.9, sec 7.4.2 for this part
+    # see APPNOTE 6.3.10, sec 7.4.2 for this part
     my $recipients = out_V "  Recipients";
 
     my $available = $len - 12;
@@ -3762,7 +3762,7 @@ sub offsetFromZip64
         if $sig != ZIP64_END_CENTRAL_REC_HDR_SIG ;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
-    # See APPNOTE 6.3.9, section, 7.3.3
+    # See APPNOTE 6.3.10, section, 7.3.3
 
     # Version 1 header is 44 bytes (assuming no extensible data sector)
     # Version 2 header (see APPNOTE 6.3.7, section) is > 44 bytes
@@ -3787,7 +3787,7 @@ sub offsetFromZip64
         $centralDirOffset = checkOffsetValue($centralDirOffset, $here, 0, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1, $extractSpec < 0x3E) ;
     }
 
-    # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.9, section 4.3.14.2) -- need to take this into account
+    # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.10, section 4.3.14.2) -- need to take this into account
 
     return ($centralDirOffset, $centralDirSize) ;
 }

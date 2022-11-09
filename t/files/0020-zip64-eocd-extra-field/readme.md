@@ -3,7 +3,7 @@
 
 Not seen in the wild, so test file have been hand crafted
 
-APPNOTE 6.3.9, Appendix lists only one extra field defined.
+APPNOTE 6.3.10, Appendix lists only one extra field defined.
 Note that `0x0065` is overloaded for other local/central extra fields.
 
     APPENDIX C - Zip64 Extensible Data Sector Mappings
