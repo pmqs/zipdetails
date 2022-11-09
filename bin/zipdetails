@@ -264,6 +264,7 @@ my %Extras = (
       0x0065,  ['IBM S/390 attributes - uncompressed',                      \&decodeMVS,                    4,  undef,  4,  undef],
       0x0066,  ['IBM S/390 attributes - compressed',                        undef],
       0x07c8,  ['Info-ZIP Macintosh (old, J. Lee)',                         undef],
+      0x1986,  ['Pixar USD',                                                undef],
       0x2605,  ['ZipIt Macintosh (first version)',                          undef],
       0x2705,  ['ZipIt Macintosh v 1.3.5 and newer (w/o full filename)',    undef],
       0x2805,  ['ZipIt Macintosh v 1.3.5 and newer',                        undef],
@@ -299,6 +300,8 @@ my %Extras = (
       0xa11e,  ['Data Stream Alignment',                                    \&decode_DataStreamAlignment,   2, undef,   2, undef ],
       0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            2, undef,   2, undef ],
       0xCAFE,  ['Java Executable',                                          \&decode_Java_exe,              0, 0,       0, 0],
+      0xd935,  ['Android APK Alignment',                                    undef],
+      0xE57a,  ['ALZip Codepage',                                           undef],
       0xfb4a,  ['SMS/QDOS',                                                 undef],
        );
 
