@@ -442,9 +442,11 @@ CENTRAL HEADER DECRYPTION RECORD
 1D22 Hash Length           0004
 1D24 Hash Data             EF C1 91 26
 1D28 Extra ID #0001        4231
+# INFO: Unknown Extra ID 0x4231
 1D2A   Length              0003
 1D2C   Extra Payload       78 78 78
 1D2F Extra ID #0002        4443
+# INFO: Unknown Extra ID 0x4443
 1D31   Length              0000
 
 1D33 ZIP64 END CENTRAL DIR 07064B50
@@ -461,4 +463,6 @@ CENTRAL HEADER DECRYPTION RECORD
 1D53 Size of Central Dir   00000F76
 1D57 Offset to Central Dir 00000D5A
 1D5B Comment Length        0000
+
+Info Count: 2
 Done

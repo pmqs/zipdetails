@@ -80,9 +80,11 @@
 01E8 Size of Central Dir   000000000000005B
 01F0 Offset to Central dir 0000000000000165
 01F8 Extra ID #0001        4241
+# INFO: Unknown Extra ID 0x4241
 01FA   Length              0003
 01FC   Extra Payload       78 78 78
 01FF Extra ID #0002        4443
+# INFO: Unknown Extra ID 0x4443
 0201   Length              0000
 
 0203 ZIP64 END CENTRAL DIR 07064B50
@@ -99,4 +101,6 @@
 0223 Size of Central Dir   0000005B
 0227 Offset to Central Dir FFFFFFFF
 022B Comment Length        0000
+
+Info Count: 2
 Done

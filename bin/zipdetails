@@ -2528,6 +2528,8 @@ sub walkExtra
             if $who;
 
         out $id, "Extra ID #" . Value_v($count), $idString ;
+        info "Unknown Extra ID " . hexValue16($lookID)
+            if ! $Extras{$lookID} ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
         $offset += ZIP_EXTRA_SUBFIELD_LEN_SIZE;
