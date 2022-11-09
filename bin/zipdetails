@@ -2394,9 +2394,9 @@ sub internalFatal
     my $message = shift;
 
     warn "FATAL: Internal Error: $message\n";
-    warn $_ . "\n"
+    warn "       $_ \n"
         for @_;
-    warn "Please report error to https://github.com/pmqs/zipdetails/issues\n";
+    warn "       Please report error at https://github.com/pmqs/zipdetails/issues\n";
     exit 1;
 }
 
@@ -2424,7 +2424,7 @@ sub internalError
 
     print "# ERROR: $message\n";
     print "#        $_\n" for @_ ;
-    print "Please report error to https://github.com/pmqs/zipdetails/issues\n";
+    print "#        Please report error at https://github.com/pmqs/zipdetails/issues\n";
 
     ++ $ErrorCount ;
 }
@@ -2519,7 +2519,12 @@ sub walkExtra
             if $id =~ /\w\w/ && $who;
 
         $who = "'$who'" if $who ;
-        out $id, "Extra ID #" . Value_v($count), unpackValue_v($id) . " $who" ;
+        my $idString =  Value_v($lookID) . " $who" ;
+        my $errorIdString = "Extra Field " . hexValue16($lookID);
+        $errorIdString .= " ($who)"
+            if $who;
+
+        out $id, "Extra ID #" . Value_v($count), $idString ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
         $offset += ZIP_EXTRA_SUBFIELD_LEN_SIZE;
@@ -2530,7 +2535,8 @@ sub walkExtra
         $remaining = $XLEN - $offset;
         if ($subLen > $remaining )
         {
-            error sprintf "'Length' field @ 0x%X in 'Extra ID' 0x%04X ($who) invalid: value 0x%X > 0x%X bytes remaining\n", $FH->tell() -2, $lookID,  $subLen, $remaining;
+            error sprintf("'Length' field @ 0x%X in $errorIdString invalid", $FH->tell() -2),
+                  sprintf("value %s > %s bytes remaining\n", hexValue($subLen), hexValue($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -2560,21 +2566,17 @@ sub walkExtra
                 if ($here > $endExtraOffset)
                 {
                     # gone too far, so need to bomb out now
-                    internalFatal sprintf "Overflow processing Extra field. Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here);
+                    internalFatal "Overflow processing $errorIdString.",
+                                  sprintf("Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here));
                 }
                 elsif ($here < $endExtraOffset)
                 {
-                    internalError sprintf "Internal Error after processing Extra field. Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here);
-                    outSomeData $endExtraOffset - $here, "  Extra Payload";
+                    # not gone far enough, can recover
+                    error sprintf("Expected to be at offset %s after processing $errorIdString, actually at %s", hexValue($endExtraOffset),  hexValue($here)),
+                            "Skipping " . hexValue($endExtraOffset - $here) . " bytes";
+                    outSomeData $endExtraOffset - $here, "  Extra Data";
                 }
             }
-            # else
-            # {
-            #     myRead($payload, $subLen);
-            #     my $data = hexDump($payload);
-
-            #     out2 $payload, "Extra Payload", $data;
-            # }
         }
 
         $offset += $subLen ;
@@ -3165,6 +3167,7 @@ sub decode_ux
 
     myRead(my $data, $uidSize);
     out2 $data, "UID", decodeLitteEndian($data);
+    $available -= $uidSize ;
 
     my $gidSize = out_C "  GID Size";
     $available -= 1 ;

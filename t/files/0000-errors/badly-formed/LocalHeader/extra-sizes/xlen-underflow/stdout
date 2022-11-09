@@ -14,9 +14,9 @@
 0026 Extra ID #0001        FFFF 'DUMMY'
 0028   Length              0005
 002A   Data                34333231
-# ERROR: Internal Error after processing Extra field. Should be at offset 0x2F, actually at 0x2E
-Please report error to https://github.com/pmqs/zipdetails/issues
-002E   Extra Payload       5
+# ERROR: Expected to be at offset 0x2F after processing Extra Field 0xFFFF ('DUMMY'), actually at 0x2E
+#        Skipping 0x1 bytes
+002E   Extra Data          5
 002F PAYLOAD               abcde
 
 0034 CENTRAL HEADER #1     02014B50
