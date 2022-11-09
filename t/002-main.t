@@ -38,7 +38,25 @@ my $Perl = ($ENV{'FULLPERL'} or $^X or 'perl') ;
 $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 
 my %dirs;
-my @exts = qw( zip zipx saz xlsx docx jar par tar war apk xpi) ;
+my @exts = qw(
+        apk
+        crx
+        docx
+        ipa
+        ja
+        jar
+        jmod
+        par
+        saz
+        tar
+        usdz
+        war
+        xlsx
+        xpi
+        zip
+        zipx
+    ) ;
+
 my $exts = join "|",  @exts, map { "$_.zst" } @exts ;
 my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-compress-1.20 ) ;
 my @failed = ();
