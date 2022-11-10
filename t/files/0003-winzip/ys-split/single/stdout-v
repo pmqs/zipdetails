@@ -1,0 +1,83 @@
+
+0000 0004 50 4B 30 30 SPLIT ARCHIVE         30304B50
+                      SINGLE-SEGMENT MARKER
+
+0004 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0008 0001 0A          Extract Zip Spec      0A '1.0'
+0009 0001 00          Extract OS            00 'MS-DOS'
+000A 0002 00 00       General Purpose Flag  0000
+000C 0002 00 00       Compression Method    0000 'Stored'
+000E 0004 5C 58 6A 55 Last Mod Time         556A585C 'Thu Nov 10 11:02:56 2022'
+0012 0004 FF E7 0E F9 CRC                   F90EE7FF
+0016 0004 BE 01 00 00 Compressed Length     000001BE
+001A 0004 BE 01 00 00 Uncompressed Length   000001BE
+001E 0002 19 00       Filename Length       0019
+0020 0002 1C 00       Extra Length          001C
+0022 0019 68 6F 6D 65 Filename              'home/paul/share/lorem.txt'
+          2F 70 61 75
+          6C 2F 73 68
+          61 72 65 2F
+          6C 6F 72 65
+          6D 2E 74 78
+          74
+003B 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+003D 0002 09 00         Length              0009
+003F 0001 03            Flags               '03 mod access'
+0040 0004 60 DA 6C 63   Mod Time            636CDA60 'Thu Nov 10 11:02:56 2022'
+0044 0004 96 DA 6C 63   Access Time         636CDA96 'Thu Nov 10 11:03:50 2022'
+0048 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+004A 0002 0B 00         Length              000B
+004C 0001 01            Version             01
+004D 0001 04            UID Size            04
+004E 0004 00 00 00 00   UID                 00000000
+0052 0001 04            GID Size            04
+0053 0004 E7 03 00 00   GID                 000003E7
+0057 01BE ...         PAYLOAD
+
+0215 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0219 0001 1E          Created Zip Spec      1E '3.0'
+021A 0001 03          Created OS            03 'Unix'
+021B 0001 0A          Extract Zip Spec      0A '1.0'
+021C 0001 00          Extract OS            00 'MS-DOS'
+021D 0002 00 00       General Purpose Flag  0000
+021F 0002 00 00       Compression Method    0000 'Stored'
+0221 0004 5C 58 6A 55 Last Mod Time         556A585C 'Thu Nov 10 11:02:56 2022'
+0225 0004 FF E7 0E F9 CRC                   F90EE7FF
+0229 0004 BE 01 00 00 Compressed Length     000001BE
+022D 0004 BE 01 00 00 Uncompressed Length   000001BE
+0231 0002 19 00       Filename Length       0019
+0233 0002 18 00       Extra Length          0018
+0235 0002 00 00       Comment Length        0000
+0237 0002 00 00       Disk Start            0000
+0239 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+023B 0004 00 00 F8 81 Ext File Attributes   81F80000
+023F 0004 04 00 00 00 Local Header Offset   00000004
+0243 0019 68 6F 6D 65 Filename              'home/paul/share/lorem.txt'
+          2F 70 61 75
+          6C 2F 73 68
+          61 72 65 2F
+          6C 6F 72 65
+          6D 2E 74 78
+          74
+025C 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+025E 0002 05 00         Length              0005
+0260 0001 03            Flags               '03 mod access'
+0261 0004 60 DA 6C 63   Mod Time            636CDA60 'Thu Nov 10 11:02:56 2022'
+0265 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0267 0002 0B 00         Length              000B
+0269 0001 01            Version             01
+026A 0001 04            UID Size            04
+026B 0004 00 00 00 00   UID                 00000000
+026F 0001 04            GID Size            04
+0270 0004 E7 03 00 00   GID                 000003E7
+
+0274 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0278 0002 00 00       Number of this disk   0000
+027A 0002 00 00       Central Dir Disk no   0000
+027C 0002 01 00       Entries in this disk  0001
+027E 0002 01 00       Total Entries         0001
+0280 0004 5F 00 00 00 Size of Central Dir   0000005F
+0284 0004 15 02 00 00 Offset to Central Dir 00000215
+0288 0002 00 00       Comment Length        0000
+Done

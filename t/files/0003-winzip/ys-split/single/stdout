@@ -1,0 +1,71 @@
+
+0000 SPLIT ARCHIVE         30304B50
+     SINGLE-SEGMENT MARKER
+
+0004 LOCAL HEADER #1       04034B50
+0008 Extract Zip Spec      0A '1.0'
+0009 Extract OS            00 'MS-DOS'
+000A General Purpose Flag  0000
+000C Compression Method    0000 'Stored'
+000E Last Mod Time         556A585C 'Thu Nov 10 11:02:56 2022'
+0012 CRC                   F90EE7FF
+0016 Compressed Length     000001BE
+001A Uncompressed Length   000001BE
+001E Filename Length       0019
+0020 Extra Length          001C
+0022 Filename              'home/paul/share/lorem.txt'
+003B Extra ID #0001        5455 'UT: Extended Timestamp'
+003D   Length              0009
+003F   Flags               '03 mod access'
+0040   Mod Time            636CDA60 'Thu Nov 10 11:02:56 2022'
+0044   Access Time         636CDA96 'Thu Nov 10 11:03:50 2022'
+0048 Extra ID #0002        7875 'ux: Unix Extra Type 3'
+004A   Length              000B
+004C   Version             01
+004D   UID Size            04
+004E   UID                 00000000
+0052   GID Size            04
+0053   GID                 000003E7
+0057 PAYLOAD
+
+0215 CENTRAL HEADER #1     02014B50
+0219 Created Zip Spec      1E '3.0'
+021A Created OS            03 'Unix'
+021B Extract Zip Spec      0A '1.0'
+021C Extract OS            00 'MS-DOS'
+021D General Purpose Flag  0000
+021F Compression Method    0000 'Stored'
+0221 Last Mod Time         556A585C 'Thu Nov 10 11:02:56 2022'
+0225 CRC                   F90EE7FF
+0229 Compressed Length     000001BE
+022D Uncompressed Length   000001BE
+0231 Filename Length       0019
+0233 Extra Length          0018
+0235 Comment Length        0000
+0237 Disk Start            0000
+0239 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+023B Ext File Attributes   81F80000
+023F Local Header Offset   00000004
+0243 Filename              'home/paul/share/lorem.txt'
+025C Extra ID #0001        5455 'UT: Extended Timestamp'
+025E   Length              0005
+0260   Flags               '03 mod access'
+0261   Mod Time            636CDA60 'Thu Nov 10 11:02:56 2022'
+0265 Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0267   Length              000B
+0269   Version             01
+026A   UID Size            04
+026B   UID                 00000000
+026F   GID Size            04
+0270   GID                 000003E7
+
+0274 END CENTRAL HEADER    06054B50
+0278 Number of this disk   0000
+027A Central Dir Disk no   0000
+027C Entries in this disk  0001
+027E Total Entries         0001
+0280 Size of Central Dir   0000005F
+0284 Offset to Central Dir 00000215
+0288 Comment Length        0000
+Done

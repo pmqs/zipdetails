@@ -1,8 +1,9 @@
 # WinZip
 
+ -
 ## Reference
 
-New feature in WinZip 25 that detects duplicat efile and stores a reference entry.
+New feature in WinZip 25 that detects duplicate file and stores a reference entry.
 See https://www.winzip.com/en/support/compression-methods/.
 
 Create three files rae have same content: f1, f2, f3.
@@ -60,4 +61,11 @@ See https://www.winzip.com/en/support/aes-encryption/
     wzzip -a -spassword -yc winzip-encrypt-aes128.zip lorem.txt
     wzzip -a -spassword -ycAES256 winzip-encrypt-aes256.zip lorem.txt
 
+## Split Archive
 
+Single 
+
+    zip -0 lorem.zip lorem.txt
+    wzzip -ys64 lorem.zip lorem-split.zip
+
+Multi segment archive diesn't contain any special markers
