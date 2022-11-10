@@ -95,6 +95,7 @@
 9E96F Filename              'res/drawable-xhdpi-v4/ic_shortcut_axt_l
                             ogo.png'
 9E99D Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0x9E99D
 9E9A0 PAYLOAD
 
 9F331 LOCAL HEADER #7       04034B50
@@ -111,6 +112,7 @@
 9F34F Filename              'res/drawable-xxhdpi-v4/ic_shortcut_axt_
                             logo.png'
 9F37E Null Padding in Extra
+# INFO: 0x2 Null Padding Bytes in Extra Field @ 0x9F37E
 9F380 PAYLOAD
 
 A00FB LOCAL HEADER #8       04034B50
@@ -127,6 +129,7 @@ A0117 Extra Length          0003
 A0119 Filename              'res/drawable-xxxhdpi-v4/ic_shortcut_axt
                             _logo.png'
 A0149 Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0xA0149
 A014C PAYLOAD
 
 A152D LOCAL HEADER #9       04034B50
@@ -142,6 +145,7 @@ A1547 Filename Length       000E
 A1549 Extra Length          0003
 A154B Filename              'resources.arsc'
 A1559 Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0xA1559
 A155C PAYLOAD
 
 A1CC8 LOCAL HEADER #A       04034B50
@@ -522,4 +526,6 @@ A4412 Total Entries         000D
 A4414 Size of Central Dir   00000408
 A4418 Offset to Central Dir 000A4000
 A441C Comment Length        0000
+
+Info Count: 4
 Done

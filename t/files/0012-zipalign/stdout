@@ -12,6 +12,7 @@
 001C Extra Length          0019
 001E Filename              'lorem.txt'
 0027 Null Padding in Extra
+# INFO: 0x19 Null Padding Bytes in Extra Field @ 0x27
 0040 PAYLOAD
 
 01FE CENTRAL HEADER #1     02014B50
@@ -43,4 +44,6 @@
 0241 Size of Central Dir   00000037
 0245 Offset to Central Dir 000001FE
 0249 Comment Length        0000
+
+Info Count: 1
 Done

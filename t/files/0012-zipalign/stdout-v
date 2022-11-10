@@ -20,6 +20,7 @@
           00 00 00 00
           00 00 00 00
           00
+# INFO: 0x19 Null Padding Bytes in Extra Field @ 0x27
 0040 01BE ...         PAYLOAD
 
 01FE 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
@@ -53,4 +54,6 @@
 0241 0004 37 00 00 00 Size of Central Dir   00000037
 0245 0004 FE 01 00 00 Offset to Central Dir 000001FE
 0249 0002 00 00       Comment Length        0000
+
+Info Count: 1
 Done

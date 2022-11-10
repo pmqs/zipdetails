@@ -1016,6 +1016,8 @@ if ($opt_scan || $opt_walk)
                 reportPrefixData($delta)
                     if $lastEndsAt == 0 ;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
+                info "Unexpected Padding: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell() - $delta)
+                    if $FH->tell() - $delta ;
                 $POSSIBLE_PREFIX_DELTA = $delta
                     if $lastEndsAt ==  0;
                 $lastEndsAt = $FH->tell();
@@ -1096,7 +1098,10 @@ else
         my $here = $FH->tell();
 
         if ($here >= $TRAILING) {
-            outSomeDataParagraph($FILELEN - $TRAILING, "TRAILING DATA");
+            my $delta = $FILELEN - $TRAILING;
+            outSomeDataParagraph($delta, "TRAILING DATA");
+            info "Unexpected Trailing Data: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell());
+
             last;
         }
 
@@ -1178,6 +1183,8 @@ else
                 reportPrefixData($delta)
                     if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
+                info "Unexpected Padding: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell() - $delta)
+                    if $FH->tell() - $delta ;
                 $HeaderOffsetIndex->rewindIndex();
                 next;
             }
@@ -2453,6 +2460,7 @@ sub info
 
 sub walkExtra
 {
+    # APPNOTE 6.3.10, sec 4.4.11, 4.4.28, 4.5
     my $XLEN = shift;
     my $context = shift;
 
@@ -2488,6 +2496,7 @@ sub walkExtra
             {
                 # All nulls
                 out $payload, "Null Padding in Extra";
+                info hexValue(length $payload) . " Null Padding Bytes in Extra Field @ " . hexValue($FH->tell() - length $payload);
             }
             else
             {
@@ -2509,7 +2518,9 @@ sub walkExtra
             myRead($rest, $XLEN - $offset);
             if ($rest =~ /^\x00+$/)
             {
+                my $len = length ($id . $rest) ;
                 out $id . $rest, "Null Padding in Extra";
+                info hexValue($len) . " Null Padding Bytes in Extra Field @ " . hexValue($FH->tell() - $len);
                 return undef;
             }
 

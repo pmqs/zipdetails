@@ -151,6 +151,7 @@
             67 6F 2E 70
             6E 67
 9E99D 00003 00 00 00    Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0x9E99D
 9E9A0 00991 ...         PAYLOAD
 
 9F331 00004 50 4B 03 04 LOCAL HEADER #7       04034B50
@@ -177,6 +178,7 @@
             6F 67 6F 2E
             70 6E 67
 9F37E 00002 00 00       Null Padding in Extra
+# INFO: 0x2 Null Padding Bytes in Extra Field @ 0x9F37E
 9F380 00D7B ...         PAYLOAD
 
 A00FB 00004 50 4B 03 04 LOCAL HEADER #8       04034B50
@@ -203,6 +205,7 @@ A0119 00030 72 65 73 2F Filename              'res/drawable-xxxhdpi-v4/ic_shortc
             6C 6F 67 6F
             2E 70 6E 67
 A0149 00003 00 00 00    Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0xA0149
 A014C 013E1 ...         PAYLOAD
 
 A152D 00004 50 4B 03 04 LOCAL HEADER #9       04034B50
@@ -221,6 +224,7 @@ A154B 0000E 72 65 73 6F Filename              'resources.arsc'
             73 2E 61 72
             73 63
 A1559 00003 00 00 00    Null Padding in Extra
+# INFO: 0x3 Null Padding Bytes in Extra Field @ 0xA1559
 A155C 0076C ...         PAYLOAD
 
 A1CC8 00004 50 4B 03 04 LOCAL HEADER #A       04034B50
@@ -757,4 +761,6 @@ A4412 00002 0D 00       Total Entries         000D
 A4414 00004 08 04 00 00 Size of Central Dir   00000408
 A4418 00004 00 40 0A 00 Offset to Central Dir 000A4000
 A441C 00002 00 00       Comment Length        0000
+
+Info Count: 4
 Done
