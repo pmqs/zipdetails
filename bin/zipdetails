@@ -2958,6 +2958,9 @@ sub decode_UT
     my $context = shift;
 
     # Definition in IZ APPNOTE
+
+    # Caller has determined that at least one byte is available
+
     my ($data, $flags) = read_C();
 
     my $f = Value_C $flags;
@@ -2971,6 +2974,14 @@ sub decode_UT
 
     if ($flags & 1)
     {
+        if ($len < 4)
+        {
+            outSomeData $len, "  Extra Data";
+            error "Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ " . hexValue($FH->tell()),
+                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
+            return;
+        }
+
         my ($data, $time) = read_V();
 
         out2 $data, "Mod Time",    Value_V($time) . " " . getTime($time) ;
@@ -2978,21 +2989,39 @@ sub decode_UT
         $len -= 4 ;
     }
 
+    # The remaining sub0fileds are only present in the Local Header
 
-      if ($flags & 2 && $len > 0 )
-      {
-          my ($data, $time) = read_V();
+    if ($flags & 2 && ! $context->{InCentralDir})
+    {
+        if ($len < 4)
+        {
+            outSomeData $len, "  Extra Data";
+            error "Extra Field 0x5455 ('UT') truncated reading 'Access Time' @ " . hexValue($FH->tell()),
+                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes" ;
+            return;
+        }
 
-          out2 $data, "Access Time",    Value_V($time) . " " . getTime($time) ;
-          $len -= 4 ;
-      }
+        my ($data, $time) = read_V();
 
-      if ($flags & 4 && $len > 0)
-      {
-          my ($data, $time) = read_V();
+        out2 $data, "Access Time",    Value_V($time) . " " . getTime($time) ;
+        $len -= 4 ;
+    }
 
-          out2 $data, "Change Time",    Value_V($time) . " " . getTime($time) ;
-      }
+    if ($flags & 4 && ! $context->{InCentralDir})
+    {
+        if ($len < 4)
+        {
+            outSomeData $len, "  Extra Data";
+
+            error "Extra Field 0x5455 ('UT') truncated reading 'Change Time' @ " . hexValue($FH->tell()),
+                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
+            return;
+        }
+
+        my ($data, $time) = read_V();
+
+        out2 $data, "Change Time",    Value_V($time) . " " . getTime($time) ;
+    }
 }
 
 
