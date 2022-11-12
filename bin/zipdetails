@@ -282,7 +282,7 @@ my %Extras = (
       0x4d63,  ['Macintosh SmartZIP, by Macro Bambini',                     undef],
       0x4f4c,  ['Xceed original location extra field',                      undef],
       0x5356,  ['AOS/VS (binary ACL)',                                      undef],
-      0x5455,  ['Extended Timestamp',                                       \&decode_UT,                    1, 13,  1, 5],
+      0x5455,  ['Extended Timestamp',                                       \&decode_UT,                    1, 13,  1, 13],
       0x554e,  ['Xceed unicode extra field',                                \&decode_Xceed_unicode,         6,  undef,  6,  undef],
       0x5855,  ['Info-ZIP Unix (original; also OS/2, NT, etc.)',            \&decode_UX,                    12, 12,     8, 8],
       0x5a4c,  ['ZipArchive Unicode Filename',                              undef],  # https://www.artpol-software.com/ZipArchive
@@ -2954,12 +2954,17 @@ sub _dosToUnixTime
 
 sub decode_UT
 {
+    # 0x5455 'UT: Extended Timestamp'
+
     my $len = shift;
     my $context = shift;
 
     # Definition in IZ APPNOTE
 
     # Caller has determined that at least one byte is available
+
+    # When $full is true assume all timestamps are present
+    my $full = ($len == 13) ;
 
     my ($data, $flags) = read_C();
 
@@ -2970,14 +2975,20 @@ sub decode_UT
 
     out $data, "  Flags", "'$f'";
 
+    info "Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ " . hexValue($FH->tell() - 1)
+        if $flags & ~0x7;
+
     -- $len;
 
-    if ($flags & 1)
+    if ($flags & 1 || $full)
     {
+        info "Extra Field 0x5455 ('UT') has unexpected 'Mod Time' @ " . hexValue($FH->tell())
+            if ! ($flags & 1)  ;
+
         if ($len < 4)
         {
             outSomeData $len, "  Extra Data";
-            error "Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ " . hexValue($FH->tell()),
+            error "Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ " . hexValue($FH->tell() - $len),
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
             return;
         }
@@ -2991,12 +3002,16 @@ sub decode_UT
 
     # The remaining sub0fileds are only present in the Local Header
 
-    if ($flags & 2 && ! $context->{InCentralDir})
+    if (($flags & 2 || $full) && ! $context->{InCentralDir})
     {
+        info "Extra Field 0x5455 ('UT') has unexpected 'Access Time' @ " . hexValue($FH->tell())
+            if ! ($flags & 2) || $context->{InCentralDir} ;
+
+
         if ($len < 4)
         {
             outSomeData $len, "  Extra Data";
-            error "Extra Field 0x5455 ('UT') truncated reading 'Access Time' @ " . hexValue($FH->tell()),
+            error "Extra Field 0x5455 ('UT') truncated reading 'Access Time' @ " . hexValue($FH->tell() - $len),
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes" ;
             return;
         }
@@ -3007,13 +3022,17 @@ sub decode_UT
         $len -= 4 ;
     }
 
-    if ($flags & 4 && ! $context->{InCentralDir})
+    if (($flags & 4  || $full) && ! $context->{InCentralDir})
     {
+        info "Extra Field 0x5455 ('UT') has unexpected 'Change Time' @ " . hexValue($FH->tell())
+            if ! ($flags & 4) || $context->{InCentralDir} ;
+
+
         if ($len < 4)
         {
             outSomeData $len, "  Extra Data";
 
-            error "Extra Field 0x5455 ('UT') truncated reading 'Change Time' @ " . hexValue($FH->tell()),
+            error "Extra Field 0x5455 ('UT') truncated reading 'Change Time' @ " . hexValue($FH->tell() - $len),
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
             return;
         }
@@ -3199,31 +3218,57 @@ sub decode_ux
     my $len = shift;
     my $context = shift;
 
+    # caller has checked that 3 bytes are available
+    
     return if $len == 0 ;
-    out_C "  Version" ;
-    my $uidSize = out_C "  UID Size";
+
+    my $version = out_C "  Version" ;
+    info "Extra Field 0x7875 ('ux') 'Version' should be 0x1, got " . hexValue($version) . " @ " . hexValue($FH->tell() - 1)
+        if $version != 1 ;
+
     my $available = $len - 1 ;
-    if ($available < $uidSize)
+
+    my $uidSize = out_C "  UID Size";
+    $available -= 1;
+
+    if ($uidSize)
     {
-        outSomeData($available, "  Badly formed extra data");
-        # TODO - need warning
-        return;
+        if ($available < $uidSize)
+        {
+            outSomeData($available, "  Bad Extra Data");
+            error "Extra Field 0x7875 ('ux') truncated reading 'UID' @ " . hexValue($FH->tell() - $available),
+                "Expected " . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
+            return;
+        }
+
+        myRead(my $data, $uidSize);
+        out2 $data, "UID", decodeLitteEndian($data);
+        $available -= $uidSize ;
     }
 
-    myRead(my $data, $uidSize);
-    out2 $data, "UID", decodeLitteEndian($data);
-    $available -= $uidSize ;
+    if ($available < 1)
+    {
+        error "Extra Field 0x7875 ('ux') truncated reading 'GID Size' @ " . hexValue($FH->tell()),
+                    "Expected 0x01" . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
+        return ;
+    }
 
     my $gidSize = out_C "  GID Size";
     $available -= 1 ;
-    if ($available < $gidSize)
+    if ($gidSize)
     {
-        outSomeData($available, "  Badly formed extra data");
-        # TODO - need warning
-        return;
+        if ($available < $gidSize)
+        {
+            outSomeData($available, "  Bad Extra Data");
+            error "Extra Field 0x7875 ('ux') truncated reading 'GID' @ " . hexValue($FH->tell() - $available),
+                        "Expected " . hexValue($gidSize) . " bytes, got " .  hexValue($available) . " bytes";
+            return;
+        }
+
+        myRead(my $data, $gidSize);
+        out2 $data, "GID", decodeLitteEndian($data);
+        $available -= $gidSize ;
     }
-    myRead($data, $gidSize);
-    out2 $data, "GID", decodeLitteEndian($data);
 
 }
 

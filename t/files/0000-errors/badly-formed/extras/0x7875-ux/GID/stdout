@@ -1,0 +1,70 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      0A '1.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
+000E CRC                   F007732D
+0012 Compressed Length     00000003
+0016 Uncompressed Length   00000003
+001A Filename Length       0004
+001C Extra Length          001C
+001E Filename              'test'
+0022 Extra ID #0001        5455 'UT: Extended Timestamp'
+0024   Length              0009
+0026   Flags               '03 mod access'
+0027   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
+002B   Access Time         5485F38F 'Mon Dec  8 18:53:03 2014'
+002F Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0031   Length              000B
+0033   Version             01
+0034   UID Size            04
+0035   UID                 000003E8
+0039   GID Size            F8
+003A   Bad Extra Data      ....
+# ERROR: Extra Field 0x7875 ('ux') truncated reading 'GID' @ 0x3A
+#        Expected 0xF8 bytes, got 0x4 bytes
+003E PAYLOAD               aaa
+
+0041 CENTRAL HEADER #1     02014B50
+0045 Created Zip Spec      1D '2.9'
+0046 Created OS            EB 'Unknown'
+0047 Extract Zip Spec      0A '1.0'
+0048 Extract OS            00 'MS-DOS'
+0049 General Purpose Flag  0000
+004B Compression Method    0000 'Stored'
+004D Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
+0051 CRC                   F007732D
+0055 Compressed Length     00000003
+0059 Uncompressed Length   00000003
+005D Filename Length       0004
+005F Extra Length          0018
+0061 Comment Length        0000
+0063 Disk Start            0000
+0065 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0067 Ext File Attributes   81A40000
+006B Local Header Offset   00000000
+006F Filename              'test'
+0073 Extra ID #0001        5455 'UT: Extended Timestamp'
+0075   Length              0005
+0077   Flags               '03 mod access'
+0078   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
+007C Extra ID #0002        7854
+# INFO: Unknown Extra ID 0x7854
+007E   Length              000B
+0080   Extra Payload       01 04 E8 03 00 00 04 E8 03 00 00
+
+008B END CENTRAL HEADER    06054B50
+008F Number of this disk   0000
+0091 Central Dir Disk no   0000
+0093 Entries in this disk  0001
+0095 Total Entries         0001
+0097 Size of Central Dir   0000004A
+009B Offset to Central Dir 00000041
+009F Comment Length        0000
+
+Error Count: 1
+Info Count: 1
+Done

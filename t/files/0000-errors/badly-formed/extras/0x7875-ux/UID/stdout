@@ -1,0 +1,61 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         556C6E63 'Sat Nov 12 13:51:06 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0009
+001E Filename              'filename'
+0026 Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0028   Length              0005
+002A   Version             01
+002B   UID Size            04
+002C   Bad Extra Data      abc
+# ERROR: Extra Field 0x7875 ('ux') truncated reading 'UID' @ 0x2C
+#        Expected 0x4 bytes, got 0x3 bytes
+002F PAYLOAD               abcde
+
+0034 CENTRAL HEADER #1     02014B50
+0038 Created Zip Spec      14 '2.0'
+0039 Created OS            03 'Unix'
+003A Extract Zip Spec      14 '2.0'
+003B Extract OS            00 'MS-DOS'
+003C General Purpose Flag  0000
+003E Compression Method    0000 'Stored'
+0040 Last Mod Time         556C6E63 'Sat Nov 12 13:51:06 2022'
+0044 CRC                   8587D865
+0048 Compressed Length     00000005
+004C Uncompressed Length   00000005
+0050 Filename Length       0008
+0052 Extra Length          0009
+0054 Comment Length        0000
+0056 Disk Start            0000
+0058 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+005A Ext File Attributes   81A40000
+005E Local Header Offset   00000000
+0062 Filename              'filename'
+006A Extra ID #0001        7875 'ux: Unix Extra Type 3'
+006C   Length              0005
+006E   Version             01
+006F   UID Size            04
+0070   Bad Extra Data      abc
+# ERROR: Extra Field 0x7875 ('ux') truncated reading 'UID' @ 0x70
+#        Expected 0x4 bytes, got 0x3 bytes
+
+0073 END CENTRAL HEADER    06054B50
+0077 Number of this disk   0000
+0079 Central Dir Disk no   0000
+007B Entries in this disk  0001
+007D Total Entries         0001
+007F Size of Central Dir   0000003F
+0083 Offset to Central Dir 00000034
+0087 Comment Length        0000
+
+Error Count: 2
+Done

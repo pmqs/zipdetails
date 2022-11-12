@@ -1,0 +1,1 @@
+perl -MIO::Compress::Zip=:all -e 'zip \"abcde"  => "test.zip", Name => "filename", Stream => 0, Method => 0, ExtraFieldLocal => ["UT" => "\x04abc"], ExtraFieldCentral => ["UT" => "\x05abc"]';

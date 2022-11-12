@@ -1,0 +1,62 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 ED 70 6C 55 Last Mod Time         556C70ED 'Sat Nov 12 14:07:26 2022'
+000E 0004 65 D8 87 85 CRC                   8587D865
+0012 0004 05 00 00 00 Compressed Length     00000005
+0016 0004 05 00 00 00 Uncompressed Length   00000005
+001A 0002 08 00       Filename Length       0008
+001C 0002 07 00       Extra Length          0007
+001E 0008 66 69 6C 65 Filename              'filename'
+          6E 61 6D 65
+0026 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0028 0002 03 00         Length              0003
+002A 0001 02            Version             02
+# INFO: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x2 @ 0x2A
+002B 0001 00            UID Size            00
+002C 0001 00            GID Size            00
+002D 0005 61 62 63 64 PAYLOAD               abcde
+          65
+
+0032 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0036 0001 14          Created Zip Spec      14 '2.0'
+0037 0001 03          Created OS            03 'Unix'
+0038 0001 14          Extract Zip Spec      14 '2.0'
+0039 0001 00          Extract OS            00 'MS-DOS'
+003A 0002 00 00       General Purpose Flag  0000
+003C 0002 00 00       Compression Method    0000 'Stored'
+003E 0004 ED 70 6C 55 Last Mod Time         556C70ED 'Sat Nov 12 14:07:26 2022'
+0042 0004 65 D8 87 85 CRC                   8587D865
+0046 0004 05 00 00 00 Compressed Length     00000005
+004A 0004 05 00 00 00 Uncompressed Length   00000005
+004E 0002 08 00       Filename Length       0008
+0050 0002 07 00       Extra Length          0007
+0052 0002 00 00       Comment Length        0000
+0054 0002 00 00       Disk Start            0000
+0056 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+0058 0004 00 00 A4 81 Ext File Attributes   81A40000
+005C 0004 00 00 00 00 Local Header Offset   00000000
+0060 0008 66 69 6C 65 Filename              'filename'
+          6E 61 6D 65
+0068 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra Type 3'
+006A 0002 03 00         Length              0003
+006C 0001 03            Version             03
+# INFO: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x3 @ 0x6C
+006D 0001 00            UID Size            00
+006E 0001 00            GID Size            00
+
+006F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0073 0002 00 00       Number of this disk   0000
+0075 0002 00 00       Central Dir Disk no   0000
+0077 0002 01 00       Entries in this disk  0001
+0079 0002 01 00       Total Entries         0001
+007B 0004 3D 00 00 00 Size of Central Dir   0000003D
+007F 0004 32 00 00 00 Offset to Central Dir 00000032
+0083 0002 00 00       Comment Length        0000
+
+Info Count: 2
+Done

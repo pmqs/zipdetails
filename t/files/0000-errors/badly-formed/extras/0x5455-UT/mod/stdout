@@ -14,8 +14,9 @@
 0026 Extra ID #0001        5455 'UT: Extended Timestamp'
 0028   Length              0004
 002A   Flags               '09 mod'
+# INFO: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ 0x2A
 002B   Extra Data          abc
-# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x2E
+# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x2B
 #        Expected 0x4 bytes, got 0x3 bytes
 002E PAYLOAD               abcde
 
@@ -42,8 +43,9 @@
 0069 Extra ID #0001        5455 'UT: Extended Timestamp'
 006B   Length              0004
 006D   Flags               '09 mod'
+# INFO: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ 0x6D
 006E   Extra Data          abc
-# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x71
+# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x6E
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0071 END CENTRAL HEADER    06054B50
@@ -56,4 +58,5 @@
 0085 Comment Length        0000
 
 Error Count: 2
+Info Count: 2
 Done

@@ -1,0 +1,59 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         556C6948 'Sat Nov 12 13:10:16 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0008
+001E Filename              'filename'
+0026 Extra ID #0001        5455 'UT: Extended Timestamp'
+0028   Length              0004
+002A   Flags               '02 access'
+002B   Extra Data          abc
+# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Access Time' @ 0x2B
+#        Expected 0x4 bytes, got 0x3 bytes
+002E PAYLOAD               abcde
+
+0033 CENTRAL HEADER #1     02014B50
+0037 Created Zip Spec      14 '2.0'
+0038 Created OS            03 'Unix'
+0039 Extract Zip Spec      14 '2.0'
+003A Extract OS            00 'MS-DOS'
+003B General Purpose Flag  0000
+003D Compression Method    0000 'Stored'
+003F Last Mod Time         556C6948 'Sat Nov 12 13:10:16 2022'
+0043 CRC                   8587D865
+0047 Compressed Length     00000005
+004B Uncompressed Length   00000005
+004F Filename Length       0008
+0051 Extra Length          0008
+0053 Comment Length        0000
+0055 Disk Start            0000
+0057 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0059 Ext File Attributes   81A40000
+005D Local Header Offset   00000000
+0061 Filename              'filename'
+0069 Extra ID #0001        5455 'UT: Extended Timestamp'
+006B   Length              0004
+006D   Flags               '02 access'
+# ERROR: Expected to be at offset 0x71 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x6E
+#        Skipping 0x3 bytes
+006E   Extra Data          abc
+
+0071 END CENTRAL HEADER    06054B50
+0075 Number of this disk   0000
+0077 Central Dir Disk no   0000
+0079 Entries in this disk  0001
+007B Total Entries         0001
+007D Size of Central Dir   0000003E
+0081 Offset to Central Dir 00000033
+0085 Comment Length        0000
+
+Error Count: 2
+Done
