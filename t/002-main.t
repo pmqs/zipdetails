@@ -5,6 +5,12 @@
 # ZIPDETAILS_TEST_KEEP_OUTPUT   keep the output from all tests
 # ZIPDETAILS_TEST_DIFF          run "diff" if the output isn't correct
 # ZIPDETAILS_TEST_REFRESH       refresh the stdout/stderr files
+# ZIPDETAILS_COVERAGE           run Devel::NYTProf profiler
+
+#
+#  nytprofmerge --out nytprof.out `find -name nytprof.out`
+#  nytprofhtml --open
+# 
 
 use 5.010;
 
@@ -62,6 +68,12 @@ my %skip_dirs = map { $_ => 1} qw( t/files/0010-apache-commons-compress/commons-
 my @failed = ();
 
 $ENV{ZIPDETAILS_TESTHARNESS} = 1 ;
+
+if ($ENV{ZIPDETAILS_COVERAGE})
+{
+    $ENV{PERL5OPT} = '-d:NYTProf' ;
+    # $ENV{NYTPROF}  = "file=$HERE/nytprof.out";
+}
 
 find(
         sub { $dirs{$File::Find::dir} = $_
