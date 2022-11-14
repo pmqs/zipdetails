@@ -14,7 +14,7 @@
           6E 61 6D 65
 0026 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
 0028 0002 01 00         Length              0001
-# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x7075 (Info-ZIP Unicode Path) invalid: expected must be at least 0x5, got 0x1
+# ERROR: Offset 0x28: 'Length' field in 'Extra ID' 0x7075 (Info-ZIP Unicode Path) invalid: value must be at least 0x5, got 0x1
 
 002A 0001 31            Extra Payload       1
 002B 0005 61 62 63 64 PAYLOAD               abcde

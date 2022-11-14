@@ -16,7 +16,7 @@
 002A   Version             01
 002B   UID Size            04
 002C   Bad Extra Data      abc
-# ERROR: Extra Field 0x7875 ('ux') truncated reading 'UID' @ 0x2C
+# ERROR: Offset 0x2C: Extra Field 0x7875 ('ux') truncated reading 'UID'
 #        Expected 0x4 bytes, got 0x3 bytes
 002F PAYLOAD               abcde
 
@@ -45,7 +45,7 @@
 006E   Version             01
 006F   UID Size            04
 0070   Bad Extra Data      abc
-# ERROR: Extra Field 0x7875 ('ux') truncated reading 'UID' @ 0x70
+# ERROR: Offset 0x70: Extra Field 0x7875 ('ux') truncated reading 'UID'
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0073 END CENTRAL HEADER    06054B50

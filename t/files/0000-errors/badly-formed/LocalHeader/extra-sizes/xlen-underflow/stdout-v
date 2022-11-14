@@ -15,7 +15,7 @@
 0026 0002 FF FF       Extra ID #0001        FFFF 'DUMMY'
 0028 0002 05 00         Length              0005
 002A 0004 31 32 33 34   Data                34333231
-# ERROR: Expected to be at offset 0x2F after processing Extra Field 0xFFFF ('DUMMY'), actually at 0x2E
+# ERROR: Offset 0x2E: Expected to be at offset 0x2F after processing Extra Field 0xFFFF ('DUMMY'), actually at 0x2E
 #        Skipping 0x1 bytes
 002E 0001 35            Extra Data          5
 002F 0005 61 62 63 64 PAYLOAD               abcde

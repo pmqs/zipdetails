@@ -14,7 +14,7 @@
 0026 Extra ID #0001        5855 'UX: Info-ZIP Unix (original; also
                            OS/2, NT, etc.)'
 0028   Length              000E
-# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x5855 (Info-ZIP Unix (original; also OS/2, NT, etc.)) invalid: expected 0xC, got 0xE
+# ERROR: Offset 0x28: 'Length' field in 'Extra ID' 0x5855 (Info-ZIP Unix (original; also OS/2, NT, etc.)) invalid: expected 0xC, got 0xE
 
 002A   Extra Payload       xxxxxxxxxxxxxx
 0038 PAYLOAD               abcde

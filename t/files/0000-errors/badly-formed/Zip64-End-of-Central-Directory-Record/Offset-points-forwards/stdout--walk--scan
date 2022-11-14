@@ -56,7 +56,7 @@
 019C Total Entries         0000000000000001
 01A4 Size of Central Dir   000000000000003B
 01AC Offset to Central dir 00000000000001B4
-# ERROR: 'Offset to Central Directory' field @ 0x1AC in 'Zip64 End of Central Directory Record' is invalid
+# ERROR: Offset 0x1AC: 'Offset to Central Directory' field in 'Zip64 End of Central Directory Record' is invalid
 #        value 0x1B4 must be less that 0x17C
 
 01B4 ZIP64 END CENTRAL DIR 07064B50

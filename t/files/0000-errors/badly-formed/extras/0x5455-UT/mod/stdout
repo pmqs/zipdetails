@@ -16,7 +16,7 @@
 002A   Flags               '09 mod'
 # INFO: Offset 0x2A: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
 002B   Extra Data          abc
-# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x2B
+# ERROR: Offset 0x2B: Extra Field 0x5455 ('UT') truncated reading 'Mod Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 002E PAYLOAD               abcde
 
@@ -45,7 +45,7 @@
 006D   Flags               '09 mod'
 # INFO: Offset 0x6D: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
 006E   Extra Data          abc
-# ERROR: Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ 0x6E
+# ERROR: Offset 0x6E: Extra Field 0x5455 ('UT') truncated reading 'Mod Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0071 END CENTRAL HEADER    06054B50

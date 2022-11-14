@@ -23,7 +23,7 @@
 0035 0004 E8 03 00 00   UID                 000003E8
 0039 0001 F8            GID Size            F8
 003A 0004 E8 03 00 00   Bad Extra Data      ....
-# ERROR: Extra Field 0x7875 ('ux') truncated reading 'GID' @ 0x3A
+# ERROR: Offset 0x3A: Extra Field 0x7875 ('ux') truncated reading 'GID'
 #        Expected 0xF8 bytes, got 0x4 bytes
 003E 0003 61 61 61    PAYLOAD               aaa
 

@@ -35,6 +35,8 @@ sub info ;
 sub warning ;
 sub error ;
 sub fatal ;
+sub topLevelFatal ;
+sub internalFatal;
 sub need ;
 
 use constant MAX32 => 0xFFFFFFFF ;
@@ -602,7 +604,7 @@ sub Value
     elsif ($letter eq 'Q<')
       { return Value_Q(@value) }
     else
-      { fatal "here letter $letter"}
+      { internalFatal undef, "here letter $letter"}
 }
 
 sub outer
@@ -916,27 +918,27 @@ Usage("Cannot specify both '--walk' and '--scan'")
 
 my $filename = shift @ARGV;
 
-fatal "No such file"
+topLevelFatal "No such file"
     unless -e $filename ;
 
-fatal "is a directory"
+topLevelFatal "'$filename' is a directory"
     if -d $filename ;
 
-fatal "not a standard file"
+topLevelFatal "'$filename' is not a standard file"
     unless -f $filename ;
 
 $FH = IO::File->new( "<$filename" )
-    or fatal "$!";
+    or topLevelFatal "Cannot open '$filename': $!";
 binmode($FH);
 
 my $FILELEN = -s $filename ;
 $TRAILING = -s $filename ;
 $NIBBLES = nibbles(-s $filename) ;
 
-fatal "file is empty"
+topLevelFatal "'$filename' is empty"
     if $FILELEN == 0 ;
 
-fatal "file is too short to be a zip file"
+topLevelFatal "file is too short to be a zip file"
     if $FILELEN <  ZIP_EOCD_MIN_SIZE ;
 
 setupFormat($opt_verbose, $NIBBLES);
@@ -1036,7 +1038,7 @@ if ($opt_scan || $opt_walk)
 
         my $handler = Signatures::decoder($signature);
         if (!defined $handler) {
-            fatal "xxx";
+            internalFatal undef, "xxx";
         }
 
         $foundZipRecords = 1;
@@ -1048,7 +1050,7 @@ if ($opt_scan || $opt_walk)
             if $opt_scan;
     }
 
-    fatal "Not a zip file"
+    topLevelFatal "'$filename' is not a zip file"
         unless $foundZipRecords ;
 
     dislayMessages();
@@ -1070,7 +1072,7 @@ else
 
     scanCentralDirectory($FH);
 
-    fatal_tryWalk "No Zip metadata found at end of file"
+    fatal_tryWalk undef, "No Zip metadata found at end of file"
         if ! $CentralDirectory->exists() && ! $EOCD_Present ;
 
     # $HeaderOffsetIndex->dump();
@@ -1146,7 +1148,7 @@ else
             if ($here > $expectedOffset)
             {
                 # TODO -- what to so if $here > expectedOffset
-                fatal "fix me 1";
+                internalFatal undef, "fix me 1";
             }
 
             # If get here then $here is less than $expectedOffset
@@ -1240,7 +1242,7 @@ else
             # }
             # else
             {
-                fatal sprintf "Unexpected Zip Signature '%08X' at offset 0x%08X\n", Value_V($signature), $here ;
+                fatal $here, sprintf "Unexpected Zip Signature '%08X' at offset 0x%08X\n", Value_V($signature), $here ;
                 last;
             }
         }
@@ -1325,7 +1327,7 @@ sub LocalHeader
 
         if ($cdIndex && $cdIndex != $LocalHeaderCount)
         {
-            # fatal "$cdIndex != $LocalHeaderCount"
+            # fatal undef, "$cdIndex != $LocalHeaderCount"
         }
 
         # my $cdi = sprintf("%X", $cdIndex) ;
@@ -1699,8 +1701,8 @@ sub CentralHeader
     out $d, "Local Header Offset", $out;
 
     {
-        my $commonMessage = "'Local Header Offset' field @ " . hexValue($startRecordOffset + 42) . " in '" . Signatures::name($signature) .  "' is invalid";
-        $locHeaderOffset = checkOffsetValue($locHeaderOffset, $startRecordOffset, 0, $commonMessage, ZIP_LOCAL_HDR_SIG) ;
+        my $commonMessage = "'Local Header Offset' field in '" . Signatures::name($signature) .  "' is invalid";
+        $locHeaderOffset = checkOffsetValue($locHeaderOffset, $startRecordOffset, 0, $commonMessage, $startRecordOffset + 42, ZIP_LOCAL_HDR_SIG) ;
     }
 
     need $filenameLength, Signatures::name($signature), 'Filename';
@@ -1801,8 +1803,8 @@ sub Zip64EndCentralHeader
 
     if (! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 48) . " in '" . Signatures::name($signature) . "' is invalid";
-        $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
+        my $commonMessage = "'Offset to Central Directory' field in '" . Signatures::name($signature) . "' is invalid";
+        $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, $startRecordOffset + 48, ZIP_CENTRAL_HDR_SIG, 0, $extractSpec < 0x3E) ;
     }
 
     # Length of 44 means typical version 1 header
@@ -1902,8 +1904,8 @@ sub Zip64EndCentralLocator
 
     if ($totalDisks > 0)
     {
-        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($FH->tell() - 12) . " in '" . Signatures::name($signature) . "' is invalid";
-        $zip64EndCentralDirOffset = checkOffsetValue($zip64EndCentralDirOffset, $startRecordOffset, 0, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field in '" . Signatures::name($signature) . "' is invalid";
+        $zip64EndCentralDirOffset = checkOffsetValue($zip64EndCentralDirOffset, $startRecordOffset, 0, $commonMessage, $FH->tell() - 12, ZIP64_END_CENTRAL_REC_HDR_SIG) ;
     }
 
     return {};
@@ -1980,8 +1982,8 @@ sub EndCentralHeader
     if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
         ! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($startRecordOffset + 16) . " in '"  . Signatures::name($signature) .  "' is invalid";
-        $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, ZIP_CENTRAL_HDR_SIG) ;
+        my $commonMessage = "'Offset to Central Directory' field in '"  . Signatures::name($signature) .  "' is invalid";
+        $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, $startRecordOffset + 16, ZIP_CENTRAL_HDR_SIG) ;
     }
 
     my $comment_length = out_v "Comment Length";
@@ -2218,7 +2220,7 @@ sub myRead
     }
 
     my $len = length $$got;
-    fatal "Truncated file (got $len, wanted $wantSize): $!\n"
+    fatal undef, "Truncated file (got $len, wanted $wantSize): $!\n"
         if length $$got != $wantSize;
 }
 
@@ -2237,18 +2239,18 @@ sub need
 
         if ($field)
         {
-            push @message, "file truncated while reading '$field' field in '$message' \@ " . hexValue($here);
+            push @message, "file truncated while reading '$field' field in '$message'";
         }
         else
         {
-            push @message, "file truncated while reading '$message' \@ " . hexValue($here);
+            push @message, "file truncated while reading '$message'";
         }
 
         push @message, sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
         push @message, "Try running with --walk' or '--scan' options"
             if ! $opt_scan && ! $opt_walk ;
 
-        fatal @message;
+        fatal $here, @message;
     }
 }
 
@@ -2322,7 +2324,7 @@ sub offsetIsValid
 
             my $gotSig = readSignatureFromOffset($actual);
             my $v = hexValue32($gotSig);
-            return 'expected value @ ' .  hexValue($actual) . " should decode to signature for " . Signatures::nameAndHex($expectedSignature) . ". Got $v" # . hexValue32($gotSig)
+            return 'value @ ' .  hexValue($actual) . " should decode to signature for " . Signatures::nameAndHex($expectedSignature) . ". Got $v" # . hexValue32($gotSig)
                 if $gotSig != $expectedSignature ;
 
             $PREFIX_DELTA = $possibleDelta;
@@ -2334,7 +2336,7 @@ sub offsetIsValid
         {
             my $gotSig = readSignatureFromOffset($offset);
             my $v = hexValue32($gotSig);
-            return 'expected value @ ' .  hexValue($offset) . " should decode to signature for " . Signatures::nameAndHex($expectedSignature) . ". Got $v" # . hexValue32($gotSig)
+            return 'value @ ' .  hexValue($offset) . " should decode to signature for " . Signatures::nameAndHex($expectedSignature) . ". Got $v" # . hexValue32($gotSig)
                 if $gotSig != $expectedSignature ;
         }
     }
@@ -2348,6 +2350,7 @@ sub checkOffsetValue
     my $headerStart = shift;
     my $centralDirSize = shift;
     my $commonMessage = shift ;
+    my $messageOffset = shift;
     my $expectedSignature = shift ;
     my $fatal = shift // 0;
     my $dereferencePointer = shift // 1;
@@ -2355,10 +2358,11 @@ sub checkOffsetValue
     my $message = offsetIsValid($offset, $headerStart, $centralDirSize, $commonMessage, $expectedSignature, $dereferencePointer);
     if ($message)
     {
-        fatal_tryWalk($commonMessage, $message)
+        # TODO -- add messageOffset here
+        fatal_tryWalk($messageOffset, $commonMessage, $message)
             if $fatal;
 
-        error $commonMessage, $message
+        error $messageOffset, $commonMessage, $message
             if ! $fatal;
     }
 
@@ -2369,66 +2373,112 @@ sub checkOffsetValue
 sub fatal_truncated
 {
     my $message = shift;
-    fatal_tryWalk("truncated file", $message, @_);
+    fatal_tryWalk(undef, "truncated file", $message, @_);
 
 }
 
-sub fatal_truncated_record
-{
-    my $record = shift;
-    my $need = shift;
+# sub fatal_truncated_record
+# {
+#     my $record = shift;
+#     my $need = shift;
 
-    fatal_tryWalk("truncated record $record - need $need bytes ", @_);
+#     fatal_tryWalk("truncated record $record - need $need bytes ", @_);
 
-}
+# }
 
 sub fatal_tryWalk
 {
+    my $offset   = shift ;
     my $message = shift;
 
-    fatal($message, @_, "Try running with --walk' or '--scan' options");
+    fatal($offset, $message, @_, "Try running with --walk' or '--scan' options");
 }
 
 sub fatal
 {
+    my $offset   = shift ;
     my $message = shift;
 
-    warn "FATAL: $message\n";
-    warn $_ . "\n"
+    if (defined $offset)
+    {
+        warn "# FATAL: Offset " . hexValue($offset) . ": $message\n";
+    }
+    else
+    {
+        warn "# FATAL: $message\n";
+    }
+
+    # warn "FATAL: $message\n";
+    warn  "#        $_ . \n"
         for @_;
+
+    exit 1;
+}
+
+sub topLevelFatal
+{
+    my $message = shift ;
+
+    warn "FATAL: $message\n";
+
+    warn  "$_ . \n"
+        for @_;
+
     exit 1;
 }
 
 sub internalFatal
 {
+    my $offset   = shift ;
     my $message = shift;
 
-    warn "FATAL: Internal Error: $message\n";
+    if (defined $offset)
+    {
+        warn "# FATAL: Offset " . hexValue($offset) . ": Internal Error: $message\n";
+    }
+    else
+    {
+        warn "# FATAL: Internal Error: $message\n";
+    }
+
+    # warn "FATAL: Internal Error: $message\n";
     warn "       $_ \n"
         for @_;
     warn "       Please report error at https://github.com/pmqs/zipdetails/issues\n";
+
     exit 1;
 }
 
 sub warning
 {
+    my $offset   = shift ;
     my $message  = shift;
 
-    print "# WARNING: $message\n";
+    if (defined $offset)
+    {
+        print "# WARNING: Offset " . hexValue($offset) . ": $message\n";
+    }
+    else
+    {
+        print "# WARNING: $message\n";
+    }
+
+
+    # print "# WARNING: $message\n";
     print "#          $_\n" for @_ ;
     ++ $WarningCount ;
 }
 
 sub error
 {
-    # my $offset   = shift ;
+    my $offset   = shift ;
     my $message  = shift;
 
-    # if (defined $offset)
-    # {
-    #     print "# ERROR: Offset " . hexValue($offset) . ": $message\n";
-    # }
-    # else
+    if (defined $offset)
+    {
+        print "# ERROR: Offset " . hexValue($offset) . ": $message\n";
+    }
+    else
     {
         print "# ERROR: $message\n";
     }
@@ -2521,7 +2571,7 @@ sub walkExtra
             else
             {
                 out $payload, "Extra Data", $data;
-                error "'Extra Data' Malformed";
+                error $FH->tell() - length($payload), "'Extra Data' Malformed";
             }
 
             return undef;
@@ -2571,7 +2621,8 @@ sub walkExtra
         $remaining = $XLEN - $offset;
         if ($subLen > $remaining )
         {
-            error sprintf("'Length' field @ 0x%X in $errorIdString invalid", $FH->tell() -2),
+            error $FH->tell() -2,
+                  "'Length' field in $errorIdString invalid",
                   sprintf("value %s > %s bytes remaining\n", hexValue($subLen), hexValue($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
@@ -2602,13 +2653,14 @@ sub walkExtra
                 if ($here > $endExtraOffset)
                 {
                     # gone too far, so need to bomb out now
-                    internalFatal "Overflow processing $errorIdString.",
+                    internalFatal $here, "Overflow processing $errorIdString.",
                                   sprintf("Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here));
                 }
                 elsif ($here < $endExtraOffset)
                 {
                     # not gone far enough, can recover
-                    error sprintf("Expected to be at offset %s after processing $errorIdString, actually at %s", hexValue($endExtraOffset),  hexValue($here)),
+                    error $here,
+                            sprintf("Expected to be at offset %s after processing $errorIdString, actually at %s", hexValue($endExtraOffset),  hexValue($here)),
                             "Skipping " . hexValue($endExtraOffset - $here) . " bytes";
                     outSomeData $endExtraOffset - $here, "  Extra Data";
                 }
@@ -2643,7 +2695,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
+                error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: expected %s, got %s\n", hexValue16($lookID), hexValue($min),  hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -2652,7 +2704,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected value must be betweem %s and %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min), hexValue($max), hexValue($size);
+                error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: value must be betweem %s and %s, got %s\n", hexValue16($lookID), hexValue($min), hexValue($max), hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -2663,7 +2715,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            error sprintf "'Length' field @ %s in 'Extra ID' %s ($who) invalid: expected must be at least %s, got %s\n", hexValue($FH->tell() -2), hexValue16($lookID), hexValue($min),  hexValue($size);
+            error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: value must be at least %s, got %s\n", hexValue16($lookID), hexValue($min),  hexValue($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }
@@ -3008,7 +3060,8 @@ sub decode_UT
         if ($len < 4)
         {
             outSomeData $len, "  Extra Data";
-            error "Extra Field 0x5455 ('UT') truncated reading 'Mod Time' @ " . hexValue($FH->tell() - $len),
+            error $FH->tell() - $len,
+                "Extra Field 0x5455 ('UT') truncated reading 'Mod Time'",
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
             return;
         }
@@ -3031,7 +3084,8 @@ sub decode_UT
         if ($len < 4)
         {
             outSomeData $len, "  Extra Data";
-            error "Extra Field 0x5455 ('UT') truncated reading 'Access Time' @ " . hexValue($FH->tell() - $len),
+            error $FH->tell() - $len,
+                "Extra Field 0x5455 ('UT') truncated reading 'Access Time'" ,
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes" ;
             return;
         }
@@ -3052,7 +3106,8 @@ sub decode_UT
         {
             outSomeData $len, "  Extra Data";
 
-            error "Extra Field 0x5455 ('UT') truncated reading 'Change Time' @ " . hexValue($FH->tell() - $len),
+            error  $FH->tell() - $len,
+                "Extra Field 0x5455 ('UT') truncated reading 'Change Time'" ,
                 "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
             return;
         }
@@ -3213,7 +3268,7 @@ sub decodeLitteEndian
     }
     else {
         # TODO - fix this
-        fatal "unsupported\n";
+        internalFatal undef, "unsupported\n";
     }
 
     my $got = 0 ;
@@ -3256,7 +3311,8 @@ sub decode_ux
         if ($available < $uidSize)
         {
             outSomeData($available, "  Bad Extra Data");
-            error "Extra Field 0x7875 ('ux') truncated reading 'UID' @ " . hexValue($FH->tell() - $available),
+            error $FH->tell() - $available,
+                "Extra Field 0x7875 ('ux') truncated reading 'UID'",
                 "Expected " . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
             return;
         }
@@ -3268,7 +3324,8 @@ sub decode_ux
 
     if ($available < 1)
     {
-        error "Extra Field 0x7875 ('ux') truncated reading 'GID Size' @ " . hexValue($FH->tell()),
+        error $FH->tell(),
+                    "Extra Field 0x7875 ('ux') truncated reading 'GID Size'",
                     "Expected 0x01" . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
         return ;
     }
@@ -3280,7 +3337,8 @@ sub decode_ux
         if ($available < $gidSize)
         {
             outSomeData($available, "  Bad Extra Data");
-            error "Extra Field 0x7875 ('ux') truncated reading 'GID' @ " . hexValue($FH->tell() - $available),
+            error $FH->tell() - $available,
+                        "Extra Field 0x7875 ('ux') truncated reading 'GID'",
                         "Expected " . hexValue($gidSize) . " bytes, got " .  hexValue($available) . " bytes";
             return;
         }
@@ -3724,8 +3782,8 @@ sub scanCentralDirectory
             # 2. offset points forward in the file
             # 3. value at offset is not a CD record signature
 
-            my $commonMessage = "'Local Header Offset' field @ " . hexValue($startHeader + 42) . " in '" . Signatures::name(ZIP_CENTRAL_HDR_SIG) . "' is invalid";
-            checkOffsetValue($locHeaderOffset, $startHeader, 0, $commonMessage, ZIP_LOCAL_HDR_SIG, 1) ;
+            my $commonMessage = "'Local Header Offset' field in '" . Signatures::name(ZIP_CENTRAL_HDR_SIG) . "' is invalid";
+            checkOffsetValue($locHeaderOffset, $startHeader, 0, $commonMessage, $startHeader + 42, ZIP_LOCAL_HDR_SIG, 1) ;
         }
 
         # skip($fh, $filename_length ) ;
@@ -3827,7 +3885,7 @@ sub offsetFromZip64
     $fh->read($buffer, ZIP64_END_CENTRAL_LOC_HDR_SIZE);
 
     my $gotSig = unpack("V", $buffer);
-    fatal_tryWalk sprintf("Expected signature for " . Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) . " not found @ 0x%X, got 0x%X", $here - 4, $gotSig)
+    fatal_tryWalk $here - 4, sprintf("Expected signature for " . Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) . " not found, got 0x%X", $gotSig)
         if $gotSig != ZIP64_END_CENTRAL_LOC_HDR_SIG ;
 
     $HeaderOffsetIndex->addOffset($fh->tell() - ZIP64_END_CENTRAL_LOC_HDR_SIZE, ZIP64_END_CENTRAL_LOC_HDR_SIG) ;
@@ -3841,8 +3899,8 @@ sub offsetFromZip64
     if ($totalDisks > 0)
     {
         # my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in 'Zip64 End Central Locator' is invalid";
-        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in '" . Signatures::name(ZIP64_END_CENTRAL_LOC_HDR_SIG) . "' is invalid";
-        $cd64 = checkOffsetValue($cd64, $here, 0, $commonMessage, ZIP64_END_CENTRAL_REC_HDR_SIG, 1) ;
+        my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field in '" . Signatures::name(ZIP64_END_CENTRAL_LOC_HDR_SIG) . "' is invalid";
+        $cd64 = checkOffsetValue($cd64, $here, 0, $commonMessage, $here + 8, ZIP64_END_CENTRAL_REC_HDR_SIG, 1) ;
     }
 
     my $delta = $here - $cd64;
@@ -3855,7 +3913,7 @@ sub offsetFromZip64
 
     # check enough bytes available
     # fatal_tryWalk sprintf "Size of 'Zip64 End of Central Directory Record' 0x%X too small", $cd64
-    fatal_tryWalk sprintf "Size of $zip64eocd_name 0x%X too small", $cd64
+    fatal_tryWalk undef, sprintf "Size of $zip64eocd_name 0x%X too small", $cd64
         if $delta < ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE;
 
     # Seek to Zip64 End of Central Directory Record
@@ -3865,7 +3923,7 @@ sub offsetFromZip64
     $fh->read($buffer, ZIP64_END_CENTRAL_REC_HDR_MIN_SIZE) ;
 
     my $sig = unpack("V", substr($buffer, 0, 4)) ;
-    fatal_tryWalk sprintf "Cannot find $zip64eocd_name: expected $zip64eocd_value but got 0x%X", $sig
+    fatal_tryWalk undef, sprintf "Cannot find $zip64eocd_name: expected $zip64eocd_value but got 0x%X", $sig
         if $sig != ZIP64_END_CENTRAL_REC_HDR_SIG ;
 
     # pkzip sets the extract zip spec to 6.2 (0x3E) to signal a v2 record
@@ -3890,8 +3948,8 @@ sub offsetFromZip64
 
     if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
     {
-        my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 48) . " in $zip64eocd_name is invalid";
-        $centralDirOffset = checkOffsetValue($centralDirOffset, $here, 0, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1, $extractSpec < 0x3E) ;
+        my $commonMessage = "'Offset to Central Directory' field in $zip64eocd_name is invalid";
+        $centralDirOffset = checkOffsetValue($centralDirOffset, $here, 0, $commonMessage, $here + 48, ZIP_CENTRAL_HDR_SIG, 1, $extractSpec < 0x3E) ;
     }
 
     # TODO - APPNOTE allows an extensible data sector here (see APPNOTE 6.3.10, section 4.3.14.2) -- need to take this into account
@@ -4017,8 +4075,8 @@ sub findCentralDirectoryOffset
     {
         if ($centralDirSize)
         {
-            my $commonMessage = "'Offset to Central Directory' field @ " . hexValue($here + 16) . " in '" . Signatures::name(ZIP_END_CENTRAL_HDR_SIG) . "' is invalid";
-            $centralDirOffset = checkOffsetValue($centralDirOffset, $here, $centralDirSize, $commonMessage, ZIP_CENTRAL_HDR_SIG, 1) ;
+            my $commonMessage = "'Offset to Central Directory' field in '" . Signatures::name(ZIP_END_CENTRAL_HDR_SIG) . "' is invalid";
+            $centralDirOffset = checkOffsetValue($centralDirOffset, $here, $centralDirSize, $commonMessage, $here + 16, ZIP_CENTRAL_HDR_SIG, 1) ;
         }
     }
 
@@ -4137,7 +4195,7 @@ sub nibbles
             }
             elsif ($from_offset >= $entry->{from} && $to_offset <= $entry->{to} )
             {
-                # fatal "overlap!"
+                # fatal undef, "overlap!"
                 # push @{ $self->{overlap} },
                 $self->{overlap_count} ++;
 
@@ -4147,7 +4205,7 @@ sub nibbles
                     ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
                )
             {
-                # fatal "overlap!"
+                # fatal undef, "overlap!"
                 # push @{ $self->{overlap} },
                 $self->{overlap_count} ++;
 

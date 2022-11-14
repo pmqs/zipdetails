@@ -52,7 +52,7 @@
 # INFO: Offset 0x76: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
 # INFO: Offset 0x77: Extra Field 0x5455 ('UT') has unexpected 'Mod Time'
 0077 0004 61 62 63 64   Mod Time            64636261 'Tue May 16 11:00:49 2023'
-# ERROR: Expected to be at offset 0x83 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x7B
+# ERROR: Offset 0x7B: Expected to be at offset 0x83 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x7B
 #        Skipping 0x8 bytes
 007B 0008 61 62 63 64   Extra Data          abcdabcd
           61 62 63 64

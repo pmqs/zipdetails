@@ -13,7 +13,7 @@
 001E Filename              'filename'
 0026 Extra ID #0001        9903 'Reference'
 0028   Length              0000
-# ERROR: 'Length' field @ 0x28 in 'Extra ID' 0x9903 (Reference) invalid: expected 0x14, got 0x0
+# ERROR: Offset 0x28: 'Length' field in 'Extra ID' 0x9903 (Reference) invalid: expected 0x14, got 0x0
 
 002A PAYLOAD               abcde
 

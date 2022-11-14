@@ -88,8 +88,8 @@
 01EA Total Entries         0001
 01EC Size of Central Dir   00000037
 01F0 Offset to Central Dir 000001A9 [Actual Offset is 000001D0]
-# ERROR: 'Offset to Central Directory' field @ 0x1F0 in 'End Central Directory Record' is invalid
-#        expected value @ 0x1D0 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x0081B400
+# ERROR: Offset 0x1F0: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
+#        value @ 0x1D0 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x0081B400
 01F4 Comment Length        0000
 
 Error Count: 1
