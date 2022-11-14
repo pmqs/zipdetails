@@ -14,12 +14,12 @@
 0026 Extra ID #0001        5455 'UT: Extended Timestamp'
 0028   Length              000D
 002A   Flags               '08'
-# INFO: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ 0x2A
-# INFO: Extra Field 0x5455 ('UT') has unexpected 'Mod Time' @ 0x2B
+# INFO: Offset 0x2A: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
+# INFO: Offset 0x2B: Extra Field 0x5455 ('UT') has unexpected 'Mod Time'
 002B   Mod Time            64636261 'Tue May 16 11:00:49 2023'
-# INFO: Extra Field 0x5455 ('UT') has unexpected 'Access Time' @ 0x2F
+# INFO: Offset 0x2F: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
 002F   Access Time         64636261 'Tue May 16 11:00:49 2023'
-# INFO: Extra Field 0x5455 ('UT') has unexpected 'Change Time' @ 0x33
+# INFO: Offset 0x33: Extra Field 0x5455 ('UT') has unexpected 'Change Time'
 0033   Change Time         64636261 'Tue May 16 11:00:49 2023'
 0037 PAYLOAD               abcde
 
@@ -46,8 +46,8 @@
 0072 Extra ID #0001        5455 'UT: Extended Timestamp'
 0074   Length              000D
 0076   Flags               '08'
-# INFO: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ 0x76
-# INFO: Extra Field 0x5455 ('UT') has unexpected 'Mod Time' @ 0x77
+# INFO: Offset 0x76: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
+# INFO: Offset 0x77: Extra Field 0x5455 ('UT') has unexpected 'Mod Time'
 0077   Mod Time            64636261 'Tue May 16 11:00:49 2023'
 # ERROR: Expected to be at offset 0x83 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x7B
 #        Skipping 0x8 bytes

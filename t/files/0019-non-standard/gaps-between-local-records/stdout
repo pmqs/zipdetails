@@ -14,7 +14,7 @@
 0029 PAYLOAD               abcde
 
 002E UNEXPECTED PADDING    .
-# INFO: Unexpected Padding: 0x1 bytes @ 0x2E
+# INFO: Offset 0x2E: 0x1 Unexpected Padding bytes
 
 002F LOCAL HEADER #2       04034B50
 0033 Extract Zip Spec      0A '1.0'
@@ -31,7 +31,7 @@
 0058 PAYLOAD               12345
 
 005D UNEXPECTED PADDING    .
-# INFO: Unexpected Padding: 0x1 bytes @ 0x5D
+# INFO: Offset 0x5D: 0x1 Unexpected Padding bytes
 
 005E CENTRAL HEADER #1     02014B50
 0062 Created Zip Spec      1E '3.0'

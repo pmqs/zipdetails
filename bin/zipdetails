@@ -1016,7 +1016,7 @@ if ($opt_scan || $opt_walk)
                 reportPrefixData($delta)
                     if $lastEndsAt == 0 ;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info "Unexpected Padding: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell() - $delta)
+                info  $FH->tell() - $delta, hexValue($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $POSSIBLE_PREFIX_DELTA = $delta
                     if $lastEndsAt ==  0;
@@ -1100,7 +1100,7 @@ else
         if ($here >= $TRAILING) {
             my $delta = $FILELEN - $TRAILING;
             outSomeDataParagraph($delta, "TRAILING DATA");
-            info "Unexpected Trailing Data: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell());
+            info  $FH->tell(), "Unexpected Trailing Data: " . hexValue($delta) . " bytes";
 
             last;
         }
@@ -1183,7 +1183,7 @@ else
                 reportPrefixData($delta)
                     if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info "Unexpected Padding: " . hexValue($delta) . " bytes @ " . hexValue($FH->tell() - $delta)
+                info  $FH->tell() - $delta, hexValue($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $HeaderOffsetIndex->rewindIndex();
                 next;
@@ -2421,9 +2421,19 @@ sub warning
 
 sub error
 {
+    # my $offset   = shift ;
     my $message  = shift;
 
-    print "# ERROR: $message\n";
+    # if (defined $offset)
+    # {
+    #     print "# ERROR: Offset " . hexValue($offset) . ": $message\n";
+    # }
+    # else
+    {
+        print "# ERROR: $message\n";
+    }
+
+
     print "#        $_\n" for @_ ;
     ++ $ErrorCount ;
 }
@@ -2445,16 +2455,26 @@ sub reportPrefixData
     state $reported = 0;
     return if $reported || $delta == 0;
 
-    info "found " . hexValue($delta) . " bytes before beginning of zipfile" ;
+    info 0, "found " . hexValue($delta) . " bytes before beginning of zipfile" ;
     $reported = 1;
 }
 
 sub info
 {
+    my $offset   = shift;
     my $message  = shift;
 
-    print "# INFO: $message\n";
+    if (defined $offset)
+    {
+        print "# INFO: Offset " . hexValue($offset) . ": $message\n";
+    }
+    else
+    {
+        print "# INFO: $message\n";
+    }
+
     print "#       $_\n" for @_ ;
+
     ++ $InfoCount ;
 }
 
@@ -2496,7 +2516,7 @@ sub walkExtra
             {
                 # All nulls
                 out $payload, "Null Padding in Extra";
-                info hexValue(length $payload) . " Null Padding Bytes in Extra Field @ " . hexValue($FH->tell() - length $payload);
+                info $FH->tell() - length($payload), hexValue(length $payload) . " Null Padding Bytes in Extra Field" ;
             }
             else
             {
@@ -2520,7 +2540,7 @@ sub walkExtra
             {
                 my $len = length ($id . $rest) ;
                 out $id . $rest, "Null Padding in Extra";
-                info hexValue($len) . " Null Padding Bytes in Extra Field @ " . hexValue($FH->tell() - $len);
+                info $FH->tell() - $len, hexValue($len) . " Null Padding Bytes in Extra Field";
                 return undef;
             }
 
@@ -2539,7 +2559,7 @@ sub walkExtra
             if $who;
 
         out $id, "Extra ID #" . Value_v($count), $idString ;
-        info "Unknown Extra ID " . hexValue16($lookID)
+        info $FH->tell() - 2, "Unknown Extra ID " . hexValue16($lookID)
             if ! $Extras{$lookID} ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
@@ -2975,14 +2995,14 @@ sub decode_UT
 
     out $data, "  Flags", "'$f'";
 
-    info "Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field @ " . hexValue($FH->tell() - 1)
+    info $FH->tell() - 1, "Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field"
         if $flags & ~0x7;
 
     -- $len;
 
     if ($flags & 1 || $full)
     {
-        info "Extra Field 0x5455 ('UT') has unexpected 'Mod Time' @ " . hexValue($FH->tell())
+        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Mod Time'"
             if ! ($flags & 1)  ;
 
         if ($len < 4)
@@ -3004,7 +3024,7 @@ sub decode_UT
 
     if (($flags & 2 || $full) && ! $context->{InCentralDir})
     {
-        info "Extra Field 0x5455 ('UT') has unexpected 'Access Time' @ " . hexValue($FH->tell())
+        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Access Time'"
             if ! ($flags & 2) || $context->{InCentralDir} ;
 
 
@@ -3024,7 +3044,7 @@ sub decode_UT
 
     if (($flags & 4  || $full) && ! $context->{InCentralDir})
     {
-        info "Extra Field 0x5455 ('UT') has unexpected 'Change Time' @ " . hexValue($FH->tell())
+        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Change Time'"
             if ! ($flags & 4) || $context->{InCentralDir} ;
 
 
@@ -3219,11 +3239,11 @@ sub decode_ux
     my $context = shift;
 
     # caller has checked that 3 bytes are available
-    
+
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
-    info "Extra Field 0x7875 ('ux') 'Version' should be 0x1, got " . hexValue($version) . " @ " . hexValue($FH->tell() - 1)
+    info  $FH->tell() - 1, "Extra Field 0x7875 ('ux') 'Version' should be 0x1, got " . hexValue($version)
         if $version != 1 ;
 
     my $available = $len - 1 ;
