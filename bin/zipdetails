@@ -2023,12 +2023,13 @@ sub DataHeader
     {
         # Is this a Spanned Archive Marker?
         my (undef, $next_sig) = read_V();
-        seekTo($here);
+        seekTo(0);
 
         if ($next_sig == ZIP_LOCAL_HDR_SIG)
         {
             print "\n";
             out $data, "SPLIT ARCHIVE MULTI-SEGMENT MARKER", Value_V($signature);
+            seekTo($here);
             return;
         }
     }
