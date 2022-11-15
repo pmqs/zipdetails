@@ -2358,7 +2358,6 @@ sub checkOffsetValue
     my $message = offsetIsValid($offset, $headerStart, $centralDirSize, $commonMessage, $expectedSignature, $dereferencePointer);
     if ($message)
     {
-        # TODO -- add messageOffset here
         fatal_tryWalk($messageOffset, $commonMessage, $message)
             if $fatal;
 
@@ -2408,7 +2407,6 @@ sub fatal
         warn "# FATAL: $message\n";
     }
 
-    # warn "FATAL: $message\n";
     warn  "#        $_ . \n"
         for @_;
 
@@ -2441,7 +2439,6 @@ sub internalFatal
         warn "# FATAL: Internal Error: $message\n";
     }
 
-    # warn "FATAL: Internal Error: $message\n";
     warn "       $_ \n"
         for @_;
     warn "       Please report error at https://github.com/pmqs/zipdetails/issues\n";
