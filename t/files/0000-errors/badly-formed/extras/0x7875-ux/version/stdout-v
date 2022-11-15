@@ -12,7 +12,7 @@
 001C 0002 07 00       Extra Length          0007
 001E 0008 66 69 6C 65 Filename              'filename'
           6E 61 6D 65
-0026 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0026 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra type 3'
 0028 0002 03 00         Length              0003
 002A 0001 02            Version             02
 # INFO: Offset 0x2A: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x2
@@ -42,7 +42,7 @@
 005C 0004 00 00 00 00 Local Header Offset   00000000
 0060 0008 66 69 6C 65 Filename              'filename'
           6E 61 6D 65
-0068 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0068 0002 75 78       Extra ID #0001        7875 'ux: Unix Extra type 3'
 006A 0002 03 00         Length              0003
 006C 0001 03            Version             03
 # INFO: Offset 0x6C: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x3

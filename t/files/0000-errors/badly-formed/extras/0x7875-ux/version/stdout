@@ -11,7 +11,7 @@
 001A Filename Length       0008
 001C Extra Length          0007
 001E Filename              'filename'
-0026 Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0026 Extra ID #0001        7875 'ux: Unix Extra type 3'
 0028   Length              0003
 002A   Version             02
 # INFO: Offset 0x2A: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x2
@@ -39,7 +39,7 @@
 0058 Ext File Attributes   81A40000
 005C Local Header Offset   00000000
 0060 Filename              'filename'
-0068 Extra ID #0001        7875 'ux: Unix Extra Type 3'
+0068 Extra ID #0001        7875 'ux: Unix Extra type 3'
 006A   Length              0003
 006C   Version             03
 # INFO: Offset 0x6C: Extra Field 0x7875 ('ux') 'Version' should be 0x1, got 0x3

@@ -19,9 +19,9 @@
 002B 0001 03            Flags               '03 mod access'
 002C 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
 0030 0004 E7 3D 84 60   Access Time         60843DE7 'Sat Apr 24 15:48:55 2021'
-0034 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0034 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra type 3'
 0036 0002 0C 00         Length              000C
-# ERROR: Offset 0x36: 'Length' field in Extra Field 0x7875 ('ux: Unix Extra Type 3') invalid
+# ERROR: Offset 0x36: 'Length' field in Extra Field 0x7875 ('ux: Unix Extra type 3') invalid
 #        value 0xC > 0xB bytes remaining
 
 0038 000B 01 04 E8 03   Extra Payload       ...........
@@ -56,7 +56,7 @@
 018A 0002 05 00         Length              0005
 018C 0001 03            Flags               '03 mod access'
 018D 0004 A6 3C 84 60   Mod Time            60843CA6 'Sat Apr 24 15:43:34 2021'
-0191 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra Type 3'
+0191 0002 75 78       Extra ID #0002        7875 'ux: Unix Extra type 3'
 0193 0002 0B 00         Length              000B
 0195 0001 01            Version             01
 0196 0001 04            UID Size            04
