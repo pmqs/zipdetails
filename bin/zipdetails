@@ -300,7 +300,7 @@ my %Extras = (
       0x9901,  ['AES Encryption',                                           \&decode_AES,                   7, 7,       7, 7],
       0x9903,  ['Reference',                                                \&decode_Reference,             20, 20,     20, 20], # Added in WinZip ver 25
       0xa11e,  ['Data Stream Alignment',                                    \&decode_DataStreamAlignment,   2, undef,   2, undef ],
-      0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            2, undef,   2, undef ],
+      0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            4, undef,   4, undef ],
       0xCAFE,  ['Java Executable',                                          \&decode_Java_exe,              0, 0,       0, 0],
       0xd935,  ['Android APK Alignment',                                    undef],
       0xE57a,  ['ALZip Codepage',                                           undef],
@@ -3178,10 +3178,9 @@ sub decode_GrowthHint
 
     my $len = shift;
     my $context = shift;
-    my $inCentralHdr = $context->{InCentralDir} ;
 
-    return if $len == 0 ;
-
+    # caller has checked that 4 bytes are available,
+    # so can output values without checking available space
     out_v "  Signature" ;
     out_v "  Initial Value";
 
@@ -3190,6 +3189,11 @@ sub decode_GrowthHint
     my $data = hexDump($padding);
 
     out2 $padding, "Padding", $data;
+
+    if ($padding !~ /^\x00+$/)
+    {
+        info $FH->tell(), "'Padding' in Extra Field '" . $Extras{0xA220}[0] . "' is not all NULL bytes";
+    }
 }
 
 sub decode_DataStreamAlignment

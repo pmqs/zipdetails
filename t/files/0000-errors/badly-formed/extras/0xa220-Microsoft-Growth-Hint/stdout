@@ -1,0 +1,59 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          000B
+001E Filename              'filename'
+0026 Extra ID #0001        A220 'Open Packaging Growth Hint'
+0028   Length              0007
+002A   Signature           3231
+002C   Initial Value       6261
+002E   Padding             00 03 00
+# INFO: Offset 0x31: 'Padding' in Extra Field 'Open Packaging Growth Hint' is not all NULL bytes
+0031 PAYLOAD               abcde
+
+0036 CENTRAL HEADER #1     02014B50
+003A Created Zip Spec      14 '2.0'
+003B Created OS            03 'Unix'
+003C Extract Zip Spec      14 '2.0'
+003D Extract OS            00 'MS-DOS'
+003E General Purpose Flag  0000
+0040 Compression Method    0000 'Stored'
+0042 Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
+0046 CRC                   8587D865
+004A Compressed Length     00000005
+004E Uncompressed Length   00000005
+0052 Filename Length       0008
+0054 Extra Length          000A
+0056 Comment Length        0000
+0058 Disk Start            0000
+005A Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+005C Ext File Attributes   81A40000
+0060 Local Header Offset   00000000
+0064 Filename              'filename'
+006C Extra ID #0001        A220 'Open Packaging Growth Hint'
+006E   Length              0006
+0070   Signature           3231
+0072   Initial Value       6261
+0074   Padding             02 00
+# INFO: Offset 0x76: 'Padding' in Extra Field 'Open Packaging Growth Hint' is not all NULL bytes
+
+0076 END CENTRAL HEADER    06054B50
+007A Number of this disk   0000
+007C Central Dir Disk no   0000
+007E Entries in this disk  0001
+0080 Total Entries         0001
+0082 Size of Central Dir   00000040
+0086 Offset to Central Dir 00000036
+008A Comment Length        0000
+
+Info Count: 2
+Done
