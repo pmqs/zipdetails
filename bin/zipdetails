@@ -242,13 +242,13 @@ my %Extras = (
       #                                                                                                 Local                   Central
       # ID       Name                                                       Handler                     min size    max size    min size max size
       0x0001,  ['ZIP64',                                                    \&decode_Zip64,             0,  28, 0,  28],
-      0x0007,  ['AV Info',                                                  undef],
-      0x0008,  ['Extended Language Encoding',                               undef],
-      0x0009,  ['OS/2 extended attributes',                                 undef],
+      0x0007,  ['AV Info',                                                  undef], # TODO
+      0x0008,  ['Extended Language Encoding',                               undef], # TODO
+      0x0009,  ['OS/2 extended attributes',                                 undef], # TODO
       0x000a,  ['NTFS FileTimes',                                           \&decode_NTFS_Filetimes,    32, 32, 32, 32],
       0x000c,  ['OpenVMS',                                                  \&decode_OpenVMS,            4, undef,  4, undef],
       0x000d,  ['Unix',                                                     undef],
-      0x000e,  ['Stream & Fork Descriptors',                                undef],
+      0x000e,  ['Stream & Fork Descriptors',                                undef], # TODO
       0x000f,  ['Patch Descriptor',                                         undef],
       0x0014,  ['PKCS#7 Store for X.509 Certificates',                      undef],
       0x0015,  ['X.509 Certificate ID and Signature for individual file',   undef],
@@ -266,22 +266,22 @@ my %Extras = (
       0x0065,  ['IBM S/390 attributes - uncompressed',                      \&decodeMVS,                    4,  undef,  4,  undef],
       0x0066,  ['IBM S/390 attributes - compressed',                        undef],
       0x07c8,  ['Info-ZIP Macintosh (old, J. Lee)',                         undef],
-      0x1986,  ['Pixar USD',                                                undef],
+      0x1986,  ['Pixar USD',                                                undef], # TODO
       0x2605,  ['ZipIt Macintosh (first version)',                          undef],
       0x2705,  ['ZipIt Macintosh v 1.3.5 and newer (w/o full filename)',    undef],
       0x2805,  ['ZipIt Macintosh v 1.3.5 and newer',                        undef],
-      0x334d,  ["Info-ZIP Macintosh (new, D. Haase's 'Mac3' field)",        undef],
-      0x4154,  ['Tandem NSK',                                               undef],
-      0x4341,  ['Acorn/SparkFS (David Pilling)',                            undef],
-      0x4453,  ['Windows NT security descriptor',                           \&decode_NT_security,           11, undef,  4, 4],
+      0x334d,  ["Info-ZIP Macintosh (new, D. Haase's 'Mac3' field)",        undef], # TODO
+      0x4154,  ['Tandem NSK',                                               undef], # TODO
+      0x4341,  ['Acorn/SparkFS (David Pilling)',                            undef], # TODO
+      0x4453,  ['Windows NT security descriptor',                           \&decode_NT_security,           11, undef,  4, 4], # TODO
       0x4690,  ['POSZIP 4690',                                              undef],
       0x4704,  ['VM/CMS',                                                   undef],
       0x470f,  ['MVS',                                                      undef],
       0x4854,  ['Theos, old inofficial port',                               undef],
-      0x4b46,  ['FWKCS MD5 (see below)',                                    undef],
+      0x4b46,  ['FWKCS MD5',                                                undef],
       0x4c41,  ['OS/2 access control list (text ACL)',                      undef],
       0x4d49,  ['Info-ZIP OpenVMS (obsolete)',                              undef],
-      0x4d63,  ['Macintosh SmartZIP, by Macro Bambini',                     undef],
+      0x4d63,  ['Macintosh SmartZIP',                                       undef], # TODO
       0x4f4c,  ['Xceed original location extra field',                      undef],
       0x5356,  ['AOS/VS (binary ACL)',                                      undef],
       0x5455,  ['Extended Timestamp',                                       \&decode_UT,                    1, 13,  1, 13],
@@ -290,10 +290,10 @@ my %Extras = (
       0x5a4c,  ['ZipArchive Unicode Filename',                              undef],  # https://www.artpol-software.com/ZipArchive
       0x5a4d,  ['ZipArchive Offsets Array',                                 undef],  # https://www.artpol-software.com/ZipArchive
       0x6375,  ['Info-ZIP Unicode Comment',                                 \&decode_uc,                    5, undef,  5, undef],
-      0x6542,  ['BeOS (BeBox, PowerMac, etc.)',                             undef],
+      0x6542,  ['BeOS (BeBox, PowerMac, etc.)',                             undef], # TODO
       0x6854,  ['Theos',                                                    undef],
       0x7075,  ['Info-ZIP Unicode Path',                                    \&decode_up,                    5, undef,   5, undef],
-      0x756e,  ['ASi Unix',                                                 undef],
+      0x756e,  ['ASi Unix',                                                 undef], # TODO
       0x7441,  ['AtheOS (AtheOS/Syllable attributes)',                      undef],
       0x7855,  ['Unix Extra type 2',                                        \&decode_Ux,                    4,4,   0, 0 ],
       0x7875,  ['Unix Extra type 3',                                        \&decode_ux,                    3, undef,   3, undef],
@@ -302,9 +302,9 @@ my %Extras = (
       0xa11e,  ['Data Stream Alignment',                                    \&decode_DataStreamAlignment,   2, undef,   2, undef ],
       0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            4, undef,   4, undef ],
       0xCAFE,  ['Java Executable',                                          \&decode_Java_exe,              0, 0,       0, 0],
-      0xd935,  ['Android APK Alignment',                                    undef],
-      0xE57a,  ['ALZip Codepage',                                           undef],
-      0xfb4a,  ['SMS/QDOS',                                                 undef],
+      0xd935,  ['Android APK Alignment',                                    undef], # TODO
+      0xE57a,  ['ALZip Codepage',                                           undef], # TODO
+      0xfb4a,  ['SMS/QDOS',                                                 undef], # TODO
        );
 
       # Dummy entry only used in test harness, so only enable when ZIPDETAILS_TESTHARNESS is set
