@@ -45,6 +45,7 @@ $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 
 my %dirs;
 my @exts = qw(
+        aar
         apk
         crx
         docx
