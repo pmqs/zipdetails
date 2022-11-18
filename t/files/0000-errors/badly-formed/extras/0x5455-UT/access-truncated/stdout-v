@@ -45,9 +45,10 @@
 0069 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
 006B 0002 04 00         Length              0004
 006D 0001 02            Flags               '02 access'
-# ERROR: Offset 0x6E: Expected to be at offset 0x71 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x6E
-#        Skipping 0x3 bytes
+# INFO: Offset 0x6E: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
 006E 0003 61 62 63      Extra Data          abc
+# ERROR: Offset 0x6E: Extra Field 0x5455 ('UT') truncated reading 'Access Time'
+#        Expected 0x4 bytes, got 0x3 bytes
 
 0071 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 0075 0002 00 00       Number of this disk   0000
@@ -59,4 +60,5 @@
 0085 0002 00 00       Comment Length        0000
 
 Error Count: 2
+Info Count: 1
 Done

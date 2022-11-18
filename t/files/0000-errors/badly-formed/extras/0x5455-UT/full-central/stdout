@@ -1,0 +1,61 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         55724AAC 'Fri Nov 18 09:21:24 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0011
+001E Filename              'filename'
+0026 Extra ID #0001        5455 'UT: Extended Timestamp'
+0028   Length              000D
+002A   Flags               '07 mod access change'
+002B   Mod Time            64636261 'Tue May 16 11:00:49 2023'
+002F   Access Time         64636261 'Tue May 16 11:00:49 2023'
+0033   Change Time         64636261 'Tue May 16 11:00:49 2023'
+0037 PAYLOAD               abcde
+
+003C CENTRAL HEADER #1     02014B50
+0040 Created Zip Spec      14 '2.0'
+0041 Created OS            03 'Unix'
+0042 Extract Zip Spec      14 '2.0'
+0043 Extract OS            00 'MS-DOS'
+0044 General Purpose Flag  0000
+0046 Compression Method    0000 'Stored'
+0048 Last Mod Time         55724AAC 'Fri Nov 18 09:21:24 2022'
+004C CRC                   8587D865
+0050 Compressed Length     00000005
+0054 Uncompressed Length   00000005
+0058 Filename Length       0008
+005A Extra Length          0011
+005C Comment Length        0000
+005E Disk Start            0000
+0060 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0062 Ext File Attributes   81A40000
+0066 Local Header Offset   00000000
+006A Filename              'filename'
+0072 Extra ID #0001        5455 'UT: Extended Timestamp'
+0074   Length              000D
+0076   Flags               '07 mod access change'
+0077   Mod Time            64636261 'Tue May 16 11:00:49 2023'
+# INFO: Offset 0x7B: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
+007B   Access Time         64636261 'Tue May 16 11:00:49 2023'
+# INFO: Offset 0x7F: Extra Field 0x5455 ('UT') has unexpected 'Change Time'
+007F   Change Time         64636261 'Tue May 16 11:00:49 2023'
+
+0083 END CENTRAL HEADER    06054B50
+0087 Number of this disk   0000
+0089 Central Dir Disk no   0000
+008B Entries in this disk  0001
+008D Total Entries         0001
+008F Size of Central Dir   00000047
+0093 Offset to Central Dir 0000003C
+0097 Comment Length        0000
+
+Info Count: 2
+Done

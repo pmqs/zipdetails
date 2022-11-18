@@ -3041,10 +3041,16 @@ sub decode_UT
 
     # Definition in IZ APPNOTE
 
+    # NOTE: Although the IZ appnote says that the central directory
+    #       doesn't stopre the Acces & Creation times, there are
+    #       some implementations that do poopulate the CD incorrectly.
+
     # Caller has determined that at least one byte is available
 
     # When $full is true assume all timestamps are present
     my $full = ($len == 13) ;
+
+    my $remaining = $len;
 
     my ($data, $flags) = read_C();
 
@@ -3058,71 +3064,93 @@ sub decode_UT
     info $FH->tell() - 1, "Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field"
         if $flags & ~0x7;
 
-    -- $len;
+    -- $remaining;
 
     if ($flags & 1 || $full)
     {
-        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Mod Time'"
-            if ! ($flags & 1)  ;
-
-        if ($len < 4)
+        if ($remaining == 0 )
         {
-            outSomeData $len, "  Extra Data";
-            error $FH->tell() - $len,
-                "Extra Field 0x5455 ('UT') truncated reading 'Mod Time'",
-                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
+            # Central Dir only has mod time
+            error $FH->tell(),
+                "Extra Field 0x5455 ('UT') missing field 'Mod Time'" ;
             return;
         }
+        else
+        {
+            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Mod Time'"
+                if ! ($flags & 1)  ;
 
-        my ($data, $time) = read_V();
+            if ($remaining < 4)
+            {
+                outSomeData $remaining, "  Extra Data";
+                error $FH->tell() - $remaining,
+                    "Extra Field 0x5455 ('UT') truncated reading 'Mod Time'",
+                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
+                return;
+            }
 
-        out2 $data, "Mod Time",    Value_V($time) . " " . getTime($time) ;
+            my ($data, $time) = read_V();
 
-        $len -= 4 ;
+            out2 $data, "Mod Time",    Value_V($time) . " " . getTime($time) ;
+
+            $remaining -= 4 ;
+        }
     }
 
     # The remaining sub0fileds are only present in the Local Header
 
-    if (($flags & 2 || $full) && ! $context->{InCentralDir})
+    if ($flags & 2 || $full)
     {
-        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Access Time'"
-            if ! ($flags & 2) || $context->{InCentralDir} ;
-
-
-        if ($len < 4)
+        if ($remaining == 0 && $context->{InCentralDir})
         {
-            outSomeData $len, "  Extra Data";
-            error $FH->tell() - $len,
-                "Extra Field 0x5455 ('UT') truncated reading 'Access Time'" ,
-                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes" ;
-            return;
+            # Central Dir doesn't have access time
         }
+        else
+        {
+            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Access Time'"
+                if ! ($flags & 2) || $context->{InCentralDir} ;
 
-        my ($data, $time) = read_V();
+            if ($remaining < 4)
+            {
+                outSomeData $remaining, "  Extra Data";
+                error $FH->tell() - $remaining,
+                    "Extra Field 0x5455 ('UT') truncated reading 'Access Time'" ,
+                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes" ;
+                return;
+            }
 
-        out2 $data, "Access Time",    Value_V($time) . " " . getTime($time) ;
-        $len -= 4 ;
+            my ($data, $time) = read_V();
+
+            out2 $data, "Access Time",    Value_V($time) . " " . getTime($time) ;
+            $remaining -= 4 ;
+        }
     }
 
-    if (($flags & 4  || $full) && ! $context->{InCentralDir})
+    if ($flags & 4  || $full)
     {
-        info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Change Time'"
-            if ! ($flags & 4) || $context->{InCentralDir} ;
-
-
-        if ($len < 4)
+        if ($remaining == 0 && $context->{InCentralDir})
         {
-            outSomeData $len, "  Extra Data";
-
-            error  $FH->tell() - $len,
-                "Extra Field 0x5455 ('UT') truncated reading 'Change Time'" ,
-                "Expected 0x4 bytes, got " .  hexValue($len) . " bytes";
-            return;
+            # Central Dir doesn't have change time
         }
+        else
+        {
+            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Change Time'"
+                if ! ($flags & 4) || $context->{InCentralDir} ;
 
-        my ($data, $time) = read_V();
+            if ($remaining < 4)
+            {
+                outSomeData $remaining, "  Extra Data";
 
-        out2 $data, "Change Time",    Value_V($time) . " " . getTime($time) ;
+                error  $FH->tell() - $remaining,
+                    "Extra Field 0x5455 ('UT') truncated reading 'Change Time'" ,
+                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
+                return;
+            }
+
+            my ($data, $time) = read_V();
+
+            out2 $data, "Change Time",    Value_V($time) . " " . getTime($time) ;
+        }
     }
 }
 

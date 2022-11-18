@@ -52,10 +52,10 @@
 # INFO: Offset 0x76: Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field
 # INFO: Offset 0x77: Extra Field 0x5455 ('UT') has unexpected 'Mod Time'
 0077 0004 61 62 63 64   Mod Time            64636261 'Tue May 16 11:00:49 2023'
-# ERROR: Offset 0x7B: Expected to be at offset 0x83 after processing Extra Field 0x5455 ('UT: Extended Timestamp'), actually at 0x7B
-#        Skipping 0x8 bytes
-007B 0008 61 62 63 64   Extra Data          abcdabcd
-          61 62 63 64
+# INFO: Offset 0x7B: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
+007B 0004 61 62 63 64   Access Time         64636261 'Tue May 16 11:00:49 2023'
+# INFO: Offset 0x7F: Extra Field 0x5455 ('UT') has unexpected 'Change Time'
+007F 0004 61 62 63 64   Change Time         64636261 'Tue May 16 11:00:49 2023'
 
 0083 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 0087 0002 00 00       Number of this disk   0000
@@ -66,6 +66,5 @@
 0093 0004 3C 00 00 00 Offset to Central Dir 0000003C
 0097 0002 00 00       Comment Length        0000
 
-Error Count: 1
-Info Count: 6
+Info Count: 8
 Done
