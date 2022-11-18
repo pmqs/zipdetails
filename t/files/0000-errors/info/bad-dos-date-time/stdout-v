@@ -1,0 +1,94 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+# INFO: Offset 0xE: 'Last Mod Time' value 0x00000005 does not decode to a valid DOS date/time
+000A 0004 05 00 00 00 Last Mod Time         00000005 'Invalid Date or Time'
+000E 0004 9C 14 8A 0F CRC                   0F8A149C
+0012 0004 06 00 00 00 Compressed Length     00000006
+0016 0004 06 00 00 00 Uncompressed Length   00000006
+001A 0002 0B 00       Filename Length       000B
+001C 0002 00 00       Extra Length          0000
+001E 000B 6C 65 74 74 Filename              'letters.txt'
+          65 72 73 2E
+          74 78 74
+0029 0006 61 62 63 64 PAYLOAD               abcde.
+          65 0A
+
+002F 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
+0033 0001 0A          Extract Zip Spec      0A '1.0'
+0034 0001 00          Extract OS            00 'MS-DOS'
+0035 0002 00 00       General Purpose Flag  0000
+0037 0002 00 00       Compression Method    0000 'Stored'
+0039 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
+003D 0004 E6 AF 1D 26 CRC                   261DAFE6
+0041 0004 06 00 00 00 Compressed Length     00000006
+0045 0004 06 00 00 00 Uncompressed Length   00000006
+0049 0002 0B 00       Filename Length       000B
+004B 0002 00 00       Extra Length          0000
+004D 000B 6E 75 6D 62 Filename              'numbers.txt'
+          65 72 73 2E
+          74 78 74
+0058 0006 31 32 33 34 PAYLOAD               12345.
+          35 0A
+
+005E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0062 0001 1E          Created Zip Spec      1E '3.0'
+0063 0001 03          Created OS            03 'Unix'
+0064 0001 0A          Extract Zip Spec      0A '1.0'
+0065 0001 00          Extract OS            00 'MS-DOS'
+0066 0002 00 00       General Purpose Flag  0000
+0068 0002 00 00       Compression Method    0000 'Stored'
+# INFO: Offset 0x6E: 'Last Mod Time' value 0x00000004 does not decode to a valid DOS date/time
+006A 0004 04 00 00 00 Last Mod Time         00000004 'Invalid Date or Time'
+006E 0004 9C 14 8A 0F CRC                   0F8A149C
+0072 0004 06 00 00 00 Compressed Length     00000006
+0076 0004 06 00 00 00 Uncompressed Length   00000006
+007A 0002 0B 00       Filename Length       000B
+007C 0002 00 00       Extra Length          0000
+007E 0002 00 00       Comment Length        0000
+0080 0002 00 00       Disk Start            0000
+0082 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+0084 0004 00 00 B4 81 Ext File Attributes   81B40000
+0088 0004 00 00 00 00 Local Header Offset   00000000
+008C 000B 6C 65 74 74 Filename              'letters.txt'
+          65 72 73 2E
+          74 78 74
+
+0097 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
+009B 0001 1E          Created Zip Spec      1E '3.0'
+009C 0001 03          Created OS            03 'Unix'
+009D 0001 0A          Extract Zip Spec      0A '1.0'
+009E 0001 00          Extract OS            00 'MS-DOS'
+009F 0002 00 00       General Purpose Flag  0000
+00A1 0002 00 00       Compression Method    0000 'Stored'
+00A3 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
+00A7 0004 E6 AF 1D 26 CRC                   261DAFE6
+00AB 0004 06 00 00 00 Compressed Length     00000006
+00AF 0004 06 00 00 00 Uncompressed Length   00000006
+00B3 0002 0B 00       Filename Length       000B
+00B5 0002 00 00       Extra Length          0000
+00B7 0002 00 00       Comment Length        0000
+00B9 0002 00 00       Disk Start            0000
+00BB 0002 01 00       Int File Attributes   0001
+                      [Bit 0]               1 Text Data
+00BD 0004 00 00 B4 81 Ext File Attributes   81B40000
+00C1 0004 2F 00 00 00 Local Header Offset   0000002F
+00C5 000B 6E 75 6D 62 Filename              'numbers.txt'
+          65 72 73 2E
+          74 78 74
+
+00D0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+00D4 0002 00 00       Number of this disk   0000
+00D6 0002 00 00       Central Dir Disk no   0000
+00D8 0002 02 00       Entries in this disk  0002
+00DA 0002 02 00       Total Entries         0002
+00DC 0004 72 00 00 00 Size of Central Dir   00000072
+00E0 0004 5E 00 00 00 Offset to Central Dir 0000005E
+00E4 0002 00 00       Comment Length        0000
+
+Info Count: 2
+Done

@@ -3026,7 +3026,12 @@ sub _dosToUnixTime
     {
         # Use eval to catch crazy dates
         $time_t = Time::Local::timegm( $sec, $min, $hour, $mday, $mon, $year);
-    } or return undef;
+    }
+    or do
+    {
+        info $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  " does not decode to a valid DOS date/time" ;
+        return undef
+    };
 
     return $time_t;
 
