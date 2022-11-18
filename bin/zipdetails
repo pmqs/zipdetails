@@ -3029,7 +3029,8 @@ sub _dosToUnixTime
     }
     or do
     {
-        warning $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  " does not decode to a valid DOS date/time" ;
+        my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
+        warning $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 
