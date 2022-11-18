@@ -3029,7 +3029,7 @@ sub _dosToUnixTime
     }
     or do
     {
-        info $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  " does not decode to a valid DOS date/time" ;
+        warning $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  " does not decode to a valid DOS date/time" ;
         return undef
     };
 
