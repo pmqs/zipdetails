@@ -1053,8 +1053,8 @@ if ($opt_scan || $opt_walk)
     topLevelFatal "'$filename' is not a zip file"
         unless $foundZipRecords ;
 
-    dislayMessages();
-    exit;
+    # dislayMessages();
+    # exit;
 
 }
 else
@@ -1148,7 +1148,7 @@ else
             if ($here > $expectedOffset)
             {
                 # TODO -- what to so if $here > expectedOffset
-                internalFatal undef, "fix me 1";
+                internalFatal undef, "fix me 1: " . hexValue($here) . " > " .  hexValue $expectedOffset;
             }
 
             # If get here then $here is less than $expectedOffset
@@ -1298,6 +1298,8 @@ sub LocalHeader
     my $data = shift ;
     my $startRecordOffset = shift ;
 
+    my $locHeaderOffset = $FH->tell() -4 ;
+
     ++ $LocalHeaderCount;
     my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
     print "\n";
@@ -1344,6 +1346,8 @@ sub LocalHeader
     GeneralPurposeBits($compressedMethod, $gpFlag);
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+        if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
@@ -1642,6 +1646,8 @@ sub CentralHeader
     my $data = shift ;
     my $startRecordOffset = shift ;
 
+    my $cdEntryOffset = $FH->tell() - 4 ;
+
     ++ $CentralHeaderCount;
     my $hexHdrCount = sprintf("%X", $CentralHeaderCount) ;
 
@@ -1663,6 +1669,8 @@ sub CentralHeader
     GeneralPurposeBits($compressedMethod, $gpFlag);
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+        if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
@@ -1836,6 +1844,8 @@ sub Zip64EndCentralHeader
 
         my ($bcm, $compressedMethod) = read_v();
         out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
+        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+            if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
         out_Q "Compressed Length";
         out_Q "Uncompressed Length";
         out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
@@ -2440,10 +2450,10 @@ sub internalFatal
         warn "# FATAL: Internal Error: $message\n";
     }
 
-    warn "       $_ \n"
+    warn "#        $_ \n"
         for @_;
-    warn "       Please report error at https://github.com/pmqs/zipdetails/issues\n";
 
+    warn "#        Please report error at https://github.com/pmqs/zipdetails/issues\n";
     exit 1;
 }
 
@@ -3143,7 +3153,8 @@ sub decode_AES
 
     my ($bmethod, $method) = read_v();
     out $bmethod, "  Compression Method", compressionMethod($method) ;
-
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($method)
+        if ! defined $ZIP_CompressionMethods{$method} ;
     $context->{AesStrength} = $strength ;
 }
 
