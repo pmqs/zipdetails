@@ -1,0 +1,58 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 E0 69 72 55 Last Mod Time         557269E0 'Fri Nov 18 13:15:00 2022'
+000E 0004 65 D8 87 85 CRC                   8587D865
+0012 0004 05 00 00 00 Compressed Length     00000005
+0016 0004 05 00 00 00 Uncompressed Length   00000005
+001A 0002 08 00       Filename Length       0008
+001C 0002 05 00       Extra Length          0005
+001E 0008 66 69 6C 65 Filename              'filename'
+          6E 61 6D 65
+0026 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0028 0002 01 00         Length              0001
+002A 0001 01            Flags               '01 mod'
+# ERROR: Offset 0x2B: Extra Field 0x5455 ('UT') missing field 'Mod Time'
+002B 0005 61 62 63 64 PAYLOAD               abcde
+          65
+
+0030 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0034 0001 14          Created Zip Spec      14 '2.0'
+0035 0001 03          Created OS            03 'Unix'
+0036 0001 14          Extract Zip Spec      14 '2.0'
+0037 0001 00          Extract OS            00 'MS-DOS'
+0038 0002 00 00       General Purpose Flag  0000
+003A 0002 00 00       Compression Method    0000 'Stored'
+003C 0004 E0 69 72 55 Last Mod Time         557269E0 'Fri Nov 18 13:15:00 2022'
+0040 0004 65 D8 87 85 CRC                   8587D865
+0044 0004 05 00 00 00 Compressed Length     00000005
+0048 0004 05 00 00 00 Uncompressed Length   00000005
+004C 0002 08 00       Filename Length       0008
+004E 0002 05 00       Extra Length          0005
+0050 0002 00 00       Comment Length        0000
+0052 0002 00 00       Disk Start            0000
+0054 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+0056 0004 00 00 A4 81 Ext File Attributes   81A40000
+005A 0004 00 00 00 00 Local Header Offset   00000000
+005E 0008 66 69 6C 65 Filename              'filename'
+          6E 61 6D 65
+0066 0002 55 54       Extra ID #0001        5455 'UT: Extended Timestamp'
+0068 0002 01 00         Length              0001
+006A 0001 01            Flags               '01 mod'
+# ERROR: Offset 0x6B: Extra Field 0x5455 ('UT') missing field 'Mod Time'
+
+006B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+006F 0002 00 00       Number of this disk   0000
+0071 0002 00 00       Central Dir Disk no   0000
+0073 0002 01 00       Entries in this disk  0001
+0075 0002 01 00       Total Entries         0001
+0077 0004 3B 00 00 00 Size of Central Dir   0000003B
+007B 0004 30 00 00 00 Offset to Central Dir 00000030
+007F 0002 00 00       Comment Length        0000
+
+Error Count: 2
+Done

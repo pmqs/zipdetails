@@ -1,0 +1,55 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         557269E0 'Fri Nov 18 13:15:00 2022'
+000E CRC                   8587D865
+0012 Compressed Length     00000005
+0016 Uncompressed Length   00000005
+001A Filename Length       0008
+001C Extra Length          0005
+001E Filename              'filename'
+0026 Extra ID #0001        5455 'UT: Extended Timestamp'
+0028   Length              0001
+002A   Flags               '01 mod'
+# ERROR: Offset 0x2B: Extra Field 0x5455 ('UT') missing field 'Mod Time'
+002B PAYLOAD               abcde
+
+0030 CENTRAL HEADER #1     02014B50
+0034 Created Zip Spec      14 '2.0'
+0035 Created OS            03 'Unix'
+0036 Extract Zip Spec      14 '2.0'
+0037 Extract OS            00 'MS-DOS'
+0038 General Purpose Flag  0000
+003A Compression Method    0000 'Stored'
+003C Last Mod Time         557269E0 'Fri Nov 18 13:15:00 2022'
+0040 CRC                   8587D865
+0044 Compressed Length     00000005
+0048 Uncompressed Length   00000005
+004C Filename Length       0008
+004E Extra Length          0005
+0050 Comment Length        0000
+0052 Disk Start            0000
+0054 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0056 Ext File Attributes   81A40000
+005A Local Header Offset   00000000
+005E Filename              'filename'
+0066 Extra ID #0001        5455 'UT: Extended Timestamp'
+0068   Length              0001
+006A   Flags               '01 mod'
+# ERROR: Offset 0x6B: Extra Field 0x5455 ('UT') missing field 'Mod Time'
+
+006B END CENTRAL HEADER    06054B50
+006F Number of this disk   0000
+0071 Central Dir Disk no   0000
+0073 Entries in this disk  0001
+0075 Total Entries         0001
+0077 Size of Central Dir   0000003B
+007B Offset to Central Dir 00000030
+007F Comment Length        0000
+
+Error Count: 2
+Done
