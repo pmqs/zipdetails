@@ -380,8 +380,8 @@ my $APK = 0 ;
 my $START_APK = 0;
 my $APK_LEN = 0;
 
-my $SEEN = Seen->new();
 my $CentralDirectory = CentralDirectory->new();
+my $LocalDirectory = LocalDirectory->new();
 my $HeaderOffsetIndex = HeaderOffsetIndex->new();
 my $EOCD_Present = 0;
 
@@ -1053,9 +1053,6 @@ if ($opt_scan || $opt_walk)
     topLevelFatal "'$filename' is not a zip file"
         unless $foundZipRecords ;
 
-    # dislayMessages();
-    # exit;
-
 }
 else
 {
@@ -1255,12 +1252,49 @@ else
     }
 }
 
+
 dislayMessages();
 
 exit ;
 
 sub dislayMessages
 {
+
+    # Compare Central & LOcal for discrepencies
+    if ($CentralDirectory->exists() && $LocalDirectory->exists())
+    {
+        # check for Local Directory orphans
+        # my @cdNames = sort { $a <=> $b } keys %{ $CentralDirectory->{byName} };
+        # my @localNames = sort { $a <=> $b } keys %{ $LocalDirectory->{byName} };
+
+        my %cdNames = map {  $_ => 1 } keys %{ $CentralDirectory->{byName} };
+        my %localNames = map {  $_ => 1 } keys %{ $LocalDirectory->{byName} };
+
+        for my $name (keys %localNames)
+        {
+            error undef, "Orphan Local Header for file '$name' at offset " . hexValue($LocalDirectory->{byName}{$name}{localHeaderOffset})
+                unless exists $cdNames{ $name } ;
+        }
+
+        # compare local & central
+    }
+    elsif ($CentralDirectory->exists())
+    {
+        error undef, "Central Diretory exists, but Local Directory not found"
+    }
+    elsif ($LocalDirectory->exists())
+    {
+        if ($CentralDirectory->isEncryptedCD())
+        {
+            warning undef, "Local Diretory exists, but Central Directory is encrypted"
+        }
+        else
+        {
+            error undef, "Local Diretory exists, but Central Directory not found"
+        }
+
+    }
+
     print "\n"
         if $ErrorCount ||$WarningCount || $InfoCount ;
 
@@ -1270,11 +1304,6 @@ sub dislayMessages
         if $WarningCount;
     print "Info Count: $InfoCount\n"
         if $InfoCount;
-
-    $SEEN->short_summary();
-
-    $SEEN->summary();
-
 
     if (@Messages)
     {
@@ -1456,7 +1485,19 @@ sub LocalHeader
     push @Messages, @msg ;
 
 
-    # $SEEN->save("LOCAL HEADER #" . sprintf("%X", $LocalHeaderCount), $filename, $startRecordOffset, $startRecordOffset + $CDcompressedLength);
+    my $localEntry = LocalDirectoryEntry->new();
+
+    $localEntry->{index} = $LocalHeaderCount;
+    $localEntry->{localHeaderOffset} = $locHeaderOffset;
+    $localEntry->{payloadOffset} = $payloadOffset;
+    $localEntry->{compressedLength} = $compressedLength;
+    $localEntry->{uncompressedLength} = $uncompressedLength;
+    $localEntry->{zip64ExtraPresent} = $cdZip64;
+    $localEntry->{zip64SizesPresent} = $zip64Sizes;
+    $localEntry->{filename} = $filename;
+    $localEntry->{compressedMethod} = $compressedMethod ;
+
+    $LocalDirectory->addEntry($localEntry);
 
     return {
                 'localHeader'   => 1,
@@ -1745,8 +1786,21 @@ sub CentralHeader
         outputFilename $comment, "Comment";
     }
 
+    if ($opt_scan || $opt_walk)
+    {
+        my $cdEntry = CentralDirectoryEntry->new();
 
-    # $SEEN->save("CENTRAL HEADER ref Local #" . sprintf("%X", $CentralHeaderCount), $filename, \%ExtraContext) ;
+        $cdEntry->{index} = $CentralHeaderCount;
+        $cdEntry->{centralHeaderOffset} = $cdEntryOffset;
+        $cdEntry->{localHeaderOffset} = $locHeaderOffset;
+        $cdEntry->{compressedLength} = $compressedLength;
+        $cdEntry->{uncompressedLength} = $uncompressedLength;
+        $cdEntry->{zip64ExtraPresent} = undef; #$cdZip64; ### FIX ME
+        $cdEntry->{zip64SizesPresent} = undef ; # $zip64Sizes;   ### FIX ME
+        $cdEntry->{filename} = $filename;
+
+        $CentralDirectory->addEntry($cdEntry);
+    }
 
     return {};
 }
@@ -4201,111 +4255,113 @@ sub nibbles
 }
 
 
-{
-    package Seen;
+# {
+#     package Seen;
 
-    sub new
-    {
-        my $class = shift ;
+#     # defunct
 
-        my %object = ( overlaps     => [],
-                       duplicates   => [],
-                       detail       => [],
-                       duplicate_count  => 0,
-                       overlap_count    => 0,
-                     ) ;
+#     sub new
+#     {
+#         my $class = shift ;
 
-        bless \%object, $class;
-    }
+#         my %object = ( overlaps     => [],
+#                        duplicates   => [],
+#                        detail       => [],
+#                        duplicate_count  => 0,
+#                        overlap_count    => 0,
+#                      ) ;
 
-    sub save
-    {
-        my $self = shift ;
-        my $hdrId = shift;
-        my $name = shift;
-        my $extras = shift;
+#         bless \%object, $class;
+#     }
 
-        my $from_offset = $extras->{LocalHdrOffset};
-        my $to_offset = $from_offset ;
-        $to_offset += $extras->{CompressedLength} - 1 ;
+#     sub save
+#     {
+#         my $self = shift ;
+#         my $hdrId = shift;
+#         my $name = shift;
+#         my $extras = shift;
 
-        my $crc = $extras->{CRC};
+#         my $from_offset = $extras->{LocalHdrOffset};
+#         my $to_offset = $from_offset ;
+#         $to_offset += $extras->{CompressedLength} - 1 ;
 
-        $name = ::redactFilename($name) ;
+#         my $crc = $extras->{CRC};
 
-        for my $entry ( @{ $self->{detail} } )
-        {
-            if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
-            {
-                $self->{duplicate_count} ++;
-                print "### $hdrId: '$name' matches with $entry->{str}\n"
-            }
-            elsif ($from_offset >= $entry->{from} && $to_offset <= $entry->{to} )
-            {
-                # fatal undef, "overlap!"
-                # push @{ $self->{overlap} },
-                $self->{overlap_count} ++;
+#         $name = ::redactFilename($name) ;
 
-                printf "### $hdrId: '$name' nested with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
-            }
-            elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
-                    ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
-               )
-            {
-                # fatal undef, "overlap!"
-                # push @{ $self->{overlap} },
-                $self->{overlap_count} ++;
+#         for my $entry ( @{ $self->{detail} } )
+#         {
+#             if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
+#             {
+#                 $self->{duplicate_count} ++;
+#                 print "### $hdrId: '$name' matches with $entry->{str}\n"
+#             }
+#             elsif ($from_offset >= $entry->{from} && $to_offset <= $entry->{to} )
+#             {
+#                 # fatal undef, "overlap!"
+#                 # push @{ $self->{overlap} },
+#                 $self->{overlap_count} ++;
 
-                printf "### $hdrId: '$name' overlaps with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
-            }
-        }
+#                 printf "### $hdrId: '$name' nested with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
+#             }
+#             elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
+#                     ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
+#                )
+#             {
+#                 # fatal undef, "overlap!"
+#                 # push @{ $self->{overlap} },
+#                 $self->{overlap_count} ++;
 
-        # warn "ADD $from_offset $to_offset $hdrId: $name\n";
-        push @{ $self->{detail} },
-             {
-                from => $from_offset,
-                to   => $to_offset,
-                length => $extras->{CompressedLength},
-                id   => $hdrId,
-                crc  => $crc,
-                name => $name,
-                str  => "$hdrId: '$name'",
-             } ;
-    }
+#                 printf "### $hdrId: '$name' overlaps with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
+#             }
+#         }
 
-    sub short_summary
-    {
-        my $self = shift;
+#         # warn "ADD $from_offset $to_offset $hdrId: $name\n";
+#         push @{ $self->{detail} },
+#              {
+#                 from => $from_offset,
+#                 to   => $to_offset,
+#                 length => $extras->{CompressedLength},
+#                 id   => $hdrId,
+#                 crc  => $crc,
+#                 name => $name,
+#                 str  => "$hdrId: '$name'",
+#              } ;
+#     }
 
-        my $duplicates = $self->{duplicate_count};
-        push @Messages, "$duplicates duplicate entries"
-            if $duplicates;
+#     sub short_summary
+#     {
+#         my $self = shift;
 
-        my $overlaps = $self->{overlap_count};
-        push @Messages, "$overlaps overlap entries"
-            if $overlaps;
-    }
+#         my $duplicates = $self->{duplicate_count};
+#         push @Messages, "$duplicates duplicate entries"
+#             if $duplicates;
 
-    sub summary
-    {
-        my $self = shift ;
+#         my $overlaps = $self->{overlap_count};
+#         push @Messages, "$overlaps overlap entries"
+#             if $overlaps;
+#     }
 
-        # disable for now
-        return;
+#     sub summary
+#     {
+#         my $self = shift ;
 
-        print "\n";
-        for my $entry ( sort { $a->{from}->cmp($b->{from}) } @{ $self->{detail} } )
+#         # disable for now
+#         return;
 
-        {
-            my $from_offset = $entry->{from};
-            my $to_offset = $entry->{to};
-            my $hdrId = $entry->{id};
-            my $name = $entry->{name};
-            print "### $hdrId\t" . $entry->{from} . "\n";
-        }
-    }
+#         print "\n";
+#         for my $entry ( sort { $a->{from}->cmp($b->{from}) } @{ $self->{detail} } )
 
-}
+#         {
+#             my $from_offset = $entry->{from};
+#             my $to_offset = $entry->{to};
+#             my $hdrId = $entry->{id};
+#             my $name = $entry->{name};
+#             print "### $hdrId\t" . $entry->{from} . "\n";
+#         }
+#     }
+
+# }
 
 {
     package HeaderOffsetEntry;
@@ -4391,8 +4447,11 @@ sub nibbles
         my $name = Signatures::name($signature);
         # printf "### HeaderOffsetIndex::addOffset(%X, [$name]\n", $offset;
 
-        push @{ $self->{offsetIndex} }, HeaderOffsetEntry->new($offset, $signature) ;
-        $self->{offset2Signature}{$offset} = $signature;
+        if (! defined $self->{offset2Signature}{$offset})
+        {
+            push @{ $self->{offsetIndex} }, HeaderOffsetEntry->new($offset, $signature) ;
+            $self->{offset2Signature}{$offset} = $signature;
+        }
     }
 
     sub getNextIndex
@@ -4478,6 +4537,7 @@ sub nibbles
                         'entries'       => [],
                         'count'         => 0,
                         'byLocalOffset' => {},
+                        'byName'        => {},
                         'offset2Index' => {},
                         'matchedWithLocalHeader' => {},
                         'CentralDirectoryOffset'      => 0,
@@ -4495,14 +4555,181 @@ sub nibbles
         my $self = shift ;
         my $entry = shift ;
 
+        my $localHeaderOffset = $entry->{localHeaderOffset} + $PREFIX_DELTA ;
+        my $CentralDirectoryOffset = $entry->{CentralDirectoryOffset} ;
+        my $filename = $entry->{filename} ;
+        my $existingEntry = $self->{byLocalOffset}{$localHeaderOffset} ;
+
+        if ($existingEntry )
+        {
+            ::error $CentralDirectoryOffset,
+                    "Duplicate Central Directory entry for Local header at offset " . ::hexValue($localHeaderOffset),
+                    "Existing CD is at offset " . ::hexValue($entry->{localHeaderOffset})
+        }
+        else
+        {
+            if (exists $self->{byName}{$filename} )
+            {
+                ::error $CentralDirectoryOffset,
+                        "Duplicate Central Directory entry for filename '$filename'",
+                        "Existing Central Directory entry is at offset " . ::hexValue($self->{byName}{$filename}{localHeaderOffset})
+            }
+
+            push @{ $self->{entries} }, $entry;
+
+            $self->{byLocalOffset}{$localHeaderOffset} = $entry;
+            $self->{byName}{ $filename } = $entry;
+            $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
+            $self->{offset2Index} = $self->{count} ++;
+        }
+    }
+
+    sub exists
+    {
+        my $self = shift ;
+
+        # return $self->{count} ;
+        return scalar @{ $self->{entries} };
+    }
+
+    sub sortByLocalOffset
+    {
+        my $self = shift ;
+
+        sort { $a->{localHeaderOffset} <=> $b->{localHeaderOffset} }
+             @{ $self->{entries} };
+    }
+
+    sub getByLocalOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        # TODO - what happens if none exists?
+        my $entry = $self->{byLocalOffset}{$offset} ;
+        delete $self->{matchedWithLocalHeader} ;
+        return $entry ;
+    }
+
+    sub getNextLocalOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        my $index = $self->{offset2Index} ;
+
+        if ($index + 1 >= $self->{count})
+        {
+            return 0;
+        }
+
+        return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+    }
+
+    sub inCD
+    {
+        my $self = shift ;
+        $FH->tell() >= $self->{CentralDirectoryOffset};
+    }
+
+    sub setEncryptedCD
+    {
+        my $self = shift ;
+
+        $self->{encryptedCD} = 1 ;
+
+    }
+
+    sub isEncryptedCD
+    {
+        my $self = shift ;
+        return $self->{encryptedCD} ;
+    }
+}
+
+{
+    package LocalDirectoryEntry;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'index'                 => 0,
+                        'localHeaderOffset'     => 0,
+                        'payloadOffset'         => 0,
+                        'uncompressedLength'    => 0,
+                        'compressedLength'      => 0,
+                        'filename'              => '',
+                        'zip64ExtraPresent'     => 0,
+                        'zip64SizesPresent'     => 0,
+                        'compressedMethod'      => 0,
+                     ) ;
+
+        bless \%object, $class;
+    }
+}
+
+{
+    package LocalDirectory;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'entries'       => [],
+                        'count'         => 0,
+                        'byLocalOffset' => {},
+                        'byPayloadOffset' => {},
+                        'byName'        => {},
+                        'offset2Index' => {},
+                        'matchedWithLocalHeader' => {},
+                        'CentralDirectoryOffset'      => 0,
+                        'CentralDirectorySize'      => 0,
+                        'zip64'         => 0,
+                        'encryptedCD'   => 0,
+
+                     ) ;
+
+        bless \%object, $class;
+    }
+
+    sub addEntry
+    {
+        my $self = shift ;
+        my $entry = shift ;
+
+        my $filename = $entry->{filename} ;
+        my $localHeaderOffset = $entry->{localHeaderOffset};
+        my $payloadOffset = $entry->{payloadOffset} ;
+
+        my $existingEntry = $self->{byName}{$filename} ;
+
+        # check if entry is part of payload of another entry
+        # particular issue with nested zip files
+
+        if ($self->{byPayloadOffset}{ $payloadOffset })
+        {
+            ::warning $localHeaderOffset, "Nested Local Header.";
+        }
+
+        if ($existingEntry)
+        {
+            ::error $entry->{localHeaderOffset},
+                    "Duplicate Local Directory entry for filename '$filename'",
+                    "Existing Local Directory entry is at offset " . ::hexValue($existingEntry->{localHeaderOffset})
+        }
+
+
         push @{ $self->{entries} }, $entry;
 
-        # TODO - add code to check for duplicates
+        # $self->{byLocalOffset}{$localHeaderOffset} = $entry;
+        $self->{byName}{ $filename } = $entry;
+        $self->{byPayloadOffset}{ $payloadOffset } = $entry;
+        # $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
+        # $self->{offset2Index} = $self->{count} ++;
 
-        my $localHeaderOffset = $entry->{localHeaderOffset} + $PREFIX_DELTA ;
-        $self->{byLocalOffset}{$localHeaderOffset} = $entry;
-        $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
-        $self->{offset2Index} = $self->{count} ++;
     }
 
     sub exists
