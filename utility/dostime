@@ -10,7 +10,10 @@ my $value = shift;
 # allow value to be hpassed as 0x1234, or 1234
 $value = eval "$value + 0";
 
+my $unix = _dosToUnixTime($value) ;
 say _dosToUnixTime($value) // "UNKNOWN";
+say scalar gmtime($unix)
+    if defined $unix;;
 
 
 sub _dosToUnixTime
@@ -39,7 +42,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02d-%02d %02d:%02d:%02d", $mon, $mday, $hour, $min, $sec;
-        say sprintf "'Last Mod Time' value %04X decodes to '$dosDecode': not a valid DOS date/time", $dt ;
+        say sprintf "'Time' value %04X decodes to '$dosDecode': not a valid DOS date/time: $@", $dt ;
         return undef
     };
 

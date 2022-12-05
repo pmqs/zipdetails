@@ -16,6 +16,7 @@ use 5.010;
 
 use strict;
 use warnings;
+use feature 'say';
 
 use Cwd;
 use Test::More ;
@@ -28,7 +29,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 135 * $tests_per_zip_full ;
+plan tests => 139 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -535,6 +536,7 @@ sub compareBytesWithZipFile
         # $offset = substr($_, 0, 4) ;
         # $count  = substr($_, 4,) ;
 
+        # say "LINE [$_]";
         if (/ ^ ( ( $hexValue ) \s+ ( $hexValue ) ) ( (?: \s $hexByte ){1,4} )/x)
         {
             # Match this
@@ -543,7 +545,10 @@ sub compareBytesWithZipFile
 
             $padding = length($1);
 
-            next if /UNEXPECTED PADDING/;
+            # if (/UNEXPECTED PADDING/)
+            # {
+            #     next ;
+            # }
 
             {
                 # silence "Hexadecimal number > 0xffffffff non-portable"

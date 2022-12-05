@@ -26687,7 +26687,6 @@
 219703 000002 8F 01       Total Entries         018F
 219705 000004 54 85 00 00 Size of Central Dir   00008554
 219709 000004 7D 43 1E 00 Offset to Central Dir 001E437D
-# INFO: Offset 0x0: found 0x2CE28 bytes before beginning of zipfile
 21970D 000002 B9 01       Comment Length        01B9
 21970F 0001B9 0D 0A 0D 0A Comment               '
               5A 49 50 20                       ZIP V2.32 - Info-ZIP's portable Zip,
@@ -27631,7 +27630,7 @@
                           [Bit 0]               0 'Binary Data'
 279E63 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-279E67 000004 00 00 00 00 Local Header Offset   00000000 [Actual Offset is 0002CE28]
+279E67 000004 00 00 00 00 Local Header Offset   00000000
 279E6B 000017 7A 69 70 2F Filename              'zip/freeware_readme.txt'
               66 72 65 65
               77 61 72 65
@@ -27706,9 +27705,7 @@
                           [Bit 0]               0 'Binary Data'
 279F2B 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-279F2F 000004 08 02 00 00 Local Header Offset   00000208 [Actual Offset is 0002D030]
-# ERROR: Offset 0x279F2F: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x2D030 should decode to signature for 'Local File Header' (0x04034B50). Got 0x5E37267E
+279F2F 000004 08 02 00 00 Local Header Offset   00000208
 279F33 00000F 7A 69 70 2F Filename              'zip/zip.axp_exe'
               7A 69 70 2E
               61 78 70 5F
@@ -27782,9 +27779,7 @@
                           [Bit 0]               0 'Binary Data'
 279FEB 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-279FEF 000004 5E EE 00 00 Local Header Offset   0000EE5E [Actual Offset is 0003BC86]
-# ERROR: Offset 0x279FEF: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x3BC86 should decode to signature for 'Local File Header' (0x04034B50). Got 0xCE97B3E9
+279FEF 000004 5E EE 00 00 Local Header Offset   0000EE5E
 279FF3 00000F 7A 69 70 2F Filename              'zip/zip.i64_exe'
               7A 69 70 2E
               69 36 34 5F
@@ -27858,9 +27853,7 @@
                           [Bit 0]               0 'Binary Data'
 27A0AB 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A0AF 000004 49 46 02 00 Local Header Offset   00024649 [Actual Offset is 00051471]
-# ERROR: Offset 0x27A0AF: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x51471 should decode to signature for 'Local File Header' (0x04034B50). Got 0xE55D5056
+27A0AF 000004 49 46 02 00 Local Header Offset   00024649
 27A0B3 000014 7A 69 70 2F Filename              'zip/zip.vax_vaxc_exe'
               7A 69 70 2E
               76 61 78 5F
@@ -27934,9 +27927,7 @@
                           [Bit 0]               0 'Binary Data'
 27A170 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A174 000004 7C CD 02 00 Local Header Offset   0002CD7C [Actual Offset is 00059BA4]
-# ERROR: Offset 0x27A174: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x59BA4 should decode to signature for 'Local File Header' (0x04034B50). Got 0x1D8B0795
+27A174 000004 7C CD 02 00 Local Header Offset   0002CD7C
 27A178 00000B 7A 69 70 2F Filename              'zip/zip.zip'
               7A 69 70 2E
               7A 69 70
@@ -28008,9 +27999,7 @@
                           [Bit 0]               0 'Binary Data'
 27A22C 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A230 000004 C8 98 21 00 Local Header Offset   002198C8 [Actual Offset is 002466F0]
-# ERROR: Offset 0x27A230: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x2466F0 should decode to signature for 'Local File Header' (0x04034B50). Got 0x062D8256
+27A230 000004 C8 98 21 00 Local Header Offset   002198C8
 27A234 000014 7A 69 70 2F Filename              'zip/zipcloak.axp_exe'
               7A 69 70 63
               6C 6F 61 6B
@@ -28085,9 +28074,7 @@
                           [Bit 0]               0 'Binary Data'
 27A2F1 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A2F5 000004 AD EE 21 00 Local Header Offset   0021EEAD [Actual Offset is 0024BCD5]
-# ERROR: Offset 0x27A2F5: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x24BCD5 should decode to signature for 'Local File Header' (0x04034B50). Got 0x97AA0DCD
+27A2F5 000004 AD EE 21 00 Local Header Offset   0021EEAD
 27A2F9 000014 7A 69 70 2F Filename              'zip/zipcloak.i64_exe'
               7A 69 70 63
               6C 6F 61 6B
@@ -28162,9 +28149,7 @@
                           [Bit 0]               0 'Binary Data'
 27A3B6 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A3BA 000004 45 71 22 00 Local Header Offset   00227145 [Actual Offset is 00253F6D]
-# ERROR: Offset 0x27A3BA: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x253F6D should decode to signature for 'Local File Header' (0x04034B50). Got 0x5DBA542B
+27A3BA 000004 45 71 22 00 Local Header Offset   00227145
 27A3BE 000019 7A 69 70 2F Filename              'zip/zipcloak.vax_vaxc_exe'
               7A 69 70 63
               6C 6F 61 6B
@@ -28241,9 +28226,7 @@
                           [Bit 0]               0 'Binary Data'
 27A480 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A484 000004 8A A2 22 00 Local Header Offset   0022A28A [Actual Offset is 002570B2]
-# ERROR: Offset 0x27A484: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x2570B2 should decode to signature for 'Local File Header' (0x04034B50). Got 0x64DADBBA
+27A484 000004 8A A2 22 00 Local Header Offset   0022A28A
 27A488 000013 7A 69 70 2F Filename              'zip/zipnote.axp_exe'
               7A 69 70 6E
               6F 74 65 2E
@@ -28318,9 +28301,7 @@
                           [Bit 0]               0 'Binary Data'
 27A544 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A548 000004 DC EC 22 00 Local Header Offset   0022ECDC [Actual Offset is 0025BB04]
-# ERROR: Offset 0x27A548: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x25BB04 should decode to signature for 'Local File Header' (0x04034B50). Got 0x5EFC2F7F
+27A548 000004 DC EC 22 00 Local Header Offset   0022ECDC
 27A54C 000013 7A 69 70 2F Filename              'zip/zipnote.i64_exe'
               7A 69 70 6E
               6F 74 65 2E
@@ -28395,9 +28376,7 @@
                           [Bit 0]               0 'Binary Data'
 27A608 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A60C 000004 70 59 23 00 Local Header Offset   00235970 [Actual Offset is 00262798]
-# ERROR: Offset 0x27A60C: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x262798 should decode to signature for 'Local File Header' (0x04034B50). Got 0x7906F4BE
+27A60C 000004 70 59 23 00 Local Header Offset   00235970
 27A610 000018 7A 69 70 2F Filename              'zip/zipnote.vax_vaxc_exe'
               7A 69 70 6E
               6F 74 65 2E
@@ -28473,9 +28452,7 @@
                           [Bit 0]               0 'Binary Data'
 27A6D1 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A6D5 000004 4F 84 23 00 Local Header Offset   0023844F [Actual Offset is 00265277]
-# ERROR: Offset 0x27A6D5: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x265277 should decode to signature for 'Local File Header' (0x04034B50). Got 0x0FF3F1EB
+27A6D5 000004 4F 84 23 00 Local Header Offset   0023844F
 27A6D9 000014 7A 69 70 2F Filename              'zip/zipsplit.axp_exe'
               7A 69 70 73
               70 6C 69 74
@@ -28550,9 +28527,7 @@
                           [Bit 0]               0 'Binary Data'
 27A796 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A79A 000004 D4 D4 23 00 Local Header Offset   0023D4D4 [Actual Offset is 0026A2FC]
-# ERROR: Offset 0x27A79A: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x26A2FC should decode to signature for 'Local File Header' (0x04034B50). Got 0x265D20B5
+27A79A 000004 D4 D4 23 00 Local Header Offset   0023D4D4
 27A79E 000014 7A 69 70 2F Filename              'zip/zipsplit.i64_exe'
               7A 69 70 73
               70 6C 69 74
@@ -28627,9 +28602,7 @@
                           [Bit 0]               0 'Binary Data'
 27A85B 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A85F 000004 AD 50 24 00 Local Header Offset   002450AD [Actual Offset is 00271ED5]
-# ERROR: Offset 0x27A85F: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x271ED5 should decode to signature for 'Local File Header' (0x04034B50). Got 0x7DDBB8B5
+27A85F 000004 AD 50 24 00 Local Header Offset   002450AD
 27A863 000019 7A 69 70 2F Filename              'zip/zipsplit.vax_vaxc_exe'
               7A 69 70 73
               70 6C 69 74
@@ -28706,9 +28679,7 @@
                           [Bit 0]               0 'Binary Data'
 27A925 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A929 000004 50 80 24 00 Local Header Offset   00248050 [Actual Offset is 00274E78]
-# ERROR: Offset 0x27A929: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value @ 0x274E78 should decode to signature for 'Local File Header' (0x04034B50). Got 0x42FE7463
+27A929 000004 50 80 24 00 Local Header Offset   00248050
 27A92D 000013 7A 69 70 2F Filename              'zip/zip_cli.axp_exe'
               7A 69 70 5F
               63 6C 69 2E
@@ -28783,9 +28754,7 @@
                           [Bit 0]               0 'Binary Data'
 27A9E9 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27A9ED 000004 62 89 25 00 Local Header Offset   00258962 [Actual Offset is 0028578A]
-# ERROR: Offset 0x27A9ED: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value 0x28578A must be less that 0x27A9C3
+27A9ED 000004 62 89 25 00 Local Header Offset   00258962
 27A9F1 000013 7A 69 70 2F Filename              'zip/zip_cli.i64_exe'
               7A 69 70 5F
               63 6C 69 2E
@@ -28860,9 +28829,7 @@
                           [Bit 0]               0 'Binary Data'
 27AAAD 000004 01 00 6D 81 Ext File Attributes   816D0001
                           [Bit 0]               Read-Only
-27AAB1 000004 8E 06 27 00 Local Header Offset   0027068E [Actual Offset is 0029D4B6]
-# ERROR: Offset 0x27AAB1: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value 0x29D4B6 must be less that 0x27AA87
+27AAB1 000004 8E 06 27 00 Local Header Offset   0027068E
 27AAB5 000018 7A 69 70 2F Filename              'zip/zip_cli.vax_vaxc_exe'
               7A 69 70 5F
               63 6C 69 2E
@@ -28924,11 +28891,13 @@
 27AB58 000002 11 00       Entries in this disk  0011
 27AB5A 000002 11 00       Total Entries         0011
 27AB5C 000004 13 0D 00 00 Size of Central Dir   00000D13
-27AB60 000004 3D 9E 27 00 Offset to Central Dir 00279E3D [Actual Offset is 002A6C65]
-# ERROR: Offset 0x27AB60: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
-#        value 0x2A6C65 must be less that 0x27AB50
+27AB60 000004 3D 9E 27 00 Offset to Central Dir 00279E3D
 27AB64 000002 00 00       Comment Length        0000
 
-Error Count: 415
+INFO: Nested Zip files found: 1
+  Offset   Filename
+  0x2CD7C  'zip/zip.zip'
+
+Error Count: 398
 Info Count: 1
 Done

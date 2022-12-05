@@ -1,0 +1,98 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0008 0002 08 00       Compression Method    0008 'Deflated'
+000A 0004 A0 6C 48 05 Last Mod Time         05486CA0 'Fri Oct  8 13:37:00 1982'
+000E 0004 DC 79 86 21 CRC                   218679DC
+0012 0004 48 08 00 00 Compressed Length     00000848
+0016 0004 C7 03 20 00 Uncompressed Length   002003C7
+001A 0002 01 00       Filename Length       0001
+001C 0002 00 00       Extra Length          0000
+001E 0001 30          Filename              '0'
+001F 0848 ...         PAYLOAD
+
+0867 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+086B 0001 14          Created Zip Spec      14 '2.0'
+086C 0001 00          Created OS            00 'MS-DOS'
+086D 0001 14          Extract Zip Spec      14 '2.0'
+086E 0001 00          Extract OS            00 'MS-DOS'
+086F 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+0871 0002 08 00       Compression Method    0008 'Deflated'
+0873 0004 A0 6C 48 05 Last Mod Time         05486CA0 'Fri Oct  8 13:37:00 1982'
+0877 0004 DC 79 86 21 CRC                   218679DC
+087B 0004 48 08 00 00 Compressed Length     00000848
+087F 0004 C7 03 20 00 Uncompressed Length   002003C7
+0883 0002 01 00       Filename Length       0001
+0885 0002 00 00       Extra Length          0000
+0887 0002 00 00       Comment Length        0000
+0889 0002 00 00       Disk Start            0000
+088B 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+088D 0004 00 00 00 00 Ext File Attributes   00000000
+0891 0004 00 00 00 00 Local Header Offset   00000000
+0895 0001 30          Filename              '0'
+
+0896 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
+089A 0001 14          Created Zip Spec      14 '2.0'
+089B 0001 00          Created OS            00 'MS-DOS'
+089C 0001 14          Extract Zip Spec      14 '2.0'
+089D 0001 00          Extract OS            00 'MS-DOS'
+089E 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+08A0 0002 08 00       Compression Method    0008 'Deflated'
+08A2 0004 A0 6C 48 05 Last Mod Time         05486CA0 'Fri Oct  8 13:37:00 1982'
+08A6 0004 98 1A 25 71 CRC                   71251A98
+08AA 0004 24 08 00 00 Compressed Length     00000824
+08AE 0004 A8 03 20 00 Uncompressed Length   002003A8
+08B2 0002 01 00       Filename Length       0001
+08B4 0002 00 00       Extra Length          0000
+08B6 0002 00 00       Comment Length        0000
+08B8 0002 00 00       Disk Start            0000
+08BA 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+08BC 0004 00 00 00 00 Ext File Attributes   00000000
+08C0 0004 24 00 00 00 Local Header Offset   00000024
+08C4 0001 31          Filename              '1'
+
+08C5 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50
+08C9 0001 14          Created Zip Spec      14 '2.0'
+08CA 0001 00          Created OS            00 'MS-DOS'
+08CB 0001 14          Extract Zip Spec      14 '2.0'
+08CC 0001 00          Extract OS            00 'MS-DOS'
+08CD 0002 00 00       General Purpose Flag  0000
+                      [Bits 1-2]            0 'Normal Compression'
+08CF 0002 08 00       Compression Method    0008 'Deflated'
+08D1 0004 A0 6C 48 05 Last Mod Time         05486CA0 'Fri Oct  8 13:37:00 1982'
+08D5 0004 C3 F1 D4 19 CRC                   19D4F1C3
+08D9 0004 00 08 00 00 Compressed Length     00000800
+08DD 0004 89 03 20 00 Uncompressed Length   00200389
+08E1 0002 01 00       Filename Length       0001
+08E3 0002 00 00       Extra Length          0000
+08E5 0002 00 00       Comment Length        0000
+08E7 0002 00 00       Disk Start            0000
+08E9 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+08EB 0004 00 00 00 00 Ext File Attributes   00000000
+08EF 0004 48 00 00 00 Local Header Offset   00000048
+08F3 0001 32          Filename              '2'
+
+08F4 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+08F8 0002 00 00       Number of this disk   0000
+08FA 0002 00 00       Central Dir Disk no   0000
+08FC 0002 03 00       Entries in this disk  0003
+08FE 0002 03 00       Total Entries         0003
+0900 0004 8D 00 00 00 Size of Central Dir   0000008D
+0904 0004 67 08 00 00 Offset to Central Dir 00000867
+0908 0002 00 00       Comment Length        0000
+
+ERROR: possible zipbomb -- Orphan Central Headers found: 2
+  Offset  Filename
+    0x24  '1'
+    0x48  '2'
+
+Error Count: 1
+Done
