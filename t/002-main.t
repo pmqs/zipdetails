@@ -50,6 +50,8 @@ my @exts = qw(
         apk
         crx
         docx
+        dwf
+        exe
         ipa
         ja
         jar
