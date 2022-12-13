@@ -368,7 +368,6 @@ my $ErrorCount = 0;
 
 my $fatalDisabled = 0;
 
-my $START;
 my $OFFSET = 0 ;
 
 # Prefix data
@@ -1078,10 +1077,6 @@ else
 
     $OFFSET = 0 ;
     $FH->seek(0, SEEK_SET) ;
-
-    # outSomeData($START, "PREFIX DATA")
-    #     if defined $START && $START > 0 ;
-
 
     my $expectedOffset = 0;
     my $expectedSignature = 0;
@@ -4156,8 +4151,6 @@ sub scanCentralDirectory
     # 1 32-bit CD
     # 2 64-bit CD
 
-    my @CD = ();
-
     my ($offset, $size) = findCentralDirectoryOffset($fh);
     $CentralDirectory->{CentralDirectoryOffset} = $offset;
     $CentralDirectory->{CentralDirectorySize} = $size;
@@ -4240,8 +4233,6 @@ sub scanCentralDirectory
             }
         }
 
-        my $got = [$locHeaderOffset, $compressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset] ;
-
         $HeaderOffsetIndex->addOffset($locHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
 
         skip($fh, $comment_length ) ;
@@ -4261,7 +4252,6 @@ sub scanCentralDirectory
 
         $CentralDirectory->addEntry($cdEntry);
 
-        push @CD, $got ;
     }
 
     $FH->seek($fh->tell() - 46, SEEK_SET);
@@ -4275,12 +4265,6 @@ sub scanCentralDirectory
     $HeaderOffsetIndex->sortOffsets();
 
     $fh->seek($here, SEEK_SET) ;
-
-    @CD = sort { $a->[0] <=> $b->[0] } @CD ;
-
-    # Set the first Local File Header offset.
-    $START = $CD[0]->[0]
-        if @CD ;
 
 }
 
