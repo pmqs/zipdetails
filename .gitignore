@@ -1,11 +1,11 @@
 /*~
 .*
 *.bak
+*.class
 *.o
 *.swp
 *.tar.gz
 *.tmp
-*.class
 
 !.appveyor.yml
 !.cirrus.yml
@@ -18,13 +18,14 @@
 /Makefile
 /Makefile.old
 /blib
-/pm_to_blib
-/scratch
 /keep
-/t/in-progress
-/t/files/0010-apache-commons-compress/commons-compress-1.20
-/releases
+/pm_to_blib
 /regression
+/releases
+/scratch
+/t/files/0010-apache-commons-compress/commons-compress-1.20
+/t/in-progress
+/tmp
 
 # NYTProf files
 /nytprof
