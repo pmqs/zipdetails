@@ -1,0 +1,49 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 79 82 89 55 Last Mod Time         55898279 'Fri Dec  9 16:19:50 2022'
+000E 0004 A1 9D F5 F1 CRC                   F1F59DA1
+0012 0004 F8 01 00 00 Compressed Length     000001F8
+0016 0004 F8 01 00 00 Uncompressed Length   000001F8
+001A 0002 0A 00       Filename Length       000A
+001C 0002 00 00       Extra Length          0000
+001E 000A 69 6E 6E 65 Filename              'inner2.zip'
+          72 32 2E 7A
+          69 70
+0028 01F8 ...         PAYLOAD
+
+0220 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0224 0001 1E          Created Zip Spec      1E '3.0'
+0225 0001 03          Created OS            03 'Unix'
+0226 0001 0A          Extract Zip Spec      0A '1.0'
+0227 0001 00          Extract OS            00 'MS-DOS'
+0228 0002 00 00       General Purpose Flag  0000
+022A 0002 00 00       Compression Method    0000 'Stored'
+022C 0004 79 82 89 55 Last Mod Time         55898279 'Fri Dec  9 16:19:50 2022'
+0230 0004 A1 9D F5 F1 CRC                   F1F59DA1
+0234 0004 F8 01 00 00 Compressed Length     000001F8
+0238 0004 F8 01 00 00 Uncompressed Length   000001F8
+023C 0002 0A 00       Filename Length       000A
+023E 0002 00 00       Extra Length          0000
+0240 0002 00 00       Comment Length        0000
+0242 0002 00 00       Disk Start            0000
+0244 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+0246 0004 00 00 B4 81 Ext File Attributes   81B40000
+024A 0004 00 00 00 00 Local Header Offset   00000000
+024E 000A 69 6E 6E 65 Filename              'inner2.zip'
+          72 32 2E 7A
+          69 70
+
+0258 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+025C 0002 00 00       Number of this disk   0000
+025E 0002 00 00       Central Dir Disk no   0000
+0260 0002 01 00       Entries in this disk  0001
+0262 0002 01 00       Total Entries         0001
+0264 0004 38 00 00 00 Size of Central Dir   00000038
+0268 0004 20 02 00 00 Offset to Central Dir 00000220
+026C 0002 00 00       Comment Length        0000
+Done

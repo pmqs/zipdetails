@@ -10,7 +10,7 @@
 0016 Uncompressed Length   00000006
 001A Filename Length       000B
 001C Extra Length          0000
-001E Filename              'letters.txt'
+001E Filename              'ladders.txt'
 0029 PAYLOAD               abcde.
 
 002F LOCAL HEADER #2       04034B50
@@ -66,9 +66,7 @@
 00BB Int File Attributes   0001
      [Bit 0]               1 Text Data
 00BD Ext File Attributes   81B40000
-00C1 Local Header Offset   000000E6
-# ERROR: Offset 0xC1: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value 0xE6 is 0x1 bytes past EOF
+00C1 Local Header Offset   0000002F
 00C5 Filename              'numbers.txt'
 
 00D0 END CENTRAL HEADER    06054B50
@@ -79,14 +77,7 @@
 00DC Size of Central Dir   00000072
 00E0 Offset to Central Dir 0000005E
 00E4 Comment Length        0000
+# ERROR: Offset 0x5E: 'filename' mismatch: Central Header has 'letters.txt', Local Directory has 'ladders.txt'
 
-ERROR: Orphan Local Headers found: 1
-  Offset  Filename
-    0x2F  'numbers.txt'
-
-ERROR: possible zipbomb -- Orphan Central Headers found: 1
-  Offset  Filename
-    0x97  'numbers.txt'
-
-Error Count: 3
+Error Count: 1
 Done

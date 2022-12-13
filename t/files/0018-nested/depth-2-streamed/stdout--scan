@@ -1,0 +1,155 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      0A '1.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         55897978 'Fri Dec  9 15:11:48 2022'
+000E CRC                   00000000
+0012 Compressed Length     00000208
+0016 Uncompressed Length   00000208
+001A Filename Length       000A
+001C Extra Length          0000
+001E Filename              'inner2.zip'
+0028 PAYLOAD
+
+0028 LOCAL HEADER #2       04034B50
+002C Extract Zip Spec      0A '1.0'
+002D Extract OS            00 'MS-DOS'
+002E General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+0030 Compression Method    0000 'Stored'
+0032 Last Mod Time         55897978 'Fri Dec  9 15:11:48 2022'
+0036 CRC                   00000000
+003A Compressed Length     00000182
+003E Uncompressed Length   00000182
+0042 Filename Length       000A
+0044 Extra Length          0000
+0046 Filename              'inner1.zip'
+0050 PAYLOAD
+
+0050 LOCAL HEADER #3       04034B50
+0054 Extract Zip Spec      14 '2.0'
+0055 Extract OS            00 'MS-DOS'
+0056 General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+0058 Compression Method    0008 'Deflated'
+005A Last Mod Time         55897922 'Fri Dec  9 15:09:04 2022'
+005E CRC                   F90EE7FF
+0062 Compressed Length     0000010E
+0066 Uncompressed Length   000001BE
+006A Filename Length       0009
+006C Extra Length          0000
+006E Filename              'lorem.txt'
+0077 PAYLOAD
+
+0185 CENTRAL HEADER #1     02014B50
+0189 Created Zip Spec      1E '3.0'
+018A Created OS            03 'Unix'
+018B Extract Zip Spec      14 '2.0'
+018C Extract OS            00 'MS-DOS'
+018D General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+018F Compression Method    0008 'Deflated'
+0191 Last Mod Time         55897922 'Fri Dec  9 15:09:04 2022'
+0195 CRC                   F90EE7FF
+0199 Compressed Length     0000010E
+019D Uncompressed Length   000001BE
+01A1 Filename Length       0009
+01A3 Extra Length          0000
+01A5 Comment Length        0000
+01A7 Disk Start            0000
+01A9 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+01AB Ext File Attributes   81ED0000
+01AF Local Header Offset   00000000
+01B3 Filename              'lorem.txt'
+
+01BC END CENTRAL HEADER    06054B50
+01C0 Number of this disk   0000
+01C2 Central Dir Disk no   0000
+01C4 Entries in this disk  0001
+01C6 Total Entries         0001
+01C8 Size of Central Dir   00000037
+01CC Offset to Central Dir 00000135
+01D0 Comment Length        0000
+
+01D2 STREAMING DATA HEADER 08074B50
+01D6 CRC                   915165D6
+01DA Compressed Length     00000182
+01DE Uncompressed Length   00000182
+
+01E2 CENTRAL HEADER #2     02014B50
+01E6 Created Zip Spec      1E '3.0'
+01E7 Created OS            03 'Unix'
+01E8 Extract Zip Spec      0A '1.0'
+01E9 Extract OS            00 'MS-DOS'
+01EA General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+01EC Compression Method    0000 'Stored'
+01EE Last Mod Time         55897978 'Fri Dec  9 15:11:48 2022'
+01F2 CRC                   915165D6
+01F6 Compressed Length     00000182
+01FA Uncompressed Length   00000182
+01FE Filename Length       000A
+0200 Extra Length          0000
+0202 Comment Length        0000
+0204 Disk Start            0000
+0206 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0208 Ext File Attributes   81B40000
+020C Local Header Offset   00000000
+0210 Filename              'inner1.zip'
+
+021A END CENTRAL HEADER    06054B50
+021E Number of this disk   0000
+0220 Central Dir Disk no   0000
+0222 Entries in this disk  0001
+0224 Total Entries         0001
+0226 Size of Central Dir   00000038
+022A Offset to Central Dir 000001BA
+022E Comment Length        0000
+
+0230 STREAMING DATA HEADER 08074B50
+0234 CRC                   B0236139
+0238 Compressed Length     00000208
+023C Uncompressed Length   00000208
+
+0240 CENTRAL HEADER #3     02014B50
+0244 Created Zip Spec      1E '3.0'
+0245 Created OS            03 'Unix'
+0246 Extract Zip Spec      0A '1.0'
+0247 Extract OS            00 'MS-DOS'
+0248 General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+024A Compression Method    0000 'Stored'
+024C Last Mod Time         55897978 'Fri Dec  9 15:11:48 2022'
+0250 CRC                   B0236139
+0254 Compressed Length     00000208
+0258 Uncompressed Length   00000208
+025C Filename Length       000A
+025E Extra Length          0000
+0260 Comment Length        0000
+0262 Disk Start            0000
+0264 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0266 Ext File Attributes   81B40000
+026A Local Header Offset   00000000
+026E Filename              'inner2.zip'
+
+0278 END CENTRAL HEADER    06054B50
+027C Number of this disk   0000
+027E Central Dir Disk no   0000
+0280 Entries in this disk  0001
+0282 Total Entries         0001
+0284 Size of Central Dir   00000038
+0288 Offset to Central Dir 00000240
+028C Comment Length        0000
+
+INFO: Nested Zip files found: 1
+  Offset  Filename
+     0x0  'inner2.zip'
+
+Info Count: 1
+Done

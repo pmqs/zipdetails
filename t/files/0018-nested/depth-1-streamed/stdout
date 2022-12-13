@@ -1,0 +1,52 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      0A '1.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         5588B810 'Thu Dec  8 23:00:32 2022'
+000E CRC                   00000000
+0012 Compressed Length     00000182
+0016 Uncompressed Length   00000182
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'inner.zip'
+0027 PAYLOAD
+
+01A9 STREAMING DATA HEADER 08074B50
+01AD CRC                   B66D985D
+01B1 Compressed Length     00000182
+01B5 Uncompressed Length   00000182
+
+01B9 CENTRAL HEADER #1     02014B50
+01BD Created Zip Spec      1E '3.0'
+01BE Created OS            03 'Unix'
+01BF Extract Zip Spec      0A '1.0'
+01C0 Extract OS            00 'MS-DOS'
+01C1 General Purpose Flag  0008
+     [Bit  3]              1 'Streamed'
+01C3 Compression Method    0000 'Stored'
+01C5 Last Mod Time         5588B810 'Thu Dec  8 23:00:32 2022'
+01C9 CRC                   B66D985D
+01CD Compressed Length     00000182
+01D1 Uncompressed Length   00000182
+01D5 Filename Length       0009
+01D7 Extra Length          0000
+01D9 Comment Length        0000
+01DB Disk Start            0000
+01DD Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+01DF Ext File Attributes   81B40000
+01E3 Local Header Offset   00000000
+01E7 Filename              'inner.zip'
+
+01F0 END CENTRAL HEADER    06054B50
+01F4 Number of this disk   0000
+01F6 Central Dir Disk no   0000
+01F8 Entries in this disk  0001
+01FA Total Entries         0001
+01FC Size of Central Dir   00000037
+0200 Offset to Central Dir 000001B9
+0204 Comment Length        0000
+Done

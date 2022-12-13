@@ -990,7 +990,7 @@ if ($opt_scan || $opt_walk)
             }
             elsif ($lastSignature eq ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
             {
-                # Assume we have the payload when streaming is ebabled
+                # Assume we have the payload when streaming is enabled
                 outSomeData($delta, "PAYLOAD", $opt_Redact) ;
                 $lastEndsAt = $FH->tell();
                 next;
@@ -1277,19 +1277,17 @@ sub dislayMessages
     if ($CentralDirectory->exists() && $LocalDirectory->exists())
     {
         # TODO check number if entries matches eocd
-        # TODO check hesder length matches reality
+        # TODO check header length matches reality
 
-        # duplicate filename
-        # local entry != central
+        $LocalDirectory->findEnclosingEntries();
+        my %cleanCentralEntries = %{ $CentralDirectory->{byCentralOffset} };
+        my %benignNested ;
 
         {
             # check for Local Directory orphans
 
-            my %cdNames = map {  $_  => 1 }
-                          keys %{ $CentralDirectory->{byLocalOffset} };
-
-            my %orphans = map  { $_->{localHeaderOffset} => $_->{filename} }
-                          grep { ! defined $cdNames{ $_->{localHeaderOffset} }              }
+            my %orphans = map  { $_->{localHeaderOffset} => $_->{filename}                              }
+                          grep { ! defined $CentralDirectory->localOffset( $_->{localHeaderOffset} )    }
                           $LocalDirectory->nonEncapsulatedEntries();
 
             if (keys %orphans)
@@ -1312,11 +1310,8 @@ sub dislayMessages
             # check for Central Directory orphans
             # probably only an issue with --walk & a zipbomb
 
-            my %localOffsets = map {  $_ => 1 }
-                              keys %{ $LocalDirectory->{byLocalOffset} };
-
-            my %orphans = map  { $_->{localHeaderOffset} => $_->{filename} }
-                          grep { ! defined $localOffsets{ $_->{localHeaderOffset} } }
+            my %orphans = map  { $_->{centralHeaderOffset} => $_                                   }
+                          grep { ! defined $LocalDirectory->localOffset( $_->{localHeaderOffset} ) }
                           $CentralDirectory->nonEncapsulatedEntries();
 
             if (keys %orphans)
@@ -1330,14 +1325,17 @@ sub dislayMessages
                            keys %orphans ;
 
                 say sprintf "  %-${ow}s  Filename", "Offset" ;
-                say sprintf("  %+${ow}s  '" . $orphans{$_} . "'", hexValue($_))
+                say sprintf("  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_))
                     for sort { $a <=> $b } keys %orphans ;
+
+                delete $cleanCentralEntries{ $_ }
+                    for keys %orphans ;
             }
         }
 
         {
             # nested zips
-            # want the benign nested entries that aren't referred by the CD
+            # these are NOT zipbomb -- want the benign nested entries that aren't referred by the CD
 
             # this is only active when scan is used
 
@@ -1345,9 +1343,6 @@ sub dislayMessages
                 my $offsets = shift ;
                 return 1
                     if ! defined $offsets;
-                # say "XXX $offsets";
-                # say " K $_" for keys %$offsets;
-                # say "XXX";
                 return grep { defined $_ && $_->{localHeaderOffset} }
                        map { $CentralDirectory->getByLocalOffset($_) }
                        keys %$offsets;
@@ -1401,6 +1396,9 @@ sub dislayMessages
                     say sprintf "  %-${ow}s  Filename", "Offset" ;
                     say sprintf("  %+${ow}s  '" . $_->{filename} . "'", hexValue($_->{centralHeaderOffset}))
                         for @entries;
+
+                    delete $cleanCentralEntries{ $_ }
+                        for map { $_->{centralHeaderOffset} } @entries ;
                 }
             }
         }
@@ -1461,6 +1459,8 @@ sub dislayMessages
 
             if (keys %bomb)
             {
+                # Central Directory knows about these, so this is a zipbomb
+                
                 ++ $ErrorCount ;
 
                 say "\nERROR: Possible zipbomb -- Nested Local Entries found\n";
@@ -1477,9 +1477,43 @@ sub dislayMessages
                     say sprintf "  %-${ow}s  Filename", "Offset" ;
                     say sprintf("  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->{filename} . "'", hexValue($_))
                         for sort @{ $bomb{$loc} };
+
+                    delete $cleanCentralEntries{ $_ }
+                        for grep { defined $_ }
+                            map  { $CentralDirectory->{byLocalOffset}{$_}{centralHeaderOffset} }
+                            @{ $bomb{$loc} } ;
                 }
             }
         }
+
+        # Check contents of local match with central
+        #
+        # key fields
+        #    filename, compressed/uncompessed lengths, crc, compression method
+        {
+            for my $centralEntry ( sort { $a->{centralHeaderOffset} <=> $b->{centralHeaderOffset} } values %cleanCentralEntries )
+            {
+                my $localEntry = $LocalDirectory->getByLocalOffset($centralEntry->{localHeaderOffset});
+
+                next
+                    unless $localEntry;
+
+                if ($localEntry->{filename} ne $centralEntry->{filename})
+                {
+                    error $centralEntry->{centralHeaderOffset}, "'filename' mismatch: Central Header has '$centralEntry->{filename }', Local Directory has '$localEntry->{filename }'"
+                }
+
+                # TODO - add method etc
+                for my $field (qw(uncompressedLength compressedLength crc32) )
+                {
+                    if ($localEntry->{$field} ne $centralEntry->{$field})
+                    {
+                        warning $centralEntry->{centralHeaderOffset}, "Filename '$centralEntry->{filename }': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localEntry->{$field}'"
+                    }
+                }
+            }
+        }
+
     }
     elsif ($CentralDirectory->exists())
     {
@@ -1543,7 +1577,7 @@ sub LocalHeader
     my $orphan = 0;
 
     my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
-    my $CentralEntryExists = $CentralDirectory->LocalOffsetExists($startRecordOffset);
+    my $CentralEntryExists = $CentralDirectory->localOffset($startRecordOffset);
     if (! $opt_scan && ! $opt_walk && $CentralEntryExists)
     {
         my $cdEntry = $CentralDirectory->getByLocalOffset($startRecordOffset);
@@ -1554,7 +1588,6 @@ sub LocalHeader
             $orphan = 1 ;
         }
 
-        $CDcompressedLength = $cdEntry->{compressedLength};
         $cdZip64 = $cdEntry->{zip64ExtraPresent};
         $zip64Sizes = $cdEntry->{zip64SizesPresent};
         $cdIndex = $cdEntry->{index};
@@ -1638,11 +1671,20 @@ sub LocalHeader
 
     # If no CD scanned, get compressed length from local header.
     # Zip64 extra field takes priority
-    $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength
-        if ! $CentralDirectory->exists() || ! $CentralEntryExists;
+    my $cdl = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset} 
+                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{compressedLength} 
+                : undef ;
 
-    my $CDuncompressedLength = $ExtraContext{UncompressedLength} // $uncompressedLength
-        if ! $CentralDirectory->exists() || ! $CentralEntryExists;
+    $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength  ;
+    $CDcompressedLength = $cdl
+        if defined $cdl && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
+
+    my $cdu = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset} 
+                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedLength} 
+                : undef;
+    my $CDuncompressedLength =  $ExtraContext{UncompressedLength} // $uncompressedLength ;
+    $CDuncompressedLength = $cdu 
+        if defined $cdu && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
     my $fullCompressedLength = $CDcompressedLength;
 
@@ -1701,10 +1743,12 @@ sub LocalHeader
     $localEntry->{payloadOffset} = $payloadOffset;
     $localEntry->{compressedLength} = $fullCompressedLength;
     $localEntry->{uncompressedLength} = $CDuncompressedLength;
+    $localEntry->{crc32} = $crc;
     $localEntry->{zip64ExtraPresent} = $cdZip64;
     $localEntry->{zip64SizesPresent} = $zip64Sizes;
     $localEntry->{filename} = $filename;
     $localEntry->{compressedMethod} = $compressedMethod ;
+    $localEntry->{streamed} = $gpFlag & ZIP_GP_FLAG_STREAMING_MASK ;
 
     $LocalDirectory->addEntry($localEntry);
 
@@ -1715,6 +1759,7 @@ sub LocalHeader
                 'length'        => $FH->tell() - $startRecordOffset,
                 'payloadLength' => $fullCompressedLength,
                 'payloadOffset' => $payloadOffset,
+                'entry'         => $localEntry,
         } ;
 }
 
@@ -2024,12 +2069,13 @@ sub CentralHeader
         $cdEntry->{zip64ExtraPresent} = undef; #$cdZip64; ### FIX ME
         $cdEntry->{zip64SizesPresent} = undef ; # $zip64Sizes;   ### FIX ME
         $cdEntry->{filename} = $filename;
+        $cdEntry->{crc32} = $crc;
 
         $CentralDirectory->addEntry($cdEntry);
     }
     else
     {
-        $cdEntry = $CentralDirectory->LocalOffsetExists($locHeaderOffset)
+        $cdEntry = $CentralDirectory->localOffset($locHeaderOffset)
     }
 
     return { 'encapsulated' => $cdEntry->{encapsulated} };
@@ -2340,20 +2386,35 @@ sub DataHeader
 
     need $ZIP64 ? 20 : 12, Signatures::name($signature);
 
-    out_V "CRC";
+    my $crc = out_V "CRC";
+    my $compressedLength;
+    my $uncompressedLength;
 
     if ($ZIP64)
     {
-        out_Q "Compressed Length" ;
-        out_Q "Uncompressed Length" ;
+        $compressedLength = out_Q "Compressed Length" ;
+        $uncompressedLength = out_Q "Uncompressed Length" ;
     }
     else
     {
-        out_V "Compressed Length" ;
-        out_V "Uncompressed Length" ;
+        $compressedLength = out_V "Compressed Length" ;
+        $uncompressedLength = out_V "Uncompressed Length" ;
     }
 
-    return {};
+    my $localEntry = $LocalDirectory->lastStreamedEntryAdded();
+
+    if ($localEntry)
+    {
+        $localEntry->{crc32} = $crc ;
+        $localEntry->{compressedLength} = $compressedLength ;
+        $localEntry->{uncompressedLength} = $uncompressedLength ;
+    }
+
+    return {
+        crc => $crc,
+        compressedLength => $compressedLength,
+        uncompressedLength => $uncompressedLength,
+    };
 }
 
 sub SingleSegmentMarker
@@ -4121,6 +4182,7 @@ sub scanCentralDirectory
 
         ++ $cdIndex ;
 
+        my $crc                = unpack("V", substr($buffer, 16, 4));
         my $compressedLength   = unpack("V", substr($buffer, 20, 4));
         my $uncompressedLength = unpack("V", substr($buffer, 24, 4));
         my $filename_length    = unpack("v", substr($buffer, 28, 2));
@@ -4193,6 +4255,7 @@ sub scanCentralDirectory
         $cdEntry->{compressedLength} = $compressedLength;
         $cdEntry->{uncompressedLength} = $uncompressedLength;
         $cdEntry->{filename} = $filename;
+        $cdEntry->{crc32} = $crc;
         $cdEntry->{zip64ExtraPresent} = $cdZip64;
         $cdEntry->{zip64SizesPresent} = $zip64Sizes;
 
@@ -4776,9 +4839,11 @@ sub nibbles
                         'compressedLength'      => 0,
                         'uncompressedLength'    => 0,
                         'filename'              => '',
+                        'crc32'                 => 0,
                         'zip64ExtraPresent'     => 0,
                         'zip64SizesPresent'     => 0,
                         'encapsulated'          => 0,
+                        'payloadOffset'         => 0,
                      ) ;
 
         bless \%object, $class;
@@ -4796,6 +4861,7 @@ sub nibbles
                         'entries'       => [],
                         'count'         => 0,
                         'byLocalOffset' => {},
+                        'byCentralOffset' => {},
                         'byName'        => {},
                         'offset2Index' => {},
                         'matchedWithLocalHeader' => {},
@@ -4815,10 +4881,10 @@ sub nibbles
         my $self = shift ;
         my $entry = shift ;
 
-        my $localHeaderOffset = $entry->{localHeaderOffset} = $entry->{localHeaderOffset}  ;
+        my $localHeaderOffset = $entry->{localHeaderOffset}  ;
         my $CentralDirectoryOffset = $entry->{centralHeaderOffset} ;
         my $filename = $entry->{filename} ;
-        my $existingEntry = $self->{byLocalOffset}{$localHeaderOffset} ;
+        # my $existingEntry = $self->{byLocalOffset}{$localHeaderOffset} ;
 
         my $enclosingEntry = $LocalDirectory->isCdEntryNested($entry) ;
         if ($enclosingEntry)
@@ -4858,6 +4924,7 @@ sub nibbles
             push @{ $self->{entries} }, $entry;
 
             $self->{byLocalOffset}{$localHeaderOffset} = $entry;
+            $self->{byCentralOffset}{$CentralDirectoryOffset} = $entry;
             $self->{byName}{ $filename } = $entry;
             $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
             $self->{offset2Index} = $self->{count} ++;
@@ -4891,7 +4958,7 @@ sub nibbles
         return $entry ;
     }
 
-    sub LocalOffsetExists
+    sub localOffset
     {
         my $self = shift ;
         my $offset = shift ;
@@ -4953,13 +5020,17 @@ sub nibbles
                         'index'                 => 0,
                         'localHeaderOffset'     => 0,
                         'payloadOffset'         => 0,
+                        'surfaceArea'           => [],
                         'uncompressedLength'    => 0,
                         'compressedLength'      => 0,
+                        'crc32'                 => 0,
                         'filename'              => '',
                         'zip64ExtraPresent'     => 0,
                         'zip64SizesPresent'     => 0,
                         'compressedMethod'      => 0,
                         'encapsulated'          => 0,
+                        'streamed'              => 0,
+                        'streamedMatch'         => 0,
                      ) ;
 
         bless \%object, $class;
@@ -4975,7 +5046,7 @@ sub nibbles
 
         my %object = (
                         'entries'       => [],
-                        'surfaceArea'   => [],
+                        # 'surfaceArea'   => [],
                         'nestedEntries' => [],
                         'count'         => 0,
                         'byLocalOffset' => {},
@@ -5027,11 +5098,13 @@ sub nibbles
         # my $endSA = $localEntry->{payloadOffset} +  $localEntry->{compressedLength} ;
 
         return undef
-            unless  @{ $self->{surfaceArea} } ;
+            unless  @{ $self->{entries} } ;
 
-        for my $entry ( @{ $self->{surfaceArea} } )
+        for my $outerEntry ( @{ $self->{entries} } )
         {
-            my ($from, $to, $outerEntry) = @{ $entry };
+            my $from = $outerEntry->{localHeaderOffset} ;
+            my $to   = $outerEntry->{payloadOffset} + $outerEntry->{compressedLength};
+
             if ($outerEntry->{index} != $index)
             {
                 # say sprintf "  $i: %X, %X", $from, $to;
@@ -5073,6 +5146,32 @@ sub nibbles
         # return undef;
     }
 
+
+    sub findEnclosingEntries
+    {
+        my $self = shift ;
+
+        for my $localEntry ( @{ $self->{entries} } )
+        {
+            # check if entry is part of payload of another entry
+            # particular issue with nested zip files
+
+            my $localHeaderOffset = $localEntry->{localHeaderOffset};
+
+            my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
+            if ($enclosingEntry)
+            {
+                $localEntry->{encapsulated} = 1;
+                # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
+                push @{ $self->{enclosingEntries} }, $enclosingEntry
+                    if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
+
+                $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
+            }
+        }
+    }
+
+
     sub addEntry
     {
         my $self = shift ;
@@ -5084,21 +5183,21 @@ sub nibbles
 
         my $existingEntry = $self->{byName}{$filename} ;
 
-        my $endSurfaceArea = $payloadOffset + $localEntry->{compressedLength}  ;
+        my $endSurfaceArea = $payloadOffset + ($localEntry->{compressedLength} //0)  ;
 
-        # check if entry is part of payload of another entry
-        # particular issue with nested zip files
+        # # check if entry is part of payload of another entry
+        # # particular issue with nested zip files
 
-        my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
-        if ($enclosingEntry)
-        {
-            $localEntry->{encapsulated} = 1;
-            # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
-            push @{ $self->{enclosingEntries} }, $enclosingEntry
-                 if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
+        # my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
+        # if ($enclosingEntry)
+        # {
+        #     $localEntry->{encapsulated} = 1;
+        #     # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
+        #     push @{ $self->{enclosingEntries} }, $enclosingEntry
+        #          if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
 
-            $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
-        }
+        #     $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
+        # }
 
         if ($existingEntry)
         {
@@ -5135,6 +5234,14 @@ sub nibbles
              @{ $self->{entries} };
     }
 
+    sub localOffset
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        return $self->{byLocalOffset}{$offset} ;
+    }
+
     sub getByLocalOffset
     {
         my $self = shift ;
@@ -5159,6 +5266,23 @@ sub nibbles
         }
 
         return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+    }
+
+    sub lastStreamedEntryAdded
+    {
+        my $self = shift ;
+        my $offset = shift ;
+
+        for my $entry ( reverse @{ $self->{entries} } )
+        {
+            if ($entry->{streamed} && ! $entry->{streamedMatch})
+            {
+                ++ $entry->{streamedMatch} ;
+                return $entry;
+            }
+        }
+
+        return undef;
     }
 
     sub inCD
@@ -5186,6 +5310,23 @@ sub nibbles
         my $self = shift ;
         return grep { ! $_->{encapsulated} }
                @{ $self->{entries} }
+    }
+}
+
+{
+    package Eocd ;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %object = (
+                        'zip64'       => 0,
+
+
+                     ) ;
+
+        bless \%object, $class;
     }
 }
 
