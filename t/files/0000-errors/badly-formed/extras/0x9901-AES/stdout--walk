@@ -1,0 +1,208 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0009
+     [Bit  0]              1 'Encryption'
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0063 'AES Encryption'
+000A Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+000E CRC                   78E7FB10
+0012 Compressed Length     00001B54
+0016 Uncompressed Length   00005A0B
+001A Filename Length       000A
+001C Extra Length          0014
+001E Filename              'zipcloak.c'
+0028 Extra ID #0001        5455 'UT: Extended Timestamp'
+002A   Length              0005
+002C   Flags               '01 mod'
+002D   Mod Time            4A8370D0 'Thu Aug 13 01:48:00 2009'
+0031 Extra ID #0002        9901 'AES Encryption'
+0033   Length              0007
+0035   Vendor Version      0000 'Unknown'
+# WARNING: Offset 0x35: Extra Field 0x9901 ('AES'): Unknown 'Vendor Version' 0. Valid values are 1,2
+0037   Vendor ID           4541 'AE'
+0039   Encryption Strength 00 'Unknown'
+# WARNING: Offset 0x39: Extra Field 0x9901 ('AES'): Unknown 'Encryption Strength' 0. Valid values are 1,2,3
+003A   Compression Method  0000 'Stored'
+003C PAYLOAD
+1B90 AES Auth              50 4B 07 08 10 FB E7 78 54 1B
+1B9A PAYLOAD               ...Z..
+
+1BA0 LOCAL HEADER #2       04034B50
+1BA4 Extract Zip Spec      14 '2.0'
+1BA5 Extract OS            00 'MS-DOS'
+1BA6 General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+1BA8 Compression Method    0063 'AES Encryption'
+1BAA Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+1BAE CRC                   E87DFAD7
+1BB2 Compressed Length     000021F3
+1BB6 Uncompressed Length   00006A79
+1BBA Filename Length       000A
+1BBC Extra Length          008E
+1BBE Filename              'zipsplit.c'
+1BC8 Extra ID #0001        000C 'OpenVMS'
+1BCA   Length              007F
+1BCC   CRC                 2806A99E
+1BD0   Tag# 0001           0004 'ATR$C_RECATTR'
+1BD2     Size              0020
+1BD4     Attribute         05 02 00 00 00 00 40 00 00 00 36 00 79
+                           00 00 00 00 00 00 40 00 00 00 00 00 00
+                           00 00 00 00 00 00
+1BF4   Tag# 0002           0003 'ATR$C_UCHAR'
+1BF6     Size              0004
+1BF8     Attribute         00000000
+1BFC   Tag# 0003           0011 'ATR$C_CREDATE'
+1BFE     Size              0008
+1C00     Attribute         00A8FF16A4678000 'Wed Aug 12 20:47:59
+                           2009 460000000ns'
+1C08   Tag# 0004           0012 'ATR$C_REVDATE'
+1C0A     Size              0008
+1C0C     Attribute         00A8FF16A4678000 'Wed Aug 12 20:47:59
+                           2009 460000000ns'
+1C14   Tag# 0005           0013 'ATR$C_EXPDATE'
+1C16     Size              0008
+1C18     Attribute         0000000000000000 'No Date Time'
+1C20   Tag# 0006           0014 'ATR$C_BAKDATE'
+1C22     Size              0008
+1C24     Attribute         0000000000000000 'No Date Time'
+1C2C   Tag# 0007           000D 'ATR$C_ASCDATES'
+1C2E     Size              0002
+1C30     Attribute         0000'Revision Count 0000'
+1C32   Tag# 0008           0015 'ATR$C_UIC'
+1C34     Size              0004
+1C36     Attribute         00010004
+1C3A   Tag# 0009           0016 'ATR$C_FPRO'
+1C3C     Size              0002
+1C3E     Attribute         00 FA
+1C40   Tag# 000A           0017 'ATR$C_RPRO'
+1C42     Size              0002
+1C44     Attribute         0000
+1C46   Tag# 000B           001D 'ATR$C_JOURNAL'
+1C48     Size              0001
+1C4A     Attribute         00
+1C4B Extra ID #0002        9901 'AES Encryption'
+1C4D   Length              0007
+1C4F   Vendor Version      0001 'AE-1'
+1C51   Vendor ID           4541 'AE'
+1C53   Encryption Strength 03 '256-bit encryption key'
+1C54   Compression Method  0008 'Deflated'
+1C56 AES Salt              CB 0B B1 B2 4B 3D 48 B3 DF 19 85 6A 59
+                           64 E8 7A
+1C66 AES Pwd Ver           4C F9
+1C68 PAYLOAD
+3E3F AES Auth              9D D7 8C FA 7E 16 53 48 71 6D
+
+3E49 CENTRAL HEADER #1     02014B50
+3E4D Created Zip Spec      1F '3.1'
+3E4E Created OS            02 'OpenVMS'
+3E4F Extract Zip Spec      14 '2.0'
+3E50 Extract OS            00 'MS-DOS'
+3E51 General Purpose Flag  0009
+     [Bit  0]              1 'Encryption'
+     [Bit  3]              1 'Streamed'
+3E53 Compression Method    0063 'AES Encryption'
+3E55 Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+3E59 CRC                   78E7FB10
+3E5D Compressed Length     00001B54
+3E61 Uncompressed Length   00005A0B
+3E65 Filename Length       000A
+3E67 Extra Length          0014
+3E69 Comment Length        0000
+3E6B Disk Start            0000
+3E6D Int File Attributes   0001
+     [Bit 0]               1 Text Data
+3E6F Ext File Attributes   81E80000
+3E73 Local Header Offset   00000000
+3E77 Filename              'zipcloak.c'
+3E81 Extra ID #0001        5455 'UT: Extended Timestamp'
+3E83   Length              0005
+3E85   Flags               '01 mod'
+3E86   Mod Time            4A8370D0 'Thu Aug 13 01:48:00 2009'
+3E8A Extra ID #0002        9901 'AES Encryption'
+3E8C   Length              0007
+3E8E   Vendor Version      0001 'AE-1'
+3E90   Vendor ID           4541 'AE'
+3E92   Encryption Strength 03 '256-bit encryption key'
+3E93   Compression Method  0008 'Deflated'
+
+3E95 CENTRAL HEADER #2     02014B50
+3E99 Created Zip Spec      1F '3.1'
+3E9A Created OS            02 'OpenVMS'
+3E9B Extract Zip Spec      14 '2.0'
+3E9C Extract OS            00 'MS-DOS'
+3E9D General Purpose Flag  0001
+     [Bit  0]              1 'Encryption'
+3E9F Compression Method    0063 'AES Encryption'
+3EA1 Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+3EA5 CRC                   E87DFAD7
+3EA9 Compressed Length     000021F3
+3EAD Uncompressed Length   00006A79
+3EB1 Filename Length       000A
+3EB3 Extra Length          008E
+3EB5 Comment Length        0000
+3EB7 Disk Start            0000
+3EB9 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+3EBB Ext File Attributes   81E80000
+3EBF Local Header Offset   00001BA0
+3EC3 Filename              'zipsplit.c'
+3ECD Extra ID #0001        000C 'OpenVMS'
+3ECF   Length              007F
+3ED1   CRC                 2806A99E
+3ED5   Tag# 0001           0004 'ATR$C_RECATTR'
+3ED7     Size              0020
+3ED9     Attribute         05 02 00 00 00 00 40 00 00 00 36 00 79
+                           00 00 00 00 00 00 40 00 00 00 00 00 00
+                           00 00 00 00 00 00
+3EF9   Tag# 0002           0003 'ATR$C_UCHAR'
+3EFB     Size              0004
+3EFD     Attribute         00000000
+3F01   Tag# 0003           0011 'ATR$C_CREDATE'
+3F03     Size              0008
+3F05     Attribute         00A8FF16A4678000 'Wed Aug 12 20:47:59
+                           2009 460000000ns'
+3F0D   Tag# 0004           0012 'ATR$C_REVDATE'
+3F0F     Size              0008
+3F11     Attribute         00A8FF16A4678000 'Wed Aug 12 20:47:59
+                           2009 460000000ns'
+3F19   Tag# 0005           0013 'ATR$C_EXPDATE'
+3F1B     Size              0008
+3F1D     Attribute         0000000000000000 'No Date Time'
+3F25   Tag# 0006           0014 'ATR$C_BAKDATE'
+3F27     Size              0008
+3F29     Attribute         0000000000000000 'No Date Time'
+3F31   Tag# 0007           000D 'ATR$C_ASCDATES'
+3F33     Size              0002
+3F35     Attribute         0000'Revision Count 0000'
+3F37   Tag# 0008           0015 'ATR$C_UIC'
+3F39     Size              0004
+3F3B     Attribute         00010004
+3F3F   Tag# 0009           0016 'ATR$C_FPRO'
+3F41     Size              0002
+3F43     Attribute         00 FA
+3F45   Tag# 000A           0017 'ATR$C_RPRO'
+3F47     Size              0002
+3F49     Attribute         0000
+3F4B   Tag# 000B           001D 'ATR$C_JOURNAL'
+3F4D     Size              0001
+3F4F     Attribute         00
+3F50 Extra ID #0002        9901 'AES Encryption'
+3F52   Length              0007
+3F54   Vendor Version      0001 'AE-1'
+3F56   Vendor ID           4541 'AE'
+3F58   Encryption Strength 03 '256-bit encryption key'
+3F59   Compression Method  0008 'Deflated'
+
+3F5B END CENTRAL HEADER    06054B50
+3F5F Number of this disk   0000
+3F61 Central Dir Disk no   0000
+3F63 Entries in this disk  0002
+3F65 Total Entries         0002
+3F67 Size of Central Dir   00000112
+3F6B Offset to Central Dir 00003E49
+3F6F Comment Length        0000
+
+Warning Count: 2
+Done
