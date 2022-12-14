@@ -1281,8 +1281,8 @@ sub dislayMessages
         {
             # check for Local Directory orphans
 
-            my %orphans = map  { $_->{localHeaderOffset} => $_->{filename}                              }
-                          grep { ! defined $CentralDirectory->localOffset( $_->{localHeaderOffset} )    }
+            my %orphans = map  { $_->localHeaderOffset() => $_->filename()                              }
+                          grep { ! defined $CentralDirectory->localOffset( $_->localHeaderOffset() )    }
                           $LocalDirectory->nonEncapsulatedEntries();
 
             if (keys %orphans)
@@ -1305,8 +1305,8 @@ sub dislayMessages
             # check for Central Directory orphans
             # probably only an issue with --walk & a zipbomb
 
-            my %orphans = map  { $_->{centralHeaderOffset} => $_                                   }
-                          grep { ! defined $LocalDirectory->localOffset( $_->{localHeaderOffset} ) }
+            my %orphans = map  { $_->centralHeaderOffset() => $_                                   }
+                          grep { ! defined $LocalDirectory->localOffset( $_->localHeaderOffset() ) }
                           $CentralDirectory->nonEncapsulatedEntries();
 
             if (keys %orphans)
@@ -1338,13 +1338,13 @@ sub dislayMessages
                 my $offsets = shift ;
                 return 1
                     if ! defined $offsets;
-                return grep { defined $_ && $_->{localHeaderOffset} }
+                return grep { defined $_ && $_->localHeaderOffset() }
                        map { $CentralDirectory->getByLocalOffset($_) }
                        keys %$offsets;
             };
 
-            my %outerEntries = map { $_->{localHeaderOffset} => $_->{filename} }
-                               grep { ! anyinCD( $CentralDirectory->{'enclosing2localEntry'}{ $_->{localHeaderOffset} } ) } # don't want entries that are referenced from the CD
+            my %outerEntries = map { $_->localHeaderOffset() => $_->filename() }
+                               grep { ! anyinCD( $CentralDirectory->{'enclosing2localEntry'}{ $_->localHeaderOffset() } ) } # don't want entries that are referenced from the CD
                                @{ $CentralDirectory->{enclosingEntries} },
                                @{ $LocalDirectory->{enclosingEntries}   } ;
 
@@ -1370,7 +1370,7 @@ sub dislayMessages
             my %ByLocalOffset ;
             for my $entry ( @{ $CentralDirectory->{entries} } )
             {
-                push @{ $ByLocalOffset{$entry->{localHeaderOffset}} }, $entry;
+                push @{ $ByLocalOffset{$entry->localHeaderOffset()} }, $entry;
             }
 
             for my $offset (sort keys %ByLocalOffset)
@@ -1381,19 +1381,19 @@ sub dislayMessages
                     ++ $ErrorCount;
 
                     # found duplicates
-                    say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $LocalDirectory->getByLocalOffset($offset)->{filename} . "' at offset " . hexValue($offset);
+                    say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $LocalDirectory->getByLocalOffset($offset)->filename() . "' at offset " . hexValue($offset);
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_        }
-                            map { $_->{centralHeaderOffset} }
+                            map { $_->centralHeaderOffset() }
                             @entries ;
 
                     say sprintf "  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("  %+${ow}s  '" . $_->{filename} . "'", hexValue($_->{centralHeaderOffset}))
+                    say sprintf("  %+${ow}s  '" . $_->filename() . "'", hexValue($_->centralHeaderOffset()))
                         for @entries;
 
                     delete $cleanCentralEntries{ $_ }
-                        for map { $_->{centralHeaderOffset} } @entries ;
+                        for map { $_->centralHeaderOffset() } @entries ;
                 }
             }
         }
@@ -1417,7 +1417,7 @@ sub dislayMessages
                     my $outerLocalEntry = $LocalDirectory->isLocalEntryNested($innerEntry);
                     if ($outerLocalEntry)
                     {
-                        my $outerOffset = $outerLocalEntry->{localHeaderOffset};
+                        my $outerOffset = $outerLocalEntry->localHeaderOffset();
                         # say sprintf "0x%X nested in 0x%X", $offset, $outerOffset ;
                         if ($CentralDirectory->{byLocalOffset}{ $offset })
                         {
@@ -1442,12 +1442,12 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $nested{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for filename '$outerEntry->{filename}' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
+                    say "Local Header for filename '" . $outerEntry->filename() . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
                     for my $n ( @{ $nested{$loc} } )
                     {
                         my $innerEntry = $LocalDirectory->getByLocalOffset($n);
 
-                        say "  Nested Local Header for filename '$innerEntry->{filename}' is at Offset " . hexValue($n)  ;
+                        say "  Nested Local Header for filename '" . $innerEntry->filename() . "' is at Offset " . hexValue($n)  ;
                     }
                 }
             }
@@ -1463,14 +1463,14 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for filename '$outerEntry->{filename}' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
+                    say "Local Header for filename '" . $outerEntry->filename() . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_ }
                             @{ $bomb{$loc} } ;
 
                     say sprintf "  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->{filename} . "'", hexValue($_))
+                    say sprintf("  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->filename() . "'", hexValue($_))
                         for sort @{ $bomb{$loc} };
 
                     delete $cleanCentralEntries{ $_ }
@@ -1486,16 +1486,16 @@ sub dislayMessages
         # key fields
         #    filename, compressed/uncompessed lengths, crc, compression method
         {
-            for my $centralEntry ( sort { $a->{centralHeaderOffset} <=> $b->{centralHeaderOffset} } values %cleanCentralEntries )
+            for my $centralEntry ( sort { $a->centralHeaderOffset() <=> $b->centralHeaderOffset() } values %cleanCentralEntries )
             {
-                my $localEntry = $LocalDirectory->getByLocalOffset($centralEntry->{localHeaderOffset});
+                my $localEntry = $LocalDirectory->getByLocalOffset($centralEntry->localHeaderOffset());
 
                 next
                     unless $localEntry;
 
-                if ($localEntry->{filename} ne $centralEntry->{filename})
+                if ($localEntry->filename() ne $centralEntry->filename())
                 {
-                    error $centralEntry->{centralHeaderOffset}, "'filename' mismatch: Central Header has '$centralEntry->{filename }', Local Directory has '$localEntry->{filename }'"
+                    error $centralEntry->centralHeaderOffset(), "'filename' mismatch: Central Header has '" . $centralEntry->filename () . "', Local Directory has '" . $localEntry->filename () . "'"
                 }
 
                 # TODO - add method etc
@@ -1503,7 +1503,7 @@ sub dislayMessages
                 {
                     if ($localEntry->{$field} ne $centralEntry->{$field})
                     {
-                        warning $centralEntry->{centralHeaderOffset}, "Filename '$centralEntry->{filename }': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localEntry->{$field}'"
+                        warning $centralEntry->centralHeaderOffset(), "Filename '" . $centralEntry->filename () . "': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localEntry->{$field}'"
                     }
                 }
             }
@@ -1583,10 +1583,10 @@ sub LocalHeader
             $orphan = 1 ;
         }
 
-        $cdZip64 = $cdEntry->{zip64ExtraPresent};
-        $zip64Sizes = $cdEntry->{zip64SizesPresent};
-        $cdIndex = $cdEntry->{index};
-        $cdEntryOffset = $cdEntry->{centralHeaderOffset} ;
+        $cdZip64 = $cdEntry->zip64ExtraPresent();
+        $zip64Sizes = $cdEntry->zip64SizesPresent();
+        $cdIndex = $cdEntry->index();
+        $cdEntryOffset = $cdEntry->centralHeaderOffset() ;
 
         if ($cdIndex && $cdIndex != $LocalHeaderCount)
         {
@@ -1733,17 +1733,17 @@ sub LocalHeader
 
     my $localEntry = LocalDirectoryEntry->new();
 
-    $localEntry->{index} = $LocalHeaderCount;
-    $localEntry->{localHeaderOffset} = $locHeaderOffset;
-    $localEntry->{payloadOffset} = $payloadOffset;
-    $localEntry->{compressedLength} = $fullCompressedLength;
-    $localEntry->{uncompressedLength} = $CDuncompressedLength;
-    $localEntry->{crc32} = $crc;
-    $localEntry->{zip64ExtraPresent} = $cdZip64;
-    $localEntry->{zip64SizesPresent} = $zip64Sizes;
-    $localEntry->{filename} = $filename;
-    $localEntry->{compressedMethod} = $compressedMethod ;
-    $localEntry->{streamed} = $gpFlag & ZIP_GP_FLAG_STREAMING_MASK ;
+    $localEntry->index($LocalHeaderCount);
+    $localEntry->localHeaderOffset($locHeaderOffset);
+    $localEntry->payloadOffset($payloadOffset);
+    $localEntry->compressedLength($fullCompressedLength);
+    $localEntry->uncompressedLength($CDuncompressedLength);
+    $localEntry->crc32($crc);
+    $localEntry->zip64ExtraPresent($cdZip64);
+    $localEntry->zip64SizesPresent($zip64Sizes);
+    $localEntry->filename($filename);
+    $localEntry->compressedMethod($compressedMethod );
+    $localEntry->streamed($gpFlag & ZIP_GP_FLAG_STREAMING_MASK );
 
     $LocalDirectory->addEntry($localEntry);
 
@@ -2055,16 +2055,16 @@ sub CentralHeader
     {
         my $cdEntry = CentralDirectoryEntry->new();
 
-        $cdEntry->{index} = $CentralHeaderCount;
-        $cdEntry->{centralHeaderOffset} = $cdEntryOffset;
-        $cdEntry->{endCentralHeaderOffset} = $FH->tell() - 1;
-        $cdEntry->{localHeaderOffset} = $locHeaderOffset;
-        $cdEntry->{compressedLength} = $compressedLength;
-        $cdEntry->{uncompressedLength} = $uncompressedLength;
-        $cdEntry->{zip64ExtraPresent} = undef; #$cdZip64; ### FIX ME
-        $cdEntry->{zip64SizesPresent} = undef ; # $zip64Sizes;   ### FIX ME
-        $cdEntry->{filename} = $filename;
-        $cdEntry->{crc32} = $crc;
+        $cdEntry->index($CentralHeaderCount);
+        $cdEntry->centralHeaderOffset($cdEntryOffset);
+        $cdEntry->endCentralHeaderOffset($FH->tell() - 1);
+        $cdEntry->localHeaderOffset($locHeaderOffset);
+        $cdEntry->compressedLength($compressedLength);
+        $cdEntry->uncompressedLength($uncompressedLength);
+        $cdEntry->zip64ExtraPresent(undef); #$cdZip64; ### FIX ME
+        $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
+        $cdEntry->filename($filename);
+        $cdEntry->crc32($crc);
 
         $CentralDirectory->addEntry($cdEntry);
     }
@@ -2073,7 +2073,7 @@ sub CentralHeader
         $cdEntry = $CentralDirectory->localOffset($locHeaderOffset)
     }
 
-    return { 'encapsulated' => $cdEntry->{encapsulated} };
+    return { 'encapsulated' => $cdEntry ? $cdEntry->encapsulated() : 0};
 }
 
 sub decodeZipVer
@@ -2400,9 +2400,9 @@ sub DataHeader
 
     if ($localEntry)
     {
-        $localEntry->{crc32} = $crc ;
-        $localEntry->{compressedLength} = $compressedLength ;
-        $localEntry->{uncompressedLength} = $uncompressedLength ;
+        $localEntry->crc32($crc);
+        $localEntry->compressedLength($compressedLength);
+        $localEntry->uncompressedLength($uncompressedLength);
     }
 
     return {
@@ -4239,16 +4239,16 @@ sub scanCentralDirectory
 
         my $cdEntry = CentralDirectoryEntry->new();
 
-        $cdEntry->{index} = $cdIndex;
-        $cdEntry->{centralHeaderOffset} = $startHeader;
-        $cdEntry->{endCentralHeaderOffset} = $FH->tell() - 1;
-        $cdEntry->{localHeaderOffset} = $locHeaderOffset + $PREFIX_DELTA;
-        $cdEntry->{compressedLength} = $compressedLength;
-        $cdEntry->{uncompressedLength} = $uncompressedLength;
-        $cdEntry->{filename} = $filename;
-        $cdEntry->{crc32} = $crc;
-        $cdEntry->{zip64ExtraPresent} = $cdZip64;
-        $cdEntry->{zip64SizesPresent} = $zip64Sizes;
+        $cdEntry->index($cdIndex);
+        $cdEntry->centralHeaderOffset($startHeader);
+        $cdEntry->endCentralHeaderOffset($FH->tell() - 1);
+        $cdEntry->localHeaderOffset($locHeaderOffset + $PREFIX_DELTA);
+        $cdEntry->compressedLength($compressedLength);
+        $cdEntry->uncompressedLength($uncompressedLength);
+        $cdEntry->filename($filename);
+        $cdEntry->crc32($crc);
+        $cdEntry->zip64ExtraPresent($cdZip64);
+        $cdEntry->zip64SizesPresent($zip64Sizes);
 
         $CentralDirectory->addEntry($cdEntry);
 
@@ -4810,27 +4810,155 @@ sub nibbles
 }
 
 {
-    package CentralDirectoryEntry;
+    package FieldsAndAccessors;
+
+    sub Add 
+    {
+        use Data::Dumper ;
+
+        my $classname = shift;
+        my $object = shift;
+        my $fields = shift ;
+
+        state $done = {};
+
+        
+        while (my ($name, $value) =  each %$fields)
+        {
+            my $method = "${classname}::$name";
+
+            no strict 'refs';
+            *$method = sub {
+                my $self = shift;
+                if (@_) { $self->{$name} = shift }
+                return $self->{$name};
+            } 
+                unless defined $done->{$method};
+
+            ++ $done->{$method};
+
+            $object->{$name} = $value ;
+
+        }
+
+        # say Dumper($object);
+    }
+}
+
+{
+    package BaseEntry ;
 
     sub new
     {
         my $class = shift ;
 
-        my %object = (
+        my %fields = (
                         'index'                 => 0,
+                        'Zip64'                 => 0,
+                        'offsetStart'           => 0,
+                        'offsetEnd'             => 0,
+                        'inCentralDir'          => 0,
+                        'encapsulated'          => 0,
+                        'streamed'              => 0,
+                     ) ;
+
+        my $self = bless {}, $class;
+
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+
+        return $self;
+    }
+}
+
+{
+    package LocalCentralEntryBase ;
+
+    use parent -norequire , 'BaseEntry' ;
+
+    sub new 
+    {
+        my $class = shift ;
+
+        my $self = $class->SUPER::new();
+
+
+        my %fields = (
                         'centralHeaderOffset'   => 0,
                         'localHeaderOffset'     => 0,
+
                         'compressedLength'      => 0,
                         'uncompressedLength'    => 0,
                         'filename'              => '',
                         'crc32'                 => 0,
+                        'compressedMethod'      => 0,
+
                         'zip64ExtraPresent'     => 0,
                         'zip64SizesPresent'     => 0,
-                        'encapsulated'          => 0,
                         'payloadOffset'         => 0,
                      ) ;
 
-        bless \%object, $class;
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+
+        return $self;
+    }
+
+}
+
+{
+    package CentralDirectoryEntry;
+
+    use parent -norequire , 'LocalCentralEntryBase' ;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my $self = $class->SUPER::new();
+
+        my %fields = (
+                        # 'index'                 => 0,
+
+                        # 'centralHeaderOffset'     => 0,
+                        'endCentralHeaderOffset'  => 0,
+                        # 'localHeaderOffset'       => 0,
+
+                        # 'compressedLength'      => 0,
+                        # 'uncompressedLength'    => 0,
+                        # 'filename'              => '',
+                        # 'crc32'                 => 0,
+                        # 'zip64ExtraPresent'     => 0,
+                        # 'zip64SizesPresent'     => 0,
+                        # 'encapsulated'          => 0,
+                        # 'payloadOffset'         => 0,
+                     ) ;
+
+        # my $self = bless {}, $class;
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+
+        return $self;
+    }
+}
+
+{
+    package BaseDirectoryEntry ;
+
+    sub new
+    {
+        my $class = shift ;
+
+        my %fields = (
+                        'index'                 => 0,
+                        'Zip64'                 => 0,
+                        'offset'                => 0,
+                        'InCentralDir'          => 0,
+                        'encapsulated'          => 0,
+                     ) ;
+
+        my $self = bless \{}, $class;
+
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+
+        return $self;
     }
 }
 
@@ -4865,19 +4993,19 @@ sub nibbles
         my $self = shift ;
         my $entry = shift ;
 
-        my $localHeaderOffset = $entry->{localHeaderOffset}  ;
-        my $CentralDirectoryOffset = $entry->{centralHeaderOffset} ;
-        my $filename = $entry->{filename} ;
+        my $localHeaderOffset = $entry->localHeaderOffset()  ;
+        my $CentralDirectoryOffset = $entry->centralHeaderOffset() ;
+        my $filename = $entry->filename() ;
         # my $existingEntry = $self->{byLocalOffset}{$localHeaderOffset} ;
 
         my $enclosingEntry = $LocalDirectory->isCdEntryNested($entry) ;
         if ($enclosingEntry)
         {
             # say "Encapsulated";
-            $entry->{encapsulated} = 1;
+            $entry->encapsulated(1);
             push @{ $self->{enclosingEntries} }, $enclosingEntry
-                 if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
-            $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
+                 if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
+            $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
 
         }
 
@@ -4889,7 +5017,7 @@ sub nibbles
         #             "Existing Central Directory entry is at offset " . ::hexValue($existingEntry->{centralHeaderOffset});
         # }
         # else
-        if ($entry->{encapsulated} )
+        if ($entry->encapsulated() )
         {
             push @{ $self->{encapsulatedEntries} }, $entry;
         }
@@ -4927,7 +5055,7 @@ sub nibbles
     {
         my $self = shift ;
 
-        sort { $a->{localHeaderOffset} <=> $b->{localHeaderOffset} }
+        sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
              @{ $self->{entries} };
     }
 
@@ -4963,7 +5091,7 @@ sub nibbles
             return 0;
         }
 
-        return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+        return ${ $self->{entries} }[$index+1]->localHeaderOffset() ;
     }
 
     sub inCD
@@ -4989,35 +5117,40 @@ sub nibbles
     sub nonEncapsulatedEntries
     {
         my $self = shift ;
-        return grep { ! $_->{encapsulated} } @{ $self->{entries} }
+        return grep { ! $_->encapsulated() } @{ $self->{entries} }
     }
 }
 
 {
     package LocalDirectoryEntry;
 
+    use parent -norequire , 'LocalCentralEntryBase' ;
+
     sub new
     {
         my $class = shift ;
 
-        my %object = (
-                        'index'                 => 0,
-                        'localHeaderOffset'     => 0,
+        my $self = $class->SUPER::new();
+
+        my %fields = (
+                        # 'index'                 => 0,
+                        # 'localHeaderOffset'     => 0,
                         'payloadOffset'         => 0,
                         'surfaceArea'           => [],
-                        'uncompressedLength'    => 0,
-                        'compressedLength'      => 0,
-                        'crc32'                 => 0,
-                        'filename'              => '',
-                        'zip64ExtraPresent'     => 0,
-                        'zip64SizesPresent'     => 0,
-                        'compressedMethod'      => 0,
-                        'encapsulated'          => 0,
-                        'streamed'              => 0,
+                        # 'uncompressedLength'    => 0,
+                        # 'compressedLength'      => 0,
+                        # 'crc32'                 => 0,
+                        # 'filename'              => '',
+                        # 'zip64ExtraPresent'     => 0,
+                        # 'zip64SizesPresent'     => 0,
+                        # 'encapsulated'          => 0,
+                        # 'streamed'              => 0,
                         'streamedMatch'         => 0,
                      ) ;
 
-        bless \%object, $class;
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+        
+        return $self;
     }
 }
 
@@ -5054,10 +5187,10 @@ sub nibbles
         my $self = shift;
         my $cdEntry = shift ;
 
-        my $startSA = $cdEntry->{centralHeaderOffset};
-        my $endSA = $cdEntry->{endCentralHeaderOffset}  ;
+        my $startSA = $cdEntry->centralHeaderOffset();
+        my $endSA = $cdEntry->endCentralHeaderOffset()  ;
 
-        return $self->isNested(-1, $cdEntry->{centralHeaderOffset}, $cdEntry->{endCentralHeaderOffset} ) ;
+        return $self->isNested(-1, $cdEntry->centralHeaderOffset(), $cdEntry->endCentralHeaderOffset() ) ;
     }
 
     sub isLocalEntryNested
@@ -5065,10 +5198,10 @@ sub nibbles
         my $self = shift ;
         my $localEntry = shift;
 
-        my $startSA = $localEntry->{localHeaderOffset};
-        my $endSA = $localEntry->{payloadOffset} +  $localEntry->{compressedLength} ;
+        my $startSA = $localEntry->localHeaderOffset();
+        my $endSA = $localEntry->payloadOffset() +  $localEntry->compressedLength() ;
 
-        return $self->isNested($localEntry->{index}, $startSA, $endSA) ;
+        return $self->isNested($localEntry->index(), $startSA, $endSA) ;
     }
 
     sub isNested
@@ -5078,18 +5211,18 @@ sub nibbles
         my $startSA = shift;
         my $endSA = shift;
 
-        # my $startSA = $localEntry->{localHeaderOffset};
-        # my $endSA = $localEntry->{payloadOffset} +  $localEntry->{compressedLength} ;
+        # my $startSA = $localEntry->localHeaderOffset();
+        # my $endSA = $localEntry->payloadOffset() +  $localEntry->compressedLength() ;
 
         return undef
             unless  @{ $self->{entries} } ;
 
         for my $outerEntry ( @{ $self->{entries} } )
         {
-            my $from = $outerEntry->{localHeaderOffset} ;
-            my $to   = $outerEntry->{payloadOffset} + $outerEntry->{compressedLength};
+            my $from = $outerEntry->localHeaderOffset() ;
+            my $to   = $outerEntry->payloadOffset() + $outerEntry->compressedLength();
 
-            if ($outerEntry->{index} != $index)
+            if ($outerEntry->index() != $index)
             {
                 # say sprintf "  $i: %X, %X", $from, $to;
 
@@ -5140,17 +5273,17 @@ sub nibbles
             # check if entry is part of payload of another entry
             # particular issue with nested zip files
 
-            my $localHeaderOffset = $localEntry->{localHeaderOffset};
+            my $localHeaderOffset = $localEntry->localHeaderOffset();
 
             my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
             if ($enclosingEntry)
             {
-                $localEntry->{encapsulated} = 1;
+                $localEntry->encapsulated(1);
                 # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
                 push @{ $self->{enclosingEntries} }, $enclosingEntry
-                    if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
+                    if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
 
-                $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
+                $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
             }
         }
     }
@@ -5162,12 +5295,12 @@ sub nibbles
         my $localEntry = shift ;
 
         my $filename = $localEntry->{filename} ;
-        my $localHeaderOffset = $localEntry->{localHeaderOffset};
-        my $payloadOffset = $localEntry->{payloadOffset} ;
+        my $localHeaderOffset = $localEntry->localHeaderOffset();
+        my $payloadOffset = $localEntry->payloadOffset() ;
 
         my $existingEntry = $self->{byName}{$filename} ;
 
-        my $endSurfaceArea = $payloadOffset + ($localEntry->{compressedLength} //0)  ;
+        my $endSurfaceArea = $payloadOffset + ($localEntry->compressedLength() //0)  ;
 
         # # check if entry is part of payload of another entry
         # # particular issue with nested zip files
@@ -5178,16 +5311,16 @@ sub nibbles
         #     $localEntry->{encapsulated} = 1;
         #     # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
         #     push @{ $self->{enclosingEntries} }, $enclosingEntry
-        #          if ! $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} } ;
+        #          if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
 
-        #     $self->{enclosing2localEntry}{ $enclosingEntry->{localHeaderOffset} }{$localHeaderOffset} ++;
+        #     $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
         # }
 
         if ($existingEntry)
         {
-            ::error $localEntry->{localHeaderOffset},
-                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::hexValue($localEntry->{localHeaderOffset}) ,
-                    "Existing Local Directory entry is at offset " . ::hexValue($existingEntry->{localHeaderOffset})
+            ::error $localEntry->localHeaderOffset(),
+                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::hexValue($localEntry->localHeaderOffset()) ,
+                    "Existing Local Directory entry is at offset " . ::hexValue($existingEntry->localHeaderOffset())
         }
 
         # keep nested local entries for zipbomb deteection
@@ -5214,7 +5347,7 @@ sub nibbles
     {
         my $self = shift ;
 
-        sort { $a->{localHeaderOffset} <=> $b->{localHeaderOffset} }
+        sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
              @{ $self->{entries} };
     }
 
@@ -5249,7 +5382,7 @@ sub nibbles
             return 0;
         }
 
-        return ${ $self->{entries} }[$index+1]->{localHeaderOffset} ;
+        return ${ $self->{entries} }[$index+1]->localHeaderOffset() ;
     }
 
     sub lastStreamedEntryAdded
