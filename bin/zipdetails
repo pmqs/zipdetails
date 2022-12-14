@@ -1690,14 +1690,14 @@ sub LocalHeader
 
     if (! $pk_encrypted)
     {
-        if ($compressedMethod == 99) # AES Encryption
+        if ($compressedMethod == 99 && $ExtraContext{AesValid}) # AES Encryption
         {
             $size = printAes(\%ExtraContext)
         }
         elsif ($compressedMethod == ZIP_CM_LZMA)
         {
 
-            $size += printLzmaProperties()
+            $size = printLzmaProperties()
         }
 
         $CDcompressedLength -= $size;
@@ -3528,18 +3528,34 @@ sub decode_UT
 sub decode_AES
 {
     # ref https://www.winzip.com/en/support/aes-encryption/
+    # Document version: 1.04
+    # Last modified: January 30, 2009
 
     my $len = shift;
     my $context = shift;
 
     return if $len == 0 ;
 
+    my $validAES = 1;
+    my $warnPrefix = "Extra Field 0x9901 ('AES')";
+
     my %lookup = ( 1 => "AE-1", 2 => "AE-2");
-    out_v "  Vendor Version", sub {  $lookup{$_[0]} || "Unknown"  } ;
+    my $vendorVersion = out_v "  Vendor Version", sub {  $lookup{$_[0]} || "Unknown"  } ;
+    if (! $lookup{$vendorVersion})
+    {
+        $validAES = 0;
+        warning $FH->tell() - 2, "$warnPrefix: Unknown 'Vendor Version' $vendorVersion. Valid values are 1,2"
+    }
 
     my $id ;
     myRead($id, 2);
-    out $id, "  Vendor ID", unpackValue_v($id) . " '$id'";
+    my $idValue = out $id, "  Vendor ID", unpackValue_v($id) . " '$id'";
+
+    if ($id ne 'AE')
+    {
+        $validAES = 0;
+        warning $FH->tell() - 2, "$warnPrefix: Unknown 'Vendor ID' '$idValue'. Valid value is 'AE'"
+    }
 
     my %strengths = (1 => "128-bit encryption key",
                      2 => "192-bit encryption key",
@@ -3548,11 +3564,22 @@ sub decode_AES
 
     my $strength = out_C "  Encryption Strength", sub {$strengths{$_[0]} || "Unknown" } ;
 
+    if (! $strengths{$strength})
+    {
+        $validAES = 0;
+        warning $FH->tell() - 1, "$warnPrefix: Unknown 'Encryption Strength' $strength. Valid values are 1,2,3"
+    }
+
     my ($bmethod, $method) = read_v();
     out $bmethod, "  Compression Method", compressionMethod($method) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($method)
-        if ! defined $ZIP_CompressionMethods{$method} ;
+    if (! defined $ZIP_CompressionMethods{$method})
+    {
+        $validAES = 0;
+        warning $FH->tell() - 2, "$warnPrefix: Unknown 'Compression Method' ID " . hexValue16($method)
+    }
+
     $context->{AesStrength} = $strength ;
+    $context->{AesValid} = $validAES ;
 }
 
 sub decode_Reference
@@ -3945,13 +3972,16 @@ sub printAes
 
     my $context = shift ;
 
+    return 0
+        if ! $context->{AesValid};
+
     my %saltSize = (
                         1 => 8,
                         2 => 12,
                         3 => 16,
                     );
 
-    myRead(my $salt, $saltSize{$context->{AesStrength} });
+    myRead(my $salt, $saltSize{$context->{AesStrength} } // 0);
     out $salt, "AES Salt", hexDump($salt);
     myRead(my $pwv, 2);
     out $pwv, "AES Pwd Ver", hexDump($pwv);
