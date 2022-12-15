@@ -52,6 +52,7 @@ my @exts = qw(
         docx
         dwf
         exe
+        fmu
         ipa
         ja
         jar
