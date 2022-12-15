@@ -532,9 +532,18 @@ sub outHexdump
 {
     my $size = shift;
     my $text = shift;
+    my $limit = shift ;
 
-    myRead(my $payload, $size);
-    out($payload, $text, hexDump($payload));
+    # TODO - add a limit to data output
+    # if ($limit)
+    # { 
+    #     outSomeData($size, $text);
+    # }
+    # else
+    {
+        myRead(my $payload, $size);
+        out($payload, $text, hexDump($payload));
+    }
 
     return $size;
 }
@@ -2456,7 +2465,7 @@ sub ArchiveExtraDataRecord
 
     need $size, Signatures::name($signature);
 
-    outHexdump("Field data", $size);
+    outHexdump($size, "Field data", 1);
 
     return {};
 }
