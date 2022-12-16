@@ -1633,6 +1633,26 @@ sub LocalHeader
     myRead($filename, $filenameLength);
     outputFilename($filename);
 
+    my $localEntry = LocalDirectoryEntry->new();
+
+    $localEntry->index($LocalHeaderCount);
+    $localEntry->localHeaderOffset($locHeaderOffset);
+    $localEntry->compressedLength($compressedLength);
+    $localEntry->uncompressedLength($uncompressedLength);
+    $localEntry->crc32($crc);
+    $localEntry->zip64ExtraPresent($cdZip64);
+    $localEntry->zip64SizesPresent($zip64Sizes);
+    $localEntry->filename($filename);
+    $localEntry->compressedMethod($compressedMethod );
+    $localEntry->streamed($gpFlag & ZIP_GP_FLAG_STREAMING_MASK );
+
+    $localEntry->std_localHeaderOffset($locHeaderOffset + $PREFIX_DELTA);
+    $localEntry->std_compressedLength($compressedLength);
+    $localEntry->std_uncompressedLength($uncompressedLength);
+    $localEntry->std_diskNumber(0);
+
+    $LocalDirectory->addEntry($localEntry);
+    
     my $cl64 = $compressedLength;
     my %ExtraContext = ();
     if ($extraLength)
@@ -1644,7 +1664,7 @@ sub LocalHeader
         $ExtraContext{InCentralDir} = 0;
         $ExtraContext{Index} = $hexHdrCount;
         $ExtraContext{Filename} = $filename;
-        walkExtra($extraLength, \%ExtraContext);
+        walkExtra($extraLength, \%ExtraContext, $localEntry);
     }
 
 
@@ -1679,29 +1699,31 @@ sub LocalHeader
                 ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{compressedLength} 
                 : undef ;
 
-    $CDcompressedLength = $ExtraContext{CompressedLength} // $compressedLength  ;
+    $CDcompressedLength = $localEntry->compressedLength() ;
     $CDcompressedLength = $cdl
         if defined $cdl && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
     my $cdu = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset} 
                 ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedLength} 
                 : undef;
-    my $CDuncompressedLength =  $ExtraContext{UncompressedLength} // $uncompressedLength ;
+    my $CDuncompressedLength = $localEntry->uncompressedLength() ;
+
     $CDuncompressedLength = $cdu 
         if defined $cdu && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
     my $fullCompressedLength = $CDcompressedLength;
 
     my $payloadOffset = $FH->tell();
-
+    $localEntry->payloadOffset($payloadOffset);
+    
     need $CDcompressedLength, 'PAYLOAD'
         if $CDcompressedLength ;
 
     if (! $pk_encrypted)
     {
-        if ($compressedMethod == 99 && $ExtraContext{AesValid}) # AES Encryption
+        if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
         {
-            $size = printAes(\%ExtraContext)
+            $size = printAes(\%ExtraContext, $localEntry)
         }
         elsif ($compressedMethod == ZIP_CM_LZMA)
         {
@@ -1728,7 +1750,7 @@ sub LocalHeader
         }
     }
 
-    if ($compressedMethod == 99) {
+    if ($compressedMethod == 99 ) {
         my $auth ;
         myRead($auth, 10);
         out $auth, "AES Auth",  hexDump($auth);
@@ -1739,22 +1761,6 @@ sub LocalHeader
 
     push @Messages, @msg ;
 
-
-    my $localEntry = LocalDirectoryEntry->new();
-
-    $localEntry->index($LocalHeaderCount);
-    $localEntry->localHeaderOffset($locHeaderOffset);
-    $localEntry->payloadOffset($payloadOffset);
-    $localEntry->compressedLength($fullCompressedLength);
-    $localEntry->uncompressedLength($CDuncompressedLength);
-    $localEntry->crc32($crc);
-    $localEntry->zip64ExtraPresent($cdZip64);
-    $localEntry->zip64SizesPresent($zip64Sizes);
-    $localEntry->filename($filename);
-    $localEntry->compressedMethod($compressedMethod );
-    $localEntry->streamed($gpFlag & ZIP_GP_FLAG_STREAMING_MASK );
-
-    $LocalDirectory->addEntry($localEntry);
 
     return {
                 'localHeader'   => 1,
@@ -2026,43 +2032,10 @@ sub CentralHeader
     myRead($filename, $filenameLength);
     outputFilename($filename);
 
-
-    my %ExtraContext = ( CRC => $crc,
-                         LocalHdrOffset   => $locHeaderOffset,
-                         CompressedLength => $compressedLength);
-
-    if ($extraLength)
-    {
-        need $extraLength, Signatures::name($signature), 'Extra';
-
-        my @z64 = ($uncompressedLength, $compressedLength, $locHeaderOffset, $disk_start);
-        $ExtraContext{Zip64} = \@z64 ;
-        $ExtraContext{InCentralDir} = 1;
-        $ExtraContext{Index} = $hexHdrCount;
-        $ExtraContext{Filename} = $filename;
-        walkExtra($extraLength, \%ExtraContext);
-    }
-
-    if ($comment_length)
-    {
-        need $comment_length, Signatures::name($signature), 'Comment';
-
-        my $comment ;
-        myRead($comment, $comment_length);
-        outputFilename $comment, "Comment";
-    }
-
-    $compressedLength = $ExtraContext{CompressedLength} // $compressedLength;
-    $uncompressedLength = $ExtraContext{UncompressedLength} // $uncompressedLength ;
-    $locHeaderOffset = defined $ExtraContext{LocalHdrOffset}
-                        # ? $ExtraContext{LocalHdrOffset} + $PREFIX_DELTA
-                        ? $ExtraContext{LocalHdrOffset}
-                        : $locHeaderOffset ;
-
     my $cdEntry;
     if ($opt_scan || $opt_walk)
     {
-        my $cdEntry = CentralDirectoryEntry->new();
+        $cdEntry = CentralDirectoryEntry->new();
 
         $cdEntry->index($CentralHeaderCount);
         $cdEntry->centralHeaderOffset($cdEntryOffset);
@@ -2081,6 +2054,40 @@ sub CentralHeader
     {
         $cdEntry = $CentralDirectory->localOffset($locHeaderOffset)
     }
+
+    $cdEntry->std_localHeaderOffset($locHeaderOffset);
+    $cdEntry->std_compressedLength($compressedLength);
+    $cdEntry->std_uncompressedLength($uncompressedLength);
+    $cdEntry->std_diskNumber($disk_start);
+
+    $cdEntry->inCentralDir(1);
+
+    my %ExtraContext = ( CRC => $crc,
+                         LocalHdrOffset   => $locHeaderOffset,
+                         CompressedLength => $compressedLength);
+
+    if ($extraLength)
+    {
+        need $extraLength, Signatures::name($signature), 'Extra';
+
+        my @z64 = ($uncompressedLength, $compressedLength, $locHeaderOffset, $disk_start);
+        $ExtraContext{Zip64} = \@z64 ;
+        $ExtraContext{InCentralDir} = 1;
+        $ExtraContext{Index} = $hexHdrCount;
+        $ExtraContext{Filename} = $filename;
+        walkExtra($extraLength, \%ExtraContext, $cdEntry);
+    }
+
+    if ($comment_length)
+    {
+        need $comment_length, Signatures::name($signature), 'Comment';
+
+        my $comment ;
+        myRead($comment, $comment_length);
+        outputFilename $comment, "Comment";
+        $cdEntry->comment($comment);
+    }
+
 
     return { 'encapsulated' => $cdEntry ? $cdEntry->encapsulated() : 0};
 }
@@ -2193,6 +2200,8 @@ sub Zip64EndCentralHeader
         $remaining -= $hashLen + 28;
     }
 
+    my $entry = Zip64EndCentralHeaderEntry->new();
+
     if ($remaining)
     {
         # Handle 'zip64 extensible data sector' here
@@ -2203,7 +2212,7 @@ sub Zip64EndCentralHeader
                          CompressedLength => 0,
                          InCentralDir => 0,
                          );
-        walkExtra($remaining, \%ExtraContext);
+        walkExtra($remaining, \%ExtraContext, $entry);
     }
 
     return {};
@@ -2909,6 +2918,7 @@ sub walkExtra
     # APPNOTE 6.3.10, sec 4.4.11, 4.4.28, 4.5
     my $XLEN = shift;
     my $context = shift;
+    my $entry = shift;
 
     # Caller has determined that there are $XLEN bytes available to read
 
@@ -3016,10 +3026,10 @@ sub walkExtra
         }
         else
         {
-            if (testExtraLimits($lookID, $subLen, $context->{InCentralDir}))
+            if (testExtraLimits($lookID, $subLen, $entry->inCentralDir))
             {
                 my $endExtraOffset = $FH->tell() + $subLen;
-                $decoder->($subLen, $context) ;
+                $decoder->($subLen, $context, $entry) ;
 
                 # Belt & Braces - should now be at $endExtraOffset
                 # error here means issue in an extra handler
@@ -3116,36 +3126,39 @@ sub decode_Zip64
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
-    my $z64Data = $context->{Zip64};
-    my $inCentralHdr = $context->{InCentralDir} ;
+    my $inCentralHdr = $entry->inCentralDir() ;
     my $inLocalHdr = ! $inCentralHdr ;
 
     my $fieldStart = $FH->tell();
     $ZIP64 = 1;
+    $entry->zip64(1);
 
     my $left = $len;
 
-    if ($left >= 8 && ($inLocalHdr || full32 $z64Data->[0])) {
-        $context->{UncompressedLength} = out_Q "  Uncompressed Size";
+    if ($left >= 8 && ($inLocalHdr || full32 $entry->std_uncompressedLength())) {
+        $entry->uncompressedLength(out_Q "  Uncompressed Size");
         $left -= 8;
     }
 
-    if ($left >= 8 && ($inLocalHdr || full32 $z64Data->[1])) {
-        $context->{CompressedLength} = out_Q "  Compressed Size";
+    if ($left >= 8 && ($inLocalHdr || full32 $entry->std_compressedLength())) {
+        $entry->compressedLength(out_Q "  Compressed Size");
         $left -= 8;
     }
 
-    if ($left >= 8 && full32 $z64Data->[2] ) {
-        $context->{LocalHdrOffset} = out_Q "  Offset to Local Dir";
+    if ($left >= 8 && full32 $entry->std_localHeaderOffset ) {
+        my $LocalHdrOffset = out_Q "  Offset to Local Dir";
         $left -= 8;
 
         my $commonMessage = "'Offset to Local Dir' field in 'Zip 64 Extra Field' is invalid";
-        $context->{LocalHdrOffset} = checkOffsetValue($context->{LocalHdrOffset}, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG) ;
+        $LocalHdrOffset = checkOffsetValue($LocalHdrOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG) ;
+        $entry->localHeaderOffset($LocalHdrOffset);
     }
 
-    if ($left >= 4 && $z64Data->[3] == 0xFFFF ) {
-        out_V "  Disk Number";
+    if ($left >= 4 && full16 $entry->std_diskNumber() ) {
+        my $diskNumber = out_V "  Disk Number";
+        $entry->diskNumber($diskNumber);
         $left -= 4;
     }
 }
@@ -3169,6 +3182,7 @@ sub decode_NTFS_Filetimes
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     out_V "  Reserved";
     out_v "  Tag1";
@@ -3296,6 +3310,7 @@ sub decode_OpenVMS
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     state $openVMS_tags = {
         0x04    => [ 'ATR$C_RECATTR',   \&OpenVMS_DumpBytes  ],
@@ -3416,6 +3431,7 @@ sub decode_UT
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     # Definition in IZ APPNOTE
 
@@ -3479,14 +3495,14 @@ sub decode_UT
 
     if ($flags & 2 || $full)
     {
-        if ($remaining == 0 && $context->{InCentralDir})
+        if ($remaining == 0 && $entry->inCentralDir)
         {
             # Central Dir doesn't have access time
         }
         else
         {
             info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Access Time'"
-                if ! ($flags & 2) || $context->{InCentralDir} ;
+                if ! ($flags & 2) || $entry->inCentralDir ;
 
             if ($remaining < 4)
             {
@@ -3506,14 +3522,14 @@ sub decode_UT
 
     if ($flags & 4  || $full)
     {
-        if ($remaining == 0 && $context->{InCentralDir})
+        if ($remaining == 0 && $entry->inCentralDir)
         {
             # Central Dir doesn't have change time
         }
         else
         {
             info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Change Time'"
-                if ! ($flags & 4) || $context->{InCentralDir} ;
+                if ! ($flags & 4) || $entry->inCentralDir ;
 
             if ($remaining < 4)
             {
@@ -3542,6 +3558,7 @@ sub decode_AES
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     return if $len == 0 ;
 
@@ -3587,8 +3604,8 @@ sub decode_AES
         warning $FH->tell() - 2, "$warnPrefix: Unknown 'Compression Method' ID " . hexValue16($method)
     }
 
-    $context->{AesStrength} = $strength ;
-    $context->{AesValid} = $validAES ;
+    $entry->aesStrength($strength) ;
+    $entry->aesValid($validAES) ;
 }
 
 sub decode_Reference
@@ -3597,6 +3614,7 @@ sub decode_Reference
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     out_V "  CRC";
     myRead(my $uuid, 16);
@@ -3613,6 +3631,7 @@ sub decode_DUMMY
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     out_V "  Data";
 }
@@ -3623,6 +3642,7 @@ sub decode_GrowthHint
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     # caller has checked that 4 bytes are available,
     # so can output values without checking available space
@@ -3647,7 +3667,9 @@ sub decode_DataStreamAlignment
 
     my $len = shift;
     my $context = shift;
-    my $inCentralHdr = $context->{InCentralDir} ;
+    my $entry = shift;
+
+    my $inCentralHdr = $entry->inCentralDir ;
 
     return if $len == 0 ;
 
@@ -3678,7 +3700,9 @@ sub decode_UX
 {
     my $len = shift;
     my $context = shift;
-    my $inCentralHdr = $context->{InCentralDir} ;
+    my $entry = shift;
+
+    my $inCentralHdr = $entry->inCentralDir ;
 
     return if $len == 0 ;
 
@@ -3698,6 +3722,7 @@ sub decode_Ux
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     return if $len == 0 ;
     out_v "  UID" ;
@@ -3738,6 +3763,7 @@ sub decode_ux
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     # caller has checked that 3 bytes are available
 
@@ -3800,6 +3826,7 @@ sub decode_Java_exe
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
 }
 
@@ -3809,6 +3836,7 @@ sub decode_up
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
 
     out_C "  Version";
@@ -3839,6 +3867,7 @@ sub decode_Xceed_unicode
 {
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     my $data ;
 
@@ -3877,7 +3906,9 @@ sub decode_NT_security
     # IZ Appnote
     my $len = shift;
     my $context = shift;
-    my $inCentralHdr = $context->{InCentralDir} ;
+    my $entry = shift;
+
+    my $inCentralHdr = $entry->inCentralDir ;
 
     out_V "  Uncompressed Size" ;
 
@@ -3900,6 +3931,7 @@ sub decodeMVS
     # APPNOTE 6.3.10, Appendix
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     # data in Big-Endian
     myRead(my $data, $len);
@@ -3920,6 +3952,7 @@ sub decode_strong_encryption
 
     my $len = shift;
     my $context = shift;
+    my $entry = shift;
 
     # TODO check for overflow is contents > $len
     out_v "  Format";
@@ -3980,9 +4013,10 @@ sub printAes
     # ref https://www.winzip.com/en/support/aes-encryption/
 
     my $context = shift ;
+    my $entry = shift;
 
     return 0
-        if ! $context->{AesValid};
+        if ! $entry->aesValid;
 
     my %saltSize = (
                         1 => 8,
@@ -3990,12 +4024,12 @@ sub printAes
                         3 => 16,
                     );
 
-    myRead(my $salt, $saltSize{$context->{AesStrength} } // 0);
+    myRead(my $salt, $saltSize{$entry->aesStrength } // 0);
     out $salt, "AES Salt", hexDump($salt);
     myRead(my $pwv, 2);
     out $pwv, "AES Pwd Ver", hexDump($pwv);
 
-    return  $saltSize{$context->{AesStrength}} + 2 + 10;
+    return  $saltSize{$entry->aesStrength} + 2 + 10;
 }
 
 sub printLzmaProperties
@@ -4220,11 +4254,13 @@ sub scanCentralDirectory
         my $filename_length    = unpack("v", substr($buffer, 28, 2));
         my $extra_length       = unpack("v", substr($buffer, 30, 2));
         my $comment_length     = unpack("v", substr($buffer, 32, 2));
+        my $diskNumber         = unpack("v", substr($buffer, 34, 2));
         my $locHeaderOffset    = unpack("V", substr($buffer, 42, 4));
+
         my $cdZip64 = 0;
         my $zip64Sizes = 0;
 
-        if ($locHeaderOffset != MAX32)
+        if (! full32 $locHeaderOffset)
         {
             # Check for corrupt offset
             # 1. ponting paset EOF
@@ -4238,6 +4274,13 @@ sub scanCentralDirectory
         # skip($fh, $filename_length ) ;
         $fh->read(my $filename, $filename_length) ;
 
+        my $cdEntry = CentralDirectoryEntry->new();
+
+        $cdEntry->std_localHeaderOffset($locHeaderOffset);
+        $cdEntry->std_compressedLength($compressedLength);
+        $cdEntry->std_uncompressedLength($uncompressedLength);
+        $cdEntry->std_diskNumber($diskNumber);
+
         if ($extra_length)
         {
             $fh->read(my $extraField, $extra_length) ;
@@ -4250,18 +4293,19 @@ sub scanCentralDirectory
             if ($zip64Extended)
             {
                 $cdZip64 = 1;
+                $cdEntry->zip64(1);
 
-                if ($uncompressedLength == MAX32)
+                if (full32 $uncompressedLength)
                 {
                     $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
                     $zip64Sizes = 1;
                 }
-                if ($compressedLength == MAX32)
+                if (full32 $compressedLength )
                 {
                     $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
                     $zip64Sizes = 1;
                 }
-                if ($locHeaderOffset == MAX32)
+                if (full32 $locHeaderOffset)
                 {
                     my $here = $FH->tell();
                     $locHeaderOffset = unpack "Q<", substr($zip64Extended, 0, 8, "");
@@ -4269,14 +4313,20 @@ sub scanCentralDirectory
                     my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
                     $locHeaderOffset = checkOffsetValue($locHeaderOffset, $cdEntryOffset, 0, $commonMessage, $here, ZIP_LOCAL_HDR_SIG, 1) ;
                 }
+
+                if (full16 $diskNumber)
+                {
+                    my $here = $FH->tell();
+                    $diskNumber = unpack "v", substr($zip64Extended, 0, 4, "");
+                    $cdEntry->zip64_diskNumberPresent(1);
+
+                }                
             }
         }
 
         $HeaderOffsetIndex->addOffset($locHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
 
         skip($fh, $comment_length ) ;
-
-        my $cdEntry = CentralDirectoryEntry->new();
 
         $cdEntry->index($cdIndex);
         $cdEntry->centralHeaderOffset($startHeader);
@@ -4285,9 +4335,9 @@ sub scanCentralDirectory
         $cdEntry->compressedLength($compressedLength);
         $cdEntry->uncompressedLength($uncompressedLength);
         $cdEntry->filename($filename);
+        $cdEntry->diskNumber($diskNumber);
         $cdEntry->crc32($crc);
         $cdEntry->zip64ExtraPresent($cdZip64);
-        $cdEntry->zip64SizesPresent($zip64Sizes);
 
         $CentralDirectory->addEntry($cdEntry);
 
@@ -4922,6 +4972,7 @@ sub nibbles
 
 
         my %fields = (
+                        # fields from the header
                         'centralHeaderOffset'   => 0,
                         'localHeaderOffset'     => 0,
 
@@ -4931,9 +4982,53 @@ sub nibbles
                         'crc32'                 => 0,
                         'compressedMethod'      => 0,
 
+                        # inferred data
+                        'InCentralDir'          => 0,
+                        'zip64'                 => 0,
+
                         'zip64ExtraPresent'     => 0,
                         'zip64SizesPresent'     => 0,
                         'payloadOffset'         => 0,
+
+                        # zip64 extra
+                        'zip64_compressedLength'    => undef,
+                        'zip64_uncompressedLength'  => undef,                        
+                        'zip64_localHeaderOffset'   => undef,                        
+                        'zip64_diskNumber'          => undef,    
+
+                        # Values direct from the header before merging any Zip64 values
+                        'std_compressedLength'    => undef,
+                        'std_uncompressedLength'  => undef,                        
+                        'std_localHeaderOffset'   => undef,                        
+                        'std_diskNumber'          => undef,  
+
+                        # AES
+                        'aesStrength'             => 0,
+                        'aesValid'                => 0,
+
+                     ) ;
+
+        FieldsAndAccessors::Add($class, $self, \%fields) ;
+
+        return $self;
+    }
+
+}
+
+{
+    package Zip64EndCentralHeaderEntry ;
+
+    use parent -norequire , 'LocalCentralEntryBase' ;
+
+    sub new 
+    {
+        my $class = shift ;
+
+        my $self = $class->SUPER::new();
+
+
+        my %fields = (
+                        'InCentralDir'          => 1,
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
@@ -4955,10 +5050,13 @@ sub nibbles
         my $self = $class->SUPER::new();
 
         my %fields = (
+                        'diskNumber'                => 0,
+                        'endCentralHeaderOffset'    => 0,
+                        'comment'                   => "",
+
                         # 'index'                 => 0,
 
                         # 'centralHeaderOffset'     => 0,
-                        'endCentralHeaderOffset'  => 0,
                         # 'localHeaderOffset'       => 0,
 
                         # 'compressedLength'      => 0,
