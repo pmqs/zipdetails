@@ -1664,7 +1664,7 @@ sub LocalHeader
         $ExtraContext{InCentralDir} = 0;
         $ExtraContext{Index} = $hexHdrCount;
         $ExtraContext{Filename} = $filename;
-        walkExtra($extraLength, \%ExtraContext, $localEntry);
+        walkExtra($extraLength, $localEntry);
     }
 
 
@@ -1723,7 +1723,7 @@ sub LocalHeader
     {
         if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
         {
-            $size = printAes(\%ExtraContext, $localEntry)
+            $size = printAes($localEntry)
         }
         elsif ($compressedMethod == ZIP_CM_LZMA)
         {
@@ -2075,7 +2075,7 @@ sub CentralHeader
         $ExtraContext{InCentralDir} = 1;
         $ExtraContext{Index} = $hexHdrCount;
         $ExtraContext{Filename} = $filename;
-        walkExtra($extraLength, \%ExtraContext, $cdEntry);
+        walkExtra($extraLength, $cdEntry);
     }
 
     if ($comment_length)
@@ -2212,7 +2212,7 @@ sub Zip64EndCentralHeader
                          CompressedLength => 0,
                          InCentralDir => 0,
                          );
-        walkExtra($remaining, \%ExtraContext, $entry);
+        walkExtra($remaining, $entry);
     }
 
     return {};
@@ -2917,7 +2917,6 @@ sub walkExtra
 {
     # APPNOTE 6.3.10, sec 4.4.11, 4.4.28, 4.5
     my $XLEN = shift;
-    my $context = shift;
     my $entry = shift;
 
     # Caller has determined that there are $XLEN bytes available to read
@@ -3029,7 +3028,7 @@ sub walkExtra
             if (testExtraLimits($lookID, $subLen, $entry->inCentralDir))
             {
                 my $endExtraOffset = $FH->tell() + $subLen;
-                $decoder->($subLen, $context, $entry) ;
+                $decoder->($subLen, $entry) ;
 
                 # Belt & Braces - should now be at $endExtraOffset
                 # error here means issue in an extra handler
@@ -3125,7 +3124,6 @@ sub full16
 sub decode_Zip64
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     my $inCentralHdr = $entry->inCentralDir() ;
@@ -3181,7 +3179,6 @@ sub Ntfs2Unix
 sub decode_NTFS_Filetimes
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     out_V "  Reserved";
@@ -3309,7 +3306,6 @@ sub OpenVMS_revision
 sub decode_OpenVMS
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     state $openVMS_tags = {
@@ -3430,7 +3426,6 @@ sub decode_UT
     # 0x5455 'UT: Extended Timestamp'
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     # Definition in IZ APPNOTE
@@ -3557,7 +3552,6 @@ sub decode_AES
     # Last modified: January 30, 2009
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     return if $len == 0 ;
@@ -3613,7 +3607,6 @@ sub decode_Reference
     # ref https://www.winzip.com/en/support/compression-methods/
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     out_V "  CRC";
@@ -3630,7 +3623,6 @@ sub decode_Reference
 sub decode_DUMMY
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     out_V "  Data";
@@ -3641,7 +3633,6 @@ sub decode_GrowthHint
     # APPNOTE 6.3.10, sec 4.6.10
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     # caller has checked that 4 bytes are available,
@@ -3666,7 +3657,6 @@ sub decode_DataStreamAlignment
     # APPNOTE 6.3.10, sec 4.6.11
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     my $inCentralHdr = $entry->inCentralDir ;
@@ -3699,7 +3689,6 @@ sub decode_DataStreamAlignment
 sub decode_UX
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     my $inCentralHdr = $entry->inCentralDir ;
@@ -3721,7 +3710,6 @@ sub decode_UX
 sub decode_Ux
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     return if $len == 0 ;
@@ -3762,7 +3750,6 @@ sub decodeLitteEndian
 sub decode_ux
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     # caller has checked that 3 bytes are available
@@ -3825,7 +3812,6 @@ sub decode_ux
 sub decode_Java_exe
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
 }
@@ -3835,9 +3821,7 @@ sub decode_up
     # APPNOTE 6.3.10, sec 4.6.9
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
-
 
     out_C "  Version";
     out_V "  NameCRC32";
@@ -3852,8 +3836,7 @@ sub decode_uc
     # APPNOTE 6.3.10, sec 4.6.8
 
     my $len = shift;
-    my $context = shift;
-
+    my $entry = shift;
 
     out_C "  Version";
     out_V "  ComCRC32";
@@ -3866,7 +3849,6 @@ sub decode_uc
 sub decode_Xceed_unicode
 {
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     my $data ;
@@ -3905,7 +3887,6 @@ sub decode_NT_security
 {
     # IZ Appnote
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     my $inCentralHdr = $entry->inCentralDir ;
@@ -3930,7 +3911,6 @@ sub decodeMVS
 {
     # APPNOTE 6.3.10, Appendix
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     # data in Big-Endian
@@ -3951,7 +3931,6 @@ sub decode_strong_encryption
     # APPNOTE 6.3.10, sec 4.5.12 & 7.4.2
 
     my $len = shift;
-    my $context = shift;
     my $entry = shift;
 
     # TODO check for overflow is contents > $len
@@ -4012,7 +3991,6 @@ sub printAes
 {
     # ref https://www.winzip.com/en/support/aes-encryption/
 
-    my $context = shift ;
     my $entry = shift;
 
     return 0
