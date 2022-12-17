@@ -1654,16 +1654,9 @@ sub LocalHeader
     $LocalDirectory->addEntry($localEntry);
     
     my $cl64 = $compressedLength;
-    my %ExtraContext = ();
     if ($extraLength)
     {
         need $extraLength, Signatures::name($signature), 'Extra';
-
-        my @z64 = ($uncompressedLength, $compressedLength, 1, 1);
-        $ExtraContext{Zip64} = \@z64 ;
-        $ExtraContext{InCentralDir} = 0;
-        $ExtraContext{Index} = $hexHdrCount;
-        $ExtraContext{Filename} = $filename;
         walkExtra($extraLength, $localEntry);
     }
 
@@ -2062,19 +2055,10 @@ sub CentralHeader
 
     $cdEntry->inCentralDir = 1;
 
-    my %ExtraContext = ( CRC => $crc,
-                         LocalHdrOffset   => $locHeaderOffset,
-                         CompressedLength => $compressedLength);
-
     if ($extraLength)
     {
         need $extraLength, Signatures::name($signature), 'Extra';
 
-        my @z64 = ($uncompressedLength, $compressedLength, $locHeaderOffset, $disk_start);
-        $ExtraContext{Zip64} = \@z64 ;
-        $ExtraContext{InCentralDir} = 1;
-        $ExtraContext{Index} = $hexHdrCount;
-        $ExtraContext{Filename} = $filename;
         walkExtra($extraLength, $cdEntry);
     }
 
@@ -2207,11 +2191,6 @@ sub Zip64EndCentralHeader
         # Handle 'zip64 extensible data sector' here
         # See APPNOTE 6.3.10, section 4.3.14.3, 4.3.14.4 & APPENDIX C
         # Not seen a real example of this. Tested with hand crafted files.
-        my %ExtraContext = ( CRC => 0,
-                         LocalHdrOffset   => 0,
-                         CompressedLength => 0,
-                         InCentralDir => 0,
-                         );
         walkExtra($remaining, $entry);
     }
 
