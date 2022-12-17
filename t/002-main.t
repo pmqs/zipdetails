@@ -62,6 +62,7 @@ my @exts = qw(
         tar
         usdz
         war
+        xls
         xlsx
         xpi
         zip
