@@ -1,0 +1,56 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 08 00       General Purpose Flag  0008
+                      [Bit  3]              1 'Streamed'
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 23 4B 94 55 Last Mod Time         55944B23 'Tue Dec 20 09:25:06 2022'
+000E 0004 00 00 00 00 CRC                   00000000
+0012 0004 BE 01 00 00 Compressed Length     000001BE
+0016 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 0002 09 00       Filename Length       0009
+001C 0002 00 00       Extra Length          0000
+001E 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+0027 01BE ...         PAYLOAD
+
+01E5 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+01E9 0001 1E          Created Zip Spec      1E '3.0'
+01EA 0001 03          Created OS            03 'Unix'
+01EB 0001 0A          Extract Zip Spec      0A '1.0'
+01EC 0001 00          Extract OS            00 'MS-DOS'
+01ED 0002 08 00       General Purpose Flag  0008
+                      [Bit  3]              1 'Streamed'
+01EF 0002 00 00       Compression Method    0000 'Stored'
+01F1 0004 23 4B 94 55 Last Mod Time         55944B23 'Tue Dec 20 09:25:06 2022'
+01F5 0004 FF E7 0E F9 CRC                   F90EE7FF
+01F9 0004 BE 01 00 00 Compressed Length     000001BE
+01FD 0004 BE 01 00 00 Uncompressed Length   000001BE
+0201 0002 09 00       Filename Length       0009
+0203 0002 00 00       Extra Length          0000
+0205 0002 00 00       Comment Length        0000
+0207 0002 00 00       Disk Start            0000
+0209 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+020B 0004 00 00 ED 81 Ext File Attributes   81ED0000
+020F 0004 00 00 00 00 Local Header Offset   00000000
+0213 0009 6C 6F 72 65 Filename              'lorem.txt'
+          6D 2E 74 78
+          74
+
+021C 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0220 0002 00 00       Number of this disk   0000
+0222 0002 00 00       Central Dir Disk no   0000
+0224 0002 01 00       Entries in this disk  0001
+0226 0002 01 00       Total Entries         0001
+0228 0004 37 00 00 00 Size of Central Dir   00000037
+022C 0004 E5 01 00 00 Offset to Central Dir 000001E5
+0230 0002 00 00       Comment Length        0000
+# ERROR: Offset 0x0: Filename 'lorem.txt': Missing 'Data Descriptor'
+# WARNING: Offset 0x1E5: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+
+Error Count: 1
+Warning Count: 1
+Done

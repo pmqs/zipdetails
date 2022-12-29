@@ -1,0 +1,82 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      2D '4.5'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0008
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         55945507 'Tue Dec 20 10:40:14 2022'
+000E CRC                   00000000
+0012 Compressed Length     FFFFFFFF
+0016 Uncompressed Length   FFFFFFFF
+001A Filename Length       0009
+001C Extra Length          0014
+001E Filename              'lorem.txt'
+0027 Extra ID #0001        0001 'ZIP64'
+0029   Length              0010
+002B   Uncompressed Size   0000000000000000
+0033   Compressed Size     0000000000000000
+003B PAYLOAD
+
+     Missing DATA          08074B50
+     DESCRIPTOR Signature
+# ERROR: Offset 0x149: Missimg DATA DESCRIPTOR Signature
+0149 CRC                   F90EE7FF
+014D Compressed Length     000000000000010E
+0155 Uncompressed Length   00000000000001BE
+
+015D CENTRAL HEADER #1     02014B50
+0161 Created Zip Spec      2D '4.5'
+0162 Created OS            03 'Unix'
+0163 Extract Zip Spec      2D '4.5'
+0164 Extract OS            00 'MS-DOS'
+0165 General Purpose Flag  0008
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0167 Compression Method    0008 'Deflated'
+0169 Last Mod Time         55945507 'Tue Dec 20 10:40:14 2022'
+016D CRC                   F90EE7FF
+0171 Compressed Length     0000010E
+0175 Uncompressed Length   000001BE
+0179 Filename Length       0009
+017B Extra Length          0000
+017D Comment Length        0000
+017F Disk Start            0000
+0181 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+0183 Ext File Attributes   81A40000
+0187 Local Header Offset   00000000
+018B Filename              'lorem.txt'
+
+0194 ZIP64 END CENTRAL DIR 06064B50
+     RECORD
+0198 Size of record        000000000000002C
+01A0 Created Zip Spec      2D '4.5'
+01A1 Created OS            03 'Unix'
+01A2 Extract Zip Spec      2D '4.5'
+01A3 Extract OS            00 'MS-DOS'
+01A4 Number of this disk   00000000
+01A8 Central Dir Disk no   00000000
+01AC Entries in this disk  0000000000000001
+01B4 Total Entries         0000000000000001
+01BC Size of Central Dir   0000000000000037
+01C4 Offset to Central dir 000000000000015D
+
+01CC ZIP64 END CENTRAL DIR 07064B50
+     LOCATOR
+01D0 Central Dir Disk no   00000000
+01D4 Offset to Zip64 EOCD  0000000000000194
+01DC Total no of Disks     00000001
+
+01E0 END CENTRAL HEADER    06054B50
+01E4 Number of this disk   0000
+01E6 Central Dir Disk no   0000
+01E8 Entries in this disk  0001
+01EA Total Entries         0001
+01EC Size of Central Dir   00000037
+01F0 Offset to Central Dir FFFFFFFF
+01F4 Comment Length        0000
+
+Error Count: 1
+Done

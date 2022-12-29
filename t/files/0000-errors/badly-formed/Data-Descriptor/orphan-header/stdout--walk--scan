@@ -1,0 +1,65 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
+000E CRC                   00000000
+0012 Compressed Length     00000000
+0016 Uncompressed Length   00000000
+001A Filename Length       0009
+001C Extra Length          0000
+001E Filename              'lorem.txt'
+
+0027 UNEXPECTED PADDING
+# INFO: Offset 0x27: 0x10E Unexpected Padding bytes
+
+0135 STREAMING DATA HEADER 08074B50
+0139 Skipping Data         No matching Local header with streaming
+     Descriptor            bit set
+# ERROR: Offset 0x135: Orphan 'DATA DESCRIPTOR' found
+#        No matching Local header with streaming bit set
+
+0139 UNEXPECTED PADDING    ............
+# INFO: Offset 0x139: 0xC Unexpected Padding bytes
+
+0145 CENTRAL HEADER #1     02014B50
+0149 Created Zip Spec      14 '2.0'
+014A Created OS            03 'Unix'
+014B Extract Zip Spec      14 '2.0'
+014C Extract OS            00 'MS-DOS'
+014D General Purpose Flag  0000
+     [Bits 1-2]            0 'Normal Compression'
+014F Compression Method    0008 'Deflated'
+0151 Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
+0155 CRC                   F90EE7FF
+0159 Compressed Length     0000010E
+015D Uncompressed Length   000001BE
+0161 Filename Length       0009
+0163 Extra Length          0000
+0165 Comment Length        0000
+0167 Disk Start            0000
+0169 Int File Attributes   0001
+     [Bit 0]               1 Text Data
+016B Ext File Attributes   81A40000
+016F Local Header Offset   00000000
+0173 Filename              'lorem.txt'
+
+017C END CENTRAL HEADER    06054B50
+0180 Number of this disk   0000
+0182 Central Dir Disk no   0000
+0184 Entries in this disk  0001
+0186 Total Entries         0001
+0188 Size of Central Dir   00000037
+018C Offset to Central Dir 00000145
+0190 Comment Length        0000
+# WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
+# WARNING: Offset 0x145: Filename 'lorem.txt': 'compressedLength' field mismatch': Central Header has '270', Local Directory has '0'
+# WARNING: Offset 0x145: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+
+Error Count: 1
+Warning Count: 3
+Info Count: 2
+Done

@@ -84,9 +84,13 @@
 01D0 0002 00 00       Comment Length        0000
 
 01D2 0004 50 4B 07 08 STREAMING DATA HEADER 08074B50
-01D6 0004 D6 65 51 91 CRC                   915165D6
-01DA 0004 82 01 00 00 Compressed Length     00000182
-01DE 0004 82 01 00 00 Uncompressed Length   00000182
+01D6 0000             Skipping nested
+                      payload
+
+01D6 000C D6 65 51 91 UNEXPECTED PADDING    .eQ.........
+          82 01 00 00
+          82 01 00 00
+# INFO: Offset 0x1D6: 0xC Unexpected Padding bytes
 
 01E2 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
 01E6 0001 1E          Created Zip Spec      1E '3.0'
@@ -123,8 +127,10 @@
 
 0230 0004 50 4B 07 08 STREAMING DATA HEADER 08074B50
 0234 0004 39 61 23 B0 CRC                   B0236139
-0238 0004 08 02 00 00 Compressed Length     00000208
-023C 0004 08 02 00 00 Uncompressed Length   00000208
+
+0238 0008 08 02 00 00 UNEXPECTED PADDING    ........
+          08 02 00 00
+# INFO: Offset 0x238: 0x8 Unexpected Padding bytes
 
 0240 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50
 0244 0001 1E          Created Zip Spec      1E '3.0'
@@ -162,6 +168,10 @@
 INFO: Nested Zip files found: 1
   Offset  Filename
      0x0  'inner2.zip'
+# ERROR: Offset 0x0: Filename 'inner2.zip': Missing 'Data Descriptor'
+# WARNING: Offset 0x240: Filename 'inner2.zip': 'crc32' field mismatch': Central Header has '2955108665', Local Directory has '0'
 
-Info Count: 1
+Error Count: 1
+Warning Count: 1
+Info Count: 3
 Done

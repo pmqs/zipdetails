@@ -1,0 +1,54 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         559D53A7 'Thu Dec 29 10:29:14 2022'
+000E CRC                   885AE07C
+0012 Compressed Length     00000018
+0016 Uncompressed Length   00000018
+001A Filename Length       0000
+001C Extra Length          0000
+001E Filename              ''
+001E PAYLOAD               PK......................
+
+001E STREAMING DATA HEADER 08074B50
+0022 Skipping nested
+     payload
+
+0022 UNEXPECTED PADDING    ....................
+# INFO: Offset 0x22: 0x14 Unexpected Padding bytes
+
+0036 CENTRAL HEADER #1     02014B50
+003A Created Zip Spec      14 '2.0'
+003B Created OS            03 'Unix'
+003C Extract Zip Spec      14 '2.0'
+003D Extract OS            00 'MS-DOS'
+003E General Purpose Flag  0000
+0040 Compression Method    0000 'Stored'
+0042 Last Mod Time         559D53A7 'Thu Dec 29 10:29:14 2022'
+0046 CRC                   885AE07C
+004A Compressed Length     00000018
+004E Uncompressed Length   00000018
+0052 Filename Length       0000
+0054 Extra Length          0000
+0056 Comment Length        0000
+0058 Disk Start            0000
+005A Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+005C Ext File Attributes   81A40000
+0060 Local Header Offset   00000000
+0064 Filename              ''
+
+0064 END CENTRAL HEADER    06054B50
+0068 Number of this disk   0000
+006A Central Dir Disk no   0000
+006C Entries in this disk  0001
+006E Total Entries         0001
+0070 Size of Central Dir   0000002E
+0074 Offset to Central Dir 00000036
+0078 Comment Length        0000
+
+Info Count: 1
+Done

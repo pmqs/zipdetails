@@ -28,11 +28,11 @@
 # WARNING: Offset 0x39: Extra Field 0x9901 ('AES'): Unknown 'Encryption Strength' 0. Valid values are 1,2,3
 003A 0002 00 00         Compression Method  0000 'Stored'
 003C 1B54 ...         PAYLOAD
-1B90 000A 50 4B 07 08 AES Auth              50 4B 07 08 10 FB E7 78 54 1B
-          10 FB E7 78
-          54 1B
-1B9A 0006 00 00 0B 5A PAYLOAD               ...Z..
-          00 00
+
+1B90 0004 50 4B 07 08 STREAMING DATA HEADER 08074B50
+1B94 0004 10 FB E7 78 CRC                   78E7FB10
+1B98 0004 54 1B 00 00 Compressed Length     00001B54
+1B9C 0004 0B 5A 00 00 Uncompressed Length   00005A0B
 
 1BA0 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
 1BA4 0001 14          Extract Zip Spec      14 '2.0'

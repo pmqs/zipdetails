@@ -1,0 +1,1 @@
+perl -MIO::Compress::Zip=:all -e 'zip "lorem.txt" => "test.zip", stream=>1, zip64=> 0, minimal=>1 or die $'

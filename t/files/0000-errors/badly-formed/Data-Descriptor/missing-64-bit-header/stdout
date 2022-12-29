@@ -1,0 +1,80 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      2D '4.5'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0008
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         55944C9B 'Tue Dec 20 09:36:54 2022'
+000E CRC                   00000000
+0012 Compressed Length     FFFFFFFF
+0016 Uncompressed Length   FFFFFFFF
+001A Filename Length       0009
+001C Extra Length          0014
+001E Filename              'lorem.txt'
+0027 Extra ID #0001        0001 'ZIP64'
+0029   Length              0010
+002B   Uncompressed Size   0000000000000000
+0033   Compressed Size     0000000000000000
+003B PAYLOAD
+
+0149 CENTRAL HEADER #1     02014B50
+014D Created Zip Spec      2D '4.5'
+014E Created OS            03 'Unix'
+014F Extract Zip Spec      2D '4.5'
+0150 Extract OS            00 'MS-DOS'
+0151 General Purpose Flag  0008
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0153 Compression Method    0008 'Deflated'
+0155 Last Mod Time         55944C9B 'Tue Dec 20 09:36:54 2022'
+0159 CRC                   F90EE7FF
+015D Compressed Length     0000010E
+0161 Uncompressed Length   000001BE
+0165 Filename Length       0009
+0167 Extra Length          0000
+0169 Comment Length        0000
+016B Disk Start            0000
+016D Int File Attributes   0001
+     [Bit 0]               1 Text Data
+016F Ext File Attributes   81A40000
+0173 Local Header Offset   00000000
+0177 Filename              'lorem.txt'
+
+0180 ZIP64 END CENTRAL DIR 06064B50
+     RECORD
+0184 Size of record        000000000000002C
+018C Created Zip Spec      2D '4.5'
+018D Created OS            03 'Unix'
+018E Extract Zip Spec      2D '4.5'
+018F Extract OS            00 'MS-DOS'
+0190 Number of this disk   00000000
+0194 Central Dir Disk no   00000000
+0198 Entries in this disk  0000000000000001
+01A0 Total Entries         0000000000000001
+01A8 Size of Central Dir   0000000000000037
+01B0 Offset to Central dir 0000000000000149
+
+01B8 ZIP64 END CENTRAL DIR 07064B50
+     LOCATOR
+01BC Central Dir Disk no   00000000
+01C0 Offset to Zip64 EOCD  0000000000000180
+01C8 Total no of Disks     00000001
+
+01CC END CENTRAL HEADER    06054B50
+01D0 Number of this disk   0000
+01D2 Central Dir Disk no   0000
+01D4 Entries in this disk  0001
+01D6 Total Entries         0001
+01D8 Size of Central Dir   00000037
+01DC Offset to Central Dir FFFFFFFF
+01E0 Comment Length        0000
+# ERROR: Offset 0x0: Filename 'lorem.txt': Missing 'Data Descriptor'
+# WARNING: Offset 0x149: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
+# WARNING: Offset 0x149: Filename 'lorem.txt': 'compressedLength' field mismatch': Central Header has '270', Local Directory has '0'
+# WARNING: Offset 0x149: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+
+Error Count: 1
+Warning Count: 3
+Done

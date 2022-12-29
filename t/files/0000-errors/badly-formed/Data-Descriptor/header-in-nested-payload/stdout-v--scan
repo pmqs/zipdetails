@@ -1,0 +1,63 @@
+
+0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0002 00 00       General Purpose Flag  0000
+0008 0002 00 00       Compression Method    0000 'Stored'
+000A 0004 A7 53 9D 55 Last Mod Time         559D53A7 'Thu Dec 29 10:29:14 2022'
+000E 0004 7C E0 5A 88 CRC                   885AE07C
+0012 0004 18 00 00 00 Compressed Length     00000018
+0016 0004 18 00 00 00 Uncompressed Length   00000018
+001A 0002 00 00       Filename Length       0000
+001C 0002 00 00       Extra Length          0000
+001E 0000             Filename              ''
+001E 0018 50 4B 07 08 PAYLOAD               PK......................
+          01 02 03 04
+          01 02 03 04
+          05 06 07 08
+          01 02 03 04
+          05 06 07 08
+
+001E 0004 50 4B 07 08 STREAMING DATA HEADER 08074B50
+0022 0000             Skipping nested
+                      payload
+
+0022 0014 01 02 03 04 UNEXPECTED PADDING    ....................
+          01 02 03 04
+          05 06 07 08
+          01 02 03 04
+          05 06 07 08
+# INFO: Offset 0x22: 0x14 Unexpected Padding bytes
+
+0036 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+003A 0001 14          Created Zip Spec      14 '2.0'
+003B 0001 03          Created OS            03 'Unix'
+003C 0001 14          Extract Zip Spec      14 '2.0'
+003D 0001 00          Extract OS            00 'MS-DOS'
+003E 0002 00 00       General Purpose Flag  0000
+0040 0002 00 00       Compression Method    0000 'Stored'
+0042 0004 A7 53 9D 55 Last Mod Time         559D53A7 'Thu Dec 29 10:29:14 2022'
+0046 0004 7C E0 5A 88 CRC                   885AE07C
+004A 0004 18 00 00 00 Compressed Length     00000018
+004E 0004 18 00 00 00 Uncompressed Length   00000018
+0052 0002 00 00       Filename Length       0000
+0054 0002 00 00       Extra Length          0000
+0056 0002 00 00       Comment Length        0000
+0058 0002 00 00       Disk Start            0000
+005A 0002 00 00       Int File Attributes   0000
+                      [Bit 0]               0 'Binary Data'
+005C 0004 00 00 A4 81 Ext File Attributes   81A40000
+0060 0004 00 00 00 00 Local Header Offset   00000000
+0064 0000             Filename              ''
+
+0064 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0068 0002 00 00       Number of this disk   0000
+006A 0002 00 00       Central Dir Disk no   0000
+006C 0002 01 00       Entries in this disk  0001
+006E 0002 01 00       Total Entries         0001
+0070 0004 2E 00 00 00 Size of Central Dir   0000002E
+0074 0004 36 00 00 00 Offset to Central Dir 00000036
+0078 0002 00 00       Comment Length        0000
+
+Info Count: 1
+Done

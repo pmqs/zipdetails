@@ -153,7 +153,7 @@ my %OS_Lookup = (
 
         # Core Signatures
         ::ZIP_LOCAL_HDR_SIG,             [ \&::LocalHeader, "Local File Header", 0 ],
-        ::ZIP_DATA_HDR_SIG,              [ \&::DataHeader,   "Data Descriptor", 0 ],
+        ::ZIP_DATA_HDR_SIG,              [ \&::DataDescriptor,   "Data Descriptor", 0 ],
         ::ZIP_CENTRAL_HDR_SIG,           [ \&::CentralHeader, "Central Directory Header", 1 ],
         ::ZIP_END_CENTRAL_HDR_SIG,       [ \&::EndCentralHeader, "End Central Directory Record", 1 ],
         ::ZIP_SINGLE_SEGMENT_MARKER,     [ \&::SingleSegmentMarker, "Split Archive Single Segment Marker", 0],
@@ -187,6 +187,13 @@ my %OS_Lookup = (
             unless exists $Lookup{$signature};
 
         return $Lookup{$signature}[1];
+    }
+
+    sub titleName
+    {
+        my $signature = shift ;
+
+        uc name($signature);
     }
 
     sub hexValue
@@ -223,6 +230,11 @@ my %OS_Lookup = (
 
         return $Lookup{$signature}[2];
     }
+    #sub isValidSignature
+    #{
+    #    my $signature = shift ;
+    #    return exists $Lookup{$signature}}
+    #}
 
     sub getSigsForScan
     {
@@ -996,11 +1008,33 @@ if ($opt_scan || $opt_walk)
                 $lastEndsAt = $FH->tell();
                 next;
             }
-            elsif ($lastSignature eq ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
+            elsif ($lastSignature == ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
             {
+                # Check for size of possibe malformed Data Descriptor before outputting payload 
+                if (! $lastHeader->{'gotDataDescriptorSize'})
+                {
+                    my $hdrSize = checkForBadlyFormedDataDescriptor($lastHeader, $delta) ;
+
+                    if ($hdrSize)
+                    {
+                        # remove size of Data Descriptor from payload 
+                        $delta -= $hdrSize;
+                        $lastHeader->{'gotDataDescriptorSize'} = $hdrSize;
+                    }
+                }
+
+                if(defined($lastHeader->{'payloadOutput'}) && ($lastEndsAt = BadlyFormedDataDescriptor($lastHeader, $delta)))
+                {
+                    $HeaderOffsetIndex->rewindIndex();
+                    $lastHeader->{entry}->readDataDescriptor = 1;
+                    next;
+                }
+
                 # Assume we have the payload when streaming is enabled
                 outSomeData($delta, "PAYLOAD", $opt_Redact) ;
+                $lastHeader->{'payloadOutput'} = 1;
                 $lastEndsAt = $FH->tell();
+
                 next;
             }
             elsif (Signatures::isCentralHeader($s) && $foundCentralHeader == 0)
@@ -1093,6 +1127,7 @@ else
     my $foundCentralHeader = 0;
     my $processedAPK = 0;
     my $processedECD = 0;
+    my $lastHeader ;
 
     # my $lastWasLocalHeader = 0;
     # my $inCentralHeader = 0;
@@ -1194,8 +1229,14 @@ else
 
             if ($signature != ZIP_DATA_HDR_SIG && $delta >= 0)
             {
-                rewindRelative(4);
-                my $delta = $expectedOffset - $here ;
+                rewindRelative(4);           
+                if($lastHeader->{'streamed'} && BadlyFormedDataDescriptor($lastHeader, $delta))
+                {
+                    $lastHeader->{entry}->readDataDescriptor = 1;
+                    $HeaderOffsetIndex->rewindIndex();
+                    next;
+                }
+
                 reportPrefixData($delta)
                     if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
@@ -1262,7 +1303,7 @@ else
         }
 
         $ZIP64 = 0 if $signature != ZIP_DATA_HDR_SIG ;
-        $handler->($signature, $buffer, $FH->tell() - 4);
+        $lastHeader = $handler->($signature, $buffer, $FH->tell() - 4);
         # $lastWasLocalHeader = $signature == ZIP_LOCAL_HDR_SIG ;
         $HeaderOffsetIndex->rewindIndex()
             if $signature == ZIP_DATA_HDR_SIG ;
@@ -1374,6 +1415,19 @@ sub dislayMessages
         }
 
         {
+            # Check for a missing Data Desriptors
+            my %missingDataDescriptor = map  { $_->localHeaderOffset() => $_->filename()  }
+                                        grep { $_->streamed && ! $_->readDataDescriptor   }
+                                        $LocalDirectory->nonEncapsulatedEntries();
+
+            for my $offset (sort keys %missingDataDescriptor) 
+            {
+                my $filename = $missingDataDescriptor{$offset};
+                error  $offset, "Filename '$filename': Missing 'Data Descriptor'" ;
+            }                          
+        }
+
+        {
             # compare local & central for duplicate entries (CD entries point to same local header)
 
             my %ByLocalOffset ;
@@ -1383,14 +1437,22 @@ sub dislayMessages
             }
 
             for my $offset (sort keys %ByLocalOffset)
-            {
+            {   
                 my @entries = @{ $ByLocalOffset{$offset} };
                 if (@entries > 1)
                 {
                     ++ $ErrorCount;
 
                     # found duplicates
-                    say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $LocalDirectory->getByLocalOffset($offset)->filename . "' at offset " . hexValue($offset);
+                    my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
+                    if ($localEntry)
+                    {
+                        say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . hexValue($offset);
+                    }
+                    else
+                    {
+                        say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . hexValue($offset);
+                    }
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_        }
@@ -1556,6 +1618,173 @@ sub dislayMessages
     print "Done\n";
 }
 
+sub checkForBadlyFormedDataDescriptor
+{
+    my $lastHeader = shift;
+    my $delta = shift // 0;
+
+    # check size of delta - a DATA HDR without a signature can only be 
+    #     12 bytes for 32-bit
+    #     20 bytes for 64-bit
+
+    my $here = $FH->tell();
+
+    my $localEntry = $lastHeader->{entry};
+
+    return 0 
+        unless $opt_scan || $opt_walk ;
+    
+    # delta can be the actual payload + a data descriptor without a sig
+
+    my $signature = unpack "V",  peekAtOffset($here + $delta, 4);
+
+    if ($signature == ZIP_DATA_HDR_SIG)
+    {
+        return 0;
+    }
+
+    my $cl32 = unpack "V",  peekAtOffset($here + $delta - 8,  4);
+    my $cl64 = unpack "Q<", peekAtOffset($here + $delta - 16, 8);
+
+    if ($cl32 == $delta - 12)
+    {
+        return 12;
+    }
+
+    if ($cl64 == $delta - 20)
+    {
+        return 20 ;
+    }
+
+    return 0;        
+}
+
+
+sub BadlyFormedDataDescriptor
+{
+    my $lastHeader= shift;
+    my $delta = shift;
+
+    # check size of delta - a DATA HDR without a signature can only be 
+    #     12 bytes for 32-bit
+    #     20 bytes for 64-bit
+
+    my $here = $FH->tell();
+
+    my $localEntry = $lastHeader->{entry};
+    my $compressedLength = $lastHeader->{payloadLength} ;
+
+    my $sigName = Signatures::titleName(ZIP_DATA_HDR_SIG);
+
+    if ($opt_scan || $opt_walk)
+    {
+        # delta can be the actual payload + a data descriptor without a sig
+
+        if ($lastHeader->{'gotDataDescriptorSize'} == 12)
+        {
+            # seekTo($FH->tell() + $delta - 12) ;
+
+            # outSomeData($delta - 12, "PAYLOAD", $opt_Redact) ;
+
+            print "\n";
+            out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
+
+            error $FH->tell(), "Missimg $sigName Signature";
+            $localEntry->crc32              = out_V "CRC";
+            $localEntry->compressedLength   = out_V "Compressed Length";
+            $localEntry->uncompressedLength = out_V "Uncompressed Length";
+
+            if ($localEntry->zip64)
+            {
+                error $here, "'$sigName': expected 64-bit values, got 32-bit";
+            }
+
+            return $FH->tell();
+        }
+
+        if ($lastHeader->{'gotDataDescriptorSize'} == 20)
+        {
+            # seekTo($FH->tell() + $delta - 20) ;
+
+            # outSomeData($delta - 20, "PAYLOAD", $opt_Redact) ;
+
+            print "\n";
+            out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
+
+            error $FH->tell(), "Missimg $sigName Signature";
+            $localEntry->crc32              = out_V "CRC";
+            $localEntry->compressedLength   = out_Q "Compressed Length";
+            $localEntry->uncompressedLength = out_Q "Uncompressed Length";
+
+            if (! $localEntry->zip64)
+            {
+                error $here, "'$sigName': expected 32-bit values, got 64-bit";
+            }
+
+            return $FH->tell();
+        }
+
+        error 0, "MISSING " . Signatures::titleName(ZIP_DATA_HDR_SIG);
+
+        seekTo($here);
+        return 0;
+    }    
+
+    if ($delta == 12)
+    {
+        $FH->seek($lastHeader->{payloadOffset} + $lastHeader->{payloadLength}, SEEK_SET) ;
+
+        my $cl = unpack "V", peekAtOffset($FH->tell() + 4, 4);
+        if ($cl == $compressedLength)
+        {
+            print "\n";
+            out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
+
+            error $FH->tell(), "Missimg $sigName Signature";
+            $localEntry->crc32              = out_V "CRC";
+            $localEntry->compressedLength   = out_V "Compressed Length";
+            $localEntry->uncompressedLength = out_V "Uncompressed Length";
+
+            if ($localEntry->zip64)
+            {
+                error $here, "'$sigName': expected 64-bit values, got 32-bit";
+            }
+
+            return $FH->tell();
+        }
+    }
+
+    if ($delta == 20)
+    {
+        $FH->seek($lastHeader->{payloadOffset} + $lastHeader->{payloadLength}, SEEK_SET) ;
+
+        my $cl = unpack "Q<", peekAtOffset($FH->tell() + 4, 8);
+
+        if ($cl == $compressedLength)
+        {
+            print "\n";
+            out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
+
+            error $FH->tell(), "Missimg $sigName Signature";
+            $localEntry->crc32              = out_V "CRC";
+            $localEntry->compressedLength   = out_Q "Compressed Length";
+            $localEntry->uncompressedLength = out_Q "Uncompressed Length";
+
+            if (! $localEntry->zip64)
+            {
+                error $here, "'$sigName': expected 32-bit values, got 64-bit";
+            }
+
+            return $FH->tell();
+        }
+    }    
+
+    seekto($here);
+
+    error 0, "MIssing " . Signatures::titleName(ZIP_DATA_HDR_SIG);
+    return 0;
+}
+
 sub compressionMethod
 {
     my $id = shift ;
@@ -1582,6 +1811,8 @@ sub LocalHeader
 
     my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
     my $CentralEntryExists = $CentralDirectory->localOffset($startRecordOffset);
+    my $localEntry = LocalDirectoryEntry->new();
+
     if (! $opt_scan && ! $opt_walk && $CentralEntryExists)
     {
         my $cdEntry = $CentralDirectory->getByLocalOffset($startRecordOffset);
@@ -1596,6 +1827,7 @@ sub LocalHeader
         $zip64Sizes = $cdEntry->zip64SizesPresent;
         $cdIndex = $cdEntry->index;
         $cdEntryOffset = $cdEntry->centralHeaderOffset ;
+        $localEntry->cdEntry = $cdEntry;
 
         if ($cdIndex && $cdIndex != $LocalHeaderCount)
         {
@@ -1633,7 +1865,6 @@ sub LocalHeader
     myRead($filename, $filenameLength);
     outputFilename($filename);
 
-    my $localEntry = LocalDirectoryEntry->new();
 
     $localEntry->index = $LocalHeaderCount;
     $localEntry->localHeaderOffset = $locHeaderOffset;
@@ -1653,7 +1884,6 @@ sub LocalHeader
 
     $LocalDirectory->addEntry($localEntry);
     
-    my $cl64 = $compressedLength;
     if ($extraLength)
     {
         need $extraLength, Signatures::name($signature), 'Extra';
@@ -1738,15 +1968,15 @@ sub LocalHeader
             myRead(my $sha1, 20);
             out $sha1, "PAYLOAD",  "SHA-1 Hash: " . hexDump($sha1);
         }
+        elsif ($compressedMethod == 99 && $localEntry->aesValid ) {
+            outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
+            my $auth ;
+            myRead($auth, 10);
+            out $auth, "AES Auth",  hexDump($auth);
+        }
         else {
             outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
         }
-    }
-
-    if ($compressedMethod == 99 ) {
-        my $auth ;
-        myRead($auth, 10);
-        out $auth, "AES Auth",  hexDump($auth);
     }
 
     print "WARNING: $_"
@@ -1974,11 +2204,14 @@ sub CentralHeader
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
+    my $std_compressedLength   = $compressedLength;
     my $uncompressedLength = out_V "Uncompressed Length";
+    my $std_uncompressedLength = $uncompressedLength;
     my $filenameLength     = out_v "Filename Length";
     my $extraLength        = out_v "Extra Length";
     my $comment_length     = out_v "Comment Length";
     my $disk_start         = out_v "Disk Start";
+    my $std_disk_start     = $disk_start;
     my $int_file_attrib    = out_v "Int File Attributes";
 
     out1 "[Bit 0]",  $int_file_attrib & 1 ? "1 Text Data" : "0 'Binary Data'";
@@ -1999,6 +2232,7 @@ sub CentralHeader
 
     my ($d, $locHeaderOffset) = read_V();
     my $out = Value_V($locHeaderOffset);
+    my $std_localHeaderOffset = $locHeaderOffset;
 
     if ($locHeaderOffset != MAX32)
     {
@@ -2025,35 +2259,23 @@ sub CentralHeader
     myRead($filename, $filenameLength);
     outputFilename($filename);
 
-    my $cdEntry;
-    if ($opt_scan || $opt_walk)
-    {
-        $cdEntry = CentralDirectoryEntry->new();
+    my $cdEntry = CentralDirectoryEntry->new();
 
-        $cdEntry->index = $CentralHeaderCount;
-        $cdEntry->centralHeaderOffset = $cdEntryOffset;
-        $cdEntry->endCentralHeaderOffset = $FH->tell() - 1;
-        $cdEntry->localHeaderOffset = $locHeaderOffset;
-        $cdEntry->compressedLength = $compressedLength;
-        $cdEntry->uncompressedLength = $uncompressedLength;
-        $cdEntry->zip64ExtraPresent = undef; #$cdZip64; ### FIX ME
-        $cdEntry->zip64SizesPresent = undef ; # $zip64Sizes;   ### FIX ME
-        $cdEntry->filename = $filename;
-        $cdEntry->crc32 = $crc;
-
-        $CentralDirectory->addEntry($cdEntry);
-    }
-    else
-    {
-        $cdEntry = $CentralDirectory->localOffset($locHeaderOffset)
-    }
-
-    $cdEntry->std_localHeaderOffset = $locHeaderOffset;
-    $cdEntry->std_compressedLength = $compressedLength;
-    $cdEntry->std_uncompressedLength = $uncompressedLength;
-    $cdEntry->std_diskNumber = $disk_start;
-
+    $cdEntry->index = $CentralHeaderCount;
+    $cdEntry->centralHeaderOffset = $cdEntryOffset;
+    $cdEntry->localHeaderOffset = $locHeaderOffset;
+    $cdEntry->compressedLength = $compressedLength;
+    $cdEntry->uncompressedLength = $uncompressedLength;
+    $cdEntry->zip64ExtraPresent = undef; #$cdZip64; ### FIX ME
+    $cdEntry->zip64SizesPresent = undef ; # $zip64Sizes;   ### FIX ME
+    $cdEntry->filename = $filename;
+    $cdEntry->crc32 = $crc;
     $cdEntry->inCentralDir = 1;
+
+    $cdEntry->std_localHeaderOffset = $std_localHeaderOffset;
+    $cdEntry->std_compressedLength = $std_compressedLength;
+    $cdEntry->std_uncompressedLength = $std_uncompressedLength;
+    $cdEntry->std_diskNumber = $std_disk_start;
 
     if ($extraLength)
     {
@@ -2061,6 +2283,10 @@ sub CentralHeader
 
         walkExtra($extraLength, $cdEntry);
     }
+
+    $cdEntry->endCentralHeaderOffset = $FH->tell() - 1;
+
+    $CentralDirectory->replaceEntry($cdEntry);
 
     if ($comment_length)
     {
@@ -2339,7 +2565,7 @@ sub EndCentralHeader
     return {};
 }
 
-sub DataHeader
+sub DataDescriptor
 {
 
     # Data header record or Spanned archive marker.
@@ -2360,45 +2586,108 @@ sub DataHeader
 
     if ($here == 4)
     {
-        # Is this a Spanned Archive Marker?
-        my (undef, $next_sig) = read_V();
-        seekTo(0);
+        # Spanned Archive Marker
+        out $data, "SPLIT ARCHIVE MULTI-SEGMENT MARKER", Value_V($signature);
+        return;
 
-        if ($next_sig == ZIP_LOCAL_HDR_SIG)
-        {
-            print "\n";
-            out $data, "SPLIT ARCHIVE MULTI-SEGMENT MARKER", Value_V($signature);
-            seekTo($here);
-            return;
-        }
+        # my (undef, $next_sig) = read_V();
+        # seekTo(0);
+
+        # if ($next_sig == ZIP_LOCAL_HDR_SIG)
+        # {
+        #     print "\n";
+        #     out $data, "SPLIT ARCHIVE MULTI-SEGMENT MARKER", Value_V($signature);
+        #     seekTo($here);
+        #     return;
+        # }
     }
+
+    my $sigName = Signatures::titleName(ZIP_DATA_HDR_SIG);
 
     print "\n";
     out $data, "STREAMING DATA HEADER", Value_V($signature);
 
-    need $ZIP64 ? 20 : 12, Signatures::name($signature);
+    need  24, Signatures::name($signature);
 
-    my $crc = out_V "CRC";
+    # Ignore header payload if nested
+    my $nested = $LocalDirectory->isNested(-1, $here - 4, $here - 4 + 24);
+    if ($nested)
+    {
+        out "",  "Skipping nested payload";
+        return {};
+    }
+
     my $compressedLength;
     my $uncompressedLength;
 
-    if ($ZIP64)
+    my $localEntry = $LocalDirectory->lastStreamedEntryAdded();
+
+    if (!$localEntry)
     {
-        $compressedLength = out_Q "Compressed Length" ;
-        $uncompressedLength = out_Q "Uncompressed Length" ;
-    }
-    else
-    {
-        $compressedLength = out_V "Compressed Length" ;
-        $uncompressedLength = out_V "Uncompressed Length" ;
+        # found a Data Descriptor without a local header
+        out "",  "Skipping Data Descriptor", "No matching Local header with streaming bit set";
+        error $here - 4, "Orphan '$sigName' found", "No matching Local header with streaming bit set";
+        return {};
     }
 
-    my $localEntry = $LocalDirectory->lastStreamedEntryAdded();
+    my $crc = out_V "CRC";
+    my $payloadLength = $here - 4 - $localEntry->payloadOffset;
+
+    my $deltaToNext = deltaToNextSignature();
+    my $cl32 = unpack "V",  peekAtOffset($here + 4, 4);
+    my $cl64 = unpack "Q<", peekAtOffset($here + 4, 8);
+
+    # use delta to next header & payload length
+    # deals with use case where the payload length < 32 bit
+    # will use a 32-bit value rather than th e64-bit value
+    if ($deltaToNext == 8 && $cl32 == $payloadLength)
+    {
+        if ($localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 64-bit values, got 32-bit";
+        }
+
+        $compressedLength   = out_V "Compressed Length" ;
+        $uncompressedLength = out_V "Uncompressed Length" ;
+    }
+    elsif ($deltaToNext == 16 && $cl64 == $payloadLength)
+    {
+        if (! $localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 32-bit values, got 64-bit";
+        }
+
+        $compressedLength   = out_Q "Compressed Length" ;
+        $uncompressedLength = out_Q "Uncompressed Length" ;
+    }
+
+    # don't know delta to bext header, so use payload lengths
+    elsif ($cl32 == $payloadLength)
+    {
+        if ($localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 64-bit values, got 32-bit";
+        }
+
+        $compressedLength   = out_V "Compressed Length" ;
+        $uncompressedLength = out_V "Uncompressed Length" ;
+    }
+    elsif ($cl64 == $payloadLength)
+    {
+        if (! $localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 32-bit values, got 64-bit";
+        }
+
+        $compressedLength   = out_Q "Compressed Length" ;
+        $uncompressedLength = out_Q "Uncompressed Length" ;
+    }
 
     if ($localEntry)
     {
+        $localEntry->readDataDescriptor = 1;
         $localEntry->crc32 = $crc;
-        $localEntry->compressedLength = $compressedLength;
+        $localEntry->compressedLength   = $compressedLength;
         $localEntry->uncompressedLength = $uncompressedLength;
     }
 
@@ -3089,15 +3378,14 @@ sub testExtraLimits
 
 }
 
-
 sub full32
 {
-    return $_[0] == MAX32 ;
+    return ($_[0] // 0) == MAX32 ;
 }
 
 sub full16
 {
-    return $_[0] == MAX16 ;
+    return ($_[0] // 0) == MAX16 ;
 }
 
 sub decode_Zip64
@@ -4027,6 +4315,27 @@ sub printLzmaProperties
     return $len;
 }
 
+sub peekAtOffset
+{
+    # my $fh = shift;
+    my $offset = shift;
+    my $len = shift;
+
+    my $here = $FH->tell();
+
+    seekTo($offset) ;
+
+    my $buffer;
+    myRead($buffer, $len);
+    seekTo($here);
+
+    # $fh->read($buffer, $len) == $len
+    length $buffer == $len
+        or return '';
+
+    return $buffer;
+}
+
 sub readFromOffset
 {
     # my $fh = shift;
@@ -4037,6 +4346,7 @@ sub readFromOffset
 
     my $buffer;
     myRead($buffer, $len);
+
     # $fh->read($buffer, $len) == $len
     length $buffer == $len
         or return '';
@@ -4948,6 +5258,7 @@ sub nibbles
                         'zip64_uncompressedLength'  => undef,                        
                         'zip64_localHeaderOffset'   => undef,                        
                         'zip64_diskNumber'          => undef,    
+                        'zip64_diskNumberPresent'   => 0,
 
                         # Values direct from the header before merging any Zip64 values
                         'std_compressedLength'    => undef,
@@ -5025,6 +5336,8 @@ sub nibbles
         # my $self = bless {}, $class;
         FieldsAndAccessors::Add($class, $self, \%fields) ;
 
+        $self->inCentralDir = 1 ;
+
         return $self;
     }
 }
@@ -5091,7 +5404,6 @@ sub nibbles
         my $enclosingEntry = $LocalDirectory->isCdEntryNested($entry) ;
         if ($enclosingEntry)
         {
-            # say "Encapsulated";
             $entry->encapsulated = 1;
             push @{ $self->{enclosingEntries} }, $enclosingEntry
                  if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
@@ -5131,6 +5443,22 @@ sub nibbles
             $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
             $self->{offset2Index} = $self->{count} ++;
         }
+    }
+
+    sub replaceEntry 
+    {
+        my $self = shift;
+        my $entry = shift;
+
+        @{ $self->{encapsulatedEntries} } = grep { $entry->centralHeaderOffset != $_->centralHeaderOffset }
+                                            @{ $self->{encapsulatedEntries} };
+
+        @{ $self->{entries} } = grep { $entry->centralHeaderOffset != $_->centralHeaderOffset }
+                                            @{ $self->{entries} };
+
+        delete $self->{byName}{$entry->filename} ;
+
+        $self->addEntry($entry);
     }
 
     sub exists
@@ -5236,10 +5564,14 @@ sub nibbles
                         # 'encapsulated'          => 0,
                         # 'streamed'              => 0,
                         'streamedMatch'         => 0,
+                        'readDataDescriptor'    => 0,
+                        'cdEntry'               => 0,
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
         
+        $self->inCentralDir = 0 ;
+
         return $self;
     }
 }
@@ -5289,7 +5621,7 @@ sub nibbles
         my $localEntry = shift;
 
         my $startSA = $localEntry->localHeaderOffset;
-        my $endSA = $localEntry->payloadOffset +  $localEntry->compressedLength ;
+        my $endSA = ($localEntry->payloadOffset // 0) +  ($localEntry->compressedLength  // 0);
 
         return $self->isNested($localEntry->index, $startSA, $endSA) ;
     }
@@ -5310,7 +5642,7 @@ sub nibbles
         for my $outerEntry ( @{ $self->{entries} } )
         {
             my $from = $outerEntry->localHeaderOffset ;
-            my $to   = $outerEntry->payloadOffset + $outerEntry->compressedLength;
+            my $to   = ($outerEntry->payloadOffset // 0) + ($outerEntry->compressedLength // 0);
 
             if ($outerEntry->index != $index)
             {
@@ -5482,7 +5814,7 @@ sub nibbles
 
         for my $entry ( reverse @{ $self->{entries} } )
         {
-            if ($entry->streamed && ! $entry->streamedMatch)
+            if ($entry->streamed)# && ! $entry->streamedMatch)
             {
                 ++ $entry->streamedMatch ;
                 return $entry;
