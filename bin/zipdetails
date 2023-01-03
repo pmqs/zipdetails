@@ -60,6 +60,9 @@ use constant ZIP_GP_FLAG_LANGUAGE_ENCODING     => (1 << 11) ;
 use constant ZIP_GP_FLAG_PKWARE_ENHANCED_COMP  => (1 << 12) ;
 use constant ZIP_GP_FLAG_ENCRYPTED_CD          => (1 << 13) ;
 
+# All the encryption flags
+use constant ZIP_GP_FLAG_ALL_ENCRYPT            => (ZIP_GP_FLAG_ENCRYPTED_MASK | ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK | ZIP_GP_FLAG_ENCRYPTED_CD ); 
+
 # Internal File Attributes
 use constant ZIP_IFA_TEXT_MASK                 => 1;
 
@@ -278,7 +281,9 @@ my %Extras = (
       0x0065,  ['IBM S/390 attributes - uncompressed',                      \&decodeMVS,                    4,  undef,  4,  undef],
       0x0066,  ['IBM S/390 attributes - compressed',                        undef],
       0x07c8,  ['Info-ZIP Macintosh (old, J. Lee)',                         undef],
+      0x10c5,  ['Minizip CMS Signature',                                    \&decode_Minizip_Signature,     undef, undef, undef, undef], # https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md
       0x1986,  ['Pixar USD',                                                undef], # TODO
+      0x1a51,  ['Minizip Hash',                                             \&decode_Minizip_Hash,          4, undef, 4, undef], # https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md
       0x2605,  ['ZipIt Macintosh (first version)',                          undef],
       0x2705,  ['ZipIt Macintosh v 1.3.5 and newer (w/o full filename)',    undef],
       0x2805,  ['ZipIt Macintosh v 1.3.5 and newer',                        undef],
@@ -314,6 +319,7 @@ my %Extras = (
       0xa11e,  ['Data Stream Alignment',                                    \&decode_DataStreamAlignment,   2, undef,   2, undef ],
       0xA220,  ['Open Packaging Growth Hint',                               \&decode_GrowthHint,            4, undef,   4, undef ],
       0xCAFE,  ['Java Executable',                                          \&decode_Java_exe,              0, 0,       0, 0],
+      0xCDCD,  ['Minizip Central Directory',                                \&decode_Minizip_CD,            8, 8, 8, 8], # https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md
       0xd935,  ['Android APK Alignment',                                    undef], # TODO
       0xE57a,  ['ALZip Codepage',                                           undef], # TODO
       0xfb4a,  ['SMS/QDOS',                                                 undef], # TODO
@@ -1838,7 +1844,7 @@ sub LocalHeader
         # out1 "CENTRAL HEADER #$cdi", sprintf "Offset %s\n", Value_Q($cdEntryOffset);
     }
 
-    out_C  "Extract Zip Spec", \&decodeZipVer;
+    my $extractVer = out_C  "Extract Zip Spec", \&decodeZipVer;
     out_C  "Extract OS", \&decodeOS;
 
     my ($bgp, $gpFlag) = read_v();
@@ -1912,7 +1918,20 @@ sub LocalHeader
     # }
 
 
-    my $pk_encrypted = ($gpFlag & (ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK|ZIP_GP_FLAG_ENCRYPTED_MASK)) && $compressedMethod != 99;
+    my $minizip_encrypted = $localEntry->minizip_secure;
+    my $pk_encrypted      = ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK) && $compressedMethod != 99 && ! $minizip_encrypted;
+
+    # Detecting PK strong encryption from a local header is a bit convoluted. 
+    # Cannot just use ZIP_GP_FLAG_ENCRYPTED_CD because minizip also uses this bit.
+    # so jump through some hoops
+    #     extract ver is >= 5.0'
+    #     all the encryption flags are set in gpflags
+    #     TODO - add zero lengths for crc, compresssed & uncompressed
+
+    if (($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == ZIP_GP_FLAG_ALL_ENCRYPT  && $extractVer >= 0x32  )
+    {
+        $CentralDirectory->setPkEncryptedCD()
+    }
 
     my $size = 0;
 
@@ -1942,13 +1961,13 @@ sub LocalHeader
     need $CDcompressedLength, 'PAYLOAD'
         if $CDcompressedLength ;
 
-    if (! $pk_encrypted)
+    if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
     {
-        if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
-        {
-            $size = printAes($localEntry)
-        }
-        elsif ($compressedMethod == ZIP_CM_LZMA)
+        $CDcompressedLength -= printAes($localEntry)
+    }
+    elsif (($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == 0)
+    {
+        if ($compressedMethod == ZIP_CM_LZMA)
         {
 
             $size = printLzmaProperties()
@@ -1956,7 +1975,7 @@ sub LocalHeader
 
         $CDcompressedLength -= $size;
     }
-    elsif ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK)
+    elsif ($pk_encrypted)
     {
         $CDcompressedLength -= DecryptionHeader();
     }
@@ -2379,7 +2398,7 @@ sub Zip64EndCentralHeader
     {
         # Version 2 header (see APPNOTE 6.3.7, section  7.3.4, )
         # Can use version 2 header to infer presence of encrypted CD
-        $CentralDirectory->setEncryptedCD();
+        $CentralDirectory->setPkEncryptedCD();
 
 
         # Compression Method    2 bytes    Method used to compress the
@@ -2812,9 +2831,6 @@ sub GeneralPurposeBits
     out1 "[Bit 11]", "1 'Language Encoding'"  if $gp & ZIP_GP_FLAG_LANGUAGE_ENCODING;
     out1 "[Bit 12]", "1 'Pkware Enhanced Compression'"  if $gp & ZIP_GP_FLAG_PKWARE_ENHANCED_COMP ;
     out1 "[Bit 13]", "1 'Encrypted Central Dir'"  if $gp & ZIP_GP_FLAG_ENCRYPTED_CD ;
-
-    $CentralDirectory->setEncryptedCD()
-        if $gp & ZIP_GP_FLAG_ENCRYPTED_CD ;
 
     return ();
 }
@@ -3809,6 +3825,65 @@ sub decode_UT
 }
 
 
+sub decode_Minizip_Signature
+{
+    # 0x10c5 Minizip CMS Signature
+
+    my $len = shift;
+    my $entry = shift;
+
+    # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#cms-signature-0x10c5
+    
+    $CentralDirectory->setMiniZipEncrypted();
+
+    outHexdump($len, "  Signature");
+    
+}
+
+sub decode_Minizip_Hash
+{
+    # 0x1a51 Minizip Hash
+    # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#hash-0x1a51
+
+    my $len = shift;
+    my $entry = shift;
+
+    state $Algorithm = {
+            10 => 'MD5',
+            20 => 'SHA1',
+            23 => 'SHA256',
+    }; 
+
+    $CentralDirectory->setMiniZipEncrypted();
+
+    # outHexdump($len, "Signature");
+    # my $remaining = $len;
+
+    my ($data, $alg) = read_v();
+    my $algorithm = $Algorithm->{$alg} // "Unknown";
+
+    out $data, "  Algorithm", "'$algorithm'";
+
+    my ($d, $digestSize) = read_v();
+    out $d, "  Digest Size", Value_v($digestSize);
+
+    outHexdump($digestSize, "  Digest");
+}
+
+sub decode_Minizip_CD
+{
+    # 0xcdcd Minizip Central Directory
+    # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#central-directory-0xcdcd
+
+    my $len = shift;
+    my $entry = shift;
+
+    $entry->minizip_secure = 1;
+    $CentralDirectory->setMiniZipEncrypted();
+
+    my $size = out_Q "  Entries";
+
+ }
 
 sub decode_AES
 {
@@ -4703,7 +4778,7 @@ sub offsetFromZip64
     if ($extractSpec >= 0x3E)
     {
         $opt_walk = 1;
-        $CentralDirectory->setEncryptedCD();
+        $CentralDirectory->setPkEncryptedCD();
     }
 
     if (! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
@@ -5270,6 +5345,9 @@ sub nibbles
                         'aesStrength'             => 0,
                         'aesValid'                => 0,
 
+                        # Minizip CD encryption
+                        'minizip_secure'          => 0,
+
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
@@ -5384,6 +5462,7 @@ sub nibbles
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
                         'encryptedCD'   => 0,
+                        'minizip_secure' => 0,
                         'enclosingEntries' => [],
                         'enclosing2localEntry' => {}
                      ) ;
@@ -5518,7 +5597,7 @@ sub nibbles
         $FH->tell() >= $self->{CentralDirectoryOffset};
     }
 
-    sub setEncryptedCD
+    sub setPkEncryptedCD
     {
         my $self = shift ;
 
@@ -5526,10 +5605,17 @@ sub nibbles
 
     }
 
+    sub setMiniZipEncrypted
+    {
+        my $self = shift ;
+
+        $self->{minizip_secure} = 1 ;        
+    }
+
     sub isEncryptedCD
     {
         my $self = shift ;
-        return $self->{encryptedCD} ;
+        return $self->{encryptedCD} && ! $self->{minizip_secure};
     }
 
     sub nonEncapsulatedEntries
@@ -5830,7 +5916,7 @@ sub nibbles
         $FH->tell() >= $self->{CentralDirectoryOffset};
     }
 
-    sub setEncryptedCD
+    sub setPkEncryptedCD
     {
         my $self = shift ;
 

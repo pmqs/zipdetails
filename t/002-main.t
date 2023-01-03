@@ -29,7 +29,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 153 * $tests_per_zip_full ;
+plan tests => 158 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -52,6 +52,7 @@ my @exts = qw(
         docx
         dwf
         exe
+        epub
         fmu
         ipa
         ja
