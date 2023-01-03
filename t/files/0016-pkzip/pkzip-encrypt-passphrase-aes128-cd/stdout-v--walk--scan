@@ -17,7 +17,8 @@
 001C 0002 00 00       Extra Length          0000
 001E 0001 31          Filename              '1'
 
-DECRYPTION HEADER RECORD
+001F 0000             DECRYPTION HEADER
+                      RECORD
 001F 0002 10 00       IVSize                0010
 0021 0010 50 DF 55 CA IVData                50 DF 55 CA 21 FD 73 BA 45 22 9E 0D
           21 FD 73 BA                       A0 0E 3F E3
@@ -119,7 +120,8 @@ DECRYPTION HEADER RECORD
 0281 0002 00 00       Extra Length          0000
 0283 0001 32          Filename              '2'
 
-DECRYPTION HEADER RECORD
+0284 0000             DECRYPTION HEADER
+                      RECORD
 0284 0002 10 00       IVSize                0010
 0286 0010 CE 20 9E D8 IVData                CE 20 9E D8 C8 37 2F D6 0D 8E 03 DA
           C8 37 2F D6                       5D 2E 9A E4
@@ -203,7 +205,8 @@ DECRYPTION HEADER RECORD
 03B6 0004 EC 87 78 60 VCRC32                607887EC
 03BA 0120 ...         PAYLOAD
 
-CENTRAL HEADER DECRYPTION RECORD
+04DA 0000             CENTRAL HEADER
+                      DECRYPTION RECORD
 04DA 0002 10 00       IVSize                0010
 04DC 0010 24 A6 9F 82 IVData                24 A6 9F 82 6C B3 AF 22 43 0F 9C 5A
           6C B3 AF 22                       83 B8 A3 A3

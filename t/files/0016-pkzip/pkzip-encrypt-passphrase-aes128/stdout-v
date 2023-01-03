@@ -18,7 +18,8 @@
           6D 2E 74 78
           74
 
-DECRYPTION HEADER RECORD
+0027 0000             DECRYPTION HEADER
+                      RECORD
 0027 0002 10 00       IVSize                0010
 0029 0010 9A 66 13 AA IVData                9A 66 13 AA 6A 05 6C F3 5E 82 69 AF
           6A 05 6C F3                       AE 38 A1 7B
@@ -121,7 +122,8 @@ DECRYPTION HEADER RECORD
           6D 32 2E 74
           78 74
 
-DECRYPTION HEADER RECORD
+0295 0000             DECRYPTION HEADER
+                      RECORD
 0295 0002 10 00       IVSize                0010
 0297 0010 C2 2A 84 64 IVData                C2 2A 84 64 C5 C7 9F 45 EA 51 DD 94
           C5 C7 9F 45                       B3 86 45 E2

@@ -16,7 +16,8 @@
 001C Extra Length          0000
 001E Filename              'lorem.txt'
 
-DECRYPTION HEADER RECORD
+0027 DECRYPTION HEADER
+     RECORD
 0027 IVSize                0010
 0029 IVData                EA 77 FF 98 3A 41 E8 D3 80 FF AB 53 D2
                            90 BF 9A
@@ -69,7 +70,8 @@ DECRYPTION HEADER RECORD
 0281 Extra Length          0000
 0283 Filename              'lorem2.txt'
 
-DECRYPTION HEADER RECORD
+028D DECRYPTION HEADER
+     RECORD
 028D IVSize                0010
 028F IVData                5A D2 D1 4B 30 4E 62 2F DB 49 FE 55 A1
                            E4 C7 C2

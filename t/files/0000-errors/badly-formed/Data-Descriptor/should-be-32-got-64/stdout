@@ -15,7 +15,7 @@
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-0135 STREAMING DATA HEADER 08074B50
+0135 DATA DESCRIPTOR       08074B50
 0139 CRC                   F90EE7FF
 # ERROR: Offset 0x139: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
 013D Compressed Length     000000000000010E

@@ -160,7 +160,7 @@
                             F0 F2 F8 59 0D E3 6F 6E 54 CD
 0070B PAYLOAD               ..
 
-0070D STREAMING DATA HEADER 08074B50
+0070D DATA DESCRIPTOR       08074B50
 00711 CRC                   00000000
 00715 Compressed Length     0000000000000002
 0071D Uncompressed Length   0000000000000000
@@ -322,7 +322,7 @@
                             A8 66 25 64 1E C5 3C D0 73 C6
 00E1D PAYLOAD
 
-20E45 STREAMING DATA HEADER 08074B50
+20E45 DATA DESCRIPTOR       08074B50
 20E49 CRC                   A85D40DC
 20E4D Compressed Length     00020028
 20E51 Uncompressed Length   00020000
@@ -486,7 +486,7 @@
                             ........................................
                             ...............................n
 
-215BE STREAMING DATA HEADER 08074B50
+215BE DATA DESCRIPTOR       08074B50
 215C2 CRC                   0F79DE80
 215C6 Compressed Length     00000070
 215CA Uncompressed Length   00018000
@@ -648,7 +648,7 @@
                             FF 3B 82 CB EC 28 01 BF 98 27
 21CC8 PAYLOAD
 
-22055 STREAMING DATA HEADER 08074B50
+22055 DATA DESCRIPTOR       08074B50
 22059 CRC                   54F920F0
 2205D Compressed Length     0000038D
 22061 Uncompressed Length   000009E0
@@ -810,7 +810,7 @@
                             ED C9 82 46 D1 80 38 9D 91 73
 2275F PAYLOAD
 
-22B46 STREAMING DATA HEADER 08074B50
+22B46 DATA DESCRIPTOR       08074B50
 22B4A CRC                   C1588FFF
 22B4E Compressed Length     000003E7
 22B52 Uncompressed Length   00000D4E
@@ -972,7 +972,7 @@
                             F9 09 CC B7 01 BC 0E 87 61 62
 23252 PAYLOAD
 
-23674 STREAMING DATA HEADER 08074B50
+23674 DATA DESCRIPTOR       08074B50
 23678 CRC                   9062EB2C
 2367C Compressed Length     00000422
 23680 Uncompressed Length   00000D07
@@ -1149,7 +1149,7 @@
                             EC 48 9B AE 42 D0 BB BE 92 EE
 23DD2 PAYLOAD
 
-24073 STREAMING DATA HEADER 08074B50
+24073 DATA DESCRIPTOR       08074B50
 24077 CRC                   0DFE0B22
 2407B Compressed Length     000002A1
 2407F Uncompressed Length   000002DE
@@ -1340,7 +1340,7 @@
                             ..w..D.?T..o.?
 # INFO: Offset 0x2B7E6: 0x72 Unexpected Padding bytes
 
-2B858 STREAMING DATA HEADER 08074B50
+2B858 DATA DESCRIPTOR       08074B50
 2B85C CRC                   7FF0384D
 2B860 Compressed Length     000070C6
 2B864 Uncompressed Length   000070C0
@@ -1504,7 +1504,7 @@
                             ..(...S.+DCz.H.y.-.L...l..1..:.(...p;.if
                             E.......d?....oV6.<.......j.
 
-2BFD8 STREAMING DATA HEADER 08074B50
+2BFD8 DATA DESCRIPTOR       08074B50
 2BFDC CRC                   32453FDC
 2BFE0 Compressed Length     00000063
 2BFE4 Uncompressed Length   000000F6
@@ -1666,7 +1666,7 @@
                             9A ED F9 75 1F 24 38 42 46 5D
 2C6F7 PAYLOAD               ..fec...
 
-2C6FF STREAMING DATA HEADER 08074B50
+2C6FF DATA DESCRIPTOR       08074B50
 2C703 CRC                   D7CBC50E
 2C707 Compressed Length     00000008
 2C70B Uncompressed Length   00000016
@@ -1828,7 +1828,7 @@
                             B2 56 48 17 96 DD D3 60 DA 8E
 2CE20 PAYLOAD
 
-2D59F STREAMING DATA HEADER 08074B50
+2D59F DATA DESCRIPTOR       08074B50
 2D5A3 CRC                   BF8FDF10
 2D5A7 Compressed Length     0000077F
 2D5AB Uncompressed Length   00011714
@@ -1995,7 +1995,7 @@
                             a.7#..3..I....xI#.....V.3.LE6..a..@..B?.
                             .`.d.8..0V6.b& ........
 
-2DD70 STREAMING DATA HEADER 08074B50
+2DD70 DATA DESCRIPTOR       08074B50
 2DD74 CRC                   EC62549D
 2DD78 Compressed Length     000000A6
 2DD7C Uncompressed Length   00000148
@@ -2157,7 +2157,7 @@
                             95 34 D5 EA B9 BE 78 B5 A0 CF
 2E494 PAYLOAD
 
-2E942 STREAMING DATA HEADER 08074B50
+2E942 DATA DESCRIPTOR       08074B50
 2E946 CRC                   A0D9E167
 2E94A Compressed Length     000004AE
 2E94E Uncompressed Length   00010B15
@@ -2346,7 +2346,7 @@
                             2020 0ns'
 2F0B1 PAYLOAD
 
-3AE27 STREAMING DATA HEADER 08074B50
+3AE27 DATA DESCRIPTOR       08074B50
 3AE2B CRC                   66007DBA
 
 3AE2F UNEXPECTED PADDING    l....R..
@@ -2405,7 +2405,7 @@
 #        value @ 0xBDC9 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0xD0B9C709
 3AED0 Comment Length        0000
 
-3AED2 STREAMING DATA HEADER 08074B50
+3AED2 DATA DESCRIPTOR       08074B50
 3AED6 CRC                   74CB250C
 
 3AEDA UNEXPECTED PADDING    s...d...
@@ -2574,7 +2574,7 @@
                             Hg.Q.z........oF&y.\.Sa...(...\P5....f..
                             -~L...k.:yd:.......!.H.....
 
-3B6D9 STREAMING DATA HEADER 08074B50
+3B6D9 DATA DESCRIPTOR       08074B50
 3B6DD CRC                   13178F24
 3B6E1 Compressed Length     000000D5
 3B6E5 Uncompressed Length   0000011F
@@ -2739,7 +2739,7 @@
                             .8.f..5.T..f...flHFf...%*.e..*$........x
                             ..1..`dH...@,.P...X...Y....
 
-3BE8F STREAMING DATA HEADER 08074B50
+3BE8F DATA DESCRIPTOR       08074B50
 3BE93 CRC                   CDF7477A
 3BE97 Compressed Length     00000093
 3BE9B Uncompressed Length   000000DC
@@ -2903,7 +2903,7 @@
                             ..-,...N..8{...@....<.Y....9...z..5-....
                             ..a....&T@.....l.5...@:....
 
-3C61A STREAMING DATA HEADER 08074B50
+3C61A DATA DESCRIPTOR       08074B50
 3C61E CRC                   71548DF8
 3C622 Compressed Length     0000006B
 3C626 Uncompressed Length   000000D7
@@ -3069,7 +3069,7 @@
                             ;..6.x32.3.2W.....4...(..A..!.v...+.6Q..
                             .Z.0...U.h$..x..A.32$..0.f.
 
-3CDD7 STREAMING DATA HEADER 08074B50
+3CDD7 DATA DESCRIPTOR       08074B50
 3CDDB CRC                   A88ECD9D
 3CDDF Compressed Length     00000093
 3CDE3 Uncompressed Length   000000CC
@@ -3238,7 +3238,7 @@
                             !.0.....\...-....%...._....3VH.a........
                             .@...!..
 
-3D5E4 STREAMING DATA HEADER 08074B50
+3D5E4 DATA DESCRIPTOR       08074B50
 3D5E8 CRC                   36E86346
 3D5EC Compressed Length     000000E7
 3D5F0 Uncompressed Length   0000027A
@@ -3401,7 +3401,7 @@
                             92 44 B5 17 D6 86 6B 9A E1 7B
 3DD0F PAYLOAD
 
-3DE10 STREAMING DATA HEADER 08074B50
+3DE10 DATA DESCRIPTOR       08074B50
 3DE14 CRC                   38E24104
 3DE18 Compressed Length     00000101
 3DE1C Uncompressed Length   000100F9
@@ -3567,7 +3567,7 @@
                             n.9}..pK..#...4U...^.O...f.@6,...I...E..
                             ...k.....B.E.2.........H.....
 
-3E5BF STREAMING DATA HEADER 08074B50
+3E5BF DATA DESCRIPTOR       08074B50
 3E5C3 CRC                   9690AAFE
 3E5C7 Compressed Length     00000083
 3E5CB Uncompressed Length   000000C6
@@ -3732,7 +3732,7 @@
                             .....b..H.x32.1.r..X.#./...r.+.ih...fe..
                             ed....`..
 
-3ED51 STREAMING DATA HEADER 08074B50
+3ED51 DATA DESCRIPTOR       08074B50
 3ED55 CRC                   51D69FF3
 3ED59 Compressed Length     00000075
 3ED5D Uncompressed Length   000000E9
@@ -3938,7 +3938,7 @@
 #        value @ 0x27FF2 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x267DAF18
 674E2 Comment Length        0000
 
-674E4 STREAMING DATA HEADER 08074B50
+674E4 DATA DESCRIPTOR       08074B50
 674E8 CRC                   A55A8615
 674EC Compressed Length     00028073
 674F0 Uncompressed Length   00028065
@@ -4100,7 +4100,7 @@
                             81 53 D5 BE 11 AC 58 A2 17 AC
 67C05 PAYLOAD
 
-6B50A STREAMING DATA HEADER 08074B50
+6B50A DATA DESCRIPTOR       08074B50
 6B50E CRC                   CE376013
 6B512 Compressed Length     00003905
 6B516 Uncompressed Length   00008D1A
@@ -4266,7 +4266,7 @@
                             ..:.k..*ko..p.N..j..6..Pv.l.~.)fy=.f..l.
                             a..Z.#...cZ..cZ.O.1mR.y..
 
-6BCD2 STREAMING DATA HEADER 08074B50
+6BCD2 DATA DESCRIPTOR       08074B50
 6BCD6 CRC                   1CA3704F
 6BCDA Compressed Length     000000B9
 6BCDE Uncompressed Length   0000011E
@@ -4428,7 +4428,7 @@
                             EE D8 A1 22 12 BC AE 9C 9B 6E
 6C3DA PAYLOAD               3..
 
-6C3DD STREAMING DATA HEADER 08074B50
+6C3DD DATA DESCRIPTOR       08074B50
 6C3E1 CRC                   83DCEFB7
 6C3E5 Compressed Length     00000003
 6C3E9 Uncompressed Length   00000001

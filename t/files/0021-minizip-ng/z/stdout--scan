@@ -16,7 +16,7 @@
 001E Filename              '0_0'
 0021 PAYLOAD
 
-01DF STREAMING DATA HEADER 08074B50
+01DF DATA DESCRIPTOR       08074B50
 01E3 CRC                   00000000
 01E7 Compressed Length     000001BE
 01EB Uncompressed Length   00000000
@@ -70,7 +70,7 @@
                            70 90 75 E7 E9 CC E0 09 DB 4A 14 1C 04
                            07 1B 13 CA FE AC
 
-0280 STREAMING DATA HEADER 08074B50
+0280 DATA DESCRIPTOR       08074B50
 0284 CRC                   AA39B9D7
 0288 Compressed Length     0000005F
 028C Uncompressed Length   0000005F

@@ -15,7 +15,7 @@
 00001E Filename              '1p-filters.html'
 00002D PAYLOAD
 
-0003DB STREAMING DATA HEADER 08074B50
+0003DB DATA DESCRIPTOR       08074B50
 0003DF CRC                   CC7E2D1C
 0003E3 Compressed Length     000003AE
 0003E7 Uncompressed Length   00000D93
@@ -36,7 +36,7 @@
 000409 Filename              '3p-filters.html'
 000418 PAYLOAD
 
-000939 STREAMING DATA HEADER 08074B50
+000939 DATA DESCRIPTOR       08074B50
 00093D CRC                   E18A82A3
 000941 Compressed Length     00000521
 000945 Uncompressed Length   00001450
@@ -57,7 +57,7 @@
 000967 Filename              'LICENSE.txt'
 000972 PAYLOAD
 
-0038BF STREAMING DATA HEADER 08074B50
+0038BF DATA DESCRIPTOR       08074B50
 0038C3 CRC                   E787D95B
 0038C7 Compressed Length     00002F4D
 0038CB Uncompressed Length   00008936
@@ -78,7 +78,7 @@
 0038ED Filename              'about.html'
 0038F7 PAYLOAD
 
-003D16 STREAMING DATA HEADER 08074B50
+003D16 DATA DESCRIPTOR       08074B50
 003D1A CRC                   93185939
 003D1E Compressed Length     0000041F
 003D22 Uncompressed Length   00000F9C
@@ -99,7 +99,7 @@
 003D44 Filename              'advanced-settings.html'
 003D5A PAYLOAD
 
-003FA1 STREAMING DATA HEADER 08074B50
+003FA1 DATA DESCRIPTOR       08074B50
 003FA5 CRC                   2072A17E
 003FA9 Compressed Length     00000247
 003FAD Uncompressed Length   00000643
@@ -120,7 +120,7 @@
 003FCF Filename              'asset-viewer.html'
 003FE0 PAYLOAD
 
-00427E STREAMING DATA HEADER 08074B50
+00427E DATA DESCRIPTOR       08074B50
 004282 CRC                   4B43ECE4
 004286 Compressed Length     0000029E
 00428A Uncompressed Length   000008A3
@@ -145,7 +145,7 @@
                              ....."k.<9m...+.
                              .......1|@....#y..R}.S....N..|.....
 
-004360 STREAMING DATA HEADER 08074B50
+004360 DATA DESCRIPTOR       08074B50
 004364 CRC                   E541BF40
 004368 Compressed Length     000000A5
 00436C Uncompressed Length   000000FD
@@ -166,7 +166,7 @@
 00438E Filename              'cloud-ui.html'
 00439B PAYLOAD
 
-004520 STREAMING DATA HEADER 08074B50
+004520 DATA DESCRIPTOR       08074B50
 004524 CRC                   167D01D4
 004528 Compressed Length     00000185
 00452C Uncompressed Length   000004B4
@@ -187,7 +187,7 @@
 00454E Filename              'dashboard.html'
 00455C PAYLOAD
 
-0047E0 STREAMING DATA HEADER 08074B50
+0047E0 DATA DESCRIPTOR       08074B50
 0047E4 CRC                   3F8D1C6B
 0047E8 Compressed Length     00000284
 0047EC Uncompressed Length   0000094C
@@ -208,7 +208,7 @@
 00480E Filename              'devtools.html'
 00481B PAYLOAD
 
-004A98 STREAMING DATA HEADER 08074B50
+004A98 DATA DESCRIPTOR       08074B50
 004A9C CRC                   A8930BDE
 004AA0 Compressed Length     0000027D
 004AA4 Uncompressed Length   000009EB
@@ -229,7 +229,7 @@
 004AC6 Filename              'document-blocked.html'
 004ADB PAYLOAD
 
-004E20 STREAMING DATA HEADER 08074B50
+004E20 DATA DESCRIPTOR       08074B50
 004E24 CRC                   2F2B57BC
 004E28 Compressed Length     00000345
 004E2C Uncompressed Length   000009F7
@@ -250,7 +250,7 @@
 004E4E Filename              'dyna-rules.html'
 004E5D PAYLOAD
 
-005272 STREAMING DATA HEADER 08074B50
+005272 DATA DESCRIPTOR       08074B50
 005276 CRC                   5738DF13
 00527A Compressed Length     00000415
 00527E Uncompressed Length   00000E5E
@@ -271,7 +271,7 @@
 0052A0 Filename              'logger-ui.html'
 0052AE PAYLOAD
 
-005DED STREAMING DATA HEADER 08074B50
+005DED DATA DESCRIPTOR       08074B50
 005DF1 CRC                   B1D6F1B9
 005DF5 Compressed Length     00000B3F
 005DF9 Uncompressed Length   0000363A
@@ -292,7 +292,7 @@
 005E1B Filename              'managed_storage.json'
 005E2F PAYLOAD
 
-006085 STREAMING DATA HEADER 08074B50
+006085 DATA DESCRIPTOR       08074B50
 006089 CRC                   E66D1424
 00608D Compressed Length     00000256
 006091 Uncompressed Length   00000908
@@ -313,7 +313,7 @@
 0060B3 Filename              'manifest.json'
 0060C0 PAYLOAD
 
-006402 STREAMING DATA HEADER 08074B50
+006402 DATA DESCRIPTOR       08074B50
 006406 CRC                   830F3F2D
 00640A Compressed Length     00000342
 00640E Uncompressed Length   00000979
@@ -334,7 +334,7 @@
 006430 Filename              'no-dashboard.html'
 006441 PAYLOAD
 
-0065CA STREAMING DATA HEADER 08074B50
+0065CA DATA DESCRIPTOR       08074B50
 0065CE CRC                   3725A00A
 0065D2 Compressed Length     00000189
 0065D6 Uncompressed Length   00000336
@@ -355,7 +355,7 @@
 0065F8 Filename              'popup-fenix.html'
 006608 PAYLOAD
 
-006E3C STREAMING DATA HEADER 08074B50
+006E3C DATA DESCRIPTOR       08074B50
 006E40 CRC                   31D3881D
 006E44 Compressed Length     00000834
 006E48 Uncompressed Length   000020EC
@@ -376,7 +376,7 @@
 006E6A Filename              'settings.html'
 006E77 PAYLOAD
 
-0074DE STREAMING DATA HEADER 08074B50
+0074DE DATA DESCRIPTOR       08074B50
 0074E2 CRC                   B74C13D4
 0074E6 Compressed Length     00000667
 0074EA Uncompressed Length   00002824
@@ -397,7 +397,7 @@
 00750C Filename              'shortcuts.html'
 00751A PAYLOAD
 
-0076E7 STREAMING DATA HEADER 08074B50
+0076E7 DATA DESCRIPTOR       08074B50
 0076EB CRC                   A97E4082
 0076EF Compressed Length     000001CD
 0076F3 Uncompressed Length   000004D8
@@ -418,7 +418,7 @@
 007715 Filename              'support.html'
 007721 PAYLOAD
 
-007B58 STREAMING DATA HEADER 08074B50
+007B58 DATA DESCRIPTOR       08074B50
 007B5C CRC                   E1C6573D
 007B60 Compressed Length     00000437
 007B64 Uncompressed Length   000013E1
@@ -439,7 +439,7 @@
 007B86 Filename              'whitelist.html'
 007B94 PAYLOAD
 
-007EB8 STREAMING DATA HEADER 08074B50
+007EB8 DATA DESCRIPTOR       08074B50
 007EBC CRC                   577A6171
 007EC0 Compressed Length     00000324
 007EC4 Uncompressed Length   00000AF2
@@ -460,7 +460,7 @@
 007EE6 Filename              '_locales/oc/messages.json'
 007EFF PAYLOAD
 
-00A48F STREAMING DATA HEADER 08074B50
+00A48F DATA DESCRIPTOR       08074B50
 00A493 CRC                   DD0102DF
 00A497 Compressed Length     00002590
 00A49B Uncompressed Length   0000B235
@@ -481,7 +481,7 @@
 00A4BD Filename              '_locales/ar/messages.json'
 00A4D6 PAYLOAD
 
-00D1E3 STREAMING DATA HEADER 08074B50
+00D1E3 DATA DESCRIPTOR       08074B50
 00D1E7 CRC                   A72F87B1
 00D1EB Compressed Length     00002D0D
 00D1EF Uncompressed Length   0000C98B
@@ -502,7 +502,7 @@
 00D211 Filename              '_locales/id/messages.json'
 00D22A PAYLOAD
 
-00F8BD STREAMING DATA HEADER 08074B50
+00F8BD DATA DESCRIPTOR       08074B50
 00F8C1 CRC                   FE58AD57
 00F8C5 Compressed Length     00002693
 00F8C9 Uncompressed Length   0000B39C
@@ -523,7 +523,7 @@
 00F8EB Filename              '_locales/ms/messages.json'
 00F904 PAYLOAD
 
-012027 STREAMING DATA HEADER 08074B50
+012027 DATA DESCRIPTOR       08074B50
 01202B CRC                   7F7840EC
 01202F Compressed Length     00002723
 012033 Uncompressed Length   0000B454
@@ -544,7 +544,7 @@
 012055 Filename              '_locales/lt/messages.json'
 01206E PAYLOAD
 
-014A51 STREAMING DATA HEADER 08074B50
+014A51 DATA DESCRIPTOR       08074B50
 014A55 CRC                   B3355606
 014A59 Compressed Length     000029E3
 014A5D Uncompressed Length   0000B89C
@@ -565,7 +565,7 @@
 014A7F Filename              '_locales/el/messages.json'
 014A98 PAYLOAD
 
-017C1F STREAMING DATA HEADER 08074B50
+017C1F DATA DESCRIPTOR       08074B50
 017C23 CRC                   F4BC7A82
 017C27 Compressed Length     00003187
 017C2B Uncompressed Length   0000DFF6
@@ -586,7 +586,7 @@
 017C4D Filename              '_locales/lv/messages.json'
 017C66 PAYLOAD
 
-01A6F7 STREAMING DATA HEADER 08074B50
+01A6F7 DATA DESCRIPTOR       08074B50
 01A6FB CRC                   49731464
 01A6FF Compressed Length     00002A91
 01A703 Uncompressed Length   0000B9FB
@@ -607,7 +607,7 @@
 01A725 Filename              '_locales/ja/messages.json'
 01A73E PAYLOAD
 
-01D36D STREAMING DATA HEADER 08074B50
+01D36D DATA DESCRIPTOR       08074B50
 01D371 CRC                   C5E27895
 01D375 Compressed Length     00002C2F
 01D379 Uncompressed Length   0000C3DB
@@ -628,7 +628,7 @@
 01D39B Filename              '_locales/bn/messages.json'
 01D3B4 PAYLOAD
 
-02046D STREAMING DATA HEADER 08074B50
+02046D DATA DESCRIPTOR       08074B50
 020471 CRC                   B14F84ED
 020475 Compressed Length     000030B9
 020479 Uncompressed Length   0000F187
@@ -649,7 +649,7 @@
 02049B Filename              '_locales/pt_PT/messages.json'
 0204B7 PAYLOAD
 
-022CA6 STREAMING DATA HEADER 08074B50
+022CA6 DATA DESCRIPTOR       08074B50
 022CAA CRC                   3AB3ED8D
 022CAE Compressed Length     000027EF
 022CB2 Uncompressed Length   0000B784
@@ -670,7 +670,7 @@
 022CD4 Filename              '_locales/tr/messages.json'
 022CED PAYLOAD
 
-025568 STREAMING DATA HEADER 08074B50
+025568 DATA DESCRIPTOR       08074B50
 02556C CRC                   B717A6E6
 025570 Compressed Length     0000287B
 025574 Uncompressed Length   0000B623
@@ -691,7 +691,7 @@
 025596 Filename              '_locales/eo/messages.json'
 0255AF PAYLOAD
 
-027DEE STREAMING DATA HEADER 08074B50
+027DEE DATA DESCRIPTOR       08074B50
 027DF2 CRC                   CE1F72FC
 027DF6 Compressed Length     0000283F
 027DFA Uncompressed Length   0000B55D
@@ -712,7 +712,7 @@
 027E1C Filename              '_locales/fil/messages.json'
 027E36 PAYLOAD
 
-02A4AC STREAMING DATA HEADER 08074B50
+02A4AC DATA DESCRIPTOR       08074B50
 02A4B0 CRC                   0FD86218
 02A4B4 Compressed Length     00002676
 02A4B8 Uncompressed Length   0000B444
@@ -733,7 +733,7 @@
 02A4DA Filename              '_locales/hi/messages.json'
 02A4F3 PAYLOAD
 
-02D550 STREAMING DATA HEADER 08074B50
+02D550 DATA DESCRIPTOR       08074B50
 02D554 CRC                   A8548B55
 02D558 Compressed Length     0000305D
 02D55C Uncompressed Length   0000EB09
@@ -754,7 +754,7 @@
 02D57E Filename              '_locales/so/messages.json'
 02D597 PAYLOAD
 
-02FEF2 STREAMING DATA HEADER 08074B50
+02FEF2 DATA DESCRIPTOR       08074B50
 02FEF6 CRC                   B800A524
 02FEFA Compressed Length     0000295B
 02FEFE Uncompressed Length   0000B5DD
@@ -775,7 +775,7 @@
 02FF20 Filename              '_locales/sl/messages.json'
 02FF39 PAYLOAD
 
-0328FE STREAMING DATA HEADER 08074B50
+0328FE DATA DESCRIPTOR       08074B50
 032902 CRC                   0E21CD5A
 032906 Compressed Length     000029C5
 03290A Uncompressed Length   0000B71B
@@ -796,7 +796,7 @@
 03292C Filename              '_locales/sq/messages.json'
 032945 PAYLOAD
 
-035130 STREAMING DATA HEADER 08074B50
+035130 DATA DESCRIPTOR       08074B50
 035134 CRC                   AE30B43C
 035138 Compressed Length     000027EB
 03513C Uncompressed Length   0000B581
@@ -817,7 +817,7 @@
 03515E Filename              '_locales/da/messages.json'
 035177 PAYLOAD
 
-0378FF STREAMING DATA HEADER 08074B50
+0378FF DATA DESCRIPTOR       08074B50
 037903 CRC                   9C3F996E
 037907 Compressed Length     00002788
 03790B Uncompressed Length   0000B424
@@ -838,7 +838,7 @@
 03792D Filename              '_locales/uk/messages.json'
 037946 PAYLOAD
 
-03A84E STREAMING DATA HEADER 08074B50
+03A84E DATA DESCRIPTOR       08074B50
 03A852 CRC                   B10DC660
 03A856 Compressed Length     00002F08
 03A85A Uncompressed Length   0000D6B0
@@ -859,7 +859,7 @@
 03A87C Filename              '_locales/et/messages.json'
 03A895 PAYLOAD
 
-03D048 STREAMING DATA HEADER 08074B50
+03D048 DATA DESCRIPTOR       08074B50
 03D04C CRC                   145A88D1
 03D050 Compressed Length     000027B3
 03D054 Uncompressed Length   0000B16E
@@ -880,7 +880,7 @@
 03D076 Filename              '_locales/es/messages.json'
 03D08F PAYLOAD
 
-03F83E STREAMING DATA HEADER 08074B50
+03F83E DATA DESCRIPTOR       08074B50
 03F842 CRC                   6C52B138
 03F846 Compressed Length     000027AF
 03F84A Uncompressed Length   0000B7F8
@@ -901,7 +901,7 @@
 03F86C Filename              '_locales/fy/messages.json'
 03F885 PAYLOAD
 
-042027 STREAMING DATA HEADER 08074B50
+042027 DATA DESCRIPTOR       08074B50
 04202B CRC                   29977C33
 04202F Compressed Length     000027A2
 042033 Uncompressed Length   0000B51A
@@ -922,7 +922,7 @@
 042055 Filename              '_locales/cs/messages.json'
 04206E PAYLOAD
 
-044B32 STREAMING DATA HEADER 08074B50
+044B32 DATA DESCRIPTOR       08074B50
 044B36 CRC                   3DD1156D
 044B3A Compressed Length     00002AC4
 044B3E Uncompressed Length   0000B98B
@@ -943,7 +943,7 @@
 044B60 Filename              '_locales/kk/messages.json'
 044B79 PAYLOAD
 
-0474B9 STREAMING DATA HEADER 08074B50
+0474B9 DATA DESCRIPTOR       08074B50
 0474BD CRC                   61A57049
 0474C1 Compressed Length     00002940
 0474C5 Uncompressed Length   0000BA39
@@ -964,7 +964,7 @@
 0474E7 Filename              '_locales/ru/messages.json'
 047500 PAYLOAD
 
-04A342 STREAMING DATA HEADER 08074B50
+04A342 DATA DESCRIPTOR       08074B50
 04A346 CRC                   E6B791B9
 04A34A Compressed Length     00002E42
 04A34E Uncompressed Length   0000D44C
@@ -985,7 +985,7 @@
 04A370 Filename              '_locales/hu/messages.json'
 04A389 PAYLOAD
 
-04CF41 STREAMING DATA HEADER 08074B50
+04CF41 DATA DESCRIPTOR       08074B50
 04CF45 CRC                   52D087E8
 04CF49 Compressed Length     00002BB8
 04CF4D Uncompressed Length   0000BCAE
@@ -1006,7 +1006,7 @@
 04CF6F Filename              '_locales/sk/messages.json'
 04CF88 PAYLOAD
 
-04FA54 STREAMING DATA HEADER 08074B50
+04FA54 DATA DESCRIPTOR       08074B50
 04FA58 CRC                   4F6D73C7
 04FA5C Compressed Length     00002ACC
 04FA60 Uncompressed Length   0000BAE6
@@ -1027,7 +1027,7 @@
 04FA82 Filename              '_locales/he/messages.json'
 04FA9B PAYLOAD
 
-05242A STREAMING DATA HEADER 08074B50
+05242A DATA DESCRIPTOR       08074B50
 05242E CRC                   1DD122B8
 052432 Compressed Length     0000298F
 052436 Uncompressed Length   0000C1F6
@@ -1048,7 +1048,7 @@
 052458 Filename              '_locales/ur/messages.json'
 052471 PAYLOAD
 
-054CAA STREAMING DATA HEADER 08074B50
+054CAA DATA DESCRIPTOR       08074B50
 054CAE CRC                   0C39AA2D
 054CB2 Compressed Length     00002839
 054CB6 Uncompressed Length   0000B8E5
@@ -1069,7 +1069,7 @@
 054CD8 Filename              '_locales/gl/messages.json'
 054CF1 PAYLOAD
 
-0575A4 STREAMING DATA HEADER 08074B50
+0575A4 DATA DESCRIPTOR       08074B50
 0575A8 CRC                   97A93BF3
 0575AC Compressed Length     000028B3
 0575B0 Uncompressed Length   0000B7C7
@@ -1090,7 +1090,7 @@
 0575D2 Filename              '_locales/zh_TW/messages.json'
 0575EE PAYLOAD
 
-05A061 STREAMING DATA HEADER 08074B50
+05A061 DATA DESCRIPTOR       08074B50
 05A065 CRC                   94913FAB
 05A069 Compressed Length     00002A73
 05A06D Uncompressed Length   0000B0B8
@@ -1111,7 +1111,7 @@
 05A08F Filename              '_locales/kn/messages.json'
 05A0A8 PAYLOAD
 
-05C84A STREAMING DATA HEADER 08074B50
+05C84A DATA DESCRIPTOR       08074B50
 05C84E CRC                   6F9240BE
 05C852 Compressed Length     000027A2
 05C856 Uncompressed Length   0000BAB5
@@ -1132,7 +1132,7 @@
 05C878 Filename              '_locales/ml/messages.json'
 05C891 PAYLOAD
 
-05F94B STREAMING DATA HEADER 08074B50
+05F94B DATA DESCRIPTOR       08074B50
 05F94F CRC                   167860E3
 05F953 Compressed Length     000030BA
 05F957 Uncompressed Length   0000FE2C
@@ -1153,7 +1153,7 @@
 05F979 Filename              '_locales/en/messages.json'
 05F992 PAYLOAD
 
-061CF1 STREAMING DATA HEADER 08074B50
+061CF1 DATA DESCRIPTOR       08074B50
 061CF5 CRC                   61E81E6C
 061CF9 Compressed Length     0000235F
 061CFD Uncompressed Length   0000B007
@@ -1174,7 +1174,7 @@
 061D1F Filename              '_locales/hy/messages.json'
 061D38 PAYLOAD
 
-064B0B STREAMING DATA HEADER 08074B50
+064B0B DATA DESCRIPTOR       08074B50
 064B0F CRC                   A7E9A95C
 064B13 Compressed Length     00002DD3
 064B17 Uncompressed Length   0000D66D
@@ -1195,7 +1195,7 @@
 064B39 Filename              '_locales/ca/messages.json'
 064B52 PAYLOAD
 
-0674AF STREAMING DATA HEADER 08074B50
+0674AF DATA DESCRIPTOR       08074B50
 0674B3 CRC                   C9AE8534
 0674B7 Compressed Length     0000295D
 0674BB Uncompressed Length   0000BA08
@@ -1216,7 +1216,7 @@
 0674DD Filename              '_locales/pl/messages.json'
 0674F6 PAYLOAD
 
-069EA2 STREAMING DATA HEADER 08074B50
+069EA2 DATA DESCRIPTOR       08074B50
 069EA6 CRC                   35C18A2A
 069EAA Compressed Length     000029AC
 069EAE Uncompressed Length   0000B7B6
@@ -1237,7 +1237,7 @@
 069ED0 Filename              '_locales/th/messages.json'
 069EE9 PAYLOAD
 
-06C814 STREAMING DATA HEADER 08074B50
+06C814 DATA DESCRIPTOR       08074B50
 06C818 CRC                   563E9C41
 06C81C Compressed Length     0000292B
 06C820 Uncompressed Length   0000C3AD
@@ -1258,7 +1258,7 @@
 06C842 Filename              '_locales/pt_BR/messages.json'
 06C85E PAYLOAD
 
-06F08D STREAMING DATA HEADER 08074B50
+06F08D DATA DESCRIPTOR       08074B50
 06F091 CRC                   818E4F72
 06F095 Compressed Length     0000282F
 06F099 Uncompressed Length   0000B79D
@@ -1279,7 +1279,7 @@
 06F0BB Filename              '_locales/fi/messages.json'
 06F0D4 PAYLOAD
 
-0719EB STREAMING DATA HEADER 08074B50
+0719EB DATA DESCRIPTOR       08074B50
 0719EF CRC                   6340FA6E
 0719F3 Compressed Length     00002917
 0719F7 Uncompressed Length   0000B7A8
@@ -1300,7 +1300,7 @@
 071A19 Filename              '_locales/fa/messages.json'
 071A32 PAYLOAD
 
-07491F STREAMING DATA HEADER 08074B50
+07491F DATA DESCRIPTOR       08074B50
 074923 CRC                   F4E5C0F7
 074927 Compressed Length     00002EED
 07492B Uncompressed Length   0000CFD0
@@ -1321,7 +1321,7 @@
 07494D Filename              '_locales/zh_CN/messages.json'
 074969 PAYLOAD
 
-077375 STREAMING DATA HEADER 08074B50
+077375 DATA DESCRIPTOR       08074B50
 077379 CRC                   CB78CD3F
 07737D Compressed Length     00002A0C
 077381 Uncompressed Length   0000AF04
@@ -1342,7 +1342,7 @@
 0773A3 Filename              '_locales/vi/messages.json'
 0773BC PAYLOAD
 
-079DFF STREAMING DATA HEADER 08074B50
+079DFF DATA DESCRIPTOR       08074B50
 079E03 CRC                   7414B1D7
 079E07 Compressed Length     00002A43
 079E0B Uncompressed Length   0000BD34
@@ -1363,7 +1363,7 @@
 079E2D Filename              '_locales/ro/messages.json'
 079E46 PAYLOAD
 
-07C846 STREAMING DATA HEADER 08074B50
+07C846 DATA DESCRIPTOR       08074B50
 07C84A CRC                   4B954D9A
 07C84E Compressed Length     00002A00
 07C852 Uncompressed Length   0000B9B1
@@ -1384,7 +1384,7 @@
 07C874 Filename              '_locales/eu/messages.json'
 07C88D PAYLOAD
 
-07F142 STREAMING DATA HEADER 08074B50
+07F142 DATA DESCRIPTOR       08074B50
 07F146 CRC                   E4BAF23C
 07F14A Compressed Length     000028B5
 07F14E Uncompressed Length   0000B7A6
@@ -1405,7 +1405,7 @@
 07F170 Filename              '_locales/bs/messages.json'
 07F189 PAYLOAD
 
-081B0D STREAMING DATA HEADER 08074B50
+081B0D DATA DESCRIPTOR       08074B50
 081B11 CRC                   8C8D24C6
 081B15 Compressed Length     00002984
 081B19 Uncompressed Length   0000B682
@@ -1426,7 +1426,7 @@
 081B3B Filename              '_locales/no/messages.json'
 081B54 PAYLOAD
 
-0842D8 STREAMING DATA HEADER 08074B50
+0842D8 DATA DESCRIPTOR       08074B50
 0842DC CRC                   25CA2051
 0842E0 Compressed Length     00002784
 0842E4 Uncompressed Length   0000B4D4
@@ -1447,7 +1447,7 @@
 084306 Filename              '_locales/fr/messages.json'
 08431F PAYLOAD
 
-086C60 STREAMING DATA HEADER 08074B50
+086C60 DATA DESCRIPTOR       08074B50
 086C64 CRC                   C81A78ED
 086C68 Compressed Length     00002941
 086C6C Uncompressed Length   0000BA69
@@ -1468,7 +1468,7 @@
 086C8E Filename              '_locales/cv/messages.json'
 086CA7 PAYLOAD
 
-089395 STREAMING DATA HEADER 08074B50
+089395 DATA DESCRIPTOR       08074B50
 089399 CRC                   E87DD75B
 08939D Compressed Length     000026EE
 0893A1 Uncompressed Length   0000B40A
@@ -1489,7 +1489,7 @@
 0893C3 Filename              '_locales/nb/messages.json'
 0893DC PAYLOAD
 
-08BB60 STREAMING DATA HEADER 08074B50
+08BB60 DATA DESCRIPTOR       08074B50
 08BB64 CRC                   25CA2051
 08BB68 Compressed Length     00002784
 08BB6C Uncompressed Length   0000B4D4
@@ -1510,7 +1510,7 @@
 08BB8E Filename              '_locales/mr/messages.json'
 08BBA7 PAYLOAD
 
-08E4A5 STREAMING DATA HEADER 08074B50
+08E4A5 DATA DESCRIPTOR       08074B50
 08E4A9 CRC                   31CF4CDB
 08E4AD Compressed Length     000028FE
 08E4B1 Uncompressed Length   0000C19E
@@ -1531,7 +1531,7 @@
 08E4D3 Filename              '_locales/ka/messages.json'
 08E4EC PAYLOAD
 
-0912CE STREAMING DATA HEADER 08074B50
+0912CE DATA DESCRIPTOR       08074B50
 0912D2 CRC                   061EDA3F
 0912D6 Compressed Length     00002DE2
 0912DA Uncompressed Length   0000F765
@@ -1552,7 +1552,7 @@
 0912FC Filename              '_locales/it/messages.json'
 091315 PAYLOAD
 
-093BC6 STREAMING DATA HEADER 08074B50
+093BC6 DATA DESCRIPTOR       08074B50
 093BCA CRC                   880F2BDD
 093BCE Compressed Length     000028B1
 093BD2 Uncompressed Length   0000B908
@@ -1573,7 +1573,7 @@
 093BF4 Filename              '_locales/ta/messages.json'
 093C0D PAYLOAD
 
-096C63 STREAMING DATA HEADER 08074B50
+096C63 DATA DESCRIPTOR       08074B50
 096C67 CRC                   001F968E
 096C6B Compressed Length     00003056
 096C6F Uncompressed Length   0000F8D6
@@ -1594,7 +1594,7 @@
 096C91 Filename              '_locales/az/messages.json'
 096CAA PAYLOAD
 
-099782 STREAMING DATA HEADER 08074B50
+099782 DATA DESCRIPTOR       08074B50
 099786 CRC                   E2712AAE
 09978A Compressed Length     00002AD8
 09978E Uncompressed Length   0000BC0F
@@ -1615,7 +1615,7 @@
 0997B0 Filename              '_locales/ko/messages.json'
 0997C9 PAYLOAD
 
-09C378 STREAMING DATA HEADER 08074B50
+09C378 DATA DESCRIPTOR       08074B50
 09C37C CRC                   86100EE3
 09C380 Compressed Length     00002BAF
 09C384 Uncompressed Length   0000BAAD
@@ -1636,7 +1636,7 @@
 09C3A6 Filename              '_locales/en_GB/messages.json'
 09C3C2 PAYLOAD
 
-09E728 STREAMING DATA HEADER 08074B50
+09E728 DATA DESCRIPTOR       08074B50
 09E72C CRC                   44F7B894
 09E730 Compressed Length     00002366
 09E734 Uncompressed Length   0000B00E
@@ -1657,7 +1657,7 @@
 09E756 Filename              '_locales/bg/messages.json'
 09E76F PAYLOAD
 
-0A149D STREAMING DATA HEADER 08074B50
+0A149D DATA DESCRIPTOR       08074B50
 0A14A1 CRC                   DC346995
 0A14A5 Compressed Length     00002D2E
 0A14A9 Uncompressed Length   0000D5D3
@@ -1678,7 +1678,7 @@
 0A14CB Filename              '_locales/de/messages.json'
 0A14E4 PAYLOAD
 
-0A3DD4 STREAMING DATA HEADER 08074B50
+0A3DD4 DATA DESCRIPTOR       08074B50
 0A3DD8 CRC                   D79BE3FC
 0A3DDC Compressed Length     000028F0
 0A3DE0 Uncompressed Length   0000B9D4
@@ -1699,7 +1699,7 @@
 0A3E02 Filename              '_locales/hr/messages.json'
 0A3E1B PAYLOAD
 
-0A673F STREAMING DATA HEADER 08074B50
+0A673F DATA DESCRIPTOR       08074B50
 0A6743 CRC                   1DE8120D
 0A6747 Compressed Length     00002924
 0A674B Uncompressed Length   0000B556
@@ -1720,7 +1720,7 @@
 0A676D Filename              '_locales/te/messages.json'
 0A6786 PAYLOAD
 
-0A97E1 STREAMING DATA HEADER 08074B50
+0A97E1 DATA DESCRIPTOR       08074B50
 0A97E5 CRC                   56070BBD
 0A97E9 Compressed Length     0000305B
 0A97ED Uncompressed Length   0000EEBA
@@ -1741,7 +1741,7 @@
 0A980F Filename              '_locales/sr/messages.json'
 0A9828 PAYLOAD
 
-0AC544 STREAMING DATA HEADER 08074B50
+0AC544 DATA DESCRIPTOR       08074B50
 0AC548 CRC                   C2495D09
 0AC54C Compressed Length     00002D1C
 0AC550 Uncompressed Length   0000D1F7
@@ -1762,7 +1762,7 @@
 0AC572 Filename              '_locales/nl/messages.json'
 0AC58B PAYLOAD
 
-0AED1F STREAMING DATA HEADER 08074B50
+0AED1F DATA DESCRIPTOR       08074B50
 0AED23 CRC                   B97E146C
 0AED27 Compressed Length     00002794
 0AED2B Uncompressed Length   0000B677
@@ -1783,7 +1783,7 @@
 0AED4D Filename              '_locales/sv/messages.json'
 0AED66 PAYLOAD
 
-0B14FD STREAMING DATA HEADER 08074B50
+0B14FD DATA DESCRIPTOR       08074B50
 0B1501 CRC                   B2A4DFC8
 0B1505 Compressed Length     00002797
 0B1509 Uncompressed Length   0000B572
@@ -1804,7 +1804,7 @@
 0B152B Filename              'assets/assets.json'
 0B153D PAYLOAD
 
-0B2408 STREAMING DATA HEADER 08074B50
+0B2408 DATA DESCRIPTOR       08074B50
 0B240C CRC                   90C6A0CB
 0B2410 Compressed Length     00000ECB
 0B2414 Uncompressed Length   000065D3
@@ -1826,7 +1826,7 @@
                              verlist'
 0B2464 PAYLOAD
 
-0B8430 STREAMING DATA HEADER 08074B50
+0B8430 DATA DESCRIPTOR       08074B50
 0B8434 CRC                   47445D7A
 0B8438 Compressed Length     00005FCC
 0B843C Uncompressed Length   00017B16
@@ -1848,7 +1848,7 @@
                              DME.md'
 0B848B PAYLOAD
 
-0B86F6 STREAMING DATA HEADER 08074B50
+0B86F6 DATA DESCRIPTOR       08074B50
 0B86FA CRC                   C687B6C0
 0B86FE Compressed Length     0000026B
 0B8702 Uncompressed Length   00000471
@@ -1870,7 +1870,7 @@
                              st/effective_tld_names.dat'
 0B8765 PAYLOAD
 
-0CBDAE STREAMING DATA HEADER 08074B50
+0CBDAE DATA DESCRIPTOR       08074B50
 0CBDB2 CRC                   3063F215
 0CBDB6 Compressed Length     00013649
 0CBDBA Uncompressed Length   0003AE6A
@@ -1892,7 +1892,7 @@
                              NSE.md'
 0CBE09 PAYLOAD
 
-0CC774 STREAMING DATA HEADER 08074B50
+0CC774 DATA DESCRIPTOR       08074B50
 0CC778 CRC                   AF40C067
 0CC77C Compressed Length     0000096B
 0CC780 Uncompressed Length   000019E6
@@ -1914,7 +1914,7 @@
                              aus-filter-online.txt'
 0CC7DE PAYLOAD
 
-0D5232 STREAMING DATA HEADER 08074B50
+0D5232 DATA DESCRIPTOR       08074B50
 0D5236 CRC                   DA22E9AB
 0D523A Compressed Length     00008A54
 0D523E Uncompressed Length   000176CF
@@ -1936,7 +1936,7 @@
                              adblockplus.org/easyprivacy.txt'
 0D52A6 PAYLOAD
 
-109B63 STREAMING DATA HEADER 08074B50
+109B63 DATA DESCRIPTOR       08074B50
 109B67 CRC                   7B261760
 109B6B Compressed Length     000348BD
 109B6F Uncompressed Length   000AD3C7
@@ -1958,7 +1958,7 @@
                              adblockplus.org/easylist.txt'
 109BD4 PAYLOAD
 
-173638 STREAMING DATA HEADER 08074B50
+173638 DATA DESCRIPTOR       08074B50
 17363C CRC                   9A991899
 173640 Compressed Length     00069A64
 173644 Uncompressed Length   0015DF1D
@@ -1979,7 +1979,7 @@
 173666 Filename              'assets/resources/scriptlets.js'
 173684 PAYLOAD
 
-176381 STREAMING DATA HEADER 08074B50
+176381 DATA DESCRIPTOR       08074B50
 176385 CRC                   F64EACEB
 176389 Compressed Length     00002CFD
 17638D Uncompressed Length   0000DBF2
@@ -2000,7 +2000,7 @@
 1763AF Filename              'assets/ublock/filters-2020.txt'
 1763CD PAYLOAD
 
-184973 STREAMING DATA HEADER 08074B50
+184973 DATA DESCRIPTOR       08074B50
 184977 CRC                   DF563777
 18497B Compressed Length     0000E5A6
 18497F Uncompressed Length   0003CD08
@@ -2021,7 +2021,7 @@
 1849A1 Filename              'assets/ublock/resource-abuse.txt'
 1849C1 PAYLOAD
 
-18509A STREAMING DATA HEADER 08074B50
+18509A DATA DESCRIPTOR       08074B50
 18509E CRC                   964F1F93
 1850A2 Compressed Length     000006D9
 1850A6 Uncompressed Length   0000133F
@@ -2042,7 +2042,7 @@
 1850C8 Filename              'assets/ublock/quick-fixes.txt'
 1850E5 PAYLOAD
 
-1861DA STREAMING DATA HEADER 08074B50
+1861DA DATA DESCRIPTOR       08074B50
 1861DE CRC                   23C4341C
 1861E2 Compressed Length     000010F5
 1861E6 Uncompressed Length   0000384D
@@ -2063,7 +2063,7 @@
 186208 Filename              'assets/ublock/legacy.txt'
 186220 PAYLOAD
 
-18777E STREAMING DATA HEADER 08074B50
+18777E DATA DESCRIPTOR       08074B50
 187782 CRC                   CBFA133A
 187786 Compressed Length     0000155E
 18778A Uncompressed Length   00005B25
@@ -2084,7 +2084,7 @@
 1877AC Filename              'assets/ublock/filters.txt'
 1877C5 PAYLOAD
 
-1BC6E5 STREAMING DATA HEADER 08074B50
+1BC6E5 DATA DESCRIPTOR       08074B50
 1BC6E9 CRC                   CBFC810E
 1BC6ED Compressed Length     00034F20
 1BC6F1 Uncompressed Length   000D5EEA
@@ -2105,7 +2105,7 @@
 1BC713 Filename              'assets/ublock/filters-2021.txt'
 1BC731 PAYLOAD
 
-1CF8AF STREAMING DATA HEADER 08074B50
+1CF8AF DATA DESCRIPTOR       08074B50
 1CF8B3 CRC                   C4322CD2
 1CF8B7 Compressed Length     0001317E
 1CF8BB Uncompressed Length   0004C30D
@@ -2126,7 +2126,7 @@
 1CF8DD Filename              'assets/ublock/unbreak.txt'
 1CF8F6 PAYLOAD
 
-1DC89B STREAMING DATA HEADER 08074B50
+1DC89B DATA DESCRIPTOR       08074B50
 1DC89F CRC                   9E12BC7A
 1DC8A3 Compressed Length     0000CFA5
 1DC8A7 Uncompressed Length   0002FF77
@@ -2147,7 +2147,7 @@
 1DC8C9 Filename              'assets/ublock/badlists.txt'
 1DC8E3 PAYLOAD
 
-1DCB57 STREAMING DATA HEADER 08074B50
+1DCB57 DATA DESCRIPTOR       08074B50
 1DCB5B CRC                   FDCA3FFA
 1DCB5F Compressed Length     00000274
 1DCB63 Uncompressed Length   000005E5
@@ -2168,7 +2168,7 @@
 1DCB85 Filename              'assets/ublock/badware.txt'
 1DCB9E PAYLOAD
 
-1E0587 STREAMING DATA HEADER 08074B50
+1E0587 DATA DESCRIPTOR       08074B50
 1E058B CRC                   A9A15EAC
 1E058F Compressed Length     000039E9
 1E0593 Uncompressed Length   0000BAF2
@@ -2189,7 +2189,7 @@
 1E05B5 Filename              'assets/ublock/lan-block.txt'
 1E05D0 PAYLOAD
 
-1E0A4A STREAMING DATA HEADER 08074B50
+1E0A4A DATA DESCRIPTOR       08074B50
 1E0A4E CRC                   158405C8
 1E0A52 Compressed Length     0000047A
 1E0A56 Uncompressed Length   0000141F
@@ -2210,7 +2210,7 @@
 1E0A78 Filename              'assets/ublock/privacy.txt'
 1E0A91 PAYLOAD
 
-1E20FD STREAMING DATA HEADER 08074B50
+1E20FD DATA DESCRIPTOR       08074B50
 1E2101 CRC                   5B538A4C
 1E2105 Compressed Length     0000166C
 1E2109 Uncompressed Length   0000407D
@@ -2231,7 +2231,7 @@
 1E212B Filename              'assets/ublock/filters-2022.txt'
 1E2149 PAYLOAD
 
-1EADFB STREAMING DATA HEADER 08074B50
+1EADFB DATA DESCRIPTOR       08074B50
 1EADFF CRC                   C7241EB6
 1EAE03 Compressed Length     00008CB2
 1EAE07 Uncompressed Length   00021B84
@@ -2258,7 +2258,7 @@
                              ..Z.q.j.M...ws..d.....PcO......:.....(..
                              R8{..\.y.......
 
-1EAF40 STREAMING DATA HEADER 08074B50
+1EAF40 DATA DESCRIPTOR       08074B50
 1EAF44 CRC                   D315F30E
 1EAF48 Compressed Length     000000FE
 1EAF4C Uncompressed Length   000001D3
@@ -2279,7 +2279,7 @@
 1EAF6E Filename              'css/common.css'
 1EAF7C PAYLOAD
 
-1EB635 STREAMING DATA HEADER 08074B50
+1EB635 DATA DESCRIPTOR       08074B50
 1EB639 CRC                   6BFB3D01
 1EB63D Compressed Length     000006B9
 1EB641 Uncompressed Length   00001A68
@@ -2300,7 +2300,7 @@
 1EB663 Filename              'css/logger-ui.css'
 1EB674 PAYLOAD
 
-1EC707 STREAMING DATA HEADER 08074B50
+1EC707 DATA DESCRIPTOR       08074B50
 1EC70B CRC                   8C40EBD2
 1EC70F Compressed Length     00001093
 1EC713 Uncompressed Length   00006572
@@ -2321,7 +2321,7 @@
 1EC735 Filename              'css/dashboard.css'
 1EC746 PAYLOAD
 
-1ECA70 STREAMING DATA HEADER 08074B50
+1ECA70 DATA DESCRIPTOR       08074B50
 1ECA74 CRC                   DAA94048
 1ECA78 Compressed Length     0000032A
 1ECA7C Uncompressed Length   00000A08
@@ -2342,7 +2342,7 @@
 1ECA9E Filename              'css/settings.css'
 1ECAAE PAYLOAD
 
-1ECCB7 STREAMING DATA HEADER 08074B50
+1ECCB7 DATA DESCRIPTOR       08074B50
 1ECCBB CRC                   0AD8EE1D
 1ECCBF Compressed Length     00000209
 1ECCC3 Uncompressed Length   00000603
@@ -2363,7 +2363,7 @@
 1ECCE5 Filename              'css/cloud-ui.css'
 1ECCF5 PAYLOAD
 
-1ECF8B STREAMING DATA HEADER 08074B50
+1ECF8B DATA DESCRIPTOR       08074B50
 1ECF8F CRC                   2FB9C887
 1ECF93 Compressed Length     00000296
 1ECF97 Uncompressed Length   00000841
@@ -2385,7 +2385,7 @@
 1ECFC6 PAYLOAD               J.O.T..RPPP.M,J...M./)...R0+J...K.r.....
                              .
 
-1ECFEF STREAMING DATA HEADER 08074B50
+1ECFEF DATA DESCRIPTOR       08074B50
 1ECFF3 CRC                   F5660826
 1ECFF7 Compressed Length     00000029
 1ECFFB Uncompressed Length   00000026
@@ -2406,7 +2406,7 @@
 1ED01D Filename              'css/popup-fenix.css'
 1ED030 PAYLOAD
 
-1EDE4B STREAMING DATA HEADER 08074B50
+1EDE4B DATA DESCRIPTOR       08074B50
 1EDE4F CRC                   A7509ACB
 1EDE53 Compressed Length     00000E1B
 1EDE57 Uncompressed Length   00004963
@@ -2427,7 +2427,7 @@
 1EDE79 Filename              'css/3p-filters.css'
 1EDE8B PAYLOAD
 
-1EE333 STREAMING DATA HEADER 08074B50
+1EE333 DATA DESCRIPTOR       08074B50
 1EE337 CRC                   B058352C
 1EE33B Compressed Length     000004A8
 1EE33F Uncompressed Length   00001097
@@ -2452,7 +2452,7 @@
                              ..p........kz.Tr....................~...
                              O3q.p.U..E7.O.@p.M......
 
-1EE42A STREAMING DATA HEADER 08074B50
+1EE42A DATA DESCRIPTOR       08074B50
 1EE42E CRC                   B8ECBA64
 1EE432 Compressed Length     000000B8
 1EE436 Uncompressed Length   00000155
@@ -2473,7 +2473,7 @@
 1EE458 Filename              'css/shortcuts.css'
 1EE469 PAYLOAD
 
-1EE71C STREAMING DATA HEADER 08074B50
+1EE71C DATA DESCRIPTOR       08074B50
 1EE720 CRC                   01F21502
 1EE724 Compressed Length     000002B3
 1EE728 Uncompressed Length   000005EB
@@ -2494,7 +2494,7 @@
 1EE74A Filename              'css/fa-icons.css'
 1EE75A PAYLOAD
 
-1EEA87 STREAMING DATA HEADER 08074B50
+1EEA87 DATA DESCRIPTOR       08074B50
 1EEA8B CRC                   F5224581
 1EEA8F Compressed Length     0000032D
 1EEA93 Uncompressed Length   00000CC6
@@ -2515,7 +2515,7 @@
 1EEAB5 Filename              'css/epicker-ui.css'
 1EEAC7 PAYLOAD
 
-1EF16D STREAMING DATA HEADER 08074B50
+1EF16D DATA DESCRIPTOR       08074B50
 1EF171 CRC                   71D5AA8D
 1EF175 Compressed Length     000006A6
 1EF179 Uncompressed Length   00001831
@@ -2540,7 +2540,7 @@
                              .Q<@uCO.t:nJ.;..@-F....G$..Nfj.*.I.....g
                              ...4U.7bG.+.x..2.....UF-w..K.Q.#o.......
 
-1EF275 STREAMING DATA HEADER 08074B50
+1EF275 DATA DESCRIPTOR       08074B50
 1EF279 CRC                   903E28C2
 1EF27D Compressed Length     000000C8
 1EF281 Uncompressed Length   0000016E
@@ -2561,7 +2561,7 @@
 1EF2A3 Filename              'css/click2load.css'
 1EF2B5 PAYLOAD
 
-1EF5A6 STREAMING DATA HEADER 08074B50
+1EF5A6 DATA DESCRIPTOR       08074B50
 1EF5AA CRC                   49031025
 1EF5AE Compressed Length     000002F1
 1EF5B2 Uncompressed Length   0000054D
@@ -2582,7 +2582,7 @@
 1EF5D4 Filename              'css/support.css'
 1EF5E3 PAYLOAD
 
-1EF788 STREAMING DATA HEADER 08074B50
+1EF788 DATA DESCRIPTOR       08074B50
 1EF78C CRC                   91A4A709
 1EF790 Compressed Length     000001A5
 1EF794 Uncompressed Length   000004B5
@@ -2603,7 +2603,7 @@
 1EF7B6 Filename              'css/logger-ui-inspector.css'
 1EF7D1 PAYLOAD
 
-1EFABC STREAMING DATA HEADER 08074B50
+1EFABC DATA DESCRIPTOR       08074B50
 1EFAC0 CRC                   ACE0D927
 1EFAC4 Compressed Length     000002EB
 1EFAC8 Uncompressed Length   00000A81
@@ -2624,7 +2624,7 @@
 1EFAEA Filename              'css/codemirror.css'
 1EFAFC PAYLOAD
 
-1F0069 STREAMING DATA HEADER 08074B50
+1F0069 DATA DESCRIPTOR       08074B50
 1F006D CRC                   6C0DD661
 1F0071 Compressed Length     0000056D
 1F0075 Uncompressed Length   000016EE
@@ -2645,7 +2645,7 @@
 1F0097 Filename              'css/document-blocked.css'
 1F00AF PAYLOAD
 
-1F0587 STREAMING DATA HEADER 08074B50
+1F0587 DATA DESCRIPTOR       08074B50
 1F058B CRC                   46B2BE58
 1F058F Compressed Length     000004D8
 1F0593 Uncompressed Length   00000C26
@@ -2666,7 +2666,7 @@
 1F05B5 Filename              'css/dashboard-common.css'
 1F05CD PAYLOAD
 
-1F07AB STREAMING DATA HEADER 08074B50
+1F07AB DATA DESCRIPTOR       08074B50
 1F07AF CRC                   930FDDBA
 1F07B3 Compressed Length     000001DE
 1F07B7 Uncompressed Length   00000439
@@ -2687,7 +2687,7 @@
 1F07D9 Filename              'css/asset-viewer.css'
 1F07ED PAYLOAD
 
-1F0B7B STREAMING DATA HEADER 08074B50
+1F0B7B DATA DESCRIPTOR       08074B50
 1F0B7F CRC                   9DD33656
 1F0B83 Compressed Length     0000038E
 1F0B87 Uncompressed Length   000007B3
@@ -2708,7 +2708,7 @@
 1F0BA9 Filename              'css/dyna-rules.css'
 1F0BBB PAYLOAD
 
-1F0DF5 STREAMING DATA HEADER 08074B50
+1F0DF5 DATA DESCRIPTOR       08074B50
 1F0DF9 CRC                   333226EC
 1F0DFD Compressed Length     0000023A
 1F0E01 Uncompressed Length   0000061D
@@ -2734,7 +2734,7 @@
                              j.72S{U....80.r...OQ.*..8>...F...}.~....
                              .
 
-1F0EEA STREAMING DATA HEADER 08074B50
+1F0EEA DATA DESCRIPTOR       08074B50
 1F0EEE CRC                   6BB2B5ED
 1F0EF2 Compressed Length     000000B7
 1F0EF6 Uncompressed Length   00000153
@@ -2755,7 +2755,7 @@
 1F0F18 Filename              'css/themes/default.css'
 1F0F2E PAYLOAD
 
-1F1F27 STREAMING DATA HEADER 08074B50
+1F1F27 DATA DESCRIPTOR       08074B50
 1F1F2B CRC                   FD785307
 1F1F2F Compressed Length     00000FF9
 1F1F33 Uncompressed Length   000041A7
@@ -2776,7 +2776,7 @@
 1F1F55 Filename              'css/fonts/Metropolis/UNLICENSE'
 1F1F73 PAYLOAD
 
-1F222F STREAMING DATA HEADER 08074B50
+1F222F DATA DESCRIPTOR       08074B50
 1F2233 CRC                   98CEF4DE
 1F2237 Compressed Length     000002BC
 1F223B Uncompressed Length   000004BB
@@ -2798,7 +2798,7 @@
                              d.woff2'
 1F228B PAYLOAD
 
-1F8A5E STREAMING DATA HEADER 08074B50
+1F8A5E DATA DESCRIPTOR       08074B50
 1F8A62 CRC                   28ECC316
 1F8A66 Compressed Length     000067D3
 1F8A6A Uncompressed Length   000067C4
@@ -2820,7 +2820,7 @@
                              .woff2'
 1F8AB9 PAYLOAD
 
-1FE920 STREAMING DATA HEADER 08074B50
+1FE920 DATA DESCRIPTOR       08074B50
 1FE924 CRC                   4EA1FA0C
 1FE928 Compressed Length     00005E67
 1FE92C Uncompressed Length   00005E58
@@ -2841,7 +2841,7 @@
 1FE94E Filename              'css/fonts/Metropolis/README.md'
 1FE96C PAYLOAD
 
-1FEADA STREAMING DATA HEADER 08074B50
+1FEADA DATA DESCRIPTOR       08074B50
 1FEADE CRC                   EF908083
 1FEAE2 Compressed Length     0000016E
 1FEAE6 Uncompressed Length   00000269
@@ -2862,7 +2862,7 @@
 1FEB08 Filename              'css/fonts/Inter/LICENSE.txt'
 1FEB23 PAYLOAD
 
-1FF2C9 STREAMING DATA HEADER 08074B50
+1FF2C9 DATA DESCRIPTOR       08074B50
 1FF2CD CRC                   FCFE806F
 1FF2D1 Compressed Length     000007A6
 1FF2D5 Uncompressed Length   0000111F
@@ -2883,7 +2883,7 @@
 1FF2F7 Filename              'css/fonts/Inter/Inter-SemiBold.woff2'
 1FF31B PAYLOAD
 
-2190CC STREAMING DATA HEADER 08074B50
+2190CC DATA DESCRIPTOR       08074B50
 2190D0 CRC                   FE85824F
 2190D4 Compressed Length     00019DB1
 2190D8 Uncompressed Length   0001A1A4
@@ -2904,7 +2904,7 @@
 2190FA Filename              'css/fonts/Inter/Inter-Regular.woff2'
 21911D PAYLOAD
 
-23158E STREAMING DATA HEADER 08074B50
+23158E DATA DESCRIPTOR       08074B50
 231592 CRC                   37725F36
 231596 Compressed Length     00018471
 23159A Uncompressed Length   00018810
@@ -2925,7 +2925,7 @@
 2315BC Filename              'img/ublock-defs.svg'
 2315CF PAYLOAD
 
-23194B STREAMING DATA HEADER 08074B50
+23194B DATA DESCRIPTOR       08074B50
 23194F CRC                   F6F064F8
 231953 Compressed Length     0000037C
 231957 Uncompressed Length   00000608
@@ -2946,7 +2946,7 @@
 231979 Filename              'img/icon_32.png'
 231988 PAYLOAD
 
-231E90 STREAMING DATA HEADER 08074B50
+231E90 DATA DESCRIPTOR       08074B50
 231E94 CRC                   E7329A2A
 231E98 Compressed Length     00000508
 231E9C Uncompressed Length   000004FE
@@ -2972,7 +2972,7 @@
                              O.\9`@H5Wn..RM.C.a.Y.`AH.%.C...P..n.....
                              0...(..$....IEND.B`......
 
-231FAD STREAMING DATA HEADER 08074B50
+231FAD DATA DESCRIPTOR       08074B50
 231FB1 CRC                   C1354F2A
 231FB5 Compressed Length     000000E1
 231FB9 Uncompressed Length   000000D7
@@ -2993,7 +2993,7 @@
 231FDB Filename              'img/photon.svg'
 231FE9 PAYLOAD
 
-232617 STREAMING DATA HEADER 08074B50
+232617 DATA DESCRIPTOR       08074B50
 23261B CRC                   7791A299
 23261F Compressed Length     0000062E
 232623 Uncompressed Length   000011E1
@@ -3014,7 +3014,7 @@
 232645 Filename              'img/cloud.png'
 232652 PAYLOAD
 
-2339F5 STREAMING DATA HEADER 08074B50
+2339F5 DATA DESCRIPTOR       08074B50
 2339F9 CRC                   FBC7A6E8
 2339FD Compressed Length     000013A3
 233A01 Uncompressed Length   00001399
@@ -3035,7 +3035,7 @@
 233A23 Filename              'img/material-design.svg'
 233A3A PAYLOAD
 
-233B85 STREAMING DATA HEADER 08074B50
+233B85 DATA DESCRIPTOR       08074B50
 233B89 CRC                   7A2CDE59
 233B8D Compressed Length     0000014B
 233B91 Uncompressed Length   00000201
@@ -3056,7 +3056,7 @@
 233BB3 Filename              'img/icon_16.png'
 233BC2 PAYLOAD
 
-233D70 STREAMING DATA HEADER 08074B50
+233D70 DATA DESCRIPTOR       08074B50
 233D74 CRC                   A1CBFF9B
 233D78 Compressed Length     000001AE
 233D7C Uncompressed Length   000001A4
@@ -3077,7 +3077,7 @@
 233D9E Filename              'img/ublock.svg'
 233DAC PAYLOAD
 
-234119 STREAMING DATA HEADER 08074B50
+234119 DATA DESCRIPTOR       08074B50
 23411D CRC                   10FBF829
 234121 Compressed Length     0000036D
 234125 Uncompressed Length   00000A14
@@ -3098,7 +3098,7 @@
 234147 Filename              'img/icon_64.png'
 234156 PAYLOAD
 
-234BBF STREAMING DATA HEADER 08074B50
+234BBF DATA DESCRIPTOR       08074B50
 234BC3 CRC                   8CE1F3CF
 234BC7 Compressed Length     00000A69
 234BCB Uncompressed Length   00000A5F
@@ -3119,7 +3119,7 @@
 234BED Filename              'img/icon_16-off.png'
 234C00 PAYLOAD
 
-234E32 STREAMING DATA HEADER 08074B50
+234E32 DATA DESCRIPTOR       08074B50
 234E36 CRC                   DCFF65A0
 234E3A Compressed Length     00000232
 234E3E Uncompressed Length   00000228
@@ -3140,7 +3140,7 @@
 234E60 Filename              'img/icon_32-off.png'
 234E73 PAYLOAD
 
-2352D7 STREAMING DATA HEADER 08074B50
+2352D7 DATA DESCRIPTOR       08074B50
 2352DB CRC                   743D121D
 2352DF Compressed Length     00000464
 2352E3 Uncompressed Length   0000045A
@@ -3161,7 +3161,7 @@
 235305 Filename              'img/fontawesome/LICENSE.txt'
 235320 PAYLOAD
 
-235535 STREAMING DATA HEADER 08074B50
+235535 DATA DESCRIPTOR       08074B50
 235539 CRC                   3B22718A
 23553D Compressed Length     00000215
 235541 Uncompressed Length   00000433
@@ -3182,7 +3182,7 @@
 235563 Filename              'img/fontawesome/fontawesome-defs.svg'
 235587 PAYLOAD
 
-237E7A STREAMING DATA HEADER 08074B50
+237E7A DATA DESCRIPTOR       08074B50
 237E7E CRC                   2C98EA71
 237E82 Compressed Length     000028F3
 237E86 Uncompressed Length   00009443
@@ -3203,7 +3203,7 @@
 237EA8 Filename              'js/dyna-rules.js'
 237EB8 PAYLOAD
 
-2396B5 STREAMING DATA HEADER 08074B50
+2396B5 DATA DESCRIPTOR       08074B50
 2396B9 CRC                   4E103ADB
 2396BD Compressed Length     000017FD
 2396C1 Uncompressed Length   00005BE3
@@ -3224,7 +3224,7 @@
 2396E3 Filename              'js/contentscript.js'
 2396F6 PAYLOAD
 
-23C119 STREAMING DATA HEADER 08074B50
+23C119 DATA DESCRIPTOR       08074B50
 23C11D CRC                   C244E95A
 23C121 Compressed Length     00002A23
 23C125 Uncompressed Length   0000B9AB
@@ -3245,7 +3245,7 @@
 23C147 Filename              'js/storage.js'
 23C154 PAYLOAD
 
-23F6EC STREAMING DATA HEADER 08074B50
+23F6EC DATA DESCRIPTOR       08074B50
 23F6F0 CRC                   D3FFE2F9
 23F6F4 Compressed Length     00003598
 23F6F8 Uncompressed Length   0000E11F
@@ -3266,7 +3266,7 @@
 23F71A Filename              'js/lz4.js'
 23F723 PAYLOAD
 
-23FF7E STREAMING DATA HEADER 08074B50
+23FF7E DATA DESCRIPTOR       08074B50
 23FF82 CRC                   868D67D8
 23FF86 Compressed Length     0000085B
 23FF8A Uncompressed Length   00001AD9
@@ -3287,7 +3287,7 @@
 23FFAC Filename              'js/static-ext-filtering.js'
 23FFC6 PAYLOAD
 
-240710 STREAMING DATA HEADER 08074B50
+240710 DATA DESCRIPTOR       08074B50
 240714 CRC                   446E3974
 240718 Compressed Length     0000074A
 24071C Uncompressed Length   00001AC5
@@ -3308,7 +3308,7 @@
 24073E Filename              'js/reverselookup.js'
 240751 PAYLOAD
 
-240EE8 STREAMING DATA HEADER 08074B50
+240EE8 DATA DESCRIPTOR       08074B50
 240EEC CRC                   C8619653
 240EF0 Compressed Length     00000797
 240EF4 Uncompressed Length   000017F8
@@ -3329,7 +3329,7 @@
 240F16 Filename              'js/redirect-engine.js'
 240F2B PAYLOAD
 
-2422E4 STREAMING DATA HEADER 08074B50
+2422E4 DATA DESCRIPTOR       08074B50
 2422E8 CRC                   8F54C004
 2422EC Compressed Length     000013B9
 2422F0 Uncompressed Length   00004A6C
@@ -3350,7 +3350,7 @@
 242312 Filename              'js/static-ext-filtering-db.js'
 24232F PAYLOAD
 
-242A5F STREAMING DATA HEADER 08074B50
+242A5F DATA DESCRIPTOR       08074B50
 242A63 CRC                   D74903A6
 242A67 Compressed Length     00000730
 242A6B Uncompressed Length   00001BEA
@@ -3371,7 +3371,7 @@
 242A8D Filename              'js/messaging.js'
 242A9C PAYLOAD
 
-245CF5 STREAMING DATA HEADER 08074B50
+245CF5 DATA DESCRIPTOR       08074B50
 245CF9 CRC                   B48FC28C
 245CFD Compressed Length     00003259
 245D01 Uncompressed Length   0000E2CF
@@ -3392,7 +3392,7 @@
 245D23 Filename              'js/vapi-background.js'
 245D38 PAYLOAD
 
-249150 STREAMING DATA HEADER 08074B50
+249150 DATA DESCRIPTOR       08074B50
 249154 CRC                   F36F4719
 249158 Compressed Length     00003418
 24915C Uncompressed Length   0000DAA6
@@ -3413,7 +3413,7 @@
 24917E Filename              'js/vapi-common.js'
 24918F PAYLOAD
 
-24999B STREAMING DATA HEADER 08074B50
+24999B DATA DESCRIPTOR       08074B50
 24999F CRC                   DC0EC748
 2499A3 Compressed Length     0000080C
 2499A7 Uncompressed Length   000016E2
@@ -3434,7 +3434,7 @@
 2499C9 Filename              'js/text-encode.js'
 2499DA PAYLOAD
 
-24A296 STREAMING DATA HEADER 08074B50
+24A296 DATA DESCRIPTOR       08074B50
 24A29A CRC                   46C6AF45
 24A29E Compressed Length     000008BC
 24A2A2 Uncompressed Length   00002EFC
@@ -3455,7 +3455,7 @@
 24A2C4 Filename              'js/ublock.js'
 24A2D0 PAYLOAD
 
-24B758 STREAMING DATA HEADER 08074B50
+24B758 DATA DESCRIPTOR       08074B50
 24B75C CRC                   87615D03
 24B760 Compressed Length     00001488
 24B764 Uncompressed Length   00004F9B
@@ -3476,7 +3476,7 @@
 24B786 Filename              'js/support.js'
 24B793 PAYLOAD
 
-24C2DE STREAMING DATA HEADER 08074B50
+24C2DE DATA DESCRIPTOR       08074B50
 24C2E2 CRC                   C5F6A55D
 24C2E6 Compressed Length     00000B4B
 24C2EA Uncompressed Length   00002568
@@ -3497,7 +3497,7 @@
 24C30C Filename              'js/click2load.js'
 24C31C PAYLOAD
 
-24C684 STREAMING DATA HEADER 08074B50
+24C684 DATA DESCRIPTOR       08074B50
 24C688 CRC                   8EC8903C
 24C68C Compressed Length     00000368
 24C690 Uncompressed Length   000007F5
@@ -3518,7 +3518,7 @@
 24C6B2 Filename              'js/pagestore.js'
 24C6C1 PAYLOAD
 
-24E734 STREAMING DATA HEADER 08074B50
+24E734 DATA DESCRIPTOR       08074B50
 24E738 CRC                   6DD01BC7
 24E73C Compressed Length     00002073
 24E740 Uncompressed Length   00009770
@@ -3539,7 +3539,7 @@
 24E762 Filename              'js/vapi-client.js'
 24E773 PAYLOAD
 
-24F270 STREAMING DATA HEADER 08074B50
+24F270 DATA DESCRIPTOR       08074B50
 24F274 CRC                   9BC9276B
 24F278 Compressed Length     00000AFD
 24F27C Uncompressed Length   000022D4
@@ -3560,7 +3560,7 @@
 24F29E Filename              'js/dynamic-net-filtering.js'
 24F2B9 PAYLOAD
 
-25004F STREAMING DATA HEADER 08074B50
+25004F DATA DESCRIPTOR       08074B50
 250053 CRC                   6F426A59
 250057 Compressed Length     00000D96
 25005B Uncompressed Length   000039B3
@@ -3581,7 +3581,7 @@
 25007D Filename              'js/udom.js'
 250087 PAYLOAD
 
-251272 STREAMING DATA HEADER 08074B50
+251272 DATA DESCRIPTOR       08074B50
 251276 CRC                   BC85301C
 25127A Compressed Length     000011EB
 25127E Uncompressed Length   0000581D
@@ -3602,7 +3602,7 @@
 2512A0 Filename              'js/tab.js'
 2512A9 PAYLOAD
 
-253C78 STREAMING DATA HEADER 08074B50
+253C78 DATA DESCRIPTOR       08074B50
 253C7C CRC                   B2170E8C
 253C80 Compressed Length     000029CF
 253C84 Uncompressed Length   0000A75F
@@ -3623,7 +3623,7 @@
 253CA6 Filename              'js/epicker-ui.js'
 253CB6 PAYLOAD
 
-2557D8 STREAMING DATA HEADER 08074B50
+2557D8 DATA DESCRIPTOR       08074B50
 2557DC CRC                   02174CDF
 2557E0 Compressed Length     00001B22
 2557E4 Uncompressed Length   00007286
@@ -3644,7 +3644,7 @@
 255806 Filename              'js/vapi-background-ext.js'
 25581F PAYLOAD
 
-256391 STREAMING DATA HEADER 08074B50
+256391 DATA DESCRIPTOR       08074B50
 256395 CRC                   8EDC582E
 256399 Compressed Length     00000B72
 25639D Uncompressed Length   00002DC0
@@ -3665,7 +3665,7 @@
 2563BF Filename              'js/webext.js'
 2563CB PAYLOAD
 
-2565C6 STREAMING DATA HEADER 08074B50
+2565C6 DATA DESCRIPTOR       08074B50
 2565CA CRC                   50EC4BFB
 2565CE Compressed Length     000001FB
 2565D2 Uncompressed Length   0000039E
@@ -3686,7 +3686,7 @@
 2565F4 Filename              'js/dashboard-common.js'
 25660A PAYLOAD
 
-256EA1 STREAMING DATA HEADER 08074B50
+256EA1 DATA DESCRIPTOR       08074B50
 256EA5 CRC                   3B722617
 256EA9 Compressed Length     00000897
 256EAD Uncompressed Length   00001B94
@@ -3707,7 +3707,7 @@
 256ECF Filename              'js/cosmetic-filtering.js'
 256EE7 PAYLOAD
 
-25925E STREAMING DATA HEADER 08074B50
+25925E DATA DESCRIPTOR       08074B50
 259262 CRC                   51139597
 259266 Compressed Length     00002377
 25926A Uncompressed Length   00009F81
@@ -3728,7 +3728,7 @@
 25928C Filename              'js/shortcuts.js'
 25929B PAYLOAD
 
-259AA7 STREAMING DATA HEADER 08074B50
+259AA7 DATA DESCRIPTOR       08074B50
 259AAB CRC                   E60E8C6A
 259AAF Compressed Length     0000080C
 259AB3 Uncompressed Length   00001D1D
@@ -3749,7 +3749,7 @@
 259AD5 Filename              'js/benchmarks.js'
 259AE5 PAYLOAD
 
-25A8DA STREAMING DATA HEADER 08074B50
+25A8DA DATA DESCRIPTOR       08074B50
 25A8DE CRC                   A62567EF
 25A8E2 Compressed Length     00000DF5
 25A8E6 Uncompressed Length   000039EF
@@ -3770,7 +3770,7 @@
 25A908 Filename              'js/document-blocked.js'
 25A91E PAYLOAD
 
-25B2FB STREAMING DATA HEADER 08074B50
+25B2FB DATA DESCRIPTOR       08074B50
 25B2FF CRC                   41AB6CE9
 25B303 Compressed Length     000009DD
 25B307 Uncompressed Length   00002087
@@ -3791,7 +3791,7 @@
 25B329 Filename              'js/devtools.js'
 25B337 PAYLOAD
 
-25B99A STREAMING DATA HEADER 08074B50
+25B99A DATA DESCRIPTOR       08074B50
 25B99E CRC                   470B4FD7
 25B9A2 Compressed Length     00000663
 25B9A6 Uncompressed Length   000016FB
@@ -3812,7 +3812,7 @@
 25B9C8 Filename              'js/3p-filters.js'
 25B9D8 PAYLOAD
 
-25D0BF STREAMING DATA HEADER 08074B50
+25D0BF DATA DESCRIPTOR       08074B50
 25D0C3 CRC                   7EACA01D
 25D0C7 Compressed Length     000016E7
 25D0CB Uncompressed Length   00006375
@@ -3833,7 +3833,7 @@
 25D0ED Filename              'js/logger-ui-inspector.js'
 25D106 PAYLOAD
 
-25E460 STREAMING DATA HEADER 08074B50
+25E460 DATA DESCRIPTOR       08074B50
 25E464 CRC                   0421FF03
 25E468 Compressed Length     0000135A
 25E46C Uncompressed Length   0000582F
@@ -3854,7 +3854,7 @@
 25E48E Filename              'js/popup-fenix.js'
 25E49F PAYLOAD
 
-261468 STREAMING DATA HEADER 08074B50
+261468 DATA DESCRIPTOR       08074B50
 26146C CRC                   AB812C91
 261470 Compressed Length     00002FC9
 261474 Uncompressed Length   0000BECF
@@ -3875,7 +3875,7 @@
 261496 Filename              'js/logger.js'
 2614A2 PAYLOAD
 
-2618AD STREAMING DATA HEADER 08074B50
+2618AD DATA DESCRIPTOR       08074B50
 2618B1 CRC                   45F3DBD1
 2618B5 Compressed Length     0000040B
 2618B9 Uncompressed Length   00000A64
@@ -3896,7 +3896,7 @@
 2618DB Filename              'js/about.js'
 2618E6 PAYLOAD
 
-261B5D STREAMING DATA HEADER 08074B50
+261B5D DATA DESCRIPTOR       08074B50
 261B61 CRC                   52CD6F75
 261B65 Compressed Length     00000277
 261B69 Uncompressed Length   000004A9
@@ -3917,7 +3917,7 @@
 261B8B Filename              'js/cloud-ui.js'
 261B99 PAYLOAD
 
-2623CF STREAMING DATA HEADER 08074B50
+2623CF DATA DESCRIPTOR       08074B50
 2623D3 CRC                   CC27FF7B
 2623D7 Compressed Length     00000836
 2623DB Uncompressed Length   00001E5C
@@ -3938,7 +3938,7 @@
 2623FD Filename              'js/html-filtering.js'
 262411 PAYLOAD
 
-263166 STREAMING DATA HEADER 08074B50
+263166 DATA DESCRIPTOR       08074B50
 26316A CRC                   8CD305E7
 26316E Compressed Length     00000D55
 263172 Uncompressed Length   000031A3
@@ -3959,7 +3959,7 @@
 263194 Filename              'js/hnswitches.js'
 2631A4 PAYLOAD
 
-263BCD STREAMING DATA HEADER 08074B50
+263BCD DATA DESCRIPTOR       08074B50
 263BD1 CRC                   5ED1ACBF
 263BD5 Compressed Length     00000A29
 263BD9 Uncompressed Length   00002550
@@ -3980,7 +3980,7 @@
 263BFB Filename              'js/utils.js'
 263C06 PAYLOAD
 
-2643AF STREAMING DATA HEADER 08074B50
+2643AF DATA DESCRIPTOR       08074B50
 2643B3 CRC                   75AB72DB
 2643B7 Compressed Length     000007A9
 2643BB Uncompressed Length   00001725
@@ -4001,7 +4001,7 @@
 2643DD Filename              'js/httpheader-filtering.js'
 2643F7 PAYLOAD
 
-264C88 STREAMING DATA HEADER 08074B50
+264C88 DATA DESCRIPTOR       08074B50
 264C8C CRC                   ABAF45AC
 264C90 Compressed Length     00000891
 264C94 Uncompressed Length   000019FA
@@ -4022,7 +4022,7 @@
 264CB6 Filename              'js/uri-utils.js'
 264CC5 PAYLOAD
 
-265391 STREAMING DATA HEADER 08074B50
+265391 DATA DESCRIPTOR       08074B50
 265395 CRC                   927B6041
 265399 Compressed Length     000006CC
 26539D Uncompressed Length   00001553
@@ -4043,7 +4043,7 @@
 2653BF Filename              'js/start.js'
 2653CA PAYLOAD
 
-2668EF STREAMING DATA HEADER 08074B50
+2668EF DATA DESCRIPTOR       08074B50
 2668F3 CRC                   BBEA198D
 2668F7 Compressed Length     00001525
 2668FB Uncompressed Length   000047A0
@@ -4064,7 +4064,7 @@
 26691D Filename              'js/reverselookup-worker.js'
 266937 PAYLOAD
 
-26754D STREAMING DATA HEADER 08074B50
+26754D DATA DESCRIPTOR       08074B50
 267551 CRC                   27531136
 267555 Compressed Length     00000C16
 267559 Uncompressed Length   00002A98
@@ -4085,7 +4085,7 @@
 26757B Filename              'js/filtering-engines.js'
 267592 PAYLOAD
 
-267832 STREAMING DATA HEADER 08074B50
+267832 DATA DESCRIPTOR       08074B50
 267836 CRC                   E822216D
 26783A Compressed Length     000002A0
 26783E Uncompressed Length   00000733
@@ -4106,7 +4106,7 @@
 267860 Filename              'js/asset-viewer.js'
 267872 PAYLOAD
 
-267DD3 STREAMING DATA HEADER 08074B50
+267DD3 DATA DESCRIPTOR       08074B50
 267DD7 CRC                   052F4C28
 267DDB Compressed Length     00000561
 267DDF Uncompressed Length   00000E7C
@@ -4127,7 +4127,7 @@
 267E01 Filename              'js/contextmenu.js'
 267E12 PAYLOAD
 
-2685EE STREAMING DATA HEADER 08074B50
+2685EE DATA DESCRIPTOR       08074B50
 2685F2 CRC                   190688B3
 2685F6 Compressed Length     000007DC
 2685FA Uncompressed Length   00001E77
@@ -4148,7 +4148,7 @@
 26861C Filename              'js/static-net-filtering.js'
 268636 PAYLOAD
 
-26F8F0 STREAMING DATA HEADER 08074B50
+26F8F0 DATA DESCRIPTOR       08074B50
 26F8F4 CRC                   9700C55F
 26F8F8 Compressed Length     000072BA
 26F8FC Uncompressed Length   00024130
@@ -4169,7 +4169,7 @@
 26F91E Filename              'js/i18n.js'
 26F928 PAYLOAD
 
-270521 STREAMING DATA HEADER 08074B50
+270521 DATA DESCRIPTOR       08074B50
 270525 CRC                   A7DCCF75
 270529 Compressed Length     00000BF9
 27052D Uncompressed Length   000026B5
@@ -4190,7 +4190,7 @@
 27054F Filename              'js/contentscript-extra.js'
 270568 PAYLOAD
 
-2715FB STREAMING DATA HEADER 08074B50
+2715FB DATA DESCRIPTOR       08074B50
 2715FF CRC                   3AEAC8EF
 271603 Compressed Length     00001093
 271607 Uncompressed Length   000044DD
@@ -4211,7 +4211,7 @@
 271629 Filename              'js/assets.js'
 271635 PAYLOAD
 
-273744 STREAMING DATA HEADER 08074B50
+273744 DATA DESCRIPTOR       08074B50
 273748 CRC                   1DC4C92C
 27374C Compressed Length     0000210F
 273750 Uncompressed Length   000089CF
@@ -4232,7 +4232,7 @@
 273772 Filename              'js/filtering-context.js'
 273789 PAYLOAD
 
-2741FA STREAMING DATA HEADER 08074B50
+2741FA DATA DESCRIPTOR       08074B50
 2741FE CRC                   F25DC0DB
 274202 Compressed Length     00000A71
 274206 Uncompressed Length   00002F25
@@ -4253,7 +4253,7 @@
 274228 Filename              'js/static-filtering-parser.js'
 274245 PAYLOAD
 
-279DD8 STREAMING DATA HEADER 08074B50
+279DD8 DATA DESCRIPTOR       08074B50
 279DDC CRC                   FB71194F
 279DE0 Compressed Length     00005B93
 279DE4 Uncompressed Length   0001B6AF
@@ -4274,7 +4274,7 @@
 279E06 Filename              'js/1p-filters.js'
 279E16 PAYLOAD
 
-27AB26 STREAMING DATA HEADER 08074B50
+27AB26 DATA DESCRIPTOR       08074B50
 27AB2A CRC                   40714329
 27AB2E Compressed Length     00000D10
 27AB32 Uncompressed Length   00002DED
@@ -4295,7 +4295,7 @@
 27AB54 Filename              'js/vapi.js'
 27AB5E PAYLOAD
 
-27AFB5 STREAMING DATA HEADER 08074B50
+27AFB5 DATA DESCRIPTOR       08074B50
 27AFB9 CRC                   442E7B98
 27AFBD Compressed Length     00000457
 27AFC1 Uncompressed Length   00000A05
@@ -4316,7 +4316,7 @@
 27AFE3 Filename              'js/base64-custom.js'
 27AFF6 PAYLOAD
 
-27B9E6 STREAMING DATA HEADER 08074B50
+27B9E6 DATA DESCRIPTOR       08074B50
 27B9EA CRC                   B866422F
 27B9EE Compressed Length     000009F0
 27B9F2 Uncompressed Length   00002365
@@ -4337,7 +4337,7 @@
 27BA14 Filename              'js/cachestorage.js'
 27BA26 PAYLOAD
 
-27C9CF STREAMING DATA HEADER 08074B50
+27C9CF DATA DESCRIPTOR       08074B50
 27C9D3 CRC                   AE28B0E0
 27C9D7 Compressed Length     00000FA9
 27C9DB Uncompressed Length   00004184
@@ -4358,7 +4358,7 @@
 27C9FD Filename              'js/fa-icons.js'
 27CA0B PAYLOAD
 
-27FB96 STREAMING DATA HEADER 08074B50
+27FB96 DATA DESCRIPTOR       08074B50
 27FB9A CRC                   7A94819B
 27FB9E Compressed Length     0000318B
 27FBA2 Uncompressed Length   0000AAFD
@@ -4379,7 +4379,7 @@
 27FBC4 Filename              'js/traffic.js'
 27FBD1 PAYLOAD
 
-282167 STREAMING DATA HEADER 08074B50
+282167 DATA DESCRIPTOR       08074B50
 28216B CRC                   7AC6C95F
 28216F Compressed Length     00002596
 282173 Uncompressed Length   000099B1
@@ -4400,7 +4400,7 @@
 282195 Filename              'js/scriptlet-filtering.js'
 2821AE PAYLOAD
 
-283318 STREAMING DATA HEADER 08074B50
+283318 DATA DESCRIPTOR       08074B50
 28331C CRC                   8CC88BB5
 283320 Compressed Length     0000116A
 283324 Uncompressed Length   0000382A
@@ -4421,7 +4421,7 @@
 283346 Filename              'js/biditrie.js'
 283354 PAYLOAD
 
-284DD0 STREAMING DATA HEADER 08074B50
+284DD0 DATA DESCRIPTOR       08074B50
 284DD4 CRC                   118FAE4F
 284DD8 Compressed Length     00001A7C
 284DDC Uncompressed Length   00008630
@@ -4442,7 +4442,7 @@
 284DFE Filename              'js/dashboard.js'
 284E0D PAYLOAD
 
-2854B5 STREAMING DATA HEADER 08074B50
+2854B5 DATA DESCRIPTOR       08074B50
 2854B9 CRC                   3E646EA7
 2854BD Compressed Length     000006A8
 2854C1 Uncompressed Length   0000136C
@@ -4463,7 +4463,7 @@
 2854E3 Filename              'js/url-net-filtering.js'
 2854FA PAYLOAD
 
-285F31 STREAMING DATA HEADER 08074B50
+285F31 DATA DESCRIPTOR       08074B50
 285F35 CRC                   B15ED084
 285F39 Compressed Length     00000A37
 285F3D Uncompressed Length   000027CB
@@ -4484,7 +4484,7 @@
 285F5F Filename              'js/commands.js'
 285F6D PAYLOAD
 
-286765 STREAMING DATA HEADER 08074B50
+286765 DATA DESCRIPTOR       08074B50
 286769 CRC                   ACD55E20
 28676D Compressed Length     000007F8
 286771 Uncompressed Length   00001ADB
@@ -4505,7 +4505,7 @@
 286793 Filename              'js/vapi-client-extra.js'
 2867AA PAYLOAD
 
-28702F STREAMING DATA HEADER 08074B50
+28702F DATA DESCRIPTOR       08074B50
 287033 CRC                   4BADF1EB
 287037 Compressed Length     00000885
 28703B Uncompressed Length   00002498
@@ -4526,7 +4526,7 @@
 28705D Filename              'js/advanced-settings.js'
 287074 PAYLOAD
 
-287866 STREAMING DATA HEADER 08074B50
+287866 DATA DESCRIPTOR       08074B50
 28786A CRC                   D642BE37
 28786E Compressed Length     000007F2
 287872 Uncompressed Length   000018EF
@@ -4547,7 +4547,7 @@
 287894 Filename              'js/settings.js'
 2878A2 PAYLOAD
 
-2883BA STREAMING DATA HEADER 08074B50
+2883BA DATA DESCRIPTOR       08074B50
 2883BE CRC                   CFDF0A8F
 2883C2 Compressed Length     00000B18
 2883C6 Uncompressed Length   00002733
@@ -4568,7 +4568,7 @@
 2883E8 Filename              'js/whitelist.js'
 2883F7 PAYLOAD
 
-288D90 STREAMING DATA HEADER 08074B50
+288D90 DATA DESCRIPTOR       08074B50
 288D94 CRC                   868F23B5
 288D98 Compressed Length     00000999
 288D9C Uncompressed Length   00002186
@@ -4589,7 +4589,7 @@
 288DBE Filename              'js/background.js'
 288DCE PAYLOAD
 
-289D6A STREAMING DATA HEADER 08074B50
+289D6A DATA DESCRIPTOR       08074B50
 289D6E CRC                   8E5993ED
 289D72 Compressed Length     00000F9C
 289D76 Uncompressed Length   00002E89
@@ -4610,7 +4610,7 @@
 289D98 Filename              'js/hntrie.js'
 289DA4 PAYLOAD
 
-28B944 STREAMING DATA HEADER 08074B50
+28B944 DATA DESCRIPTOR       08074B50
 28B948 CRC                   34C885C9
 28B94C Compressed Length     00001BA0
 28B950 Uncompressed Length   00006D9C
@@ -4631,7 +4631,7 @@
 28B972 Filename              'js/tasks.js'
 28B97D PAYLOAD
 
-28BC0A STREAMING DATA HEADER 08074B50
+28BC0A DATA DESCRIPTOR       08074B50
 28BC0E CRC                   0EA523AC
 28BC12 Compressed Length     0000028D
 28BC16 Uncompressed Length   0000057D
@@ -4652,7 +4652,7 @@
 28BC38 Filename              'js/logger-ui.js'
 28BC47 PAYLOAD
 
-290C75 STREAMING DATA HEADER 08074B50
+290C75 DATA DESCRIPTOR       08074B50
 290C79 CRC                   74D3026D
 290C7D Compressed Length     0000502E
 290C81 Uncompressed Length   000176E3
@@ -4673,7 +4673,7 @@
 290CA3 Filename              'js/static-filtering-io.js'
 290CBC PAYLOAD
 
-291296 STREAMING DATA HEADER 08074B50
+291296 DATA DESCRIPTOR       08074B50
 29129A CRC                   4EF7EF78
 29129E Compressed Length     000005DA
 2912A2 Uncompressed Length   0000114D
@@ -4694,7 +4694,7 @@
 2912C4 Filename              'js/console.js'
 2912D1 PAYLOAD
 
-2915B1 STREAMING DATA HEADER 08074B50
+2915B1 DATA DESCRIPTOR       08074B50
 2915B5 CRC                   4D8359D5
 2915B9 Compressed Length     000002E0
 2915BD Uncompressed Length   00000696
@@ -4715,7 +4715,7 @@
 2915DF Filename              'js/text-utils.js'
 2915EF PAYLOAD
 
-291A48 STREAMING DATA HEADER 08074B50
+291A48 DATA DESCRIPTOR       08074B50
 291A4C CRC                   2684EA79
 291A50 Compressed Length     00000459
 291A54 Uncompressed Length   00000C86
@@ -4736,7 +4736,7 @@
 291A76 Filename              'js/scriptlets/cosmetic-logger.js'
 291A96 PAYLOAD
 
-2925A2 STREAMING DATA HEADER 08074B50
+2925A2 DATA DESCRIPTOR       08074B50
 2925A6 CRC                   679CD305
 2925AA Compressed Length     00000B0C
 2925AE Uncompressed Length   000031E7
@@ -4757,7 +4757,7 @@
 2925D0 Filename              'js/scriptlets/epicker.js'
 2925E8 PAYLOAD
 
-2951EB STREAMING DATA HEADER 08074B50
+2951EB DATA DESCRIPTOR       08074B50
 2951EF CRC                   8212DC33
 2951F3 Compressed Length     00002C03
 2951F7 Uncompressed Length   0000AC57
@@ -4778,7 +4778,7 @@
 295219 Filename              'js/scriptlets/load-3p-css.js'
 295235 PAYLOAD
 
-2955BA STREAMING DATA HEADER 08074B50
+2955BA DATA DESCRIPTOR       08074B50
 2955BE CRC                   4BBAFD6A
 2955C2 Compressed Length     00000385
 2955C6 Uncompressed Length   000007ED
@@ -4799,7 +4799,7 @@
 2955E8 Filename              'js/scriptlets/load-large-media-all.js'
 29560D PAYLOAD
 
-2958D7 STREAMING DATA HEADER 08074B50
+2958D7 DATA DESCRIPTOR       08074B50
 2958DB CRC                   84268438
 2958DF Compressed Length     000002CA
 2958E3 Uncompressed Length   00000679
@@ -4820,7 +4820,7 @@
 295905 Filename              'js/scriptlets/dom-survey-elements.js'
 295929 PAYLOAD
 
-295D1D STREAMING DATA HEADER 08074B50
+295D1D DATA DESCRIPTOR       08074B50
 295D21 CRC                   49863485
 295D25 Compressed Length     000003F4
 295D29 Uncompressed Length   000009AB
@@ -4841,7 +4841,7 @@
 295D4B Filename              'js/scriptlets/cosmetic-on.js'
 295D67 PAYLOAD
 
-296001 STREAMING DATA HEADER 08074B50
+296001 DATA DESCRIPTOR       08074B50
 296005 CRC                   71BC011C
 296009 Compressed Length     0000029A
 29600D Uncompressed Length   0000056F
@@ -4862,7 +4862,7 @@
 29602F Filename              'js/scriptlets/subscriber.js'
 29604A PAYLOAD
 
-29660A STREAMING DATA HEADER 08074B50
+29660A DATA DESCRIPTOR       08074B50
 29660E CRC                   C5A93ED2
 296612 Compressed Length     000005C0
 296616 Uncompressed Length   00000E4B
@@ -4883,7 +4883,7 @@
 296638 Filename              'js/scriptlets/noscript-spoof.js'
 296657 PAYLOAD
 
-296BE9 STREAMING DATA HEADER 08074B50
+296BE9 DATA DESCRIPTOR       08074B50
 296BED CRC                   EEAF75E5
 296BF1 Compressed Length     00000592
 296BF5 Uncompressed Length   00000CBF
@@ -4905,7 +4905,7 @@
                              pt.js'
 296C43 PAYLOAD
 
-296F21 STREAMING DATA HEADER 08074B50
+296F21 DATA DESCRIPTOR       08074B50
 296F25 CRC                   E8095904
 296F29 Compressed Length     000002DE
 296F2D Uncompressed Length   00000586
@@ -4927,7 +4927,7 @@
                              ive.js'
 296F7C PAYLOAD
 
-2978F6 STREAMING DATA HEADER 08074B50
+2978F6 DATA DESCRIPTOR       08074B50
 2978FA CRC                   FC7490AD
 2978FE Compressed Length     0000097A
 297902 Uncompressed Length   00002348
@@ -4948,7 +4948,7 @@
 297924 Filename              'js/scriptlets/dom-inspector.js'
 297942 PAYLOAD
 
-29956C STREAMING DATA HEADER 08074B50
+29956C DATA DESCRIPTOR       08074B50
 299570 CRC                   8C84B8F4
 299574 Compressed Length     00001C2A
 299578 Uncompressed Length   000079DD
@@ -4969,7 +4969,7 @@
 29959A Filename              'js/scriptlets/cosmetic-off.js'
 2995B7 PAYLOAD
 
-299852 STREAMING DATA HEADER 08074B50
+299852 DATA DESCRIPTOR       08074B50
 299856 CRC                   B469785C
 29985A Compressed Length     0000029B
 29985E Uncompressed Length   00000570
@@ -4990,7 +4990,7 @@
 299880 Filename              'js/scriptlets/dom-survey-scripts.js'
 2998A3 PAYLOAD
 
-299F4C STREAMING DATA HEADER 08074B50
+299F4C DATA DESCRIPTOR       08074B50
 299F50 CRC                   C7CF7D2A
 299F54 Compressed Length     000006A9
 299F58 Uncompressed Length   00001319
@@ -5011,7 +5011,7 @@
 299F7A Filename              'js/codemirror/search-thread.js'
 299F98 PAYLOAD
 
-29A6B1 STREAMING DATA HEADER 08074B50
+29A6B1 DATA DESCRIPTOR       08074B50
 29A6B5 CRC                   44E9FBD1
 29A6B9 Compressed Length     00000719
 29A6BD Uncompressed Length   00001692
@@ -5032,7 +5032,7 @@
 29A6DF Filename              'js/codemirror/search.js'
 29A6F6 PAYLOAD
 
-29B7F8 STREAMING DATA HEADER 08074B50
+29B7F8 DATA DESCRIPTOR       08074B50
 29B7FC CRC                   59AD3926
 29B800 Compressed Length     00001102
 29B804 Uncompressed Length   00003F36
@@ -5053,7 +5053,7 @@
 29B826 Filename              'js/codemirror/ubo-dynamic-filtering.js'
 29B84C PAYLOAD
 
-29C061 STREAMING DATA HEADER 08074B50
+29C061 DATA DESCRIPTOR       08074B50
 29C065 CRC                   26382DD7
 29C069 Compressed Length     00000815
 29C06D Uncompressed Length   00001F27
@@ -5074,7 +5074,7 @@
 29C08F Filename              'js/codemirror/ubo-static-filtering.js'
 29C0B4 PAYLOAD
 
-29D83A STREAMING DATA HEADER 08074B50
+29D83A DATA DESCRIPTOR       08074B50
 29D83E CRC                   2F064713
 29D842 Compressed Length     00001786
 29D846 Uncompressed Length   00007B9E
@@ -5095,7 +5095,7 @@
 29D868 Filename              'js/wasm/biditrie.wat'
 29D87C PAYLOAD
 
-29E63A STREAMING DATA HEADER 08074B50
+29E63A DATA DESCRIPTOR       08074B50
 29E63E CRC                   48215851
 29E642 Compressed Length     00000DBE
 29E646 Uncompressed Length   00005207
@@ -5116,7 +5116,7 @@
 29E668 Filename              'js/wasm/hntrie.wat'
 29E67A PAYLOAD
 
-29F560 STREAMING DATA HEADER 08074B50
+29F560 DATA DESCRIPTOR       08074B50
 29F564 CRC                   9C1137B9
 29F568 Compressed Length     00000EE6
 29F56C Uncompressed Length   00004AD0
@@ -5137,7 +5137,7 @@
 29F58E Filename              'js/wasm/biditrie.wasm'
 29F5A3 PAYLOAD
 
-29F7AB STREAMING DATA HEADER 08074B50
+29F7AB DATA DESCRIPTOR       08074B50
 29F7AF CRC                   88BEC0F0
 29F7B3 Compressed Length     00000208
 29F7B7 Uncompressed Length   000003DE
@@ -5158,7 +5158,7 @@
 29F7D9 Filename              'js/wasm/hntrie.wasm'
 29F7EC PAYLOAD
 
-29FA22 STREAMING DATA HEADER 08074B50
+29FA22 DATA DESCRIPTOR       08074B50
 29FA26 CRC                   D9E2FF6C
 29FA2A Compressed Length     00000236
 29FA2E Uncompressed Length   0000040A
@@ -5179,7 +5179,7 @@
 29FA50 Filename              'js/wasm/README.md'
 29FA61 PAYLOAD
 
-29FBE0 STREAMING DATA HEADER 08074B50
+29FBE0 DATA DESCRIPTOR       08074B50
 29FBE4 CRC                   8ADA8B05
 29FBE8 Compressed Length     0000017F
 29FBEC Uncompressed Length   000002CC
@@ -5200,7 +5200,7 @@
 29FC0E Filename              'lib/punycode.js'
 29FC1D PAYLOAD
 
-2A0D9F STREAMING DATA HEADER 08074B50
+2A0D9F DATA DESCRIPTOR       08074B50
 2A0DA3 CRC                   F2A4859C
 2A0DA7 Compressed Length     00001182
 2A0DAB Uncompressed Length   0000352F
@@ -5221,7 +5221,7 @@
 2A0DCD Filename              'lib/lz4/lz4-block-codec.wasm'
 2A0DE9 PAYLOAD
 
-2A1070 STREAMING DATA HEADER 08074B50
+2A1070 DATA DESCRIPTOR       08074B50
 2A1074 CRC                   645251F1
 2A1078 Compressed Length     00000287
 2A107C Uncompressed Length   000004CA
@@ -5242,7 +5242,7 @@
 2A109E Filename              'lib/lz4/lz4-block-codec-any.js'
 2A10BC PAYLOAD
 
-2A1762 STREAMING DATA HEADER 08074B50
+2A1762 DATA DESCRIPTOR       08074B50
 2A1766 CRC                   AB5CA95E
 2A176A Compressed Length     000006A6
 2A176E Uncompressed Length   0000159B
@@ -5263,7 +5263,7 @@
 2A1790 Filename              'lib/lz4/lz4-block-codec-js.js'
 2A17AD PAYLOAD
 
-2A221C STREAMING DATA HEADER 08074B50
+2A221C DATA DESCRIPTOR       08074B50
 2A2220 CRC                   0068F230
 2A2224 Compressed Length     00000A6F
 2A2228 Uncompressed Length   00002331
@@ -5284,7 +5284,7 @@
 2A224A Filename              'lib/lz4/lz4-block-codec.wat'
 2A2265 PAYLOAD
 
-2A3465 STREAMING DATA HEADER 08074B50
+2A3465 DATA DESCRIPTOR       08074B50
 2A3469 CRC                   3B3564F2
 2A346D Compressed Length     00001200
 2A3471 Uncompressed Length   00005543
@@ -5305,7 +5305,7 @@
 2A3493 Filename              'lib/lz4/README.md'
 2A34A4 PAYLOAD
 
-2A375F STREAMING DATA HEADER 08074B50
+2A375F DATA DESCRIPTOR       08074B50
 2A3763 CRC                   85B1AE83
 2A3767 Compressed Length     000002BB
 2A376B Uncompressed Length   000006C1
@@ -5326,7 +5326,7 @@
 2A378D Filename              'lib/lz4/lz4-block-codec-wasm.js'
 2A37AC PAYLOAD
 
-2A4026 STREAMING DATA HEADER 08074B50
+2A4026 DATA DESCRIPTOR       08074B50
 2A402A CRC                   A10CE495
 2A402E Compressed Length     0000087A
 2A4032 Uncompressed Length   00001C0C
@@ -5347,7 +5347,7 @@
 2A4054 Filename              'lib/regexanalyzer/regex.js'
 2A406E PAYLOAD
 
-2A6F1B STREAMING DATA HEADER 08074B50
+2A6F1B DATA DESCRIPTOR       08074B50
 2A6F1F CRC                   DD72469B
 2A6F23 Compressed Length     00002EAD
 2A6F27 Uncompressed Length   000107E4
@@ -5368,7 +5368,7 @@
 2A6F49 Filename              'lib/regexanalyzer/README.md'
 2A6F64 PAYLOAD
 
-2A7082 STREAMING DATA HEADER 08074B50
+2A7082 DATA DESCRIPTOR       08074B50
 2A7086 CRC                   E23C388B
 2A708A Compressed Length     0000011E
 2A708E Uncompressed Length   0000019B
@@ -5392,7 +5392,7 @@
                              ..m."[....%..q..E..<:L.....4..w.!".....|
                              .C...........cV.......
 
-2A712C STREAMING DATA HEADER 08074B50
+2A712C DATA DESCRIPTOR       08074B50
 2A7130 CRC                   FA807E25
 2A7134 Compressed Length     0000006C
 2A7138 Uncompressed Length   00000079
@@ -5413,7 +5413,7 @@
 2A715A Filename              'lib/hsluv/hsluv-0.1.0.min.js'
 2A7176 PAYLOAD
 
-2A774F STREAMING DATA HEADER 08074B50
+2A774F DATA DESCRIPTOR       08074B50
 2A7753 CRC                   5B7572A5
 2A7757 Compressed Length     000005D9
 2A775B Uncompressed Length   00000CCB
@@ -5434,7 +5434,7 @@
 2A777D Filename              'lib/hsluv/LICENSE'
 2A778E PAYLOAD
 
-2A7A20 STREAMING DATA HEADER 08074B50
+2A7A20 DATA DESCRIPTOR       08074B50
 2A7A24 CRC                   873892C6
 2A7A28 Compressed Length     00000292
 2A7A2C Uncompressed Length   0000044B
@@ -5455,7 +5455,7 @@
 2A7A4E Filename              'lib/codemirror/LICENSE'
 2A7A64 PAYLOAD
 
-2A7D01 STREAMING DATA HEADER 08074B50
+2A7D01 DATA DESCRIPTOR       08074B50
 2A7D05 CRC                   2B3D2BC6
 2A7D09 Compressed Length     0000029D
 2A7D0D Uncompressed Length   00000453
@@ -5476,7 +5476,7 @@
 2A7D2F Filename              'lib/codemirror/README.md'
 2A7D47 PAYLOAD
 
-2A80F9 STREAMING DATA HEADER 08074B50
+2A80F9 DATA DESCRIPTOR       08074B50
 2A80FD CRC                   39E7E47C
 2A8101 Compressed Length     000003B2
 2A8105 Uncompressed Length   00000778
@@ -5498,7 +5498,7 @@
                              ollbar.js'
 2A8157 PAYLOAD
 
-2A878E STREAMING DATA HEADER 08074B50
+2A878E DATA DESCRIPTOR       08074B50
 2A8792 CRC                   D0E3D690
 2A8796 Compressed Length     00000637
 2A879A Uncompressed Length   00001214
@@ -5520,7 +5520,7 @@
                              .js'
 2A87E6 PAYLOAD
 
-2A90EB STREAMING DATA HEADER 08074B50
+2A90EB DATA DESCRIPTOR       08074B50
 2A90EF CRC                   1E278153
 2A90F3 Compressed Length     00000905
 2A90F7 Uncompressed Length   00001AA0
@@ -5542,7 +5542,7 @@
                              .js'
 2A9143 PAYLOAD
 
-2A993B STREAMING DATA HEADER 08074B50
+2A993B DATA DESCRIPTOR       08074B50
 2A993F CRC                   694789B5
 2A9943 Compressed Length     000007F8
 2A9947 Uncompressed Length   00001BD1
@@ -5563,7 +5563,7 @@
 2A9969 Filename              'lib/codemirror/addon/hint/show-hint.js'
 2A998F PAYLOAD
 
-2AAE5B STREAMING DATA HEADER 08074B50
+2AAE5B DATA DESCRIPTOR       08074B50
 2AAE5F CRC                   B33FBDC5
 2AAE63 Compressed Length     000014CC
 2AAE67 Uncompressed Length   00004A04
@@ -5585,7 +5585,7 @@
                              '
 2AAEB0 PAYLOAD
 
-2AAFEA STREAMING DATA HEADER 08074B50
+2AAFEA DATA DESCRIPTOR       08074B50
 2AAFEE CRC                   AC1EB05E
 2AAFF2 Compressed Length     0000013A
 2AAFF6 Uncompressed Length   0000026F
@@ -5606,7 +5606,7 @@
 2AB018 Filename              'lib/codemirror/addon/merge/merge.js'
 2AB03B PAYLOAD
 
-2AD7F1 STREAMING DATA HEADER 08074B50
+2AD7F1 DATA DESCRIPTOR       08074B50
 2AD7F5 CRC                   3DC58636
 2AD7F9 Compressed Length     000027B6
 2AD7FD Uncompressed Length   00009413
@@ -5627,7 +5627,7 @@
 2AD81F Filename              'lib/codemirror/addon/merge/merge.css'
 2AD843 PAYLOAD
 
-2ADBE8 STREAMING DATA HEADER 08074B50
+2ADBE8 DATA DESCRIPTOR       08074B50
 2ADBEC CRC                   FE45C2E2
 2ADBF0 Compressed Length     000003A5
 2ADBF4 Uncompressed Length   00000D5F
@@ -5649,7 +5649,7 @@
                              '
 2ADC3D PAYLOAD
 
-2AE2A5 STREAMING DATA HEADER 08074B50
+2AE2A5 DATA DESCRIPTOR       08074B50
 2AE2A9 CRC                   A22ABCF1
 2AE2AD Compressed Length     00000668
 2AE2B1 Uncompressed Length   000014F8
@@ -5670,7 +5670,7 @@
 2AE2D3 Filename              'lib/codemirror/addon/fold/foldcode.js'
 2AE2F8 PAYLOAD
 
-2AE8FA STREAMING DATA HEADER 08074B50
+2AE8FA DATA DESCRIPTOR       08074B50
 2AE8FE CRC                   5EB7D4B2
 2AE902 Compressed Length     00000602
 2AE906 Uncompressed Length   00001339
@@ -5697,7 +5697,7 @@
                              .K.mK~....SE..~.X..ZX=o...W..s.E.vr?....
                              .
 
-2AEA19 STREAMING DATA HEADER 08074B50
+2AEA19 DATA DESCRIPTOR       08074B50
 2AEA1D CRC                   114A24CA
 2AEA21 Compressed Length     000000C9
 2AEA25 Uncompressed Length   000001B3
@@ -5718,7 +5718,7 @@
 2AEA47 Filename              'lib/codemirror/addon/display/panel.js'
 2AEA6C PAYLOAD
 
-2AF035 STREAMING DATA HEADER 08074B50
+2AF035 DATA DESCRIPTOR       08074B50
 2AF039 CRC                   AEFF268E
 2AF03D Compressed Length     000005C9
 2AF041 Uncompressed Length   00001233
@@ -5740,7 +5740,7 @@
                              '
 2AF08A PAYLOAD
 
-2AF9ED STREAMING DATA HEADER 08074B50
+2AF9ED DATA DESCRIPTOR       08074B50
 2AF9F1 CRC                   550A93F9
 2AF9F5 Compressed Length     00000963
 2AF9F9 Uncompressed Length   000023E9
@@ -5762,7 +5762,7 @@
                              ine.js'
 2AFA48 PAYLOAD
 
-2AFDB7 STREAMING DATA HEADER 08074B50
+2AFDB7 DATA DESCRIPTOR       08074B50
 2AFDBB CRC                   EBFA39B7
 2AFDBF Compressed Length     0000036F
 2AFDC3 Uncompressed Length   000009CB
@@ -5784,7 +5784,7 @@
                              r.js'
 2AFE10 PAYLOAD
 
-2B0A1B STREAMING DATA HEADER 08074B50
+2B0A1B DATA DESCRIPTOR       08074B50
 2B0A1F CRC                   46C0B943
 2B0A23 Compressed Length     00000C0B
 2B0A27 Uncompressed Length   00002FD1
@@ -5809,7 +5809,7 @@
                              ...5./wPE.]..........g3.......7C.q...3..
                              ..
 
-2B0AF5 STREAMING DATA HEADER 08074B50
+2B0AF5 DATA DESCRIPTOR       08074B50
 2B0AF9 CRC                   C12684F6
 2B0AFD Compressed Length     0000007A
 2B0B01 Uncompressed Length   000000BC
@@ -5830,7 +5830,7 @@
 2B0B23 Filename              'lib/codemirror/lib/codemirror.js'
 2B0B43 PAYLOAD
 
-2CADC1 STREAMING DATA HEADER 08074B50
+2CADC1 DATA DESCRIPTOR       08074B50
 2CADC5 CRC                   EFE5D9CA
 2CADC9 Compressed Length     0001A27E
 2CADCD Uncompressed Length   000613A1
@@ -5851,7 +5851,7 @@
 2CADEF Filename              'lib/codemirror/lib/codemirror.css'
 2CAE10 PAYLOAD
 
-2CB7E5 STREAMING DATA HEADER 08074B50
+2CB7E5 DATA DESCRIPTOR       08074B50
 2CB7E9 CRC                   D3395703
 2CB7ED Compressed Length     000009D5
 2CB7F1 Uncompressed Length   00002218
@@ -5872,7 +5872,7 @@
 2CB813 Filename              'lib/diff/swatinem_diff.js'
 2CB82C PAYLOAD
 
-2CC2FD STREAMING DATA HEADER 08074B50
+2CC2FD DATA DESCRIPTOR       08074B50
 2CC301 CRC                   7D57EA0F
 2CC305 Compressed Length     00000AD1
 2CC309 Uncompressed Length   00002633
@@ -5893,7 +5893,7 @@
 2CC32B Filename              'lib/diff/README.md'
 2CC33D PAYLOAD
 
-2CC57F STREAMING DATA HEADER 08074B50
+2CC57F DATA DESCRIPTOR       08074B50
 2CC583 CRC                   0769CEC5
 2CC587 Compressed Length     00000242
 2CC58B Uncompressed Length   000004A3
@@ -5915,7 +5915,7 @@
                              s'
 2CC5D5 PAYLOAD
 
-2CD9CC STREAMING DATA HEADER 08074B50
+2CD9CC DATA DESCRIPTOR       08074B50
 2CD9D0 CRC                   5EBB4095
 2CD9D4 Compressed Length     000013F7
 2CD9D8 Uncompressed Length   00005295
@@ -5937,7 +5937,7 @@
                              ist.wat'
 2CDA28 PAYLOAD
 
-2CE31F STREAMING DATA HEADER 08074B50
+2CE31F DATA DESCRIPTOR       08074B50
 2CE323 CRC                   CB5D04D5
 2CE327 Compressed Length     000008F7
 2CE32B Uncompressed Length   00002476
@@ -5959,7 +5959,7 @@
                              ist.wasm'
 2CE37C PAYLOAD
 
-2CE4B7 STREAMING DATA HEADER 08074B50
+2CE4B7 DATA DESCRIPTOR       08074B50
 2CE4BB CRC                   89B7B3A6
 2CE4BF Compressed Length     0000013B
 2CE4C3 Uncompressed Length   00000198
@@ -5980,7 +5980,7 @@
 2CE4E5 Filename              'lib/publicsuffixlist/wasm/README.md'
 2CE508 PAYLOAD
 
-2CE6DC STREAMING DATA HEADER 08074B50
+2CE6DC DATA DESCRIPTOR       08074B50
 2CE6E0 CRC                   4FE0904E
 2CE6E4 Compressed Length     000001D4
 2CE6E8 Uncompressed Length   000003A1
@@ -6004,7 +6004,7 @@
                              .2SR..K3KR.Aj...R..3..l......l..&.q.....
                              .
 
-2CE784 STREAMING DATA HEADER 08074B50
+2CE784 DATA DESCRIPTOR       08074B50
 2CE788 CRC                   238897F0
 2CE78C Compressed Length     00000051
 2CE790 Uncompressed Length   00000056
@@ -6025,7 +6025,7 @@
 2CE7B2 Filename              'web_accessible_resources/empty'
 2CE7D0 PAYLOAD               .....
 
-2CE7D5 STREAMING DATA HEADER 08074B50
+2CE7D5 DATA DESCRIPTOR       08074B50
 2CE7D9 CRC                   00000000
 2CE7DD Compressed Length     00000005
 2CE7E1 Uncompressed Length   00000000
@@ -6046,7 +6046,7 @@
 2CE803 Filename              'web_accessible_resources/nobab.js'
 2CE824 PAYLOAD
 
-2CECE1 STREAMING DATA HEADER 08074B50
+2CECE1 DATA DESCRIPTOR       08074B50
 2CECE5 CRC                   470C0A61
 2CECE9 Compressed Length     000004BD
 2CECED Uncompressed Length   00000BA0
@@ -6068,7 +6068,7 @@
 2CED31 PAYLOAD               .Qt.w...pU.(......P....6...)v6%.%9.v6.0.
                              ,.Q...Rig....l.!Z......
 
-2CED70 STREAMING DATA HEADER 08074B50
+2CED70 DATA DESCRIPTOR       08074B50
 2CED74 CRC                   72F8ED2B
 2CED78 Compressed Length     0000003F
 2CED7C Uncompressed Length   00000052
@@ -6090,7 +6090,7 @@
                              s'
 2CEDC6 PAYLOAD
 
-2CF00A STREAMING DATA HEADER 08074B50
+2CF00A DATA DESCRIPTOR       08074B50
 2CF00E CRC                   29EB3FC1
 2CF012 Compressed Length     00000244
 2CF016 Uncompressed Length   0000043A
@@ -6112,7 +6112,7 @@
                              s'
 2CF060 PAYLOAD
 
-2CF329 STREAMING DATA HEADER 08074B50
+2CF329 DATA DESCRIPTOR       08074B50
 2CF32D CRC                   666F8A2C
 2CF331 Compressed Length     000002C9
 2CF335 Uncompressed Length   00000525
@@ -6134,7 +6134,7 @@
                              cs_ga.js'
 2CF386 PAYLOAD
 
-2CF9DC STREAMING DATA HEADER 08074B50
+2CF9DC DATA DESCRIPTOR       08074B50
 2CF9E0 CRC                   00599B39
 2CF9E4 Compressed Length     00000656
 2CF9E8 Uncompressed Length   000012CA
@@ -6155,7 +6155,7 @@
 2CFA0A Filename              'web_accessible_resources/noeval.js'
 2CFA2C PAYLOAD
 
-2CFCAF STREAMING DATA HEADER 08074B50
+2CFCAF DATA DESCRIPTOR       08074B50
 2CFCB3 CRC                   C032D54D
 2CFCB7 Compressed Length     00000283
 2CFCBB Uncompressed Length   00000491
@@ -6177,7 +6177,7 @@
                              r-tag.js'
 2CFD0C PAYLOAD
 
-2CFF52 STREAMING DATA HEADER 08074B50
+2CFF52 DATA DESCRIPTOR       08074B50
 2CFF56 CRC                   9B22ED90
 2CFF5A Compressed Length     00000246
 2CFF5E Uncompressed Length   0000042A
@@ -6199,7 +6199,7 @@
                              .js'
 2CFFAA PAYLOAD
 
-2D02CA STREAMING DATA HEADER 08074B50
+2D02CA DATA DESCRIPTOR       08074B50
 2D02CE CRC                   64F65416
 2D02D2 Compressed Length     00000320
 2D02D6 Uncompressed Length   000006F1
@@ -6221,7 +6221,7 @@
                              l'
 2D0320 PAYLOAD
 
-2D0498 STREAMING DATA HEADER 08074B50
+2D0498 DATA DESCRIPTOR       08074B50
 2D049C CRC                   1F735EED
 2D04A0 Compressed Length     00000178
 2D04A4 Uncompressed Length   00000387
@@ -6243,7 +6243,7 @@
                              er_gtm.js'
 2D04F6 PAYLOAD
 
-2D07AD STREAMING DATA HEADER 08074B50
+2D07AD DATA DESCRIPTOR       08074B50
 2D07B1 CRC                   A1FBACDB
 2D07B5 Compressed Length     000002B7
 2D07B9 Uncompressed Length   000005C8
@@ -6265,7 +6265,7 @@
                              fuser.js'
 2D080A PAYLOAD
 
-2D0DEB STREAMING DATA HEADER 08074B50
+2D0DEB DATA DESCRIPTOR       08074B50
 2D0DEF CRC                   2D71B72C
 2D0DF3 Compressed Length     000005E1
 2D0DF7 Uncompressed Length   00001141
@@ -6287,7 +6287,7 @@
                              ion_adsbygoogle.js'
 2D0E52 PAYLOAD
 
-2D11CE STREAMING DATA HEADER 08074B50
+2D11CE DATA DESCRIPTOR       08074B50
 2D11D2 CRC                   2798EE0F
 2D11D6 Compressed Length     0000037C
 2D11DA Uncompressed Length   00000796
@@ -6309,7 +6309,7 @@
                              cs_inpage_linkid.js'
 2D1236 PAYLOAD
 
-2D1457 STREAMING DATA HEADER 08074B50
+2D1457 DATA DESCRIPTOR       08074B50
 2D145B CRC                   13878404
 2D145F Compressed Length     00000221
 2D1463 Uncompressed Length   000003EC
@@ -6332,7 +6332,7 @@
                              ...ddd``hR..>....|.&...8.{.u....OW?.uN.M
                              ......
 
-2D14FD STREAMING DATA HEADER 08074B50
+2D14FD DATA DESCRIPTOR       08074B50
 2D1501 CRC                   21EF9DC4
 2D1505 Compressed Length     00000056
 2D1509 Uncompressed Length   00000053
@@ -6354,7 +6354,7 @@
 2D154B PAYLOAD               .H+.K......T..RPPPP/-NU(.).L.Q..........
                              ....
 
-2D1577 STREAMING DATA HEADER 08074B50
+2D1577 DATA DESCRIPTOR       08074B50
 2D157B CRC                   D5410F91
 2D157F Compressed Length     0000002C
 2D1583 Uncompressed Length   00000026
@@ -6376,7 +6376,7 @@
                              cs_cx_api.js'
 2D15D8 PAYLOAD
 
-2D1840 STREAMING DATA HEADER 08074B50
+2D1840 DATA DESCRIPTOR       08074B50
 2D1844 CRC                   ECA36C34
 2D1848 Compressed Length     00000268
 2D184C Uncompressed Length   000004CE
@@ -6398,7 +6398,7 @@
                              .js'
 2D1898 PAYLOAD
 
-2D1B03 STREAMING DATA HEADER 08074B50
+2D1B03 DATA DESCRIPTOR       08074B50
 2D1B07 CRC                   93ACDC2E
 2D1B0B Compressed Length     0000026B
 2D1B0F Uncompressed Length   000004D8
@@ -6420,7 +6420,7 @@
                              js'
 2D1B5A PAYLOAD
 
-2D1D93 STREAMING DATA HEADER 08074B50
+2D1D93 DATA DESCRIPTOR       08074B50
 2D1D97 CRC                   C54E2C80
 2D1D9B Compressed Length     00000239
 2D1D9F Uncompressed Length   00000416
@@ -6442,7 +6442,7 @@
                              js'
 2D1DEA PAYLOAD
 
-2D207A STREAMING DATA HEADER 08074B50
+2D207A DATA DESCRIPTOR       08074B50
 2D207E CRC                   65763D49
 2D2082 Compressed Length     00000290
 2D2086 Uncompressed Length   000004C6
@@ -6464,7 +6464,7 @@
                              s'
 2D20D0 PAYLOAD
 
-2D23A5 STREAMING DATA HEADER 08074B50
+2D23A5 DATA DESCRIPTOR       08074B50
 2D23A9 CRC                   8E8613E0
 2D23AD Compressed Length     000002D5
 2D23B1 Uncompressed Length   000005D4
@@ -6486,7 +6486,7 @@
 2D23F3 PAYLOAD               ...s....b``...p.b```.a.6....m.*.......!.
                              ...........w.,a```.t.sY.........
 
-2D243B STREAMING DATA HEADER 08074B50
+2D243B DATA DESCRIPTOR       08074B50
 2D243F CRC                   5BCC69A6
 2D2443 Compressed Length     00000048
 2D2447 Uncompressed Length   00000044
@@ -6508,7 +6508,7 @@
                              t.js'
 2D2494 PAYLOAD
 
-2D280D STREAMING DATA HEADER 08074B50
+2D280D DATA DESCRIPTOR       08074B50
 2D2811 CRC                   5AD4A304
 2D2815 Compressed Length     00000379
 2D2819 Uncompressed Length   0000073C
@@ -6530,7 +6530,7 @@
                              stream_ad_status.js'
 2D2875 PAYLOAD               *..K./.K..O.I.OL./.I,)-V.U0........
 
-2D2898 STREAMING DATA HEADER 08074B50
+2D2898 DATA DESCRIPTOR       08074B50
 2D289C CRC                   A9C1CB3F
 2D28A0 Compressed Length     00000023
 2D28A4 Uncompressed Length   0000001D
@@ -6552,7 +6552,7 @@
                              s'
 2D28EE PAYLOAD
 
-2D2BB5 STREAMING DATA HEADER 08074B50
+2D2BB5 DATA DESCRIPTOR       08074B50
 2D2BB9 CRC                   7645CD0A
 2D2BBD Compressed Length     000002C7
 2D2BC1 Uncompressed Length   000005B0
@@ -6573,7 +6573,7 @@
 2D2BE3 Filename              'web_accessible_resources/nofab.js'
 2D2C04 PAYLOAD
 
-2D2F41 STREAMING DATA HEADER 08074B50
+2D2F41 DATA DESCRIPTOR       08074B50
 2D2F45 CRC                   F46CD0FA
 2D2F49 Compressed Length     0000033D
 2D2F4D Uncompressed Length   000009F1
@@ -6594,7 +6594,7 @@
 2D2F6F Filename              'web_accessible_resources/nobab2.js'
 2D2F91 PAYLOAD
 
-2D32A7 STREAMING DATA HEADER 08074B50
+2D32A7 DATA DESCRIPTOR       08074B50
 2D32AB CRC                   9992E184
 2D32AF Compressed Length     00000316
 2D32B3 Uncompressed Length   000005DF
@@ -6619,7 +6619,7 @@
                              ....I.............i(..d..............Q46
                              ....O.........
 
-2D33A9 STREAMING DATA HEADER 08074B50
+2D33A9 DATA DESCRIPTOR       08074B50
 2D33AD CRC                   EEF4A17D
 2D33B1 Compressed Length     000000AE
 2D33B5 Uncompressed Length   0000032D
@@ -6640,7 +6640,7 @@
 2D33D7 Filename              'web_accessible_resources/chartbeat.js'
 2D33FC PAYLOAD
 
-2D3634 STREAMING DATA HEADER 08074B50
+2D3634 DATA DESCRIPTOR       08074B50
 2D3638 CRC                   6F472288
 2D363C Compressed Length     00000238
 2D3640 Uncompressed Length   0000041A
@@ -6662,7 +6662,7 @@
 2D3682 PAYLOAD               r.t..Ldd`dh``....?Y.....t....@2.LL>.....
                              ....
 
-2D36AE STREAMING DATA HEADER 08074B50
+2D36AE DATA DESCRIPTOR       08074B50
 2D36B2 CRC                   0B77FC9C
 2D36B6 Compressed Length     0000002C
 2D36BA Uncompressed Length   0000002B
@@ -6683,7 +6683,7 @@
 2D36DC Filename              'web_accessible_resources/noop.txt'
 2D36FD PAYLOAD               .......
 
-2D3704 STREAMING DATA HEADER 08074B50
+2D3704 DATA DESCRIPTOR       08074B50
 2D3708 CRC                   32D70693
 2D370C Compressed Length     00000007
 2D3710 Uncompressed Length   00000001
@@ -6705,7 +6705,7 @@
                              ces_gpt.js'
 2D3763 PAYLOAD
 
-2D3D37 STREAMING DATA HEADER 08074B50
+2D3D37 DATA DESCRIPTOR       08074B50
 2D3D3B CRC                   B4B2ABEF
 2D3D3F Compressed Length     000005D4
 2D3D43 Uncompressed Length   00001371
@@ -6726,7 +6726,7 @@
 2D3D65 Filename              'web_accessible_resources/hd-main.js'
 2D3D88 PAYLOAD
 
-2D418B STREAMING DATA HEADER 08074B50
+2D418B DATA DESCRIPTOR       08074B50
 2D418F CRC                   1194509E
 2D4193 Compressed Length     00000403
 2D4197 Uncompressed Length   00000859
@@ -6748,7 +6748,7 @@
                              rch_beacon.js'
 2D41ED PAYLOAD
 
-2D4429 STREAMING DATA HEADER 08074B50
+2D4429 DATA DESCRIPTOR       08074B50
 2D442D CRC                   2FC6BBA5
 2D4431 Compressed Length     0000023C
 2D4435 Uncompressed Length   0000042D
@@ -6769,7 +6769,7 @@
 2D4457 Filename              'web_accessible_resources/prebid-ads.js'
 2D447D PAYLOAD
 
-2D469E STREAMING DATA HEADER 08074B50
+2D469E DATA DESCRIPTOR       08074B50
 2D46A2 CRC                   64E1B675
 2D46A6 Compressed Length     00000221
 2D46AA Uncompressed Length   000003DE
@@ -6791,7 +6791,7 @@
                              cs_analytics.js'
 2D4702 PAYLOAD
 
-2D4C20 STREAMING DATA HEADER 08074B50
+2D4C20 DATA DESCRIPTOR       08074B50
 2D4C24 CRC                   A397623F
 2D4C28 Compressed Length     0000051E
 2D4C2C Uncompressed Length   00000E6F
@@ -6812,7 +6812,7 @@
 2D4C4E Filename              'web_accessible_resources/popads.js'
 2D4C70 PAYLOAD
 
-2D4F91 STREAMING DATA HEADER 08074B50
+2D4F91 DATA DESCRIPTOR       08074B50
 2D4F95 CRC                   DE623F13
 2D4F99 Compressed Length     00000321
 2D4F9D Uncompressed Length   0000062D
@@ -6834,7 +6834,7 @@
                              l'
 2D4FE7 PAYLOAD
 
-2D52C4 STREAMING DATA HEADER 08074B50
+2D52C4 DATA DESCRIPTOR       08074B50
 2D52C8 CRC                   4AEBC709
 2D52CC Compressed Length     000002DD
 2D52D0 Uncompressed Length   00000B30
@@ -6855,7 +6855,7 @@
 2D52F2 Filename              'web_accessible_resources/noop-1s.mp4'
 2D5316 PAYLOAD
 
-2D58FF STREAMING DATA HEADER 08074B50
+2D58FF DATA DESCRIPTOR       08074B50
 2D5903 CRC                   33A97481
 2D5907 Compressed Length     000005E9
 2D590B Uncompressed Length   00000EA9
@@ -6876,7 +6876,7 @@
 2D592D Filename              'web_accessible_resources/README.txt'
 2D5950 PAYLOAD
 
-2D5A5F STREAMING DATA HEADER 08074B50
+2D5A5F DATA DESCRIPTOR       08074B50
 2D5A63 CRC                   F4C49057
 2D5A67 Compressed Length     0000010F
 2D5A6B Uncompressed Length   000001FB
@@ -6898,7 +6898,7 @@
 2D5AAD PAYLOAD               ...s....b``...p.b```f```.`c``.[.&.......
                              ..q=9..+........S....OW?.uN.M......
 
-2D5AF8 STREAMING DATA HEADER 08074B50
+2D5AF8 DATA DESCRIPTOR       08074B50
 2D5AFC CRC                   3E36339B
 2D5B00 Compressed Length     0000004B
 2D5B04 Uncompressed Length   00000044
@@ -6919,7 +6919,7 @@
 2D5B26 Filename              'web_accessible_resources/amazon_ads.js'
 2D5B4C PAYLOAD
 
-2D5EA7 STREAMING DATA HEADER 08074B50
+2D5EA7 DATA DESCRIPTOR       08074B50
 2D5EAB CRC                   BE7932AC
 2D5EAF Compressed Length     0000035B
 2D5EB3 Uncompressed Length   000008F8
@@ -6941,7 +6941,7 @@
                              js'
 2D5EFE PAYLOAD
 
-2D61D6 STREAMING DATA HEADER 08074B50
+2D61D6 DATA DESCRIPTOR       08074B50
 2D61DA CRC                   2C353CB2
 2D61DE Compressed Length     000002D8
 2D61E2 Uncompressed Length   000005B7
@@ -6965,7 +6965,7 @@
                              ..(.'....<...nHR.7U..hu.....|.LgMo....(.
                              .$..........8st...xI.f......
 
-2D62B3 STREAMING DATA HEADER 08074B50
+2D62B3 DATA DESCRIPTOR       08074B50
 2D62B7 CRC                   5776B22C
 2D62BB Compressed Length     00000094
 2D62BF Uncompressed Length   000000BC
@@ -6986,7 +6986,7 @@
 2D62E1 Filename              'META-INF/cose.manifest'
 2D62F7 PAYLOAD
 
-2DB67B STREAMING DATA HEADER 08074B50
+2DB67B DATA DESCRIPTOR       08074B50
 2DB67F CRC                   F7AC5650
 2DB683 Compressed Length     00005384
 2DB687 Uncompressed Length   0000D5C9
@@ -7007,7 +7007,7 @@
 2DB6A9 Filename              'META-INF/cose.sig'
 2DB6BA PAYLOAD
 
-2DC06A STREAMING DATA HEADER 08074B50
+2DC06A DATA DESCRIPTOR       08074B50
 2DC06E CRC                   B8A1F4D4
 2DC072 Compressed Length     000009B0
 2DC076 Uncompressed Length   00000C16
@@ -7028,7 +7028,7 @@
 2DC098 Filename              'META-INF/manifest.mf'
 2DC0AC PAYLOAD
 
-2E14B4 STREAMING DATA HEADER 08074B50
+2E14B4 DATA DESCRIPTOR       08074B50
 2E14B8 CRC                   11ED880A
 2E14BC Compressed Length     00005408
 2E14C0 Uncompressed Length   0000D70A
@@ -7052,7 +7052,7 @@
                              ..^......i.jY...R.nQ......n....._.fP....
                              Y..j........
 
-2E1579 STREAMING DATA HEADER 08074B50
+2E1579 DATA DESCRIPTOR       08074B50
 2E157D CRC                   75BCDEAB
 2E1581 Compressed Length     00000084
 2E1585 Uncompressed Length   00000090
@@ -7073,7 +7073,7 @@
 2E15A7 Filename              'META-INF/mozilla.rsa'
 2E15BB PAYLOAD
 
-2E233E STREAMING DATA HEADER 08074B50
+2E233E DATA DESCRIPTOR       08074B50
 2E2342 CRC                   FECB171A
 2E2346 Compressed Length     00000D83
 2E234A Uncompressed Length   000010F5

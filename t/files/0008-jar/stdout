@@ -18,7 +18,7 @@
 0029   Length              0000
 002B PAYLOAD               ..
 
-002D STREAMING DATA HEADER 08074B50
+002D DATA DESCRIPTOR       08074B50
 0031 CRC                   00000000
 0035 Compressed Length     00000002
 0039 Uncompressed Length   00000000
@@ -41,7 +41,7 @@
 006F PAYLOAD               .M..LK-...K-*....R0.3..r.JM,IM.u....E.L.
                            4B.J.JJ5y.x..
 
-00A4 STREAMING DATA HEADER 08074B50
+00A4 DATA DESCRIPTOR       08074B50
 00A8 CRC                   934E49FF
 00AC Compressed Length     00000035
 00B0 Uncompressed Length   00000036
@@ -63,7 +63,7 @@
 00D2 Filename              'file'
 00D6 PAYLOAD               +I-....
 
-00DD STREAMING DATA HEADER 08074B50
+00DD DATA DESCRIPTOR       08074B50
 00E1 CRC                   3BB935C6
 00E5 Compressed Length     00000007
 00E9 Uncompressed Length   00000005

@@ -2087,11 +2087,14 @@ sub DecryptionHeader
 
     if ($central)
     {
-        print "\nCENTRAL HEADER DECRYPTION RECORD\n";
+        print "\n";
+        out "", "CENTRAL HEADER DECRYPTION RECORD";
+
     }
     else
     {
-        print "\nDECRYPTION HEADER RECORD\n";
+        print "\n";
+        out "", "DECRYPTION HEADER RECORD";
     }
 
     my $bytecount = 2;
@@ -2624,7 +2627,7 @@ sub DataDescriptor
     my $sigName = Signatures::titleName(ZIP_DATA_HDR_SIG);
 
     print "\n";
-    out $data, "STREAMING DATA HEADER", Value_V($signature);
+    out $data, $sigName, Value_V($signature);
 
     need  24, Signatures::name($signature);
 
@@ -4504,7 +4507,8 @@ sub scanApkBlock
 
 
     seekTo($FH->tell() - 4) ;
-    print "\nAPK SIGNING BLOCK\n";
+    print "\n";
+    out "", "APK SIGNING BLOCK";
 
     scanApkPadding('');
     out_Q "Block Length Copy #1";

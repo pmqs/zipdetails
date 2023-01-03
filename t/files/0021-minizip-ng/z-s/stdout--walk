@@ -27,7 +27,7 @@
 003E AES Auth              03 F5 BD A0 CF 53 2D 03 C6 5C
 0048 PAYLOAD
 
-0206 STREAMING DATA HEADER 08074B50
+0206 DATA DESCRIPTOR       08074B50
 020A CRC                   00000000
 020E Compressed Length     000001DA
 0212 Uncompressed Length   00000000
@@ -55,7 +55,7 @@
                            g8......Wc.....^*\..F...&......X....l.'.
                            ...aI~;.3..~.v..Dg]..uS\i.G..V.V..
 
-02BE STREAMING DATA HEADER 08074B50
+02BE DATA DESCRIPTOR       08074B50
 02C2 CRC                   9DE114AE
 02C6 Compressed Length     00000076
 02CA Uncompressed Length   0000006A

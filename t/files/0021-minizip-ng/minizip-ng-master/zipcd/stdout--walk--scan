@@ -26,7 +26,7 @@
 0052   Entries             000000000000001A
 005A PAYLOAD
 
-069A STREAMING DATA HEADER 08074B50
+069A DATA DESCRIPTOR       08074B50
 069E CRC                   4132E2BF
 06A2 Compressed Length     00000640
 06A6 Uncompressed Length   00000BAF
@@ -56,7 +56,7 @@
                            52 DD B7 87 5B 4B
 06F5 PAYLOAD               3..
 
-06F8 STREAMING DATA HEADER 08074B50
+06F8 DATA DESCRIPTOR       08074B50
 06FC CRC                   00000000
 0700 Compressed Length     00000003
 0704 Uncompressed Length   00000000
@@ -87,7 +87,7 @@
                            q........T.....].m.....y87.....}...%....
                            z......=...
 
-07E5 STREAMING DATA HEADER 08074B50
+07E5 DATA DESCRIPTOR       08074B50
 07E9 CRC                   9ED5B873
 07ED Compressed Length     000000AB
 07F1 Uncompressed Length   000000CA
