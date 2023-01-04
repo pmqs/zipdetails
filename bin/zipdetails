@@ -1578,6 +1578,7 @@ sub dislayMessages
                 # TODO - add method etc
                 for my $field (qw(uncompressedLength compressedLength crc32) )
                 {
+                    # say "### $field " . $localEntry->filename . " local[$localEntry->{$field}] central[$centralEntry->{$field}]";
                     if ($localEntry->{$field} ne $centralEntry->{$field})
                     {
                         warning $centralEntry->centralHeaderOffset(), "Filename '" . $centralEntry->filename . "': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localEntry->{$field}'"
@@ -1736,6 +1737,8 @@ sub BadlyFormedDataDescriptor
         return 0;
     }    
 
+    my $cdEntry = $localEntry->cdEntry;
+
     if ($delta == 12)
     {
         $FH->seek($lastHeader->{payloadOffset} + $lastHeader->{payloadLength}, SEEK_SET) ;
@@ -1776,7 +1779,7 @@ sub BadlyFormedDataDescriptor
             $localEntry->compressedLength   = out_Q "Compressed Length";
             $localEntry->uncompressedLength = out_Q "Uncompressed Length";
 
-            if (! $localEntry->zip64)
+            if (! $localEntry->zip64 && ( $cdEntry && ! $cdEntry->zip64))
             {
                 error $here, "'$sigName': expected 32-bit values, got 64-bit";
             }
@@ -2643,6 +2646,7 @@ sub DataDescriptor
     my $uncompressedLength;
 
     my $localEntry = $LocalDirectory->lastStreamedEntryAdded();
+    my $centralEntry =  $localEntry && $localEntry->cdEntry ;
 
     if (!$localEntry)
     {
@@ -2674,7 +2678,7 @@ sub DataDescriptor
     }
     elsif ($deltaToNext == 16 && $cl64 == $payloadLength)
     {
-        if (! $localEntry->zip64)
+        if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
         {
             error $here, "'$sigName': expected 32-bit values, got 64-bit";
         }
@@ -2683,7 +2687,7 @@ sub DataDescriptor
         $uncompressedLength = out_Q "Uncompressed Length" ;
     }
 
-    # don't know delta to bext header, so use payload lengths
+    # don't know delta to next header, so use payload lengths
     elsif ($cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
@@ -2696,7 +2700,7 @@ sub DataDescriptor
     }
     elsif ($cl64 == $payloadLength)
     {
-        if (! $localEntry->zip64)
+        if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
         {
             error $here, "'$sigName': expected 32-bit values, got 64-bit";
         }
