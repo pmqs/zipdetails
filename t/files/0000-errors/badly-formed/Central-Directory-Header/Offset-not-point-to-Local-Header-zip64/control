@@ -1,12 +1,12 @@
 default
-    exit-status 1
-    stdout      NULL
-    stderr      stderr
+    exit-status 0
+    stdout      stdout
+    stderr      NULL
 
 -v
-    exit-status 1
-    stdout      NULL
-    stderr      stderr
+    exit-status 0
+    stdout      stdout-v
+    stderr      NULL
 
 --walk
     exit-status 0

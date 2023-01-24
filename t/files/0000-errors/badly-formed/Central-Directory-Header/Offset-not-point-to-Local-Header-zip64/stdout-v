@@ -1,26 +1,8 @@
+# ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
+#        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
+# INFO: Offset 0x0: found 0x149 bytes before beginning of zipfile
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 2D          Extract Zip Spec      2D '4.5'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-                      [Bits 1-2]            0 'Normal Compression'
-0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
-000E 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0004 FF FF FF FF Compressed Length     FFFFFFFF
-0016 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
-001A 0002 09 00       Filename Length       0009
-001C 0002 14 00       Extra Length          0014
-001E 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0027 0002 01 00       Extra ID #0001        0001 'ZIP64'
-0029 0002 10 00         Length              0010
-002B 0008 BE 01 00 00   Uncompressed Size   00000000000001BE
-          00 00 00 00
-0033 0008 0E 01 00 00   Compressed Size     000000000000010E
-          00 00 00 00
-003B 010E ...         PAYLOAD
+0000 0149 ...         UNEXPECTED PADDING
 
 0149 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
 014D 0001 1E          Created Zip Spec      1E '3.0'
@@ -86,14 +68,9 @@
 01E4 0004 43 00 00 00 Size of Central Dir   00000043
 01E8 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
 01EC 0002 00 00       Comment Length        0000
-
-ERROR: Orphan Local Headers found: 1
-  Offset  Filename
-     0x0  'lorem.txt'
-
-ERROR: possible zipbomb -- Orphan Central Headers found: 1
-  Offset  Filename
-   0x149  'lorem.txt'
+# ERROR: Central Directory exists, but Local Directory not found
+#        Try running with --walk' or '--scan' options
 
 Error Count: 3
+Info Count: 1
 Done

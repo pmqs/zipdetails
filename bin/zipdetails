@@ -1578,10 +1578,11 @@ sub dislayMessages
                 # TODO - add method etc
                 for my $field (qw(uncompressedLength compressedLength crc32) )
                 {
-                    # say "### $field " . $localEntry->filename . " local[$localEntry->{$field}] central[$centralEntry->{$field}]";
-                    if ($localEntry->{$field} ne $centralEntry->{$field})
+                    # if the local header usaes streaming and we are running a scan/walk, the compressed/uncompressed sizes will not be known
+                    my $localValue = $localEntry->{$field} // "Unknown Value";
+                    if ($localValue ne $centralEntry->{$field})
                     {
-                        warning $centralEntry->centralHeaderOffset(), "Filename '" . $centralEntry->filename . "': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localEntry->{$field}'"
+                        warning $centralEntry->centralHeaderOffset(), "Filename '" . $centralEntry->filename . "': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localValue'"
                     }
                 }
             }
@@ -1590,7 +1591,10 @@ sub dislayMessages
     }
     elsif ($CentralDirectory->exists())
     {
-        error undef, "Central Directory exists, but Local Directory not found"
+        my @messages = "Central Directory exists, but Local Directory not found" ;
+        push @messages , "Try running with --walk' or '--scan' options"
+            unless $opt_scan || $opt_walk ;
+        error undef, @messages;
     }
     elsif ($LocalDirectory->exists())
     {
@@ -1731,7 +1735,7 @@ sub BadlyFormedDataDescriptor
             return $FH->tell();
         }
 
-        error 0, "MISSING " . Signatures::titleName(ZIP_DATA_HDR_SIG);
+        error 0, "MISSING $sigName";
 
         seekTo($here);
         return 0;
@@ -1788,9 +1792,9 @@ sub BadlyFormedDataDescriptor
         }
     }    
 
-    seekto($here);
+    seekTo($here);
 
-    error 0, "MIssing " . Signatures::titleName(ZIP_DATA_HDR_SIG);
+    error $here, "Missing $sigName";
     return 0;
 }
 
@@ -3411,8 +3415,117 @@ sub full16
     return ($_[0] // 0) == MAX16 ;
 }
 
-sub decode_Zip64
+sub decode_Zip64 
 {
+    my $len = shift;
+    my $entry = shift;
+
+    myRead(my $payload, $len);
+    walk_Zip64($payload, $entry, 1);
+}
+
+sub walk_Zip64
+{
+    my $zip64Extended = shift;
+    my $entry = shift;
+    my $display = shift // 1 ;
+
+    my $inCentralHdr = $entry->inCentralDir() ;
+    my $inLocalHdr = ! $inCentralHdr ;
+
+    my $fieldStart = $FH->tell() - length $zip64Extended;
+    my $fieldOffset = $fieldStart ;
+
+    $ZIP64 = 1;
+    $entry->zip64 = 1;
+
+    my $assumeLengths = ($inLocalHdr && length($zip64Extended) == 16) ;
+
+    if ($assumeLengths || full32 $entry->std_uncompressedLength )
+    {
+        # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
+        if (length $zip64Extended < 8)
+        {
+            error $fieldOffset, "Expected 'Uncompressed Size' field in Zip64: Not enough ";
+            out2 $zip64Extended, "Unexpected";
+            return;
+        }
+
+        $fieldOffset += 8;
+        my $data = substr($zip64Extended, 0, 8, "") ;
+        $entry->uncompressedLength = unpack "Q<", $data;
+        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedLength)
+            if $display;
+    }
+
+    if ($assumeLengths || full32 $entry->std_compressedLength)
+    {
+        if (length $zip64Extended < 8)
+        {
+            error $fieldOffset, "Expected 'Compressed Size' field in Zip64: Not enough ";
+            out2 $zip64Extended, "Unexpected";
+            return;
+        }
+
+        $fieldOffset += 8;
+
+        my $data = substr($zip64Extended, 0, 8, "") ;
+        $entry->compressedLength = unpack "Q<", $data;
+        out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
+            if $display;        
+    }
+
+    if ($inCentralHdr && full32 $entry->std_localHeaderOffset)
+    {
+        if (length $zip64Extended < 8)
+        {
+            error $fieldOffset, "Expected 'Offset to Local Dir' field in Zip64: Not enough ";
+            out2 $zip64Extended, "Unexpected";
+            return;
+        }
+
+        $fieldOffset += 8;
+
+        my $here = $FH->tell();
+        my $data = substr($zip64Extended, 0, 8, "") ;
+        $entry->localHeaderOffset = unpack "Q<", $data;
+        out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
+            if $display;         
+
+        my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
+        $entry->localHeaderOffset = checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) ;
+    }
+
+    if ($inCentralHdr && full16 $entry->std_diskNumber)
+    {
+        if (length $zip64Extended < 4)
+        {
+            error $fieldOffset, "Expected 'Disk Number' field in Zip64: Not enough ";
+            out2 $zip64Extended, "Unexpected";
+            return;
+        }
+
+        $fieldOffset += 4;
+
+        my $here = $FH->tell();
+        my $data = substr($zip64Extended, 0, 4, "") ;
+        $entry->diskNumber = unpack "v", $data;
+        out2 $data, "Disk Number", Value_V($entry->diskNumber)
+            if $display;          
+        $entry->zip64_diskNumberPresent = 1;
+    }  
+
+    if (length $zip64Extended)
+    {
+        out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended
+            if $display;     
+    }    
+
+}
+
+sub decode_Zip64XXX
+{
+    # TODO --- delete this function
     my $len = shift;
     my $entry = shift;
 
@@ -4559,7 +4672,6 @@ sub scanApkPadding
     {
         seekTo($here);
     }
-
 }
 
 sub scanCentralDirectory
@@ -4635,40 +4747,13 @@ sub scanCentralDirectory
             # $self->smartReadExact(\$extraField, $extra_length);
 
             # Check for Zip64
-            # my SizesExtended = findID("\x01\x00", $extraField);
             my $zip64Extended = findID(0x0001, $extraField);
 
             if ($zip64Extended)
             {
                 $cdZip64 = 1;
-                $cdEntry->zip64 = 1;
-
-                if (full32 $uncompressedLength)
-                {
-                    $uncompressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
-                    $zip64Sizes = 1;
-                }
-                if (full32 $compressedLength )
-                {
-                    $compressedLength = unpack "Q<", substr($zip64Extended, 0, 8, "");
-                    $zip64Sizes = 1;
-                }
-                if (full32 $locHeaderOffset)
-                {
-                    my $here = $FH->tell();
-                    $locHeaderOffset = unpack "Q<", substr($zip64Extended, 0, 8, "");
-
-                    my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
-                    $locHeaderOffset = checkOffsetValue($locHeaderOffset, $cdEntryOffset, 0, $commonMessage, $here, ZIP_LOCAL_HDR_SIG, 1) ;
-                }
-
-                if (full16 $diskNumber)
-                {
-                    my $here = $FH->tell();
-                    $diskNumber = unpack "v", substr($zip64Extended, 0, 4, "");
-                    $cdEntry->zip64_diskNumberPresent = 1;
-
-                }                
+                walk_Zip64($zip64Extended, $cdEntry, 0);
+           
             }
         }
 
