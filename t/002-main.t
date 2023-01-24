@@ -46,28 +46,42 @@ $Perl = qq["$Perl"] if $^O eq 'MSWin32' ;
 
 my %dirs;
 my @exts = qw(
-        aar
-        apk
-        crx
-        docx
-        dwf
-        exe
-        epub
-        fmu
-        ipa
-        ja
-        jar
-        jmod
-        par
-        saz
-        tar
-        usdz
-        war
-        xls
-        xlsx
-        xpi
-        zip
-        zipx
+   aar
+    apk
+    cbz
+    crx
+    dwf
+    epub
+    fmu
+    ipa
+    ja
+    jar
+    jmod
+    kmz
+    nupkg
+    ods
+    par
+    rock
+    saz
+    usdz
+    war
+    whl
+    wmz
+    xpi
+    zip
+    zipx
+
+    doc
+    docx
+    docm
+
+    ppt
+    pptx
+    pptm
+
+    xls
+    xlsx
+    xlsm
     ) ;
 
 my $exts = join "|",  @exts, map { "$_.zst" } @exts ;
