@@ -3976,7 +3976,7 @@ sub decode_UT
         }
     }
 
-    # The remaining sub0fileds are only present in the Local Header
+    # The remaining sub-fields are only present in the Local Header
 
     if ($flags & 2 || $full)
     {
