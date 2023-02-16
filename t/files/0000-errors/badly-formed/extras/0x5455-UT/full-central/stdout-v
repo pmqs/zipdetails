@@ -46,9 +46,9 @@
 0074 0002 0D 00         Length              000D
 0076 0001 07            Flags               '07 mod access change'
 0077 0004 61 62 63 64   Mod Time            64636261 'Tue May 16 11:00:49 2023'
-# INFO: Offset 0x7B: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
+# INFO: Offset 0x7B: Extra Field 'Extended Timestamp' (ID 0x5455): Unexpected 'Access Time' present
 007B 0004 61 62 63 64   Access Time         64636261 'Tue May 16 11:00:49 2023'
-# INFO: Offset 0x7F: Extra Field 0x5455 ('UT') has unexpected 'Change Time'
+# INFO: Offset 0x7F: Extra Field 'Extended Timestamp' (ID 0x5455): Unexpected 'Change Time' present
 007F 0004 61 62 63 64   Change Time         64636261 'Tue May 16 11:00:49 2023'
 
 0083 0004 50 4B 05 06 END CENTRAL HEADER    06054B50

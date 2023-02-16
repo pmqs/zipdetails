@@ -15,7 +15,7 @@
 0028   Length              0004
 002A   Flags               '02 access'
 002B   Extra Data          abc
-# ERROR: Offset 0x2B: Extra Field 0x5455 ('UT') truncated reading 'Access Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Access Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 002E PAYLOAD               abcde
 
@@ -42,9 +42,9 @@
 0069 Extra ID #0001        5455 'UT: Extended Timestamp'
 006B   Length              0004
 006D   Flags               '02 access'
-# INFO: Offset 0x6E: Extra Field 0x5455 ('UT') has unexpected 'Access Time'
+# INFO: Offset 0x6E: Extra Field 'Extended Timestamp' (ID 0x5455): Unexpected 'Access Time' present
 006E   Extra Data          abc
-# ERROR: Offset 0x6E: Extra Field 0x5455 ('UT') truncated reading 'Access Time'
+# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Access Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0071 END CENTRAL HEADER    06054B50

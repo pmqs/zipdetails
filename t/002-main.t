@@ -90,10 +90,17 @@ my @failed = ();
 
 $ENV{ZIPDETAILS_TESTHARNESS} = 1 ;
 
+my $COVERAGE = '';
+
 if ($ENV{ZIPDETAILS_COVERAGE})
 {
-    $ENV{PERL5OPT} = '-d:NYTProf' ;
-    # $ENV{NYTPROF}  = "file=$HERE/nytprof.out";
+    $COVERAGE = '-d:NYTProf' ;
+    $ENV{NYTPROF}  = "blocks=1";
+
+    # END
+    # {
+
+    # }
 }
 
 find(
@@ -247,7 +254,7 @@ sub run
     my $here = getcwd;
     chdir $dir;
 
-    my $got = system(qq[$Perl $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
+    my $got = system(qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
 
     chdir $here;
 

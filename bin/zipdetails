@@ -334,7 +334,7 @@ sub extraFieldIdentifier
 {
     my $id = shift ;
 
-    my $name = $Extras{$id} // "Unknown";
+    my $name = $Extras{$id}[0] // "Unknown";
 
     return "Extra Field '$name' (ID " .  hexValue16($id) .")";
 }
@@ -3955,7 +3955,7 @@ sub decode_UT
 
     out $data, "  Flags", "'$f'";
 
-    info $FH->tell() - 1, "Extra Field 0x5455 ('UT') has reserved bits set in 'Flags' field"
+    info $FH->tell() - 1, extraFieldIdentifier($extraID) . ": Reserved bits set in 'Flags' field"
         if $flags & ~0x7;
 
     -- $remaining;
@@ -3965,20 +3965,19 @@ sub decode_UT
         if ($remaining == 0 )
         {
             # Central Dir only has mod time
-            error $FH->tell(),
-                "Extra Field 0x5455 ('UT') missing field 'Mod Time'" ;
+            error $FH->tell(), extraFieldIdentifier($extraID) . ": Missing field 'Mod Time'" ;
             return;
         }
         else
         {
-            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Mod Time'"
+            info $FH->tell(), extraFieldIdentifier($extraID) .  ": Unexpected 'Mod Time' present"
                 if ! ($flags & 1)  ;
 
             if ($remaining < 4)
             {
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
-                    "Extra Field 0x5455 ('UT') truncated reading 'Mod Time'",
+                    extraFieldIdentifier($extraID) .  ": Truncated reading 'Mod Time'",
                     "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
                 return;
             }
@@ -4001,14 +4000,14 @@ sub decode_UT
         }
         else
         {
-            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Access Time'"
+            info $FH->tell(), extraFieldIdentifier($extraID) . ": Unexpected 'Access Time' present"
                 if ! ($flags & 2) || $entry->inCentralDir ;
 
             if ($remaining < 4)
             {
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
-                    "Extra Field 0x5455 ('UT') truncated reading 'Access Time'" ,
+                    extraFieldIdentifier($extraID) . ": Truncated reading 'Access Time'" ,
                     "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes" ;
                 return;
             }
@@ -4028,7 +4027,7 @@ sub decode_UT
         }
         else
         {
-            info $FH->tell(), "Extra Field 0x5455 ('UT') has unexpected 'Change Time'"
+            info $FH->tell(), extraFieldIdentifier($extraID) . ": Unexpected 'Change Time' present"
                 if ! ($flags & 4) || $entry->inCentralDir ;
 
             if ($remaining < 4)
@@ -4036,7 +4035,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
 
                 error  $FH->tell() - $remaining,
-                    "Extra Field 0x5455 ('UT') truncated reading 'Change Time'" ,
+                    extraFieldIdentifier($extraID) . ": Truncated reading 'Change Time'" ,
                     "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
                 return;
             }

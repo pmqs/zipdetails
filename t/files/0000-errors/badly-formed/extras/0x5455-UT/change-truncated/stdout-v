@@ -16,7 +16,7 @@
 0028 0002 04 00         Length              0004
 002A 0001 04            Flags               '04 change'
 002B 0003 61 62 63      Extra Data          abc
-# ERROR: Offset 0x2B: Extra Field 0x5455 ('UT') truncated reading 'Change Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Change Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 002E 0005 61 62 63 64 PAYLOAD               abcde
           65
@@ -46,7 +46,7 @@
 006B 0002 04 00         Length              0004
 006D 0001 05            Flags               '05 mod change'
 006E 0003 61 62 63      Extra Data          abc
-# ERROR: Offset 0x6E: Extra Field 0x5455 ('UT') truncated reading 'Mod Time'
+# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Mod Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0071 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
