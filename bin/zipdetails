@@ -278,7 +278,7 @@ my %Extras = (
 
       # The Header ID mappings defined by Info-ZIP and third parties are:
 
-      0x0065,  ['IBM S/390 attributes - uncompressed',                      \&decodeMVS,                    4,  undef,  4,  undef],
+      0x0065,  ['IBM S/390 attributes - uncompressed',                      \&decode_MVS,                    4,  undef,  4,  undef],
       0x0066,  ['IBM S/390 attributes - compressed',                        undef],
       0x07c8,  ['Info-ZIP Macintosh (old, J. Lee)',                         undef],
       0x10c5,  ['Minizip CMS Signature',                                    \&decode_Minizip_Signature,     undef, undef, undef, undef], # https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md
@@ -329,6 +329,15 @@ my %Extras = (
       $Extras{0xFFFF} =
                ['DUMMY',                                                    \&decode_DUMMY,                 undef, undef, undef, undef]
             if $ENV{ZIPDETAILS_TESTHARNESS} ;
+
+sub extraFieldIdentifier 
+{
+    my $id = shift ;
+
+    my $name = $Extras{$id} // "Unknown";
+
+    return "Extra Field '$name' (ID " .  hexValue16($id) .")";
+}
 
 # Zip64EndCentralHeader version 2
 my %HashIDLookup  = (
@@ -3328,7 +3337,7 @@ sub walkExtra
             if (testExtraLimits($lookID, $subLen, $entry->inCentralDir))
             {
                 my $endExtraOffset = $FH->tell() + $subLen;
-                $decoder->($subLen, $entry) ;
+                $decoder->($lookID, $subLen, $entry) ;
 
                 # Belt & Braces - should now be at $endExtraOffset
                 # error here means issue in an extra handler
@@ -3422,23 +3431,25 @@ sub full16
 
 sub decode_Zip64 
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
     myRead(my $payload, $len);
     if ($entry->inCentralDir() )
     {
-        walk_Zip64_in_CD($payload, $entry, 1) ;
+        walk_Zip64_in_CD($extraID, $payload, $entry, 1) ;
     }
     else 
     {
-        walk_Zip64_in_LD($payload, $entry, 1) ;
+        walk_Zip64_in_LD($extraID, $payload, $entry, 1) ;
 
     }
 }
 
 sub walk_Zip64_in_LD
 {
+    my $extraID = shift ;
     my $zip64Extended = shift;
     my $entry = shift;
     my $display = shift // 1 ;
@@ -3454,7 +3465,7 @@ sub walk_Zip64_in_LD
 
     if (length $zip64Extended == 0)
     {
-        info $fieldOffset, "Zero length 'Zip64 Extra Field'";
+        info $fieldOffset, extraFieldIdentifier($extraID) .  ": Length is Zero";
         return;
     }
 
@@ -3465,7 +3476,7 @@ sub walk_Zip64_in_LD
         # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
         if (length $zip64Extended < 8)
         {
-            my $message = "Expected 8 bytes for 'Uncompressed Size' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Uncompressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3482,7 +3493,7 @@ sub walk_Zip64_in_LD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = "Expected 8 bytes for 'Compressed Size' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Compressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3501,7 +3512,7 @@ sub walk_Zip64_in_LD
         if ($display)     
         {
             out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
-            info $fieldOffset, "Unexpected Data in in 'Zip64 Extra Field': " . hexValue(length $zip64Extended) . " bytes";
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
         }  
     }    
 
@@ -3509,6 +3520,7 @@ sub walk_Zip64_in_LD
 
 sub walk_Zip64_in_CD
 {
+    my $extraID = shift ;
     my $zip64Extended = shift;
     my $entry = shift;
     my $display = shift // 1 ;
@@ -3521,7 +3533,7 @@ sub walk_Zip64_in_CD
 
     if (length $zip64Extended == 0)
     {
-        info $fieldOffset, "Zero length 'Zip64 Extra Field'";
+        info $fieldOffset, extraFieldIdentifier($extraID) .  ": Length is Zero";
         return;
     }
 
@@ -3529,7 +3541,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = "Expected 8 bytes for 'Uncompressed Size' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Uncompressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3546,7 +3558,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = "Expected 8 bytes for 'Compressed Size' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Compressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3564,7 +3576,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = "Expected 8 bytes for 'Offset to Local Dir' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Offset to Local Dir': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3586,7 +3598,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 4)
         {
-            my $message = "Expected 4 bytes for 'Disk Number' in 'Zip64 Extra Field': only " . length $zip64Extended  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x4 bytes for 'Disk Number': only " . hexValue(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3607,7 +3619,7 @@ sub walk_Zip64_in_CD
         if ($display)     
         {
             out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
-            info $fieldOffset, "Unexpected Data in in 'Zip64 Extra Field': " . hexValue(length $zip64Extended) . " bytes";
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
         }
     }    
 }
@@ -3668,6 +3680,7 @@ sub Ntfs2Unix
 
 sub decode_NTFS_Filetimes
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -3795,6 +3808,7 @@ sub OpenVMS_revision
 
 sub decode_OpenVMS
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -3914,7 +3928,8 @@ sub _dosToUnixTime
 sub decode_UT
 {
     # 0x5455 'UT: Extended Timestamp'
-
+    
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4038,6 +4053,7 @@ sub decode_Minizip_Signature
 {
     # 0x10c5 Minizip CMS Signature
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4054,6 +4070,7 @@ sub decode_Minizip_Hash
     # 0x1a51 Minizip Hash
     # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#hash-0x1a51
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4084,6 +4101,7 @@ sub decode_Minizip_CD
     # 0xcdcd Minizip Central Directory
     # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#central-directory-0xcdcd
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4100,6 +4118,7 @@ sub decode_AES
     # Document version: 1.04
     # Last modified: January 30, 2009
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4171,6 +4190,7 @@ sub decode_Reference
 
 sub decode_DUMMY
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4181,6 +4201,7 @@ sub decode_GrowthHint
 {
     # APPNOTE 6.3.10, sec 4.6.10
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4205,6 +4226,7 @@ sub decode_DataStreamAlignment
 {
     # APPNOTE 6.3.10, sec 4.6.11
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4237,6 +4259,7 @@ sub decode_DataStreamAlignment
 
 sub decode_UX
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4258,6 +4281,7 @@ sub decode_UX
 
 sub decode_Ux
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4298,6 +4322,7 @@ sub decodeLitteEndian
 
 sub decode_ux
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4360,6 +4385,7 @@ sub decode_ux
 
 sub decode_Java_exe
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4369,6 +4395,7 @@ sub decode_up
 {
     # APPNOTE 6.3.10, sec 4.6.9
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4384,6 +4411,7 @@ sub decode_uc
 {
     # APPNOTE 6.3.10, sec 4.6.8
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4397,6 +4425,7 @@ sub decode_uc
 
 sub decode_Xceed_unicode
 {
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4435,6 +4464,7 @@ sub decode_Xceed_unicode
 sub decode_NT_security
 {
     # IZ Appnote
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4456,9 +4486,10 @@ sub decode_NT_security
     }
 }
 
-sub decodeMVS
+sub decode_MVS
 {
     # APPNOTE 6.3.10, Appendix
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4479,6 +4510,7 @@ sub decode_strong_encryption
 {
     # APPNOTE 6.3.10, sec 4.5.12 & 7.4.2
 
+    my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
@@ -4854,7 +4886,7 @@ sub scanCentralDirectory
             if ($zip64Extended)
             {
                 $cdZip64 = 1;
-                walk_Zip64_in_CD($zip64Extended, $cdEntry, 0);
+                walk_Zip64_in_CD(1, $zip64Extended, $cdEntry, 0);
             }
         }
 
