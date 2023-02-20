@@ -96,11 +96,6 @@ if ($ENV{ZIPDETAILS_COVERAGE})
 {
     $COVERAGE = '-d:NYTProf' ;
     $ENV{NYTPROF}  = "blocks=1";
-
-    # END
-    # {
-
-    # }
 }
 
 find(
@@ -254,6 +249,8 @@ sub run
     my $here = getcwd;
     chdir $dir;
 
+    local $ENV{NYTPROF} .= ":file=./" . basename($stdout_golden) . ".nytprof.out" ;
+     
     my $got = system(qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
 
     chdir $here;
