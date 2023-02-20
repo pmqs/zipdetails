@@ -81,14 +81,18 @@
 00DC Size of Central Dir   00000072
 00E0 Offset to Central Dir 0000005E
 00E4 Comment Length        0000
-
-ERROR: Orphan Local Headers found: 1
-  Offset  Filename
-    0x2F  'numbers.txt'
-
-ERROR: possible zipbomb -- Orphan Central Headers found: 1
-  Offset  Filename
-    0x97  'numbers.txt'
-
-Error Count: 3
-Done
+#
+# ERROR: Orphan Local Headers found: 1
+#  Offset  Filename
+#    0x2F  'numbers.txt'
+#
+#
+# ERROR: possible zipbomb -- Orphan Central Headers found: 1
+#  Offset  Filename
+#    0x97  'numbers.txt'
+#
+#
+# Error Count: 3
+#
+#
+# Done

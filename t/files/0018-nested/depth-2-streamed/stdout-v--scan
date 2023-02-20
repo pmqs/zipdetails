@@ -168,18 +168,21 @@
 0284 0004 38 00 00 00 Size of Central Dir   00000038
 0288 0004 40 02 00 00 Offset to Central Dir 00000240
 028C 0002 00 00       Comment Length        0000
-
-INFO: Nested Zip files found: 1
-  Offset  Filename
-     0x0  'inner2.zip'
+#
+# INFO: Nested Zip files found: 1
+#  Offset  Filename
+#     0x0  'inner2.zip'
+#
 #
 # ERROR: Offset 0x0: Filename 'inner2.zip': Missing 'Data Descriptor'
 #
 #
 # WARNING: Offset 0x240: Filename 'inner2.zip': 'crc32' field mismatch': Central Header has '2955108665', Local Directory has '0'
 #
-
-Error Count: 1
-Warning Count: 1
-Info Count: 3
-Done
+#
+# Error Count: 1
+# Warning Count: 1
+# Info Count: 3
+#
+#
+# Done

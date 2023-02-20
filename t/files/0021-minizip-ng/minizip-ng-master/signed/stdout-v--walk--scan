@@ -25067,27 +25067,31 @@
 77D18 00004 1F B9 00 00 Size of Central Dir   0000B91F
 77D1C 00004 ED C3 06 00 Offset to Central Dir 0006C3ED
 77D20 00002 00 00       Comment Length        0000
-
-ERROR: Orphan Local Headers found: 1
-  Offset   Filename
-  0x2F064  'alice29.txt'
+#
+# ERROR: Orphan Local Headers found: 1
+#  Offset   Filename
+#  0x2F064  'alice29.txt'
+#
 #
 # ERROR: Offset 0x2E952: Filename 'unzip_fuzzer_seed_corpus/xz.zip': Missing 'Data Descriptor'
 #
-
-ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for 'empty.txt' at offset 0x0
-  Offset   Filename
-  0x3AE37  'alice29.txt'
-  0x67471  'vangogh.gif'
-  0x6C3ED  'empty.txt'
+#
+# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for 'empty.txt' at offset 0x0
+#  Offset   Filename
+#  0x3AE37  'alice29.txt'
+#  0x67471  'vangogh.gif'
+#  0x6C3ED  'empty.txt'
+#
 #
 # WARNING: Offset 0x7205E: Filename 'unzip_fuzzer_seed_corpus/xz.zip': 'compressedLength' field mismatch': Central Header has '48755', Local Directory has '0'
 #
 #
 # WARNING: Offset 0x7205E: Filename 'unzip_fuzzer_seed_corpus/xz.zip': 'crc32' field mismatch': Central Header has '1959470348', Local Directory has '0'
 #
-
-Error Count: 5
-Warning Count: 2
-Info Count: 3
-Done
+#
+# Error Count: 5
+# Warning Count: 2
+# Info Count: 3
+#
+#
+# Done

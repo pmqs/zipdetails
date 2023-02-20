@@ -118,13 +118,16 @@
 0900 0004 8D 00 00 00 Size of Central Dir   0000008D
 0904 0004 67 08 00 00 Offset to Central Dir 00000867
 0908 0002 00 00       Comment Length        0000
-
-ERROR: Possible zipbomb -- Nested Local Entries found
-
-Local Header for filename '0' at offset 0x0  has 2 nested Local Headers
-  Offset  Filename
-    0x24  '1'
-    0x48  '2'
-
-Error Count: 1
-Done
+#
+# ERROR: Possible zipbomb -- Nested Local Entries found
+#
+# Local Header for filename '0' at offset 0x0  has 2 nested Local Headers
+#  Offset  Filename
+#    0x24  '1'
+#    0x48  '2'
+#
+#
+# Error Count: 1
+#
+#
+# Done

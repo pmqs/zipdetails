@@ -1354,15 +1354,16 @@ sub dislayMessages
             {
                 ++ $ErrorCount;
 
-                say "\nERROR: Orphan Local Headers found: " . scalar(keys %orphans) ;
+                say "#\n# ERROR: Orphan Local Headers found: " . scalar(keys %orphans) ;
 
                 my $ow = max length("Offset"),
                            map { length hexValue $_ }
                            keys %orphans ;
 
-                say sprintf "  %-${ow}s  Filename", "Offset" ;
-                say sprintf("  %+${ow}s  '" . $orphans{$_} . "'", hexValue($_))
+                say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                say sprintf("#  %+${ow}s  '" . $orphans{$_} . "'", hexValue($_))
                     for sort { $a <=> $b } keys %orphans ;
+                say "#";
             }
         }
 
@@ -1378,15 +1379,16 @@ sub dislayMessages
             {
                 ++ $ErrorCount;
 
-                say "\nERROR: possible zipbomb -- Orphan Central Headers found: " . scalar(keys %orphans) ;
+                say "#\n# ERROR: possible zipbomb -- Orphan Central Headers found: " . scalar(keys %orphans) ;
 
                 my $ow = max length("Offset"),
                            map { length hexValue $_ }
                            keys %orphans ;
 
-                say sprintf "  %-${ow}s  Filename", "Offset" ;
-                say sprintf("  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_))
+                say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                say sprintf("#  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_))
                     for sort { $a <=> $b } keys %orphans ;
+                say "#";
 
                 delete $cleanCentralEntries{ $_ }
                     for keys %orphans ;
@@ -1417,15 +1419,16 @@ sub dislayMessages
             {
                 ++ $InfoCount;
                 my $count = scalar keys %outerEntries;
-                say "\nINFO: Nested Zip files found: $count";
+                say "#\n# INFO: Nested Zip files found: $count";
 
                 my $ow = max length("Offset"),
                            map { length hexValue $_ }
                            keys %outerEntries ;
 
-                say sprintf "  %-${ow}s  Filename", "Offset" ;
-                say sprintf("  %+${ow}s  '" . $outerEntries{$_} . "'", hexValue($_))
+                say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                say sprintf("#  %+${ow}s  '" . $outerEntries{$_} . "'", hexValue($_))
                     for sort keys %outerEntries;
+                say "#";
             }
         }
 
@@ -1462,11 +1465,11 @@ sub dislayMessages
                     my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
                     if ($localEntry)
                     {
-                        say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . hexValue($offset);
+                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . hexValue($offset);
                     }
                     else
                     {
-                        say "\nERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . hexValue($offset);
+                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . hexValue($offset);
                     }
 
                     my $ow = max length("Offset"),
@@ -1474,9 +1477,10 @@ sub dislayMessages
                             map { $_->centralHeaderOffset() }
                             @entries ;
 
-                    say sprintf "  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset))
+                    say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                    say sprintf("#  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset))
                         for @entries;
+                    say "#";
 
                     delete $cleanCentralEntries{ $_ }
                         for map { $_->centralHeaderOffset() } @entries ;
@@ -1523,7 +1527,7 @@ sub dislayMessages
 
                 # real central directory at eof does not know about these.
                 # likely to be a zip file srored in another zip file
-                say "\nWARNING: Nested Local Entries found\n";
+                say "#\n# WARNING: Nested Local Entries found\n";
                 for my $loc (sort keys %nested)
                 {
                     my $count = scalar @{ $nested{$loc} };
@@ -1533,9 +1537,10 @@ sub dislayMessages
                     {
                         my $innerEntry = $LocalDirectory->getByLocalOffset($n);
 
-                        say "  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . hexValue($n)  ;
+                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . hexValue($n)  ;
                     }
                 }
+                say "#";
             }
 
             if (keys %bomb)
@@ -1544,20 +1549,21 @@ sub dislayMessages
                 
                 ++ $ErrorCount ;
 
-                say "\nERROR: Possible zipbomb -- Nested Local Entries found\n";
+                say "#\n# ERROR: Possible zipbomb -- Nested Local Entries found\n#";
                 for my $loc (sort keys %bomb)
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for filename '" . $outerEntry->filename . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
+                    say "# Local Header for filename '" . $outerEntry->filename . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_ }
                             @{ $bomb{$loc} } ;
 
-                    say sprintf "  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->filename . "'", hexValue($_))
+                    say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                    say sprintf("#  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->filename . "'", hexValue($_))
                         for sort @{ $bomb{$loc} };
+                    say "#";
 
                     delete $cleanCentralEntries{ $_ }
                         for grep { defined $_ }
@@ -1618,24 +1624,25 @@ sub dislayMessages
 
     }
 
-    print "\n"
+    say "#"
         if $ErrorCount ||$WarningCount || $InfoCount ;
 
-    print "Error Count: $ErrorCount\n"
+    say "# Error Count: $ErrorCount"
         if $ErrorCount;
-    print "Warning Count: $WarningCount\n"
+    say "# Warning Count: $WarningCount"
         if $WarningCount;
-    print "Info Count: $InfoCount\n"
+    say "# Info Count: $InfoCount"
         if $InfoCount;
-
+    say "#";
+    
     if (@Messages)
     {
         my $count = scalar @Messages ;
-        print "\nWARNINGS\n\n";
-        print "* $_\n" for @Messages ;
+        say "#\nWARNINGS";
+        say "# * $_\n" for @Messages ;
     }
 
-    print "Done\n";
+    say "#\n# Done";
 }
 
 sub checkForBadlyFormedDataDescriptor

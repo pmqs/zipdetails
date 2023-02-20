@@ -114,11 +114,14 @@
 0114 0004 66 00 00 00 Size of Central Dir   00000066
 0118 0004 A2 00 00 00 Offset to Central Dir 000000A2
 011C 0002 00 00       Comment Length        0000
-
-ERROR: Orphan Local Headers found: 2
-  Offset  Filename
-    0x29  'beta'
-    0x79  'delta'
-
-Error Count: 1
-Done
+#
+# ERROR: Orphan Local Headers found: 2
+#  Offset  Filename
+#    0x29  'beta'
+#    0x79  'delta'
+#
+#
+# Error Count: 1
+#
+#
+# Done
