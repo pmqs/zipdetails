@@ -4284,7 +4284,7 @@ sub decode_ux
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
-    info  $FH->tell() - 1, "Extra Field 0x7875 ('ux') 'Version' should be 0x1, got " . hexValue($version)
+    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be 0x1, got " . hexValue($version)
         if $version != 1 ;
 
     my $available = $len - 1 ;
@@ -4298,7 +4298,7 @@ sub decode_ux
         {
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
-                "Extra Field 0x7875 ('ux') truncated reading 'UID'",
+                extraFieldIdentifier($extraID) . ": truncated reading 'UID'",
                 "Expected " . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
             return;
         }
@@ -4311,7 +4311,7 @@ sub decode_ux
     if ($available < 1)
     {
         error $FH->tell(),
-                    "Extra Field 0x7875 ('ux') truncated reading 'GID Size'",
+                    extraFieldIdentifier($extraID) . ": truncated reading 'GID Size'",
                     "Expected 0x01" . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
         return ;
     }
@@ -4324,7 +4324,7 @@ sub decode_ux
         {
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
-                        "Extra Field 0x7875 ('ux') truncated reading 'GID'",
+                        extraFieldIdentifier($extraID) . ": truncated reading 'GID'",
                         "Expected " . hexValue($gidSize) . " bytes, got " .  hexValue($available) . " bytes";
             return;
         }
