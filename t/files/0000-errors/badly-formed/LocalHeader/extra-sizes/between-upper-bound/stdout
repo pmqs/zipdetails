@@ -11,9 +11,9 @@
 001A Filename Length       0008
 001C Extra Length          0012
 001E Filename              'filename'
-0026 Extra ID #0001        5855 'UX: Unix Extra type 1'
+0026 Extra ID #0001        5855 'Unix Extra type 1 [UX]'
 0028   Length              000E
-# ERROR: Offset 0x28: 'Length' field in 'Extra ID' 0x5855 (Unix Extra type 1) invalid: expected 0xC, got 0xE
+# ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected 0xC, got 0xE
 
 002A   Extra Payload       xxxxxxxxxxxxxx
 0038 PAYLOAD               abcde

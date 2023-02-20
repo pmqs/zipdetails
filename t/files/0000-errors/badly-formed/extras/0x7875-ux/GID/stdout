@@ -11,12 +11,12 @@
 001A Filename Length       0004
 001C Extra Length          001C
 001E Filename              'test'
-0022 Extra ID #0001        5455 'UT: Extended Timestamp'
+0022 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0024   Length              0009
 0026   Flags               '03 mod access'
 0027   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
 002B   Access Time         5485F38F 'Mon Dec  8 18:53:03 2014'
-002F Extra ID #0002        7875 'ux: Unix Extra type 3'
+002F Extra ID #0002        7875 'Unix Extra type 3 [ux]'
 0031   Length              000B
 0033   Version             01
 0034   UID Size            04
@@ -47,7 +47,7 @@
 0067 Ext File Attributes   81A40000
 006B Local Header Offset   00000000
 006F Filename              'test'
-0073 Extra ID #0001        5455 'UT: Extended Timestamp'
+0073 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0075   Length              0005
 0077   Flags               '03 mod access'
 0078   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'

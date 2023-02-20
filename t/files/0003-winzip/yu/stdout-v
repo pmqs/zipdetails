@@ -13,7 +13,7 @@
 001C 0002 12 00       Extra Length          0012
 001E 0008 43 61 66 82 Filename              'Caf‚.txt'
           2E 74 78 74
-0026 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0026 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 0028 0002 0E 00         Length              000E
 002A 0001 01            Version             01
 002B 0004 D9 0C E1 59   NameCRC32           59E10CD9
@@ -45,14 +45,14 @@
 016C 0004 00 00 00 00 Local Header Offset   00000000
 0170 0008 43 61 66 82 Filename              'Caf‚.txt'
           2E 74 78 74
-0178 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0178 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 017A 0002 0E 00         Length              000E
 017C 0001 01            Version             01
 017D 0004 D9 0C E1 59   NameCRC32           59E10CD9
 0181 0009 43 61 66 C3   UnicodeName         'CafÃ©.txt'
           A9 2E 74 78
           74
-018A 0002 75 63       Extra ID #0002        6375 'uc: Info-ZIP Unicode Comment'
+018A 0002 75 63       Extra ID #0002        6375 'Unicode Comment [uc]'
 018C 0002 0A 00         Length              000A
 018E 0001 01            Version             01
 018F 0004 00 00 00 00   ComCRC32            00000000

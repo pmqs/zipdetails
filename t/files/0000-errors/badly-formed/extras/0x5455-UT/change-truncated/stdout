@@ -11,11 +11,11 @@
 001A Filename Length       0008
 001C Extra Length          0008
 001E Filename              'filename'
-0026 Extra ID #0001        5455 'UT: Extended Timestamp'
+0026 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0028   Length              0004
 002A   Flags               '04 change'
 002B   Extra Data          abc
-# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Change Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Change Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 002E PAYLOAD               abcde
 
@@ -39,11 +39,11 @@
 0059 Ext File Attributes   81A40000
 005D Local Header Offset   00000000
 0061 Filename              'filename'
-0069 Extra ID #0001        5455 'UT: Extended Timestamp'
+0069 Extra ID #0001        5455 'Extended Timestamp [UT]'
 006B   Length              0004
 006D   Flags               '05 mod change'
 006E   Extra Data          abc
-# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp' (ID 0x5455): Truncated reading 'Mod Time'
+# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
 #        Expected 0x4 bytes, got 0x3 bytes
 
 0071 END CENTRAL HEADER    06054B50

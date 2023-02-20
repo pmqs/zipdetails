@@ -288,32 +288,32 @@ my %Extras = (
       0x2705,  ['ZipIt Macintosh v 1.3.5 and newer (w/o full filename)',    undef],
       0x2805,  ['ZipIt Macintosh v 1.3.5 and newer',                        undef],
       0x334d,  ["Info-ZIP Macintosh (new, D. Haase's 'Mac3' field)",        undef], # TODO
-      0x4154,  ['Tandem NSK',                                               undef], # TODO
-      0x4341,  ['Acorn/SparkFS (David Pilling)',                            undef], # TODO
-      0x4453,  ['Windows NT security descriptor',                           \&decode_NT_security,           11, undef,  4, 4], # TODO
+      0x4154,  ['Tandem NSK [TA]',                                          undef], # TODO
+      0x4341,  ['Acorn/SparkFS [AC]',                                       undef], # TODO
+      0x4453,  ['Windows NT security descriptor [SD]',                      \&decode_NT_security,           11, undef,  4, 4], # TODO
       0x4690,  ['POSZIP 4690',                                              undef],
       0x4704,  ['VM/CMS',                                                   undef],
       0x470f,  ['MVS',                                                      undef],
-      0x4854,  ['Theos, old inofficial port',                               undef],
-      0x4b46,  ['FWKCS MD5',                                                undef],
-      0x4c41,  ['OS/2 access control list (text ACL)',                      undef],
-      0x4d49,  ['Info-ZIP OpenVMS (obsolete)',                              undef],
-      0x4d63,  ['Macintosh SmartZIP',                                       undef], # TODO
-      0x4f4c,  ['Xceed original location extra field',                      undef],
-      0x5356,  ['AOS/VS (binary ACL)',                                      undef],
-      0x5455,  ['Extended Timestamp',                                       \&decode_UT,                    1, 13,  1, 13],
-      0x554e,  ['Xceed unicode extra field',                                \&decode_Xceed_unicode,         6,  undef,  6,  undef],
-      0x5855,  ['Unix Extra type 1',                                        \&decode_UX,                    12, 12,     8, 8],
-      0x5a4c,  ['ZipArchive Unicode Filename',                              undef],  # https://www.artpol-software.com/ZipArchive
-      0x5a4d,  ['ZipArchive Offsets Array',                                 undef],  # https://www.artpol-software.com/ZipArchive
-      0x6375,  ['Info-ZIP Unicode Comment',                                 \&decode_uc,                    5, undef,  5, undef],
-      0x6542,  ['BeOS (BeBox, PowerMac, etc.)',                             undef], # TODO
-      0x6854,  ['Theos',                                                    undef],
-      0x7075,  ['Info-ZIP Unicode Path',                                    \&decode_up,                    5, undef,   5, undef],
-      0x756e,  ['ASi Unix',                                                 undef], # TODO
-      0x7441,  ['AtheOS (AtheOS/Syllable attributes)',                      undef],
-      0x7855,  ['Unix Extra type 2',                                        \&decode_Ux,                    4,4,   0, 0 ],
-      0x7875,  ['Unix Extra type 3',                                        \&decode_ux,                    3, undef,   3, undef],
+      0x4854,  ['Theos [TH]',                                               undef],
+      0x4b46,  ['FWKCS MD5 [FK]',                                           undef],
+      0x4c41,  ['OS/2 access control list [AL]',                            undef],
+      0x4d49,  ['Info-ZIP OpenVMS (obsolete) [IM]',                         undef],
+      0x4d63,  ['Macintosh SmartZIP [cM]',                                  undef], # TODO
+      0x4f4c,  ['Xceed original location [LO]',                             undef],
+      0x5356,  ['AOS/VS (binary ACL) [VS]',                                 undef],
+      0x5455,  ['Extended Timestamp [UT]',                                  \&decode_UT,                    1, 13,  1, 13],
+      0x554e,  ['Xceed unicode extra field [UN]',                           \&decode_Xceed_unicode,         6,  undef,  6,  undef],
+      0x5855,  ['Unix Extra type 1 [UX]',                                   \&decode_UX,                    12, 12,     8, 8],
+      0x5a4c,  ['ZipArchive Unicode Filename [LZ]',                         undef],  # https://www.artpol-software.com/ZipArchive
+      0x5a4d,  ['ZipArchive Offsets Array [MZ]',                            undef],  # https://www.artpol-software.com/ZipArchive
+      0x6375,  ['Unicode Comment [uc]',                                     \&decode_uc,                    5, undef,  5, undef],
+      0x6542,  ['BeOS [Be]',                                                undef], # TODO
+      0x6854,  ['Theos [Th]',                                               undef],
+      0x7075,  ['Unicode Path [up]',                                        \&decode_up,                    5, undef,   5, undef],
+      0x756e,  ['ASi Unix [un]',                                            undef], # TODO
+      0x7441,  ['AtheOS [At]',                                              undef],
+      0x7855,  ['Unix Extra type 2 [Ux]',                                   \&decode_Ux,                    4,4,   0, 0 ],
+      0x7875,  ['Unix Extra type 3 [ux]',                                   \&decode_ux,                    3, undef,   3, undef],
       0x9901,  ['AES Encryption',                                           \&decode_AES,                   7, 7,       7, 7],
       0x9903,  ['Reference',                                                \&decode_Reference,             20, 20,     20, 20], # Added in WinZip ver 25
       0xa11e,  ['Data Stream Alignment',                                    \&decode_DataStreamAlignment,   2, undef,   2, undef ],
@@ -3293,18 +3293,12 @@ sub walkExtra
 
         my ($who, $decoder, $local_min, $local_max, $central_min, $central_max) =  @{ $Extras{$lookID} // ['', undef, undef,  undef,  undef, undef ] };
 
-        $who = "$id: $who"
-            if $id =~ /\w\w/ && $who;
-
         $who = "'$who'" if $who ;
         my $idString =  Value_v($lookID) . " $who" ;
-        my $errorIdString = "Extra Field " . hexValue16($lookID);
-        $errorIdString .= " ($who)"
-            if $who;
 
         out $id, "Extra ID #" . Value_v($count), $idString ;
         info $FH->tell() - 2, "Unknown Extra ID " . hexValue16($lookID)
-            if ! $Extras{$lookID} ;
+            if ! exists $Extras{$lookID} ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
         $offset += ZIP_EXTRA_SUBFIELD_LEN_SIZE;
@@ -3316,7 +3310,7 @@ sub walkExtra
         if ($subLen > $remaining )
         {
             error $FH->tell() -2,
-                  "'Length' field in $errorIdString invalid",
+                  extraFieldIdentifier($lookID) . ": 'Length' field invalid",
                   sprintf("value %s > %s bytes remaining\n", hexValue($subLen), hexValue($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
@@ -3347,14 +3341,14 @@ sub walkExtra
                 if ($here > $endExtraOffset)
                 {
                     # gone too far, so need to bomb out now
-                    internalFatal $here, "Overflow processing $errorIdString.",
+                    internalFatal $here, "Overflow processing " . extraFieldIdentifier($lookID) . ".",
                                   sprintf("Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here));
                 }
                 elsif ($here < $endExtraOffset)
                 {
                     # not gone far enough, can recover
                     error $here,
-                            sprintf("Expected to be at offset %s after processing $errorIdString, actually at %s", hexValue($endExtraOffset),  hexValue($here)),
+                            sprintf("Expected to be at offset %s after processing %s, actually at %s", hexValue($endExtraOffset),  extraFieldIdentifier($lookID), hexValue($here)),
                             "Skipping " . hexValue($endExtraOffset - $here) . " bytes";
                     outSomeData $endExtraOffset - $here, "  Extra Data";
                 }
@@ -3389,7 +3383,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: expected %s, got %s\n", hexValue16($lookID), hexValue($min),  hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -3398,7 +3392,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: value must be betweem %s and %s, got %s\n", hexValue16($lookID), hexValue($min), hexValue($max), hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min), hexValue($max), hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -3409,7 +3403,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            error $FH->tell() -2, sprintf "'Length' field in 'Extra ID' %s ($who) invalid: value must be at least %s, got %s\n", hexValue16($lookID), hexValue($min),  hexValue($size);
+            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }

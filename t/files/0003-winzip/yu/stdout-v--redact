@@ -30,7 +30,7 @@
 0048 0002 04 00       Filename Length       0004
 004A 0002 0E 00       Extra Length          000E
 004C 0004 58 58 58 58 Filename              'XXXX'
-0050 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0050 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 0052 0002 0A 00         Length              000A
 0054 0001 01            Version             01
 0055 0004 F5 A7 E1 D1   NameCRC32           D1E1A7F5
@@ -86,7 +86,7 @@
                       [Bit 5]               Archive
 00C6 0004 2E 00 00 00 Local Header Offset   0000002E
 00CA 0004 58 58 58 58 Filename              'XXXX'
-00CE 0002 75 70       Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+00CE 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 00D0 0002 0A 00         Length              000A
 00D2 0001 01            Version             01
 00D3 0004 F5 A7 E1 D1   NameCRC32           D1E1A7F5

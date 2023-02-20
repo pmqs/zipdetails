@@ -11,10 +11,10 @@
 001A Filename Length       0008
 001C Extra Length          0005
 001E Filename              'filename'
-0026 Extra ID #0001        5455 'UT: Extended Timestamp'
+0026 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0028   Length              0001
 002A   Flags               '01 mod'
-# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp' (ID 0x5455): Missing field 'Mod Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
 002B PAYLOAD               abcde
 
 0030 CENTRAL HEADER #1     02014B50
@@ -37,10 +37,10 @@
 0056 Ext File Attributes   81A40000
 005A Local Header Offset   00000000
 005E Filename              'filename'
-0066 Extra ID #0001        5455 'UT: Extended Timestamp'
+0066 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0068   Length              0001
 006A   Flags               '01 mod'
-# ERROR: Offset 0x6B: Extra Field 'Extended Timestamp' (ID 0x5455): Missing field 'Mod Time'
+# ERROR: Offset 0x6B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
 
 006B END CENTRAL HEADER    06054B50
 006F Number of this disk   0000

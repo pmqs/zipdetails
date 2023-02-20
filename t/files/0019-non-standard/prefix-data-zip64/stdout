@@ -15,12 +15,12 @@
 001E Filename Length       000A
 0020 Extra Length          0030
 0022 Filename              'lorem1.txt'
-002C Extra ID #0001        5455 'UT: Extended Timestamp'
+002C Extra ID #0001        5455 'Extended Timestamp [UT]'
 002E   Length              0009
 0030   Flags               '03 mod access'
 0031   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
 0035   Access Time         63624922 'Wed Nov  2 10:40:34 2022'
-0039 Extra ID #0002        7875 'ux: Unix Extra type 3'
+0039 Extra ID #0002        7875 'Unix Extra type 3 [ux]'
 003B   Length              000B
 003D   Version             01
 003E   UID Size            04
@@ -46,12 +46,12 @@
 0186 Filename Length       0009
 0188 Extra Length          0030
 018A Filename              'lorem.txt'
-0193 Extra ID #0001        5455 'UT: Extended Timestamp'
+0193 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0195   Length              0009
 0197   Flags               '03 mod access'
 0198   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
 019C   Access Time         63624922 'Wed Nov  2 10:40:34 2022'
-01A0 Extra ID #0002        7875 'ux: Unix Extra type 3'
+01A0 Extra ID #0002        7875 'Unix Extra type 3 [ux]'
 01A2   Length              000B
 01A4   Version             01
 01A5   UID Size            04
@@ -85,11 +85,11 @@
 02F7 Ext File Attributes   81ED0000
 02FB Local Header Offset   00000000 [Actual Offset is 00000004]
 02FF Filename              'lorem1.txt'
-0309 Extra ID #0001        5455 'UT: Extended Timestamp'
+0309 Extra ID #0001        5455 'Extended Timestamp [UT]'
 030B   Length              0005
 030D   Flags               '03 mod access'
 030E   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
-0312 Extra ID #0002        7875 'ux: Unix Extra type 3'
+0312 Extra ID #0002        7875 'Unix Extra type 3 [ux]'
 0314   Length              000B
 0316   Version             01
 0317   UID Size            04
@@ -121,11 +121,11 @@
 0353 Ext File Attributes   81ED0000
 0357 Local Header Offset   00000168 [Actual Offset is 0000016C]
 035B Filename              'lorem.txt'
-0364 Extra ID #0001        5455 'UT: Extended Timestamp'
+0364 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0366   Length              0005
 0368   Flags               '03 mod access'
 0369   Mod Time            63624922 'Wed Nov  2 10:40:34 2022'
-036D Extra ID #0002        7875 'ux: Unix Extra type 3'
+036D Extra ID #0002        7875 'Unix Extra type 3 [ux]'
 036F   Length              000B
 0371   Version             01
 0372   UID Size            04

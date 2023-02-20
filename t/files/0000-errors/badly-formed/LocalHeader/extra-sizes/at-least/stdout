@@ -11,9 +11,9 @@
 001A Filename Length       0008
 001C Extra Length          0005
 001E Filename              'filename'
-0026 Extra ID #0001        7075 'up: Info-ZIP Unicode Path'
+0026 Extra ID #0001        7075 'Unicode Path [up]'
 0028   Length              0001
-# ERROR: Offset 0x28: 'Length' field in 'Extra ID' 0x7075 (Info-ZIP Unicode Path) invalid: value must be at least 0x5, got 0x1
+# ERROR: Offset 0x28: Extra Field 'Unicode Path [up]' (ID 0x7075): 'Length' field invalid: value must be at least 0x5, got 0x1
 
 002A   Extra Payload       1
 002B PAYLOAD               abcde
