@@ -14,12 +14,20 @@
 0026 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0028   Length              000D
 002A   Flags               '08'
+#
 # INFO: Offset 0x2A: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
+#
+#
 # INFO: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Mod Time' present
+#
 002B   Mod Time            64636261 'Tue May 16 11:00:49 2023'
+#
 # INFO: Offset 0x2F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
 002F   Access Time         64636261 'Tue May 16 11:00:49 2023'
+#
 # INFO: Offset 0x33: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
+#
 0033   Change Time         64636261 'Tue May 16 11:00:49 2023'
 0037 PAYLOAD               abcde
 
@@ -46,12 +54,20 @@
 0072 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0074   Length              000D
 0076   Flags               '08'
+#
 # INFO: Offset 0x76: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
+#
+#
 # INFO: Offset 0x77: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Mod Time' present
+#
 0077   Mod Time            64636261 'Tue May 16 11:00:49 2023'
+#
 # INFO: Offset 0x7B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
 007B   Access Time         64636261 'Tue May 16 11:00:49 2023'
+#
 # INFO: Offset 0x7F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
+#
 007F   Change Time         64636261 'Tue May 16 11:00:49 2023'
 
 0083 END CENTRAL HEADER    06054B50

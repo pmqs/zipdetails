@@ -22,10 +22,14 @@
 0031 0002 01 99       Extra ID #0002        9901 'AES Encryption'
 0033 0002 07 00         Length              0007
 0035 0002 00 00         Vendor Version      0000 'Unknown'
+#
 # WARNING: Offset 0x35: Extra Field 'AES Encryption' (ID 0x9901): Unknown 'Vendor Version' 0. Valid values are 1,2
+#
 0037 0002 41 45         Vendor ID           4541 'AE'
 0039 0001 00            Encryption Strength 00 'Unknown'
+#
 # WARNING: Offset 0x39: Extra Field 'AES Encryption' (ID 0x9901): Unknown 'Encryption Strength' 0. Valid values are 1,2,3
+#
 003A 0002 00 00         Compression Method  0000 'Stored'
 003C 1B54 ...         PAYLOAD
 

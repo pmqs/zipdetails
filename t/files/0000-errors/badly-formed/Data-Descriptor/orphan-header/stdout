@@ -14,7 +14,9 @@
 001E Filename              'lorem.txt'
 
 0027 UNEXPECTED PADDING
+#
 # INFO: Offset 0x27: 0x11E Unexpected Padding bytes
+#
 
 0145 CENTRAL HEADER #1     02014B50
 0149 Created Zip Spec      14 '2.0'
@@ -46,9 +48,15 @@
 0188 Size of Central Dir   00000037
 018C Offset to Central Dir 00000145
 0190 Comment Length        0000
+#
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
+#
+#
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'compressedLength' field mismatch': Central Header has '270', Local Directory has '0'
+#
+#
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+#
 
 Warning Count: 3
 Info Count: 1

@@ -17,7 +17,9 @@
           65
 
 002E 0001 0A          UNEXPECTED PADDING    .
+#
 # INFO: Offset 0x2E: 0x1 Unexpected Padding bytes
+#
 
 002F 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
 0033 0001 0A          Extract Zip Spec      0A '1.0'
@@ -37,7 +39,9 @@
           35
 
 005D 0001 0A          UNEXPECTED PADDING    .
+#
 # INFO: Offset 0x5D: 0x1 Unexpected Padding bytes
+#
 
 005E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
 0062 0001 1E          Created Zip Spec      1E '3.0'

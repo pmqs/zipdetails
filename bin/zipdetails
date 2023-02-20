@@ -3061,15 +3061,6 @@ sub fatal_truncated
 
 }
 
-# sub fatal_truncated_record
-# {
-#     my $record = shift;
-#     my $need = shift;
-
-#     fatal_tryWalk("truncated record $record - need $need bytes ", @_);
-
-# }
-
 sub fatal_tryWalk
 {
     my $offset   = shift ;
@@ -3087,15 +3078,16 @@ sub fatal
 
     if (defined $offset)
     {
-        warn "# FATAL: Offset " . hexValue($offset) . ": $message\n";
+        warn "#\n# FATAL: Offset " . hexValue($offset) . ": $message\n";
     }
     else
     {
-        warn "# FATAL: $message\n";
+        warn "#\n# FATAL: $message\n";
     }
 
     warn  "#        $_ . \n"
         for @_;
+    warn "#\n" ;
 
     exit 1;
 }
@@ -3150,16 +3142,17 @@ sub warning
 
     if (defined $offset)
     {
-        print "# WARNING: Offset " . hexValue($offset) . ": $message\n";
+        print "#\n# WARNING: Offset " . hexValue($offset) . ": $message\n";
     }
     else
     {
-        print "# WARNING: $message\n";
+        print "#\n# WARNING: $message\n";
     }
 
 
     # print "# WARNING: $message\n";
     print "#          $_\n" for @_ ;
+    print "#\n";
     ++ $WarningCount ;
 }
 
@@ -3170,15 +3163,16 @@ sub error
 
     if (defined $offset)
     {
-        print "# ERROR: Offset " . hexValue($offset) . ": $message\n";
+        print "#\n# ERROR: Offset " . hexValue($offset) . ": $message\n";
     }
     else
     {
-        print "# ERROR: $message\n";
+        print "#\n# ERROR: $message\n";
     }
 
 
     print "#        $_\n" for @_ ;
+    print "#\n";
     ++ $ErrorCount ;
 }
 
@@ -3186,9 +3180,11 @@ sub internalError
 {
     my $message  = shift;
 
+    print "#\n";
     print "# ERROR: $message\n";
     print "#        $_\n" for @_ ;
     print "#        Please report error at https://github.com/pmqs/zipdetails/issues\n";
+    print "#\n";
 
     ++ $ErrorCount ;
 }
@@ -3210,14 +3206,15 @@ sub info
 
     if (defined $offset)
     {
-        print "# INFO: Offset " . hexValue($offset) . ": $message\n";
+        print "#\n# INFO: Offset " . hexValue($offset) . ": $message\n";
     }
     else
     {
-        print "# INFO: $message\n";
+        print "#\n# INFO: $message\n";
     }
 
     print "#       $_\n" for @_ ;
+    print "#\n";
 
     ++ $InfoCount ;
 }

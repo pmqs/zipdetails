@@ -75,8 +75,10 @@
                       [Bit 0]               1 Text Data
 00BD 0004 00 00 B4 81 Ext File Attributes   81B40000
 00C1 0004 E6 00 00 00 Local Header Offset   000000E6
+#
 # ERROR: Offset 0xC1: 'Local Header Offset' field in 'Central Directory Header' is invalid
 #        value 0xE6 is 0x1 bytes past EOF
+#
 00C5 000B 6E 75 6D 62 Filename              'numbers.txt'
           65 72 73 2E
           74 78 74

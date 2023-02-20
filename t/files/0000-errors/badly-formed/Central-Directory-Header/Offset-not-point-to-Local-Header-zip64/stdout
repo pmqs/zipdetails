@@ -1,6 +1,10 @@
+#
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
+#
+#
 # INFO: Offset 0x0: found 0x149 bytes before beginning of zipfile
+#
 
 0000 UNEXPECTED PADDING
 
@@ -28,8 +32,10 @@
 0180 Extra ID #0001        0001 'ZIP64'
 0182   Length              0008
 0184   Offset to Local Dir 0000000000000001
+#
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
+#
 
 018C ZIP64 END CENTRAL DIR 06064B50
      RECORD
@@ -59,8 +65,10 @@
 01E4 Size of Central Dir   00000043
 01E8 Offset to Central Dir FFFFFFFF
 01EC Comment Length        0000
+#
 # ERROR: Central Directory exists, but Local Directory not found
 #        Try running with --walk' or '--scan' options
+#
 
 Error Count: 3
 Info Count: 1

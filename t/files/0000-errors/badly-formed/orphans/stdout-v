@@ -25,7 +25,9 @@
           00 00 62 65
           74 61 62 65
           74 61 0A
+#
 # INFO: Offset 0x29: 0x27 Unexpected Padding bytes
+#
 
 0050 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
 0054 0001 0A          Extract Zip Spec      0A '1.0'
@@ -54,7 +56,9 @@
           6C 74 61 64
           65 6C 74 61
           0A
+#
 # INFO: Offset 0x79: 0x29 Unexpected Padding bytes
+#
 
 00A2 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
 00A6 0001 1E          Created Zip Spec      1E '3.0'

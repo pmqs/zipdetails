@@ -25,7 +25,9 @@
 
 0149 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50
 014D 0004 FF E7 0E F9 CRC                   F90EE7FF
+#
 # ERROR: Offset 0x14D: 'DATA DESCRIPTOR': expected 64-bit values, got 32-bit
+#
 0151 0004 0E 01 00 00 Compressed Length     0000010E
 0155 0004 BE 01 00 00 Uncompressed Length   000001BE
 

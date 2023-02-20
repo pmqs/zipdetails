@@ -4,7 +4,9 @@
 0005 0001 00          Extract OS            00 'MS-DOS'
 0006 0002 00 00       General Purpose Flag  0000
 0008 0002 00 10       Compression Method    1000 'Unknown Method'
+#
 # INFO: Offset 0x8: Unknown 'Compression Method' ID 0x1000
+#
 000A 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
 000E 0004 FF E7 0E F9 CRC                   F90EE7FF
 0012 0004 0E 01 00 00 Compressed Length     0000010E
@@ -35,7 +37,9 @@
 0158 0001 00          Extract OS            00 'MS-DOS'
 0159 0002 00 00       General Purpose Flag  0000
 015B 0002 FF 00       Compression Method    00FF 'Unknown Method'
+#
 # INFO: Offset 0x15B: Unknown 'Compression Method' ID 0x00FF
+#
 015D 0004 71 85 98 52 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
 0161 0004 FF E7 0E F9 CRC                   F90EE7FF
 0165 0004 0E 01 00 00 Compressed Length     0000010E

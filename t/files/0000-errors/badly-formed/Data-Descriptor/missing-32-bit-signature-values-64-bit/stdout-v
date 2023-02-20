@@ -19,13 +19,17 @@
 
                       Missing DATA          08074B50
                       DESCRIPTOR Signature
+#
 # ERROR: Offset 0x135: Missimg DATA DESCRIPTOR Signature
+#
 0135 0004 FF E7 0E F9 CRC                   F90EE7FF
 0139 0008 0E 01 00 00 Compressed Length     000000000000010E
           00 00 00 00
 0141 0008 BE 01 00 00 Uncompressed Length   00000000000001BE
           00 00 00 00
+#
 # ERROR: Offset 0x135: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
+#
 
 0149 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
 014D 0001 14          Created Zip Spec      14 '2.0'

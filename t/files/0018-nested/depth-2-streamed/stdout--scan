@@ -80,7 +80,9 @@
      payload
 
 01D6 UNEXPECTED PADDING    .eQ.........
+#
 # INFO: Offset 0x1D6: 0xC Unexpected Padding bytes
+#
 
 01E2 CENTRAL HEADER #2     02014B50
 01E6 Created Zip Spec      1E '3.0'
@@ -117,7 +119,9 @@
 0234 CRC                   B0236139
 
 0238 UNEXPECTED PADDING    ........
+#
 # INFO: Offset 0x238: 0x8 Unexpected Padding bytes
+#
 
 0240 CENTRAL HEADER #3     02014B50
 0244 Created Zip Spec      1E '3.0'
@@ -153,8 +157,12 @@
 INFO: Nested Zip files found: 1
   Offset  Filename
      0x0  'inner2.zip'
+#
 # ERROR: Offset 0x0: Filename 'inner2.zip': Missing 'Data Descriptor'
+#
+#
 # WARNING: Offset 0x240: Filename 'inner2.zip': 'crc32' field mismatch': Central Header has '2955108665', Local Directory has '0'
+#
 
 Error Count: 1
 Warning Count: 1

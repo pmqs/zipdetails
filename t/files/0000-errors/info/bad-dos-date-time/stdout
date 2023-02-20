@@ -4,7 +4,9 @@
 0005 Extract OS            00 'MS-DOS'
 0006 General Purpose Flag  0000
 0008 Compression Method    0000 'Stored'
+#
 # WARNING: Offset 0xE: 'Last Mod Time' value 0x00000005  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
+#
 000A Last Mod Time         00000005 'Invalid Date or Time'
 000E CRC                   0F8A149C
 0012 Compressed Length     00000006
@@ -35,7 +37,9 @@
 0065 Extract OS            00 'MS-DOS'
 0066 General Purpose Flag  0000
 0068 Compression Method    0000 'Stored'
+#
 # WARNING: Offset 0x6E: 'Last Mod Time' value 0x00000004  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+#
 006A Last Mod Time         00000004 'Invalid Date or Time'
 006E CRC                   0F8A149C
 0072 Compressed Length     00000006

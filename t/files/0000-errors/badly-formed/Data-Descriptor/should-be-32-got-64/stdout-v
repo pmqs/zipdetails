@@ -19,7 +19,9 @@
 
 0135 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50
 0139 0004 FF E7 0E F9 CRC                   F90EE7FF
+#
 # ERROR: Offset 0x139: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
+#
 013D 0008 0E 01 00 00 Compressed Length     000000000000010E
           00 00 00 00
 0145 0008 BE 01 00 00 Uncompressed Length   00000000000001BE

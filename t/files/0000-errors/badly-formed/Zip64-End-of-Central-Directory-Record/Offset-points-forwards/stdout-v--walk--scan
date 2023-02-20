@@ -64,8 +64,10 @@
           00 00 00 00
 01AC 0008 B4 01 00 00 Offset to Central dir 00000000000001B4
           00 00 00 00
+#
 # ERROR: Offset 0x1AC: 'Offset to Central Directory' field in 'Zip64 End of Central Directory Record' is invalid
 #        value 0x1B4 must be less that 0x17C
+#
 
 01B4 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
                       LOCATOR

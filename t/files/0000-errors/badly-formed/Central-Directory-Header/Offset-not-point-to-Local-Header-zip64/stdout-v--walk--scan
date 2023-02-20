@@ -49,8 +49,10 @@
 0182 0002 08 00         Length              0008
 0184 0008 01 00 00 00   Offset to Local Dir 0000000000000001
           00 00 00 00
+#
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
+#
 
 018C 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
                       RECORD

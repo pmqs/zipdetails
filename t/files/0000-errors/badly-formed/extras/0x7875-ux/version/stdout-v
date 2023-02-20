@@ -15,7 +15,9 @@
 0026 0002 75 78       Extra ID #0001        7875 'Unix Extra type 3 [ux]'
 0028 0002 03 00         Length              0003
 002A 0001 02            Version             02
+#
 # INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1, got 0x2
+#
 002B 0001 00            UID Size            00
 002C 0001 00            GID Size            00
 002D 0005 61 62 63 64 PAYLOAD               abcde
@@ -45,7 +47,9 @@
 0068 0002 75 78       Extra ID #0001        7875 'Unix Extra type 3 [ux]'
 006A 0002 03 00         Length              0003
 006C 0001 03            Version             03
+#
 # INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1, got 0x3
+#
 006D 0001 00            UID Size            00
 006E 0001 00            GID Size            00
 

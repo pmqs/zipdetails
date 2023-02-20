@@ -85,8 +85,10 @@
 01FC Central Dir Disk no   00000000
 0200 Offset to Zip64 EOCD  0000000000000222
 0208 Total no of Disks     00000001
+#
 # ERROR: Offset 0x200: 'Offset to Zip64 End of Central Directory Record' field in 'Zip64 End of Central Directory Locator' is invalid
 #        value 0x222 is 0x1 bytes past EOF
+#
 
 020C END CENTRAL HEADER    06054B50
 0210 Number of this disk   0000

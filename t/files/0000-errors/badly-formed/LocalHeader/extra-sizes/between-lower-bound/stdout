@@ -13,8 +13,10 @@
 001E Filename              'filename'
 0026 Extra ID #0001        5455 'Extended Timestamp [UT]'
 0028   Length              0000
+#
 # ERROR: Offset 0x28: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): 'Length' field invalid: value must be betweem 0x1 and 0xD, got 0x0
 
+#
 002A PAYLOAD               abcde
 
 002F CENTRAL HEADER #1     02014B50

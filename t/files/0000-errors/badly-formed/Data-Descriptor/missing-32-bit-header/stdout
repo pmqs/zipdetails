@@ -44,8 +44,12 @@
 0228 Size of Central Dir   00000037
 022C Offset to Central Dir 000001E5
 0230 Comment Length        0000
+#
 # ERROR: Offset 0x0: Filename 'lorem.txt': Missing 'Data Descriptor'
+#
+#
 # WARNING: Offset 0x1E5: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+#
 
 Error Count: 1
 Warning Count: 1

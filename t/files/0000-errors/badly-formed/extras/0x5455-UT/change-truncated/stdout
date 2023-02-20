@@ -15,8 +15,10 @@
 0028   Length              0004
 002A   Flags               '04 change'
 002B   Extra Data          abc
+#
 # ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Change Time'
 #        Expected 0x4 bytes, got 0x3 bytes
+#
 002E PAYLOAD               abcde
 
 0033 CENTRAL HEADER #1     02014B50
@@ -43,8 +45,10 @@
 006B   Length              0004
 006D   Flags               '05 mod change'
 006E   Extra Data          abc
+#
 # ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
 #        Expected 0x4 bytes, got 0x3 bytes
+#
 
 0071 END CENTRAL HEADER    06054B50
 0075 Number of this disk   0000

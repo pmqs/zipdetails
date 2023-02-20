@@ -17,8 +17,10 @@
 002A 0001 01            Version             01
 002B 0001 04            UID Size            04
 002C 0003 61 62 63      Bad Extra Data      abc
+#
 # ERROR: Offset 0x2C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'UID'
 #        Expected 0x4 bytes, got 0x3 bytes
+#
 002F 0005 61 62 63 64 PAYLOAD               abcde
           65
 
@@ -48,8 +50,10 @@
 006E 0001 01            Version             01
 006F 0001 04            UID Size            04
 0070 0003 61 62 63      Bad Extra Data      abc
+#
 # ERROR: Offset 0x70: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'UID'
 #        Expected 0x4 bytes, got 0x3 bytes
+#
 
 0073 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 0077 0002 00 00       Number of this disk   0000

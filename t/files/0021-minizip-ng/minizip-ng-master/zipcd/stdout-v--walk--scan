@@ -90,8 +90,10 @@
 0724 0002 0C 00       Extra Length          000C
 0726 0008 5F 5F 63 64 Filename              '__cdcd__'
           63 64 5F 5F
+#
 # ERROR: Offset 0x708: Duplicate Local Directory entry for filename '__cdcd__' at offset 0x708
 #        Existing Local Directory entry is at offset 0x0
+#
 072E 0002 CD CD       Extra ID #0001        CDCD 'Minizip Central Directory'
 0730 0002 08 00         Length              0008
 0732 0008 02 00 00 00   Entries             0000000000000002
