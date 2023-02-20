@@ -3618,45 +3618,6 @@ sub walk_Zip64_in_CD
     }    
 }
 
-# sub decode_Zip64XXX
-# {
-#     # TODO --- delete this function
-#     my $len = shift;
-#     my $entry = shift;
-
-#     my $inCentralHdr = $entry->inCentralDir() ;
-#     my $inLocalHdr = ! $inCentralHdr ;
-
-#     my $fieldStart = $FH->tell();
-#     $ZIP64 = 1;
-#     $entry->zip64 = 1;
-
-#     my $left = $len;
-
-#     if ($left >= 8 && ($inLocalHdr || full32 $entry->std_uncompressedLength)) {
-#         $entry->uncompressedLength = out_Q "  Uncompressed Size";
-#         $left -= 8;
-#     }
-
-#     if ($left >= 8 && ($inLocalHdr || full32 $entry->std_compressedLength)) {
-#         $entry->compressedLength = out_Q "  Compressed Size";
-#         $left -= 8;
-#     }
-
-#     if ($left >= 8 && full32 $entry->std_localHeaderOffset ) {
-#         my $LocalHdrOffset = out_Q "  Offset to Local Dir";
-#         $left -= 8;
-
-#         my $commonMessage = "'Offset to Local Dir' field in 'Zip 64 Extra Field' is invalid";
-#         $entry->localHeaderOffset = checkOffsetValue($LocalHdrOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG) ;
-#     }
-
-#     if ($left >= 4 && full16 $entry->std_diskNumber ) {
-#         $entry->diskNumber = out_V "  Disk Number";
-#         $left -= 4;
-#     }
-# }
-
 sub Ntfs2Unix
 {
     my $m = shift;
