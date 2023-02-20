@@ -4171,7 +4171,7 @@ sub decode_GrowthHint
 
     if ($padding !~ /^\x00+$/)
     {
-        info $FH->tell(), "'Padding' in Extra Field '" . $Extras{0xA220}[0] . "' is not all NULL bytes";
+        info $FH->tell(), extraFieldIdentifier($extraID) . ": 'Padding' is not all NULL bytes";
     }
 }
 

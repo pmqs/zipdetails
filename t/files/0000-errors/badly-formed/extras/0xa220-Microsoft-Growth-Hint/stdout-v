@@ -17,7 +17,7 @@
 002A 0002 31 32         Signature           3231
 002C 0002 61 62         Initial Value       6261
 002E 0003 00 03 00      Padding             00 03 00
-# INFO: Offset 0x31: 'Padding' in Extra Field 'Open Packaging Growth Hint' is not all NULL bytes
+# INFO: Offset 0x31: Extra Field 'Open Packaging Growth Hint' (ID 0xA220): 'Padding' is not all NULL bytes
 0031 0005 61 62 63 64 PAYLOAD               abcde
           65
 
@@ -47,7 +47,7 @@
 0070 0002 31 32         Signature           3231
 0072 0002 61 62         Initial Value       6261
 0074 0002 02 00         Padding             02 00
-# INFO: Offset 0x76: 'Padding' in Extra Field 'Open Packaging Growth Hint' is not all NULL bytes
+# INFO: Offset 0x76: Extra Field 'Open Packaging Growth Hint' (ID 0xA220): 'Padding' is not all NULL bytes
 
 0076 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 007A 0002 00 00       Number of this disk   0000
