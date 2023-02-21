@@ -1,93 +1,93 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 2D          Extract Zip Spec      2D '4.5'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-                      [Bits 1-2]            0 'Normal Compression'
-0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
-000E 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0004 FF FF FF FF Compressed Length     FFFFFFFF
-0016 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
-001A 0002 09 00       Filename Length       0009
-001C 0002 14 00       Extra Length          0014
-001E 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0027 0002 01 00       Extra ID #0001        0001 'ZIP64'
-0029 0002 10 00         Length              0010
-002B 0008 BE 01 00 00   Uncompressed Size   00000000000001BE
-          00 00 00 00
-0033 0008 0E 01 00 00   Compressed Size     000000000000010E
-          00 00 00 00
-003B 010E ...         PAYLOAD
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 2D          Extract Zip Spec      2D '4.5'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 'Deflated'
+000A 000D 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0015 0004 FF FF FF FF Compressed Length     FFFFFFFF
+0016 0019 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+001A 001B 0002 09 00       Filename Length       0009
+001C 001D 0002 14 00       Extra Length          0014
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0027 0028 0002 01 00       Extra ID #0001        0001 'ZIP64'
+0029 002A 0002 10 00         Length              0010
+002B 0032 0008 BE 01 00 00   Uncompressed Size   00000000000001BE
+               00 00 00 00
+0033 003A 0008 0E 01 00 00   Compressed Size     000000000000010E
+               00 00 00 00
+003B 0148 010E ...         PAYLOAD
 
-0149 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-014D 0001 1E          Created Zip Spec      1E '3.0'
-014E 0001 03          Created OS            03 'Unix'
-014F 0001 2D          Extract Zip Spec      2D '4.5'
-0150 0001 00          Extract OS            00 'MS-DOS'
-0151 0002 00 00       General Purpose Flag  0000
-                      [Bits 1-2]            0 'Normal Compression'
-0153 0002 08 00       Compression Method    0008 'Deflated'
-0155 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
-0159 0004 FF E7 0E F9 CRC                   F90EE7FF
-015D 0004 0E 01 00 00 Compressed Length     0000010E
-0161 0004 BE 01 00 00 Uncompressed Length   000001BE
-0165 0002 09 00       Filename Length       0009
-0167 0002 0C 00       Extra Length          000C
-0169 0002 00 00       Comment Length        0000
-016B 0002 00 00       Disk Start            0000
-016D 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-016F 0004 00 00 ED 81 Ext File Attributes   81ED0000
-0173 0004 FF FF FF FF Local Header Offset   FFFFFFFF
-0177 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0180 0002 01 00       Extra ID #0001        0001 'ZIP64'
-0182 0002 08 00         Length              0008
-0184 0008 01 00 00 00   Offset to Local Dir 0000000000000001
-          00 00 00 00
+0149 014C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+014D 014D 0001 1E          Created Zip Spec      1E '3.0'
+014E 014E 0001 03          Created OS            03 'Unix'
+014F 014F 0001 2D          Extract Zip Spec      2D '4.5'
+0150 0150 0001 00          Extract OS            00 'MS-DOS'
+0151 0152 0002 00 00       General Purpose Flag  0000
+                           [Bits 1-2]            0 'Normal Compression'
+0153 0154 0002 08 00       Compression Method    0008 'Deflated'
+0155 0158 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
+0159 015C 0004 FF E7 0E F9 CRC                   F90EE7FF
+015D 0160 0004 0E 01 00 00 Compressed Length     0000010E
+0161 0164 0004 BE 01 00 00 Uncompressed Length   000001BE
+0165 0166 0002 09 00       Filename Length       0009
+0167 0168 0002 0C 00       Extra Length          000C
+0169 016A 0002 00 00       Comment Length        0000
+016B 016C 0002 00 00       Disk Start            0000
+016D 016E 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+016F 0172 0004 00 00 ED 81 Ext File Attributes   81ED0000
+0173 0176 0004 FF FF FF FF Local Header Offset   FFFFFFFF
+0177 017F 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0180 0181 0002 01 00       Extra ID #0001        0001 'ZIP64'
+0182 0183 0002 08 00         Length              0008
+0184 018B 0008 01 00 00 00   Offset to Local Dir 0000000000000001
+               00 00 00 00
 #
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
 #
 
-018C 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
-                      RECORD
-0190 0008 2C 00 00 00 Size of record        000000000000002C
-          00 00 00 00
-0198 0001 1E          Created Zip Spec      1E '3.0'
-0199 0001 03          Created OS            03 'Unix'
-019A 0001 2D          Extract Zip Spec      2D '4.5'
-019B 0001 00          Extract OS            00 'MS-DOS'
-019C 0004 00 00 00 00 Number of this disk   00000000
-01A0 0004 00 00 00 00 Central Dir Disk no   00000000
-01A4 0008 01 00 00 00 Entries in this disk  0000000000000001
-          00 00 00 00
-01AC 0008 01 00 00 00 Total Entries         0000000000000001
-          00 00 00 00
-01B4 0008 43 00 00 00 Size of Central Dir   0000000000000043
-          00 00 00 00
-01BC 0008 49 01 00 00 Offset to Central dir 0000000000000149
-          00 00 00 00
+018C 018F 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
+                           RECORD
+0190 0197 0008 2C 00 00 00 Size of record        000000000000002C
+               00 00 00 00
+0198 0198 0001 1E          Created Zip Spec      1E '3.0'
+0199 0199 0001 03          Created OS            03 'Unix'
+019A 019A 0001 2D          Extract Zip Spec      2D '4.5'
+019B 019B 0001 00          Extract OS            00 'MS-DOS'
+019C 019F 0004 00 00 00 00 Number of this disk   00000000
+01A0 01A3 0004 00 00 00 00 Central Dir Disk no   00000000
+01A4 01AB 0008 01 00 00 00 Entries in this disk  0000000000000001
+               00 00 00 00
+01AC 01B3 0008 01 00 00 00 Total Entries         0000000000000001
+               00 00 00 00
+01B4 01BB 0008 43 00 00 00 Size of Central Dir   0000000000000043
+               00 00 00 00
+01BC 01C3 0008 49 01 00 00 Offset to Central dir 0000000000000149
+               00 00 00 00
 
-01C4 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
-                      LOCATOR
-01C8 0004 00 00 00 00 Central Dir Disk no   00000000
-01CC 0008 8C 01 00 00 Offset to Zip64 EOCD  000000000000018C
-          00 00 00 00
-01D4 0004 01 00 00 00 Total no of Disks     00000001
+01C4 01C7 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                           LOCATOR
+01C8 01CB 0004 00 00 00 00 Central Dir Disk no   00000000
+01CC 01D3 0008 8C 01 00 00 Offset to Zip64 EOCD  000000000000018C
+               00 00 00 00
+01D4 01D7 0004 01 00 00 00 Total no of Disks     00000001
 
-01D8 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-01DC 0002 00 00       Number of this disk   0000
-01DE 0002 00 00       Central Dir Disk no   0000
-01E0 0002 01 00       Entries in this disk  0001
-01E2 0002 01 00       Total Entries         0001
-01E4 0004 43 00 00 00 Size of Central Dir   00000043
-01E8 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
-01EC 0002 00 00       Comment Length        0000
+01D8 01DB 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+01DC 01DD 0002 00 00       Number of this disk   0000
+01DE 01DF 0002 00 00       Central Dir Disk no   0000
+01E0 01E1 0002 01 00       Entries in this disk  0001
+01E2 01E3 0002 01 00       Total Entries         0001
+01E4 01E7 0004 43 00 00 00 Size of Central Dir   00000043
+01E8 01EB 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
+01EC 01ED 0002 00 00       Comment Length        0000
 #
 # ERROR: Orphan Local Headers found: 1
 #  Offset  Filename

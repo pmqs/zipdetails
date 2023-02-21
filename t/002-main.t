@@ -546,6 +546,7 @@ sub compareBytesWithZipFile
     my $hexByte  = '[[:xdigit:]] [[:xdigit:]]' ;
 
     my $offset = 0;
+    my $offset_to = 0;
     my $count = 0;
     my $padding = 0;
     my @stdin = split "\n", $stdout;
@@ -560,7 +561,7 @@ sub compareBytesWithZipFile
         # $count  = substr($_, 4,) ;
 
         # say "LINE [$_]";
-        if (/ ^ ( ( $hexValue ) \s+ ( $hexValue ) ) ( (?: \s $hexByte ){1,4} )/x)
+        if (/ ^ ( ( $hexValue ) \s+ ( $hexValue ) \s+ ( $hexValue ) ) ( (?: \s $hexByte ){1,4} )/x)
         {
             # Match this
             # 000000 000004 50 4B 03 04 LOCAL HEADER #1       04034B50
@@ -577,10 +578,11 @@ sub compareBytesWithZipFile
                 # silence "Hexadecimal number > 0xffffffff non-portable"
                 no warnings 'portable';
                 $offset = hex($2);
-                $count = hex($3) ;
+                $offset_to = hex($3);
+                $count = hex($4) ;
             }
 
-            my $valuesString = $4;
+            my $valuesString = $5;
             $valuesString =~ s/\s+//g;
             my $binaryValue = pack "H*", $valuesString;
             my $len = length($binaryValue) ;

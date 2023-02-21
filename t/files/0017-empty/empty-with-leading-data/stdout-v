@@ -2,16 +2,16 @@
 # INFO: Offset 0x0: found 0x4 bytes before beginning of zipfile
 #
 
-0000 0004 41 42 43 44 UNEXPECTED PADDING    ABCD
+0000 0003 0004 41 42 43 44 UNEXPECTED PADDING    ABCD
 
-0004 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0008 0002 00 00       Number of this disk   0000
-000A 0002 00 00       Central Dir Disk no   0000
-000C 0002 00 00       Entries in this disk  0000
-000E 0002 00 00       Total Entries         0000
-0010 0004 00 00 00 00 Size of Central Dir   00000000
-0014 0004 00 00 00 00 Offset to Central Dir 00000000
-0018 0002 00 00       Comment Length        0000
+0004 0007 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0008 0009 0002 00 00       Number of this disk   0000
+000A 000B 0002 00 00       Central Dir Disk no   0000
+000C 000D 0002 00 00       Entries in this disk  0000
+000E 000F 0002 00 00       Total Entries         0000
+0010 0013 0004 00 00 00 00 Size of Central Dir   00000000
+0014 0017 0004 00 00 00 00 Offset to Central Dir 00000000
+0018 0019 0002 00 00       Comment Length        0000
 #
 # Info Count: 1
 #

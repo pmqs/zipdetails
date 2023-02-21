@@ -430,7 +430,7 @@ sub offset
 }
 
 # Format variables
-my ($OFF,  $LENGTH,  $CONTENT, $TEXT, $VALUE) ;
+my ($OFF,  $ENDS_AT, $LENGTH,  $CONTENT, $TEXT, $VALUE) ;
 
 my $FMT1 = 'STDOUT1';
 my $FMT2 = 'STDOUT2';
@@ -452,17 +452,17 @@ sub setupFormat
     if ($wantVerbose) {
 
         eval "format $FMT1 =
-$width $width ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-\$OFF,     \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
-$space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+$width $width $width ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+\$OFF,     \$ENDS_AT, \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
+$space $space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
                     \$CONTENT, \$TEXT,               \$VALUE
 .
 ";
 
         eval "format $FMT2 =
-$width $width ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-\$OFF,     \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
-$space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+$width $width $width ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+\$OFF,     \$ENDS_AT, \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
+$space $space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
               \$CONTENT, \$TEXT,               \$VALUE
 .
 ";
@@ -567,6 +567,7 @@ sub out
 
     my $size = length($data) ;
 
+    $ENDS_AT = offset($OFFSET + $size - 1) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size) ;
     $CONTENT = hexDump($data);
@@ -586,6 +587,7 @@ sub out0
     my $text = shift;
     my $format = shift;
 
+    $ENDS_AT = offset($OFFSET + $size - 1) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size) ;
     $CONTENT = '...';
@@ -604,6 +606,7 @@ sub out1
     my $text = shift;
     my $format = shift;
 
+    $ENDS_AT = '' ;
     $OFF     = '';
     $LENGTH  = '' ;
     $CONTENT = '';
@@ -622,6 +625,7 @@ sub out2
     my $format = shift;
 
     my $size = length($data) ;
+    $ENDS_AT = offset($OFFSET + $size - 1) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size);
     $CONTENT = hexDump($data);

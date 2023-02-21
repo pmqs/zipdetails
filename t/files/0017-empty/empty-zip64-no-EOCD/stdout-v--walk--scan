@@ -1,18 +1,18 @@
 
-0000 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
-                      LOCATOR
-0004 0004 00 00 00 00 Central Dir Disk no   00000000
-0008 0008 00 00 00 00 Offset to Zip64 EOCD  0000000000000000
-          00 00 00 00
-0010 0004 00 00 00 00 Total no of Disks     00000000
+0000 0003 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                           LOCATOR
+0004 0007 0004 00 00 00 00 Central Dir Disk no   00000000
+0008 000F 0008 00 00 00 00 Offset to Zip64 EOCD  0000000000000000
+               00 00 00 00
+0010 0013 0004 00 00 00 00 Total no of Disks     00000000
 
-0014 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0018 0002 00 00       Number of this disk   0000
-001A 0002 00 00       Central Dir Disk no   0000
-001C 0002 00 00       Entries in this disk  0000
-001E 0002 00 00       Total Entries         0000
-0020 0004 00 00 00 00 Size of Central Dir   00000000
-0024 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
-0028 0002 00 00       Comment Length        0000
+0014 0017 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0018 0019 0002 00 00       Number of this disk   0000
+001A 001B 0002 00 00       Central Dir Disk no   0000
+001C 001D 0002 00 00       Entries in this disk  0000
+001E 001F 0002 00 00       Total Entries         0000
+0020 0023 0004 00 00 00 00 Size of Central Dir   00000000
+0024 0027 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
+0028 0029 0002 00 00       Comment Length        0000
 #
 # Done

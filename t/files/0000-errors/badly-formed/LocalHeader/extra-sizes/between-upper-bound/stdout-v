@@ -1,60 +1,60 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-0008 0002 00 00       Compression Method    0000 'Stored'
-000A 0004 ED 5B 5C 55 Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
-000E 0004 65 D8 87 85 CRC                   8587D865
-0012 0004 05 00 00 00 Compressed Length     00000005
-0016 0004 05 00 00 00 Uncompressed Length   00000005
-001A 0002 08 00       Filename Length       0008
-001C 0002 12 00       Extra Length          0012
-001E 0008 66 69 6C 65 Filename              'filename'
-          6E 61 6D 65
-0026 0002 55 58       Extra ID #0001        5855 'Unix Extra type 1 [UX]'
-0028 0002 0E 00         Length              000E
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+0008 0009 0002 00 00       Compression Method    0000 'Stored'
+000A 000D 0004 ED 5B 5C 55 Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
+000E 0011 0004 65 D8 87 85 CRC                   8587D865
+0012 0015 0004 05 00 00 00 Compressed Length     00000005
+0016 0019 0004 05 00 00 00 Uncompressed Length   00000005
+001A 001B 0002 08 00       Filename Length       0008
+001C 001D 0002 12 00       Extra Length          0012
+001E 0025 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
+0026 0027 0002 55 58       Extra ID #0001        5855 'Unix Extra type 1 [UX]'
+0028 0029 0002 0E 00         Length              000E
 #
 # ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected 0xC, got 0xE
 
 #
-002A 000E 78 78 78 78   Extra Payload       xxxxxxxxxxxxxx
-          78 78 78 78
-          78 78 78 78
-          78 78
-0038 0005 61 62 63 64 PAYLOAD               abcde
-          65
+002A 0037 000E 78 78 78 78   Extra Payload       xxxxxxxxxxxxxx
+               78 78 78 78
+               78 78 78 78
+               78 78
+0038 003C 0005 61 62 63 64 PAYLOAD               abcde
+               65
 
-003D 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0041 0001 14          Created Zip Spec      14 '2.0'
-0042 0001 03          Created OS            03 'Unix'
-0043 0001 14          Extract Zip Spec      14 '2.0'
-0044 0001 00          Extract OS            00 'MS-DOS'
-0045 0002 00 00       General Purpose Flag  0000
-0047 0002 00 00       Compression Method    0000 'Stored'
-0049 0004 ED 5B 5C 55 Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
-004D 0004 65 D8 87 85 CRC                   8587D865
-0051 0004 05 00 00 00 Compressed Length     00000005
-0055 0004 05 00 00 00 Uncompressed Length   00000005
-0059 0002 08 00       Filename Length       0008
-005B 0002 00 00       Extra Length          0000
-005D 0002 00 00       Comment Length        0000
-005F 0002 00 00       Disk Start            0000
-0061 0002 00 00       Int File Attributes   0000
-                      [Bit 0]               0 'Binary Data'
-0063 0004 00 00 A4 81 Ext File Attributes   81A40000
-0067 0004 00 00 00 00 Local Header Offset   00000000
-006B 0008 66 69 6C 65 Filename              'filename'
-          6E 61 6D 65
+003D 0040 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0041 0041 0001 14          Created Zip Spec      14 '2.0'
+0042 0042 0001 03          Created OS            03 'Unix'
+0043 0043 0001 14          Extract Zip Spec      14 '2.0'
+0044 0044 0001 00          Extract OS            00 'MS-DOS'
+0045 0046 0002 00 00       General Purpose Flag  0000
+0047 0048 0002 00 00       Compression Method    0000 'Stored'
+0049 004C 0004 ED 5B 5C 55 Last Mod Time         555C5BED 'Fri Oct 28 11:31:26 2022'
+004D 0050 0004 65 D8 87 85 CRC                   8587D865
+0051 0054 0004 05 00 00 00 Compressed Length     00000005
+0055 0058 0004 05 00 00 00 Uncompressed Length   00000005
+0059 005A 0002 08 00       Filename Length       0008
+005B 005C 0002 00 00       Extra Length          0000
+005D 005E 0002 00 00       Comment Length        0000
+005F 0060 0002 00 00       Disk Start            0000
+0061 0062 0002 00 00       Int File Attributes   0000
+                           [Bit 0]               0 'Binary Data'
+0063 0066 0004 00 00 A4 81 Ext File Attributes   81A40000
+0067 006A 0004 00 00 00 00 Local Header Offset   00000000
+006B 0072 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
 
-0073 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0077 0002 00 00       Number of this disk   0000
-0079 0002 00 00       Central Dir Disk no   0000
-007B 0002 01 00       Entries in this disk  0001
-007D 0002 01 00       Total Entries         0001
-007F 0004 36 00 00 00 Size of Central Dir   00000036
-0083 0004 3D 00 00 00 Offset to Central Dir 0000003D
-0087 0002 00 00       Comment Length        0000
+0073 0076 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0077 0078 0002 00 00       Number of this disk   0000
+0079 007A 0002 00 00       Central Dir Disk no   0000
+007B 007C 0002 01 00       Entries in this disk  0001
+007D 007E 0002 01 00       Total Entries         0001
+007F 0082 0004 36 00 00 00 Size of Central Dir   00000036
+0083 0086 0004 3D 00 00 00 Offset to Central Dir 0000003D
+0087 0088 0002 00 00       Comment Length        0000
 #
 # Error Count: 1
 #

@@ -1,71 +1,71 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 01 00       General Purpose Flag  0001
-                      [Bit  0]              1 'Encryption'
-0008 0002 63 00       Compression Method    0063 'AES Encryption'
-000A 0004 A4 3D 07 55 Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
-000E 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0004 1E 01 00 00 Compressed Length     0000011E
-0016 0004 BE 01 00 00 Uncompressed Length   000001BE
-001A 0002 09 00       Filename Length       0009
-001C 0002 0B 00       Extra Length          000B
-001E 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0027 0002 01 99       Extra ID #0001        9901 'AES Encryption'
-0029 0002 07 00         Length              0007
-002B 0002 01 00         Vendor Version      0001 'AE-1'
-002D 0002 41 45         Vendor ID           4541 'AE'
-002F 0001 01            Encryption Strength 01 '128-bit encryption key'
-0030 0002 08 00         Compression Method  0008 'Deflated'
-0032 0008 25 11 0E 4D AES Salt              25 11 0E 4D 3F 45 C1 10
-          3F 45 C1 10
-003A 0002 DD 8B       AES Pwd Ver           DD 8B
-003C 010A ...         PAYLOAD
-0146 000A 26 70 E4 AE AES Auth              26 70 E4 AE 67 82 C0 94 42 C1
-          67 82 C0 94
-          42 C1
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 01 00       General Purpose Flag  0001
+                           [Bit  0]              1 'Encryption'
+0008 0009 0002 63 00       Compression Method    0063 'AES Encryption'
+000A 000D 0004 A4 3D 07 55 Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF
+0012 0015 0004 1E 01 00 00 Compressed Length     0000011E
+0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE
+001A 001B 0002 09 00       Filename Length       0009
+001C 001D 0002 0B 00       Extra Length          000B
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0027 0028 0002 01 99       Extra ID #0001        9901 'AES Encryption'
+0029 002A 0002 07 00         Length              0007
+002B 002C 0002 01 00         Vendor Version      0001 'AE-1'
+002D 002E 0002 41 45         Vendor ID           4541 'AE'
+002F 002F 0001 01            Encryption Strength 01 '128-bit encryption key'
+0030 0031 0002 08 00         Compression Method  0008 'Deflated'
+0032 0039 0008 25 11 0E 4D AES Salt              25 11 0E 4D 3F 45 C1 10
+               3F 45 C1 10
+003A 003B 0002 DD 8B       AES Pwd Ver           DD 8B
+003C 0145 010A ...         PAYLOAD
+0146 014F 000A 26 70 E4 AE AES Auth              26 70 E4 AE 67 82 C0 94 42 C1
+               67 82 C0 94
+               42 C1
 
-0150 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0154 0001 14          Created Zip Spec      14 '2.0'
-0155 0001 00          Created OS            00 'MS-DOS'
-0156 0001 14          Extract Zip Spec      14 '2.0'
-0157 0001 00          Extract OS            00 'MS-DOS'
-0158 0002 01 00       General Purpose Flag  0001
-                      [Bit  0]              1 'Encryption'
-015A 0002 63 00       Compression Method    0063 'AES Encryption'
-015C 0004 A4 3D 07 55 Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
-0160 0004 FF E7 0E F9 CRC                   F90EE7FF
-0164 0004 1E 01 00 00 Compressed Length     0000011E
-0168 0004 BE 01 00 00 Uncompressed Length   000001BE
-016C 0002 09 00       Filename Length       0009
-016E 0002 0B 00       Extra Length          000B
-0170 0002 00 00       Comment Length        0000
-0172 0002 00 00       Disk Start            0000
-0174 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-0176 0004 20 00 00 00 Ext File Attributes   00000020
-                      [Bit 5]               Archive
-017A 0004 00 00 00 00 Local Header Offset   00000000
-017E 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0187 0002 01 99       Extra ID #0001        9901 'AES Encryption'
-0189 0002 07 00         Length              0007
-018B 0002 01 00         Vendor Version      0001 'AE-1'
-018D 0002 41 45         Vendor ID           4541 'AE'
-018F 0001 01            Encryption Strength 01 '128-bit encryption key'
-0190 0002 08 00         Compression Method  0008 'Deflated'
+0150 0153 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0154 0154 0001 14          Created Zip Spec      14 '2.0'
+0155 0155 0001 00          Created OS            00 'MS-DOS'
+0156 0156 0001 14          Extract Zip Spec      14 '2.0'
+0157 0157 0001 00          Extract OS            00 'MS-DOS'
+0158 0159 0002 01 00       General Purpose Flag  0001
+                           [Bit  0]              1 'Encryption'
+015A 015B 0002 63 00       Compression Method    0063 'AES Encryption'
+015C 015F 0004 A4 3D 07 55 Last Mod Time         55073DA4 'Sun Aug  7 07:45:08 2022'
+0160 0163 0004 FF E7 0E F9 CRC                   F90EE7FF
+0164 0167 0004 1E 01 00 00 Compressed Length     0000011E
+0168 016B 0004 BE 01 00 00 Uncompressed Length   000001BE
+016C 016D 0002 09 00       Filename Length       0009
+016E 016F 0002 0B 00       Extra Length          000B
+0170 0171 0002 00 00       Comment Length        0000
+0172 0173 0002 00 00       Disk Start            0000
+0174 0175 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+0176 0179 0004 20 00 00 00 Ext File Attributes   00000020
+                           [Bit 5]               Archive
+017A 017D 0004 00 00 00 00 Local Header Offset   00000000
+017E 0186 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0187 0188 0002 01 99       Extra ID #0001        9901 'AES Encryption'
+0189 018A 0002 07 00         Length              0007
+018B 018C 0002 01 00         Vendor Version      0001 'AE-1'
+018D 018E 0002 41 45         Vendor ID           4541 'AE'
+018F 018F 0001 01            Encryption Strength 01 '128-bit encryption key'
+0190 0191 0002 08 00         Compression Method  0008 'Deflated'
 
-0192 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0196 0002 00 00       Number of this disk   0000
-0198 0002 00 00       Central Dir Disk no   0000
-019A 0002 01 00       Entries in this disk  0001
-019C 0002 01 00       Total Entries         0001
-019E 0004 42 00 00 00 Size of Central Dir   00000042
-01A2 0004 50 01 00 00 Offset to Central Dir 00000150
-01A6 0002 00 00       Comment Length        0000
+0192 0195 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0196 0197 0002 00 00       Number of this disk   0000
+0198 0199 0002 00 00       Central Dir Disk no   0000
+019A 019B 0002 01 00       Entries in this disk  0001
+019C 019D 0002 01 00       Total Entries         0001
+019E 01A1 0004 42 00 00 00 Size of Central Dir   00000042
+01A2 01A5 0004 50 01 00 00 Offset to Central Dir 00000150
+01A6 01A7 0002 00 00       Comment Length        0000
 #
 # Done

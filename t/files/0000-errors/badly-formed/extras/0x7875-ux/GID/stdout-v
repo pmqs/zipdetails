@@ -1,75 +1,75 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 0A          Extract Zip Spec      0A '1.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-0008 0002 00 00       Compression Method    0000 'Stored'
-000A 0004 90 9E 88 45 Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
-000E 0004 2D 73 07 F0 CRC                   F007732D
-0012 0004 03 00 00 00 Compressed Length     00000003
-0016 0004 03 00 00 00 Uncompressed Length   00000003
-001A 0002 04 00       Filename Length       0004
-001C 0002 1C 00       Extra Length          001C
-001E 0004 74 65 73 74 Filename              'test'
-0022 0002 55 54       Extra ID #0001        5455 'Extended Timestamp [UT]'
-0024 0002 09 00         Length              0009
-0026 0001 03            Flags               '03 mod access'
-0027 0004 6F F3 85 54   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
-002B 0004 8F F3 85 54   Access Time         5485F38F 'Mon Dec  8 18:53:03 2014'
-002F 0002 75 78       Extra ID #0002        7875 'Unix Extra type 3 [ux]'
-0031 0002 0B 00         Length              000B
-0033 0001 01            Version             01
-0034 0001 04            UID Size            04
-0035 0004 E8 03 00 00   UID                 000003E8
-0039 0001 F8            GID Size            F8
-003A 0004 E8 03 00 00   Bad Extra Data      ....
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+0008 0009 0002 00 00       Compression Method    0000 'Stored'
+000A 000D 0004 90 9E 88 45 Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
+000E 0011 0004 2D 73 07 F0 CRC                   F007732D
+0012 0015 0004 03 00 00 00 Compressed Length     00000003
+0016 0019 0004 03 00 00 00 Uncompressed Length   00000003
+001A 001B 0002 04 00       Filename Length       0004
+001C 001D 0002 1C 00       Extra Length          001C
+001E 0021 0004 74 65 73 74 Filename              'test'
+0022 0023 0002 55 54       Extra ID #0001        5455 'Extended Timestamp [UT]'
+0024 0025 0002 09 00         Length              0009
+0026 0026 0001 03            Flags               '03 mod access'
+0027 002A 0004 6F F3 85 54   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
+002B 002E 0004 8F F3 85 54   Access Time         5485F38F 'Mon Dec  8 18:53:03 2014'
+002F 0030 0002 75 78       Extra ID #0002        7875 'Unix Extra type 3 [ux]'
+0031 0032 0002 0B 00         Length              000B
+0033 0033 0001 01            Version             01
+0034 0034 0001 04            UID Size            04
+0035 0038 0004 E8 03 00 00   UID                 000003E8
+0039 0039 0001 F8            GID Size            F8
+003A 003D 0004 E8 03 00 00   Bad Extra Data      ....
 #
 # ERROR: Offset 0x3A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID'
 #        Expected 0xF8 bytes, got 0x4 bytes
 #
-003E 0003 61 61 61    PAYLOAD               aaa
+003E 0040 0003 61 61 61    PAYLOAD               aaa
 
-0041 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0045 0001 1D          Created Zip Spec      1D '2.9'
-0046 0001 EB          Created OS            EB 'Unknown'
-0047 0001 0A          Extract Zip Spec      0A '1.0'
-0048 0001 00          Extract OS            00 'MS-DOS'
-0049 0002 00 00       General Purpose Flag  0000
-004B 0002 00 00       Compression Method    0000 'Stored'
-004D 0004 90 9E 88 45 Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
-0051 0004 2D 73 07 F0 CRC                   F007732D
-0055 0004 03 00 00 00 Compressed Length     00000003
-0059 0004 03 00 00 00 Uncompressed Length   00000003
-005D 0002 04 00       Filename Length       0004
-005F 0002 18 00       Extra Length          0018
-0061 0002 00 00       Comment Length        0000
-0063 0002 00 00       Disk Start            0000
-0065 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-0067 0004 00 00 A4 81 Ext File Attributes   81A40000
-006B 0004 00 00 00 00 Local Header Offset   00000000
-006F 0004 74 65 73 74 Filename              'test'
-0073 0002 55 54       Extra ID #0001        5455 'Extended Timestamp [UT]'
-0075 0002 05 00         Length              0005
-0077 0001 03            Flags               '03 mod access'
-0078 0004 6F F3 85 54   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
-007C 0002 54 78       Extra ID #0002        7854
+0041 0044 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0045 0045 0001 1D          Created Zip Spec      1D '2.9'
+0046 0046 0001 EB          Created OS            EB 'Unknown'
+0047 0047 0001 0A          Extract Zip Spec      0A '1.0'
+0048 0048 0001 00          Extract OS            00 'MS-DOS'
+0049 004A 0002 00 00       General Purpose Flag  0000
+004B 004C 0002 00 00       Compression Method    0000 'Stored'
+004D 0050 0004 90 9E 88 45 Last Mod Time         45889E90 'Mon Dec  8 19:52:32 2014'
+0051 0054 0004 2D 73 07 F0 CRC                   F007732D
+0055 0058 0004 03 00 00 00 Compressed Length     00000003
+0059 005C 0004 03 00 00 00 Uncompressed Length   00000003
+005D 005E 0002 04 00       Filename Length       0004
+005F 0060 0002 18 00       Extra Length          0018
+0061 0062 0002 00 00       Comment Length        0000
+0063 0064 0002 00 00       Disk Start            0000
+0065 0066 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+0067 006A 0004 00 00 A4 81 Ext File Attributes   81A40000
+006B 006E 0004 00 00 00 00 Local Header Offset   00000000
+006F 0072 0004 74 65 73 74 Filename              'test'
+0073 0074 0002 55 54       Extra ID #0001        5455 'Extended Timestamp [UT]'
+0075 0076 0002 05 00         Length              0005
+0077 0077 0001 03            Flags               '03 mod access'
+0078 007B 0004 6F F3 85 54   Mod Time            5485F36F 'Mon Dec  8 18:52:31 2014'
+007C 007D 0002 54 78       Extra ID #0002        7854
 #
 # INFO: Offset 0x7C: Unknown Extra ID 0x7854
 #
-007E 0002 0B 00         Length              000B
-0080 000B 01 04 E8 03   Extra Payload       01 04 E8 03 00 00 04 E8 03 00 00
-          00 00 04 E8
-          03 00 00
+007E 007F 0002 0B 00         Length              000B
+0080 008A 000B 01 04 E8 03   Extra Payload       01 04 E8 03 00 00 04 E8 03 00 00
+               00 00 04 E8
+               03 00 00
 
-008B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-008F 0002 00 00       Number of this disk   0000
-0091 0002 00 00       Central Dir Disk no   0000
-0093 0002 01 00       Entries in this disk  0001
-0095 0002 01 00       Total Entries         0001
-0097 0004 4A 00 00 00 Size of Central Dir   0000004A
-009B 0004 41 00 00 00 Offset to Central Dir 00000041
-009F 0002 00 00       Comment Length        0000
+008B 008E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+008F 0090 0002 00 00       Number of this disk   0000
+0091 0092 0002 00 00       Central Dir Disk no   0000
+0093 0094 0002 01 00       Entries in this disk  0001
+0095 0096 0002 01 00       Total Entries         0001
+0097 009A 0004 4A 00 00 00 Size of Central Dir   0000004A
+009B 009E 0004 41 00 00 00 Offset to Central Dir 00000041
+009F 00A0 0002 00 00       Comment Length        0000
 #
 # Error Count: 1
 # Info Count: 1

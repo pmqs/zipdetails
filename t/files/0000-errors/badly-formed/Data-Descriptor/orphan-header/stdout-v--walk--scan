@@ -1,72 +1,72 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-                      [Bits 1-2]            0 'Normal Compression'
-0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 62 56 9D 55 Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
-000E 0004 00 00 00 00 CRC                   00000000
-0012 0004 00 00 00 00 Compressed Length     00000000
-0016 0004 00 00 00 00 Uncompressed Length   00000000
-001A 0002 09 00       Filename Length       0009
-001C 0002 00 00       Extra Length          0000
-001E 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 'Deflated'
+000A 000D 0004 62 56 9D 55 Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
+000E 0011 0004 00 00 00 00 CRC                   00000000
+0012 0015 0004 00 00 00 00 Compressed Length     00000000
+0016 0019 0004 00 00 00 00 Uncompressed Length   00000000
+001A 001B 0002 09 00       Filename Length       0009
+001C 001D 0002 00 00       Extra Length          0000
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
 
-0027 010E ...         UNEXPECTED PADDING
+0027 0134 010E ...         UNEXPECTED PADDING
 #
 # INFO: Offset 0x27: 0x10E Unexpected Padding bytes
 #
 
-0135 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50
-0139 0000             Skipping Data         No matching Local header with
-                      Descriptor            streaming bit set
+0135 0138 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50
+0139 0138 0000             Skipping Data         No matching Local header with
+                           Descriptor            streaming bit set
 #
 # ERROR: Offset 0x135: Orphan 'DATA DESCRIPTOR' found
 #        No matching Local header with streaming bit set
 #
 
-0139 000C FF E7 0E F9 UNEXPECTED PADDING    ............
-          0E 01 00 00
-          BE 01 00 00
+0139 0144 000C FF E7 0E F9 UNEXPECTED PADDING    ............
+               0E 01 00 00
+               BE 01 00 00
 #
 # INFO: Offset 0x139: 0xC Unexpected Padding bytes
 #
 
-0145 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0149 0001 14          Created Zip Spec      14 '2.0'
-014A 0001 03          Created OS            03 'Unix'
-014B 0001 14          Extract Zip Spec      14 '2.0'
-014C 0001 00          Extract OS            00 'MS-DOS'
-014D 0002 00 00       General Purpose Flag  0000
-                      [Bits 1-2]            0 'Normal Compression'
-014F 0002 08 00       Compression Method    0008 'Deflated'
-0151 0004 62 56 9D 55 Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
-0155 0004 FF E7 0E F9 CRC                   F90EE7FF
-0159 0004 0E 01 00 00 Compressed Length     0000010E
-015D 0004 BE 01 00 00 Uncompressed Length   000001BE
-0161 0002 09 00       Filename Length       0009
-0163 0002 00 00       Extra Length          0000
-0165 0002 00 00       Comment Length        0000
-0167 0002 00 00       Disk Start            0000
-0169 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-016B 0004 00 00 A4 81 Ext File Attributes   81A40000
-016F 0004 00 00 00 00 Local Header Offset   00000000
-0173 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
+0145 0148 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0149 0149 0001 14          Created Zip Spec      14 '2.0'
+014A 014A 0001 03          Created OS            03 'Unix'
+014B 014B 0001 14          Extract Zip Spec      14 '2.0'
+014C 014C 0001 00          Extract OS            00 'MS-DOS'
+014D 014E 0002 00 00       General Purpose Flag  0000
+                           [Bits 1-2]            0 'Normal Compression'
+014F 0150 0002 08 00       Compression Method    0008 'Deflated'
+0151 0154 0004 62 56 9D 55 Last Mod Time         559D5662 'Thu Dec 29 10:51:04 2022'
+0155 0158 0004 FF E7 0E F9 CRC                   F90EE7FF
+0159 015C 0004 0E 01 00 00 Compressed Length     0000010E
+015D 0160 0004 BE 01 00 00 Uncompressed Length   000001BE
+0161 0162 0002 09 00       Filename Length       0009
+0163 0164 0002 00 00       Extra Length          0000
+0165 0166 0002 00 00       Comment Length        0000
+0167 0168 0002 00 00       Disk Start            0000
+0169 016A 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+016B 016E 0004 00 00 A4 81 Ext File Attributes   81A40000
+016F 0172 0004 00 00 00 00 Local Header Offset   00000000
+0173 017B 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
 
-017C 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0180 0002 00 00       Number of this disk   0000
-0182 0002 00 00       Central Dir Disk no   0000
-0184 0002 01 00       Entries in this disk  0001
-0186 0002 01 00       Total Entries         0001
-0188 0004 37 00 00 00 Size of Central Dir   00000037
-018C 0004 45 01 00 00 Offset to Central Dir 00000145
-0190 0002 00 00       Comment Length        0000
+017C 017F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0180 0181 0002 00 00       Number of this disk   0000
+0182 0183 0002 00 00       Central Dir Disk no   0000
+0184 0185 0002 01 00       Entries in this disk  0001
+0186 0187 0002 01 00       Total Entries         0001
+0188 018B 0004 37 00 00 00 Size of Central Dir   00000037
+018C 018F 0004 45 01 00 00 Offset to Central Dir 00000145
+0190 0191 0002 00 00       Comment Length        0000
 #
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
 #

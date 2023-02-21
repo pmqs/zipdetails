@@ -1,55 +1,55 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 0A          Extract Zip Spec      0A '1.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-                      [Bit 1]               0 '4k Sliding Dictionary'
-                      [Bit 2]               0 '2 Shannon-Fano Trees'
-0008 0002 06 00       Compression Method    0006 'Imploded'
-000A 0004 46 B5 22 35 Last Mod Time         3522B546 'Sat Sep  2 22:42:12 2006'
-000E 0004 C7 D8 22 32 CRC                   3222D8C7
-0012 0004 2B 02 00 00 Compressed Length     0000022B
-0016 0004 32 03 00 00 Uncompressed Length   00000332
-001A 0002 0A 00       Filename Length       000A
-001C 0002 00 00       Extra Length          0000
-001E 000A 48 45 41 44 Filename              'HEADER.TXT'
-          45 52 2E 54
-          58 54
-0028 022B ...         PAYLOAD
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+                           [Bit 1]               0 '4k Sliding Dictionary'
+                           [Bit 2]               0 '2 Shannon-Fano Trees'
+0008 0009 0002 06 00       Compression Method    0006 'Imploded'
+000A 000D 0004 46 B5 22 35 Last Mod Time         3522B546 'Sat Sep  2 22:42:12 2006'
+000E 0011 0004 C7 D8 22 32 CRC                   3222D8C7
+0012 0015 0004 2B 02 00 00 Compressed Length     0000022B
+0016 0019 0004 32 03 00 00 Uncompressed Length   00000332
+001A 001B 0002 0A 00       Filename Length       000A
+001C 001D 0002 00 00       Extra Length          0000
+001E 0027 000A 48 45 41 44 Filename              'HEADER.TXT'
+               45 52 2E 54
+               58 54
+0028 0252 022B ...         PAYLOAD
 
-0253 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0257 0001 0B          Created Zip Spec      0B '1.1'
-0258 0001 00          Created OS            00 'MS-DOS'
-0259 0001 0A          Extract Zip Spec      0A '1.0'
-025A 0001 00          Extract OS            00 'MS-DOS'
-025B 0002 00 00       General Purpose Flag  0000
-                      [Bit 1]               0 '4k Sliding Dictionary'
-                      [Bit 2]               0 '2 Shannon-Fano Trees'
-025D 0002 06 00       Compression Method    0006 'Imploded'
-025F 0004 46 B5 22 35 Last Mod Time         3522B546 'Sat Sep  2 22:42:12 2006'
-0263 0004 C7 D8 22 32 CRC                   3222D8C7
-0267 0004 2B 02 00 00 Compressed Length     0000022B
-026B 0004 32 03 00 00 Uncompressed Length   00000332
-026F 0002 0A 00       Filename Length       000A
-0271 0002 00 00       Extra Length          0000
-0273 0002 00 00       Comment Length        0000
-0275 0002 00 00       Disk Start            0000
-0277 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-0279 0004 20 00 00 00 Ext File Attributes   00000020
-                      [Bit 5]               Archive
-027D 0004 00 00 00 00 Local Header Offset   00000000
-0281 000A 48 45 41 44 Filename              'HEADER.TXT'
-          45 52 2E 54
-          58 54
+0253 0256 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0257 0257 0001 0B          Created Zip Spec      0B '1.1'
+0258 0258 0001 00          Created OS            00 'MS-DOS'
+0259 0259 0001 0A          Extract Zip Spec      0A '1.0'
+025A 025A 0001 00          Extract OS            00 'MS-DOS'
+025B 025C 0002 00 00       General Purpose Flag  0000
+                           [Bit 1]               0 '4k Sliding Dictionary'
+                           [Bit 2]               0 '2 Shannon-Fano Trees'
+025D 025E 0002 06 00       Compression Method    0006 'Imploded'
+025F 0262 0004 46 B5 22 35 Last Mod Time         3522B546 'Sat Sep  2 22:42:12 2006'
+0263 0266 0004 C7 D8 22 32 CRC                   3222D8C7
+0267 026A 0004 2B 02 00 00 Compressed Length     0000022B
+026B 026E 0004 32 03 00 00 Uncompressed Length   00000332
+026F 0270 0002 0A 00       Filename Length       000A
+0271 0272 0002 00 00       Extra Length          0000
+0273 0274 0002 00 00       Comment Length        0000
+0275 0276 0002 00 00       Disk Start            0000
+0277 0278 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+0279 027C 0004 20 00 00 00 Ext File Attributes   00000020
+                           [Bit 5]               Archive
+027D 0280 0004 00 00 00 00 Local Header Offset   00000000
+0281 028A 000A 48 45 41 44 Filename              'HEADER.TXT'
+               45 52 2E 54
+               58 54
 
-028B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-028F 0002 00 00       Number of this disk   0000
-0291 0002 00 00       Central Dir Disk no   0000
-0293 0002 01 00       Entries in this disk  0001
-0295 0002 01 00       Total Entries         0001
-0297 0004 38 00 00 00 Size of Central Dir   00000038
-029B 0004 53 02 00 00 Offset to Central Dir 00000253
-029F 0002 00 00       Comment Length        0000
+028B 028E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+028F 0290 0002 00 00       Number of this disk   0000
+0291 0292 0002 00 00       Central Dir Disk no   0000
+0293 0294 0002 01 00       Entries in this disk  0001
+0295 0296 0002 01 00       Total Entries         0001
+0297 029A 0004 38 00 00 00 Size of Central Dir   00000038
+029B 029E 0004 53 02 00 00 Offset to Central Dir 00000253
+029F 02A0 0002 00 00       Comment Length        0000
 #
 # Done

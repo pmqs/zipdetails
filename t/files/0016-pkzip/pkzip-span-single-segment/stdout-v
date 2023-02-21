@@ -1,69 +1,69 @@
 
-0000 0004 50 4B 30 30 SPLIT ARCHIVE         30304B50
-                      SINGLE-SEGMENT MARKER
+0000 0003 0004 50 4B 30 30 SPLIT ARCHIVE         30304B50
+                           SINGLE-SEGMENT MARKER
 
-0004 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0008 0001 14          Extract Zip Spec      14 '2.0'
-0009 0001 00          Extract OS            00 'MS-DOS'
-000A 0002 00 08       General Purpose Flag  0800
-                      [Bits 1-2]            0 'Normal Compression'
-                      [Bit 11]              1 'Language Encoding'
-000C 0002 08 00       Compression Method    0008 'Deflated'
-000E 0004 C0 11 25 55 Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
-0012 0004 FF E7 0E F9 CRC                   F90EE7FF
-0016 0004 0E 01 00 00 Compressed Length     0000010E
-001A 0004 BE 01 00 00 Uncompressed Length   000001BE
-001E 0002 09 00       Filename Length       0009
-0020 0002 00 00       Extra Length          0000
-0022 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-002B 010E ...         PAYLOAD
+0004 0007 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0008 0008 0001 14          Extract Zip Spec      14 '2.0'
+0009 0009 0001 00          Extract OS            00 'MS-DOS'
+000A 000B 0002 00 08       General Purpose Flag  0800
+                           [Bits 1-2]            0 'Normal Compression'
+                           [Bit 11]              1 'Language Encoding'
+000C 000D 0002 08 00       Compression Method    0008 'Deflated'
+000E 0011 0004 C0 11 25 55 Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
+0012 0015 0004 FF E7 0E F9 CRC                   F90EE7FF
+0016 0019 0004 0E 01 00 00 Compressed Length     0000010E
+001A 001D 0004 BE 01 00 00 Uncompressed Length   000001BE
+001E 001F 0002 09 00       Filename Length       0009
+0020 0021 0002 00 00       Extra Length          0000
+0022 002A 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+002B 0138 010E ...         PAYLOAD
 
-0139 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-013D 0001 41          Created Zip Spec      41 '6.5'
-013E 0001 00          Created OS            00 'MS-DOS'
-013F 0001 14          Extract Zip Spec      14 '2.0'
-0140 0001 00          Extract OS            00 'MS-DOS'
-0141 0002 00 08       General Purpose Flag  0800
-                      [Bits 1-2]            0 'Normal Compression'
-                      [Bit 11]              1 'Language Encoding'
-0143 0002 08 00       Compression Method    0008 'Deflated'
-0145 0004 C0 11 25 55 Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
-0149 0004 FF E7 0E F9 CRC                   F90EE7FF
-014D 0004 0E 01 00 00 Compressed Length     0000010E
-0151 0004 BE 01 00 00 Uncompressed Length   000001BE
-0155 0002 09 00       Filename Length       0009
-0157 0002 24 00       Extra Length          0024
-0159 0002 00 00       Comment Length        0000
-015B 0002 00 00       Disk Start            0000
-015D 0002 01 00       Int File Attributes   0001
-                      [Bit 0]               1 Text Data
-015F 0004 20 00 00 00 Ext File Attributes   00000020
-                      [Bit 5]               Archive
-0163 0004 04 00 00 00 Local Header Offset   00000004
-0167 0009 6C 6F 72 65 Filename              'lorem.txt'
-          6D 2E 74 78
-          74
-0170 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0172 0002 20 00         Length              0020
-0174 0004 00 00 00 00   Reserved            00000000
-0178 0002 01 00         Tag1                0001
-017A 0002 18 00         Size1               0018
-017C 0008 E4 C6 82 D5   Mtime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
-          07 C1 D8 01                       2022 847907600ns'
-0184 0008 8E C5 E7 FB   Atime               01D8C107FBE7C58E 'Mon Sep  5 09:15:04
-          07 C1 D8 01                       2022 263207800ns'
-018C 0008 E4 C6 82 D5   Ctime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
-          07 C1 D8 01                       2022 847907600ns'
+0139 013C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+013D 013D 0001 41          Created Zip Spec      41 '6.5'
+013E 013E 0001 00          Created OS            00 'MS-DOS'
+013F 013F 0001 14          Extract Zip Spec      14 '2.0'
+0140 0140 0001 00          Extract OS            00 'MS-DOS'
+0141 0142 0002 00 08       General Purpose Flag  0800
+                           [Bits 1-2]            0 'Normal Compression'
+                           [Bit 11]              1 'Language Encoding'
+0143 0144 0002 08 00       Compression Method    0008 'Deflated'
+0145 0148 0004 C0 11 25 55 Last Mod Time         552511C0 'Mon Sep  5 02:14:00 2022'
+0149 014C 0004 FF E7 0E F9 CRC                   F90EE7FF
+014D 0150 0004 0E 01 00 00 Compressed Length     0000010E
+0151 0154 0004 BE 01 00 00 Uncompressed Length   000001BE
+0155 0156 0002 09 00       Filename Length       0009
+0157 0158 0002 24 00       Extra Length          0024
+0159 015A 0002 00 00       Comment Length        0000
+015B 015C 0002 00 00       Disk Start            0000
+015D 015E 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 Text Data
+015F 0162 0004 20 00 00 00 Ext File Attributes   00000020
+                           [Bit 5]               Archive
+0163 0166 0004 04 00 00 00 Local Header Offset   00000004
+0167 016F 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0170 0171 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
+0172 0173 0002 20 00         Length              0020
+0174 0177 0004 00 00 00 00   Reserved            00000000
+0178 0179 0002 01 00         Tag1                0001
+017A 017B 0002 18 00         Size1               0018
+017C 0183 0008 E4 C6 82 D5   Mtime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
+               07 C1 D8 01                       2022 847907600ns'
+0184 018B 0008 8E C5 E7 FB   Atime               01D8C107FBE7C58E 'Mon Sep  5 09:15:04
+               07 C1 D8 01                       2022 263207800ns'
+018C 0193 0008 E4 C6 82 D5   Ctime               01D8C107D582C6E4 'Mon Sep  5 09:13:59
+               07 C1 D8 01                       2022 847907600ns'
 
-0194 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0198 0002 00 00       Number of this disk   0000
-019A 0002 00 00       Central Dir Disk no   0000
-019C 0002 01 00       Entries in this disk  0001
-019E 0002 01 00       Total Entries         0001
-01A0 0004 5B 00 00 00 Size of Central Dir   0000005B
-01A4 0004 39 01 00 00 Offset to Central Dir 00000139
-01A8 0002 00 00       Comment Length        0000
+0194 0197 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0198 0199 0002 00 00       Number of this disk   0000
+019A 019B 0002 00 00       Central Dir Disk no   0000
+019C 019D 0002 01 00       Entries in this disk  0001
+019E 019F 0002 01 00       Total Entries         0001
+01A0 01A3 0004 5B 00 00 00 Size of Central Dir   0000005B
+01A4 01A7 0004 39 01 00 00 Offset to Central Dir 00000139
+01A8 01A9 0002 00 00       Comment Length        0000
 #
 # Done

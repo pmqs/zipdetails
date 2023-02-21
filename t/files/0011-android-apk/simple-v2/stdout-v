@@ -1,90 +1,90 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 02 00       General Purpose Flag  0002
-                      [Bits 1-2]            1 'Maximum Compression'
-0008 0002 08 00       Compression Method    0008 'Deflated'
-000A 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
-000E 0004 D5 50 2C 6B CRC                   6B2C50D5
-0012 0004 52 00 00 00 Compressed Length     00000052
-0016 0004 98 00 00 00 Uncompressed Length   00000098
-001A 0002 13 00       Filename Length       0013
-001C 0002 00 00       Extra Length          0000
-001E 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
-          6F 69 64 4D
-          61 6E 69 66
-          65 73 74 2E
-          78 6D 6C
-0031 0052 65 C1 31 0A PAYLOAD               e.1..@.....".6)...kkK.r.QD.A..oM.....
-          C2 40 10 00                       0.
-          C0 D9 DB 22                       ..#`..j}...:........f...)1:....._..*Y
-          07 36 29 14                       .1.l-
-          F2 00 6B 6B
-          4B BF 72 1C
-          51 44 14 41
-          1F E3 6F 4D
-          FA CC A4 EA
-          87 30 B9 20
-          01 82 23 60
-          87 03 6A 7D
-          B6 D7 FD 3A
-          7F BE 86 E1
-          DD FA A3 DD
-          66 99 FD D4
-          29 31 3A DB
-          DA AF 03 F0
-          5F 05 0A 2A
-          59 90 31 9A
-          6C 2D
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 02 00       General Purpose Flag  0002
+                           [Bits 1-2]            1 'Maximum Compression'
+0008 0009 0002 08 00       Compression Method    0008 'Deflated'
+000A 000D 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
+000E 0011 0004 D5 50 2C 6B CRC                   6B2C50D5
+0012 0015 0004 52 00 00 00 Compressed Length     00000052
+0016 0019 0004 98 00 00 00 Uncompressed Length   00000098
+001A 001B 0002 13 00       Filename Length       0013
+001C 001D 0002 00 00       Extra Length          0000
+001E 0030 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
+               6F 69 64 4D
+               61 6E 69 66
+               65 73 74 2E
+               78 6D 6C
+0031 0082 0052 65 C1 31 0A PAYLOAD               e.1..@.....".6)...kkK.r.QD.A..oM.....
+               C2 40 10 00                       0.
+               C0 D9 DB 22                       ..#`..j}...:........f...)1:....._..*Y
+               07 36 29 14                       .1.l-
+               F2 00 6B 6B
+               4B BF 72 1C
+               51 44 14 41
+               1F E3 6F 4D
+               FA CC A4 EA
+               87 30 B9 20
+               01 82 23 60
+               87 03 6A 7D
+               B6 D7 FD 3A
+               7F BE 86 E1
+               DD FA A3 DD
+               66 99 FD D4
+               29 31 3A DB
+               DA AF 03 F0
+               5F 05 0A 2A
+               59 90 31 9A
+               6C 2D
 
-0083 0000             APK SIGNING BLOCK
-0083 0008 C4 01 00 00 Block Length Copy #1  00000000000001C4
-          00 00 00 00
-008B 0008 A4 01 00 00 ID/Value Length #1    00000000000001A4
-          00 00 00 00
-0093 0004 1A 87 09 71   ID                  7109871A 'APK Signature v2'
-0097 01A0 ...           Value
-0237 0008 C4 01 00 00 Block Length Copy #2  00000000000001C4
-          00 00 00 00
-023F 0010 41 50 4B 20 Magic                 'APK Sig Block 42'
-          53 69 67 20
-          42 6C 6F 63
-          6B 20 34 32
+0083 0082 0000             APK SIGNING BLOCK
+0083 008A 0008 C4 01 00 00 Block Length Copy #1  00000000000001C4
+               00 00 00 00
+008B 0092 0008 A4 01 00 00 ID/Value Length #1    00000000000001A4
+               00 00 00 00
+0093 0096 0004 1A 87 09 71   ID                  7109871A 'APK Signature v2'
+0097 0236 01A0 ...           Value
+0237 023E 0008 C4 01 00 00 Block Length Copy #2  00000000000001C4
+               00 00 00 00
+023F 024E 0010 41 50 4B 20 Magic                 'APK Sig Block 42'
+               53 69 67 20
+               42 6C 6F 63
+               6B 20 34 32
 
-024F 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0253 0001 1E          Created Zip Spec      1E '3.0'
-0254 0001 03          Created OS            03 'Unix'
-0255 0001 14          Extract Zip Spec      14 '2.0'
-0256 0001 00          Extract OS            00 'MS-DOS'
-0257 0002 02 00       General Purpose Flag  0002
-                      [Bits 1-2]            1 'Maximum Compression'
-0259 0002 08 00       Compression Method    0008 'Deflated'
-025B 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
-025F 0004 D5 50 2C 6B CRC                   6B2C50D5
-0263 0004 52 00 00 00 Compressed Length     00000052
-0267 0004 98 00 00 00 Uncompressed Length   00000098
-026B 0002 13 00       Filename Length       0013
-026D 0002 00 00       Extra Length          0000
-026F 0002 00 00       Comment Length        0000
-0271 0002 00 00       Disk Start            0000
-0273 0002 00 00       Int File Attributes   0000
-                      [Bit 0]               0 'Binary Data'
-0275 0004 00 00 A0 81 Ext File Attributes   81A00000
-0279 0004 00 00 00 00 Local Header Offset   00000000
-027D 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
-          6F 69 64 4D
-          61 6E 69 66
-          65 73 74 2E
-          78 6D 6C
+024F 0252 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+0253 0253 0001 1E          Created Zip Spec      1E '3.0'
+0254 0254 0001 03          Created OS            03 'Unix'
+0255 0255 0001 14          Extract Zip Spec      14 '2.0'
+0256 0256 0001 00          Extract OS            00 'MS-DOS'
+0257 0258 0002 02 00       General Purpose Flag  0002
+                           [Bits 1-2]            1 'Maximum Compression'
+0259 025A 0002 08 00       Compression Method    0008 'Deflated'
+025B 025E 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 'Wed Oct 11 13:27:16 2017'
+025F 0262 0004 D5 50 2C 6B CRC                   6B2C50D5
+0263 0266 0004 52 00 00 00 Compressed Length     00000052
+0267 026A 0004 98 00 00 00 Uncompressed Length   00000098
+026B 026C 0002 13 00       Filename Length       0013
+026D 026E 0002 00 00       Extra Length          0000
+026F 0270 0002 00 00       Comment Length        0000
+0271 0272 0002 00 00       Disk Start            0000
+0273 0274 0002 00 00       Int File Attributes   0000
+                           [Bit 0]               0 'Binary Data'
+0275 0278 0004 00 00 A0 81 Ext File Attributes   81A00000
+0279 027C 0004 00 00 00 00 Local Header Offset   00000000
+027D 028F 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
+               6F 69 64 4D
+               61 6E 69 66
+               65 73 74 2E
+               78 6D 6C
 
-0290 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0294 0002 00 00       Number of this disk   0000
-0296 0002 00 00       Central Dir Disk no   0000
-0298 0002 01 00       Entries in this disk  0001
-029A 0002 01 00       Total Entries         0001
-029C 0004 41 00 00 00 Size of Central Dir   00000041
-02A0 0004 4F 02 00 00 Offset to Central Dir 0000024F
-02A4 0002 00 00       Comment Length        0000
+0290 0293 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0294 0295 0002 00 00       Number of this disk   0000
+0296 0297 0002 00 00       Central Dir Disk no   0000
+0298 0299 0002 01 00       Entries in this disk  0001
+029A 029B 0002 01 00       Total Entries         0001
+029C 029F 0004 41 00 00 00 Size of Central Dir   00000041
+02A0 02A3 0004 4F 02 00 00 Offset to Central Dir 0000024F
+02A4 02A5 0002 00 00       Comment Length        0000
 #
 # Done

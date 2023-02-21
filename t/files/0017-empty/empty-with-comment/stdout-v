@@ -1,15 +1,15 @@
 
-0000 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0004 0002 00 00       Number of this disk   0000
-0006 0002 00 00       Central Dir Disk no   0000
-0008 0002 00 00       Entries in this disk  0000
-000A 0002 00 00       Total Entries         0000
-000C 0004 00 00 00 00 Size of Central Dir   00000000
-0010 0004 00 00 00 00 Offset to Central Dir 00000000
-0014 0002 0D 00       Comment Length        000D
-0016 000D 68 65 6C 6C Comment               'helllo world '
-          6C 6F 20 77
-          6F 72 6C 64
-          0A
+0000 0003 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0004 0005 0002 00 00       Number of this disk   0000
+0006 0007 0002 00 00       Central Dir Disk no   0000
+0008 0009 0002 00 00       Entries in this disk  0000
+000A 000B 0002 00 00       Total Entries         0000
+000C 000F 0004 00 00 00 00 Size of Central Dir   00000000
+0010 0013 0004 00 00 00 00 Offset to Central Dir 00000000
+0014 0015 0002 0D 00       Comment Length        000D
+0016 0022 000D 68 65 6C 6C Comment               'helllo world '
+               6C 6F 20 77
+               6F 72 6C 64
+               0A
 #
 # Done

@@ -1,66 +1,66 @@
 
-0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0002 00 00       General Purpose Flag  0000
-0008 0002 00 00       Compression Method    0000 'Stored'
-000A 0004 FC 4C 6F 55 Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
-000E 0004 65 D8 87 85 CRC                   8587D865
-0012 0004 05 00 00 00 Compressed Length     00000005
-0016 0004 05 00 00 00 Uncompressed Length   00000005
-001A 0002 08 00       Filename Length       0008
-001C 0002 0B 00       Extra Length          000B
-001E 0008 66 69 6C 65 Filename              'filename'
-          6E 61 6D 65
-0026 0002 20 A2       Extra ID #0001        A220 'Open Packaging Growth Hint'
-0028 0002 07 00         Length              0007
-002A 0002 31 32         Signature           3231
-002C 0002 61 62         Initial Value       6261
-002E 0003 00 03 00      Padding             00 03 00
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+0008 0009 0002 00 00       Compression Method    0000 'Stored'
+000A 000D 0004 FC 4C 6F 55 Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
+000E 0011 0004 65 D8 87 85 CRC                   8587D865
+0012 0015 0004 05 00 00 00 Compressed Length     00000005
+0016 0019 0004 05 00 00 00 Uncompressed Length   00000005
+001A 001B 0002 08 00       Filename Length       0008
+001C 001D 0002 0B 00       Extra Length          000B
+001E 0025 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
+0026 0027 0002 20 A2       Extra ID #0001        A220 'Open Packaging Growth Hint'
+0028 0029 0002 07 00         Length              0007
+002A 002B 0002 31 32         Signature           3231
+002C 002D 0002 61 62         Initial Value       6261
+002E 0030 0003 00 03 00      Padding             00 03 00
 #
 # INFO: Offset 0x31: Extra Field 'Open Packaging Growth Hint' (ID 0xA220): 'Padding' is not all NULL bytes
 #
-0031 0005 61 62 63 64 PAYLOAD               abcde
-          65
+0031 0035 0005 61 62 63 64 PAYLOAD               abcde
+               65
 
-0036 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-003A 0001 14          Created Zip Spec      14 '2.0'
-003B 0001 03          Created OS            03 'Unix'
-003C 0001 14          Extract Zip Spec      14 '2.0'
-003D 0001 00          Extract OS            00 'MS-DOS'
-003E 0002 00 00       General Purpose Flag  0000
-0040 0002 00 00       Compression Method    0000 'Stored'
-0042 0004 FC 4C 6F 55 Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
-0046 0004 65 D8 87 85 CRC                   8587D865
-004A 0004 05 00 00 00 Compressed Length     00000005
-004E 0004 05 00 00 00 Uncompressed Length   00000005
-0052 0002 08 00       Filename Length       0008
-0054 0002 0A 00       Extra Length          000A
-0056 0002 00 00       Comment Length        0000
-0058 0002 00 00       Disk Start            0000
-005A 0002 00 00       Int File Attributes   0000
-                      [Bit 0]               0 'Binary Data'
-005C 0004 00 00 A4 81 Ext File Attributes   81A40000
-0060 0004 00 00 00 00 Local Header Offset   00000000
-0064 0008 66 69 6C 65 Filename              'filename'
-          6E 61 6D 65
-006C 0002 20 A2       Extra ID #0001        A220 'Open Packaging Growth Hint'
-006E 0002 06 00         Length              0006
-0070 0002 31 32         Signature           3231
-0072 0002 61 62         Initial Value       6261
-0074 0002 02 00         Padding             02 00
+0036 0039 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+003A 003A 0001 14          Created Zip Spec      14 '2.0'
+003B 003B 0001 03          Created OS            03 'Unix'
+003C 003C 0001 14          Extract Zip Spec      14 '2.0'
+003D 003D 0001 00          Extract OS            00 'MS-DOS'
+003E 003F 0002 00 00       General Purpose Flag  0000
+0040 0041 0002 00 00       Compression Method    0000 'Stored'
+0042 0045 0004 FC 4C 6F 55 Last Mod Time         556F4CFC 'Tue Nov 15 09:39:56 2022'
+0046 0049 0004 65 D8 87 85 CRC                   8587D865
+004A 004D 0004 05 00 00 00 Compressed Length     00000005
+004E 0051 0004 05 00 00 00 Uncompressed Length   00000005
+0052 0053 0002 08 00       Filename Length       0008
+0054 0055 0002 0A 00       Extra Length          000A
+0056 0057 0002 00 00       Comment Length        0000
+0058 0059 0002 00 00       Disk Start            0000
+005A 005B 0002 00 00       Int File Attributes   0000
+                           [Bit 0]               0 'Binary Data'
+005C 005F 0004 00 00 A4 81 Ext File Attributes   81A40000
+0060 0063 0004 00 00 00 00 Local Header Offset   00000000
+0064 006B 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
+006C 006D 0002 20 A2       Extra ID #0001        A220 'Open Packaging Growth Hint'
+006E 006F 0002 06 00         Length              0006
+0070 0071 0002 31 32         Signature           3231
+0072 0073 0002 61 62         Initial Value       6261
+0074 0075 0002 02 00         Padding             02 00
 #
 # INFO: Offset 0x76: Extra Field 'Open Packaging Growth Hint' (ID 0xA220): 'Padding' is not all NULL bytes
 #
 
-0076 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-007A 0002 00 00       Number of this disk   0000
-007C 0002 00 00       Central Dir Disk no   0000
-007E 0002 01 00       Entries in this disk  0001
-0080 0002 01 00       Total Entries         0001
-0082 0004 40 00 00 00 Size of Central Dir   00000040
-0086 0004 36 00 00 00 Offset to Central Dir 00000036
-008A 0002 00 00       Comment Length        0000
+0076 0079 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+007A 007B 0002 00 00       Number of this disk   0000
+007C 007D 0002 00 00       Central Dir Disk no   0000
+007E 007F 0002 01 00       Entries in this disk  0001
+0080 0081 0002 01 00       Total Entries         0001
+0082 0085 0004 40 00 00 00 Size of Central Dir   00000040
+0086 0089 0004 36 00 00 00 Offset to Central Dir 00000036
+008A 008B 0002 00 00       Comment Length        0000
 #
 # Info Count: 2
 #
