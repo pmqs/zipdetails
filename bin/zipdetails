@@ -429,10 +429,11 @@ sub offset
     sprintf("%0${NIBBLES}X", $v);
 }
 
+# Format variables
 my ($OFF,  $LENGTH,  $CONTENT, $TEXT, $VALUE) ;
 
-my $FMT1 ;
-my $FMT2 ;
+my $FMT1 = 'STDOUT1';
+my $FMT2 = 'STDOUT2';
 
 sub setupFormat
 {
@@ -450,8 +451,7 @@ sub setupFormat
 
     if ($wantVerbose) {
 
-        $FMT1 = "
-        format STDOUT =
+        eval "format $FMT1 =
 $width $width ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \$OFF,     \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
 $space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
@@ -459,19 +459,17 @@ $space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 .
 ";
 
-        $FMT2 = "
-        format STDOUT =
+        eval "format $FMT2 =
 $width $width ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \$OFF,     \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
 $space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
               \$CONTENT, \$TEXT,               \$VALUE
-.  " ;
+.
+";
 
     }
     else {
-
-        $FMT1 = "
-        format STDOUT =
+        eval "format $FMT1 =
 $width ^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \$OFF,      \$TEXT,               \$VALUE
 $space ^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
@@ -479,18 +477,20 @@ $space ^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
 .
 ";
 
-        $FMT2 = "
-    format STDOUT =
+        eval "format $FMT2 =
 $width   ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 \$OFF,     \$TEXT,               \$VALUE
 $space   ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
                     \$TEXT,               \$VALUE
 .
-" ;
+"
     }
 
-    eval "$FMT1";
+    no strict 'refs';
+    open($FMT1, ">&", \*STDOUT); select $FMT1; $| = 1 ;
+    open($FMT2, ">&", \*STDOUT); select $FMT2; $| = 1 ;
 
+    select 'STDOUT';
     $| = 1;
 
 }
@@ -575,7 +575,7 @@ sub out
 
     no warnings;
 
-    write;
+    write $FMT1 ;
 
     $lastWasMessage = 0;
 }
@@ -592,7 +592,7 @@ sub out0
     $TEXT    = $text;
     $VALUE   = mySpr $format,  @_;
 
-    write;
+    write $FMT1;
 
     skip($FH, $size);
 
@@ -610,7 +610,7 @@ sub out1
     $TEXT    = $text;
     $VALUE   = mySpr $format,  @_;
 
-    write;
+    write $FMT1;
 
     $lastWasMessage = 0;
 }
@@ -629,9 +629,7 @@ sub out2
     $VALUE   = mySpr $format,  @_;
 
     no warnings;
-    eval "$FMT2";
-    write ;
-    eval "$FMT1";
+    write $FMT2;
 
     $lastWasMessage = 0;
 }
