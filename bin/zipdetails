@@ -1343,9 +1343,10 @@ sub dislayMessages
     # Compare Central & LOcal for discrepencies
     if ($CentralDirectory->exists() && $LocalDirectory->exists())
     {
-        # TODO check number if entries matches eocd
+        # TODO check number of entries matches eocd
         # TODO check header length matches reality
 
+        $LocalDirectory->sortByLocalOffset();
         $LocalDirectory->findEnclosingEntries();
         my %cleanCentralEntries = %{ $CentralDirectory->{byCentralOffset} };
         my %benignNested ;
