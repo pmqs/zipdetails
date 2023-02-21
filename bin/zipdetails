@@ -504,23 +504,6 @@ sub mySpr
     return sprintf $format, @_ ;
 }
 
-sub out0
-{
-    my $size = shift;
-    my $text = shift;
-    my $format = shift;
-
-    $OFF     = prOff($size);
-    $LENGTH  = offset($size) ;
-    $CONTENT = '...';
-    $TEXT    = $text;
-    $VALUE   = mySpr $format,  @_;
-
-    write;
-
-    skip($FH, $size);
-}
-
 sub xDump
 {
     my $input = shift;
@@ -593,6 +576,25 @@ sub out
     no warnings;
 
     write;
+
+    $lastWasMessage = 0;
+}
+
+sub out0
+{
+    my $size = shift;
+    my $text = shift;
+    my $format = shift;
+
+    $OFF     = prOff($size);
+    $LENGTH  = offset($size) ;
+    $CONTENT = '...';
+    $TEXT    = $text;
+    $VALUE   = mySpr $format,  @_;
+
+    write;
+
+    skip($FH, $size);
 
     $lastWasMessage = 0;
 }
