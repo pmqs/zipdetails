@@ -392,6 +392,7 @@ my $CentralHeaderCount = 0;
 my $InfoCount = 0;
 my $WarningCount = 0;
 my $ErrorCount = 0;
+my $lastWasMessage = 0;
 
 my $fatalDisabled = 0;
 
@@ -592,6 +593,8 @@ sub out
     no warnings;
 
     write;
+
+    $lastWasMessage = 0;
 }
 
 sub out1
@@ -606,6 +609,8 @@ sub out1
     $VALUE   = mySpr $format,  @_;
 
     write;
+
+    $lastWasMessage = 0;
 }
 
 sub out2
@@ -625,6 +630,8 @@ sub out2
     eval "$FMT2";
     write ;
     eval "$FMT1";
+
+    $lastWasMessage = 0;
 }
 
 sub Value
@@ -1363,7 +1370,6 @@ sub dislayMessages
                 say sprintf "#  %-${ow}s  Filename", "Offset" ;
                 say sprintf("#  %+${ow}s  '" . $orphans{$_} . "'", hexValue($_))
                     for sort { $a <=> $b } keys %orphans ;
-                say "#";
             }
         }
 
@@ -1388,7 +1394,6 @@ sub dislayMessages
                 say sprintf "#  %-${ow}s  Filename", "Offset" ;
                 say sprintf("#  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_))
                     for sort { $a <=> $b } keys %orphans ;
-                say "#";
 
                 delete $cleanCentralEntries{ $_ }
                     for keys %orphans ;
@@ -1428,7 +1433,6 @@ sub dislayMessages
                 say sprintf "#  %-${ow}s  Filename", "Offset" ;
                 say sprintf("#  %+${ow}s  '" . $outerEntries{$_} . "'", hexValue($_))
                     for sort keys %outerEntries;
-                say "#";
             }
         }
 
@@ -1480,7 +1484,6 @@ sub dislayMessages
                     say sprintf "#  %-${ow}s  Filename", "Offset" ;
                     say sprintf("#  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset))
                         for @entries;
-                    say "#";
 
                     delete $cleanCentralEntries{ $_ }
                         for map { $_->centralHeaderOffset() } @entries ;
@@ -1540,7 +1543,6 @@ sub dislayMessages
                         say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . hexValue($n)  ;
                     }
                 }
-                say "#";
             }
 
             if (keys %bomb)
@@ -1563,7 +1565,6 @@ sub dislayMessages
                     say sprintf "#  %-${ow}s  Filename", "Offset" ;
                     say sprintf("#  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->filename . "'", hexValue($_))
                         for sort @{ $bomb{$loc} };
-                    say "#";
 
                     delete $cleanCentralEntries{ $_ }
                         for grep { defined $_ }
@@ -1624,16 +1625,18 @@ sub dislayMessages
 
     }
 
-    say "#"
-        if $ErrorCount ||$WarningCount || $InfoCount ;
+    if ($ErrorCount ||$WarningCount || $InfoCount )
+    {
+        say "#"
+            unless $lastWasMessage ;
 
-    say "# Error Count: $ErrorCount"
-        if $ErrorCount;
-    say "# Warning Count: $WarningCount"
-        if $WarningCount;
-    say "# Info Count: $InfoCount"
-        if $InfoCount;
-    say "#";
+        say "# Error Count: $ErrorCount"
+            if $ErrorCount;
+        say "# Warning Count: $WarningCount"
+            if $WarningCount;
+        say "# Info Count: $InfoCount"
+            if $InfoCount;
+    }
     
     if (@Messages)
     {
@@ -3147,19 +3150,22 @@ sub warning
     my $offset   = shift ;
     my $message  = shift;
 
+    say "#"
+        unless $lastWasMessage ++ ;
+
     if (defined $offset)
     {
-        print "#\n# WARNING: Offset " . hexValue($offset) . ": $message\n";
+        say "# WARNING: Offset " . hexValue($offset) . ": $message";
     }
     else
     {
-        print "#\n# WARNING: $message\n";
+        say "# WARNING: $message";
     }
 
 
-    # print "# WARNING: $message\n";
-    print "#          $_\n" for @_ ;
-    print "#\n";
+    # say "# WARNING: $message";
+    say "#          $_" for @_ ;
+    say "#";
     ++ $WarningCount ;
 }
 
@@ -3168,18 +3174,22 @@ sub error
     my $offset   = shift ;
     my $message  = shift;
 
+    say "#"
+        unless $lastWasMessage ++ ;
+
     if (defined $offset)
     {
-        print "#\n# ERROR: Offset " . hexValue($offset) . ": $message\n";
+        say "# ERROR: Offset " . hexValue($offset) . ": $message";
     }
     else
     {
-        print "#\n# ERROR: $message\n";
+        say "# ERROR: $message";
     }
 
 
-    print "#        $_\n" for @_ ;
-    print "#\n";
+    say "#        $_" for @_ ;
+    say "#";
+
     ++ $ErrorCount ;
 }
 
@@ -3187,11 +3197,11 @@ sub internalError
 {
     my $message  = shift;
 
-    print "#\n";
-    print "# ERROR: $message\n";
-    print "#        $_\n" for @_ ;
-    print "#        Please report error at https://github.com/pmqs/zipdetails/issues\n";
-    print "#\n";
+    say "#";
+    say "# ERROR: $message";
+    say "#        $_" for @_ ;
+    say "#        Please report error at https://github.com/pmqs/zipdetails/issues";
+    say "#";
 
     ++ $ErrorCount ;
 }
@@ -3211,17 +3221,20 @@ sub info
     my $offset   = shift;
     my $message  = shift;
 
+    say "#"
+        unless $lastWasMessage ++ ;
+
     if (defined $offset)
     {
-        print "#\n# INFO: Offset " . hexValue($offset) . ": $message\n";
+        say "# INFO: Offset " . hexValue($offset) . ": $message";
     }
     else
     {
-        print "#\n# INFO: $message\n";
+        say "# INFO: $message";
     }
 
-    print "#       $_\n" for @_ ;
-    print "#\n";
+    say "#       $_" for @_ ;
+    say "#";
 
     ++ $InfoCount ;
 }
