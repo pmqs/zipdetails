@@ -34,7 +34,7 @@ program. if you do encounter an unexpected termination please report it
 
 If the program finds any structural problems with the zip file it will
 print a summary at the end of the output report. The set of error cases
-reported is very much a work in progress, so don't rely on this feature to
+reported is a work in progress, so don't rely on this feature to
 find all the possible errors in a zip file. If you have suggestions for
 use-cases where this could be enhanced please consider creating an
 enhancement request (see ["SUPPORT"](#support)).
@@ -59,7 +59,7 @@ part it will find any zip file metadata that is still present in the file.
 The difference between the two options is how aggressive the sequential
 scan is: `--walk` is optimistic, while `--scan` is pessimistic.
 
-To underatand the difference in more detail you need to know a bit about
+To understand the difference in more detail you need to know a bit about
 how zip file metadata is structured. Under the hood, a zip file uses a
 series of 4-byte signatures to flag the start of a each of the metadata
 records it uses. When the `--walk` or the `--scan` option is enabled both
@@ -120,219 +120,147 @@ can be really realy slow, so  trying the `--walk` option first.
 By default zipdetails will output the details of the zip file in three
 columns.
 
-- Column 1
-
-    This contains the offset from the start of the file in hex.
-
-- Column 2
-
-    This contains a textual description of the field.
-
-- Column 3
-
-    If the field contains a numeric value it will be displayed in hex. Zip
-    stores most numbers in little-endian format - the value displayed will have
-    the little-endian encoding removed.
+1. The offset, in hex, to the start of the field relative to the beginning of the file.
+2. A textual description of the field.
+3. If the field contains a numeric value it will be displayed in hex. Zip
+stores most numbers in little-endian format - the value displayed will have
+the little-endian encoding removed.
 
     Next, is an optional description of what the value means.
 
-For example, assuming you have a zip file with two entries, like this
+For example, assuming you have a zip file, `test,zip`, with one entry
 
-    $ unzip -l test.zip
-    Archive:  setup/test.zip
+    $ unzip -l  test.zip
+    Archive:  test.zip
     Length      Date    Time    Name
     ---------  ---------- -----   ----
-            6  2021-03-23 18:52   latters.txt
-            6  2021-03-23 18:52   numbers.txt
+        16133  2023-02-21 16:42   file1.txt
     ---------                     -------
-        12                     2 files
+        16133                     1 file
 
 Running `zipdetails` will gives this output
 
     $ zipdetails test.zip
 
     0000 LOCAL HEADER #1       04034B50
-    0004 Extract Zip Spec      0A '1.0'
+    0004 Extract Zip Spec      14 '2.0'
     0005 Extract OS            00 'MS-DOS'
     0006 General Purpose Flag  0000
-    0008 Compression Method    0000 'Stored'
-    000A Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    000E CRC                   0F8A149C
-    0012 Compressed Length     00000006
-    0016 Uncompressed Length   00000006
-    001A Filename Length       000B
+         [Bits 1-2]            0 'Normal Compression'
+    0008 Compression Method    0008 'Deflated'
+    000A Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
+    000E CRC                   6A7EF2E1
+    0012 Compressed Length     000011E1
+    0016 Uncompressed Length   00003F05
+    001A Filename Length       0009
     001C Extra Length          0000
-    001E Filename              'letters.txt'
-    0029 PAYLOAD               abcde.
+    001E Filename              'file1.txt'
+    0027 PAYLOAD
 
-    002F LOCAL HEADER #2       04034B50
-    0033 Extract Zip Spec      0A '1.0'
-    0034 Extract OS            00 'MS-DOS'
-    0035 General Purpose Flag  0000
-    0037 Compression Method    0000 'Stored'
-    0039 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    003D CRC                   261DAFE6
-    0041 Compressed Length     00000006
-    0045 Uncompressed Length   00000006
-    0049 Filename Length       000B
-    004B Extra Length          0000
-    004D Filename              'numbers.txt'
-    0058 PAYLOAD               12345.
-
-    005E CENTRAL HEADER #1     02014B50
-    0062 Created Zip Spec      1E '3.0'
-    0063 Created OS            03 'Unix'
-    0064 Extract Zip Spec      0A '1.0'
-    0065 Extract OS            00 'MS-DOS'
-    0066 General Purpose Flag  0000
-    0068 Compression Method    0000 'Stored'
-    006A Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    006E CRC                   0F8A149C
-    0072 Compressed Length     00000006
-    0076 Uncompressed Length   00000006
-    007A Filename Length       000B
-    007C Extra Length          0000
-    007E Comment Length        0000
-    0080 Disk Start            0000
-    0082 Int File Attributes   0001
+    1208 CENTRAL HEADER #1     02014B50
+    120C Created Zip Spec      1E '3.0'
+    120D Created OS            03 'Unix'
+    120E Extract Zip Spec      14 '2.0'
+    120F Extract OS            00 'MS-DOS'
+    1210 General Purpose Flag  0000
+         [Bits 1-2]            0 'Normal Compression'
+    1212 Compression Method    0008 'Deflated'
+    1214 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
+    1218 CRC                   6A7EF2E1
+    121C Compressed Length     000011E1
+    1220 Uncompressed Length   00003F05
+    1224 Filename Length       0009
+    1226 Extra Length          0000
+    1228 Comment Length        0000
+    122A Disk Start            0000
+    122C Int File Attributes   0001
          [Bit 0]               1 Text Data
-    0084 Ext File Attributes   81B40000
-    0088 Local Header Offset   00000000
-    008C Filename              'letters.txt'
+    122E Ext File Attributes   81A40000
+    1232 Local Header Offset   00000000
+    1236 Filename              'file1.txt'
 
-    0097 CENTRAL HEADER #2     02014B50
-    009B Created Zip Spec      1E '3.0'
-    009C Created OS            03 'Unix'
-    009D Extract Zip Spec      0A '1.0'
-    009E Extract OS            00 'MS-DOS'
-    009F General Purpose Flag  0000
-    00A1 Compression Method    0000 'Stored'
-    00A3 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    00A7 CRC                   261DAFE6
-    00AB Compressed Length     00000006
-    00AF Uncompressed Length   00000006
-    00B3 Filename Length       000B
-    00B5 Extra Length          0000
-    00B7 Comment Length        0000
-    00B9 Disk Start            0000
-    00BB Int File Attributes   0001
-         [Bit 0]               1 Text Data
-    00BD Ext File Attributes   81B40000
-    00C1 Local Header Offset   0000002F
-    00C5 Filename              'numbers.txt'
-
-    00D0 END CENTRAL HEADER    06054B50
-    00D4 Number of this disk   0000
-    00D6 Central Dir Disk no   0000
-    00D8 Entries in this disk  0002
-    00DA Total Entries         0002
-    00DC Size of Central Dir   00000072
-    00E0 Offset to Central Dir 0000005E
-    00E4 Comment Length        0000
-    Done
+    123F END CENTRAL HEADER    06054B50
+    1243 Number of this disk   0000
+    1245 Central Dir Disk no   0000
+    1247 Entries in this disk  0001
+    1249 Total Entries         0001
+    124B Size of Central Dir   00000037
+    124F Offset to Central Dir 00001208
+    1253 Comment Length        0000
+    #
+    # Done
 
 ## Verbose Output
 
-If the `-v` option is present, column 1 is expanded to include
+If the `-v` option is present, the data output is split into the following columns: 
 
-- The offset from the start of the file in hex.
-- The length of the field in hex.
-- A hex dump of the bytes in field in the order they are stored in the zip
+1. The offset, in hex, to the start of the field relative to the beginning of the file.
+2. The offset, in hex, to the end of the field relative to the beginning of the file.
+3. The length, in hex, of the field.
+4. A hex dump of the bytes in field in the order they are stored in the zip
 file.
+5. A textual description of the field.
+6. If the field contains a numeric value it will be displayed in hex. Zip
+stores most numbers in little-endian format - the value displayed will have
+the little-endian encoding removed.
 
-Here is the same zip file dumped using the `zipdetails` `-v` option:
+    Next, is an optional description of what the value means.
+
+Here is the same zip file, `test.zip`, dumped using the `zipdetails` `-v` option:
 
     $ zipdetails -v test.zip
 
-    0000 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-    0004 0001 0A          Extract Zip Spec      0A '1.0'
-    0005 0001 00          Extract OS            00 'MS-DOS'
-    0006 0002 00 00       General Purpose Flag  0000
-    0008 0002 00 00       Compression Method    0000 'Stored'
-    000A 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    000E 0004 9C 14 8A 0F CRC                   0F8A149C
-    0012 0004 06 00 00 00 Compressed Length     00000006
-    0016 0004 06 00 00 00 Uncompressed Length   00000006
-    001A 0002 0B 00       Filename Length       000B
-    001C 0002 00 00       Extra Length          0000
-    001E 000B 6C 65 74 74 Filename              'letters.txt'
-              65 72 73 2E
-              74 78 74
-    0029 0006 61 62 63 64 PAYLOAD               abcde.
-              65 0A
+    0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+    0004 0004 0001 14          Extract Zip Spec      14 '2.0'
+    0005 0005 0001 00          Extract OS            00 'MS-DOS'
+    0006 0007 0002 00 00       General Purpose Flag  0000
+                               [Bits 1-2]            0 'Normal Compression'
+    0008 0009 0002 08 00       Compression Method    0008 'Deflated'
+    000A 000D 0004 40 85 55 56 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
+    000E 0011 0004 E1 F2 7E 6A CRC                   6A7EF2E1
+    0012 0015 0004 E1 11 00 00 Compressed Length     000011E1
+    0016 0019 0004 05 3F 00 00 Uncompressed Length   00003F05
+    001A 001B 0002 09 00       Filename Length       0009
+    001C 001D 0002 00 00       Extra Length          0000
+    001E 0026 0009 66 69 6C 65 Filename              'file1.txt'
+                   31 2E 74 78
+                   74
+    0027 1207 11E1 ...         PAYLOAD
 
-    002F 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
-    0033 0001 0A          Extract Zip Spec      0A '1.0'
-    0034 0001 00          Extract OS            00 'MS-DOS'
-    0035 0002 00 00       General Purpose Flag  0000
-    0037 0002 00 00       Compression Method    0000 'Stored'
-    0039 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    003D 0004 E6 AF 1D 26 CRC                   261DAFE6
-    0041 0004 06 00 00 00 Compressed Length     00000006
-    0045 0004 06 00 00 00 Uncompressed Length   00000006
-    0049 0002 0B 00       Filename Length       000B
-    004B 0002 00 00       Extra Length          0000
-    004D 000B 6E 75 6D 62 Filename              'numbers.txt'
-              65 72 73 2E
-              74 78 74
-    0058 0006 31 32 33 34 PAYLOAD               12345.
-              35 0A
+    1208 120B 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+    120C 120C 0001 1E          Created Zip Spec      1E '3.0'
+    120D 120D 0001 03          Created OS            03 'Unix'
+    120E 120E 0001 14          Extract Zip Spec      14 '2.0'
+    120F 120F 0001 00          Extract OS            00 'MS-DOS'
+    1210 1211 0002 00 00       General Purpose Flag  0000
+                               [Bits 1-2]            0 'Normal Compression'
+    1212 1213 0002 08 00       Compression Method    0008 'Deflated'
+    1214 1217 0004 40 85 55 56 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
+    1218 121B 0004 E1 F2 7E 6A CRC                   6A7EF2E1
+    121C 121F 0004 E1 11 00 00 Compressed Length     000011E1
+    1220 1223 0004 05 3F 00 00 Uncompressed Length   00003F05
+    1224 1225 0002 09 00       Filename Length       0009
+    1226 1227 0002 00 00       Extra Length          0000
+    1228 1229 0002 00 00       Comment Length        0000
+    122A 122B 0002 00 00       Disk Start            0000
+    122C 122D 0002 01 00       Int File Attributes   0001
+                               [Bit 0]               1 Text Data
+    122E 1231 0004 00 00 A4 81 Ext File Attributes   81A40000
+    1232 1235 0004 00 00 00 00 Local Header Offset   00000000
+    1236 123E 0009 66 69 6C 65 Filename              'file1.txt'
+                   31 2E 74 78
+                   74
 
-    005E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-    0062 0001 1E          Created Zip Spec      1E '3.0'
-    0063 0001 03          Created OS            03 'Unix'
-    0064 0001 0A          Extract Zip Spec      0A '1.0'
-    0065 0001 00          Extract OS            00 'MS-DOS'
-    0066 0002 00 00       General Purpose Flag  0000
-    0068 0002 00 00       Compression Method    0000 'Stored'
-    006A 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    006E 0004 9C 14 8A 0F CRC                   0F8A149C
-    0072 0004 06 00 00 00 Compressed Length     00000006
-    0076 0004 06 00 00 00 Uncompressed Length   00000006
-    007A 0002 0B 00       Filename Length       000B
-    007C 0002 00 00       Extra Length          0000
-    007E 0002 00 00       Comment Length        0000
-    0080 0002 00 00       Disk Start            0000
-    0082 0002 01 00       Int File Attributes   0001
-                          [Bit 0]               1 Text Data
-    0084 0004 00 00 B4 81 Ext File Attributes   81B40000
-    0088 0004 00 00 00 00 Local Header Offset   00000000
-    008C 000B 6C 65 74 74 Filename              'letters.txt'
-              65 72 73 2E
-              74 78 74
-
-    0097 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
-    009B 0001 1E          Created Zip Spec      1E '3.0'
-    009C 0001 03          Created OS            03 'Unix'
-    009D 0001 0A          Extract Zip Spec      0A '1.0'
-    009E 0001 00          Extract OS            00 'MS-DOS'
-    009F 0002 00 00       General Purpose Flag  0000
-    00A1 0002 00 00       Compression Method    0000 'Stored'
-    00A3 0004 3D 98 77 52 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-    00A7 0004 E6 AF 1D 26 CRC                   261DAFE6
-    00AB 0004 06 00 00 00 Compressed Length     00000006
-    00AF 0004 06 00 00 00 Uncompressed Length   00000006
-    00B3 0002 0B 00       Filename Length       000B
-    00B5 0002 00 00       Extra Length          0000
-    00B7 0002 00 00       Comment Length        0000
-    00B9 0002 00 00       Disk Start            0000
-    00BB 0002 01 00       Int File Attributes   0001
-                          [Bit 0]               1 Text Data
-    00BD 0004 00 00 B4 81 Ext File Attributes   81B40000
-    00C1 0004 2F 00 00 00 Local Header Offset   0000002F
-    00C5 000B 6E 75 6D 62 Filename              'numbers.txt'
-              65 72 73 2E
-              74 78 74
-
-    00D0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-    00D4 0002 00 00       Number of this disk   0000
-    00D6 0002 00 00       Central Dir Disk no   0000
-    00D8 0002 02 00       Entries in this disk  0002
-    00DA 0002 02 00       Total Entries         0002
-    00DC 0004 72 00 00 00 Size of Central Dir   00000072
-    00E0 0004 5E 00 00 00 Offset to Central Dir 0000005E
-    00E4 0002 00 00       Comment Length        0000
-    Done
+    123F 1242 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+    1243 1244 0002 00 00       Number of this disk   0000
+    1245 1246 0002 00 00       Central Dir Disk no   0000
+    1247 1248 0002 01 00       Entries in this disk  0001
+    1249 124A 0002 01 00       Total Entries         0001
+    124B 124E 0004 37 00 00 00 Size of Central Dir   00000037
+    124F 1252 0004 08 12 00 00 Offset to Central Dir 00001208
+    1253 1254 0002 00 00       Comment Length        0000
+    #
+    # Done
 
 # LIMITATIONS
 
@@ -386,7 +314,39 @@ Paul Marquess `pmqs@cpan.org`.
 
 # COPYRIGHT
 
-Copyright (c) 2011-2022 Paul Marquess. All rights reserved.
+Copyright (c) 2011-2023 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
+
+# POD ERRORS
+
+Hey! **The above document had some coding errors, which are explained below:**
+
+- Around line 6325:
+
+    You have '=item 1' instead of the expected '=item 2'
+
+- Around line 6329:
+
+    You have '=item 1' instead of the expected '=item 3'
+
+- Around line 6412:
+
+    You have '=item 1' instead of the expected '=item 2'
+
+- Around line 6416:
+
+    You have '=item 1' instead of the expected '=item 3'
+
+- Around line 6420:
+
+    You have '=item 1' instead of the expected '=item 4'
+
+- Around line 6425:
+
+    You have '=item 1' instead of the expected '=item 5'
+
+- Around line 6429:
+
+    You have '=item 1' instead of the expected '=item 6'
