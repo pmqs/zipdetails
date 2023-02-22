@@ -121,10 +121,12 @@ By default zipdetails will output the details of the zip file in three
 columns.
 
 1. The offset, in hex, to the start of the field relative to the beginning of the file.
-2. A textual description of the field.
-3. If the field contains a numeric value it will be displayed in hex. Zip
-stores most numbers in little-endian format - the value displayed will have
-the little-endian encoding removed.
+2. The name of the field.
+3. Information about the contents of the field. 
+
+    If the field contains a numeric value it will be displayed in hex. Zip files
+    store most numbers in _little-endian_ - the value displayed will have
+    the _little-endian_ encoding removed.
 
     Next, is an optional description of what the value means.
 
@@ -200,9 +202,11 @@ If the `-v` option is present, the data output is split into the following colum
 4. A hex dump of the bytes in field in the order they are stored in the zip
 file.
 5. A textual description of the field.
-6. If the field contains a numeric value it will be displayed in hex. Zip
-stores most numbers in little-endian format - the value displayed will have
-the little-endian encoding removed.
+6. Information about the contents of the field. 
+
+    If the field contains a numeric value it will be displayed in hex. Zip files
+    store most numbers in _little-endian_ - the value displayed will have
+    the _little-endian_ encoding removed.
 
     Next, is an optional description of what the value means.
 
@@ -331,22 +335,22 @@ Hey! **The above document had some coding errors, which are explained below:**
 
     You have '=item 1' instead of the expected '=item 3'
 
-- Around line 6412:
+- Around line 6414:
 
     You have '=item 1' instead of the expected '=item 2'
 
-- Around line 6416:
+- Around line 6418:
 
     You have '=item 1' instead of the expected '=item 3'
 
-- Around line 6420:
+- Around line 6422:
 
     You have '=item 1' instead of the expected '=item 4'
 
-- Around line 6425:
+- Around line 6427:
 
     You have '=item 1' instead of the expected '=item 5'
 
-- Around line 6429:
+- Around line 6431:
 
     You have '=item 1' instead of the expected '=item 6'

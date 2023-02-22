@@ -6324,13 +6324,15 @@ The offset, in hex, to the start of the field relative to the beginning of the f
 
 =item 1
 
-A textual description of the field.
+The name of the field.
 
 =item 1
 
-If the field contains a numeric value it will be displayed in hex. Zip
-stores most numbers in little-endian format - the value displayed will have
-the little-endian encoding removed.
+Information about the contents of the field. 
+
+If the field contains a numeric value it will be displayed in hex. Zip files
+store most numbers in I<little-endian> - the value displayed will have
+the I<little-endian> encoding removed.
 
 Next, is an optional description of what the value means.
 
@@ -6428,9 +6430,11 @@ A textual description of the field.
 
 =item 1
 
-If the field contains a numeric value it will be displayed in hex. Zip
-stores most numbers in little-endian format - the value displayed will have
-the little-endian encoding removed.
+Information about the contents of the field. 
+
+If the field contains a numeric value it will be displayed in hex. Zip files
+store most numbers in I<little-endian> - the value displayed will have
+the I<little-endian> encoding removed.
 
 Next, is an optional description of what the value means.
 
