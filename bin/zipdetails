@@ -6322,11 +6322,11 @@ columns.
 
 The offset, in hex, to the start of the field relative to the beginning of the file.
 
-=item 1
+=item 2
 
 The name of the field.
 
-=item 1
+=item 3
 
 Information about the contents of the field. 
 
@@ -6411,24 +6411,24 @@ If the C<-v> option is present, the data output is split into the following colu
 
 The offset, in hex, to the start of the field relative to the beginning of the file.
 
-=item 1
+=item 2
 
 The offset, in hex, to the end of the field relative to the beginning of the file.
 
-=item 1
+=item 3
 
 The length, in hex, of the field.
 
-=item 1
+=item 4
 
 A hex dump of the bytes in field in the order they are stored in the zip
 file.
 
-=item 1
+=item 5
 
 A textual description of the field.
 
-=item 1
+=item 6
 
 Information about the contents of the field. 
 
@@ -6519,18 +6519,51 @@ detected and some will only contain compressed payload data.
 Encrypted Central Directory
 
 When pkzip strong encryption is enabled in a zip file this program can
-still parse most of the metadata in the zip file. The exception is when
-the Central Directory of a zip file is also encrypted. This
-program cannot parse any metadata from an encrypted Central Directory.
+still parse most of the metadata in the zip file. The exception is when the
+Central Directory of a zip file is also encrypted. This program cannot
+parse any metadata from an encrypted Central Directory.
 
+=item *
+
+Corrupt Zip files
+
+When C<zipdetails> encounters a corrupt zip file, it will do one or more of
+the following 
+
+=over 5
+
+=item *
+
+Display details of the corruption and carry on
+
+=item *
+
+Display details of the corruption and terminate
+
+=item *
+
+Terminate with a generic message
+
+=back
+
+Which of the above is output is dependent in the severity of the corruption.
 
 =back
 
 =head1 TODO
 
-Error handling is a work in progress. If the program encounters a problem
-reading a zip file it is likely to terminate with an unhelpful error
-message.
+=head2 JSON Output
+
+Output some of the zip file metadata as a JSON document.
+
+=head2 Corrupt Zip files
+
+Although the detection and reporting of the common corruption use-cases is
+present in C<zipdetails>, there are likely to be other edge cases that need
+to be supported.  
+
+If you have a Corrupt Zip that isn't being processed properly,
+please report it (see  L<"SUPPORT">).
 
 =head1 SUPPORT
 

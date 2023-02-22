@@ -282,15 +282,35 @@ The following zip file features are not supported by this program:
 - Encrypted Central Directory
 
     When pkzip strong encryption is enabled in a zip file this program can
-    still parse most the metadata in the zip file.  The only exception is when
-    the Central Directory of a zip file is encrypted -- in this case this
-    program cannot parse that data structure at all.
+    still parse most of the metadata in the zip file. The exception is when the
+    Central Directory of a zip file is also encrypted. This program cannot
+    parse any metadata from an encrypted Central Directory.
+
+- Corrupt Zip files
+
+    When `zipdetails` encounters a corrupt zip file, it will do one or more of
+    the following 
+
+    - Display details of the corruption and carry on
+    - Display details of the corruption and terminate
+    - Terminate with a generic message
+
+    Which of the above is output is dependent in the severity of the corruption.
 
 # TODO
 
-Error handling is a work in progress. If the program encounters a problem
-reading a zip file it is likely to terminate with an unhelpful error
-message.
+## JSON Output
+
+Output some of the zip file metadata as a JSON document.
+
+## Corrupt Zip files
+
+Although the detection and reporting of the common corruption use-cases is
+present in `zipdetails`, there are likely to be other edge cases that need
+to be supported.  
+
+If you have a Corrupt Zip that isn't being processed properly,
+please report it (see  ["SUPPORT"](#support)).
 
 # SUPPORT
 
@@ -322,35 +342,3 @@ Copyright (c) 2011-2023 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
-# POD ERRORS
-
-Hey! **The above document had some coding errors, which are explained below:**
-
-- Around line 6325:
-
-    You have '=item 1' instead of the expected '=item 2'
-
-- Around line 6329:
-
-    You have '=item 1' instead of the expected '=item 3'
-
-- Around line 6414:
-
-    You have '=item 1' instead of the expected '=item 2'
-
-- Around line 6418:
-
-    You have '=item 1' instead of the expected '=item 3'
-
-- Around line 6422:
-
-    You have '=item 1' instead of the expected '=item 4'
-
-- Around line 6427:
-
-    You have '=item 1' instead of the expected '=item 5'
-
-- Around line 6431:
-
-    You have '=item 1' instead of the expected '=item 6'
