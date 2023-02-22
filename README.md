@@ -93,14 +93,14 @@ can be really realy slow, so  trying the `--walk` option first.
 - --scan
 
     Pessimistically scan the zip file loking for possible zip records. Can be
-    error-prone. For very large zip files this option is very slow. Consider
-    using the `--walk` option first.  See ["Analysis of corrupt or
-    non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
+    error-prone. For very large zip files this option is very slow. Consider using
+    the `--walk` option first.  See ["Analysis of corrupt or non-standard zip
+    files"](#analysis-of-corrupt-or-non-standard-zip-files)
 
 - --utc
 
-    By default, date/time fields are displayed in local time. Use this option
-    to display them in in Coordinated Universal Time (UTC).
+    By default, date/time fields are displayed in local time. Use this option to
+    display them in in Coordinated Universal Time (UTC).
 
 - -v
 
@@ -117,16 +117,16 @@ can be really realy slow, so  trying the `--walk` option first.
 
 ## Default Output
 
-By default zipdetails will output the details of the zip file in three
-columns.
+By default zipdetails will output the details of the zip file in three columns.
 
-1. The offset, in hex, to the start of the field relative to the beginning of the file.
+1. The offset, in hex, to the start of the field relative to the beginning of the
+file.
 2. The name of the field.
 3. Information about the contents of the field. 
 
     If the field contains a numeric value it will be displayed in hex. Zip files
-    store most numbers in _little-endian_ - the value displayed will have
-    the _little-endian_ encoding removed.
+    store most numbers in _little-endian_ - the value displayed will have the
+    _little-endian_ encoding removed.
 
     Next, is an optional description of what the value means.
 
@@ -194,19 +194,21 @@ Running `zipdetails` will gives this output
 
 ## Verbose Output
 
-If the `-v` option is present, the data output is split into the following columns: 
+If the `-v` option is present, the data output is split into the following
+columns: 
 
-1. The offset, in hex, to the start of the field relative to the beginning of the file.
-2. The offset, in hex, to the end of the field relative to the beginning of the file.
-3. The length, in hex, of the field.
-4. A hex dump of the bytes in field in the order they are stored in the zip
+1. The offset, in hex, to the start of the field relative to the beginning of the
 file.
+2. The offset, in hex, to the end of the field relative to the beginning of the
+file.
+3. The length, in hex, of the field.
+4. A hex dump of the bytes in field in the order they are stored in the zip file.
 5. A textual description of the field.
 6. Information about the contents of the field. 
 
     If the field contains a numeric value it will be displayed in hex. Zip files
-    store most numbers in _little-endian_ - the value displayed will have
-    the _little-endian_ encoding removed.
+    store most numbers in _little-endian_ - the value displayed will have the
+    _little-endian_ encoding removed.
 
     Next, is an optional description of what the value means.
 
@@ -272,8 +274,8 @@ The following zip file features are not supported by this program:
 
 - Multi-part/Split/Spanned Zip Archives.
 
-    If you have one, or more, parts of a multi-part zip file this program
-    cannot give an overall report on the combined parts of zip file.
+    If you have one, or more, parts of a multi-part zip file this program cannot
+    give an overall report on the combined parts of zip file.
 
     The best you can do is run with either the `--scan` or `--walk` options
     against individual parts. Some will contains zipfile metadata which will be
@@ -281,10 +283,10 @@ The following zip file features are not supported by this program:
 
 - Encrypted Central Directory
 
-    When pkzip strong encryption is enabled in a zip file this program can
-    still parse most of the metadata in the zip file. The exception is when the
-    Central Directory of a zip file is also encrypted. This program cannot
-    parse any metadata from an encrypted Central Directory.
+    When pkzip strong encryption is enabled in a zip file this program can still
+    parse most of the metadata in the zip file. The exception is when the Central
+    Directory of a zip file is also encrypted. This program cannot parse any
+    metadata from an encrypted Central Directory.
 
 - Corrupt Zip files
 
@@ -306,8 +308,8 @@ Output some of the zip file metadata as a JSON document.
 ## Corrupt Zip files
 
 Although the detection and reporting of the common corruption use-cases is
-present in `zipdetails`, there are likely to be other edge cases that need
-to be supported.  
+present in `zipdetails`, there are likely to be other edge cases that need to
+be supported.  
 
 If you have a Corrupt Zip that isn't being processed properly,
 please report it (see  ["SUPPORT"](#support)).
