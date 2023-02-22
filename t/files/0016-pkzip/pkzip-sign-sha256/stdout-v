@@ -53,7 +53,7 @@
 028D 028E 0002 00 00       Comment Length        0000
 028F 0290 0002 00 00       Disk Start            0000
 0291 0292 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 0293 0296 0004 20 00 00 00 Ext File Attributes   00000020
                            [Bit 5]               Archive
 0297 029A 0004 00 00 00 00 Local Header Offset   00000000
@@ -584,7 +584,7 @@
 0A7F 0A80 0002 00 00       Comment Length        0000
 0A81 0A82 0002 00 00       Disk Start            0000
 0A83 0A84 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 0A85 0A88 0004 20 00 00 00 Ext File Attributes   00000020
                            [Bit 5]               Archive
 0A89 0A8C 0004 35 01 00 00 Local Header Offset   00000135

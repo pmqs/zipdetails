@@ -59,7 +59,7 @@
 007E 007F 0002 00 00       Comment Length        0000
 0080 0081 0002 00 00       Disk Start            0000
 0082 0083 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 0084 0087 0004 00 00 B4 81 Ext File Attributes   81B40000
 0088 008B 0004 00 00 00 00 Local Header Offset   00000000
 008C 0096 000B 6C 65 74 74 Filename              'letters.txt'
@@ -82,7 +82,7 @@
 00B7 00B8 0002 00 00       Comment Length        0000
 00B9 00BA 0002 00 00       Disk Start            0000
 00BB 00BC 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 00BD 00C0 0004 00 00 B4 81 Ext File Attributes   81B40000
 00C1 00C4 0004 2F 00 00 00 Local Header Offset   0000002F
 00C5 00CF 000B 6E 75 6D 62 Filename              'numbers.txt'

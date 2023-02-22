@@ -134,7 +134,7 @@
 3E69 3E6A 0002 00 00       Comment Length        0000
 3E6B 3E6C 0002 00 00       Disk Start            0000
 3E6D 3E6E 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 3E6F 3E72 0004 00 00 E8 81 Ext File Attributes   81E80000
 3E73 3E76 0004 00 00 00 00 Local Header Offset   00000000
 3E77 3E80 000A 7A 69 70 63 Filename              'zipcloak.c'
@@ -168,7 +168,7 @@
 3EB5 3EB6 0002 00 00       Comment Length        0000
 3EB7 3EB8 0002 00 00       Disk Start            0000
 3EB9 3EBA 0002 01 00       Int File Attributes   0001
-                           [Bit 0]               1 Text Data
+                           [Bit 0]               1 'Text Data'
 3EBB 3EBE 0004 00 00 E8 81 Ext File Attributes   81E80000
 3EBF 3EC2 0004 A0 1B 00 00 Local Header Offset   00001BA0
 3EC3 3ECC 000A 7A 69 70 73 Filename              'zipsplit.c'

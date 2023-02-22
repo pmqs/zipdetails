@@ -2289,7 +2289,7 @@ sub CentralHeader
     my $std_disk_start     = $disk_start;
     my $int_file_attrib    = out_v "Int File Attributes";
 
-    out1 "[Bit 0]",  $int_file_attrib & 1 ? "1 Text Data" : "0 'Binary Data'";
+    out1 "[Bit 0]",  $int_file_attrib & 1 ? "1 'Text Data'" : "0 'Binary Data'";
 
     my $ext_file_attrib    = out_V "Ext File Attributes";
     out1 "[Bit 0]",  "Read-Only"
