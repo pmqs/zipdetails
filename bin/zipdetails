@@ -6519,9 +6519,9 @@ detected and some will only contain compressed payload data.
 Encrypted Central Directory
 
 When pkzip strong encryption is enabled in a zip file this program can
-still parse most the metadata in the zip file.  The only exception is when
-the Central Directory of a zip file is encrypted -- in this case this
-program cannot parse that data structure at all.
+still parse most of the metadata in the zip file. The exception is when
+the Central Directory of a zip file is also encrypted. This
+program cannot parse any metadata from an encrypted Central Directory.
 
 
 =back
