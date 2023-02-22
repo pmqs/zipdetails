@@ -307,11 +307,11 @@ Output some of the zip file metadata as a JSON document.
 
 ## Corrupt Zip files
 
-Although the detection and reporting of the common corruption use-cases is
-present in `zipdetails`, there are likely to be other edge cases that need to
-be supported.  
+Although the detection and reporting of common corruption use-cases is present
+in `zipdetails`, there are likely to be other edge cases that need to be
+supported.  
 
-If you have a Corrupt Zip that isn't being processed properly,
+If you have a corrupt Zip file that isn't being processed properly,
 please report it (see  ["SUPPORT"](#support)).
 
 # SUPPORT
