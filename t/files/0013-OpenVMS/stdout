@@ -968,6 +968,7 @@
        [Bit 0]               0 'Binary Data'
 279E63 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279E67 Local Header Offset   00000000
 279E6B Filename              'zip/freeware_readme.txt'
 279E82 Extra ID #0001        000C 'OpenVMS'
@@ -1031,6 +1032,7 @@
        [Bit 0]               0 'Binary Data'
 279F2B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279F2F Local Header Offset   00000208
 279F33 Filename              'zip/zip.axp_exe'
 279F42 Extra ID #0001        000C 'OpenVMS'
@@ -1095,6 +1097,7 @@
        [Bit 0]               0 'Binary Data'
 279FEB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279FEF Local Header Offset   0000EE5E
 279FF3 Filename              'zip/zip.i64_exe'
 27A002 Extra ID #0001        000C 'OpenVMS'
@@ -1159,6 +1162,7 @@
        [Bit 0]               0 'Binary Data'
 27A0AB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A0AF Local Header Offset   00024649
 27A0B3 Filename              'zip/zip.vax_vaxc_exe'
 27A0C7 Extra ID #0001        000C 'OpenVMS'
@@ -1222,6 +1226,7 @@
        [Bit 0]               0 'Binary Data'
 27A170 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A174 Local Header Offset   0002CD7C
 27A178 Filename              'zip/zip.zip'
 27A183 Extra ID #0001        000C 'OpenVMS'
@@ -1285,6 +1290,7 @@
        [Bit 0]               0 'Binary Data'
 27A22C Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A230 Local Header Offset   002198C8
 27A234 Filename              'zip/zipcloak.axp_exe'
 27A248 Extra ID #0001        000C 'OpenVMS'
@@ -1349,6 +1355,7 @@
        [Bit 0]               0 'Binary Data'
 27A2F1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A2F5 Local Header Offset   0021EEAD
 27A2F9 Filename              'zip/zipcloak.i64_exe'
 27A30D Extra ID #0001        000C 'OpenVMS'
@@ -1413,6 +1420,7 @@
        [Bit 0]               0 'Binary Data'
 27A3B6 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A3BA Local Header Offset   00227145
 27A3BE Filename              'zip/zipcloak.vax_vaxc_exe'
 27A3D7 Extra ID #0001        000C 'OpenVMS'
@@ -1477,6 +1485,7 @@
        [Bit 0]               0 'Binary Data'
 27A480 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A484 Local Header Offset   0022A28A
 27A488 Filename              'zip/zipnote.axp_exe'
 27A49B Extra ID #0001        000C 'OpenVMS'
@@ -1541,6 +1550,7 @@
        [Bit 0]               0 'Binary Data'
 27A544 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A548 Local Header Offset   0022ECDC
 27A54C Filename              'zip/zipnote.i64_exe'
 27A55F Extra ID #0001        000C 'OpenVMS'
@@ -1605,6 +1615,7 @@
        [Bit 0]               0 'Binary Data'
 27A608 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A60C Local Header Offset   00235970
 27A610 Filename              'zip/zipnote.vax_vaxc_exe'
 27A628 Extra ID #0001        000C 'OpenVMS'
@@ -1669,6 +1680,7 @@
        [Bit 0]               0 'Binary Data'
 27A6D1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A6D5 Local Header Offset   0023844F
 27A6D9 Filename              'zip/zipsplit.axp_exe'
 27A6ED Extra ID #0001        000C 'OpenVMS'
@@ -1733,6 +1745,7 @@
        [Bit 0]               0 'Binary Data'
 27A796 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A79A Local Header Offset   0023D4D4
 27A79E Filename              'zip/zipsplit.i64_exe'
 27A7B2 Extra ID #0001        000C 'OpenVMS'
@@ -1797,6 +1810,7 @@
        [Bit 0]               0 'Binary Data'
 27A85B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A85F Local Header Offset   002450AD
 27A863 Filename              'zip/zipsplit.vax_vaxc_exe'
 27A87C Extra ID #0001        000C 'OpenVMS'
@@ -1861,6 +1875,7 @@
        [Bit 0]               0 'Binary Data'
 27A925 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A929 Local Header Offset   00248050
 27A92D Filename              'zip/zip_cli.axp_exe'
 27A940 Extra ID #0001        000C 'OpenVMS'
@@ -1925,6 +1940,7 @@
        [Bit 0]               0 'Binary Data'
 27A9E9 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A9ED Local Header Offset   00258962
 27A9F1 Filename              'zip/zip_cli.i64_exe'
 27AA04 Extra ID #0001        000C 'OpenVMS'
@@ -1989,6 +2005,7 @@
        [Bit 0]               0 'Binary Data'
 27AAAD Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27AAB1 Local Header Offset   0027068E
 27AAB5 Filename              'zip/zip_cli.vax_vaxc_exe'
 27AACD Extra ID #0001        000C 'OpenVMS'

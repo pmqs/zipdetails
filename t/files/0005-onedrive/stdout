@@ -47,6 +47,8 @@
 0089 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 008B Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 008F Local Header Offset   00000000
 0093 Filename              'data.txt'
 009B Extra ID #0001        5455 'Extended Timestamp [UT]'

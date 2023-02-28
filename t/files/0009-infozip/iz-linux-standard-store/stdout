@@ -43,6 +43,8 @@
 0225 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 0227 Ext File Attributes   81ED0000
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 022B Local Header Offset   00000000
 022F Filename              'lorem.txt'
 0238 Extra ID #0001        5455 'Extended Timestamp [UT]'

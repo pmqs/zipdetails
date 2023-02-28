@@ -47,6 +47,7 @@
 0065 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 0067 Ext File Attributes   81A40000
+     [Bits 24-31]          81A4 'Unknown attributes for OS ID 235'
 006B Local Header Offset   00000000
 006F Filename              'test'
 0073 Extra ID #0001        5455 'Extended Timestamp [UT]'

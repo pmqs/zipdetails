@@ -33,6 +33,8 @@
 0209 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 020B Ext File Attributes   81ED0000
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 020F Local Header Offset   00000000
 0213 Filename              'lorem.txt'
 

@@ -40,6 +40,8 @@
 0059 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 005B Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
 005F Local Header Offset   00000000
 0063 Filename              'filename'
 006B Extra ID #0001        7875 'Unix Extra type 3 [ux]'

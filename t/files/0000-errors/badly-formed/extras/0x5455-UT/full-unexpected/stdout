@@ -48,6 +48,8 @@
 0060 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 0062 Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
 0066 Local Header Offset   00000000
 006A Filename              'filename'
 0072 Extra ID #0001        5455 'Extended Timestamp [UT]'

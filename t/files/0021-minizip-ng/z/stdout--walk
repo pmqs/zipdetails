@@ -60,6 +60,9 @@
 0245 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 0247 Ext File Attributes   81F80080
+     [Bit 7]               Normal
+     [Bits 16-24]          01F8 'Unix attrib: rwxrwx---'
+     [Bits 28-31]          08 'Regular File'
 024B Local Header Offset   00000000
 024F Filename              'lorem.txt'
 0258 Extra ID #0001        1A51 'Minizip Hash'

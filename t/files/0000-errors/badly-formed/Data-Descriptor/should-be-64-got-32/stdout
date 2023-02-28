@@ -47,6 +47,8 @@
 017D Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 017F Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
 0183 Local Header Offset   00000000
 0187 Filename              'lorem.txt'
 

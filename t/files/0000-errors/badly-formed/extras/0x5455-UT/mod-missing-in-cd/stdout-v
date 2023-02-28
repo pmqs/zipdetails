@@ -39,6 +39,8 @@
 0054 0055 0002 00 00       Int File Attributes   0000
                            [Bit 0]               0 'Binary Data'
 0056 0059 0004 00 00 A4 81 Ext File Attributes   81A40000
+                           [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 'Regular File'
 005A 005D 0004 00 00 00 00 Local Header Offset   00000000
 005E 0065 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65

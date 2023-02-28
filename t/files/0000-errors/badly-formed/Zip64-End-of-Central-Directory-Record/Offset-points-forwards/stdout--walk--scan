@@ -37,6 +37,8 @@
 0165 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 0167 Ext File Attributes   81ED0000
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 016B Local Header Offset   00000000
 016F Filename              '-'
 0170 Extra ID #0001        0001 'ZIP64'

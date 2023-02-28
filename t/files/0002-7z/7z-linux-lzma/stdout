@@ -41,6 +41,9 @@
      [Bit 0]               0 'Binary Data'
 019C Ext File Attributes   81ED8020
      [Bit 5]               Archive
+     [Bits 11-15]          8000 'Unknown DOS attrib'
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 01A0 Local Header Offset   00000000
 01A4 Filename              'lorem.txt'
 01AD Extra ID #0001        000A 'NTFS FileTimes'

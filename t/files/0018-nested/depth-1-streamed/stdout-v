@@ -40,6 +40,8 @@
 01DD 01DE 0002 00 00       Int File Attributes   0000
                            [Bit 0]               0 'Binary Data'
 01DF 01E2 0004 00 00 B4 81 Ext File Attributes   81B40000
+                           [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 'Regular File'
 01E3 01E6 0004 00 00 00 00 Local Header Offset   00000000
 01E7 01EF 0009 69 6E 6E 65 Filename              'inner.zip'
                72 2E 7A 69

@@ -12833,6 +12833,9 @@
 6C411 6C412 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6C413 6C416 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6C417 6C41A 00004 00 00 00 00 Local Header Offset   00000000
 6C41B 6C423 00009 65 6D 70 74 Filename              'empty.txt'
                   79 2E 74 78
@@ -13298,6 +13301,9 @@
 6CB18 6CB19 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6CB1A 6CB1D 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6CB1E 6CB21 00004 25 07 00 00 Local Header Offset   00000725
 6CB22 6CB2B 0000A 72 61 6E 64 Filename              'random.bin'
                   6F 6D 2E 62
@@ -13763,6 +13769,9 @@
 6D220 6D221 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6D222 6D225 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6D226 6D229 00004 55 0E 02 00 Local Header Offset   00020E55
 6D22A 6D234 0000B 75 6E 69 66 Filename              'uniform.bin'
                   6F 72 6D 2E
@@ -14228,6 +14237,9 @@
 6D929 6D92A 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6D92B 6D92E 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6D92F 6D932 00004 CE 15 02 00 Local Header Offset   000215CE
 6D933 6D93E 0000C 73 74 61 6E Filename              'standalone.c'
                   64 61 6C 6F
@@ -14693,6 +14705,9 @@
 6E033 6E034 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6E035 6E038 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6E039 6E03C 00004 65 20 02 00 Local Header Offset   00022065
 6E03D 6E048 0000C 7A 69 70 5F Filename              'zip_fuzzer.c'
                   66 75 7A 7A
@@ -15158,6 +15173,9 @@
 6E73D 6E73E 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6E73F 6E742 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6E743 6E746 00004 56 2B 02 00 Local Header Offset   00022B56
 6E747 6E754 0000E 75 6E 7A 69 Filename              'unzip_fuzzer.c'
                   70 5F 66 75
@@ -15623,6 +15641,8 @@
                               [Bit 0]               0 'Binary Data'
 6EE4B 6EE4E 00004 10 00 FD 41 Ext File Attributes   41FD0010
                               [Bit 4]               Directory
+                              [Bits 16-24]          01FD 'Unix attrib: rwxrwxr-x'
+                              [Bits 28-31]          04 'Directory'
 6EE4F 6EE52 00004 84 36 02 00 Local Header Offset   00023684
 6EE53 6EE6B 00019 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/'
                   70 5F 66 75
@@ -15653,6 +15673,9 @@
 6EE90 6EE91 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6EE92 6EE95 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6EE96 6EE99 00004 BB 36 02 00 Local Header Offset   000236BB
 6EE9A 6EEC2 00029 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/license_zst
                   70 5F 66 75                       d.zip'
@@ -16126,6 +16149,9 @@
 6F5B7 6F5B8 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6F5B9 6F5BC 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6F5BD 6F5C0 00004 83 40 02 00 Local Header Offset   00024083
 6F5C1 6F5E1 00021 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
                   70 5F 66 75
@@ -16597,6 +16623,9 @@
 6FCD6 6FCD7 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 6FCD8 6FCDB 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 6FCDC 6FCDF 00004 68 B8 02 00 Local Header Offset   0002B868
 6FCE0 6FCFE 0001F 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
                   70 5F 66 75
@@ -17067,6 +17096,9 @@
 703F3 703F4 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 703F5 703F8 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 703F9 703FC 00004 E8 BF 02 00 Local Header Offset   0002BFE8
 703FD 7041D 00021 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
                   70 5F 66 75
@@ -17538,6 +17570,9 @@
 70B12 70B13 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 70B14 70B17 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 70B18 70B1B 00004 0F C7 02 00 Local Header Offset   0002C70F
 70B1C 70B3E 00023 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
                   70 5F 66 75
@@ -18009,6 +18044,9 @@
 71233 71234 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 71235 71238 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 71239 7123C 00004 AF D5 02 00 Local Header Offset   0002D5AF
 7123D 71269 0002D 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/infozip_sym
                   70 5F 66 75                       links.zip'
@@ -18483,6 +18521,9 @@
 7195E 7195F 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 71960 71963 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 71964 71967 00004 80 DD 02 00 Local Header Offset   0002DD80
 71968 7198D 00026 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/storeonly.z
                   70 5F 66 75                       ip'
@@ -18955,6 +18996,9 @@
 72082 72083 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 72084 72087 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 72088 7208B 00004 52 E9 02 00 Local Header Offset   0002E952
 7208C 720AA 0001F 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/xz.zip'
                   70 5F 66 75
@@ -19425,6 +19469,9 @@
 7279F 727A0 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 727A1 727A4 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 727A5 727A8 00004 E2 AE 03 00 Local Header Offset   0003AEE2
 727A9 727DC 00034 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/unsupported
                   70 5F 66 75                       _permissions.zip'
@@ -19900,6 +19947,9 @@
 72ED1 72ED2 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 72ED3 72ED6 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 72ED7 72EDA 00004 E9 B6 03 00 Local Header Offset   0003B6E9
 72EDB 72EFF 00025 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/comments.zi
                   70 5F 66 75                       p'
@@ -20372,6 +20422,9 @@
 735F4 735F5 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 735F6 735F9 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 735FA 735FD 00004 9F BE 03 00 Local Header Offset   0003BE9F
 735FE 7361F 00022 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
                   70 5F 66 75
@@ -20843,6 +20896,9 @@
 73D14 73D15 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 73D16 73D19 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 73D1A 73D1D 00004 2A C6 03 00 Local Header Offset   0003C62A
 73D1E 73D49 0002C 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/encrypted_w
                   70 5F 66 75                       zaes.zip'
@@ -21316,6 +21372,9 @@
 7443E 7443F 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 74440 74443 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 74444 74447 00004 E7 CD 03 00 Local Header Offset   0003CDE7
 74448 7446F 00028 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/permissions
                   70 5F 66 75                       .zip'
@@ -21788,6 +21847,9 @@
 74B64 74B65 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 74B66 74B69 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 74B6A 74B6D 00004 F4 D5 03 00 Local Header Offset   0003D5F4
 74B6E 74B9A 0002D 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/large_cd_co
                   70 5F 66 75                       mment.zip'
@@ -22262,6 +22324,9 @@
 7528F 75290 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 75291 75294 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 75295 75298 00004 20 DE 03 00 Local Header Offset   0003DE20
 75299 752C6 0002E 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/encrypted_p
                   70 5F 66 75                       kcrypt.zip'
@@ -22736,6 +22801,9 @@
 759BB 759BC 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 759BD 759C0 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 759C1 759C4 00004 CF E5 03 00 Local Header Offset   0003E5CF
 759C5 759E3 0001F 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/as.zip'
                   70 5F 66 75
@@ -23206,6 +23274,9 @@
 760D8 760D9 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 760DA 760DD 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 760DE 760E1 00004 61 ED 03 00 Local Header Offset   0003ED61
 760E2 76103 00022 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
                   70 5F 66 75
@@ -23677,6 +23748,9 @@
 767F8 767F9 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 767FA 767FD 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 767FE 76801 00004 F4 74 06 00 Local Header Offset   000674F4
 76802 76824 00023 75 6E 7A 69 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
                   70 5F 66 75
@@ -24148,6 +24222,9 @@
 76F19 76F1A 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 76F1B 76F1E 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 76F1F 76F22 00004 1A B5 06 00 Local Header Offset   0006B51A
 76F23 76F33 00011 75 6E 7A 69 Filename              'unzip_fuzzer.dict'
                   70 5F 66 75
@@ -24615,6 +24692,9 @@
 77628 77629 00002 00 00       Int File Attributes   0000
                               [Bit 0]               0 'Binary Data'
 7762A 7762D 00004 80 00 B4 81 Ext File Attributes   81B40080
+                              [Bit 7]               Normal
+                              [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                              [Bits 28-31]          08 'Regular File'
 7762E 77631 00004 E2 BC 06 00 Local Header Offset   0006BCE2
 77632 7763B 0000A 73 69 6E 67 Filename              'single.txt'
                   6C 65 2E 74

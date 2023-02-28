@@ -81,6 +81,8 @@
 02CD 02CE 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 02CF 02D2 0004 00 00 ED 81 Ext File Attributes   81ED0000
+                           [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 'Regular File'
 02D3 02D6 0004 00 00 00 00 Local Header Offset   00000000 [Actual Offset is 00000004]
 02D7 02E0 000A 6C 6F 72 65 Filename              'lorem1.txt'
                6D 31 2E 74
@@ -116,6 +118,8 @@
 031D 031E 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 031F 0322 0004 00 00 ED 81 Ext File Attributes   81ED0000
+                           [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 'Regular File'
 0323 0326 0004 54 01 00 00 Local Header Offset   00000154 [Actual Offset is 00000158]
 0327 032F 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78

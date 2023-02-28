@@ -22,7 +22,6 @@
 #
 # ERROR: Offset 0x36: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Length' field invalid
 #        value 0xC > 0xB bytes remaining
-
 #
 0038   Extra Payload       ...........
 0043 PAYLOAD
@@ -46,6 +45,8 @@
 0175 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 0177 Ext File Attributes   81ED0000
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 017B Local Header Offset   00000000
 017F Filename              'lorem.txt'
 0188 Extra ID #0001        5455 'Extended Timestamp [UT]'

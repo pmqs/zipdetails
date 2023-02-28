@@ -39,6 +39,8 @@
 005A Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 005C Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
 0060 Local Header Offset   00000000
 0064 Filename              'filename'
 006C Extra ID #0001        A220 'Open Packaging Growth Hint'

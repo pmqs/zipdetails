@@ -56,6 +56,8 @@
 00C6 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 00C8 Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 00CC Local Header Offset   00000000
 00D0 Filename              'alpha'
 
@@ -77,6 +79,8 @@
 00F9 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 00FB Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 00FF Local Header Offset   00000050
 0103 Filename              'gamma'
 

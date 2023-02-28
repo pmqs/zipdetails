@@ -9481,6 +9481,8 @@
        [Bit 0]               0 'Binary Data'
 2111CB Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2111CF Local Header Offset   00000000
 2111D3 Filename              'acorn/'
 2111D9 Extra ID #0001        5455 'Extended Timestamp [UT]'
@@ -9507,6 +9509,8 @@
 211206 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211208 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21120C Local Header Offset   0000002D
 #
 # ERROR: Offset 0x21120C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9537,6 +9541,8 @@
 21124D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21124F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211253 Local Header Offset   0000166F
 #
 # ERROR: Offset 0x211253: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9567,6 +9573,8 @@
 211293 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211295 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211299 Local Header Offset   00001B72
 #
 # ERROR: Offset 0x211299: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9597,6 +9605,8 @@
 2112D8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2112DA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2112DE Local Header Offset   00002026
 #
 # ERROR: Offset 0x2112DE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9627,6 +9637,8 @@
 21131C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21131E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211322 Local Header Offset   000025C9
 #
 # ERROR: Offset 0x211322: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9657,6 +9669,8 @@
 211360 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211362 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211366 Local Header Offset   000027EE
 #
 # ERROR: Offset 0x211366: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9687,6 +9701,8 @@
 2113A3 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2113A5 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2113A9 Local Header Offset   00002F81
 #
 # ERROR: Offset 0x2113A9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9717,6 +9733,8 @@
 2113F0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2113F2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2113F6 Local Header Offset   0000312E
 #
 # ERROR: Offset 0x2113F6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9747,6 +9765,8 @@
 211435 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211437 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21143B Local Header Offset   00003C83
 #
 # ERROR: Offset 0x21143B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9777,6 +9797,8 @@
 21147A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21147C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211480 Local Header Offset   0000418F
 #
 # ERROR: Offset 0x211480: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9807,6 +9829,8 @@
 2114BF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2114C1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2114C5 Local Header Offset   0000433C
 #
 # ERROR: Offset 0x2114C5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9837,6 +9861,8 @@
 211506 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 211508 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21150C Local Header Offset   0000475B
 #
 # ERROR: Offset 0x21150C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9867,6 +9893,8 @@
 21154C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21154E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211552 Local Header Offset   00005D01
 #
 # ERROR: Offset 0x211552: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9897,6 +9925,8 @@
 211591 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211593 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211597 Local Header Offset   00006036
 #
 # ERROR: Offset 0x211597: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9927,6 +9957,8 @@
 2115D6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2115D8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2115DC Local Header Offset   000065D5
 #
 # ERROR: Offset 0x2115DC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9957,6 +9989,8 @@
        [Bit 0]               0 'Binary Data'
 21161C Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 211620 Local Header Offset   0000676F
 #
 # ERROR: Offset 0x211620: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -9987,6 +10021,8 @@
 211657 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211659 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21165D Local Header Offset   0000679C
 #
 # ERROR: Offset 0x21165D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10017,6 +10053,8 @@
 21169B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21169D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2116A1 Local Header Offset   00006F5D
 #
 # ERROR: Offset 0x2116A1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10047,6 +10085,8 @@
 2116DF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2116E1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2116E5 Local Header Offset   000072AE
 #
 # ERROR: Offset 0x2116E5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10077,6 +10117,8 @@
 211726 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211728 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21172C Local Header Offset   000087E4
 #
 # ERROR: Offset 0x21172C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10107,6 +10149,8 @@
 21176B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21176D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211771 Local Header Offset   00008E3D
 #
 # ERROR: Offset 0x211771: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10137,6 +10181,8 @@
 2117B1 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2117B3 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2117B7 Local Header Offset   0000B31C
 #
 # ERROR: Offset 0x2117B7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10167,6 +10213,8 @@
 2117F8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2117FA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2117FE Local Header Offset   0000D2A4
 #
 # ERROR: Offset 0x2117FE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10197,6 +10245,8 @@
 21183C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21183E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211842 Local Header Offset   0000D7EA
 #
 # ERROR: Offset 0x211842: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10227,6 +10277,8 @@
 211885 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211887 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21188B Local Header Offset   0000E070
 #
 # ERROR: Offset 0x21188B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10257,6 +10309,8 @@
 2118C9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2118CB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2118CF Local Header Offset   0000E69E
 #
 # ERROR: Offset 0x2118CF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10287,6 +10341,8 @@
 211910 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211912 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211916 Local Header Offset   0000F1A7
 #
 # ERROR: Offset 0x211916: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10316,6 +10372,8 @@
 211954 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211956 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21195A Local Header Offset   0000F8E6
 #
 # ERROR: Offset 0x21195A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10346,6 +10404,8 @@
 211997 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211999 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21199D Local Header Offset   0000F94E
 #
 # ERROR: Offset 0x21199D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10376,6 +10436,8 @@
 2119DD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2119DF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2119E3 Local Header Offset   00011756
 #
 # ERROR: Offset 0x2119E3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10406,6 +10468,8 @@
 211A20 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211A22 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211A26 Local Header Offset   000123E1
 #
 # ERROR: Offset 0x211A26: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10436,6 +10500,8 @@
 211A65 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211A67 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211A6B Local Header Offset   0001298C
 #
 # ERROR: Offset 0x211A6B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10466,6 +10532,8 @@
        [Bit 0]               0 'Binary Data'
 211AAB Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 211AAF Local Header Offset   00012B5E
 #
 # ERROR: Offset 0x211AAF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10496,6 +10564,8 @@
 211AE6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211AE8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211AEC Local Header Offset   00012B8B
 #
 # ERROR: Offset 0x211AEC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10526,6 +10596,8 @@
 211B2A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211B2C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211B30 Local Header Offset   00014758
 #
 # ERROR: Offset 0x211B30: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10556,6 +10628,8 @@
 211B6F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211B71 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211B75 Local Header Offset   0001482F
 #
 # ERROR: Offset 0x211B75: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10586,6 +10660,8 @@
 211BAB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211BAD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211BB1 Local Header Offset   00015742
 #
 # ERROR: Offset 0x211BB1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10616,6 +10692,8 @@
        [Bit 0]               0 'Binary Data'
 211BE9 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 211BED Local Header Offset   00015F8A
 #
 # ERROR: Offset 0x211BED: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10646,6 +10724,8 @@
 211C24 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211C26 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211C2A Local Header Offset   00015FB7
 #
 # ERROR: Offset 0x211C2A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10676,6 +10756,8 @@
 211C68 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211C6A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211C6E Local Header Offset   00017983
 #
 # ERROR: Offset 0x211C6E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10706,6 +10788,8 @@
 211CAD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211CAF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211CB3 Local Header Offset   00017E5D
 #
 # ERROR: Offset 0x211CB3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10736,6 +10820,8 @@
 211CF6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211CF8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211CFC Local Header Offset   00017F5B
 #
 # ERROR: Offset 0x211CFC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10766,6 +10852,8 @@
 211D3F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211D41 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211D45 Local Header Offset   00018058
 #
 # ERROR: Offset 0x211D45: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10796,6 +10884,8 @@
 211D83 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211D85 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211D89 Local Header Offset   00018211
 #
 # ERROR: Offset 0x211D89: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10826,6 +10916,8 @@
 211DC6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211DC8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211DCC Local Header Offset   000182DF
 #
 # ERROR: Offset 0x211DCC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10856,6 +10948,8 @@
        [Bit 0]               0 'Binary Data'
 211E0C Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 211E10 Local Header Offset   00018483
 #
 # ERROR: Offset 0x211E10: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10886,6 +10980,8 @@
 211E48 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211E4A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211E4E Local Header Offset   000184B1
 #
 # ERROR: Offset 0x211E4E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10916,6 +11012,8 @@
 211E8E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211E90 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211E94 Local Header Offset   0001A305
 #
 # ERROR: Offset 0x211E94: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10946,6 +11044,8 @@
 211ED4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211ED6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211EDA Local Header Offset   0001A43F
 #
 # ERROR: Offset 0x211EDA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -10976,6 +11076,8 @@
 211F1A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211F1C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211F20 Local Header Offset   0001A9E2
 #
 # ERROR: Offset 0x211F20: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11006,6 +11108,8 @@
 211F5F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211F61 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211F65 Local Header Offset   0001ADE1
 #
 # ERROR: Offset 0x211F65: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11036,6 +11140,8 @@
 211FA3 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 211FA5 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 211FA9 Local Header Offset   0001AFA3
 #
 # ERROR: Offset 0x211FA9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11066,6 +11172,8 @@
        [Bit 0]               0 'Binary Data'
 211FEA Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 211FEE Local Header Offset   0001B164
 #
 # ERROR: Offset 0x211FEE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11096,6 +11204,8 @@
 212024 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212026 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21202A Local Header Offset   0001B190
 #
 # ERROR: Offset 0x21202A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11126,6 +11236,8 @@
 212066 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212068 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21206C Local Header Offset   0001D0B1
 #
 # ERROR: Offset 0x21206C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11156,6 +11268,8 @@
 2120AA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2120AC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2120B0 Local Header Offset   0001D232
 #
 # ERROR: Offset 0x2120B0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11186,6 +11300,8 @@
 2120EE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2120F0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2120F4 Local Header Offset   0001D960
 #
 # ERROR: Offset 0x2120F4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11216,6 +11332,8 @@
 212131 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212133 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212137 Local Header Offset   0001DDA1
 #
 # ERROR: Offset 0x212137: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11246,6 +11364,8 @@
 212173 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212175 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212179 Local Header Offset   0001E03E
 #
 # ERROR: Offset 0x212179: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11276,6 +11396,8 @@
 2121B6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2121B8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2121BC Local Header Offset   0001E1E6
 #
 # ERROR: Offset 0x2121BC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11306,6 +11428,8 @@
 2121F1 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2121F3 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2121F7 Local Header Offset   0001E31D
 #
 # ERROR: Offset 0x2121F7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11336,6 +11460,8 @@
        [Bit 0]               0 'Binary Data'
 212231 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 212235 Local Header Offset   00024A2C
 #
 # ERROR: Offset 0x212235: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11366,6 +11492,8 @@
 21226D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21226F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212273 Local Header Offset   00024A5A
 #
 # ERROR: Offset 0x212273: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11396,6 +11524,8 @@
 2122B5 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2122B7 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2122BB Local Header Offset   00024E4E
 #
 # ERROR: Offset 0x2122BB: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11426,6 +11556,8 @@
 2122F8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2122FA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2122FE Local Header Offset   000250A4
 #
 # ERROR: Offset 0x2122FE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11456,6 +11588,8 @@
 21233E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212340 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212344 Local Header Offset   00026110
 #
 # ERROR: Offset 0x212344: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11486,6 +11620,8 @@
 212384 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212386 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21238A Local Header Offset   000266FF
 #
 # ERROR: Offset 0x21238A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11516,6 +11652,8 @@
 2123C9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2123CB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2123CF Local Header Offset   00026A71
 #
 # ERROR: Offset 0x2123CF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11546,6 +11684,8 @@
 21240E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212410 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212414 Local Header Offset   00026EF4
 #
 # ERROR: Offset 0x212414: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11576,6 +11716,8 @@
 212451 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212453 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212457 Local Header Offset   000278B9
 #
 # ERROR: Offset 0x212457: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11606,6 +11748,8 @@
 212494 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212496 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21249A Local Header Offset   00027B1B
 #
 # ERROR: Offset 0x21249A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11636,6 +11780,8 @@
 2124D9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2124DB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2124DF Local Header Offset   00028025
 #
 # ERROR: Offset 0x2124DF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11666,6 +11812,8 @@
 212522 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212524 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212528 Local Header Offset   0002810B
 #
 # ERROR: Offset 0x212528: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11696,6 +11844,8 @@
 21256A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21256C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212570 Local Header Offset   00029926
 #
 # ERROR: Offset 0x212570: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11726,6 +11876,8 @@
 2125B2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2125B4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2125B8 Local Header Offset   00029E8A
 #
 # ERROR: Offset 0x2125B8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11756,6 +11908,8 @@
 2125FD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2125FF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212603 Local Header Offset   0002AE46
 #
 # ERROR: Offset 0x212603: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11786,6 +11940,8 @@
 212643 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212645 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212649 Local Header Offset   0002B1F8
 #
 # ERROR: Offset 0x212649: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11816,6 +11972,8 @@
 21268D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21268F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212693 Local Header Offset   0002B2E1
 #
 # ERROR: Offset 0x212693: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11846,6 +12004,8 @@
 2126D8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2126DA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2126DE Local Header Offset   0002B698
 #
 # ERROR: Offset 0x2126DE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11876,6 +12036,8 @@
 212721 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212723 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212727 Local Header Offset   0002B930
 #
 # ERROR: Offset 0x212727: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11906,6 +12068,8 @@
 21276D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21276F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212773 Local Header Offset   0002C202
 #
 # ERROR: Offset 0x212773: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11936,6 +12100,8 @@
 2127B7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2127B9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2127BD Local Header Offset   0002C5B8
 #
 # ERROR: Offset 0x2127BD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11966,6 +12132,8 @@
 212802 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212804 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212808 Local Header Offset   0002C96F
 #
 # ERROR: Offset 0x212808: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -11996,6 +12164,8 @@
 212847 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212849 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21284D Local Header Offset   0002CB1E
 #
 # ERROR: Offset 0x21284D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12026,6 +12196,8 @@
 212890 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212892 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212896 Local Header Offset   0002CD18
 #
 # ERROR: Offset 0x212896: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12056,6 +12228,8 @@
 2128CE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2128D0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2128D4 Local Header Offset   0002D0E5
 #
 # ERROR: Offset 0x2128D4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12086,6 +12260,8 @@
 21290D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21290F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212913 Local Header Offset   0002E12D
 #
 # ERROR: Offset 0x212913: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12116,6 +12292,8 @@
 21294E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212950 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212954 Local Header Offset   0002ECFE
 #
 # ERROR: Offset 0x212954: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12146,6 +12324,8 @@
 21298C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21298E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212992 Local Header Offset   0003065A
 #
 # ERROR: Offset 0x212992: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12176,6 +12356,8 @@
 2129CA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2129CC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2129D0 Local Header Offset   00030E7E
 #
 # ERROR: Offset 0x2129D0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12206,6 +12388,8 @@
 212A0A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212A0C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212A10 Local Header Offset   00033514
 #
 # ERROR: Offset 0x212A10: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12236,6 +12420,8 @@
 212A49 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212A4B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212A4F Local Header Offset   00034441
 #
 # ERROR: Offset 0x212A4F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12266,6 +12452,8 @@
 212A88 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212A8A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212A8E Local Header Offset   00036B58
 #
 # ERROR: Offset 0x212A8E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12296,6 +12484,8 @@
 212ACA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212ACC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212AD0 Local Header Offset   00036CE3
 #
 # ERROR: Offset 0x212AD0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12326,6 +12516,8 @@
        [Bit 0]               0 'Binary Data'
 212B0C Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 212B10 Local Header Offset   000373AA
 #
 # ERROR: Offset 0x212B10: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12356,6 +12548,8 @@
 212B4A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212B4C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212B50 Local Header Offset   000373DA
 #
 # ERROR: Offset 0x212B50: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12386,6 +12580,8 @@
 212B92 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212B94 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212B98 Local Header Offset   00037A10
 #
 # ERROR: Offset 0x212B98: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12416,6 +12612,8 @@
 212BDB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212BDD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212BE1 Local Header Offset   00039F4E
 #
 # ERROR: Offset 0x212BE1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12446,6 +12644,8 @@
 212C25 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212C27 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212C2B Local Header Offset   0003ADE1
 #
 # ERROR: Offset 0x212C2B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12476,6 +12676,8 @@
 212C6D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212C6F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212C73 Local Header Offset   0003B19C
 #
 # ERROR: Offset 0x212C73: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12506,6 +12708,8 @@
 212CB9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212CBB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212CBF Local Header Offset   0003B4F4
 #
 # ERROR: Offset 0x212CBF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12536,6 +12740,8 @@
 212D00 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212D02 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212D06 Local Header Offset   0003BAA2
 #
 # ERROR: Offset 0x212D06: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12566,6 +12772,8 @@
 212D47 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212D49 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212D4D Local Header Offset   0003BCD8
 #
 # ERROR: Offset 0x212D4D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12596,6 +12804,8 @@
 212D8E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212D90 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212D94 Local Header Offset   0003BE75
 #
 # ERROR: Offset 0x212D94: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12626,6 +12836,8 @@
 212DCC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212DCE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212DD2 Local Header Offset   0003CB70
 #
 # ERROR: Offset 0x212DD2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12656,6 +12868,8 @@
        [Bit 0]               0 'Binary Data'
 212E0C Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 212E10 Local Header Offset   0003D155
 #
 # ERROR: Offset 0x212E10: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12686,6 +12900,8 @@
 212E47 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212E49 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212E4D Local Header Offset   0003D182
 #
 # ERROR: Offset 0x212E4D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12716,6 +12932,8 @@
 212E8C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212E8E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212E92 Local Header Offset   0003D64E
 #
 # ERROR: Offset 0x212E92: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12746,6 +12964,8 @@
 212ED4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212ED6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212EDA Local Header Offset   0003EC8E
 #
 # ERROR: Offset 0x212EDA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12776,6 +12996,8 @@
 212F18 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212F1A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212F1E Local Header Offset   0003F105
 #
 # ERROR: Offset 0x212F1E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12806,6 +13028,8 @@
 212F5F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212F61 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212F65 Local Header Offset   0003F280
 #
 # ERROR: Offset 0x212F65: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12836,6 +13060,8 @@
        [Bit 0]               0 'Binary Data'
 212FA8 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 212FAC Local Header Offset   0004137A
 #
 # ERROR: Offset 0x212FAC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12866,6 +13092,8 @@
 212FEA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 212FEC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 212FF0 Local Header Offset   000413AE
 #
 # ERROR: Offset 0x212FF0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12896,6 +13124,8 @@
 213037 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213039 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21303D Local Header Offset   00042387
 #
 # ERROR: Offset 0x21303D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12926,6 +13156,8 @@
 213085 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213087 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21308B Local Header Offset   00043C9D
 #
 # ERROR: Offset 0x21308B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12956,6 +13188,8 @@
 2130D1 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2130D3 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2130D7 Local Header Offset   000447D2
 #
 # ERROR: Offset 0x2130D7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -12986,6 +13220,8 @@
 21311E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213120 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213124 Local Header Offset   00045526
 #
 # ERROR: Offset 0x213124: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13016,6 +13252,8 @@
 21316B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21316D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213171 Local Header Offset   00045870
 #
 # ERROR: Offset 0x213171: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13046,6 +13284,8 @@
 2131B8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2131BA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2131BE Local Header Offset   00045C34
 #
 # ERROR: Offset 0x2131BE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13076,6 +13316,8 @@
 213205 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213207 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21320B Local Header Offset   00046819
 #
 # ERROR: Offset 0x21320B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13106,6 +13348,8 @@
 213252 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213254 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213258 Local Header Offset   000469C2
 #
 # ERROR: Offset 0x213258: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13136,6 +13380,8 @@
 21329D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21329F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2132A3 Local Header Offset   00048985
 #
 # ERROR: Offset 0x2132A3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13166,6 +13412,8 @@
 2132EB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2132ED Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2132F1 Local Header Offset   0004B446
 #
 # ERROR: Offset 0x2132F1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13196,6 +13444,8 @@
 213339 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21333B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21333F Local Header Offset   0004D279
 #
 # ERROR: Offset 0x21333F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13226,6 +13476,8 @@
 213386 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213388 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21338C Local Header Offset   0004DF75
 #
 # ERROR: Offset 0x21338C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13256,6 +13508,8 @@
 2133D3 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2133D5 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2133D9 Local Header Offset   0004E3CE
 #
 # ERROR: Offset 0x2133D9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13286,6 +13540,8 @@
 213421 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213423 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213427 Local Header Offset   0004F6FF
 #
 # ERROR: Offset 0x213427: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13316,6 +13572,8 @@
 21346F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213471 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213475 Local Header Offset   0004FA74
 #
 # ERROR: Offset 0x213475: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13346,6 +13604,8 @@
 2134BC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2134BE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2134C2 Local Header Offset   00050928
 #
 # ERROR: Offset 0x2134C2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13376,6 +13636,8 @@
 213509 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21350B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21350F Local Header Offset   00050E75
 #
 # ERROR: Offset 0x21350F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13406,6 +13668,8 @@
 213557 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213559 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21355D Local Header Offset   00051952
 #
 # ERROR: Offset 0x21355D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13436,6 +13700,8 @@
 2135A5 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2135A7 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2135AB Local Header Offset   00051E67
 #
 # ERROR: Offset 0x2135AB: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13466,6 +13732,8 @@
 2135F2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2135F4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2135F8 Local Header Offset   00052444
 #
 # ERROR: Offset 0x2135F8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13496,6 +13764,8 @@
 213640 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213642 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213646 Local Header Offset   00052CCC
 #
 # ERROR: Offset 0x213646: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13526,6 +13796,8 @@
 213685 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213687 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21368B Local Header Offset   000532F3
 #
 # ERROR: Offset 0x21368B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13556,6 +13828,8 @@
 2136C9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2136CB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2136CF Local Header Offset   00053921
 #
 # ERROR: Offset 0x2136CF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13586,6 +13860,8 @@
 21370D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21370F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213713 Local Header Offset   00053AE5
 #
 # ERROR: Offset 0x213713: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13616,6 +13892,8 @@
        [Bit 0]               0 'Binary Data'
 213755 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 213759 Local Header Offset   000591CA
 #
 # ERROR: Offset 0x213759: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13646,6 +13924,8 @@
 21378E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213790 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213794 Local Header Offset   000591F5
 #
 # ERROR: Offset 0x213794: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13676,6 +13956,8 @@
 2137CE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2137D0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2137D4 Local Header Offset   0005C6B5
 #
 # ERROR: Offset 0x2137D4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13706,6 +13988,8 @@
 21380B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21380D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213811 Local Header Offset   0005FECA
 #
 # ERROR: Offset 0x213811: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13736,6 +14020,8 @@
        [Bit 0]               0 'Binary Data'
 21384B Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 21384F Local Header Offset   00060E80
 #
 # ERROR: Offset 0x21384F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13766,6 +14052,8 @@
 213886 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213888 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21388C Local Header Offset   00060EAD
 #
 # ERROR: Offset 0x21388C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13796,6 +14084,8 @@
 2138CE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2138D0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2138D4 Local Header Offset   00061CFA
 #
 # ERROR: Offset 0x2138D4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13826,6 +14116,8 @@
 213917 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213919 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21391D Local Header Offset   00062492
 #
 # ERROR: Offset 0x21391D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13856,6 +14148,8 @@
 213960 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213962 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213966 Local Header Offset   00062928
 #
 # ERROR: Offset 0x213966: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13886,6 +14180,8 @@
 2139A9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2139AB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2139AF Local Header Offset   00062F93
 #
 # ERROR: Offset 0x2139AF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13916,6 +14212,8 @@
 2139F2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2139F4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2139F8 Local Header Offset   00063732
 #
 # ERROR: Offset 0x2139F8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13946,6 +14244,8 @@
 213A3B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213A3D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213A41 Local Header Offset   00064070
 #
 # ERROR: Offset 0x213A41: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -13976,6 +14276,8 @@
 213A83 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213A85 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213A89 Local Header Offset   000647CC
 #
 # ERROR: Offset 0x213A89: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14006,6 +14308,8 @@
 213ACC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213ACE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213AD2 Local Header Offset   00065386
 #
 # ERROR: Offset 0x213AD2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14036,6 +14340,8 @@
 213B12 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213B14 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213B18 Local Header Offset   00066466
 #
 # ERROR: Offset 0x213B18: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14066,6 +14372,8 @@
 213B56 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213B58 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213B5C Local Header Offset   000690B7
 #
 # ERROR: Offset 0x213B5C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14096,6 +14404,8 @@
 213B9A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213B9C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213BA0 Local Header Offset   00069A13
 #
 # ERROR: Offset 0x213BA0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14126,6 +14436,8 @@
 213BE1 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213BE3 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213BE7 Local Header Offset   0006A661
 #
 # ERROR: Offset 0x213BE7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14156,6 +14468,8 @@
        [Bit 0]               0 'Binary Data'
 213C27 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 213C2B Local Header Offset   0006A802
 #
 # ERROR: Offset 0x213C2B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14186,6 +14500,8 @@
 213C60 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213C62 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213C66 Local Header Offset   0006A82D
 #
 # ERROR: Offset 0x213C66: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14216,6 +14532,8 @@
 213CA7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213CA9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213CAD Local Header Offset   0006B678
 #
 # ERROR: Offset 0x213CAD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14246,6 +14564,8 @@
 213CED Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213CEF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213CF3 Local Header Offset   0006BFE4
 #
 # ERROR: Offset 0x213CF3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14276,6 +14596,8 @@
 213D2D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213D2F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213D33 Local Header Offset   0006D34E
 #
 # ERROR: Offset 0x213D33: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14306,6 +14628,8 @@
 213D70 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213D72 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213D76 Local Header Offset   0006DE71
 #
 # ERROR: Offset 0x213D76: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14336,6 +14660,8 @@
 213DB3 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213DB5 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213DB9 Local Header Offset   0006E08A
 #
 # ERROR: Offset 0x213DB9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14366,6 +14692,8 @@
 213DF6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213DF8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213DFC Local Header Offset   00070116
 #
 # ERROR: Offset 0x213DFC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14396,6 +14724,8 @@
 213E39 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213E3B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213E3F Local Header Offset   00070578
 #
 # ERROR: Offset 0x213E3F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14425,6 +14755,8 @@
 213E7B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213E7D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213E81 Local Header Offset   00070D85
 #
 # ERROR: Offset 0x213E81: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14455,6 +14787,8 @@
 213EBD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213EBF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213EC3 Local Header Offset   00070E21
 #
 # ERROR: Offset 0x213EC3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14485,6 +14819,8 @@
        [Bit 0]               0 'Binary Data'
 213F01 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 213F05 Local Header Offset   00070FB9
 #
 # ERROR: Offset 0x213F05: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14515,6 +14851,8 @@
 213F3F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213F41 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213F45 Local Header Offset   00070FE9
 #
 # ERROR: Offset 0x213F45: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14545,6 +14883,8 @@
 213F8B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213F8D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213F91 Local Header Offset   0007197F
 #
 # ERROR: Offset 0x213F91: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14575,6 +14915,8 @@
 213FD7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 213FD9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 213FDD Local Header Offset   0007200C
 #
 # ERROR: Offset 0x213FDD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14605,6 +14947,8 @@
 214020 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214022 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214026 Local Header Offset   000754F9
 #
 # ERROR: Offset 0x214026: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14635,6 +14979,8 @@
 21406C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21406E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214072 Local Header Offset   0007633A
 #
 # ERROR: Offset 0x214072: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14665,6 +15011,8 @@
 2140B7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2140B9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2140BD Local Header Offset   00077D4C
 #
 # ERROR: Offset 0x2140BD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14695,6 +15043,8 @@
 2140FC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2140FE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214102 Local Header Offset   00078682
 #
 # ERROR: Offset 0x214102: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14725,6 +15075,8 @@
 214147 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214149 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21414D Local Header Offset   0007946D
 #
 # ERROR: Offset 0x21414D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14755,6 +15107,8 @@
 214193 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214195 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214199 Local Header Offset   00079BBC
 #
 # ERROR: Offset 0x214199: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14785,6 +15139,8 @@
 2141DF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2141E1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2141E5 Local Header Offset   0007A52D
 #
 # ERROR: Offset 0x2141E5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14815,6 +15171,8 @@
 21422B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21422D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214231 Local Header Offset   0007B61B
 #
 # ERROR: Offset 0x214231: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14845,6 +15203,8 @@
        [Bit 0]               0 'Binary Data'
 214275 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 214279 Local Header Offset   0007CE92
 #
 # ERROR: Offset 0x214279: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14875,6 +15235,8 @@
 2142AF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2142B1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2142B5 Local Header Offset   0007CEBE
 #
 # ERROR: Offset 0x2142B5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14905,6 +15267,8 @@
 2142F3 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2142F5 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2142F9 Local Header Offset   0007D21C
 #
 # ERROR: Offset 0x2142F9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14935,6 +15299,8 @@
 214336 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214338 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21433C Local Header Offset   0007D486
 #
 # ERROR: Offset 0x21433C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14965,6 +15331,8 @@
 21437E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214380 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214384 Local Header Offset   0007F3DD
 #
 # ERROR: Offset 0x214384: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -14995,6 +15363,8 @@
 2143C7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2143C9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2143CD Local Header Offset   0007F9D5
 #
 # ERROR: Offset 0x2143CD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15025,6 +15395,8 @@
 214411 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214413 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214417 Local Header Offset   0008007E
 #
 # ERROR: Offset 0x214417: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15055,6 +15427,8 @@
 214454 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214456 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21445A Local Header Offset   000805DD
 #
 # ERROR: Offset 0x21445A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15085,6 +15459,8 @@
 214497 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214499 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21449D Local Header Offset   0008080E
 #
 # ERROR: Offset 0x21449D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15115,6 +15491,8 @@
 2144D9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2144DB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2144DF Local Header Offset   00081DEE
 #
 # ERROR: Offset 0x2144DF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15145,6 +15523,8 @@
 21451E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214520 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214524 Local Header Offset   00082896
 #
 # ERROR: Offset 0x214524: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15175,6 +15555,8 @@
 214561 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214563 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214567 Local Header Offset   00082A39
 #
 # ERROR: Offset 0x214567: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15205,6 +15587,8 @@
 21459E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2145A0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2145A4 Local Header Offset   0008393F
 #
 # ERROR: Offset 0x2145A4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15235,6 +15619,8 @@
 2145DE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2145E0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2145E4 Local Header Offset   0008449B
 #
 # ERROR: Offset 0x2145E4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15265,6 +15651,8 @@
 21461F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214621 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214625 Local Header Offset   00084E24
 #
 # ERROR: Offset 0x214625: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15295,6 +15683,8 @@
        [Bit 0]               0 'Binary Data'
 214660 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 214664 Local Header Offset   00085D8F
 #
 # ERROR: Offset 0x214664: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15325,6 +15715,8 @@
 21469C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21469E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2146A2 Local Header Offset   00085DBD
 #
 # ERROR: Offset 0x2146A2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15355,6 +15747,8 @@
 2146E1 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2146E3 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2146E7 Local Header Offset   00086124
 #
 # ERROR: Offset 0x2146E7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15385,6 +15779,8 @@
 214723 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214725 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214729 Local Header Offset   0008620A
 #
 # ERROR: Offset 0x214729: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15415,6 +15811,8 @@
 214768 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21476A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21476E Local Header Offset   000869EF
 #
 # ERROR: Offset 0x21476E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15445,6 +15843,8 @@
 2147AC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2147AE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2147B2 Local Header Offset   00086F57
 #
 # ERROR: Offset 0x2147B2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15475,6 +15875,8 @@
 2147EE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2147F0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2147F4 Local Header Offset   00087312
 #
 # ERROR: Offset 0x2147F4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15505,6 +15907,8 @@
 214832 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214834 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214838 Local Header Offset   00087BA0
 #
 # ERROR: Offset 0x214838: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15535,6 +15939,8 @@
 214878 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21487A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21487E Local Header Offset   0008955D
 #
 # ERROR: Offset 0x21487E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15565,6 +15971,8 @@
 2148BE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2148C0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2148C4 Local Header Offset   00089F32
 #
 # ERROR: Offset 0x2148C4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15595,6 +16003,8 @@
 214904 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214906 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21490A Local Header Offset   0008A0F7
 #
 # ERROR: Offset 0x21490A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15625,6 +16035,8 @@
 21494A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21494C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214950 Local Header Offset   0008B91B
 #
 # ERROR: Offset 0x214950: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15655,6 +16067,8 @@
 214990 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214992 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214996 Local Header Offset   0008BAC1
 #
 # ERROR: Offset 0x214996: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15685,6 +16099,8 @@
        [Bit 0]               0 'Binary Data'
 2149D7 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2149DB Local Header Offset   0008BCB2
 #
 # ERROR: Offset 0x2149DB: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15715,6 +16131,8 @@
 214A12 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214A14 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214A18 Local Header Offset   0008BCDF
 #
 # ERROR: Offset 0x214A18: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15745,6 +16163,8 @@
 214A59 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214A5B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214A5F Local Header Offset   0008C2BE
 #
 # ERROR: Offset 0x214A5F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15775,6 +16195,8 @@
 214A9E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214AA0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214AA4 Local Header Offset   0008C6FC
 #
 # ERROR: Offset 0x214AA4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15805,6 +16227,8 @@
 214AE2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214AE4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214AE8 Local Header Offset   0008CA39
 #
 # ERROR: Offset 0x214AE8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15835,6 +16259,8 @@
 214B25 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214B27 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214B2B Local Header Offset   0008CD24
 #
 # ERROR: Offset 0x214B2B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15865,6 +16291,8 @@
 214B68 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214B6A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214B6E Local Header Offset   0008D2AA
 #
 # ERROR: Offset 0x214B6E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15895,6 +16323,8 @@
 214BAC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214BAE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214BB2 Local Header Offset   0008E613
 #
 # ERROR: Offset 0x214BB2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15925,6 +16355,8 @@
 214BF0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214BF2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214BF6 Local Header Offset   0008E7B7
 #
 # ERROR: Offset 0x214BF6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15955,6 +16387,8 @@
 214C35 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214C37 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214C3B Local Header Offset   0008E963
 #
 # ERROR: Offset 0x214C3B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -15985,6 +16419,8 @@
 214C7C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214C7E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214C82 Local Header Offset   0008EB38
 #
 # ERROR: Offset 0x214C82: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16015,6 +16451,8 @@
 214CC2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214CC4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214CC8 Local Header Offset   0008ED24
 #
 # ERROR: Offset 0x214CC8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16045,6 +16483,8 @@
 214D08 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214D0A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214D0E Local Header Offset   0008F14C
 #
 # ERROR: Offset 0x214D0E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16075,6 +16515,8 @@
 214D4F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214D51 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214D55 Local Header Offset   0008F849
 #
 # ERROR: Offset 0x214D55: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16105,6 +16547,8 @@
 214D93 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214D95 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214D99 Local Header Offset   00090624
 #
 # ERROR: Offset 0x214D99: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16135,6 +16579,8 @@
 214DD4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214DD6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214DDA Local Header Offset   00092363
 #
 # ERROR: Offset 0x214DDA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16165,6 +16611,8 @@
 214E15 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214E17 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214E1B Local Header Offset   0009285D
 #
 # ERROR: Offset 0x214E1B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16195,6 +16643,8 @@
        [Bit 0]               0 'Binary Data'
 214E52 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 214E56 Local Header Offset   00092F05
 #
 # ERROR: Offset 0x214E56: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16225,6 +16675,8 @@
 214E8E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214E90 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214E94 Local Header Offset   00092F33
 #
 # ERROR: Offset 0x214E94: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16255,6 +16707,8 @@
 214ED4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214ED6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214EDA Local Header Offset   00093086
 #
 # ERROR: Offset 0x214EDA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16285,6 +16739,8 @@
 214F19 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214F1B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214F1F Local Header Offset   00093261
 #
 # ERROR: Offset 0x214F1F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16315,6 +16771,8 @@
 214F61 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214F63 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214F67 Local Header Offset   000932E6
 #
 # ERROR: Offset 0x214F67: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16345,6 +16803,8 @@
 214FA7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214FA9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214FAD Local Header Offset   0009485A
 #
 # ERROR: Offset 0x214FAD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16375,6 +16835,8 @@
 214FEC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 214FEE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 214FF2 Local Header Offset   00094A23
 #
 # ERROR: Offset 0x214FF2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16405,6 +16867,8 @@
 21502A Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21502C Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215030 Local Header Offset   000987CC
 #
 # ERROR: Offset 0x215030: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16435,6 +16899,8 @@
 215068 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21506A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21506E Local Header Offset   00099FAB
 #
 # ERROR: Offset 0x21506E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16465,6 +16931,8 @@
        [Bit 0]               0 'Binary Data'
 2150A8 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2150AC Local Header Offset   0009A6D7
 #
 # ERROR: Offset 0x2150AC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16495,6 +16963,8 @@
 2150E2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2150E4 Ext File Attributes   81ED0000
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          08 'Regular File'
 2150E8 Local Header Offset   0009A703
 #
 # ERROR: Offset 0x2150E8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16525,6 +16995,8 @@
 215127 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215129 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21512D Local Header Offset   0009B1AD
 #
 # ERROR: Offset 0x21512D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16555,6 +17027,8 @@
 21516B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21516D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215171 Local Header Offset   0009BF9C
 #
 # ERROR: Offset 0x215171: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16585,6 +17059,8 @@
        [Bit 0]               0 'Binary Data'
 2151B0 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2151B4 Local Header Offset   0009C15E
 #
 # ERROR: Offset 0x2151B4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16615,6 +17091,8 @@
 2151F4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2151F6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2151FA Local Header Offset   0009C194
 #
 # ERROR: Offset 0x2151FA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16645,6 +17123,8 @@
 215244 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215246 Ext File Attributes   81ED0000
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          08 'Regular File'
 21524A Local Header Offset   0009C2B6
 #
 # ERROR: Offset 0x21524A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16675,6 +17155,8 @@
 215295 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215297 Ext File Attributes   81ED0000
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          08 'Regular File'
 21529B Local Header Offset   0009C444
 #
 # ERROR: Offset 0x21529B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16705,6 +17187,8 @@
 2152E8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2152EA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2152EE Local Header Offset   0009C602
 #
 # ERROR: Offset 0x2152EE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16735,6 +17219,8 @@
 215337 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215339 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21533D Local Header Offset   0009C730
 #
 # ERROR: Offset 0x21533D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16765,6 +17251,8 @@
 215383 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215385 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215389 Local Header Offset   0009CA6C
 #
 # ERROR: Offset 0x215389: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16795,6 +17283,8 @@
 2153CB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2153CD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2153D1 Local Header Offset   0009D193
 #
 # ERROR: Offset 0x2153D1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16825,6 +17315,8 @@
 21540D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21540F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215413 Local Header Offset   0009EF1C
 #
 # ERROR: Offset 0x215413: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16855,6 +17347,8 @@
 215450 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215452 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215456 Local Header Offset   0009F0D1
 #
 # ERROR: Offset 0x215456: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16885,6 +17379,8 @@
 215493 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215495 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215499 Local Header Offset   0009F6B3
 #
 # ERROR: Offset 0x215499: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16915,6 +17411,8 @@
        [Bit 0]               0 'Binary Data'
 2154D2 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2154D6 Local Header Offset   000A144B
 #
 # ERROR: Offset 0x2154D6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16945,6 +17443,8 @@
 21550B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21550D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215511 Local Header Offset   000A1476
 #
 # ERROR: Offset 0x215511: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -16975,6 +17475,8 @@
 215552 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215554 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215558 Local Header Offset   000A1B2E
 #
 # ERROR: Offset 0x215558: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17005,6 +17507,8 @@
 215599 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21559B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21559F Local Header Offset   000A2587
 #
 # ERROR: Offset 0x21559F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17035,6 +17539,8 @@
 2155DD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2155DF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2155E3 Local Header Offset   000A46E9
 #
 # ERROR: Offset 0x2155E3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17065,6 +17571,8 @@
 215623 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215625 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215629 Local Header Offset   000A4D75
 #
 # ERROR: Offset 0x215629: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17095,6 +17603,8 @@
 215669 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21566B Ext File Attributes   81ED0000
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          08 'Regular File'
 21566F Local Header Offset   000A5B71
 #
 # ERROR: Offset 0x21566F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17125,6 +17635,8 @@
 2156B0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2156B2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2156B6 Local Header Offset   000A6462
 #
 # ERROR: Offset 0x2156B6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17155,6 +17667,8 @@
 2156F7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2156F9 Ext File Attributes   81ED0000
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          08 'Regular File'
 2156FD Local Header Offset   000A6F48
 #
 # ERROR: Offset 0x2156FD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17185,6 +17699,8 @@
 21573E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215740 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215744 Local Header Offset   000A7B8B
 #
 # ERROR: Offset 0x215744: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17215,6 +17731,8 @@
 215780 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215782 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215786 Local Header Offset   000A8074
 #
 # ERROR: Offset 0x215786: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17245,6 +17763,8 @@
 2157C0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2157C2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2157C6 Local Header Offset   000AA28B
 #
 # ERROR: Offset 0x2157C6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17275,6 +17795,8 @@
 215800 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215802 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215806 Local Header Offset   000AAF39
 #
 # ERROR: Offset 0x215806: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17305,6 +17827,8 @@
 215844 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215846 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21584A Local Header Offset   000ABAA3
 #
 # ERROR: Offset 0x21584A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17335,6 +17859,8 @@
 215889 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21588B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21588F Local Header Offset   000ACE46
 #
 # ERROR: Offset 0x21588F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17365,6 +17891,8 @@
 2158CE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2158D0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2158D4 Local Header Offset   000AD1E4
 #
 # ERROR: Offset 0x2158D4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17395,6 +17923,8 @@
 215911 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215913 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215917 Local Header Offset   000AEEFC
 #
 # ERROR: Offset 0x215917: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17425,6 +17955,8 @@
 215954 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215956 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21595A Local Header Offset   000B07A3
 #
 # ERROR: Offset 0x21595A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17455,6 +17987,8 @@
 215997 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215999 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21599D Local Header Offset   000B1EED
 #
 # ERROR: Offset 0x21599D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17485,6 +18019,8 @@
 2159DD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2159DF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2159E3 Local Header Offset   000B4306
 #
 # ERROR: Offset 0x2159E3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17515,6 +18051,8 @@
 215A1F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215A21 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215A25 Local Header Offset   000B4533
 #
 # ERROR: Offset 0x215A25: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17545,6 +18083,8 @@
 215A65 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215A67 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215A6B Local Header Offset   000B480C
 #
 # ERROR: Offset 0x215A6B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17575,6 +18115,8 @@
 215AAC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215AAE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215AB2 Local Header Offset   000B6643
 #
 # ERROR: Offset 0x215AB2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17605,6 +18147,8 @@
 215AEB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215AED Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215AF1 Local Header Offset   000B6D0A
 #
 # ERROR: Offset 0x215AF1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17635,6 +18179,8 @@
        [Bit 0]               0 'Binary Data'
 215B29 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 215B2D Local Header Offset   000B7D8D
 #
 # ERROR: Offset 0x215B2D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17665,6 +18211,8 @@
 215B64 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215B66 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215B6A Local Header Offset   000B7DBA
 #
 # ERROR: Offset 0x215B6A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17695,6 +18243,8 @@
 215BAD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215BAF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215BB3 Local Header Offset   000B88C4
 #
 # ERROR: Offset 0x215BB3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17725,6 +18275,8 @@
 215BF4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215BF6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215BFA Local Header Offset   000B94A4
 #
 # ERROR: Offset 0x215BFA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17755,6 +18307,8 @@
 215C3C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215C3E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215C42 Local Header Offset   000B98B2
 #
 # ERROR: Offset 0x215C42: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17785,6 +18339,8 @@
 215C84 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215C86 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215C8A Local Header Offset   000BAC0B
 #
 # ERROR: Offset 0x215C8A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17815,6 +18371,8 @@
 215CCD Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215CCF Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215CD3 Local Header Offset   000BB40A
 #
 # ERROR: Offset 0x215CD3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17845,6 +18403,8 @@
 215D16 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215D18 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215D1C Local Header Offset   000BB8E5
 #
 # ERROR: Offset 0x215D1C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17875,6 +18435,8 @@
 215D5F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215D61 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215D65 Local Header Offset   000BBE7F
 #
 # ERROR: Offset 0x215D65: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17905,6 +18467,8 @@
 215DA7 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215DA9 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215DAD Local Header Offset   000BC2B9
 #
 # ERROR: Offset 0x215DAD: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17935,6 +18499,8 @@
 215DF0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215DF2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215DF6 Local Header Offset   000BCC09
 #
 # ERROR: Offset 0x215DF6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17965,6 +18531,8 @@
 215E39 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215E3B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215E3F Local Header Offset   000BD110
 #
 # ERROR: Offset 0x215E3F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -17995,6 +18563,8 @@
 215E82 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215E84 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215E88 Local Header Offset   000BD521
 #
 # ERROR: Offset 0x215E88: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18025,6 +18595,8 @@
 215ECB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215ECD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215ED1 Local Header Offset   000BD9F9
 #
 # ERROR: Offset 0x215ED1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18055,6 +18627,8 @@
 215F14 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215F16 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215F1A Local Header Offset   000BE2B0
 #
 # ERROR: Offset 0x215F1A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18085,6 +18659,8 @@
 215F5D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215F5F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215F63 Local Header Offset   000BE7CE
 #
 # ERROR: Offset 0x215F63: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18115,6 +18691,8 @@
 215FA6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215FA8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215FAC Local Header Offset   000BF08D
 #
 # ERROR: Offset 0x215FAC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18145,6 +18723,8 @@
 215FEE Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 215FF0 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 215FF4 Local Header Offset   000BFA5F
 #
 # ERROR: Offset 0x215FF4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18175,6 +18755,8 @@
 21602F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216031 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216035 Local Header Offset   000C0E06
 #
 # ERROR: Offset 0x216035: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18205,6 +18787,8 @@
 216070 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216072 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216076 Local Header Offset   000C12A5
 #
 # ERROR: Offset 0x216076: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18235,6 +18819,8 @@
 2160B4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2160B6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2160BA Local Header Offset   000C1EC6
 #
 # ERROR: Offset 0x2160BA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18265,6 +18851,8 @@
 2160FB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2160FD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216101 Local Header Offset   000C221B
 #
 # ERROR: Offset 0x216101: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18295,6 +18883,8 @@
 216141 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216143 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216147 Local Header Offset   000C23CA
 #
 # ERROR: Offset 0x216147: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18325,6 +18915,8 @@
 216187 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216189 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21618D Local Header Offset   000C253B
 #
 # ERROR: Offset 0x21618D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18355,6 +18947,8 @@
        [Bit 0]               0 'Binary Data'
 2161D0 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2161D4 Local Header Offset   000C2BD2
 #
 # ERROR: Offset 0x2161D4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18385,6 +18979,8 @@
 21620F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216211 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216215 Local Header Offset   000C2C03
 #
 # ERROR: Offset 0x216215: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18415,6 +19011,8 @@
 216257 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216259 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21625D Local Header Offset   000C31DF
 #
 # ERROR: Offset 0x21625D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18445,6 +19043,8 @@
 21629F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2162A1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2162A5 Local Header Offset   000C3304
 #
 # ERROR: Offset 0x2162A5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18475,6 +19075,8 @@
 2162EC Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2162EE Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2162F2 Local Header Offset   000C37A1
 #
 # ERROR: Offset 0x2162F2: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18505,6 +19107,8 @@
 216338 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21633A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21633E Local Header Offset   000C3C28
 #
 # ERROR: Offset 0x21633E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18535,6 +19139,8 @@
 216385 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216387 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21638B Local Header Offset   000C40B1
 #
 # ERROR: Offset 0x21638B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18565,6 +19171,8 @@
 2163C9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2163CB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2163CF Local Header Offset   000C6BC6
 #
 # ERROR: Offset 0x2163CF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18595,6 +19203,8 @@
 216410 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216412 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216416 Local Header Offset   000C8A0C
 #
 # ERROR: Offset 0x216416: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18625,6 +19235,8 @@
 216457 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216459 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21645D Local Header Offset   000C8C34
 #
 # ERROR: Offset 0x21645D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18655,6 +19267,8 @@
 21649B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21649D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2164A1 Local Header Offset   000C8CDB
 #
 # ERROR: Offset 0x2164A1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18685,6 +19299,8 @@
        [Bit 0]               0 'Binary Data'
 2164E1 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2164E5 Local Header Offset   000C8F23
 #
 # ERROR: Offset 0x2164E5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18715,6 +19331,8 @@
 21651D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21651F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216523 Local Header Offset   000C8F51
 #
 # ERROR: Offset 0x216523: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18745,6 +19363,8 @@
        [Bit 0]               0 'Binary Data'
 216565 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 216569 Local Header Offset   000C92A7
 #
 # ERROR: Offset 0x216569: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18775,6 +19395,8 @@
 2165A8 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2165AA Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2165AE Local Header Offset   000C92DC
 #
 # ERROR: Offset 0x2165AE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18805,6 +19427,8 @@
        [Bit 0]               0 'Binary Data'
 2165FB Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 2165FF Local Header Offset   000C958C
 #
 # ERROR: Offset 0x2165FF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18835,6 +19459,8 @@
 216642 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 216644 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216648 Local Header Offset   000C95C5
 #
 # ERROR: Offset 0x216648: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18865,6 +19491,8 @@
 216692 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216694 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216698 Local Header Offset   000C96C5
 #
 # ERROR: Offset 0x216698: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18895,6 +19523,8 @@
 2166EA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2166EC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2166F0 Local Header Offset   000C9ABF
 #
 # ERROR: Offset 0x2166F0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18926,6 +19556,8 @@
 216751 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216753 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216757 Local Header Offset   000C9EF5
 #
 # ERROR: Offset 0x216757: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18956,6 +19588,8 @@
 2167A2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2167A4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2167A8 Local Header Offset   000CABB6
 #
 # ERROR: Offset 0x2167A8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -18986,6 +19620,8 @@
 2167F5 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2167F7 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2167FB Local Header Offset   000CB2AB
 #
 # ERROR: Offset 0x2167FB: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19016,6 +19652,8 @@
 216844 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216846 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21684A Local Header Offset   000CC7BE
 #
 # ERROR: Offset 0x21684A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19047,6 +19685,8 @@
 2168AB Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2168AD Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2168B1 Local Header Offset   000CCA68
 #
 # ERROR: Offset 0x2168B1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19078,6 +19718,8 @@
 216914 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216916 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21691A Local Header Offset   000CCD7A
 #
 # ERROR: Offset 0x21691A: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19108,6 +19750,8 @@
 21695B Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21695D Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216961 Local Header Offset   000CDC55
 #
 # ERROR: Offset 0x216961: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19138,6 +19782,8 @@
 2169A2 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2169A4 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2169A8 Local Header Offset   000CDF16
 #
 # ERROR: Offset 0x2169A8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19168,6 +19814,8 @@
 2169EA Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2169EC Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2169F0 Local Header Offset   000CE03E
 #
 # ERROR: Offset 0x2169F0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19198,6 +19846,8 @@
        [Bit 0]               0 'Binary Data'
 216A33 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 216A37 Local Header Offset   000CE1ED
 #
 # ERROR: Offset 0x216A37: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19228,6 +19878,8 @@
 216A72 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216A74 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216A78 Local Header Offset   000CE21E
 #
 # ERROR: Offset 0x216A78: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19258,6 +19910,8 @@
 216ABF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216AC1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216AC5 Local Header Offset   000CE5DD
 #
 # ERROR: Offset 0x216AC5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19288,6 +19942,8 @@
 216B09 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216B0B Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216B0F Local Header Offset   000CE77D
 #
 # ERROR: Offset 0x216B0F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19318,6 +19974,8 @@
 216B53 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216B55 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216B59 Local Header Offset   000CE7F6
 #
 # ERROR: Offset 0x216B59: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19348,6 +20006,8 @@
 216BA0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216BA2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216BA6 Local Header Offset   000CFDC0
 #
 # ERROR: Offset 0x216BA6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19378,6 +20038,8 @@
        [Bit 0]               0 'Binary Data'
 216BEF Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 216BF3 Local Header Offset   000D053E
 #
 # ERROR: Offset 0x216BF3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19408,6 +20070,8 @@
        [Bit 0]               0 'Binary Data'
 216C35 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 216C39 Local Header Offset   000D0574
 #
 # ERROR: Offset 0x216C39: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19438,6 +20102,8 @@
 216C7D Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216C7F Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216C83 Local Header Offset   000D05AE
 #
 # ERROR: Offset 0x216C83: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19468,6 +20134,8 @@
 216CD0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216CD2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216CD6 Local Header Offset   000D0A6B
 #
 # ERROR: Offset 0x216CD6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19498,6 +20166,8 @@
 216D23 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216D25 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216D29 Local Header Offset   000D0B7C
 #
 # ERROR: Offset 0x216D29: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19528,6 +20198,8 @@
        [Bit 0]               0 'Binary Data'
 216D78 Ext File Attributes   41ED0010
        [Bit 4]               Directory
+       [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+       [Bits 28-31]          04 'Directory'
 216D7C Local Header Offset   000D138B
 #
 # ERROR: Offset 0x216D7C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19558,6 +20230,8 @@
 216DC0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216DC2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216DC6 Local Header Offset   000D13C5
 #
 # ERROR: Offset 0x216DC6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19588,6 +20262,8 @@
 216E13 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216E15 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216E19 Local Header Offset   000D17E0
 #
 # ERROR: Offset 0x216E19: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19618,6 +20294,8 @@
 216E66 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216E68 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216E6C Local Header Offset   000D18F1
 #
 # ERROR: Offset 0x216E6C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19648,6 +20326,8 @@
 216EB9 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216EBB Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216EBF Local Header Offset   000D1F82
 #
 # ERROR: Offset 0x216EBF: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19678,6 +20358,8 @@
 216EFF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216F01 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216F05 Local Header Offset   000D2597
 #
 # ERROR: Offset 0x216F05: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19708,6 +20390,8 @@
 216F45 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216F47 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216F4B Local Header Offset   000D28E1
 #
 # ERROR: Offset 0x216F4B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19738,6 +20422,8 @@
 216F8C Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216F8E Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216F92 Local Header Offset   000D2C2C
 #
 # ERROR: Offset 0x216F92: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19768,6 +20454,8 @@
 216FD4 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 216FD6 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 216FDA Local Header Offset   000D3529
 #
 # ERROR: Offset 0x216FDA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19798,6 +20486,8 @@
 21701E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 217020 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 217024 Local Header Offset   000D3639
 #
 # ERROR: Offset 0x217024: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19828,6 +20518,8 @@
 217068 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 21706A Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 21706E Local Header Offset   000D374B
 #
 # ERROR: Offset 0x21706E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19858,6 +20550,8 @@
 2170B0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2170B2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2170B6 Local Header Offset   000D385C
 #
 # ERROR: Offset 0x2170B6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19888,6 +20582,8 @@
 2170F6 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2170F8 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2170FC Local Header Offset   000D39E8
 #
 # ERROR: Offset 0x2170FC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19918,6 +20614,8 @@
 217132 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 217134 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 217138 Local Header Offset   000D84C4
 #
 # ERROR: Offset 0x217138: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19948,6 +20646,8 @@
 21716E Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 217170 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 217174 Local Header Offset   000DA203
 #
 # ERROR: Offset 0x217174: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -19978,6 +20678,8 @@
 2171AF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2171B1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2171B5 Local Header Offset   000DA4E8
 #
 # ERROR: Offset 0x2171B5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20008,6 +20710,8 @@
 2171F0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2171F2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2171F6 Local Header Offset   000DB53E
 #
 # ERROR: Offset 0x2171F6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20038,6 +20742,8 @@
 21722F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 217231 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 217235 Local Header Offset   000DBA38
 #
 # ERROR: Offset 0x217235: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20068,6 +20774,8 @@
 21726F Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 217271 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 217275 Local Header Offset   000DEFF3
 #
 # ERROR: Offset 0x217275: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20098,6 +20806,8 @@
 2172AF Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2172B1 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2172B5 Local Header Offset   000E033E
 #
 # ERROR: Offset 0x2172B5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20128,6 +20838,8 @@
 2172F0 Int File Attributes   0001
        [Bit 0]               1 'Text Data'
 2172F2 Ext File Attributes   81A40000
+       [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+       [Bits 28-31]          08 'Regular File'
 2172F6 Local Header Offset   000E1FC4
 #
 # ERROR: Offset 0x2172F6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20158,6 +20870,7 @@
        [Bit 0]               0 'Binary Data'
 217330 Ext File Attributes   41E90010
        [Bit 4]               Directory
+       [Bits 24-31]          41E9 'Unknown attributes for OS ID 2'
 217334 Local Header Offset   000E48E6
 #
 # ERROR: Offset 0x217334: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20226,6 +20939,7 @@
        [Bit 0]               0 'Binary Data'
 2173F5 Ext File Attributes   41E90010
        [Bit 4]               Directory
+       [Bits 24-31]          41E9 'Unknown attributes for OS ID 2'
 2173F9 Local Header Offset   000E499B
 #
 # ERROR: Offset 0x2173F9: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20294,6 +21008,7 @@
        [Bit 0]               0 'Binary Data'
 2174BA Ext File Attributes   41E90010
        [Bit 4]               Directory
+       [Bits 24-31]          41E9 'Unknown attributes for OS ID 2'
 2174BE Local Header Offset   000E4A50
 #
 # ERROR: Offset 0x2174BE: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20362,6 +21077,7 @@
        [Bit 0]               0 'Binary Data'
 21757F Ext File Attributes   41E90010
        [Bit 4]               Directory
+       [Bits 24-31]          41E9 'Unknown attributes for OS ID 2'
 217583 Local Header Offset   000E4B05
 #
 # ERROR: Offset 0x217583: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20430,6 +21146,7 @@
        [Bit 0]               0 'Binary Data'
 217649 Ext File Attributes   41E90010
        [Bit 4]               Directory
+       [Bits 24-31]          41E9 'Unknown attributes for OS ID 2'
 21764D Local Header Offset   000E4BBF
 #
 # ERROR: Offset 0x21764D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20498,6 +21215,7 @@
 217711 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217713 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217717 Local Header Offset   000E4C79
 #
 # ERROR: Offset 0x217717: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20564,6 +21282,7 @@
 2177DA Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2177DC Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2177E0 Local Header Offset   000E4D4F
 #
 # ERROR: Offset 0x2177E0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20631,6 +21350,7 @@
 2178AD Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2178AF Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2178B3 Local Header Offset   00104A15
 #
 # ERROR: Offset 0x2178B3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20698,6 +21418,7 @@
 217983 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217985 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217989 Local Header Offset   0010FCC1
 #
 # ERROR: Offset 0x217989: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20765,6 +21486,7 @@
 217A5B Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217A5D Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217A61 Local Header Offset   00112632
 #
 # ERROR: Offset 0x217A61: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20831,6 +21553,7 @@
 217B32 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217B34 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217B38 Local Header Offset   001172CA
 #
 # ERROR: Offset 0x217B38: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20897,6 +21620,7 @@
 217C09 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217C0B Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217C0F Local Header Offset   0011A12E
 #
 # ERROR: Offset 0x217C0F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -20964,6 +21688,7 @@
 217CE1 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217CE3 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217CE7 Local Header Offset   0011D9F5
 #
 # ERROR: Offset 0x217CE7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21030,6 +21755,7 @@
 217DB6 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217DB8 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217DBC Local Header Offset   0011FB7C
 #
 # ERROR: Offset 0x217DBC: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21098,6 +21824,7 @@
 217E8E Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217E90 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217E94 Local Header Offset   00128844
 #
 # ERROR: Offset 0x217E94: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21164,6 +21891,7 @@
 217F5E Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 217F60 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 217F64 Local Header Offset   00146967
 #
 # ERROR: Offset 0x217F64: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21230,6 +21958,7 @@
 218031 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218033 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218037 Local Header Offset   00151D44
 #
 # ERROR: Offset 0x218037: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21296,6 +22025,7 @@
 218106 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218108 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 21810C Local Header Offset   001546AD
 #
 # ERROR: Offset 0x21810C: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21362,6 +22092,7 @@
 2181DA Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2181DC Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2181E0 Local Header Offset   001596C5
 #
 # ERROR: Offset 0x2181E0: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21428,6 +22159,7 @@
 2182AE Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2182B0 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2182B4 Local Header Offset   0015C534
 #
 # ERROR: Offset 0x2182B4: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21494,6 +22226,7 @@
 218383 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218385 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218389 Local Header Offset   0015FDFE
 #
 # ERROR: Offset 0x218389: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21560,6 +22293,7 @@
 218458 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21845A Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 21845E Local Header Offset   00168E27
 #
 # ERROR: Offset 0x21845E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21627,6 +22361,7 @@
 218528 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21852A Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 21852E Local Header Offset   00187408
 #
 # ERROR: Offset 0x21852E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21694,6 +22429,7 @@
 2185FB Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2185FD Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 218601 Local Header Offset   0019227F
 #
 # ERROR: Offset 0x218601: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21760,6 +22496,7 @@
 2186D0 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2186D2 Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 2186D6 Local Header Offset   00194798
 #
 # ERROR: Offset 0x2186D6: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21826,6 +22563,7 @@
 2187A4 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2187A6 Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 2187AA Local Header Offset   001991C9
 #
 # ERROR: Offset 0x2187AA: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21892,6 +22630,7 @@
 218878 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21887A Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 21887E Local Header Offset   0019BC48
 #
 # ERROR: Offset 0x21887E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -21958,6 +22697,7 @@
 21894D Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21894F Ext File Attributes   81E80000
+       [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 218953 Local Header Offset   0019FA54
 #
 # ERROR: Offset 0x218953: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22025,6 +22765,7 @@
 218A22 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218A24 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218A28 Local Header Offset   001A8FA0
 #
 # ERROR: Offset 0x218A28: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22093,6 +22834,7 @@
 218AFF Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218B01 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218B05 Local Header Offset   001B661F
 #
 # ERROR: Offset 0x218B05: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22161,6 +22903,7 @@
 218BDF Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218BE1 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218BE5 Local Header Offset   001BC432
 #
 # ERROR: Offset 0x218BE5: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22228,6 +22971,7 @@
 218CC1 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218CC3 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218CC7 Local Header Offset   001BDC5B
 #
 # ERROR: Offset 0x218CC7: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22295,6 +23039,7 @@
 218DA2 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218DA4 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218DA8 Local Header Offset   001BFAEF
 #
 # ERROR: Offset 0x218DA8: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22362,6 +23107,7 @@
 218E83 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218E85 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218E89 Local Header Offset   001C16ED
 #
 # ERROR: Offset 0x218E89: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22429,6 +23175,7 @@
 218F65 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 218F67 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 218F6B Local Header Offset   001C38D7
 #
 # ERROR: Offset 0x218F6B: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22497,6 +23244,7 @@
 219047 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 219049 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 21904D Local Header Offset   001C75DF
 #
 # ERROR: Offset 0x21904D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22565,6 +23313,7 @@
 219121 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 219123 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 219127 Local Header Offset   001D3FD0
 #
 # ERROR: Offset 0x219127: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22633,6 +23382,7 @@
 2191FE Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 219200 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 219204 Local Header Offset   001D939D
 #
 # ERROR: Offset 0x219204: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22700,6 +23450,7 @@
 2192DD Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2192DF Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2192E3 Local Header Offset   001DAC9A
 #
 # ERROR: Offset 0x2192E3: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22767,6 +23518,7 @@
 2193BB Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 2193BD Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 2193C1 Local Header Offset   001DCABD
 #
 # ERROR: Offset 0x2193C1: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22834,6 +23586,7 @@
 219499 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21949B Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 21949F Local Header Offset   001DE763
 #
 # ERROR: Offset 0x21949F: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22901,6 +23654,7 @@
 219578 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 21957A Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 21957E Local Header Offset   001E098D
 #
 # ERROR: Offset 0x21957E: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -22969,6 +23723,7 @@
 219657 Int File Attributes   0000
        [Bit 0]               0 'Binary Data'
 219659 Ext File Attributes   81C00000
+       [Bits 24-31]          81C0 'Unknown attributes for OS ID 2'
 21965D Local Header Offset   001E40E9
 #
 # ERROR: Offset 0x21965D: 'Local Header Offset' field in 'Central Directory Header' is invalid
@@ -23733,6 +24488,7 @@
        [Bit 0]               0 'Binary Data'
 279E63 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279E67 Local Header Offset   00000000
 279E6B Filename              'zip/freeware_readme.txt'
 279E82 Extra ID #0001        000C 'OpenVMS'
@@ -23796,6 +24552,7 @@
        [Bit 0]               0 'Binary Data'
 279F2B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279F2F Local Header Offset   00000208
 279F33 Filename              'zip/zip.axp_exe'
 279F42 Extra ID #0001        000C 'OpenVMS'
@@ -23860,6 +24617,7 @@
        [Bit 0]               0 'Binary Data'
 279FEB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279FEF Local Header Offset   0000EE5E
 279FF3 Filename              'zip/zip.i64_exe'
 27A002 Extra ID #0001        000C 'OpenVMS'
@@ -23924,6 +24682,7 @@
        [Bit 0]               0 'Binary Data'
 27A0AB Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A0AF Local Header Offset   00024649
 27A0B3 Filename              'zip/zip.vax_vaxc_exe'
 27A0C7 Extra ID #0001        000C 'OpenVMS'
@@ -23987,6 +24746,7 @@
        [Bit 0]               0 'Binary Data'
 27A170 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A174 Local Header Offset   0002CD7C
 27A178 Filename              'zip/zip.zip'
 27A183 Extra ID #0001        000C 'OpenVMS'
@@ -24050,6 +24810,7 @@
        [Bit 0]               0 'Binary Data'
 27A22C Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A230 Local Header Offset   002198C8
 27A234 Filename              'zip/zipcloak.axp_exe'
 27A248 Extra ID #0001        000C 'OpenVMS'
@@ -24114,6 +24875,7 @@
        [Bit 0]               0 'Binary Data'
 27A2F1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A2F5 Local Header Offset   0021EEAD
 27A2F9 Filename              'zip/zipcloak.i64_exe'
 27A30D Extra ID #0001        000C 'OpenVMS'
@@ -24178,6 +24940,7 @@
        [Bit 0]               0 'Binary Data'
 27A3B6 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A3BA Local Header Offset   00227145
 27A3BE Filename              'zip/zipcloak.vax_vaxc_exe'
 27A3D7 Extra ID #0001        000C 'OpenVMS'
@@ -24242,6 +25005,7 @@
        [Bit 0]               0 'Binary Data'
 27A480 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A484 Local Header Offset   0022A28A
 27A488 Filename              'zip/zipnote.axp_exe'
 27A49B Extra ID #0001        000C 'OpenVMS'
@@ -24306,6 +25070,7 @@
        [Bit 0]               0 'Binary Data'
 27A544 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A548 Local Header Offset   0022ECDC
 27A54C Filename              'zip/zipnote.i64_exe'
 27A55F Extra ID #0001        000C 'OpenVMS'
@@ -24370,6 +25135,7 @@
        [Bit 0]               0 'Binary Data'
 27A608 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A60C Local Header Offset   00235970
 27A610 Filename              'zip/zipnote.vax_vaxc_exe'
 27A628 Extra ID #0001        000C 'OpenVMS'
@@ -24434,6 +25200,7 @@
        [Bit 0]               0 'Binary Data'
 27A6D1 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A6D5 Local Header Offset   0023844F
 27A6D9 Filename              'zip/zipsplit.axp_exe'
 27A6ED Extra ID #0001        000C 'OpenVMS'
@@ -24498,6 +25265,7 @@
        [Bit 0]               0 'Binary Data'
 27A796 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A79A Local Header Offset   0023D4D4
 27A79E Filename              'zip/zipsplit.i64_exe'
 27A7B2 Extra ID #0001        000C 'OpenVMS'
@@ -24562,6 +25330,7 @@
        [Bit 0]               0 'Binary Data'
 27A85B Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A85F Local Header Offset   002450AD
 27A863 Filename              'zip/zipsplit.vax_vaxc_exe'
 27A87C Extra ID #0001        000C 'OpenVMS'
@@ -24626,6 +25395,7 @@
        [Bit 0]               0 'Binary Data'
 27A925 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A929 Local Header Offset   00248050
 27A92D Filename              'zip/zip_cli.axp_exe'
 27A940 Extra ID #0001        000C 'OpenVMS'
@@ -24690,6 +25460,7 @@
        [Bit 0]               0 'Binary Data'
 27A9E9 Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A9ED Local Header Offset   00258962
 27A9F1 Filename              'zip/zip_cli.i64_exe'
 27AA04 Extra ID #0001        000C 'OpenVMS'
@@ -24754,6 +25525,7 @@
        [Bit 0]               0 'Binary Data'
 27AAAD Ext File Attributes   816D0001
        [Bit 0]               Read-Only
+       [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27AAB1 Local Header Offset   0027068E
 27AAB5 Filename              'zip/zip_cli.vax_vaxc_exe'
 27AACD Extra ID #0001        000C 'OpenVMS'

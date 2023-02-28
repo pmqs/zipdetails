@@ -136,6 +136,7 @@
 3E6D 3E6E 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 3E6F 3E72 0004 00 00 E8 81 Ext File Attributes   81E80000
+                           [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 3E73 3E76 0004 00 00 00 00 Local Header Offset   00000000
 3E77 3E80 000A 7A 69 70 63 Filename              'zipcloak.c'
                6C 6F 61 6B
@@ -170,6 +171,7 @@
 3EB9 3EBA 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 3EBB 3EBE 0004 00 00 E8 81 Ext File Attributes   81E80000
+                           [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 3EBF 3EC2 0004 A0 1B 00 00 Local Header Offset   00001BA0
 3EC3 3ECC 000A 7A 69 70 73 Filename              'zipsplit.c'
                70 6C 69 74

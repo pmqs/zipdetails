@@ -33,6 +33,8 @@
 0151 0152 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 0153 0156 0004 00 00 ED 81 Ext File Attributes   81ED0000
+                           [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 'Regular File'
 0157 015A 0004 00 00 00 00 Local Header Offset   00000000
 015B 015B 0001 2D          Filename              '-'
 

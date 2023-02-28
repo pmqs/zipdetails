@@ -53,6 +53,8 @@
 0189 018A 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 018B 018E 0004 00 00 ED 81 Ext File Attributes   81ED0000
+                           [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 'Regular File'
 018F 0192 0004 00 00 00 00 Local Header Offset   00000000
 0193 019B 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78

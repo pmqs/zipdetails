@@ -52,6 +52,8 @@
 0239 023A 0002 00 00       Int File Attributes   0000
                            [Bit 0]               0 'Binary Data'
 023B 023E 0004 00 00 F8 81 Ext File Attributes   81F80000
+                           [Bits 16-24]          01F8 'Unix attrib: rwxrwx---'
+                           [Bits 28-31]          08 'Regular File'
 023F 0242 0004 04 00 00 00 Local Header Offset   00000004
 0243 025B 0019 68 6F 6D 65 Filename              'home/paul/share/lorem.txt'
                2F 70 61 75

@@ -61,6 +61,8 @@
 0082 0083 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 0084 0087 0004 00 00 B4 81 Ext File Attributes   81B40000
+                           [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 'Regular File'
 0088 008B 0004 00 00 00 00 Local Header Offset   00000000
 008C 0096 000B 6C 65 74 74 Filename              'letters.txt'
                65 72 73 2E
@@ -84,6 +86,8 @@
 00BB 00BC 0002 01 00       Int File Attributes   0001
                            [Bit 0]               1 'Text Data'
 00BD 00C0 0004 00 00 B4 81 Ext File Attributes   81B40000
+                           [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 'Regular File'
 00C1 00C4 0004 2F 00 00 00 Local Header Offset   0000002F
 00C5 00CF 000B 6E 75 6D 62 Filename              'numbers.txt'
                65 72 73 2E

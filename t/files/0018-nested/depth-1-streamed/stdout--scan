@@ -48,6 +48,8 @@
 0180 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 0182 Ext File Attributes   81ED0000
+     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 'Regular File'
 0186 Local Header Offset   00000000
 018A Filename              'lorem.txt'
 
@@ -84,6 +86,8 @@
 01DD Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 01DF Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 01E3 Local Header Offset   00000000
 01E7 Filename              'inner.zip'
 

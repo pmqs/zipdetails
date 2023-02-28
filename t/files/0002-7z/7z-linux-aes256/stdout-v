@@ -50,6 +50,9 @@
                            [Bit 0]               0 'Binary Data'
 017E 0181 0004 20 80 ED 81 Ext File Attributes   81ED8020
                            [Bit 5]               Archive
+                           [Bits 11-15]          8000 'Unknown DOS attrib'
+                           [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 'Regular File'
 0182 0185 0004 00 00 00 00 Local Header Offset   00000000
 0186 018E 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78

@@ -279,6 +279,8 @@ A405B Disk Start            0000
 A405D Int File Attributes   0000
       [Bit 0]               0 'Binary Data'
 A405F Ext File Attributes   81A00000
+      [Bits 16-24]          01A0 'Unix attrib: rw-r-----'
+      [Bits 28-31]          08 'Regular File'
 A4063 Local Header Offset   0009D7E6
 A4067 Filename              'android-support-multidex.version.txt'
 

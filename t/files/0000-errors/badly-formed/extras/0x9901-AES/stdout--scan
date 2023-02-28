@@ -121,6 +121,7 @@
 3E6D Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 3E6F Ext File Attributes   81E80000
+     [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 3E73 Local Header Offset   00000000
 3E77 Filename              'zipcloak.c'
 3E81 Extra ID #0001        5455 'Extended Timestamp [UT]'
@@ -153,6 +154,7 @@
 3EB9 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 3EBB Ext File Attributes   81E80000
+     [Bits 24-31]          81E8 'Unknown attributes for OS ID 2'
 3EBF Local Header Offset   00001BA0
 3EC3 Filename              'zipsplit.c'
 3ECD Extra ID #0001        000C 'OpenVMS'

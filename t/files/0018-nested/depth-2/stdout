@@ -31,6 +31,8 @@
 0244 Int File Attributes   0000
      [Bit 0]               0 'Binary Data'
 0246 Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 024A Local Header Offset   00000000
 024E Filename              'inner2.zip'
 

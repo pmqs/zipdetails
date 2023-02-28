@@ -71,6 +71,8 @@
 0273 0274 0002 00 00       Int File Attributes   0000
                            [Bit 0]               0 'Binary Data'
 0275 0278 0004 00 00 A0 81 Ext File Attributes   81A00000
+                           [Bits 16-24]          01A0 'Unix attrib: rw-r-----'
+                           [Bits 28-31]          08 'Regular File'
 0279 027C 0004 00 00 00 00 Local Header Offset   00000000
 027D 028F 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
                6F 69 64 4D

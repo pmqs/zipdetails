@@ -45,6 +45,8 @@
 0082 Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 0084 Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 0088 Local Header Offset   00000000
 008C Filename              'letters.txt'
 
@@ -66,6 +68,8 @@
 00BB Int File Attributes   0001
      [Bit 0]               1 'Text Data'
 00BD Ext File Attributes   81B40000
+     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 'Regular File'
 00C1 Local Header Offset   0000002B
 #
 # ERROR: Offset 0xC1: 'Local Header Offset' field in 'Central Directory Header' is invalid

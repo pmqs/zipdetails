@@ -1158,6 +1158,7 @@
                                  [Bit 0]               0 'Binary Data'
 279E63 279E66 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279E67 279E6A 000004 00 00 00 00 Local Header Offset   00000000
 279E6B 279E81 000017 7A 69 70 2F Filename              'zip/freeware_readme.txt'
                      66 72 65 65
@@ -1233,6 +1234,7 @@
                                  [Bit 0]               0 'Binary Data'
 279F2B 279F2E 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279F2F 279F32 000004 08 02 00 00 Local Header Offset   00000208
 279F33 279F41 00000F 7A 69 70 2F Filename              'zip/zip.axp_exe'
                      7A 69 70 2E
@@ -1307,6 +1309,7 @@
                                  [Bit 0]               0 'Binary Data'
 279FEB 279FEE 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 279FEF 279FF2 000004 5E EE 00 00 Local Header Offset   0000EE5E
 279FF3 27A001 00000F 7A 69 70 2F Filename              'zip/zip.i64_exe'
                      7A 69 70 2E
@@ -1381,6 +1384,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A0AB 27A0AE 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A0AF 27A0B2 000004 49 46 02 00 Local Header Offset   00024649
 27A0B3 27A0C6 000014 7A 69 70 2F Filename              'zip/zip.vax_vaxc_exe'
                      7A 69 70 2E
@@ -1455,6 +1459,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A170 27A173 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A174 27A177 000004 7C CD 02 00 Local Header Offset   0002CD7C
 27A178 27A182 00000B 7A 69 70 2F Filename              'zip/zip.zip'
                      7A 69 70 2E
@@ -1527,6 +1532,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A22C 27A22F 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A230 27A233 000004 C8 98 21 00 Local Header Offset   002198C8
 27A234 27A247 000014 7A 69 70 2F Filename              'zip/zipcloak.axp_exe'
                      7A 69 70 63
@@ -1602,6 +1608,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A2F1 27A2F4 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A2F5 27A2F8 000004 AD EE 21 00 Local Header Offset   0021EEAD
 27A2F9 27A30C 000014 7A 69 70 2F Filename              'zip/zipcloak.i64_exe'
                      7A 69 70 63
@@ -1677,6 +1684,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A3B6 27A3B9 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A3BA 27A3BD 000004 45 71 22 00 Local Header Offset   00227145
 27A3BE 27A3D6 000019 7A 69 70 2F Filename              'zip/zipcloak.vax_vaxc_exe'
                      7A 69 70 63
@@ -1754,6 +1762,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A480 27A483 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A484 27A487 000004 8A A2 22 00 Local Header Offset   0022A28A
 27A488 27A49A 000013 7A 69 70 2F Filename              'zip/zipnote.axp_exe'
                      7A 69 70 6E
@@ -1829,6 +1838,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A544 27A547 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A548 27A54B 000004 DC EC 22 00 Local Header Offset   0022ECDC
 27A54C 27A55E 000013 7A 69 70 2F Filename              'zip/zipnote.i64_exe'
                      7A 69 70 6E
@@ -1904,6 +1914,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A608 27A60B 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A60C 27A60F 000004 70 59 23 00 Local Header Offset   00235970
 27A610 27A627 000018 7A 69 70 2F Filename              'zip/zipnote.vax_vaxc_exe'
                      7A 69 70 6E
@@ -1980,6 +1991,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A6D1 27A6D4 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A6D5 27A6D8 000004 4F 84 23 00 Local Header Offset   0023844F
 27A6D9 27A6EC 000014 7A 69 70 2F Filename              'zip/zipsplit.axp_exe'
                      7A 69 70 73
@@ -2055,6 +2067,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A796 27A799 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A79A 27A79D 000004 D4 D4 23 00 Local Header Offset   0023D4D4
 27A79E 27A7B1 000014 7A 69 70 2F Filename              'zip/zipsplit.i64_exe'
                      7A 69 70 73
@@ -2130,6 +2143,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A85B 27A85E 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A85F 27A862 000004 AD 50 24 00 Local Header Offset   002450AD
 27A863 27A87B 000019 7A 69 70 2F Filename              'zip/zipsplit.vax_vaxc_exe'
                      7A 69 70 73
@@ -2207,6 +2221,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A925 27A928 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A929 27A92C 000004 50 80 24 00 Local Header Offset   00248050
 27A92D 27A93F 000013 7A 69 70 2F Filename              'zip/zip_cli.axp_exe'
                      7A 69 70 5F
@@ -2282,6 +2297,7 @@
                                  [Bit 0]               0 'Binary Data'
 27A9E9 27A9EC 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27A9ED 27A9F0 000004 62 89 25 00 Local Header Offset   00258962
 27A9F1 27AA03 000013 7A 69 70 2F Filename              'zip/zip_cli.i64_exe'
                      7A 69 70 5F
@@ -2357,6 +2373,7 @@
                                  [Bit 0]               0 'Binary Data'
 27AAAD 27AAB0 000004 01 00 6D 81 Ext File Attributes   816D0001
                                  [Bit 0]               Read-Only
+                                 [Bits 24-31]          816D 'Unknown attributes for OS ID 2'
 27AAB1 27AAB4 000004 8E 06 27 00 Local Header Offset   0027068E
 27AAB5 27AACC 000018 7A 69 70 2F Filename              'zip/zip_cli.vax_vaxc_exe'
                      7A 69 70 5F

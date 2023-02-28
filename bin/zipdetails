@@ -61,7 +61,7 @@ use constant ZIP_GP_FLAG_PKWARE_ENHANCED_COMP  => (1 << 12) ;
 use constant ZIP_GP_FLAG_ENCRYPTED_CD          => (1 << 13) ;
 
 # All the encryption flags
-use constant ZIP_GP_FLAG_ALL_ENCRYPT            => (ZIP_GP_FLAG_ENCRYPTED_MASK | ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK | ZIP_GP_FLAG_ENCRYPTED_CD ); 
+use constant ZIP_GP_FLAG_ALL_ENCRYPT            => (ZIP_GP_FLAG_ENCRYPTED_MASK | ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK | ZIP_GP_FLAG_ENCRYPTED_CD );
 
 # Internal File Attributes
 use constant ZIP_IFA_TEXT_MASK                 => 1;
@@ -330,7 +330,7 @@ my %Extras = (
                ['DUMMY',                                                    \&decode_DUMMY,                 undef, undef, undef, undef]
             if $ENV{ZIPDETAILS_TESTHARNESS} ;
 
-sub extraFieldIdentifier 
+sub extraFieldIdentifier
 {
     my $id = shift ;
 
@@ -547,7 +547,7 @@ sub outHexdump
 
     # TODO - add a limit to data output
     # if ($limit)
-    # { 
+    # {
     #     outSomeData($size, $text);
     # }
     # else
@@ -967,8 +967,8 @@ GetOptions("h"          => \&Usage,
            "info|info-messages!"        => \$opt_want_info_mesages,
            "warning|warning-messages!"  => \$opt_want_warning_mesages,
            "error|error-messages!"      => \$opt_want_error_mesages,
-           "messages!"                  => sub { 
-                                                my ($opt_name, $opt_value) = @_; 
+           "messages!"                  => sub {
+                                                my ($opt_name, $opt_value) = @_;
                                                 $opt_want_info_mesages =
                                                 $opt_want_warning_mesages =
                                                 $opt_want_error_mesages = $opt_value;
@@ -1053,14 +1053,14 @@ if ($opt_scan || $opt_walk)
             }
             elsif ($lastSignature == ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
             {
-                # Check for size of possibe malformed Data Descriptor before outputting payload 
+                # Check for size of possibe malformed Data Descriptor before outputting payload
                 if (! $lastHeader->{'gotDataDescriptorSize'})
                 {
                     my $hdrSize = checkForBadlyFormedDataDescriptor($lastHeader, $delta) ;
 
                     if ($hdrSize)
                     {
-                        # remove size of Data Descriptor from payload 
+                        # remove size of Data Descriptor from payload
                         $delta -= $hdrSize;
                         $lastHeader->{'gotDataDescriptorSize'} = $hdrSize;
                     }
@@ -1272,7 +1272,7 @@ else
 
             if ($signature != ZIP_DATA_HDR_SIG && $delta >= 0)
             {
-                rewindRelative(4);           
+                rewindRelative(4);
                 if($lastHeader->{'streamed'} && BadlyFormedDataDescriptor($lastHeader, $delta))
                 {
                     $lastHeader->{entry}->readDataDescriptor = 1;
@@ -1464,11 +1464,11 @@ sub dislayMessages
                                         grep { $_->streamed && ! $_->readDataDescriptor   }
                                         $LocalDirectory->nonEncapsulatedEntries();
 
-            for my $offset (sort keys %missingDataDescriptor) 
+            for my $offset (sort keys %missingDataDescriptor)
             {
                 my $filename = $missingDataDescriptor{$offset};
                 error  $offset, "Filename '$filename': Missing 'Data Descriptor'" ;
-            }                          
+            }
         }
 
         {
@@ -1481,7 +1481,7 @@ sub dislayMessages
             }
 
             for my $offset (sort keys %ByLocalOffset)
-            {   
+            {
                 my @entries = @{ $ByLocalOffset{$offset} };
                 if (@entries > 1)
                 {
@@ -1570,7 +1570,7 @@ sub dislayMessages
             if (keys %bomb)
             {
                 # Central Directory knows about these, so this is a zipbomb
-                
+
                 ++ $ErrorCount ;
 
                 say "#\n# ERROR: Possible zipbomb -- Nested Local Entries found\n#";
@@ -1659,7 +1659,7 @@ sub dislayMessages
         say "# Info Count: $InfoCount"
             if $InfoCount;
     }
-    
+
     if (@Messages)
     {
         my $count = scalar @Messages ;
@@ -1675,7 +1675,7 @@ sub checkForBadlyFormedDataDescriptor
     my $lastHeader = shift;
     my $delta = shift // 0;
 
-    # check size of delta - a DATA HDR without a signature can only be 
+    # check size of delta - a DATA HDR without a signature can only be
     #     12 bytes for 32-bit
     #     20 bytes for 64-bit
 
@@ -1683,9 +1683,9 @@ sub checkForBadlyFormedDataDescriptor
 
     my $localEntry = $lastHeader->{entry};
 
-    return 0 
+    return 0
         unless $opt_scan || $opt_walk ;
-    
+
     # delta can be the actual payload + a data descriptor without a sig
 
     my $signature = unpack "V",  peekAtOffset($here + $delta, 4);
@@ -1708,7 +1708,7 @@ sub checkForBadlyFormedDataDescriptor
         return 20 ;
     }
 
-    return 0;        
+    return 0;
 }
 
 
@@ -1717,7 +1717,7 @@ sub BadlyFormedDataDescriptor
     my $lastHeader= shift;
     my $delta = shift;
 
-    # check size of delta - a DATA HDR without a signature can only be 
+    # check size of delta - a DATA HDR without a signature can only be
     #     12 bytes for 32-bit
     #     20 bytes for 64-bit
 
@@ -1780,7 +1780,7 @@ sub BadlyFormedDataDescriptor
 
         seekTo($here);
         return 0;
-    }    
+    }
 
     my $cdEntry = $localEntry->cdEntry;
 
@@ -1831,7 +1831,7 @@ sub BadlyFormedDataDescriptor
 
             return $FH->tell();
         }
-    }    
+    }
 
     seekTo($here);
 
@@ -1939,7 +1939,7 @@ sub LocalHeader
     $localEntry->std_diskNumber = 0;
 
     $LocalDirectory->addEntry($localEntry);
-    
+
     if ($extraLength)
     {
         need $extraLength, Signatures::name($signature), 'Extra';
@@ -1971,7 +1971,7 @@ sub LocalHeader
     my $minizip_encrypted = $localEntry->minizip_secure;
     my $pk_encrypted      = ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK) && $compressedMethod != 99 && ! $minizip_encrypted;
 
-    # Detecting PK strong encryption from a local header is a bit convoluted. 
+    # Detecting PK strong encryption from a local header is a bit convoluted.
     # Cannot just use ZIP_GP_FLAG_ENCRYPTED_CD because minizip also uses this bit.
     # so jump through some hoops
     #     extract ver is >= 5.0'
@@ -1990,27 +1990,27 @@ sub LocalHeader
     my $cdl = defined $cdEntry
                 ? $cdEntry->compressedLength()
                 : undef;
-    # my $cdl = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset} 
-    #             ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{compressedLength} 
+    # my $cdl = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset}
+    #             ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{compressedLength}
     #             : undef ;
 
     $CDcompressedLength = $localEntry->compressedLength ;
     $CDcompressedLength = $cdl
         if defined $cdl && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
-    my $cdu = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset} 
-                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedLength} 
+    my $cdu = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset}
+                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedLength}
                 : undef;
     my $CDuncompressedLength = $localEntry->uncompressedLength ;
 
-    $CDuncompressedLength = $cdu 
+    $CDuncompressedLength = $cdu
         if defined $cdu && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
     my $fullCompressedLength = $CDcompressedLength;
 
     my $payloadOffset = $FH->tell();
     $localEntry->payloadOffset = $payloadOffset;
-    
+
     need $CDcompressedLength, 'PAYLOAD'
         if $CDcompressedLength ;
 
@@ -2261,7 +2261,7 @@ sub CentralHeader
     need 42, Signatures::name($signature);
 
     out_C "Created Zip Spec", \&decodeZipVer;
-    out_C "Created OS", \&decodeOS;
+    my $made_by = out_C "Created OS", \&decodeOS;
     out_C "Extract Zip Spec", \&decodeZipVer;
     out_C "Extract OS", \&decodeOS;
 
@@ -2287,23 +2287,102 @@ sub CentralHeader
     my $comment_length     = out_v "Comment Length";
     my $disk_start         = out_v "Disk Start";
     my $std_disk_start     = $disk_start;
-    my $int_file_attrib    = out_v "Int File Attributes";
 
-    out1 "[Bit 0]",  $int_file_attrib & 1 ? "1 'Text Data'" : "0 'Binary Data'";
+    my $int_file_attrib    = out_v "Int File Attributes";
+    out1 "[Bit 0]",      $int_file_attrib & 1 ? "1 'Text Data'" : "0 'Binary Data'";
+    out1 "[Bits 1-15]",  Value_v($int_file_attrib & 0xFE) . " 'Unknown'"
+        if  $int_file_attrib & 0xFE ;
 
     my $ext_file_attrib    = out_V "Ext File Attributes";
-    out1 "[Bit 0]",  "Read-Only"
-        if $ext_file_attrib & 0x01 ;
-    out1 "[Bit 1]",  "Hidden"
-        if $ext_file_attrib & 0x02 ;
-    out1 "[Bit 2]",  "System"
-        if $ext_file_attrib & 0x04 ;
-    out1 "[Bit 3]",  "Label"
-        if $ext_file_attrib & 0x08 ;
-    out1 "[Bit 4]",  "Directory"
-        if $ext_file_attrib & 0x10 ;
-    out1 "[Bit 5]",  "Archive"
-        if $ext_file_attrib & 0x20 ;
+
+    {
+        # MS-DOS Attributes are bottom two bytes
+        my $dos_attrib = $ext_file_attrib & 0xFFFF;
+
+        # See https://learn.microsoft.com/en-us/windows/win32/fileio/file-attribute-constants
+        # and https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-smb/65e0c225-5925-44b0-8104-6b91339c709f
+
+        out1 "[Bit 0]",  "Read-Only"
+            if $dos_attrib & 0x0001 ;
+        out1 "[Bit 1]",  "Hidden"
+            if $dos_attrib & 0x0002 ;
+        out1 "[Bit 2]",  "System"
+            if $dos_attrib & 0x0004 ;
+        out1 "[Bit 3]",  "Label"
+            if $dos_attrib & 0x0008 ;
+        out1 "[Bit 4]",  "Directory"
+            if $dos_attrib & 0x0010 ;
+        out1 "[Bit 5]",  "Archive"
+            if $dos_attrib & 0x0020 ;
+        out1 "[Bit 6]",  "Device"
+            if $dos_attrib & 0x0040 ;
+        out1 "[Bit 7]",  "Normal" # Exe?
+            if $dos_attrib & 0x0080 ;
+        out1 "[Bit 8]",  "Offline"
+            if $dos_attrib & 0x0100 ;
+        out1 "[Bit 9]",  "Not Indexed"
+            if $dos_attrib & 0x0200 ;
+        out1 "[Bit 10]",  "Encrypted"
+            if $dos_attrib & 0x0400 ;
+        out1 "[Bits 11-15]",  Value_v($dos_attrib & 0xf800) . " 'Unknown DOS attrib'"
+            if $dos_attrib & 0xf800 ;
+    }
+
+    my $native_attrib = ($ext_file_attrib >> 16 ) &  0xFFFF;
+
+    if ($made_by == 3) # Unix
+    {
+
+        state $mask = {
+                0   => '---',
+                1   => '--x',
+                2   => '-w-',
+                3   => '-wx',
+                4   => 'r--',
+                5   => 'r-x',
+                6   => 'rw-',
+                7   => 'rwx',
+            } ;
+
+        my $rwx = ($native_attrib  &  0777);
+
+        if ($rwx)
+        {
+            my $output  = '';
+            $output .= $mask->{ ($rwx >> 6) & 07 } ;
+            $output .= $mask->{ ($rwx >> 3) & 07 } ;
+            $output .= $mask->{ ($rwx >> 0) & 07 } ;
+
+            out1 "[Bits 16-24]",  Value_v($rwx)  . " 'Unix attrib: $output'" ;
+            out1 "[Bit 25]",  "1 'Sticky'"
+                if $rwx & 0x200 ;
+            out1 "[Bit 26]",  "1 'Set GID'"
+                if $rwx & 0x400 ;
+            out1 "[Bit 27]",  "1 'Set UID'"
+                if $rwx & 0x800 ;
+
+            my $not_rwx = (($native_attrib  >> 12) & 0xF);
+            if ($not_rwx)
+            {
+                state $masks = {
+                    0x0C =>  'Socket',           # 0x0C  0b1100
+                    0x0A =>  'Symbolic Link',    # 0x0A  0b1010
+                    0x08 =>  'Regular File',     # 0x08  0b1000
+                    0x06 =>  'Block Device',     # 0x06  0b0110
+                    0x04 =>  'Directory',        # 0x04  0b0100
+                    0x02 =>  'Character Device', # 0x02  0b0010
+                    0x01 =>  'FIFO',             # 0x01  0b0001
+                };
+
+                my $got = $masks->{$not_rwx} // 'Unknown Unix attrib' ;
+                out1 "[Bits 28-31]",  Value_C($not_rwx) . " '$got'"
+            }
+        }
+    }
+    elsif ($native_attrib)
+    {
+        out1 "[Bits 24-31]",  Value_v($native_attrib) . " 'Unknown attributes for OS ID $made_by'"
+    }
 
     my ($d, $locHeaderOffset) = read_V();
     my $out = Value_V($locHeaderOffset);
@@ -3172,7 +3251,7 @@ sub warning
     my $offset   = shift ;
     my $message  = shift;
 
-    return 
+    return
         unless $opt_want_warning_mesages ;
 
     say "#"
@@ -3202,7 +3281,7 @@ sub error
     my $offset   = shift ;
     my $message  = shift;
 
-    return 
+    return
         unless $opt_want_error_mesages ;
 
     say "#"
@@ -3224,7 +3303,7 @@ sub error
     ++ $ErrorCount ;
 
     $exit_status_code |= 4
-        if $opt_want_message_exit_status ;    
+        if $opt_want_message_exit_status ;
 }
 
 sub internalError
@@ -3255,7 +3334,7 @@ sub info
     my $offset   = shift;
     my $message  = shift;
 
-    return 
+    return
         unless $opt_want_info_mesages ;
 
     say "#"
@@ -3276,7 +3355,7 @@ sub info
     ++ $InfoCount ;
 
     $exit_status_code |= 1
-        if $opt_want_message_exit_status ;    
+        if $opt_want_message_exit_status ;
 }
 
 sub walkExtra
@@ -3368,7 +3447,7 @@ sub walkExtra
         {
             error $FH->tell() -2,
                   extraFieldIdentifier($lookID) . ": 'Length' field invalid",
-                  sprintf("value %s > %s bytes remaining\n", hexValue($subLen), hexValue($remaining));
+                  sprintf("value %s > %s bytes remaining", hexValue($subLen), hexValue($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -3480,7 +3559,7 @@ sub full16
     return ($_[0] // 0) == MAX16 ;
 }
 
-sub decode_Zip64 
+sub decode_Zip64
 {
     my $extraID = shift ;
     my $len = shift;
@@ -3491,7 +3570,7 @@ sub decode_Zip64
     {
         walk_Zip64_in_CD($extraID, $payload, $entry, 1) ;
     }
-    else 
+    else
     {
         walk_Zip64_in_LD($extraID, $payload, $entry, 1) ;
 
@@ -3555,17 +3634,17 @@ sub walk_Zip64_in_LD
         my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->compressedLength = unpack "Q<", $data;
         out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
-            if $display;        
+            if $display;
     }
-    
+
     if (length $zip64Extended)
     {
-        if ($display)     
+        if ($display)
         {
             out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
             info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
-        }  
-    }    
+        }
+    }
 
 }
 
@@ -3620,7 +3699,7 @@ sub walk_Zip64_in_CD
         my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->compressedLength = unpack "Q<", $data;
         out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
-            if $display;        
+            if $display;
     }
 
     if (full32 $entry->std_localHeaderOffset)
@@ -3639,7 +3718,7 @@ sub walk_Zip64_in_CD
         my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->localHeaderOffset = unpack "Q<", $data;
         out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
-            if $display;         
+            if $display;
 
         my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
         $entry->localHeaderOffset = checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) ;
@@ -3661,18 +3740,18 @@ sub walk_Zip64_in_CD
         my $data = substr($zip64Extended, 0, 4, "") ;
         $entry->diskNumber = unpack "v", $data;
         out2 $data, "Disk Number", Value_V($entry->diskNumber)
-            if $display;          
+            if $display;
         $entry->zip64_diskNumberPresent = 1;
-    }  
+    }
 
     if (length $zip64Extended)
     {
-        if ($display)     
+        if ($display)
         {
             out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
             info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
         }
-    }    
+    }
 }
 
 sub Ntfs2Unix
@@ -3940,7 +4019,7 @@ sub _dosToUnixTime
 sub decode_UT
 {
     # 0x5455 'UT: Extended Timestamp'
-    
+
     my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
@@ -4069,11 +4148,11 @@ sub decode_Minizip_Signature
     my $entry = shift;
 
     # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#cms-signature-0x10c5
-    
+
     $CentralDirectory->setMiniZipEncrypted();
 
     outHexdump($len, "  Signature");
-    
+
 }
 
 sub decode_Minizip_Hash
@@ -4089,7 +4168,7 @@ sub decode_Minizip_Hash
             10 => 'MD5',
             20 => 'SHA1',
             23 => 'SHA256',
-    }; 
+    };
 
     $CentralDirectory->setMiniZipEncrypted();
 
@@ -4337,7 +4416,7 @@ sub decode_ux
     my $entry = shift;
 
     # caller has checked that 3 bytes are available
-    
+
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
@@ -5463,7 +5542,7 @@ sub nibbles
 {
     package FieldsAndAccessors;
 
-    sub Add 
+    sub Add
     {
         use Data::Dumper ;
 
@@ -5473,7 +5552,7 @@ sub nibbles
 
         state $done = {};
 
-        
+
         while (my ($name, $value) =  each %$fields)
         {
             my $method = "${classname}::$name";
@@ -5481,7 +5560,7 @@ sub nibbles
             no strict 'refs';
             *$method = sub : lvalue {
                 $_[0]->{$name} ;
-            } 
+            }
                 unless defined $done->{$method};
 
             ++ $done->{$method};
@@ -5524,7 +5603,7 @@ sub nibbles
 
     use parent -norequire , 'BaseEntry' ;
 
-    sub new 
+    sub new
     {
         my $class = shift ;
 
@@ -5552,16 +5631,16 @@ sub nibbles
 
                         # zip64 extra
                         'zip64_compressedLength'    => undef,
-                        'zip64_uncompressedLength'  => undef,                        
-                        'zip64_localHeaderOffset'   => undef,                        
-                        'zip64_diskNumber'          => undef,    
+                        'zip64_uncompressedLength'  => undef,
+                        'zip64_localHeaderOffset'   => undef,
+                        'zip64_diskNumber'          => undef,
                         'zip64_diskNumberPresent'   => 0,
 
                         # Values direct from the header before merging any Zip64 values
                         'std_compressedLength'    => undef,
-                        'std_uncompressedLength'  => undef,                        
-                        'std_localHeaderOffset'   => undef,                        
-                        'std_diskNumber'          => undef,  
+                        'std_uncompressedLength'  => undef,
+                        'std_localHeaderOffset'   => undef,
+                        'std_diskNumber'          => undef,
 
                         # AES
                         'aesStrength'             => 0,
@@ -5584,7 +5663,7 @@ sub nibbles
 
     use parent -norequire , 'LocalCentralEntryBase' ;
 
-    sub new 
+    sub new
     {
         my $class = shift ;
 
@@ -5746,7 +5825,7 @@ sub nibbles
         }
     }
 
-    sub replaceEntry 
+    sub replaceEntry
     {
         my $self = shift;
         my $entry = shift;
@@ -5831,7 +5910,7 @@ sub nibbles
     {
         my $self = shift ;
 
-        $self->{minizip_secure} = 1 ;        
+        $self->{minizip_secure} = 1 ;
     }
 
     sub isEncryptedCD
@@ -5877,7 +5956,7 @@ sub nibbles
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
-        
+
         $self->inCentralDir = 0 ;
 
         return $self;
@@ -6363,7 +6442,7 @@ The name of the field.
 
 =item 3
 
-Information about the contents of the field. 
+Information about the contents of the field.
 
 If the field contains a numeric value it will be displayed in hex. Zip files
 store most numbers in I<little-endian> - the value displayed will have the
@@ -6439,7 +6518,7 @@ Running C<zipdetails> will gives this output
 =head2 Verbose Output
 
 If the C<-v> option is present, the data output is split into the following
-columns: 
+columns:
 
 =over 5
 
@@ -6467,7 +6546,7 @@ A textual description of the field.
 
 =item 6
 
-Information about the contents of the field. 
+Information about the contents of the field.
 
 If the field contains a numeric value it will be displayed in hex. Zip files
 store most numbers in I<little-endian> - the value displayed will have the
@@ -6565,7 +6644,7 @@ metadata from an encrypted Central Directory.
 Corrupt Zip files
 
 When C<zipdetails> encounters a corrupt zip file, it will do one or more of
-the following 
+the following
 
 =over 5
 
@@ -6597,7 +6676,7 @@ Output some of the zip file metadata as a JSON document.
 
 Although the detection and reporting of common corruption use-cases is present
 in C<zipdetails>, there are likely to be other edge cases that need to be
-supported.  
+supported.
 
 If you have a corrupt Zip file that isn't being processed properly,
 please report it (see  L<"SUPPORT">).
