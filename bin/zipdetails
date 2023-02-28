@@ -1340,7 +1340,7 @@ else
             # }
             # else
             {
-                fatal $here, sprintf "Unexpected Zip Signature '%08X' at offset 0x%08X\n", Value_V($signature), $here ;
+                fatal $here, sprintf "Unexpected Zip Signature '%08X' at offset 0x%08X", Value_V($signature), $here ;
                 last;
             }
         }
@@ -1552,7 +1552,7 @@ sub dislayMessages
 
                 # real central directory at eof does not know about these.
                 # likely to be a zip file srored in another zip file
-                say "#\n# WARNING: Nested Local Entries found\n";
+                say "#\n# WARNING: Nested Local Entries found\n#";
                 for my $loc (sort keys %nested)
                 {
                     my $count = scalar @{ $nested{$loc} };
@@ -1875,7 +1875,7 @@ sub LocalHeader
 
         if (! $cdEntry)
         {
-            out1 "Orphan Entry: No matching central directory\n" ;
+            out1 "Orphan Entry: No matching central directory" ;
             $orphan = 1 ;
         }
 
@@ -3016,7 +3016,7 @@ sub myRead
     }
 
     my $len = length $$got;
-    fatal undef, "Truncated file (got $len, wanted $wantSize): $!\n"
+    fatal undef, "Truncated file (got $len, wanted $wantSize): $!"
         if length $$got != $wantSize;
 }
 
@@ -3519,7 +3519,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -3528,7 +3528,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min), hexValue($max), hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), hexValue($min), hexValue($max), hexValue($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -3539,7 +3539,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s\n", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
+            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }
@@ -4389,7 +4389,7 @@ sub decodeLitteEndian
     }
     else {
         # TODO - fix this
-        internalFatal undef, "unsupported\n";
+        internalFatal undef, "unsupported";
     }
 
     my $got = 0 ;
