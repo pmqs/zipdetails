@@ -4178,7 +4178,7 @@ sub decode_Minizip_Hash
     my ($data, $alg) = read_v();
     my $algorithm = $Algorithm->{$alg} // "Unknown";
 
-    out $data, "  Algorithm", "'$algorithm'";
+    out $data, "  Algorithm", Value_v($alg) . " '$algorithm'";
 
     my ($d, $digestSize) = read_v();
     out $d, "  Digest Size", Value_v($digestSize);

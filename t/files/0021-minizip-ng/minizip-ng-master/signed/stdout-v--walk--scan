@@ -24,7 +24,7 @@
                   00 00 00 00
 0003B 0003C 00002 51 1A       Extra ID #0002        1A51 'Minizip Hash'
 0003D 0003E 00002 24 00         Length              0024
-0003F 00040 00002 17 00         Algorithm           'SHA256'
+0003F 00040 00002 17 00         Algorithm           0017 'SHA256'
 00041 00042 00002 20 00         Digest Size         0020
 00043 00062 00020 E3 B0 C4 42   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8
                   98 FC 1C 14                       99 6F B9 24 27 AE 41 E4 64 9B 93 4C
@@ -489,7 +489,7 @@
                   69 6E
 0074D 0074E 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 0074F 00750 00002 24 00         Length              0024
-00751 00752 00002 17 00         Algorithm           'SHA256'
+00751 00752 00002 17 00         Algorithm           0017 'SHA256'
 00753 00754 00002 20 00         Digest Size         0020
 00755 00774 00020 22 58 23 8A   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19
                   CE 2C FC 25                       9D 2C E9 84 44 D3 A1 D1 4D 85 C4 7E
@@ -952,7 +952,7 @@
                   62 69 6E
 20E7E 20E7F 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 20E80 20E81 00002 24 00         Length              0024
-20E82 20E83 00002 17 00         Algorithm           'SHA256'
+20E82 20E83 00002 17 00         Algorithm           0017 'SHA256'
 20E84 20E85 00002 20 00         Digest Size         0020
 20E86 20EA5 00020 38 05 EB 7D   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB
                   BC 09 40 49                       3A AC 04 FA CD 9D A2 AD 49 04 45 65
@@ -1442,7 +1442,7 @@
                   6E 65 2E 63
 215F8 215F9 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 215FA 215FB 00002 24 00         Length              0024
-215FC 215FD 00002 17 00         Algorithm           'SHA256'
+215FC 215FD 00002 17 00         Algorithm           0017 'SHA256'
 215FE 215FF 00002 20 00         Digest Size         0020
 21600 2161F 00020 9E 11 33 9C   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D
                   89 56 8F 0B                       F4 42 FA 34 BF 00 B2 1C 3B FC 2B E7
@@ -1905,7 +1905,7 @@
                   65 72 2E 63
 2208F 22090 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 22091 22092 00002 24 00         Length              0024
-22093 22094 00002 17 00         Algorithm           'SHA256'
+22093 22094 00002 17 00         Algorithm           0017 'SHA256'
 22095 22096 00002 20 00         Digest Size         0020
 22097 220B6 00020 37 BA 70 8E   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5
                   34 F9 45 38                       8D 1D F5 89 42 90 3A 10 AF 48 38 36
@@ -2369,7 +2369,7 @@
                   2E 63
 22B82 22B83 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 22B84 22B85 00002 24 00         Length              0024
-22B86 22B87 00002 17 00         Algorithm           'SHA256'
+22B86 22B87 00002 17 00         Algorithm           0017 'SHA256'
 22B88 22B89 00002 20 00         Digest Size         0020
 22B8A 22BA9 00020 84 DF 07 03   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73
                   89 75 66 67                       52 C8 E7 83 53 83 C3 21 ED 84 77 06
@@ -2860,7 +2860,7 @@
                   70
 23702 23703 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 23704 23705 00002 24 00         Length              0024
-23706 23707 00002 17 00         Algorithm           'SHA256'
+23706 23707 00002 17 00         Algorithm           0017 'SHA256'
 23708 23709 00002 20 00         Digest Size         0020
 2370A 23729 00020 B5 5B BD 30   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48
                   0E 03 1B B6                       1D 7C 2F A1 BD 45 F3 34 BE 5B 94 34
@@ -3329,7 +3329,7 @@
                   70
 240C2 240C3 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 240C4 240C5 00002 24 00         Length              0024
-240C6 240C7 00002 17 00         Algorithm           'SHA256'
+240C6 240C7 00002 17 00         Algorithm           0017 'SHA256'
 240C8 240C9 00002 20 00         Digest Size         0020
 240CA 240E9 00020 49 43 5B F7   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F
                   C3 B4 FA 37                       B1 50 0B 7D A3 E4 75 A5 B0 44 B8 E7
@@ -3855,7 +3855,7 @@
                   7A 69 70
 2B8A5 2B8A6 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2B8A7 2B8A8 00002 24 00         Length              0024
-2B8A9 2B8AA 00002 17 00         Algorithm           'SHA256'
+2B8A9 2B8AA 00002 17 00         Algorithm           0017 'SHA256'
 2B8AB 2B8AC 00002 20 00         Digest Size         0020
 2B8AD 2B8CC 00020 09 E4 6B 58   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54
                   CE 28 F8 11                       10 28 AE BE 2E B6 F1 07 4D 1C 92 5D
@@ -4348,7 +4348,7 @@
                   70
 2C027 2C028 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2C029 2C02A 00002 24 00         Length              0024
-2C02B 2C02C 00002 17 00         Algorithm           'SHA256'
+2C02B 2C02C 00002 17 00         Algorithm           0017 'SHA256'
 2C02D 2C02E 00002 20 00         Digest Size         0020
 2C02F 2C04E 00020 87 39 C7 6E   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9
                   68 1F 90 09                       DF 0E F7 5C F4 21 D3 9C AB B5 46 50
@@ -4818,7 +4818,7 @@
                   7A 69 70
 2C750 2C751 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2C752 2C753 00002 24 00         Length              0024
-2C754 2C755 00002 17 00         Algorithm           'SHA256'
+2C754 2C755 00002 17 00         Algorithm           0017 'SHA256'
 2C756 2C757 00002 20 00         Digest Size         0020
 2C758 2C777 00020 0A 8A 80 EF   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6
                   4E FE 04 68                       DC 6C C8 0F DA 97 01 64 2A 96 C4 A3
@@ -5290,7 +5290,7 @@
                   70
 2D5FA 2D5FB 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2D5FC 2D5FD 00002 24 00         Length              0024
-2D5FE 2D5FF 00002 17 00         Algorithm           'SHA256'
+2D5FE 2D5FF 00002 17 00         Algorithm           0017 'SHA256'
 2D600 2D601 00002 20 00         Digest Size         0020
 2D602 2D621 00020 43 E4 2A D8   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10
                   A9 B5 9D 9E                       0F 0E ED 09 FB 7E 80 A3 3C F5 2F 82
@@ -5801,7 +5801,7 @@
                   69 70
 2DDC4 2DDC5 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2DDC6 2DDC7 00002 24 00         Length              0024
-2DDC8 2DDC9 00002 17 00         Algorithm           'SHA256'
+2DDC8 2DDC9 00002 17 00         Algorithm           0017 'SHA256'
 2DDCA 2DDCB 00002 20 00         Digest Size         0020
 2DDCC 2DDEB 00020 10 BE 91 B6   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60
                   5A E9 59 26                       9D 0D 77 A7 B7 A8 0D 62 F9 9B 65 10
@@ -6269,7 +6269,7 @@
                   7A 69 70
 2E98F 2E990 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 2E991 2E992 00002 24 00         Length              0024
-2E993 2E994 00002 17 00         Algorithm           'SHA256'
+2E993 2E994 00002 17 00         Algorithm           0017 'SHA256'
 2E995 2E996 00002 20 00         Digest Size         0020
 2E997 2E9B6 00020 CD 8A 6B 13   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99
                   CD C1 CC 25                       4E 7A 43 EA 22 34 EA DE 07 F1 21 B0
@@ -6774,7 +6774,7 @@
                   74 78 74
 3AE70 3AE71 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3AE72 3AE73 00002 24 00         Length              0024
-3AE74 3AE75 00002 17 00         Algorithm           'SHA256'
+3AE74 3AE75 00002 17 00         Algorithm           0017 'SHA256'
 3AE76 3AE77 00002 20 00         Digest Size         0020
 3AE78 3AE97 00020 74 67 30 6E   Digest              74 67 30 6E E0 FE ED 49 71 26 0F 3C
                   E0 FE ED 49                       87 42 11 54 A0 5B E5 71 D9 44 E9 CB
@@ -6847,7 +6847,7 @@
                   2E 7A 69 70
 3AF34 3AF35 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3AF36 3AF37 00002 24 00         Length              0024
-3AF38 3AF39 00002 17 00         Algorithm           'SHA256'
+3AF38 3AF39 00002 17 00         Algorithm           0017 'SHA256'
 3AF3A 3AF3B 00002 20 00         Digest Size         0020
 3AF3C 3AF5B 00020 3A A2 88 80   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8
                   0B 11 0E B0                       EA C8 40 10 75 09 5E A1 57 D0 BC 5C
@@ -7370,7 +7370,7 @@
                   70
 3B72C 3B72D 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3B72E 3B72F 00002 24 00         Length              0024
-3B730 3B731 00002 17 00         Algorithm           'SHA256'
+3B730 3B731 00002 17 00         Algorithm           0017 'SHA256'
 3B732 3B733 00002 20 00         Digest Size         0020
 3B734 3B753 00020 6B 34 69 66   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D
                   32 D5 16 BA                       DD F7 96 BE 75 84 21 F7 4A 25 FB 58
@@ -7875,7 +7875,7 @@
                   69 70
 3BEDF 3BEE0 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3BEE1 3BEE2 00002 24 00         Length              0024
-3BEE3 3BEE4 00002 17 00         Algorithm           'SHA256'
+3BEE3 3BEE4 00002 17 00         Algorithm           0017 'SHA256'
 3BEE5 3BEE6 00002 20 00         Digest Size         0020
 3BEE7 3BF06 00020 02 AD 3B E3   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A
                   66 7C 81 26                       15 C6 2D 9A 93 3B 40 69 B7 FD 08 FC
@@ -8372,7 +8372,7 @@
                   2E 7A 69 70
 3C674 3C675 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3C676 3C677 00002 24 00         Length              0024
-3C678 3C679 00002 17 00         Algorithm           'SHA256'
+3C678 3C679 00002 17 00         Algorithm           0017 'SHA256'
 3C67A 3C67B 00002 20 00         Digest Size         0020
 3C67C 3C69B 00020 04 90 1B 2C   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35
                   A8 0B BA C1                       FB 3F C3 E7 9A A7 03 2F 6A 05 83 53
@@ -8878,7 +8878,7 @@
                   2E 7A 69 70
 3CE2D 3CE2E 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3CE2F 3CE30 00002 24 00         Length              0024
-3CE31 3CE32 00002 17 00         Algorithm           'SHA256'
+3CE31 3CE32 00002 17 00         Algorithm           0017 'SHA256'
 3CE33 3CE34 00002 20 00         Digest Size         0020
 3CE35 3CE54 00020 AA 02 27 C2   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1
                   98 F5 5A BA                       74 EA 8A 26 89 04 35 2F E9 2F 38 57
@@ -9407,7 +9407,7 @@
                   70
 3D63F 3D640 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3D641 3D642 00002 24 00         Length              0024
-3D643 3D644 00002 17 00         Algorithm           'SHA256'
+3D643 3D644 00002 17 00         Algorithm           0017 'SHA256'
 3D645 3D646 00002 20 00         Digest Size         0020
 3D647 3D666 00020 81 5D 49 7A   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E
                   09 B0 EE C8                       A7 88 AA 73 49 9E 6E 90 82 76 7F 13
@@ -9879,7 +9879,7 @@
                   69 70
 3DE6C 3DE6D 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3DE6E 3DE6F 00002 24 00         Length              0024
-3DE70 3DE71 00002 17 00         Algorithm           'SHA256'
+3DE70 3DE71 00002 17 00         Algorithm           0017 'SHA256'
 3DE72 3DE73 00002 20 00         Digest Size         0020
 3DE74 3DE93 00020 23 78 03 25   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B
                   46 F3 4F F7                       D5 09 0A 88 C7 68 EB 68 5A D4 AE 51
@@ -10379,7 +10379,7 @@
                   7A 69 70
 3E60C 3E60D 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3E60E 3E60F 00002 24 00         Length              0024
-3E610 3E611 00002 17 00         Algorithm           'SHA256'
+3E610 3E611 00002 17 00         Algorithm           0017 'SHA256'
 3E612 3E613 00002 20 00         Digest Size         0020
 3E614 3E633 00020 09 BB 83 D8   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57
                   24 07 80 0F                       64 CD B6 09 86 74 C9 E9 40 88 85 2B
@@ -10877,7 +10877,7 @@
                   69 70
 3EDA1 3EDA2 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 3EDA3 3EDA4 00002 24 00         Length              0024
-3EDA5 3EDA6 00002 17 00         Algorithm           'SHA256'
+3EDA5 3EDA6 00002 17 00         Algorithm           0017 'SHA256'
 3EDA7 3EDA8 00002 20 00         Digest Size         0020
 3EDA9 3EDC8 00020 2B DF FC 27   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8
                   7D 36 71 60                       90 8B B7 66 6A 39 85 EF 88 21 2B 86
@@ -11394,7 +11394,7 @@
                   7A 69 70
 67535 67536 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 67537 67538 00002 24 00         Length              0024
-67539 6753A 00002 17 00         Algorithm           'SHA256'
+67539 6753A 00002 17 00         Algorithm           0017 'SHA256'
 6753B 6753C 00002 20 00         Digest Size         0020
 6753D 6755C 00020 80 8D A6 94   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89
                   63 F7 C8 94                       48 BB 2D 65 F6 4E A2 7F 30 50 35 AE
@@ -11859,7 +11859,7 @@
                   74
 6B549 6B54A 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6B54B 6B54C 00002 24 00         Length              0024
-6B54D 6B54E 00002 17 00         Algorithm           'SHA256'
+6B54D 6B54E 00002 17 00         Algorithm           0017 'SHA256'
 6B54F 6B550 00002 20 00         Digest Size         0020
 6B551 6B570 00020 51 D4 89 27   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52
                   FD 91 6B 51                       BF 33 30 69 CA 56 B8 DC DC 7F E6 F6
@@ -12368,7 +12368,7 @@
                   78 74
 6BD0A 6BD0B 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6BD0C 6BD0D 00002 24 00         Length              0024
-6BD0E 6BD0F 00002 17 00         Algorithm           'SHA256'
+6BD0E 6BD0F 00002 17 00         Algorithm           0017 'SHA256'
 6BD10 6BD11 00002 20 00         Digest Size         0020
 6BD12 6BD31 00020 6B 86 B2 73   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E
                   FF 34 FC E1                       FF 5A 3F 57 47 AD A4 EA A2 2F 1D 49
@@ -12842,7 +12842,7 @@
                   74
 6C424 6C425 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6C426 6C427 00002 24 00         Length              0024
-6C428 6C429 00002 17 00         Algorithm           'SHA256'
+6C428 6C429 00002 17 00         Algorithm           0017 'SHA256'
 6C42A 6C42B 00002 20 00         Digest Size         0020
 6C42C 6C44B 00020 E3 B0 C4 42   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8
                   98 FC 1C 14                       99 6F B9 24 27 AE 41 E4 64 9B 93 4C
@@ -13310,7 +13310,7 @@
                   69 6E
 6CB2C 6CB2D 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6CB2E 6CB2F 00002 24 00         Length              0024
-6CB30 6CB31 00002 17 00         Algorithm           'SHA256'
+6CB30 6CB31 00002 17 00         Algorithm           0017 'SHA256'
 6CB32 6CB33 00002 20 00         Digest Size         0020
 6CB34 6CB53 00020 22 58 23 8A   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19
                   CE 2C FC 25                       9D 2C E9 84 44 D3 A1 D1 4D 85 C4 7E
@@ -13778,7 +13778,7 @@
                   62 69 6E
 6D235 6D236 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6D237 6D238 00002 24 00         Length              0024
-6D239 6D23A 00002 17 00         Algorithm           'SHA256'
+6D239 6D23A 00002 17 00         Algorithm           0017 'SHA256'
 6D23B 6D23C 00002 20 00         Digest Size         0020
 6D23D 6D25C 00020 38 05 EB 7D   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB
                   BC 09 40 49                       3A AC 04 FA CD 9D A2 AD 49 04 45 65
@@ -14246,7 +14246,7 @@
                   6E 65 2E 63
 6D93F 6D940 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6D941 6D942 00002 24 00         Length              0024
-6D943 6D944 00002 17 00         Algorithm           'SHA256'
+6D943 6D944 00002 17 00         Algorithm           0017 'SHA256'
 6D945 6D946 00002 20 00         Digest Size         0020
 6D947 6D966 00020 9E 11 33 9C   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D
                   89 56 8F 0B                       F4 42 FA 34 BF 00 B2 1C 3B FC 2B E7
@@ -14714,7 +14714,7 @@
                   65 72 2E 63
 6E049 6E04A 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6E04B 6E04C 00002 24 00         Length              0024
-6E04D 6E04E 00002 17 00         Algorithm           'SHA256'
+6E04D 6E04E 00002 17 00         Algorithm           0017 'SHA256'
 6E04F 6E050 00002 20 00         Digest Size         0020
 6E051 6E070 00020 37 BA 70 8E   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5
                   34 F9 45 38                       8D 1D F5 89 42 90 3A 10 AF 48 38 36
@@ -15183,7 +15183,7 @@
                   2E 63
 6E755 6E756 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6E757 6E758 00002 24 00         Length              0024
-6E759 6E75A 00002 17 00         Algorithm           'SHA256'
+6E759 6E75A 00002 17 00         Algorithm           0017 'SHA256'
 6E75B 6E75C 00002 20 00         Digest Size         0020
 6E75D 6E77C 00020 84 DF 07 03   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73
                   89 75 66 67                       52 C8 E7 83 53 83 C3 21 ED 84 77 06
@@ -15690,7 +15690,7 @@
                   70
 6EEC3 6EEC4 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6EEC5 6EEC6 00002 24 00         Length              0024
-6EEC7 6EEC8 00002 17 00         Algorithm           'SHA256'
+6EEC7 6EEC8 00002 17 00         Algorithm           0017 'SHA256'
 6EEC9 6EECA 00002 20 00         Digest Size         0020
 6EECB 6EEEA 00020 B5 5B BD 30   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48
                   0E 03 1B B6                       1D 7C 2F A1 BD 45 F3 34 BE 5B 94 34
@@ -16164,7 +16164,7 @@
                   70
 6F5E2 6F5E3 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6F5E4 6F5E5 00002 24 00         Length              0024
-6F5E6 6F5E7 00002 17 00         Algorithm           'SHA256'
+6F5E6 6F5E7 00002 17 00         Algorithm           0017 'SHA256'
 6F5E8 6F5E9 00002 20 00         Digest Size         0020
 6F5EA 6F609 00020 49 43 5B F7   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F
                   C3 B4 FA 37                       B1 50 0B 7D A3 E4 75 A5 B0 44 B8 E7
@@ -16637,7 +16637,7 @@
                   7A 69 70
 6FCFF 6FD00 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 6FD01 6FD02 00002 24 00         Length              0024
-6FD03 6FD04 00002 17 00         Algorithm           'SHA256'
+6FD03 6FD04 00002 17 00         Algorithm           0017 'SHA256'
 6FD05 6FD06 00002 20 00         Digest Size         0020
 6FD07 6FD26 00020 09 E4 6B 58   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54
                   CE 28 F8 11                       10 28 AE BE 2E B6 F1 07 4D 1C 92 5D
@@ -17111,7 +17111,7 @@
                   70
 7041E 7041F 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 70420 70421 00002 24 00         Length              0024
-70422 70423 00002 17 00         Algorithm           'SHA256'
+70422 70423 00002 17 00         Algorithm           0017 'SHA256'
 70424 70425 00002 20 00         Digest Size         0020
 70426 70445 00020 87 39 C7 6E   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9
                   68 1F 90 09                       DF 0E F7 5C F4 21 D3 9C AB B5 46 50
@@ -17585,7 +17585,7 @@
                   7A 69 70
 70B3F 70B40 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 70B41 70B42 00002 24 00         Length              0024
-70B43 70B44 00002 17 00         Algorithm           'SHA256'
+70B43 70B44 00002 17 00         Algorithm           0017 'SHA256'
 70B45 70B46 00002 20 00         Digest Size         0020
 70B47 70B66 00020 0A 8A 80 EF   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6
                   4E FE 04 68                       DC 6C C8 0F DA 97 01 64 2A 96 C4 A3
@@ -18062,7 +18062,7 @@
                   70
 7126A 7126B 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 7126C 7126D 00002 24 00         Length              0024
-7126E 7126F 00002 17 00         Algorithm           'SHA256'
+7126E 7126F 00002 17 00         Algorithm           0017 'SHA256'
 71270 71271 00002 20 00         Digest Size         0020
 71272 71291 00020 43 E4 2A D8   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10
                   A9 B5 9D 9E                       0F 0E ED 09 FB 7E 80 A3 3C F5 2F 82
@@ -18537,7 +18537,7 @@
                   69 70
 7198E 7198F 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 71990 71991 00002 24 00         Length              0024
-71992 71993 00002 17 00         Algorithm           'SHA256'
+71992 71993 00002 17 00         Algorithm           0017 'SHA256'
 71994 71995 00002 20 00         Digest Size         0020
 71996 719B5 00020 10 BE 91 B6   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60
                   5A E9 59 26                       9D 0D 77 A7 B7 A8 0D 62 F9 9B 65 10
@@ -19010,7 +19010,7 @@
                   7A 69 70
 720AB 720AC 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 720AD 720AE 00002 24 00         Length              0024
-720AF 720B0 00002 17 00         Algorithm           'SHA256'
+720AF 720B0 00002 17 00         Algorithm           0017 'SHA256'
 720B1 720B2 00002 20 00         Digest Size         0020
 720B3 720D2 00020 CD 8A 6B 13   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99
                   CD C1 CC 25                       4E 7A 43 EA 22 34 EA DE 07 F1 21 B0
@@ -19488,7 +19488,7 @@
                   2E 7A 69 70
 727DD 727DE 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 727DF 727E0 00002 24 00         Length              0024
-727E1 727E2 00002 17 00         Algorithm           'SHA256'
+727E1 727E2 00002 17 00         Algorithm           0017 'SHA256'
 727E3 727E4 00002 20 00         Digest Size         0020
 727E5 72804 00020 3A A2 88 80   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8
                   0B 11 0E B0                       EA C8 40 10 75 09 5E A1 57 D0 BC 5C
@@ -19963,7 +19963,7 @@
                   70
 72F00 72F01 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 72F02 72F03 00002 24 00         Length              0024
-72F04 72F05 00002 17 00         Algorithm           'SHA256'
+72F04 72F05 00002 17 00         Algorithm           0017 'SHA256'
 72F06 72F07 00002 20 00         Digest Size         0020
 72F08 72F27 00020 6B 34 69 66   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D
                   32 D5 16 BA                       DD F7 96 BE 75 84 21 F7 4A 25 FB 58
@@ -20437,7 +20437,7 @@
                   69 70
 73620 73621 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 73622 73623 00002 24 00         Length              0024
-73624 73625 00002 17 00         Algorithm           'SHA256'
+73624 73625 00002 17 00         Algorithm           0017 'SHA256'
 73626 73627 00002 20 00         Digest Size         0020
 73628 73647 00020 02 AD 3B E3   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A
                   66 7C 81 26                       15 C6 2D 9A 93 3B 40 69 B7 FD 08 FC
@@ -20913,7 +20913,7 @@
                   2E 7A 69 70
 73D4A 73D4B 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 73D4C 73D4D 00002 24 00         Length              0024
-73D4E 73D4F 00002 17 00         Algorithm           'SHA256'
+73D4E 73D4F 00002 17 00         Algorithm           0017 'SHA256'
 73D50 73D51 00002 20 00         Digest Size         0020
 73D52 73D71 00020 04 90 1B 2C   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35
                   A8 0B BA C1                       FB 3F C3 E7 9A A7 03 2F 6A 05 83 53
@@ -21388,7 +21388,7 @@
                   2E 7A 69 70
 74470 74471 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 74472 74473 00002 24 00         Length              0024
-74474 74475 00002 17 00         Algorithm           'SHA256'
+74474 74475 00002 17 00         Algorithm           0017 'SHA256'
 74476 74477 00002 20 00         Digest Size         0020
 74478 74497 00020 AA 02 27 C2   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1
                   98 F5 5A BA                       74 EA 8A 26 89 04 35 2F E9 2F 38 57
@@ -21865,7 +21865,7 @@
                   70
 74B9B 74B9C 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 74B9D 74B9E 00002 24 00         Length              0024
-74B9F 74BA0 00002 17 00         Algorithm           'SHA256'
+74B9F 74BA0 00002 17 00         Algorithm           0017 'SHA256'
 74BA1 74BA2 00002 20 00         Digest Size         0020
 74BA3 74BC2 00020 81 5D 49 7A   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E
                   09 B0 EE C8                       A7 88 AA 73 49 9E 6E 90 82 76 7F 13
@@ -22342,7 +22342,7 @@
                   69 70
 752C7 752C8 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 752C9 752CA 00002 24 00         Length              0024
-752CB 752CC 00002 17 00         Algorithm           'SHA256'
+752CB 752CC 00002 17 00         Algorithm           0017 'SHA256'
 752CD 752CE 00002 20 00         Digest Size         0020
 752CF 752EE 00020 23 78 03 25   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B
                   46 F3 4F F7                       D5 09 0A 88 C7 68 EB 68 5A D4 AE 51
@@ -22815,7 +22815,7 @@
                   7A 69 70
 759E4 759E5 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 759E6 759E7 00002 24 00         Length              0024
-759E8 759E9 00002 17 00         Algorithm           'SHA256'
+759E8 759E9 00002 17 00         Algorithm           0017 'SHA256'
 759EA 759EB 00002 20 00         Digest Size         0020
 759EC 75A0B 00020 09 BB 83 D8   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57
                   24 07 80 0F                       64 CD B6 09 86 74 C9 E9 40 88 85 2B
@@ -23289,7 +23289,7 @@
                   69 70
 76104 76105 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 76106 76107 00002 24 00         Length              0024
-76108 76109 00002 17 00         Algorithm           'SHA256'
+76108 76109 00002 17 00         Algorithm           0017 'SHA256'
 7610A 7610B 00002 20 00         Digest Size         0020
 7610C 7612B 00020 2B DF FC 27   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8
                   7D 36 71 60                       90 8B B7 66 6A 39 85 EF 88 21 2B 86
@@ -23763,7 +23763,7 @@
                   7A 69 70
 76825 76826 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 76827 76828 00002 24 00         Length              0024
-76829 7682A 00002 17 00         Algorithm           'SHA256'
+76829 7682A 00002 17 00         Algorithm           0017 'SHA256'
 7682B 7682C 00002 20 00         Digest Size         0020
 7682D 7684C 00020 80 8D A6 94   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89
                   63 F7 C8 94                       48 BB 2D 65 F6 4E A2 7F 30 50 35 AE
@@ -24233,7 +24233,7 @@
                   74
 76F34 76F35 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 76F36 76F37 00002 24 00         Length              0024
-76F38 76F39 00002 17 00         Algorithm           'SHA256'
+76F38 76F39 00002 17 00         Algorithm           0017 'SHA256'
 76F3A 76F3B 00002 20 00         Digest Size         0020
 76F3C 76F5B 00020 51 D4 89 27   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52
                   FD 91 6B 51                       BF 33 30 69 CA 56 B8 DC DC 7F E6 F6
@@ -24701,7 +24701,7 @@
                   78 74
 7763C 7763D 00002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
 7763E 7763F 00002 24 00         Length              0024
-77640 77641 00002 17 00         Algorithm           'SHA256'
+77640 77641 00002 17 00         Algorithm           0017 'SHA256'
 77642 77643 00002 20 00         Digest Size         0020
 77644 77663 00020 6B 86 B2 73   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E
                   FF 34 FC E1                       FF 5A 3F 57 47 AD A4 EA A2 2F 1D 49

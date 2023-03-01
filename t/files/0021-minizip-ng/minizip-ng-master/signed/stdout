@@ -20,7 +20,7 @@
 00033   Compressed Size     0000000000000000
 0003B Extra ID #0002        1A51 'Minizip Hash'
 0003D   Length              0024
-0003F   Algorithm           'SHA256'
+0003F   Algorithm           0017 'SHA256'
 00041   Digest Size         0020
 00043   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8 99
                             6F B9 24 27 AE 41 E4 64 9B 93 4C A4 95
@@ -182,7 +182,7 @@
 00743 Filename              'random.bin'
 0074D Extra ID #0001        1A51 'Minizip Hash'
 0074F   Length              0024
-00751   Algorithm           'SHA256'
+00751   Algorithm           0017 'SHA256'
 00753   Digest Size         0020
 00755   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19 9D
                             2C E9 84 44 D3 A1 D1 4D 85 C4 7E DE 68
@@ -344,7 +344,7 @@
 20E73 Filename              'uniform.bin'
 20E7E Extra ID #0001        1A51 'Minizip Hash'
 20E80   Length              0024
-20E82   Algorithm           'SHA256'
+20E82   Algorithm           0017 'SHA256'
 20E84   Digest Size         0020
 20E86   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB 3A
                             AC 04 FA CD 9D A2 AD 49 04 45 65 ED 9D
@@ -508,7 +508,7 @@
 215EC Filename              'standalone.c'
 215F8 Extra ID #0001        1A51 'Minizip Hash'
 215FA   Length              0024
-215FC   Algorithm           'SHA256'
+215FC   Algorithm           0017 'SHA256'
 215FE   Digest Size         0020
 21600   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D F4
                             42 FA 34 BF 00 B2 1C 3B FC 2B E7 D4 A9
@@ -670,7 +670,7 @@
 22083 Filename              'zip_fuzzer.c'
 2208F Extra ID #0001        1A51 'Minizip Hash'
 22091   Length              0024
-22093   Algorithm           'SHA256'
+22093   Algorithm           0017 'SHA256'
 22095   Digest Size         0020
 22097   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5 8D
                             1D F5 89 42 90 3A 10 AF 48 38 36 00 A8
@@ -832,7 +832,7 @@
 22B74 Filename              'unzip_fuzzer.c'
 22B82 Extra ID #0001        1A51 'Minizip Hash'
 22B84   Length              0024
-22B86   Algorithm           'SHA256'
+22B86   Algorithm           0017 'SHA256'
 22B88   Digest Size         0020
 22B8A   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73 52
                             C8 E7 83 53 83 C3 21 ED 84 77 06 C3 2F
@@ -1009,7 +1009,7 @@
                             ip'
 23702 Extra ID #0001        1A51 'Minizip Hash'
 23704   Length              0024
-23706   Algorithm           'SHA256'
+23706   Algorithm           0017 'SHA256'
 23708   Digest Size         0020
 2370A   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48 1D
                             7C 2F A1 BD 45 F3 34 BE 5B 94 34 59 97
@@ -1171,7 +1171,7 @@
 240A1 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
 240C2 Extra ID #0001        1A51 'Minizip Hash'
 240C4   Length              0024
-240C6   Algorithm           'SHA256'
+240C6   Algorithm           0017 'SHA256'
 240C8   Digest Size         0020
 240CA   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F B1
                             50 0B 7D A3 E4 75 A5 B0 44 B8 E7 C9 D1
@@ -1333,7 +1333,7 @@
 2B886 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
 2B8A5 Extra ID #0001        1A51 'Minizip Hash'
 2B8A7   Length              0024
-2B8A9   Algorithm           'SHA256'
+2B8A9   Algorithm           0017 'SHA256'
 2B8AB   Digest Size         0020
 2B8AD   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54 10
                             28 AE BE 2E B6 F1 07 4D 1C 92 5D 1D 40
@@ -1497,7 +1497,7 @@
 2C006 Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
 2C027 Extra ID #0001        1A51 'Minizip Hash'
 2C029   Length              0024
-2C02B   Algorithm           'SHA256'
+2C02B   Algorithm           0017 'SHA256'
 2C02D   Digest Size         0020
 2C02F   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9 DF
                             0E F7 5C F4 21 D3 9C AB B5 46 50 C4 B9
@@ -1659,7 +1659,7 @@
 2C72D Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
 2C750 Extra ID #0001        1A51 'Minizip Hash'
 2C752   Length              0024
-2C754   Algorithm           'SHA256'
+2C754   Algorithm           0017 'SHA256'
 2C756   Digest Size         0020
 2C758   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6 DC
                             6C C8 0F DA 97 01 64 2A 96 C4 A3 15 21
@@ -1822,7 +1822,7 @@
                             ks.zip'
 2D5FA Extra ID #0001        1A51 'Minizip Hash'
 2D5FC   Length              0024
-2D5FE   Algorithm           'SHA256'
+2D5FE   Algorithm           0017 'SHA256'
 2D600   Digest Size         0020
 2D602   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10 0F
                             0E ED 09 FB 7E 80 A3 3C F5 2F 82 DF E8
@@ -1988,7 +1988,7 @@
 2DD9E Filename              'unzip_fuzzer_seed_corpus/storeonly.zip'
 2DDC4 Extra ID #0001        1A51 'Minizip Hash'
 2DDC6   Length              0024
-2DDC8   Algorithm           'SHA256'
+2DDC8   Algorithm           0017 'SHA256'
 2DDCA   Digest Size         0020
 2DDCC   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60 9D
                             0D 77 A7 B7 A8 0D 62 F9 9B 65 10 77 10
@@ -2150,7 +2150,7 @@
 2E970 Filename              'unzip_fuzzer_seed_corpus/xz.zip'
 2E98F Extra ID #0001        1A51 'Minizip Hash'
 2E991   Length              0024
-2E993   Algorithm           'SHA256'
+2E993   Algorithm           0017 'SHA256'
 2E995   Digest Size         0020
 2E997   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99 4E
                             7A 43 EA 22 34 EA DE 07 F1 21 B0 AB D5
@@ -2313,7 +2313,7 @@
                             rmissions.zip'
 3AF34 Extra ID #0001        1A51 'Minizip Hash'
 3AF36   Length              0024
-3AF38   Algorithm           'SHA256'
+3AF38   Algorithm           0017 'SHA256'
 3AF3A   Digest Size         0020
 3AF3C   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8 EA
                             C8 40 10 75 09 5E A1 57 D0 BC 5C 03 32
@@ -2480,7 +2480,7 @@
 3B707 Filename              'unzip_fuzzer_seed_corpus/comments.zip'
 3B72C Extra ID #0001        1A51 'Minizip Hash'
 3B72E   Length              0024
-3B730   Algorithm           'SHA256'
+3B730   Algorithm           0017 'SHA256'
 3B732   Digest Size         0020
 3B734   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D DD
                             F7 96 BE 75 84 21 F7 4A 25 FB 58 5D 92
@@ -2645,7 +2645,7 @@
 3BEBD Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
 3BEDF Extra ID #0001        1A51 'Minizip Hash'
 3BEE1   Length              0024
-3BEE3   Algorithm           'SHA256'
+3BEE3   Algorithm           0017 'SHA256'
 3BEE5   Digest Size         0020
 3BEE7   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A 15
                             C6 2D 9A 93 3B 40 69 B7 FD 08 FC DF DF
@@ -2810,7 +2810,7 @@
                             s.zip'
 3C674 Extra ID #0001        1A51 'Minizip Hash'
 3C676   Length              0024
-3C678   Algorithm           'SHA256'
+3C678   Algorithm           0017 'SHA256'
 3C67A   Digest Size         0020
 3C67C   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35 FB
                             3F C3 E7 9A A7 03 2F 6A 05 83 53 C2 2F
@@ -2976,7 +2976,7 @@
                             p'
 3CE2D Extra ID #0001        1A51 'Minizip Hash'
 3CE2F   Length              0024
-3CE31   Algorithm           'SHA256'
+3CE31   Algorithm           0017 'SHA256'
 3CE33   Digest Size         0020
 3CE35   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1 74
                             EA 8A 26 89 04 35 2F E9 2F 38 57 68 22
@@ -3145,7 +3145,7 @@
                             nt.zip'
 3D63F Extra ID #0001        1A51 'Minizip Hash'
 3D641   Length              0024
-3D643   Algorithm           'SHA256'
+3D643   Algorithm           0017 'SHA256'
 3D645   Digest Size         0020
 3D647   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E A7
                             88 AA 73 49 9E 6E 90 82 76 7F 13 5F 8F
@@ -3308,7 +3308,7 @@
                             ypt.zip'
 3DE6C Extra ID #0001        1A51 'Minizip Hash'
 3DE6E   Length              0024
-3DE70   Algorithm           'SHA256'
+3DE70   Algorithm           0017 'SHA256'
 3DE72   Digest Size         0020
 3DE74   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B D5
                             09 0A 88 C7 68 EB 68 5A D4 AE 51 4B 66
@@ -3473,7 +3473,7 @@
 3E5ED Filename              'unzip_fuzzer_seed_corpus/as.zip'
 3E60C Extra ID #0001        1A51 'Minizip Hash'
 3E60E   Length              0024
-3E610   Algorithm           'SHA256'
+3E610   Algorithm           0017 'SHA256'
 3E612   Digest Size         0020
 3E614   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57 64
                             CD B6 09 86 74 C9 E9 40 88 85 2B C4 D7
@@ -3638,7 +3638,7 @@
 3ED7F Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
 3EDA1 Extra ID #0001        1A51 'Minizip Hash'
 3EDA3   Length              0024
-3EDA5   Algorithm           'SHA256'
+3EDA5   Algorithm           0017 'SHA256'
 3EDA7   Digest Size         0020
 3EDA9   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8 90
                             8B B7 66 6A 39 85 EF 88 21 2B 86 F3 76
@@ -3800,7 +3800,7 @@
 67512 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
 67535 Extra ID #0001        1A51 'Minizip Hash'
 67537   Length              0024
-67539   Algorithm           'SHA256'
+67539   Algorithm           0017 'SHA256'
 6753B   Digest Size         0020
 6753D   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89 48
                             BB 2D 65 F6 4E A2 7F 30 50 35 AE B4 40
@@ -3962,7 +3962,7 @@
 6B538 Filename              'unzip_fuzzer.dict'
 6B549 Extra ID #0001        1A51 'Minizip Hash'
 6B54B   Length              0024
-6B54D   Algorithm           'SHA256'
+6B54D   Algorithm           0017 'SHA256'
 6B54F   Digest Size         0020
 6B551   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52 BF
                             33 30 69 CA 56 B8 DC DC 7F E6 F6 35 33
@@ -4128,7 +4128,7 @@
 6BD00 Filename              'single.txt'
 6BD0A Extra ID #0001        1A51 'Minizip Hash'
 6BD0C   Length              0024
-6BD0E   Algorithm           'SHA256'
+6BD0E   Algorithm           0017 'SHA256'
 6BD10   Digest Size         0020
 6BD12   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E FF
                             5A 3F 57 47 AD A4 EA A2 2F 1D 49 C0 1E
@@ -4301,7 +4301,7 @@
 6C41B Filename              'empty.txt'
 6C424 Extra ID #0001        1A51 'Minizip Hash'
 6C426   Length              0024
-6C428   Algorithm           'SHA256'
+6C428   Algorithm           0017 'SHA256'
 6C42A   Digest Size         0020
 6C42C   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8 99
                             6F B9 24 27 AE 41 E4 64 9B 93 4C A4 95
@@ -4468,7 +4468,7 @@
 6CB22 Filename              'random.bin'
 6CB2C Extra ID #0001        1A51 'Minizip Hash'
 6CB2E   Length              0024
-6CB30   Algorithm           'SHA256'
+6CB30   Algorithm           0017 'SHA256'
 6CB32   Digest Size         0020
 6CB34   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19 9D
                             2C E9 84 44 D3 A1 D1 4D 85 C4 7E DE 68
@@ -4635,7 +4635,7 @@
 6D22A Filename              'uniform.bin'
 6D235 Extra ID #0001        1A51 'Minizip Hash'
 6D237   Length              0024
-6D239   Algorithm           'SHA256'
+6D239   Algorithm           0017 'SHA256'
 6D23B   Digest Size         0020
 6D23D   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB 3A
                             AC 04 FA CD 9D A2 AD 49 04 45 65 ED 9D
@@ -4802,7 +4802,7 @@
 6D933 Filename              'standalone.c'
 6D93F Extra ID #0001        1A51 'Minizip Hash'
 6D941   Length              0024
-6D943   Algorithm           'SHA256'
+6D943   Algorithm           0017 'SHA256'
 6D945   Digest Size         0020
 6D947   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D F4
                             42 FA 34 BF 00 B2 1C 3B FC 2B E7 D4 A9
@@ -4969,7 +4969,7 @@
 6E03D Filename              'zip_fuzzer.c'
 6E049 Extra ID #0001        1A51 'Minizip Hash'
 6E04B   Length              0024
-6E04D   Algorithm           'SHA256'
+6E04D   Algorithm           0017 'SHA256'
 6E04F   Digest Size         0020
 6E051   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5 8D
                             1D F5 89 42 90 3A 10 AF 48 38 36 00 A8
@@ -5136,7 +5136,7 @@
 6E747 Filename              'unzip_fuzzer.c'
 6E755 Extra ID #0001        1A51 'Minizip Hash'
 6E757   Length              0024
-6E759   Algorithm           'SHA256'
+6E759   Algorithm           0017 'SHA256'
 6E75B   Digest Size         0020
 6E75D   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73 52
                             C8 E7 83 53 83 C3 21 ED 84 77 06 C3 2F
@@ -5329,7 +5329,7 @@
                             ip'
 6EEC3 Extra ID #0001        1A51 'Minizip Hash'
 6EEC5   Length              0024
-6EEC7   Algorithm           'SHA256'
+6EEC7   Algorithm           0017 'SHA256'
 6EEC9   Digest Size         0020
 6EECB   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48 1D
                             7C 2F A1 BD 45 F3 34 BE 5B 94 34 59 97
@@ -5496,7 +5496,7 @@
 6F5C1 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
 6F5E2 Extra ID #0001        1A51 'Minizip Hash'
 6F5E4   Length              0024
-6F5E6   Algorithm           'SHA256'
+6F5E6   Algorithm           0017 'SHA256'
 6F5E8   Digest Size         0020
 6F5EA   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F B1
                             50 0B 7D A3 E4 75 A5 B0 44 B8 E7 C9 D1
@@ -5663,7 +5663,7 @@
 6FCE0 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
 6FCFF Extra ID #0001        1A51 'Minizip Hash'
 6FD01   Length              0024
-6FD03   Algorithm           'SHA256'
+6FD03   Algorithm           0017 'SHA256'
 6FD05   Digest Size         0020
 6FD07   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54 10
                             28 AE BE 2E B6 F1 07 4D 1C 92 5D 1D 40
@@ -5830,7 +5830,7 @@
 703FD Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
 7041E Extra ID #0001        1A51 'Minizip Hash'
 70420   Length              0024
-70422   Algorithm           'SHA256'
+70422   Algorithm           0017 'SHA256'
 70424   Digest Size         0020
 70426   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9 DF
                             0E F7 5C F4 21 D3 9C AB B5 46 50 C4 B9
@@ -5997,7 +5997,7 @@
 70B1C Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
 70B3F Extra ID #0001        1A51 'Minizip Hash'
 70B41   Length              0024
-70B43   Algorithm           'SHA256'
+70B43   Algorithm           0017 'SHA256'
 70B45   Digest Size         0020
 70B47   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6 DC
                             6C C8 0F DA 97 01 64 2A 96 C4 A3 15 21
@@ -6165,7 +6165,7 @@
                             ks.zip'
 7126A Extra ID #0001        1A51 'Minizip Hash'
 7126C   Length              0024
-7126E   Algorithm           'SHA256'
+7126E   Algorithm           0017 'SHA256'
 71270   Digest Size         0020
 71272   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10 0F
                             0E ED 09 FB 7E 80 A3 3C F5 2F 82 DF E8
@@ -6332,7 +6332,7 @@
 71968 Filename              'unzip_fuzzer_seed_corpus/storeonly.zip'
 7198E Extra ID #0001        1A51 'Minizip Hash'
 71990   Length              0024
-71992   Algorithm           'SHA256'
+71992   Algorithm           0017 'SHA256'
 71994   Digest Size         0020
 71996   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60 9D
                             0D 77 A7 B7 A8 0D 62 F9 9B 65 10 77 10
@@ -6499,7 +6499,7 @@
 7208C Filename              'unzip_fuzzer_seed_corpus/xz.zip'
 720AB Extra ID #0001        1A51 'Minizip Hash'
 720AD   Length              0024
-720AF   Algorithm           'SHA256'
+720AF   Algorithm           0017 'SHA256'
 720B1   Digest Size         0020
 720B3   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99 4E
                             7A 43 EA 22 34 EA DE 07 F1 21 B0 AB D5
@@ -6667,7 +6667,7 @@
                             rmissions.zip'
 727DD Extra ID #0001        1A51 'Minizip Hash'
 727DF   Length              0024
-727E1   Algorithm           'SHA256'
+727E1   Algorithm           0017 'SHA256'
 727E3   Digest Size         0020
 727E5   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8 EA
                             C8 40 10 75 09 5E A1 57 D0 BC 5C 03 32
@@ -6834,7 +6834,7 @@
 72EDB Filename              'unzip_fuzzer_seed_corpus/comments.zip'
 72F00 Extra ID #0001        1A51 'Minizip Hash'
 72F02   Length              0024
-72F04   Algorithm           'SHA256'
+72F04   Algorithm           0017 'SHA256'
 72F06   Digest Size         0020
 72F08   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D DD
                             F7 96 BE 75 84 21 F7 4A 25 FB 58 5D 92
@@ -7001,7 +7001,7 @@
 735FE Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
 73620 Extra ID #0001        1A51 'Minizip Hash'
 73622   Length              0024
-73624   Algorithm           'SHA256'
+73624   Algorithm           0017 'SHA256'
 73626   Digest Size         0020
 73628   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A 15
                             C6 2D 9A 93 3B 40 69 B7 FD 08 FC DF DF
@@ -7169,7 +7169,7 @@
                             s.zip'
 73D4A Extra ID #0001        1A51 'Minizip Hash'
 73D4C   Length              0024
-73D4E   Algorithm           'SHA256'
+73D4E   Algorithm           0017 'SHA256'
 73D50   Digest Size         0020
 73D52   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35 FB
                             3F C3 E7 9A A7 03 2F 6A 05 83 53 C2 2F
@@ -7337,7 +7337,7 @@
                             p'
 74470 Extra ID #0001        1A51 'Minizip Hash'
 74472   Length              0024
-74474   Algorithm           'SHA256'
+74474   Algorithm           0017 'SHA256'
 74476   Digest Size         0020
 74478   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1 74
                             EA 8A 26 89 04 35 2F E9 2F 38 57 68 22
@@ -7505,7 +7505,7 @@
                             nt.zip'
 74B9B Extra ID #0001        1A51 'Minizip Hash'
 74B9D   Length              0024
-74B9F   Algorithm           'SHA256'
+74B9F   Algorithm           0017 'SHA256'
 74BA1   Digest Size         0020
 74BA3   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E A7
                             88 AA 73 49 9E 6E 90 82 76 7F 13 5F 8F
@@ -7673,7 +7673,7 @@
                             ypt.zip'
 752C7 Extra ID #0001        1A51 'Minizip Hash'
 752C9   Length              0024
-752CB   Algorithm           'SHA256'
+752CB   Algorithm           0017 'SHA256'
 752CD   Digest Size         0020
 752CF   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B D5
                             09 0A 88 C7 68 EB 68 5A D4 AE 51 4B 66
@@ -7840,7 +7840,7 @@
 759C5 Filename              'unzip_fuzzer_seed_corpus/as.zip'
 759E4 Extra ID #0001        1A51 'Minizip Hash'
 759E6   Length              0024
-759E8   Algorithm           'SHA256'
+759E8   Algorithm           0017 'SHA256'
 759EA   Digest Size         0020
 759EC   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57 64
                             CD B6 09 86 74 C9 E9 40 88 85 2B C4 D7
@@ -8007,7 +8007,7 @@
 760E2 Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
 76104 Extra ID #0001        1A51 'Minizip Hash'
 76106   Length              0024
-76108   Algorithm           'SHA256'
+76108   Algorithm           0017 'SHA256'
 7610A   Digest Size         0020
 7610C   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8 90
                             8B B7 66 6A 39 85 EF 88 21 2B 86 F3 76
@@ -8174,7 +8174,7 @@
 76802 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
 76825 Extra ID #0001        1A51 'Minizip Hash'
 76827   Length              0024
-76829   Algorithm           'SHA256'
+76829   Algorithm           0017 'SHA256'
 7682B   Digest Size         0020
 7682D   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89 48
                             BB 2D 65 F6 4E A2 7F 30 50 35 AE B4 40
@@ -8341,7 +8341,7 @@
 76F23 Filename              'unzip_fuzzer.dict'
 76F34 Extra ID #0001        1A51 'Minizip Hash'
 76F36   Length              0024
-76F38   Algorithm           'SHA256'
+76F38   Algorithm           0017 'SHA256'
 76F3A   Digest Size         0020
 76F3C   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52 BF
                             33 30 69 CA 56 B8 DC DC 7F E6 F6 35 33
@@ -8508,7 +8508,7 @@
 77632 Filename              'single.txt'
 7763C Extra ID #0001        1A51 'Minizip Hash'
 7763E   Length              0024
-77640   Algorithm           'SHA256'
+77640   Algorithm           0017 'SHA256'
 77642   Digest Size         0020
 77644   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E FF
                             5A 3F 57 47 AD A4 EA A2 2F 1D 49 C0 1E
