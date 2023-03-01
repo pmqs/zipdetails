@@ -2583,6 +2583,8 @@ sub Zip64EndCentralHeader
 
 sub Zip64EndCentralLocator
 {
+    # APPNOTE 6.3.10, sec 4.3.15
+
     my $signature = shift ;
     my $data = shift ;
     my $startRecordOffset = shift ;
@@ -2669,6 +2671,8 @@ sub emptyArchive
 
 sub EndCentralHeader
 {
+    # APPNOTE 6.3.10, sec 4.3.16
+
     my $signature = shift ;
     my $data = shift ;
     my $startRecordOffset = shift ;
@@ -2684,7 +2688,6 @@ sub EndCentralHeader
     my $entriesOnThisDisk   = out_v "Entries in this disk";
     my $totalEntries        = out_v "Total Entries";
     my $centralDirSize      = out_V "Size of Central Dir";
-    # my $centralDirOffset    = out_V "Offset to Central Dir";
 
     my ($d, $centralDirOffset) = read_V();
     my $out = Value_V($centralDirOffset);
@@ -5328,115 +5331,6 @@ sub nibbles
             if $value >= $limit ;
     }
 }
-
-
-# {
-#     package Seen;
-
-#     # defunct
-
-#     sub new
-#     {
-#         my $class = shift ;
-
-#         my %object = ( overlaps     => [],
-#                        duplicates   => [],
-#                        detail       => [],
-#                        duplicate_count  => 0,
-#                        overlap_count    => 0,
-#                      ) ;
-
-#         bless \%object, $class;
-#     }
-
-#     sub save
-#     {
-#         my $self = shift ;
-#         my $hdrId = shift;
-#         my $name = shift;
-#         my $extras = shift;
-
-#         my $from_offset = $extras->{LocalHdrOffset};
-#         my $to_offset = $from_offset ;
-#         $to_offset += $extras->{CompressedLength} - 1 ;
-
-#         my $crc = $extras->{CRC};
-
-#         $name = ::redactFilename($name) ;
-
-#         for my $entry ( @{ $self->{detail} } )
-#         {
-#             if ( $from_offset == $entry->{from} && $to_offset == $entry->{to} && $crc == $entry->{crc})
-#             {
-#                 $self->{duplicate_count} ++;
-#                 print "### $hdrId: '$name' matches with $entry->{str}\n"
-#             }
-#             elsif ($from_offset >= $entry->{from} && $to_offset <= $entry->{to} )
-#             {
-#                 # fatal undef, "overlap!"
-#                 # push @{ $self->{overlap} },
-#                 $self->{overlap_count} ++;
-
-#                 printf "### $hdrId: '$name' nested with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
-#             }
-#             elsif ( ($from_offset >= $entry->{from} && $from_offset <= $entry->{to} ) ||
-#                     ($to_offset   >= $entry->{from} && $to_offset   <= $entry->{to} )
-#                )
-#             {
-#                 # fatal undef, "overlap!"
-#                 # push @{ $self->{overlap} },
-#                 $self->{overlap_count} ++;
-
-#                 printf "### $hdrId: '$name' overlaps with $entry->{str} %X->%X vs %X->%X\n", $from_offset, $to_offset, $entry->{from}, $entry->{to};
-#             }
-#         }
-
-#         # warn "ADD $from_offset $to_offset $hdrId: $name\n";
-#         push @{ $self->{detail} },
-#              {
-#                 from => $from_offset,
-#                 to   => $to_offset,
-#                 length => $extras->{CompressedLength},
-#                 id   => $hdrId,
-#                 crc  => $crc,
-#                 name => $name,
-#                 str  => "$hdrId: '$name'",
-#              } ;
-#     }
-
-#     sub short_summary
-#     {
-#         my $self = shift;
-
-#         my $duplicates = $self->{duplicate_count};
-#         push @Messages, "$duplicates duplicate entries"
-#             if $duplicates;
-
-#         my $overlaps = $self->{overlap_count};
-#         push @Messages, "$overlaps overlap entries"
-#             if $overlaps;
-#     }
-
-#     sub summary
-#     {
-#         my $self = shift ;
-
-#         # disable for now
-#         return;
-
-#         print "\n";
-#         for my $entry ( sort { $a->{from}->cmp($b->{from}) } @{ $self->{detail} } )
-
-#         {
-#             my $from_offset = $entry->{from};
-#             my $to_offset = $entry->{to};
-#             my $hdrId = $entry->{id};
-#             my $name = $entry->{name};
-#             print "### $hdrId\t" . $entry->{from} . "\n";
-#         }
-#     }
-
-# }
 
 {
     package HeaderOffsetEntry;
