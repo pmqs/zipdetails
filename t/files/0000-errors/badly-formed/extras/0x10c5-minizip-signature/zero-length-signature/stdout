@@ -1,0 +1,60 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         56615DDD 'Wed Mar  1 11:46:58 2023'
+000E CRC                   352441C2
+0012 Compressed Length     00000003
+0016 Uncompressed Length   00000003
+001A Filename Length       0008
+001C Extra Length          0004
+001E Filename              'filename'
+0026 Extra ID #0001        10C5 'Minizip CMS Signature'
+0028   Length              0000
+#
+# INFO: Offset 0x28: Extra Field 'Minizip CMS Signature' (ID 0x10C5): Zero length Signature
+#
+002A PAYLOAD               abc
+
+002D CENTRAL HEADER #1     02014B50
+0031 Created Zip Spec      14 '2.0'
+0032 Created OS            03 'Unix'
+0033 Extract Zip Spec      14 '2.0'
+0034 Extract OS            00 'MS-DOS'
+0035 General Purpose Flag  0000
+0037 Compression Method    0000 'Stored'
+0039 Last Mod Time         56615DDD 'Wed Mar  1 11:46:58 2023'
+003D CRC                   352441C2
+0041 Compressed Length     00000003
+0045 Uncompressed Length   00000003
+0049 Filename Length       0008
+004B Extra Length          0004
+004D Comment Length        0000
+004F Disk Start            0000
+0051 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0053 Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
+0057 Local Header Offset   00000000
+005B Filename              'filename'
+0063 Extra ID #0001        10C5 'Minizip CMS Signature'
+0065   Length              0000
+#
+# INFO: Offset 0x65: Extra Field 'Minizip CMS Signature' (ID 0x10C5): Zero length Signature
+#
+
+0067 END CENTRAL HEADER    06054B50
+006B Number of this disk   0000
+006D Central Dir Disk no   0000
+006F Entries in this disk  0001
+0071 Total Entries         0001
+0073 Size of Central Dir   0000003A
+0077 Offset to Central Dir 0000002D
+007B Comment Length        0000
+#
+# Info Count: 2
+#
+# Done

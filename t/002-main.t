@@ -29,7 +29,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 158 * $tests_per_zip_full ;
+plan tests => 162 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -250,7 +250,7 @@ sub run
     chdir $dir;
 
     local $ENV{NYTPROF} .= ":file=./" . basename($stdout_golden) . ".nytprof.out" ;
-     
+
     my $got = system(qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
 
     chdir $here;

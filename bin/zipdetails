@@ -545,6 +545,9 @@ sub outHexdump
     my $text = shift;
     my $limit = shift ;
 
+    return 0
+        if $size == 0;
+
     # TODO - add a limit to data output
     # if ($limit)
     # {
@@ -4151,6 +4154,12 @@ sub decode_Minizip_Signature
 
     $CentralDirectory->setMiniZipEncrypted();
 
+    if ($len == 0)
+    {
+        info $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Zero length Signature";
+        return;
+    }
+
     outHexdump($len, "  Signature");
 
 }
@@ -4160,6 +4169,7 @@ sub decode_Minizip_Hash
     # 0x1a51 Minizip Hash
     # Definition in https://github.com/zlib-ng/minizip-ng/blob/master/doc/mz_extrafield.md#hash-0x1a51
 
+    # caller ckecks there are at least 4 bytes available
     my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
@@ -4170,6 +4180,8 @@ sub decode_Minizip_Hash
             23 => 'SHA256',
     };
 
+    my $remaining = $len;
+
     $CentralDirectory->setMiniZipEncrypted();
 
     # outHexdump($len, "Signature");
@@ -4179,11 +4191,39 @@ sub decode_Minizip_Hash
     my $algorithm = $Algorithm->{$alg} // "Unknown";
 
     out $data, "  Algorithm", Value_v($alg) . " '$algorithm'";
+    if (! exists $Algorithm->{$alg})
+    {
+        info $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown algorithm ID " .Value_v($alg);
+    }
 
     my ($d, $digestSize) = read_v();
     out $d, "  Digest Size", Value_v($digestSize);
 
+    $remaining -= 4;
+
+    if ($digestSize == 0)
+    {
+        info $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Zero length Digest";
+    }
+    elsif ($digestSize > $remaining)
+    {
+        # my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Digest': only " . hexValue(length $zip64Extended)  . " bytes present";
+        # error $fieldOffset, $message;
+        # out2 $zip64Extended, $message;
+
+        error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . hexValue($digestSize) . " > bytes remaining (" . hexValue($remaining) . ") in extra field" ;
+        $digestSize = $remaining ;
+    }
+
     outHexdump($digestSize, "  Digest");
+
+    $remaining -= $digestSize;
+
+    if ($remaining)
+    {
+        outHexdump($remaining, "  Unexpected Data");
+        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . hexValue($remaining) . " unexpected trailing bytes" ;
+    }
 }
 
 sub decode_Minizip_CD

@@ -1,0 +1,70 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         56615EEB 'Wed Mar  1 11:55:22 2023'
+000E CRC                   352441C2
+0012 Compressed Length     00000003
+0016 Uncompressed Length   00000003
+001A Filename Length       0008
+001C Extra Length          0008
+001E Filename              'filename'
+0026 Extra ID #0001        1A51 'Minizip Hash'
+0028   Length              0004
+002A   Algorithm           0044 'Unknown'
+#
+# INFO: Offset 0x2A: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 0044
+#
+002C   Digest Size         0000
+#
+# INFO: Offset 0x2C: Extra Field 'Minizip Hash' (ID 0x1A51): Zero length Digest
+#
+002E PAYLOAD               abc
+
+0031 CENTRAL HEADER #1     02014B50
+0035 Created Zip Spec      14 '2.0'
+0036 Created OS            03 'Unix'
+0037 Extract Zip Spec      14 '2.0'
+0038 Extract OS            00 'MS-DOS'
+0039 General Purpose Flag  0000
+003B Compression Method    0000 'Stored'
+003D Last Mod Time         56615EEB 'Wed Mar  1 11:55:22 2023'
+0041 CRC                   352441C2
+0045 Compressed Length     00000003
+0049 Uncompressed Length   00000003
+004D Filename Length       0008
+004F Extra Length          0008
+0051 Comment Length        0000
+0053 Disk Start            0000
+0055 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+0057 Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
+005B Local Header Offset   00000000
+005F Filename              'filename'
+0067 Extra ID #0001        1A51 'Minizip Hash'
+0069   Length              0004
+006B   Algorithm           0044 'Unknown'
+#
+# INFO: Offset 0x6B: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 0044
+#
+006D   Digest Size         0000
+#
+# INFO: Offset 0x6D: Extra Field 'Minizip Hash' (ID 0x1A51): Zero length Digest
+#
+
+006F END CENTRAL HEADER    06054B50
+0073 Number of this disk   0000
+0075 Central Dir Disk no   0000
+0077 Entries in this disk  0001
+0079 Total Entries         0001
+007B Size of Central Dir   0000003E
+007F Offset to Central Dir 00000031
+0083 Comment Length        0000
+#
+# Info Count: 4
+#
+# Done

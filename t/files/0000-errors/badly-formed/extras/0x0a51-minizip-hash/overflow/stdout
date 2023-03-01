@@ -1,0 +1,67 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0000
+0008 Compression Method    0000 'Stored'
+000A Last Mod Time         56617E28 'Wed Mar  1 15:49:16 2023'
+000E CRC                   352441C2
+0012 Compressed Length     00000003
+0016 Uncompressed Length   00000003
+001A Filename Length       0008
+001C Extra Length          000B
+001E Filename              'filename'
+0026 Extra ID #0001        1A51 'Minizip Hash'
+0028   Length              0007
+002A   Algorithm           000A 'MD5'
+002C   Digest Size         0002
+002E   Digest              01 02
+0030   Unexpected Data     03
+#
+# ERROR: Offset 0x30: Extra Field 'Minizip Hash' (ID 0x1A51): 0x1 unexpected trailing bytes
+#
+0031 PAYLOAD               abc
+
+0034 CENTRAL HEADER #1     02014B50
+0038 Created Zip Spec      14 '2.0'
+0039 Created OS            03 'Unix'
+003A Extract Zip Spec      14 '2.0'
+003B Extract OS            00 'MS-DOS'
+003C General Purpose Flag  0000
+003E Compression Method    0000 'Stored'
+0040 Last Mod Time         56617E28 'Wed Mar  1 15:49:16 2023'
+0044 CRC                   352441C2
+0048 Compressed Length     00000003
+004C Uncompressed Length   00000003
+0050 Filename Length       0008
+0052 Extra Length          000B
+0054 Comment Length        0000
+0056 Disk Start            0000
+0058 Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+005A Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
+005E Local Header Offset   00000000
+0062 Filename              'filename'
+006A Extra ID #0001        1A51 'Minizip Hash'
+006C   Length              0007
+006E   Algorithm           000A 'MD5'
+0070   Digest Size         0004
+#
+# ERROR: Offset 0x70: Extra Field 'Minizip Hash' (ID 0x1A51): Digest Size 0x4 > bytes remaining (0x3) in extra field
+#
+0072   Digest              01 02 03
+
+0075 END CENTRAL HEADER    06054B50
+0079 Number of this disk   0000
+007B Central Dir Disk no   0000
+007D Entries in this disk  0001
+007F Total Entries         0001
+0081 Size of Central Dir   00000041
+0085 Offset to Central Dir 00000034
+0089 Comment Length        0000
+#
+# Error Count: 2
+#
+# Done
