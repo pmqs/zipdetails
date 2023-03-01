@@ -5174,7 +5174,6 @@ sub findCentralDirectoryOffset
         $diskNumber       = unpack("v", substr($buffer, 4,   2));
         $cdDiskNumber     = unpack("v", substr($buffer, 6,   2));
         $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
-        $entriesOnThisDisk= unpack("v", substr($buffer, 8,   2));
         $totalEntries     = unpack("v", substr($buffer, 10,  2));
         $centralDirSize   = unpack("V", substr($buffer, 12,  4));
         $centralDirOffset = unpack("V", substr($buffer, 16,  4));
