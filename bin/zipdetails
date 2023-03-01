@@ -954,7 +954,7 @@ my $exit_status_code = 0;
 
 $Getopt::Long::bundling = 1 ;
 
-GetOptions("h"          => \&Usage,
+GetOptions("h|help"     => \&Usage,
            "v"          => \$opt_verbose,
            "scan"       => \$opt_scan,
            "walk"       => \$opt_walk,
@@ -963,16 +963,16 @@ GetOptions("h"          => \&Usage,
            "version"    => sub { print "$VERSION\n"; exit },
 
            # Message control
-           "message-exit-status!"       => \$opt_want_message_exit_status,
-           "info|info-messages!"        => \$opt_want_info_mesages,
-           "warning|warning-messages!"  => \$opt_want_warning_mesages,
-           "error|error-messages!"      => \$opt_want_error_mesages,
-           "messages!"                  => sub {
-                                                my ($opt_name, $opt_value) = @_;
-                                                $opt_want_info_mesages =
-                                                $opt_want_warning_mesages =
-                                                $opt_want_error_mesages = $opt_value;
-                                            },
+           "exit-bitmask!"      => \$opt_want_message_exit_status,
+           "info-messages!"     => \$opt_want_info_mesages,
+           "warning-messages!"  => \$opt_want_warning_mesages,
+           "error-messages!"    => \$opt_want_error_mesages,
+           "messages!"          => sub {
+                                            my ($opt_name, $opt_value) = @_;
+                                            $opt_want_info_mesages =
+                                            $opt_want_warning_mesages =
+                                            $opt_want_error_mesages = $opt_value;
+                                       },
     )
   or Usage("Invalid command line option\n");
 
@@ -6273,17 +6273,42 @@ Display details about the internal structure of a Zip file.
 This is zipdetails version $VERSION
 
 OPTIONS
-     -h        display help
-     --redact  Hide filenames in the output
-     --scan    enable pessimistic scanning mode.
-               Blindly scan the file looking for zip headers
-               Expect false-positives.
-     --utc     Display date/time fields in UTC
-     -v        Verbose - output more stuff
-     --version Print version number
-     --walk    enable optimistic scanning mode.
-               Blindly scan the file looking for zip headers
-               Expect false-positives.
+
+  General Options
+     -h, --help
+            Display help
+     --redact
+            Hide filename and payload data in the output
+     --scan
+            Enable pessimistic scanning mode.
+            Blindly scan the file looking for zip headers
+            Expect false-positives.
+     --utc
+            Display date/time fields in UTC. Default is local time
+     -v
+            Enable verbose mode -- output more stuff
+     --version
+            Print zipdetails version number
+     --walk
+            Enable optimistic scanning mode.
+            Blindly scan the file looking for zip headers
+            Expect false-positives.
+
+  Message Control
+     --messages, --no-messages
+            Enable/disable all info/warning/error messages. Default enabled
+     --info-messages, --no-info-messages
+            Enable/disable all 'info' messages.  Default enabled
+     --warning-messages, --no-warning-messages
+            Enable/disable all 'warning' messages.  Default enabled
+     --error-messages, --no-error-messages
+            Enable/disable all 'error' messages.  Default enabled
+     --exit-bitmask, --no-exit-bitmask
+            Enable/disable exit status bitmask for messages. Default disabled.
+            Status values are
+                Info    1
+                Warning 2
+                Error   4
 
 Copyright (c) 2011-2023 Paul Marquess. All rights reserved.
 
@@ -6302,9 +6327,7 @@ zipdetails - display the internal structure of zip files
 
 =head1 SYNOPSIS
 
-    zipdetails [-v][--walk][--scan][--redact][--utc] zipfile.zip
-    zipdetails -h
-    zipdetails --version
+    zipdetails [options] zipfile.zip
 
 =head1 DESCRIPTION
 
@@ -6384,18 +6407,24 @@ the 4-byte sequecce it just processed. This means it will rescan data that
 has already been processed. For very lage zip files the C<--scan> option
 can be really realy slow, so  trying the C<--walk> option first.
 
+If the zip file being processed contains one or more nested zip files, and the
+outer zip file uses the C<STORE> compression method, the C<--scan> option will
+display the zip metadata for both the outer & inner zip files.
+
 =head2 OPTIONS
+
+=head3 General Options
 
 =over 5
 
-=item -h
+=item -h, --help
 
 Display help
 
 =item --redact
 
-Obscure filenames in the output. Handy for the use case where the zip files
-contains sensitive data that cannot be shared.
+Obscure filenames and payload data in the output. Handy for the use case where
+the zip files contains sensitive data that cannot be shared.
 
 =item --scan
 
@@ -6422,6 +6451,34 @@ Display version number of the program and exit.
 Optimistically walk the zip file looking for possible zip records.
 See L<"Analysis of corrupt or non-standard zip files">
 
+
+=back
+
+=head3 Message Control Options
+
+=over 5
+
+=item --messages, --no-messages
+
+Enable/disable the output of all info/warning/error messages. Default is
+enabled.
+
+=item --info-messages, --no-info-messages
+
+Enable/disable the output of all info messages. Default is enabled.
+
+=item --warning-messages, --no-warning-messages
+
+Enable/disable the output of all warning messages. Default is enabled.
+
+=item --error-messages, --no-error-messages
+
+Enable/disable the output of all error messages. Default is enabled.
+
+=item --exit-bitmask, --no-exit-bitmask
+
+Enable/disable exit status bitmask for messages. Default disabled.
+Bitmask values are: 1 for info, 2 for warning and 4 for error.
 
 =back
 
@@ -6622,8 +6679,8 @@ The following zip file features are not supported by this program:
 
 Multi-part/Split/Spanned Zip Archives.
 
-If you have one, or more, parts of a multi-part zip file this program cannot
-give an overall report on the combined parts of zip file.
+This program cannot give an overall report on the combined parts of a multi-part
+zip file.
 
 The best you can do is run with either the C<--scan> or C<--walk> options
 against individual parts. Some will contains zipfile metadata which will be
@@ -6634,7 +6691,7 @@ detected and some will only contain compressed payload data.
 
 Encrypted Central Directory
 
-When pkzip strong encryption is enabled in a zip file this program can still
+When pkzip I<strong encryption> is enabled in a zip file this program can still
 parse most of the metadata in the zip file. The exception is when the Central
 Directory of a zip file is also encrypted. This program cannot parse any
 metadata from an encrypted Central Directory.

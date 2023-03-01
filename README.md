@@ -4,9 +4,7 @@ zipdetails - display the internal structure of zip files
 
 # SYNOPSIS
 
-    zipdetails [-v][--walk][--scan][--redact][--utc] zipfile.zip
-    zipdetails -h
-    zipdetails --version
+    zipdetails [options] zipfile.zip
 
 # DESCRIPTION
 
@@ -79,16 +77,22 @@ the 4-byte sequecce it just processed. This means it will rescan data that
 has already been processed. For very lage zip files the `--scan` option
 can be really realy slow, so  trying the `--walk` option first.
 
+If the zip file being processed contains one or more nested zip files, and the
+outer zip file uses the `STORE` compression method, the `--scan` option will
+display the zip metadata for both the outer & inner zip files.
+
 ## OPTIONS
 
-- -h
+### General Options
+
+- -h, --help
 
     Display help
 
 - --redact
 
-    Obscure filenames in the output. Handy for the use case where the zip files
-    contains sensitive data that cannot be shared.
+    Obscure filenames and payload data in the output. Handy for the use case where
+    the zip files contains sensitive data that cannot be shared.
 
 - --scan
 
@@ -115,14 +119,38 @@ can be really realy slow, so  trying the `--walk` option first.
     Optimistically walk the zip file looking for possible zip records.
     See ["Analysis of corrupt or non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
 
+### Message Control Options
+
+- --messages, --no-messages
+
+    Enable/disable the output of all info/warning/error messages. Default is
+    enabled.
+
+- --info-messages, --no-info-messages
+
+    Enable/disable the output of all info messages. Default is enabled.
+
+- --warning-messages, --no-warning-messages
+
+    Enable/disable the output of all warning messages. Default is enabled.
+
+- --error-messages, --no-error-messages
+
+    Enable/disable the output of all error messages. Default is enabled.
+
+- --exit-bitmask, --no-exit-bitmask
+
+    Enable/disable exit status bitmask for messages. Default disabled.
+    Bitmask values are: 1 for info, 2 for warning and 4 for error.
+
 ## Default Output
 
-By default zipdetails will output the details of the zip file in three columns.
+By default `zipdetails` will output the details of the zip file in three columns.
 
 1. The offset, in hex, to the start of the field relative to the beginning of the
 file.
 2. The name of the field.
-3. Information about the contents of the field. 
+3. Information about the contents of the field.
 
     If the field contains a numeric value it will be displayed in hex. Zip files
     store most numbers in _little-endian_ - the value displayed will have the
@@ -195,7 +223,7 @@ Running `zipdetails` will gives this output
 ## Verbose Output
 
 If the `-v` option is present, the data output is split into the following
-columns: 
+columns:
 
 1. The offset, in hex, to the start of the field relative to the beginning of the
 file.
@@ -204,7 +232,7 @@ file.
 3. The length, in hex, of the field.
 4. A hex dump of the bytes in field in the order they are stored in the zip file.
 5. A textual description of the field.
-6. Information about the contents of the field. 
+6. Information about the contents of the field.
 
     If the field contains a numeric value it will be displayed in hex. Zip files
     store most numbers in _little-endian_ - the value displayed will have the
@@ -274,8 +302,8 @@ The following zip file features are not supported by this program:
 
 - Multi-part/Split/Spanned Zip Archives.
 
-    If you have one, or more, parts of a multi-part zip file this program cannot
-    give an overall report on the combined parts of zip file.
+    This program cannot give an overall report on the combined parts of a multi-part
+    zip file.
 
     The best you can do is run with either the `--scan` or `--walk` options
     against individual parts. Some will contains zipfile metadata which will be
@@ -283,7 +311,7 @@ The following zip file features are not supported by this program:
 
 - Encrypted Central Directory
 
-    When pkzip strong encryption is enabled in a zip file this program can still
+    When pkzip _strong encryption_ is enabled in a zip file this program can still
     parse most of the metadata in the zip file. The exception is when the Central
     Directory of a zip file is also encrypted. This program cannot parse any
     metadata from an encrypted Central Directory.
@@ -291,7 +319,7 @@ The following zip file features are not supported by this program:
 - Corrupt Zip files
 
     When `zipdetails` encounters a corrupt zip file, it will do one or more of
-    the following 
+    the following
 
     - Display details of the corruption and carry on
     - Display details of the corruption and terminate
@@ -309,7 +337,7 @@ Output some of the zip file metadata as a JSON document.
 
 Although the detection and reporting of common corruption use-cases is present
 in `zipdetails`, there are likely to be other edge cases that need to be
-supported.  
+supported.
 
 If you have a corrupt Zip file that isn't being processed properly,
 please report it (see  ["SUPPORT"](#support)).
