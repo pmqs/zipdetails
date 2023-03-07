@@ -577,10 +577,14 @@ sub compareBytesWithZipFile
             {
                 # silence "Hexadecimal number > 0xffffffff non-portable"
                 no warnings 'portable';
-                $offset = hex($2);
-                $offset_to = hex($3);
-                $count = hex($4) ;
+
+                $offset = hex($2) + 0;
+                $offset_to = hex($3) + 0;
+                $count = hex($4) + 0 ;
             }
+
+            die "Offset-to $offset_to is wrong - should be " . ($offset + $count -1)
+                if $offset + $count - 1 != $offset_to;
 
             my $valuesString = $5;
             $valuesString =~ s/\s+//g;
