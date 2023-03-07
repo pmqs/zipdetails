@@ -1916,13 +1916,21 @@ sub LocalHeader
     my $compressedLength   = out_V "Compressed Length";
     my $uncompressedLength = out_V "Uncompressed Length";
     my $filenameLength     = out_v "Filename Length";
+    if ($filenameLength == 0)
+    {
+        info $FH->tell()- 2, "Zero Length filename";
+    }
+
     my $extraLength        = out_v "Extra Length";
 
-    need $filenameLength, Signatures::name($signature), 'Filename';
+    my $filename = '';
+    if ($filenameLength)
+    {
+        need $filenameLength, Signatures::name($signature), 'Filename';
 
-    my $filename ;
-    myRead($filename, $filenameLength);
-    outputFilename($filename);
+        myRead($filename, $filenameLength);
+        outputFilename($filename);
+    }
 
 
     $localEntry->index = $LocalHeaderCount;
@@ -2286,6 +2294,10 @@ sub CentralHeader
     my $uncompressedLength = out_V "Uncompressed Length";
     my $std_uncompressedLength = $uncompressedLength;
     my $filenameLength     = out_v "Filename Length";
+    if ($filenameLength == 0)
+    {
+        info $FH->tell()- 2, "Zero Length filename";
+    }
     my $extraLength        = out_v "Extra Length";
     my $comment_length     = out_v "Comment Length";
     my $disk_start         = out_v "Disk Start";
@@ -2410,11 +2422,14 @@ sub CentralHeader
         $locHeaderOffset = checkOffsetValue($locHeaderOffset, $startRecordOffset, 0, $commonMessage, $startRecordOffset + 42, ZIP_LOCAL_HDR_SIG) ;
     }
 
-    need $filenameLength, Signatures::name($signature), 'Filename';
+    my $filename = '';
+    if ($filenameLength)
+    {
+        need $filenameLength, Signatures::name($signature), 'Filename';
 
-    my $filename ;
-    myRead($filename, $filenameLength);
-    outputFilename($filename);
+        myRead($filename, $filenameLength);
+        outputFilename($filename);
+    }
 
     my $cdEntry = CentralDirectoryEntry->new();
 
@@ -4534,7 +4549,7 @@ sub decode_up
     out_C "  Version";
     out_V "  NameCRC32";
 
-    myRead(my $data, $len - 5);
+        myRead(my $data, $len - 5);
 
     outputFilename($data, "  UnicodeName");
 }
@@ -4550,7 +4565,7 @@ sub decode_uc
     out_C "  Version";
     out_V "  ComCRC32";
 
-    myRead(my $data, $len - 5);
+        myRead(my $data, $len - 5);
 
     outputFilename($data, "  UnicodeCom");
 }

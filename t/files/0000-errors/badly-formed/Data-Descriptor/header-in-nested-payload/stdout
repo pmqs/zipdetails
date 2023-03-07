@@ -9,8 +9,10 @@
 0012 Compressed Length     00000018
 0016 Uncompressed Length   00000018
 001A Filename Length       0000
+#
+# INFO: Offset 0x1A: Zero Length filename
+#
 001C Extra Length          0000
-001E Filename              ''
 001E PAYLOAD               PK......................
 
 0036 CENTRAL HEADER #1     02014B50
@@ -25,6 +27,9 @@
 004A Compressed Length     00000018
 004E Uncompressed Length   00000018
 0052 Filename Length       0000
+#
+# INFO: Offset 0x52: Zero Length filename
+#
 0054 Extra Length          0000
 0056 Comment Length        0000
 0058 Disk Start            0000
@@ -34,7 +39,6 @@
      [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
      [Bits 28-31]          08 'Regular File'
 0060 Local Header Offset   00000000
-0064 Filename              ''
 
 0064 END CENTRAL HEADER    06054B50
 0068 Number of this disk   0000
@@ -44,5 +48,7 @@
 0070 Size of Central Dir   0000002E
 0074 Offset to Central Dir 00000036
 0078 Comment Length        0000
+#
+# Info Count: 2
 #
 # Done
