@@ -41,6 +41,8 @@ jobs:
       run: perl -V
     - name: Install dependencies
       run: cpanm --installdeps --notest .
+    - name: Help output
+      run: perl bin/zipdetails --help
     - name: Build
       run: perl Makefile.PL && make
     - name: Test

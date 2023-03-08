@@ -15,7 +15,7 @@ jobs:
         perl-version:
           - 'devel'
           # just use for devel
-          
+
           # - '5.36'
           # - '5.34'
           # - '5.32'
@@ -34,7 +34,7 @@ jobs:
           # - '5.6'
 
     container:
-          image: perldocker/perl-tester:${{ matrix.perl-version }}          
+          image: perldocker/perl-tester:${{ matrix.perl-version }}
 
     name: Perl ${{ matrix.perl-version }}
     steps:
@@ -43,6 +43,8 @@ jobs:
       run: perl -V
     - name: Install dependencies
       run: cpanm --quiet --installdeps --notest .
+    - name: Help output
+      run: perl bin/zipdetails --help
     - name: Build
       run: perl Makefile.PL && make
     - name: Test
