@@ -11,7 +11,7 @@
 0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE
 001A 001B 0002 08 00       Filename Length       0008
 001C 001D 0002 12 00       Extra Length          0012
-001E 0025 0008 43 61 66 82 Filename              'CafÇ.txt'
+001E 0025 0008 43 61 66 82 Filename              'Caf√©.txt'
                2E 74 78 74
 0026 0027 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 0028 0029 0002 0E 00         Length              000E
@@ -43,7 +43,7 @@
 0168 016B 0004 20 00 00 00 Ext File Attributes   00000020
                            [Bit 5]               Archive
 016C 016F 0004 00 00 00 00 Local Header Offset   00000000
-0170 0177 0008 43 61 66 82 Filename              'CafÇ.txt'
+0170 0177 0008 43 61 66 82 Filename              'Caf√©.txt'
                2E 74 78 74
 0178 0179 0002 75 70       Extra ID #0001        7075 'Unicode Path [up]'
 017A 017B 0002 0E 00         Length              000E
@@ -58,7 +58,7 @@
 018F 0192 0004 00 00 00 00   ComCRC32            00000000
 0193 0197 0005 43 61 66 C3   UnicodeCom          'Caf√©'
                A9
-0198 019B 0004 43 61 66 82 Comment               'CafÇ'
+0198 019B 0004 43 61 66 82 Comment               'Caf√©'
 
 019C 019F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
 01A0 01A1 0002 00 00       Number of this disk   0000
@@ -68,6 +68,6 @@
 01A8 01AB 0004 5A 00 00 00 Size of Central Dir   0000005A
 01AC 01AF 0004 42 01 00 00 Offset to Central Dir 00000142
 01B0 01B1 0002 04 00       Comment Length        0004
-01B2 01B5 0004 43 61 66 E9 Comment               'CafÈ'
+01B2 01B5 0004 43 61 66 E9 Comment               'Caf√ö'
 #
 # Done

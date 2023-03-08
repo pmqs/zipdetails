@@ -524,6 +524,11 @@ sub hexDump
     return $out;
 }
 
+sub charDump
+{
+    sprintf "%v04X", $_[0];
+}
+
 sub hexValue
 {
     return sprintf("0x%X", $_[0]);
@@ -954,8 +959,9 @@ my $opt_want_error_mesages = 1;
 my $opt_want_message_exit_status = 0;
 my $exit_status_code = 0;
 
-
 $Getopt::Long::bundling = 1 ;
+
+TextEncoding::setDefaults();
 
 GetOptions("h|help"     => \&Usage,
            "v"          => \$opt_verbose,
@@ -964,6 +970,13 @@ GetOptions("h|help"     => \&Usage,
            "redact"     => \$opt_Redact,
            "utc"        => \$opt_utc,
            "version"    => sub { print "$VERSION\n"; exit },
+
+           # Filename/comment encoding
+           "encoding!"         => \&TextEncoding::Encoding,
+           "debug-encoding"    => \&TextEncoding::debugEncoding,
+           "input-encoding=s"  => \&TextEncoding::parseEncodingOption,
+           "output-encoding=s" => \&TextEncoding::parseEncodingOption,
+           "efs!"              => \&TextEncoding::EfsFlag,
 
            # Message control
            "exit-bitmask!"      => \$opt_want_message_exit_status,
@@ -998,6 +1011,9 @@ topLevelFatal "'$filename' is not a standard file"
 $FH = IO::File->new( "<$filename" )
     or topLevelFatal "Cannot open '$filename': $!";
 binmode($FH);
+
+displayFileInfo($filename);
+TextEncoding::encodingInfo();
 
 my $FILELEN = -s $filename ;
 $TRAILING = -s $filename ;
@@ -1905,6 +1921,7 @@ sub LocalHeader
 
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
+    my $efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
@@ -1929,7 +1946,7 @@ sub LocalHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename);
+        outputFilename($filename, $efs);
     }
 
 
@@ -1941,6 +1958,7 @@ sub LocalHeader
     $localEntry->zip64ExtraPresent = $cdZip64;
     $localEntry->zip64SizesPresent = $zip64Sizes;
     $localEntry->filename = $filename;
+    $localEntry->efs = $efs;
     $localEntry->compressedMethod = $compressedMethod;
     $localEntry->streamed = $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
@@ -1956,7 +1974,6 @@ sub LocalHeader
         need $extraLength, Signatures::name($signature), 'Extra';
         walkExtra($extraLength, $localEntry);
     }
-
 
     my @msg ;
     # if ($cdZip64 && ! $ZIP64)
@@ -2238,10 +2255,26 @@ sub redactFilename
 
 sub outputFilename
 {
-    my $filename = shift;
+    my $raw_filename = shift;
+    my $efs = shift;
     my $message = shift // "Filename";
 
-    $filename = redactFilename($filename) ;
+    my $filename ;
+    my $decoded_filename;
+
+    if ($raw_filename eq '')
+    {
+        $filename = '';
+    }
+    elsif ($opt_Redact)
+    {
+        $filename = redactFilename($raw_filename) ;
+    }
+    else
+    {
+        $decoded_filename = TextEncoding::decode($raw_filename, $message, $efs) ;
+        $filename = TextEncoding::encode($decoded_filename, $message, $efs) ;
+    }
 
     # if (length $filename > 256)
     # {
@@ -2250,7 +2283,17 @@ sub outputFilename
     # }
     # else
     {
-        out $filename, $message,  "'". $filename . "'";
+        out $raw_filename, $message,  "'". $filename . "'";
+    }
+
+    if (! $opt_Redact && TextEncoding::debugEncoding() && $raw_filename ne $filename)
+    {
+        # use Devel::Peek;
+        info $FH->tell() - length($raw_filename),
+                    "$message Encoding Change",
+                    "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump($raw_filename) . "]",
+                    "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
+                    "Octets Written         [$filename][" . length($filename). "] [" . charDump($filename) . "]";
     }
 }
 
@@ -2281,6 +2324,7 @@ sub CentralHeader
 
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
+    my $efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
@@ -2428,7 +2472,7 @@ sub CentralHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename);
+        outputFilename($filename, $efs);
     }
 
     my $cdEntry = CentralDirectoryEntry->new();
@@ -2441,6 +2485,7 @@ sub CentralHeader
     $cdEntry->zip64ExtraPresent = undef; #$cdZip64; ### FIX ME
     $cdEntry->zip64SizesPresent = undef ; # $zip64Sizes;   ### FIX ME
     $cdEntry->filename = $filename;
+    $cdEntry->efs = $efs;
     $cdEntry->crc32 = $crc;
     $cdEntry->inCentralDir = 1;
 
@@ -2466,7 +2511,7 @@ sub CentralHeader
 
         my $comment ;
         myRead($comment, $comment_length);
-        outputFilename $comment, "Comment";
+        outputFilename $comment, $efs, "Comment";
         $cdEntry->comment = $comment;
     }
 
@@ -2734,7 +2779,7 @@ sub EndCentralHeader
 
         my $comment ;
         myRead($comment, $comment_length);
-        outputFilename $comment, "Comment";
+        outputFilename $comment, 0, "Comment";
     }
 
     return {};
@@ -3238,6 +3283,8 @@ sub topLevelFatal
 {
     my $message = shift ;
 
+    no warnings 'utf8';
+
     warn "FATAL: $message\n";
 
     warn  "$_ . \n"
@@ -3250,6 +3297,8 @@ sub internalFatal
 {
     my $offset   = shift ;
     my $message = shift;
+
+    no warnings 'utf8';
 
     if (defined $offset)
     {
@@ -3271,6 +3320,8 @@ sub warning
 {
     my $offset   = shift ;
     my $message  = shift;
+
+    no warnings 'utf8';
 
     return
         unless $opt_want_warning_mesages ;
@@ -3302,6 +3353,8 @@ sub error
     my $offset   = shift ;
     my $message  = shift;
 
+    no warnings 'utf8';
+
     return
         unless $opt_want_error_mesages ;
 
@@ -3331,6 +3384,8 @@ sub internalError
 {
     my $message  = shift;
 
+    no warnings 'utf8';
+
     say "#";
     say "# ERROR: $message";
     say "#        $_" for @_ ;
@@ -3354,6 +3409,8 @@ sub info
 {
     my $offset   = shift;
     my $message  = shift;
+
+    no warnings 'utf8';
 
     return
         unless $opt_want_info_mesages ;
@@ -4549,9 +4606,12 @@ sub decode_up
     out_C "  Version";
     out_V "  NameCRC32";
 
+    if ($len - 5 > 0)
+    {
         myRead(my $data, $len - 5);
 
-    outputFilename($data, "  UnicodeName");
+        outputFilename($data, 1,  "  UnicodeName");
+    }
 }
 
 sub decode_uc
@@ -4565,9 +4625,12 @@ sub decode_uc
     out_C "  Version";
     out_V "  ComCRC32";
 
+    if ($len - 5 > 0)
+    {
         myRead(my $data, $len - 5);
 
-    outputFilename($data, "  UnicodeCom");
+        outputFilename($data, 1, "  UnicodeCom");
+    }
 }
 
 sub decode_Xceed_unicode
@@ -4976,6 +5039,7 @@ sub scanCentralDirectory
 
         ++ $cdIndex ;
 
+        my $gpFlag             = unpack("v", substr($buffer,  8, 2));
         my $crc                = unpack("V", substr($buffer, 16, 4));
         my $compressedLength   = unpack("V", substr($buffer, 20, 4));
         my $uncompressedLength = unpack("V", substr($buffer, 24, 4));
@@ -5011,6 +5075,7 @@ sub scanCentralDirectory
         $cdEntry->compressedLength = $compressedLength;
         $cdEntry->uncompressedLength = $uncompressedLength;
         $cdEntry->filename = $filename;
+        $cdEntry->efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING;
         $cdEntry->diskNumber = $diskNumber;
         $cdEntry->crc32 = $crc;
         $cdEntry->zip64ExtraPresent = $cdZip64;
@@ -5536,6 +5601,7 @@ sub nibbles
                         'inCentralDir'          => 0,
                         'encapsulated'          => 0,
                         'streamed'              => 0,
+                        'efs'                   => 0,
                      ) ;
 
         my $self = bless {}, $class;
@@ -6204,6 +6270,178 @@ sub nibbles
     }
 }
 
+sub displayFileInfo
+{
+    return;
+
+    my $filename = shift;
+
+    info undef,
+        "Filename       : '$filename'",
+        "Size           : " . (-s $filename) . " (" . hexValue(-s $filename) . ")",
+        # "Native Encoding: '" . TextEncoding::getNativeLocale()->name() . "'",
+}
+
+{
+    package TextEncoding;
+
+    my $nativeLocaleEncoding = getNativeLocale();
+    my $opt_EncodingFrom = $nativeLocaleEncoding;
+    my $opt_EncodingTo = $nativeLocaleEncoding ;
+    my $opt_Encoding_Enabled;
+    my $opt_Debug_Encoding;
+    my $opt_use_EFS_flag;
+
+    sub setDefaults
+    {
+        $nativeLocaleEncoding = getNativeLocale();
+        $opt_EncodingFrom = $nativeLocaleEncoding;
+        $opt_EncodingTo = $nativeLocaleEncoding ;
+        $opt_Encoding_Enabled = 1;
+        $opt_Debug_Encoding = 0;
+        $opt_use_EFS_flag = 1;
+    }
+
+    sub getNativeLocale
+    {
+        my $enc;
+
+        eval
+        {
+            require encoding ;
+            my $encoding = encoding::_get_locale_encoding() ;
+            $enc = Encode::find_encoding($encoding) ;
+        } ;
+
+        return $enc;
+    }
+
+    sub parseEncodingOption
+    {
+        my $opt_name = shift;
+        my $opt_value = shift;
+
+        my $enc = Encode::find_encoding($opt_value) ;
+        die "Encoding '$opt_value' not found for option '$opt_name'\n"
+            unless ref $enc;
+
+        if ($opt_name eq 'input-encoding')
+        {
+            $opt_EncodingFrom = $enc;
+        }
+        elsif ($opt_name eq 'output-encoding')
+        {
+            $opt_EncodingTo = $enc;
+        }
+        else
+        {
+            die "Unknown option $opt_name"
+        }
+    }
+
+    sub Encoding
+    {
+        my $opt_name = shift;
+        my $opt_value = shift;
+
+        $opt_Encoding_Enabled = $opt_value ;
+    }
+
+    sub EfsFlag
+    {
+        my $opt_name = shift;
+        my $opt_value = shift;
+
+        $opt_use_EFS_flag = $opt_value ;
+    }
+
+    sub debugEncoding
+    {
+        if (@_)
+        {
+            $opt_Debug_Encoding = $_[0];
+        }
+
+        return $opt_Debug_Encoding ;
+    }
+
+    sub encodingInfo
+    {
+        return
+            unless $opt_Encoding_Enabled && $opt_Debug_Encoding ;
+
+        my $enc  = TextEncoding::getNativeLocale()->name();
+        my $from = $opt_EncodingFrom->name();
+        my $to   = $opt_EncodingTo->name();
+
+        ::info undef, "Debug Encoding Enabled",
+                      "System Default Encoding:                  '$enc'",
+                      "Encoding used when reading from zip file: '$from'",
+                      "Encoding used for display output:         '$to'";
+    }
+
+    sub cleanEval
+    {
+        chomp $_[0] ;
+        $_[0] =~ s/ at .+ line \d+\.$// ;
+        return $_[0];
+    }
+
+    sub decode
+    {
+        my $name = shift ;
+        my $type = shift ;
+        my $efs_flag = shift ;
+
+        return $name
+            if ! $opt_Encoding_Enabled ;
+
+        # TODO - check for badly formed content
+        if ($efs_flag && $opt_use_EFS_flag)
+        {
+            eval { $name = Encode::decode('UTF-8', $name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not decode 'UTF-8' $type: " . cleanEval $@
+                if $@ ;
+        }
+        else
+        {
+            eval { $name = $opt_EncodingFrom->decode($name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not decode '" . $opt_EncodingFrom->name() . "' $type: " . cleanEval $@
+                if $@;
+        }
+
+        # remove any BOM
+        $name =~ s/^\x{FEFF}//;
+
+        return $name ;
+    }
+
+    sub encode
+    {
+        my $name = shift ;
+        my $type = shift ;
+        my $efs_flag = shift ;
+
+        return $name
+            if ! $opt_Encoding_Enabled;
+
+        if ($efs_flag && $opt_use_EFS_flag)
+        {
+            eval { $name = Encode::encode('UTF-8', $name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not encode 'UTF-8' $type: " . cleanEval $@
+                if $@ ;
+        }
+        else
+        {
+            eval { $name = $opt_EncodingTo->encode($name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not encode '" . $opt_EncodingTo->name() . "' $type: " . cleanEval $@
+                if $@;
+        }
+
+        return $name;
+    }
+}
+
 sub Usage
 {
     if (@_)
@@ -6212,6 +6450,8 @@ sub Usage
         for @_  ;
         warn "\n";
     }
+
+    my $enc = TextEncoding::getNativeLocale()->name();
 
     die <<EOM;
 zipdetails [OPTIONS] file
@@ -6241,6 +6481,23 @@ OPTIONS
             Enable optimistic scanning mode.
             Blindly scan the file looking for zip headers
             Expect false-positives.
+
+  Filename/Comment Encoding
+    --encoding, --no-encoding
+            Enable/disable filename & comment encoding. Default enabled.
+            When enabled, use system encoding ('$enc') by default
+    --input-encoding e
+            Use encoding "e" when reading filename/comments from the zip file
+            Uses system encoding ('$enc') by default
+    --output-encoding e
+            Use encoding "e" when writing filename/comments to the display
+            Uses system encoding ('$enc') by default
+    --debug-encoding
+            Display eatra info when a filename/comment encoding has changed
+    --efs, --no-efs
+            Enable/disable the zip file "EFS" flag. When this flag is set in
+            a zip file the filename/comment should be encoded in UTF8.
+            Default is enabled
 
   Message Control
      --messages, --no-messages

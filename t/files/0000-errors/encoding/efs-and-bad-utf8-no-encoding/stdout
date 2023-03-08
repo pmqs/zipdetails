@@ -1,0 +1,52 @@
+
+0000 LOCAL HEADER #1       04034B50
+0004 Extract Zip Spec      14 '2.0'
+0005 Extract OS            00 'MS-DOS'
+0006 General Purpose Flag  0800
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+0008 Compression Method    0008 'Deflated'
+000A Last Mod Time         56685496 'Wed Mar  8 10:36:44 2023'
+000E CRC                   ED82CD11
+0012 Compressed Length     00000006
+0016 Uncompressed Length   00000004
+001A Filename Length       0003
+001C Extra Length          0000
+001E Filename              'aåa'
+0021 PAYLOAD               KLJN..
+
+0027 CENTRAL HEADER #1     02014B50
+002B Created Zip Spec      14 '2.0'
+002C Created OS            03 'Unix'
+002D Extract Zip Spec      14 '2.0'
+002E Extract OS            00 'MS-DOS'
+002F General Purpose Flag  0800
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+0031 Compression Method    0008 'Deflated'
+0033 Last Mod Time         56685496 'Wed Mar  8 10:36:44 2023'
+0037 CRC                   ED82CD11
+003B Compressed Length     00000006
+003F Uncompressed Length   00000004
+0043 Filename Length       0003
+0045 Extra Length          0000
+0047 Comment Length        0000
+0049 Disk Start            0000
+004B Int File Attributes   0000
+     [Bit 0]               0 'Binary Data'
+004D Ext File Attributes   81A40000
+     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 'Regular File'
+0051 Local Header Offset   00000000
+0055 Filename              'aåa'
+
+0058 END CENTRAL HEADER    06054B50
+005C Number of this disk   0000
+005E Central Dir Disk no   0000
+0060 Entries in this disk  0001
+0062 Total Entries         0001
+0064 Size of Central Dir   00000031
+0068 Offset to Central Dir 00000027
+006C Comment Length        0000
+#
+# Done

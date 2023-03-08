@@ -29,7 +29,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 163 * $tests_per_zip_full ;
+plan tests => 170 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -142,6 +142,14 @@ for my $dir (sort keys %dirs)
 
         my %controlData = parseControl($dir);
 
+        # default options assume
+        my $options = '--input-encoding utf8 --output-encoding utf8';
+
+        $options = readFile("$dir/options") =~ s/\n+/ /gr
+            if -e "$dir/options" ;
+
+        # diag "OPTIONS [$options]";
+
         for my $opt1 ('', '-v')
         {
             for my $opt2 ('', '--scan', '--walk')
@@ -160,12 +168,13 @@ for my $dir (sort keys %dirs)
 
                     my $golden_stdout = readOutFile($golden_stdout_file);
                     my $golden_stderr = readOutFile($golden_stderr_file);
+
                     if ($opt3 && $golden_stdout !~ /$opt3$/)
                     {
                         skip "No Redact test for " . basename($zipfile), $tests_per_zip;
                     }
 
-                    my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $golden_stdout_file, $golden_stderr_file ;
+                    my ($status, $stdout, $stderr) = run $zipfile, $opt1, $opt2, $options, $golden_stdout_file, $golden_stderr_file ;
 
                     my $ok = 1;
                     $ok &= is $status, $exit_status, "Exit Status is $exit_status [got $status] for '$test'";
@@ -215,6 +224,7 @@ sub run
     my $filename = shift ;
     my $opt1 = shift ;
     my $opt2 = shift ;
+    my $options = shift;
     my $stdout_golden = shift ;
     my $stderr_golden = shift ;
 
@@ -251,7 +261,8 @@ sub run
 
     local $ENV{NYTPROF} .= ":file=./" . basename($stdout_golden) . ".nytprof.out" ;
 
-    my $got = system(qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 "$basename" >"$stdout" 2>"$stderr"]);
+    # diag "RUN " . qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 $options "$basename" >"$stdout" 2>"$stderr"];
+    my $got = system(qq[$Perl $COVERAGE $zipdetails_binary --utc $opt1 $opt2 $options "$basename" >"$stdout" 2>"$stderr"]);
 
     chdir $here;
 
@@ -364,23 +375,20 @@ sub writeWithZstd
     return 0 ;
 }
 
-
 sub readFile
 {
     my $f = shift ;
 
-    open (F, "<$f")
-        or die "Cannot open $f: $!\n" ;
+    open (F, "<", $f)
+        or die "Cannot open '$f': $!\n" ;
 
     binmode F;
-    local $/;
-    my $data = <F> ;
-
-    # normalise EOL
-    $data =~ s/\r\n/\n/g;
+    my @strings = map { s/\r\n/\n/gr } # normalise EOL
+                  <F> ;
     close F ;
 
-    return $data;
+    return @strings if wantarray ;
+    return join "", @strings ;
 }
 
 sub writeFile
@@ -643,7 +651,7 @@ sub parseControl
 
     state $keywords = { map { $_ => 1}
                         qw( exit-status stdout stderr )
-                    };
+                      };
 
     return ( '' => {
                     'exit-status' => 0,
@@ -699,7 +707,7 @@ sub parseControl
         for my $line (@lines)
         {
             next if $line =~ /^\s*$/;
-            $line =~ /^\s*(\S+)\s+(\S+)/;
+            $line =~ /^\s*(\S+)\s+(.+)/;
             my $keyword = lc $1;
             my $value = $2;
 
