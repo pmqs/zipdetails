@@ -2294,6 +2294,10 @@ sub outputFilename
     if (! $opt_Redact && TextEncoding::debugEncoding() && $raw_filename ne $filename)
     {
         # use Devel::Peek;
+        # Dump $raw_filename ;
+        # Dump $decoded_filename;
+        # Dump $filename ;
+
         info $FH->tell() - length($raw_filename),
                     "$message Encoding Change",
                     "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump($raw_filename) . "]",
