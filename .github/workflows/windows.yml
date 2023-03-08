@@ -41,6 +41,8 @@ jobs:
       run: perl -V
     - name: Install dependencies
       run: cpanm --installdeps --notest .
+    - name: chcp output
+      run: chcp
     - name: Help output
       run: perl bin/zipdetails --help
     - name: Build
