@@ -958,12 +958,13 @@ my $opt_want_warning_mesages = 1;
 my $opt_want_error_mesages = 1;
 my $opt_want_message_exit_status = 0;
 my $exit_status_code = 0;
+my $opt_help =0;
 
 $Getopt::Long::bundling = 1 ;
 
 TextEncoding::setDefaults();
 
-GetOptions("h|help"     => \&Usage,
+GetOptions("h|help"     => \$opt_help,
            "v"          => \$opt_verbose,
            "scan"       => \$opt_scan,
            "walk"       => \$opt_walk,
@@ -990,11 +991,15 @@ GetOptions("h|help"     => \&Usage,
                                             $opt_want_error_mesages = $opt_value;
                                        },
     )
-  or Usage("Invalid command line option\n");
+  or exit 255 ;
 
+Usage()
+    if $opt_help;
 
-Usage("No zipfile") unless @ARGV == 1;
-Usage("Cannot specify both '--walk' and '--scan'")
+die("No zipfile")
+    unless @ARGV == 1;
+
+die("Cannot specify both '--walk' and '--scan'")
     if $opt_walk && $opt_scan ;
 
 my $filename = shift @ARGV;
@@ -6444,21 +6449,12 @@ sub displayFileInfo
 
 sub Usage
 {
-    if (@_)
-    {
-        warn "$_\n"
-        for @_  ;
-        warn "\n";
-    }
-
     my $enc = TextEncoding::getNativeLocale()->name();
 
-    die <<EOM;
+    my $message = <<EOM;
 zipdetails [OPTIONS] file
 
 Display details about the internal structure of a Zip file.
-
-This is zipdetails version $VERSION
 
 OPTIONS
 
@@ -6477,6 +6473,7 @@ OPTIONS
             Enable verbose mode -- output more stuff
      --version
             Print zipdetails version number
+            This is version $VERSION
      --walk
             Enable optimistic scanning mode.
             Blindly scan the file looking for zip headers
@@ -6521,6 +6518,17 @@ This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 EOM
 
+    if (@_)
+    {
+        warn "$_\n"
+            for @_  ;
+        warn "\n";
+
+        die $message ;
+    }
+
+    print $message ;
+    exit 0;
 
 }
 
