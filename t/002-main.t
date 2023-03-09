@@ -17,6 +17,7 @@ use 5.010;
 use strict;
 use warnings;
 use feature 'say';
+use feature 'state';
 
 use Cwd;
 use Test::More ;
@@ -175,6 +176,9 @@ for my $dir (sort keys %dirs)
 
                     my $golden_stdout = readOutFile($golden_stdout_file);
                     my $golden_stderr = readOutFile($golden_stderr_file);
+
+                    zapGolden($golden_stdout);
+                    zapGolden($golden_stderr);
 
                     if ($opt3 && $golden_stdout !~ /$opt3$/)
                     {
@@ -730,4 +734,57 @@ sub parseControl
 
     return %results;
 
+}
+
+
+sub getNativeLocale
+{
+    state $enc;
+
+    if (! $enc)
+    {
+        $enc = 'unknown';
+
+        eval
+        {
+            require encoding ;
+            my $encoding = encoding::_get_locale_encoding() ;
+            $enc = Encode::find_encoding($encoding) ;
+        } ;
+
+        $enc = $enc->name()
+            if $enc;
+    }
+
+    return $enc;
+}
+
+
+sub getUTF8String
+{
+    state $string ;
+
+    if (! defined $string)
+    {
+        use Encode;
+        my $latin1 = "\x{61}\x{E5}\x{61}" ;
+        eval { my $name = Encode::decode('utf8', $latin1, Encode::FB_CROAK) };
+
+        $@ =~ /^(\S+) "\\xE5" does not map to Unicode/;
+
+        $string = $1;
+    }
+
+    # warn "GOTT [$Perl][$]][$string]\n";
+    return $string ;
+}
+
+sub zapGolden
+{
+    my $locale_charset = getNativeLocale();
+    $_[0] =~ s<^(#\s*System Default Encoding:\s*)('.+?')><$1'$locale_charset'>mg ;
+
+    # Encode changed from using utf8 to UTF-8 at some point
+    my $UTF = getUTF8String();
+    $_[0] =~ s<\S+ (\S+) does not map to Unicode><$UTF $1 does not map to Unicode>g ;
 }

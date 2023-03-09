@@ -6368,7 +6368,7 @@ sub displayFileInfo
     {
         if (@_)
         {
-            $opt_Debug_Encoding = $_[0];
+            $opt_Debug_Encoding = 1 ;
         }
 
         return $opt_Debug_Encoding ;
@@ -6408,8 +6408,8 @@ sub displayFileInfo
         # TODO - check for badly formed content
         if ($efs_flag && $opt_use_EFS_flag)
         {
-            eval { $name = Encode::decode('UTF-8', $name, Encode::FB_CROAK ) } ;
-            ::warning $FH->tell() - length $name, "Could not decode 'UTF-8' $type: " . cleanEval $@
+            eval { $name = Encode::decode('utf8', $name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not decode 'utf8' $type: " . cleanEval $@
                 if $@ ;
         }
         else
@@ -6436,8 +6436,8 @@ sub displayFileInfo
 
         if ($efs_flag && $opt_use_EFS_flag)
         {
-            eval { $name = Encode::encode('UTF-8', $name, Encode::FB_CROAK ) } ;
-            ::warning $FH->tell() - length $name, "Could not encode 'UTF-8' $type: " . cleanEval $@
+            eval { $name = Encode::encode('utf8', $name, Encode::FB_CROAK ) } ;
+            ::warning $FH->tell() - length $name, "Could not encode 'utf8' $type: " . cleanEval $@
                 if $@ ;
         }
         else

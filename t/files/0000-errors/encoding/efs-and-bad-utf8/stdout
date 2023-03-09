@@ -19,7 +19,7 @@
 001A Filename Length       0003
 001C Extra Length          0000
 #
-# WARNING: Offset 0x1E: Could not decode 'UTF-8' Filename: utf8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x1E: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
 #
 001E Filename              'aåa'
 #
@@ -54,7 +54,7 @@
      [Bits 28-31]          08 'Regular File'
 0051 Local Header Offset   00000000
 #
-# WARNING: Offset 0x55: Could not decode 'UTF-8' Filename: utf8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x55: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
 #
 0055 Filename              'aåa'
 #
