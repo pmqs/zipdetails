@@ -748,7 +748,7 @@ sub getNativeLocale
         eval
         {
             require encoding ;
-            my $encoding = encoding::_get_locale_encoding() ;
+            my $encoding = encoding::_get_locale_encoding() // 'cp437';
             $enc = Encode::find_encoding($encoding) ;
         } ;
 

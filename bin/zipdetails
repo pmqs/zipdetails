@@ -6321,6 +6321,12 @@ sub displayFileInfo
             {
                 require encoding ;
                 my $encoding = encoding::_get_locale_encoding() ;
+                if (! $encoding)
+                {
+                    # CP437 is the legacy default for zip files
+                    $encoding = 'cp437';
+                    # ::warning undef, "Cannot determine system charset: defaulting to '$encoding'"
+                }
                 $enc = Encode::find_encoding($encoding) ;
             } ;
         }
