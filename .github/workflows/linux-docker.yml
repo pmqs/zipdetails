@@ -39,6 +39,8 @@ jobs:
     name: Perl ${{ matrix.perl-version }}
     steps:
     - uses: actions/checkout@v3
+    - name: Install zstd
+      run: sudo apt-get install -y zstd
     - name: Perl version
       run: perl -V
     - name: Install dependencies
