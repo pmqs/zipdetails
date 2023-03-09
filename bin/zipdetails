@@ -6288,7 +6288,7 @@ sub displayFileInfo
     info undef,
         "Filename       : '$filename'",
         "Size           : " . (-s $filename) . " (" . hexValue(-s $filename) . ")",
-        # "Native Encoding: '" . TextEncoding::getNativeLocale()->name() . "'",
+        # "Native Encoding: '" . TextEncoding::getNativeLocaleName() . "'",
 }
 
 {
@@ -6313,16 +6313,42 @@ sub displayFileInfo
 
     sub getNativeLocale
     {
-        my $enc;
+        state $enc;
 
-        eval
+        if (! defined $enc)
         {
-            require encoding ;
-            my $encoding = encoding::_get_locale_encoding() ;
-            $enc = Encode::find_encoding($encoding) ;
-        } ;
+            eval
+            {
+                require encoding ;
+                my $encoding = encoding::_get_locale_encoding() ;
+                $enc = Encode::find_encoding($encoding) ;
+            } ;
+        }
 
         return $enc;
+    }
+
+    sub getNativeLocaleName
+    {
+        state $name;
+
+        return $name
+            if defined $name ;
+
+        if (! defined $name)
+        {
+            my $enc = getNativeLocale();
+            if ($enc)
+            {
+                $name = $enc->name()
+            }
+            else
+            {
+                $name = 'unknown'
+            }
+        }
+
+        return $name ;
     }
 
     sub parseEncodingOption
@@ -6379,7 +6405,7 @@ sub displayFileInfo
         return
             unless $opt_Encoding_Enabled && $opt_Debug_Encoding ;
 
-        my $enc  = TextEncoding::getNativeLocale()->name();
+        my $enc  = TextEncoding::getNativeLocaleName();
         my $from = $opt_EncodingFrom->name();
         my $to   = $opt_EncodingTo->name();
 
@@ -6453,7 +6479,7 @@ sub displayFileInfo
 
 sub Usage
 {
-    my $enc = TextEncoding::getNativeLocale()->name();
+    my $enc = TextEncoding::getNativeLocaleName();
 
     my $message = <<EOM;
 zipdetails [OPTIONS] file
