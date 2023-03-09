@@ -977,7 +977,7 @@ GetOptions("h|help"     => \$opt_help,
            "debug-encoding"    => \&TextEncoding::debugEncoding,
            "input-encoding=s"  => \&TextEncoding::parseEncodingOption,
            "output-encoding=s" => \&TextEncoding::parseEncodingOption,
-           "efs!"              => \&TextEncoding::EfsFlag,
+           "language-encoding!"  => \&TextEncoding::LanguageEncodingFlag,
 
            # Message control
            "exit-bitmask!"      => \$opt_want_message_exit_status,
@@ -1926,7 +1926,7 @@ sub LocalHeader
 
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
-    my $efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
+    my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
@@ -1951,7 +1951,7 @@ sub LocalHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename, $efs);
+        outputFilename($filename, $LanguageEncodingFlag);
     }
 
 
@@ -1963,7 +1963,7 @@ sub LocalHeader
     $localEntry->zip64ExtraPresent = $cdZip64;
     $localEntry->zip64SizesPresent = $zip64Sizes;
     $localEntry->filename = $filename;
-    $localEntry->efs = $efs;
+    $localEntry->languageEncodingFlag = $LanguageEncodingFlag;
     $localEntry->compressedMethod = $compressedMethod;
     $localEntry->streamed = $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
@@ -2261,7 +2261,7 @@ sub redactFilename
 sub outputFilename
 {
     my $raw_filename = shift;
-    my $efs = shift;
+    my $LanguageEncodingFlag = shift;
     my $message = shift // "Filename";
 
     my $filename ;
@@ -2277,8 +2277,8 @@ sub outputFilename
     }
     else
     {
-        $decoded_filename = TextEncoding::decode($raw_filename, $message, $efs) ;
-        $filename = TextEncoding::encode($decoded_filename, $message, $efs) ;
+        $decoded_filename = TextEncoding::decode($raw_filename, $message, $LanguageEncodingFlag) ;
+        $filename = TextEncoding::encode($decoded_filename, $message, $LanguageEncodingFlag) ;
     }
 
     # if (length $filename > 256)
@@ -2333,7 +2333,7 @@ sub CentralHeader
 
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
-    my $efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
+    my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
@@ -2481,7 +2481,7 @@ sub CentralHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename, $efs);
+        outputFilename($filename, $LanguageEncodingFlag);
     }
 
     my $cdEntry = CentralDirectoryEntry->new();
@@ -2494,7 +2494,7 @@ sub CentralHeader
     $cdEntry->zip64ExtraPresent = undef; #$cdZip64; ### FIX ME
     $cdEntry->zip64SizesPresent = undef ; # $zip64Sizes;   ### FIX ME
     $cdEntry->filename = $filename;
-    $cdEntry->efs = $efs;
+    $cdEntry->languageEncodingFlag = $LanguageEncodingFlag;
     $cdEntry->crc32 = $crc;
     $cdEntry->inCentralDir = 1;
 
@@ -2520,7 +2520,7 @@ sub CentralHeader
 
         my $comment ;
         myRead($comment, $comment_length);
-        outputFilename $comment, $efs, "Comment";
+        outputFilename $comment, $LanguageEncodingFlag, "Comment";
         $cdEntry->comment = $comment;
     }
 
@@ -5084,7 +5084,7 @@ sub scanCentralDirectory
         $cdEntry->compressedLength = $compressedLength;
         $cdEntry->uncompressedLength = $uncompressedLength;
         $cdEntry->filename = $filename;
-        $cdEntry->efs = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING;
+        $cdEntry->languageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING;
         $cdEntry->diskNumber = $diskNumber;
         $cdEntry->crc32 = $crc;
         $cdEntry->zip64ExtraPresent = $cdZip64;
@@ -5610,7 +5610,7 @@ sub nibbles
                         'inCentralDir'          => 0,
                         'encapsulated'          => 0,
                         'streamed'              => 0,
-                        'efs'                   => 0,
+                        'languageEncodingFlag'  => 0,
                      ) ;
 
         my $self = bless {}, $class;
@@ -6299,7 +6299,7 @@ sub displayFileInfo
     my $opt_EncodingTo = $nativeLocaleEncoding ;
     my $opt_Encoding_Enabled;
     my $opt_Debug_Encoding;
-    my $opt_use_EFS_flag;
+    my $opt_use_LanguageEncodingFlag;
 
     sub setDefaults
     {
@@ -6308,7 +6308,7 @@ sub displayFileInfo
         $opt_EncodingTo = $nativeLocaleEncoding ;
         $opt_Encoding_Enabled = 1;
         $opt_Debug_Encoding = 0;
-        $opt_use_EFS_flag = 1;
+        $opt_use_LanguageEncodingFlag = 1;
     }
 
     sub getNativeLocale
@@ -6388,12 +6388,12 @@ sub displayFileInfo
         $opt_Encoding_Enabled = $opt_value ;
     }
 
-    sub EfsFlag
+    sub LanguageEncodingFlag
     {
         my $opt_name = shift;
         my $opt_value = shift;
 
-        $opt_use_EFS_flag = $opt_value ;
+        $opt_use_LanguageEncodingFlag = $opt_value ;
     }
 
     sub debugEncoding
@@ -6432,13 +6432,13 @@ sub displayFileInfo
     {
         my $name = shift ;
         my $type = shift ;
-        my $efs_flag = shift ;
+        my $LanguageEncodingFlag = shift ;
 
         return $name
             if ! $opt_Encoding_Enabled ;
 
         # TODO - check for badly formed content
-        if ($efs_flag && $opt_use_EFS_flag)
+        if ($LanguageEncodingFlag && $opt_use_LanguageEncodingFlag)
         {
             eval { $name = Encode::decode('utf8', $name, Encode::FB_CROAK ) } ;
             ::warning $FH->tell() - length $name, "Could not decode 'utf8' $type: " . cleanEval $@
@@ -6461,12 +6461,12 @@ sub displayFileInfo
     {
         my $name = shift ;
         my $type = shift ;
-        my $efs_flag = shift ;
+        my $LanguageEncodingFlag = shift ;
 
         return $name
             if ! $opt_Encoding_Enabled;
 
-        if ($efs_flag && $opt_use_EFS_flag)
+        if ($LanguageEncodingFlag && $opt_use_LanguageEncodingFlag)
         {
             eval { $name = Encode::encode('utf8', $name, Encode::FB_CROAK ) } ;
             ::warning $FH->tell() - length $name, "Could not encode 'utf8' $type: " . cleanEval $@
@@ -6527,9 +6527,10 @@ OPTIONS
             Uses system encoding ('$enc') by default
     --debug-encoding
             Display eatra info when a filename/comment encoding has changed
-    --efs, --no-efs
-            Enable/disable the zip file "EFS" flag. When this flag is set in
-            a zip file the filename/comment should be encoded in UTF8.
+    --language-encoding, --no-language-encoding
+            Enable/disable support for the zip file "Language Encoding" flag.
+            When this flag is set in a zip file the filename/comment is assumed
+            to be encoded in UTF8.
             Default is enabled
 
   Message Control
@@ -6700,6 +6701,55 @@ Display version number of the program and exit.
 Optimistically walk the zip file looking for possible zip records.
 See L<"Analysis of corrupt or non-standard zip files">
 
+
+=back
+
+=head3 Filename/Comment Encoding
+
+=over 5
+
+=item --encoding, --no-encoding
+
+Enable/disable filename & comment encoding.
+
+When enabled, use system encoding by default (or C<cp437> if the program cannot
+determine the system emcoding) when reading filenames/comments from a zip file
+and when displaying the filename/comment to the display. Override using the
+C<--input-encoding name> and C<--output-encoding name> options.
+
+When disabled, read/write filenames/comments as a byte stream.
+
+Default enabled.
+
+=item --input-encoding name
+
+Use encoding "name" when reading filename/comments from the zip file.
+Uses system encoding by default
+
+=item --output-encoding name
+
+Use encoding "name" when writing filename/comments to the display
+Uses system encoding by default.
+
+=item --language-encoding, --no-language-encoding
+
+This option enables/disables the
+
+Modern zip files set a metadata entry in zip files, called the "Language
+encoding flag", when they need to write filenames/comments in UTF-8.
+
+Occasionally some applications set the "Language encoding flag" but write
+non-UTF-8 data in the filename/comment fields in the zip file. This will
+usually result in garbled text being output for the filenames/comments.
+
+To deal with this use-case, set the C<--no-language-encoding> option and, if
+needed, set the C<--input-encoding name> option to encoding actually used.
+
+Default is C<--language-encoding>.
+
+=item --debug-encoding
+
+Display eatra info when a filename/comment encoding has changed.
 
 =back
 

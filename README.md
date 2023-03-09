@@ -119,6 +119,51 @@ display the zip metadata for both the outer & inner zip files.
     Optimistically walk the zip file looking for possible zip records.
     See ["Analysis of corrupt or non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
 
+### Filename/Comment Encoding
+
+- --encoding, --no-encoding
+
+    Enable/disable filename & comment encoding.
+
+    When enabled, use system encoding by default (or `cp437` if the program cannot
+    determine the system emcoding) when reading filenames/comments from a zip file
+    and when displaying the filename/comment to the display. Override using the
+    `--input-encoding name` and `--output-encoding name` options.
+
+    When disabled, read/write filenames/comments as a byte stream.
+
+    Default enabled.
+
+- --input-encoding name
+
+    Use encoding "name" when reading filename/comments from the zip file.
+    Uses system encoding by default
+
+- --output-encoding name
+
+    Use encoding "name" when writing filename/comments to the display
+    Uses system encoding by default.
+
+- --language-encoding, --no-language-encoding
+
+    This option enables/disables the
+
+    Modern zip files set a metadata entry in zip files, called the "Language
+    encoding flag", when they need to write filenames/comments in UTF-8.
+
+    Occasionally some applications set the "Language encoding flag" but write
+    non-UTF-8 data in the filename/comment fields in the zip file. This will
+    usually result in garbled text being output for the filenames/comments.
+
+    To deal with this use-case, set the `--no-language-encoding` option and, if
+    needed, set the `--input-encoding name` option to encoding actually used.
+
+    Default is `--language-encoding`.
+
+- --debug-encoding
+
+    Display eatra info when a filename/comment encoding has changed.
+
 ### Message Control Options
 
 - --messages, --no-messages
