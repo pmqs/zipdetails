@@ -1957,6 +1957,7 @@ sub LocalHeader
 
     $localEntry->index = $LocalHeaderCount;
     $localEntry->localHeaderOffset = $locHeaderOffset;
+    $localEntry->offsetStart = $locHeaderOffset;
     $localEntry->compressedLength = $compressedLength;
     $localEntry->uncompressedLength = $uncompressedLength;
     $localEntry->crc32 = $crc;
@@ -2043,6 +2044,7 @@ sub LocalHeader
 
     my $payloadOffset = $FH->tell();
     $localEntry->payloadOffset = $payloadOffset;
+    $localEntry->offsetEnd = $payloadOffset + $fullCompressedLength -1;
 
     need $CDcompressedLength, 'PAYLOAD'
         if $CDcompressedLength ;
@@ -5876,8 +5878,8 @@ sub nibbles
     {
         my $self = shift ;
 
-        sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
-             @{ $self->{entries} };
+        @{ $self->{entries} } = sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
+                                @{ $self->{entries} };
     }
 
     sub getByLocalOffset
@@ -6063,6 +6065,9 @@ sub nibbles
                     # say "  NESTED";
                     return $outerEntry ;
                 }
+
+                last
+                    if $from > $endSA;
             }
         }
 
@@ -6179,8 +6184,8 @@ sub nibbles
     {
         my $self = shift ;
 
-        sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
-             @{ $self->{entries} };
+        @{ $self->{entries} } = sort { $a->localHeaderOffset() <=> $b->localHeaderOffset() }
+                                @{ $self->{entries} };
     }
 
     sub localOffset
