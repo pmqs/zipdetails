@@ -5082,7 +5082,7 @@ sub scanCentralDirectory
         $cdEntry->index = $cdIndex;
         $cdEntry->centralHeaderOffset = $startHeader;
         $cdEntry->endCentralHeaderOffset = $FH->tell() - 1;
-        $cdEntry->localHeaderOffset = $locHeaderOffset + $PREFIX_DELTA;
+        $cdEntry->localHeaderOffset = $locHeaderOffset;
         $cdEntry->compressedLength = $compressedLength;
         $cdEntry->uncompressedLength = $uncompressedLength;
         $cdEntry->filename = $filename;
@@ -5113,7 +5113,7 @@ sub scanCentralDirectory
             }
         }
 
-        $HeaderOffsetIndex->addOffset($locHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
+        $HeaderOffsetIndex->addOffset($cdEntry->localHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
 
         skip($fh, $comment_length ) ;
     }

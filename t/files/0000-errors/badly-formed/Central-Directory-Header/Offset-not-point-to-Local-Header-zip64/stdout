@@ -2,75 +2,7 @@
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
 #
-# INFO: Offset 0x0: found 0x149 bytes before beginning of zipfile
+# INFO: Offset 0x0: found 0x1 bytes before beginning of zipfile
 #
 
-0000 UNEXPECTED PADDING
-
-0149 CENTRAL HEADER #1     02014B50
-014D Created Zip Spec      1E '3.0'
-014E Created OS            03 'Unix'
-014F Extract Zip Spec      2D '4.5'
-0150 Extract OS            00 'MS-DOS'
-0151 General Purpose Flag  0000
-     [Bits 1-2]            0 'Normal Compression'
-0153 Compression Method    0008 'Deflated'
-0155 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
-0159 CRC                   F90EE7FF
-015D Compressed Length     0000010E
-0161 Uncompressed Length   000001BE
-0165 Filename Length       0009
-0167 Extra Length          000C
-0169 Comment Length        0000
-016B Disk Start            0000
-016D Int File Attributes   0001
-     [Bit 0]               1 'Text Data'
-016F Ext File Attributes   81ED0000
-     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 'Regular File'
-0173 Local Header Offset   FFFFFFFF
-0177 Filename              'lorem.txt'
-0180 Extra ID #0001        0001 'ZIP64'
-0182   Length              0008
-0184   Offset to Local Dir 0000000000000001
-#
-# ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
-#        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
-#
-
-018C ZIP64 END CENTRAL DIR 06064B50
-     RECORD
-0190 Size of record        000000000000002C
-0198 Created Zip Spec      1E '3.0'
-0199 Created OS            03 'Unix'
-019A Extract Zip Spec      2D '4.5'
-019B Extract OS            00 'MS-DOS'
-019C Number of this disk   00000000
-01A0 Central Dir Disk no   00000000
-01A4 Entries in this disk  0000000000000001
-01AC Total Entries         0000000000000001
-01B4 Size of Central Dir   0000000000000043
-01BC Offset to Central dir 0000000000000149
-
-01C4 ZIP64 END CENTRAL DIR 07064B50
-     LOCATOR
-01C8 Central Dir Disk no   00000000
-01CC Offset to Zip64 EOCD  000000000000018C
-01D4 Total no of Disks     00000001
-
-01D8 END CENTRAL HEADER    06054B50
-01DC Number of this disk   0000
-01DE Central Dir Disk no   0000
-01E0 Entries in this disk  0001
-01E2 Total Entries         0001
-01E4 Size of Central Dir   00000043
-01E8 Offset to Central Dir FFFFFFFF
-01EC Comment Length        0000
-#
-# ERROR: Central Directory exists, but Local Directory not found
-#        Try running with --walk' or '--scan' options
-#
-# Error Count: 3
-# Info Count: 1
-#
-# Done
+0000 UNEXPECTED PADDING    P
