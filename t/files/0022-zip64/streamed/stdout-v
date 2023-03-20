@@ -1,0 +1,113 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 2D          Extract Zip Spec      2D '4.5'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 08 08       General Purpose Flag  0808
+                           [Bit  3]              1 'Streamed'
+                           [Bit 11]              1 'Language Encoding'
+0008 0009 0002 00 00       Compression Method    0000 'Stored'
+000A 000D 0004 3D 5E 38 56 Last Mod Time         56385E3D 'Tue Jan 24 11:49:58 2023'
+000E 0011 0004 00 00 00 00 CRC                   00000000
+0012 0015 0004 00 00 00 00 Compressed Length     00000000
+0016 0019 0004 00 00 00 00 Uncompressed Length   00000000
+001A 001B 0002 0B 00       Filename Length       000B
+001C 001D 0002 20 00       Extra Length          0020
+001E 0028 000B 74 65 73 74 Filename              'test/10.txt'
+               2F 31 30 2E
+               74 78 74
+0029 002A 0002 01 00       Extra ID #0001        0001 'ZIP64'
+002B 002C 0002 1C 00         Length              001C
+002D 0034 0008 00 00 00 00   Uncompressed Size   0000000000000000
+               00 00 00 00
+0035 003C 0008 00 00 00 00   Compressed Size     0000000000000000
+               00 00 00 00
+003D 0044 0008 00 00 00 00   Offset to Local Dir 0000000000000000
+               00 00 00 00
+0045 0048 0004 00 00 00 00   Disk Number         00000000
+0049 0052 000A 31 32 33 34 PAYLOAD               123456789.
+               35 36 37 38
+               39 0A
+
+0053 0056 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50
+0057 005A 0004 57 77 11 E0 CRC                   E0117757
+005B 0062 0008 0A 00 00 00 Compressed Length     000000000000000A
+               00 00 00 00
+0063 006A 0008 0A 00 00 00 Uncompressed Length   000000000000000A
+               00 00 00 00
+
+006B 006E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+006F 006F 0001 34          Created Zip Spec      34 '5.2'
+0070 0070 0001 00          Created OS            00 'MS-DOS'
+0071 0071 0001 2D          Extract Zip Spec      2D '4.5'
+0072 0072 0001 00          Extract OS            00 'MS-DOS'
+0073 0074 0002 08 08       General Purpose Flag  0808
+                           [Bit  3]              1 'Streamed'
+                           [Bit 11]              1 'Language Encoding'
+0075 0076 0002 00 00       Compression Method    0000 'Stored'
+0077 007A 0004 3D 5E 38 56 Last Mod Time         56385E3D 'Tue Jan 24 11:49:58 2023'
+007B 007E 0004 57 77 11 E0 CRC                   E0117757
+007F 0082 0004 FF FF FF FF Compressed Length     FFFFFFFF
+0083 0086 0004 FF FF FF FF Uncompressed Length   FFFFFFFF
+0087 0088 0002 0B 00       Filename Length       000B
+0089 008A 0002 20 00       Extra Length          0020
+008B 008C 0002 00 00       Comment Length        0000
+008D 008E 0002 FF FF       Disk Start            FFFF
+008F 0090 0002 00 00       Int File Attributes   0000
+                           [Bit 0]               0 'Binary Data'
+0091 0094 0004 00 00 A4 81 Ext File Attributes   81A40000
+                           [Bits 24-31]          81A4 'Unknown attributes for OS ID 0'
+0095 0098 0004 FF FF FF FF Local Header Offset   FFFFFFFF
+0099 00A3 000B 74 65 73 74 Filename              'test/10.txt'
+               2F 31 30 2E
+               74 78 74
+00A4 00A5 0002 01 00       Extra ID #0001        0001 'ZIP64'
+00A6 00A7 0002 1C 00         Length              001C
+00A8 00AF 0008 0A 00 00 00   Uncompressed Size   000000000000000A
+               00 00 00 00
+00B0 00B7 0008 0A 00 00 00   Compressed Size     000000000000000A
+               00 00 00 00
+00B8 00BF 0008 00 00 00 00   Offset to Local Dir 0000000000000000
+               00 00 00 00
+00C0 00C3 0004 00 00 00 00   Disk Number         00000000
+
+00C4 00C7 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50
+                           RECORD
+00C8 00CF 0008 2C 00 00 00 Size of record        000000000000002C
+               00 00 00 00
+00D0 00D0 0001 34          Created Zip Spec      34 '5.2'
+00D1 00D1 0001 00          Created OS            00 'MS-DOS'
+00D2 00D2 0001 2D          Extract Zip Spec      2D '4.5'
+00D3 00D3 0001 00          Extract OS            00 'MS-DOS'
+00D4 00D7 0004 00 00 00 00 Number of this disk   00000000
+00D8 00DB 0004 00 00 00 00 Central Dir Disk no   00000000
+00DC 00E3 0008 01 00 00 00 Entries in this disk  0000000000000001
+               00 00 00 00
+00E4 00EB 0008 01 00 00 00 Total Entries         0000000000000001
+               00 00 00 00
+00EC 00F3 0008 59 00 00 00 Size of Central Dir   0000000000000059
+               00 00 00 00
+00F4 00FB 0008 6B 00 00 00 Offset to Central dir 000000000000006B
+               00 00 00 00
+
+00FC 00FF 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50
+                           LOCATOR
+0100 0103 0004 00 00 00 00 Central Dir Disk no   00000000
+0104 010B 0008 C4 00 00 00 Offset to Zip64 EOCD  00000000000000C4
+               00 00 00 00
+010C 010F 0004 01 00 00 00 Total no of Disks     00000001
+
+0110 0113 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+0114 0115 0002 FF FF       Number of this disk   FFFF
+0116 0117 0002 FF FF       Central Dir Disk no   FFFF
+0118 0119 0002 FF FF       Entries in this disk  FFFF
+011A 011B 0002 FF FF       Total Entries         FFFF
+011C 011F 0004 FF FF FF FF Size of Central Dir   FFFFFFFF
+0120 0123 0004 FF FF FF FF Offset to Central Dir FFFFFFFF
+0124 0125 0002 12 00       Comment Length        0012
+0126 0137 0012 43 72 65 61 Comment               'Created by Zstream'
+               74 65 64 20
+               62 79 20 5A
+               73 74 72 65
+               61 6D
+#
+# Done

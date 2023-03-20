@@ -2091,7 +2091,6 @@ sub LocalHeader
 
     push @Messages, @msg ;
 
-
     return {
                 'localHeader'   => 1,
                 'streamed'      => $gpFlag & ZIP_GP_FLAG_STREAMING_MASK,
@@ -3228,6 +3227,8 @@ sub checkOffsetValue
     my $fatal = shift // 0;
     my $dereferencePointer = shift // 1;
 
+    my $keepOFFSET = $OFFSET ;
+
     my $message = offsetIsValid($offset, $headerStart, $centralDirSize, $commonMessage, $expectedSignature, $dereferencePointer);
     if ($message)
     {
@@ -3237,6 +3238,8 @@ sub checkOffsetValue
         error $messageOffset, $commonMessage, $message
             if ! $fatal;
     }
+
+    $OFFSET = $keepOFFSET;
 
     return $offset + $PREFIX_DELTA;
 
@@ -3673,9 +3676,6 @@ sub walk_Zip64_in_LD
     my $entry = shift;
     my $display = shift // 1 ;
 
-    # my $inCentralHdr = $entry->inCentralDir() ;
-    # my $inLocalHdr = ! $inCentralHdr ;
-
     my $fieldStart = $FH->tell() - length $zip64Extended;
     my $fieldOffset = $fieldStart ;
 
@@ -3688,9 +3688,10 @@ sub walk_Zip64_in_LD
         return;
     }
 
-    my $assumeLengths = (length($zip64Extended) == 16) ;
+    my $assumeLengthsPresent   = (length($zip64Extended) == 16) ;
+    my $assumeAllFieldsPresent = (length($zip64Extended) == 28) ;
 
-    if ($assumeLengths || full32 $entry->std_uncompressedLength )
+    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_uncompressedLength )
     {
         # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
         if (length $zip64Extended < 8)
@@ -3708,7 +3709,7 @@ sub walk_Zip64_in_LD
             if $display;
     }
 
-    if ($assumeLengths || full32 $entry->std_compressedLength)
+    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_compressedLength)
     {
         if (length $zip64Extended < 8)
         {
@@ -3723,6 +3724,29 @@ sub walk_Zip64_in_LD
         my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->compressedLength = unpack "Q<", $data;
         out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
+            if $display;
+    }
+
+    # Zip64 in local header should not have localHeaderOffset or disk number
+    # but some zip files do
+
+    if ($assumeAllFieldsPresent)
+    {
+        $fieldOffset += 8;
+
+        my $data = substr($zip64Extended, 0, 8, "") ;
+        my $localHeaderOffset = unpack "Q<", $data;
+        out2 $data, "Offset to Local Dir", Value_Q($localHeaderOffset)
+            if $display;
+    }
+
+    if ($assumeAllFieldsPresent)
+    {
+        $fieldOffset += 4;
+
+        my $data = substr($zip64Extended, 0, 4, "") ;
+        my $diskNumber = unpack "v", $data;
+        out2 $data, "Disk Number", Value_V($diskNumber)
             if $display;
     }
 
@@ -3756,7 +3780,9 @@ sub walk_Zip64_in_CD
         return;
     }
 
-    if (full32 $entry->std_uncompressedLength )
+    my $assumeAllFieldsPresent = (length($zip64Extended) == 28) ;
+
+    if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedLength )
     {
         if (length $zip64Extended < 8)
         {
@@ -3773,7 +3799,7 @@ sub walk_Zip64_in_CD
             if $display;
     }
 
-    if (full32 $entry->std_compressedLength)
+    if ($assumeAllFieldsPresent || full32 $entry->std_compressedLength)
     {
         if (length $zip64Extended < 8)
         {
@@ -3791,7 +3817,7 @@ sub walk_Zip64_in_CD
             if $display;
     }
 
-    if (full32 $entry->std_localHeaderOffset)
+    if ($assumeAllFieldsPresent || full32 $entry->std_localHeaderOffset)
     {
         if (length $zip64Extended < 8)
         {
@@ -3813,7 +3839,7 @@ sub walk_Zip64_in_CD
         $entry->localHeaderOffset = checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) ;
     }
 
-    if (full16 $entry->std_diskNumber)
+    if ($assumeAllFieldsPresent || full16 $entry->std_diskNumber)
     {
         if (length $zip64Extended < 4)
         {
@@ -4899,6 +4925,7 @@ sub readSignatureFromOffset
     my $buffer = readFromOffset($offset, 4);
     my $gotSig = unpack("V", $buffer) ;
     seekTo($here);
+
     return $gotSig;
 }
 
@@ -5096,7 +5123,6 @@ sub scanCentralDirectory
         $cdEntry->std_uncompressedLength = $uncompressedLength;
         $cdEntry->std_diskNumber = $diskNumber;
 
-        $CentralDirectory->addEntry($cdEntry);
 
         if ($extra_length)
         {
@@ -5113,6 +5139,9 @@ sub scanCentralDirectory
             }
         }
 
+        # don't call addEntry until after the extra fields have been scanned
+        # the localheader offset value may be updated in th ezip64 extra field.
+        $CentralDirectory->addEntry($cdEntry);
         $HeaderOffsetIndex->addOffset($cdEntry->localHeaderOffset, ZIP_LOCAL_HDR_SIG) ;
 
         skip($fh, $comment_length ) ;
