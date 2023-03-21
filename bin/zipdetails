@@ -2785,11 +2785,22 @@ sub EndCentralHeader
 
     if ($comment_length)
     {
-        need $comment_length,  Signatures::name($signature), "Comment";
+        my $here = $FH->tell() ;
+        my $available = $FILELEN - $here ;
+        if ($available < $comment_length)
+        {
+            error $here,
+                  "file truncated while reading 'Comment' field in '" . Signatures::name($signature) . "'",
+                  sprintf("Expected 0x%X bytes, but only 0x%X available", $comment_length, $available) ;
+            $comment_length = $available;
+        }
 
-        my $comment ;
-        myRead($comment, $comment_length);
-        outputFilename $comment, 0, "Comment";
+        if ($comment_length)
+        {
+            my $comment ;
+            myRead($comment, $comment_length);
+            outputFilename $comment, 0, "Comment";
+        }
     }
 
     return {};

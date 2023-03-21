@@ -1,0 +1,54 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
+0004 0004 0001 0A          Extract Zip Spec      0A '1.0'
+0005 0005 0001 00          Extract OS            00 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000
+0008 0009 0002 00 00       Compression Method    0000 'Stored'
+000A 000D 0004 DC 53 75 56 Last Mod Time         567553DC 'Tue Mar 21 10:30:56 2023'
+000E 0011 0004 AC A4 8A 58 CRC                   588AA4AC
+0012 0015 0004 05 00 00 00 Compressed Length     00000005
+0016 0019 0004 05 00 00 00 Uncompressed Length   00000005
+001A 001B 0002 04 00       Filename Length       0004
+001C 001D 0002 00 00       Extra Length          0000
+001E 0021 0004 61 62 63 64 Filename              'abcd'
+0022 0026 0005 61 62 63 64 PAYLOAD               abcd.
+               0A
+
+0027 002A 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
+002B 002B 0001 1E          Created Zip Spec      1E '3.0'
+002C 002C 0001 03          Created OS            03 'Unix'
+002D 002D 0001 0A          Extract Zip Spec      0A '1.0'
+002E 002E 0001 00          Extract OS            00 'MS-DOS'
+002F 0030 0002 00 00       General Purpose Flag  0000
+0031 0032 0002 00 00       Compression Method    0000 'Stored'
+0033 0036 0004 DC 53 75 56 Last Mod Time         567553DC 'Tue Mar 21 10:30:56 2023'
+0037 003A 0004 AC A4 8A 58 CRC                   588AA4AC
+003B 003E 0004 05 00 00 00 Compressed Length     00000005
+003F 0042 0004 05 00 00 00 Uncompressed Length   00000005
+0043 0044 0002 04 00       Filename Length       0004
+0045 0046 0002 00 00       Extra Length          0000
+0047 0048 0002 00 00       Comment Length        0000
+0049 004A 0002 00 00       Disk Start            0000
+004B 004C 0002 01 00       Int File Attributes   0001
+                           [Bit 0]               1 'Text Data'
+004D 0050 0004 00 00 B4 81 Ext File Attributes   81B40000
+                           [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 'Regular File'
+0051 0054 0004 00 00 00 00 Local Header Offset   00000000
+0055 0058 0004 61 62 63 64 Filename              'abcd'
+
+0059 005C 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
+005D 005E 0002 00 00       Number of this disk   0000
+005F 0060 0002 00 00       Central Dir Disk no   0000
+0061 0062 0002 01 00       Entries in this disk  0001
+0063 0064 0002 01 00       Total Entries         0001
+0065 0068 0004 32 00 00 00 Size of Central Dir   00000032
+0069 006C 0004 27 00 00 00 Offset to Central Dir 00000027
+006D 006E 0002 13 00       Comment Length        0013
+#
+# ERROR: Offset 0x6F: file truncated while reading 'Comment' field in 'End Central Directory Record'
+#        Expected 0x13 bytes, but only 0x0 available
+#
+# Error Count: 1
+#
+# Done
