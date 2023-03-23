@@ -25,20 +25,34 @@ at hand to help understand the output from this program.
 By default the program expects to be given a well-formed zip file.  It will
 navigate the Zip file by first parsing the zip central directory at the end of
 the file.  If the central directory is found, it will then walk sequentally
-through the zip records starting at the beginning of the file.  Badly formed zip
-data structures encountered are likely to terminate the program. if you do
-encounter an unexpected termination please report it (see ["SUPPORT"](#support)).
+through the zip records starting at the beginning of the file. See ["Advanced
+Analysis Options"](#advanced-analysis-options) for other processing options.
 
 If the program finds any structural problems with the zip file it will print a
-summary at the end of the output report. The set of error cases reported is a
-work in progress, so don't rely on this feature to find all the possible errors
-in a zip file. If you have suggestions for use-cases where this could be
-enhanced please consider creating an enhancement request (see ["SUPPORT"](#support)).
+message at the point it finds the issue and/or a summary at the end of the
+output report. The set of error cases reported is a work in progress, so don't
+rely on this feature to find _all_ the possible errors in a zip file. If you
+have suggestions for use-cases where this could be enhanced please consider
+creating an enhancement request (see ["SUPPORT"](#support)).
+
+### Date & Time fields
 
 Date/time fields found in zip files are displayed in local time. Use the
 `--utc` option to display these fields in Coordinated Universal Time (UTC).
 
-## Analysis of corrupt or non-standard zip files
+### Filenames & Comments
+
+Filenames and comments are decoded/encoded using the default system encoding
+(when available) of the host running `zipdetails`.  The exceptions are
+
+- when the _Language Encoding flag_ is set in the zip file, the
+filename/comment fields are assumed to be encoded in UTF-8.
+- the definition for the metadata field implies UTF-8 charset encoding
+
+See ["Filename & Comment Encoding Options"](#filename-comment-encoding-options) for ways to control the encoding of
+filename/comment fields.
+
+## Advanced Analysis Options
 
 If you have a corrupt or non-standard zip file, particulatly one where the
 central directory metadata at the end of the file is absent/incomplete, you can
@@ -62,9 +76,13 @@ the file from the beginning looking for any the of these valid 4-byte metadata
 signatures. When a 4-byte signature is found both options will blindly assume
 that it has found a vald metadata record and display it.
 
-In the case of the `--walk` option it optimistically assumes that it has found
+### `--walk`
+
+The `--walk` option optimistically assumes that it has found
 a real zip metatada record and so starts the scan for the next record directly
 after the record it has just output.
+
+### `--scan`
 
 The `--scan` option is pessimistic and assumes the 4-byte signature sequence
 may have been a false-positive, so before starting the scan for the next resord,
@@ -73,51 +91,51 @@ just processed. This means it will rescan data that has already been processed.
 For very lage zip files the `--scan` option can be really realy slow, so
 trying the `--walk` option first.
 
-If the zip file being processed contains one or more nested zip files, and the
-outer zip file uses the `STORE` compression method, the `--scan` option will
-display the zip metadata for both the outer & inner zip files.
+**Important Note**: If the zip file being processed contains one or more nested
+zip files, and the outer zip file uses the `STORE` compression method, the
+`--scan` option will display the zip metadata for both the outer & inner zip
+files.
 
 ## OPTIONS
 
 ### General Options
 
-- -h, --help
+- `-h`, `--help`
 
     Display help
 
-- --redact
+- `--redact`
 
     Obscure filenames and payload data in the output. Handy for the use case where
     the zip files contains sensitive data that cannot be shared.
 
-- --scan
+- `--scan`
 
     Pessimistically scan the zip file loking for possible zip records. Can be
     error-prone. For very large zip files this option is very slow. Consider using
-    the `--walk` option first.  See ["Analysis of corrupt or non-standard zip
-    files"](#analysis-of-corrupt-or-non-standard-zip-files)
+    the `--walk` option first. See ["Advanced Analysis Options"](#advanced-analysis-options)
 
-- --utc
+- `--utc`
 
     By default, date/time fields are displayed in local time. Use this option to
     display them in in Coordinated Universal Time (UTC).
 
-- -v
+- `-v`
 
     Enable Verbose mode. See ["Verbose Output"](#verbose-output).
 
-- --version
+- `--version`
 
     Display version number of the program and exit.
 
-- --walk
+- `--walk`
 
     Optimistically walk the zip file looking for possible zip records.
-    See ["Analysis of corrupt or non-standard zip files"](#analysis-of-corrupt-or-non-standard-zip-files)
+    See ["Advanced Analysis Options"](#advanced-analysis-options)
 
-### Filename/Comment Encoding
+### Filename & Comment Encoding Options
 
-- --encoding, --no-encoding
+- `--encoding`,` --no-encoding`
 
     Enable/disable filename & comment encoding.
 
@@ -130,17 +148,17 @@ display the zip metadata for both the outer & inner zip files.
 
     Default enabled.
 
-- --input-encoding name
+- `--input-encoding name`
 
     Use encoding "name" when reading filename/comments from the zip file.
     Uses system encoding by default
 
-- --output-encoding name
+- `--output-encoding name`
 
     Use encoding "name" when writing filename/comments to the display
     Uses system encoding by default.
 
-- --language-encoding, --no-language-encoding
+- `--language-encoding`, `--no-language-encoding`
 
     This option enables/disables the
 
@@ -156,30 +174,30 @@ display the zip metadata for both the outer & inner zip files.
 
     Default is `--language-encoding`.
 
-- --debug-encoding
+- `--debug-encoding`
 
     Display eatra info when a filename/comment encoding has changed.
 
 ### Message Control Options
 
-- --messages, --no-messages
+- `--messages`, `--no-messages`
 
     Enable/disable the output of all info/warning/error messages. Default is
     enabled.
 
-- --info-messages, --no-info-messages
+- `--info-messages`, `--no-info-messages`
 
     Enable/disable the output of all info messages. Default is enabled.
 
-- --warning-messages, --no-warning-messages
+- `--warning-messages`, `--no-warning-messages`
 
     Enable/disable the output of all warning messages. Default is enabled.
 
-- --error-messages, --no-error-messages
+- `--error-messages`, `--no-error-messages`
 
     Enable/disable the output of all error messages. Default is enabled.
 
-- --exit-bitmask, --no-exit-bitmask
+- `--exit-bitmask`, `--no-exit-bitmask`
 
     Enable/disable exit status bitmask for messages. Default disabled.
     Bitmask values are: 1 for info, 2 for warning and 4 for error.
