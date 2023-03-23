@@ -1,391 +1,361 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
-0008 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-000A Last Mod Time         4EEA8630 'Wed Jul 10 16:49:32 2019'
-000E CRC                   09F12B6B
-0012 Compressed Length     00000025
-0016 Uncompressed Length   00000016
-001A Filename Length       000F
-001C Extra Length          008F
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+000A Last Mod Time         1323992624 (0x4EEA8630) 'Wed Jul 10 16:49:32 2019'
+000E CRC                   166800235 (0x9F12B6B)
+0012 Compressed Length     37 (0x25)
+0016 Uncompressed Length   22 (0x16)
+001A Filename Length       15 (0xF)
+001C Extra Length          143 (0x8F)
 001E Filename              'F1/TestFile.txt'
-002D Extra ID #0001        4453 'Windows NT security descriptor
-                           [SD]'
-002F   Length              0063
-0031   Uncompressed Size   000000AC
-0035   Version             00
-0036   CType               0008 'Deflated'
-0038   CRC                 37BD7DB9
-003C   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F
-                           20 66 64 05 33 59 45 81 C4 9B 15 D6 C7
-                           25 B3 03 5C 97 C9 D5 6E 7D CF 8C 5F 8E
-                           89 21 81 81 05 2C 2D C1 F0 9F 51 9E 81
-                           91 09 A2 56 01 48 28 80 D9 22 10 71 46
-                           88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA
-                           7F 25 83 10 8A 7E 45 20 1B 00
-0094 Extra ID #0002        554E 'Xceed unicode extra field [UN]'
-0096   Length              0024
-0098   ID                  NUCX
-009C   Length              000F
+002D Extra ID #1           17491 (0x4453) 'Windows NT security descriptor [SD]'
+002F   Length              99 (0x63)
+0031   Uncompressed Size   172 (0xAC)
+0035   Version             0 (0x0)
+0036   CType               8 (0x8) 'Deflated'
+0038   CRC                 935165369 (0x37BD7DB9)
+003C   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F 20 66 64
+                           05 33 59 45 81 C4 9B 15 D6 C7 25 B3 03 5C 97 C9
+                           D5 6E 7D CF 8C 5F 8E 89 21 81 81 05 2C 2D C1 F0
+                           9F 51 9E 81 91 09 A2 56 01 48 28 80 D9 22 10 71
+                           46 88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA 7F 25
+                           83 10 8A 7E 45 20 1B 00
+0094 Extra ID #2           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0096   Length              36 (0x24)
+0098   ID                  1480807758 (0x5843554E)
+009C   Length              15 (0xF)
 009E   UTF16LE Name        'F1\TestFile.txt'
 00BC PAYLOAD               51.....`....f.  ."....!.@.@..)z....~.
 
-00E1 LOCAL HEADER #2       04034B50
-00E5 Extract Zip Spec      14 '2.0'
-00E6 Extract OS            00 'MS-DOS'
-00E7 General Purpose Flag  0000
-00E9 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-00EB Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-00EF CRC                   480D300B
-00F3 Compressed Length     00000023
-00F7 Uncompressed Length   00000015
-00FB Filename Length       000F
-00FD Extra Length          008F
+00E1 LOCAL HEADER #2       67324752 (0x4034B50)
+00E5 Extract Zip Spec      20 (0x14) '2.0'
+00E6 Extract OS            0 (0x0) 'MS-DOS'
+00E7 General Purpose Flag  0 (0x0)
+00E9 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+00EB Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+00EF CRC                   1208823819 (0x480D300B)
+00F3 Compressed Length     35 (0x23)
+00F7 Uncompressed Length   21 (0x15)
+00FB Filename Length       15 (0xF)
+00FD Extra Length          143 (0x8F)
 00FF Filename              'F2/TestFile.txt'
-010E Extra ID #0001        4453 'Windows NT security descriptor
-                           [SD]'
-0110   Length              0063
-0112   Uncompressed Size   000000AC
-0116   Version             00
-0117   CType               0008 'Deflated'
-0119   CRC                 37BD7DB9
-011D   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F
-                           20 66 64 05 33 59 45 81 C4 9B 15 D6 C7
-                           25 B3 03 5C 97 C9 D5 6E 7D CF 8C 5F 8E
-                           89 21 81 81 05 2C 2D C1 F0 9F 51 9E 81
-                           91 09 A2 56 01 48 28 80 D9 22 10 71 46
-                           88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA
-                           7F 25 83 10 8A 7E 45 20 1B 00
-0175 Extra ID #0002        554E 'Xceed unicode extra field [UN]'
-0177   Length              0024
-0179   ID                  NUCX
-017D   Length              000F
+010E Extra ID #1           17491 (0x4453) 'Windows NT security descriptor [SD]'
+0110   Length              99 (0x63)
+0112   Uncompressed Size   172 (0xAC)
+0116   Version             0 (0x0)
+0117   CType               8 (0x8) 'Deflated'
+0119   CRC                 935165369 (0x37BD7DB9)
+011D   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F 20 66 64
+                           05 33 59 45 81 C4 9B 15 D6 C7 25 B3 03 5C 97 C9
+                           D5 6E 7D CF 8C 5F 8E 89 21 81 81 05 2C 2D C1 F0
+                           9F 51 9E 81 91 09 A2 56 01 48 28 80 D9 22 10 71
+                           46 88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA 7F 25
+                           83 10 8A 7E 45 20 1B 00
+0175 Extra ID #2           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0177   Length              36 (0x24)
+0179   ID                  1480807758 (0x5843554E)
+017D   Length              15 (0xF)
 017F   UTF16LE Name        'F2\TestFile.txt'
 019D PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
-01C0 LOCAL HEADER #3       04034B50
-01C4 Extract Zip Spec      14 '2.0'
-01C5 Extract OS            00 'MS-DOS'
-01C6 General Purpose Flag  0000
-01C8 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-01CA Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-01CE CRC                   480D300B
-01D2 Compressed Length     00000023
-01D6 Uncompressed Length   00000015
-01DA Filename Length       000F
-01DC Extra Length          008F
+01C0 LOCAL HEADER #3       67324752 (0x4034B50)
+01C4 Extract Zip Spec      20 (0x14) '2.0'
+01C5 Extract OS            0 (0x0) 'MS-DOS'
+01C6 General Purpose Flag  0 (0x0)
+01C8 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+01CA Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+01CE CRC                   1208823819 (0x480D300B)
+01D2 Compressed Length     35 (0x23)
+01D6 Uncompressed Length   21 (0x15)
+01DA Filename Length       15 (0xF)
+01DC Extra Length          143 (0x8F)
 01DE Filename              'F3/TestFile.txt'
-01ED Extra ID #0001        4453 'Windows NT security descriptor
-                           [SD]'
-01EF   Length              0063
-01F1   Uncompressed Size   000000AC
-01F5   Version             00
-01F6   CType               0008 'Deflated'
-01F8   CRC                 37BD7DB9
-01FC   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F
-                           20 66 64 05 33 59 45 81 C4 9B 15 D6 C7
-                           25 B3 03 5C 97 C9 D5 6E 7D CF 8C 5F 8E
-                           89 21 81 81 05 2C 2D C1 F0 9F 51 9E 81
-                           91 09 A2 56 01 48 28 80 D9 22 10 71 46
-                           88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA
-                           7F 25 83 10 8A 7E 45 20 1B 00
-0254 Extra ID #0002        554E 'Xceed unicode extra field [UN]'
-0256   Length              0024
-0258   ID                  NUCX
-025C   Length              000F
+01ED Extra ID #1           17491 (0x4453) 'Windows NT security descriptor [SD]'
+01EF   Length              99 (0x63)
+01F1   Uncompressed Size   172 (0xAC)
+01F5   Version             0 (0x0)
+01F6   CType               8 (0x8) 'Deflated'
+01F8   CRC                 935165369 (0x37BD7DB9)
+01FC   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F 20 66 64
+                           05 33 59 45 81 C4 9B 15 D6 C7 25 B3 03 5C 97 C9
+                           D5 6E 7D CF 8C 5F 8E 89 21 81 81 05 2C 2D C1 F0
+                           9F 51 9E 81 91 09 A2 56 01 48 28 80 D9 22 10 71
+                           46 88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA 7F 25
+                           83 10 8A 7E 45 20 1B 00
+0254 Extra ID #2           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0256   Length              36 (0x24)
+0258   ID                  1480807758 (0x5843554E)
+025C   Length              15 (0xF)
 025E   UTF16LE Name        'F3\TestFile.txt'
 027C PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
-029F LOCAL HEADER #4       04034B50
-02A3 Extract Zip Spec      14 '2.0'
-02A4 Extract OS            00 'MS-DOS'
-02A5 General Purpose Flag  0000
-02A7 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-02A9 Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-02AD CRC                   480D300B
-02B1 Compressed Length     00000023
-02B5 Uncompressed Length   00000015
-02B9 Filename Length       000F
-02BB Extra Length          008F
+029F LOCAL HEADER #4       67324752 (0x4034B50)
+02A3 Extract Zip Spec      20 (0x14) '2.0'
+02A4 Extract OS            0 (0x0) 'MS-DOS'
+02A5 General Purpose Flag  0 (0x0)
+02A7 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+02A9 Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+02AD CRC                   1208823819 (0x480D300B)
+02B1 Compressed Length     35 (0x23)
+02B5 Uncompressed Length   21 (0x15)
+02B9 Filename Length       15 (0xF)
+02BB Extra Length          143 (0x8F)
 02BD Filename              'F4/TestFile.txt'
-02CC Extra ID #0001        4453 'Windows NT security descriptor
-                           [SD]'
-02CE   Length              0063
-02D0   Uncompressed Size   000000AC
-02D4   Version             00
-02D5   CType               0008 'Deflated'
-02D7   CRC                 37BD7DB9
-02DB   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F
-                           20 66 64 05 33 59 45 81 C4 9B 15 D6 C7
-                           25 B3 03 5C 97 C9 D5 6E 7D CF 8C 5F 8E
-                           89 21 81 81 05 2C 2D C1 F0 9F 51 9E 81
-                           91 09 A2 56 01 48 28 80 D9 22 10 71 46
-                           88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA
-                           7F 25 83 10 8A 7E 45 20 1B 00
-0333 Extra ID #0002        554E 'Xceed unicode extra field [UN]'
-0335   Length              0024
-0337   ID                  NUCX
-033B   Length              000F
+02CC Extra ID #1           17491 (0x4453) 'Windows NT security descriptor [SD]'
+02CE   Length              99 (0x63)
+02D0   Uncompressed Size   172 (0xAC)
+02D4   Version             0 (0x0)
+02D5   CType               8 (0x8) 'Deflated'
+02D7   CRC                 935165369 (0x37BD7DB9)
+02DB   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F 20 66 64
+                           05 33 59 45 81 C4 9B 15 D6 C7 25 B3 03 5C 97 C9
+                           D5 6E 7D CF 8C 5F 8E 89 21 81 81 05 2C 2D C1 F0
+                           9F 51 9E 81 91 09 A2 56 01 48 28 80 D9 22 10 71
+                           46 88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA 7F 25
+                           83 10 8A 7E 45 20 1B 00
+0333 Extra ID #2           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0335   Length              36 (0x24)
+0337   ID                  1480807758 (0x5843554E)
+033B   Length              15 (0xF)
 033D   UTF16LE Name        'F4\TestFile.txt'
 035B PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
-037E LOCAL HEADER #5       04034B50
-0382 Extract Zip Spec      14 '2.0'
-0383 Extract OS            00 'MS-DOS'
-0384 General Purpose Flag  0000
-0386 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-0388 Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-038C CRC                   480D300B
-0390 Compressed Length     00000023
-0394 Uncompressed Length   00000015
-0398 Filename Length       000F
-039A Extra Length          008F
+037E LOCAL HEADER #5       67324752 (0x4034B50)
+0382 Extract Zip Spec      20 (0x14) '2.0'
+0383 Extract OS            0 (0x0) 'MS-DOS'
+0384 General Purpose Flag  0 (0x0)
+0386 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+0388 Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+038C CRC                   1208823819 (0x480D300B)
+0390 Compressed Length     35 (0x23)
+0394 Uncompressed Length   21 (0x15)
+0398 Filename Length       15 (0xF)
+039A Extra Length          143 (0x8F)
 039C Filename              'F5/TestFile.txt'
-03AB Extra ID #0001        4453 'Windows NT security descriptor
-                           [SD]'
-03AD   Length              0063
-03AF   Uncompressed Size   000000AC
-03B3   Version             00
-03B4   CType               0008 'Deflated'
-03B6   CRC                 37BD7DB9
-03BA   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F
-                           20 66 64 05 33 59 45 81 C4 9B 15 D6 C7
-                           25 B3 03 5C 97 C9 D5 6E 7D CF 8C 5F 8E
-                           89 21 81 81 05 2C 2D C1 F0 9F 51 9E 81
-                           91 09 A2 56 01 48 28 80 D9 22 10 71 46
-                           88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA
-                           7F 25 83 10 8A 7E 45 20 1B 00
-0412 Extra ID #0002        554E 'Xceed unicode extra field [UN]'
-0414   Length              0024
-0416   ID                  NUCX
-041A   Length              000F
+03AB Extra ID #1           17491 (0x4453) 'Windows NT security descriptor [SD]'
+03AD   Length              99 (0x63)
+03AF   Uncompressed Size   172 (0xAC)
+03B3   Version             0 (0x0)
+03B4   CType               8 (0x8) 'Deflated'
+03B6   CRC                 935165369 (0x37BD7DB9)
+03BA   Extra Payload       63 64 60 69 10 61 60 60 30 60 80 00 1F 20 66 64
+                           05 33 59 45 81 C4 9B 15 D6 C7 25 B3 03 5C 97 C9
+                           D5 6E 7D CF 8C 5F 8E 89 21 81 81 05 2C 2D C1 F0
+                           9F 51 9E 81 91 09 A2 56 01 48 28 80 D9 22 10 71
+                           46 88 B8 10 03 44 6C 3F A3 30 5C 8C 1B AA 7F 25
+                           83 10 8A 7E 45 20 1B 00
+0412 Extra ID #2           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0414   Length              36 (0x24)
+0416   ID                  1480807758 (0x5843554E)
+041A   Length              15 (0xF)
 041C   UTF16LE Name        'F5\TestFile.txt'
 043A PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
-045D CENTRAL HEADER #1     02014B50
-0461 Created Zip Spec      15 '2.1'
-0462 Created OS            00 'MS-DOS'
-0463 Extract Zip Spec      14 '2.0'
-0464 Extract OS            00 'MS-DOS'
-0465 General Purpose Flag  0000
-0467 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-0469 Last Mod Time         4EEA8630 'Wed Jul 10 16:49:32 2019'
-046D CRC                   09F12B6B
-0471 Compressed Length     00000025
-0475 Uncompressed Length   00000016
-0479 Filename Length       000F
-047B Extra Length          0056
-047D Comment Length        0000
-047F Disk Start            0000
-0481 Int File Attributes   0000
+045D CENTRAL HEADER #1     33639248 (0x2014B50)
+0461 Created Zip Spec      21 (0x15) '2.1'
+0462 Created OS            0 (0x0) 'MS-DOS'
+0463 Extract Zip Spec      20 (0x14) '2.0'
+0464 Extract OS            0 (0x0) 'MS-DOS'
+0465 General Purpose Flag  0 (0x0)
+0467 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+0469 Last Mod Time         1323992624 (0x4EEA8630) 'Wed Jul 10 16:49:32 2019'
+046D CRC                   166800235 (0x9F12B6B)
+0471 Compressed Length     37 (0x25)
+0475 Uncompressed Length   22 (0x16)
+0479 Filename Length       15 (0xF)
+047B Extra Length          86 (0x56)
+047D Comment Length        0 (0x0)
+047F Disk Start            0 (0x0)
+0481 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-0483 Ext File Attributes   00000020
+0483 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-0487 Local Header Offset   00000000
+0487 Local Header Offset   0 (0x0)
 048B Filename              'F1/TestFile.txt'
-049A Extra ID #0001        000A 'NTFS FileTimes'
-049C   Length              0020
-049E   Reserved            00000000
-04A2   Tag1                0001
-04A4   Size1               0018
-04A6   Mtime               01D53704C57D0780 'Wed Jul 10 09:49:31
-                           2019 0ns'
-04AE   Atime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-04B6   Ctime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-04BE Extra ID #0002        4453 'Windows NT security descriptor
-                           [SD]'
-04C0   Length              0004
-04C2   Uncompressed Size   000000AC
-04C6 Extra ID #0003        554E 'Xceed unicode extra field [UN]'
-04C8   Length              0026
-04CA   ID                  NUCX
-04CE   Length              000F
+049A Extra ID #1           10 (0xA) 'NTFS FileTimes'
+049C   Length              32 (0x20)
+049E   Reserved            0 (0x0)
+04A2   Tag1                1 (0x1)
+04A4   Size1               24 (0x18)
+04A6   Mtime               132072257710000000 (0x1D53704C57D0780) 'Wed Jul 10 09:49:31 2019 0ns'
+04AE   Atime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+04B6   Ctime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+04BE Extra ID #2           17491 (0x4453) 'Windows NT security descriptor [SD]'
+04C0   Length              4 (0x4)
+04C2   Uncompressed Size   172 (0xAC)
+04C6 Extra ID #3           21838 (0x554E) 'Xceed unicode extra field [UN]'
+04C8   Length              38 (0x26)
+04CA   ID                  1480807758 (0x5843554E)
+04CE   Length              15 (0xF)
 04D0   Null                0000
 04D2   UTF16LE Name        'F1\TestFile.txt'
 
-04F0 CENTRAL HEADER #2     02014B50
-04F4 Created Zip Spec      15 '2.1'
-04F5 Created OS            00 'MS-DOS'
-04F6 Extract Zip Spec      14 '2.0'
-04F7 Extract OS            00 'MS-DOS'
-04F8 General Purpose Flag  0000
-04FA Compression Method    0012 'IBM/TERSE or Xceed BWT'
-04FC Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-0500 CRC                   480D300B
-0504 Compressed Length     00000023
-0508 Uncompressed Length   00000015
-050C Filename Length       000F
-050E Extra Length          0056
-0510 Comment Length        0000
-0512 Disk Start            0000
-0514 Int File Attributes   0000
+04F0 CENTRAL HEADER #2     33639248 (0x2014B50)
+04F4 Created Zip Spec      21 (0x15) '2.1'
+04F5 Created OS            0 (0x0) 'MS-DOS'
+04F6 Extract Zip Spec      20 (0x14) '2.0'
+04F7 Extract OS            0 (0x0) 'MS-DOS'
+04F8 General Purpose Flag  0 (0x0)
+04FA Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+04FC Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+0500 CRC                   1208823819 (0x480D300B)
+0504 Compressed Length     35 (0x23)
+0508 Uncompressed Length   21 (0x15)
+050C Filename Length       15 (0xF)
+050E Extra Length          86 (0x56)
+0510 Comment Length        0 (0x0)
+0512 Disk Start            0 (0x0)
+0514 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-0516 Ext File Attributes   00000020
+0516 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-051A Local Header Offset   000000E1
+051A Local Header Offset   225 (0xE1)
 051E Filename              'F2/TestFile.txt'
-052D Extra ID #0001        000A 'NTFS FileTimes'
-052F   Length              0020
-0531   Reserved            00000000
-0535   Tag1                0001
-0537   Size1               0018
-0539   Mtime               01D08E290906FA80 'Thu May 14 09:33:29
-                           2015 0ns'
-0541   Atime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-0549   Ctime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-0551 Extra ID #0002        4453 'Windows NT security descriptor
-                           [SD]'
-0553   Length              0004
-0555   Uncompressed Size   000000AC
-0559 Extra ID #0003        554E 'Xceed unicode extra field [UN]'
-055B   Length              0026
-055D   ID                  NUCX
-0561   Length              000F
+052D Extra ID #1           10 (0xA) 'NTFS FileTimes'
+052F   Length              32 (0x20)
+0531   Reserved            0 (0x0)
+0535   Tag1                1 (0x1)
+0537   Size1               24 (0x18)
+0539   Mtime               130760696090000000 (0x1D08E290906FA80) 'Thu May 14 09:33:29 2015 0ns'
+0541   Atime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+0549   Ctime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+0551 Extra ID #2           17491 (0x4453) 'Windows NT security descriptor [SD]'
+0553   Length              4 (0x4)
+0555   Uncompressed Size   172 (0xAC)
+0559 Extra ID #3           21838 (0x554E) 'Xceed unicode extra field [UN]'
+055B   Length              38 (0x26)
+055D   ID                  1480807758 (0x5843554E)
+0561   Length              15 (0xF)
 0563   Null                0000
 0565   UTF16LE Name        'F2\TestFile.txt'
 
-0583 CENTRAL HEADER #3     02014B50
-0587 Created Zip Spec      15 '2.1'
-0588 Created OS            00 'MS-DOS'
-0589 Extract Zip Spec      14 '2.0'
-058A Extract OS            00 'MS-DOS'
-058B General Purpose Flag  0000
-058D Compression Method    0012 'IBM/TERSE or Xceed BWT'
-058F Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-0593 CRC                   480D300B
-0597 Compressed Length     00000023
-059B Uncompressed Length   00000015
-059F Filename Length       000F
-05A1 Extra Length          0056
-05A3 Comment Length        0000
-05A5 Disk Start            0000
-05A7 Int File Attributes   0000
+0583 CENTRAL HEADER #3     33639248 (0x2014B50)
+0587 Created Zip Spec      21 (0x15) '2.1'
+0588 Created OS            0 (0x0) 'MS-DOS'
+0589 Extract Zip Spec      20 (0x14) '2.0'
+058A Extract OS            0 (0x0) 'MS-DOS'
+058B General Purpose Flag  0 (0x0)
+058D Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+058F Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+0593 CRC                   1208823819 (0x480D300B)
+0597 Compressed Length     35 (0x23)
+059B Uncompressed Length   21 (0x15)
+059F Filename Length       15 (0xF)
+05A1 Extra Length          86 (0x56)
+05A3 Comment Length        0 (0x0)
+05A5 Disk Start            0 (0x0)
+05A7 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-05A9 Ext File Attributes   00000020
+05A9 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-05AD Local Header Offset   000001C0
+05AD Local Header Offset   448 (0x1C0)
 05B1 Filename              'F3/TestFile.txt'
-05C0 Extra ID #0001        000A 'NTFS FileTimes'
-05C2   Length              0020
-05C4   Reserved            00000000
-05C8   Tag1                0001
-05CA   Size1               0018
-05CC   Mtime               01D08E290906FA80 'Thu May 14 09:33:29
-                           2015 0ns'
-05D4   Atime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-05DC   Ctime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-05E4 Extra ID #0002        4453 'Windows NT security descriptor
-                           [SD]'
-05E6   Length              0004
-05E8   Uncompressed Size   000000AC
-05EC Extra ID #0003        554E 'Xceed unicode extra field [UN]'
-05EE   Length              0026
-05F0   ID                  NUCX
-05F4   Length              000F
+05C0 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+05C2   Length              32 (0x20)
+05C4   Reserved            0 (0x0)
+05C8   Tag1                1 (0x1)
+05CA   Size1               24 (0x18)
+05CC   Mtime               130760696090000000 (0x1D08E290906FA80) 'Thu May 14 09:33:29 2015 0ns'
+05D4   Atime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+05DC   Ctime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+05E4 Extra ID #2           17491 (0x4453) 'Windows NT security descriptor [SD]'
+05E6   Length              4 (0x4)
+05E8   Uncompressed Size   172 (0xAC)
+05EC Extra ID #3           21838 (0x554E) 'Xceed unicode extra field [UN]'
+05EE   Length              38 (0x26)
+05F0   ID                  1480807758 (0x5843554E)
+05F4   Length              15 (0xF)
 05F6   Null                0000
 05F8   UTF16LE Name        'F3\TestFile.txt'
 
-0616 CENTRAL HEADER #4     02014B50
-061A Created Zip Spec      15 '2.1'
-061B Created OS            00 'MS-DOS'
-061C Extract Zip Spec      14 '2.0'
-061D Extract OS            00 'MS-DOS'
-061E General Purpose Flag  0000
-0620 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-0622 Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-0626 CRC                   480D300B
-062A Compressed Length     00000023
-062E Uncompressed Length   00000015
-0632 Filename Length       000F
-0634 Extra Length          0056
-0636 Comment Length        0000
-0638 Disk Start            0000
-063A Int File Attributes   0000
+0616 CENTRAL HEADER #4     33639248 (0x2014B50)
+061A Created Zip Spec      21 (0x15) '2.1'
+061B Created OS            0 (0x0) 'MS-DOS'
+061C Extract Zip Spec      20 (0x14) '2.0'
+061D Extract OS            0 (0x0) 'MS-DOS'
+061E General Purpose Flag  0 (0x0)
+0620 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+0622 Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+0626 CRC                   1208823819 (0x480D300B)
+062A Compressed Length     35 (0x23)
+062E Uncompressed Length   21 (0x15)
+0632 Filename Length       15 (0xF)
+0634 Extra Length          86 (0x56)
+0636 Comment Length        0 (0x0)
+0638 Disk Start            0 (0x0)
+063A Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-063C Ext File Attributes   00000020
+063C Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-0640 Local Header Offset   0000029F
+0640 Local Header Offset   671 (0x29F)
 0644 Filename              'F4/TestFile.txt'
-0653 Extra ID #0001        000A 'NTFS FileTimes'
-0655   Length              0020
-0657   Reserved            00000000
-065B   Tag1                0001
-065D   Size1               0018
-065F   Mtime               01D08E290906FA80 'Thu May 14 09:33:29
-                           2015 0ns'
-0667   Atime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-066F   Ctime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-0677 Extra ID #0002        4453 'Windows NT security descriptor
-                           [SD]'
-0679   Length              0004
-067B   Uncompressed Size   000000AC
-067F Extra ID #0003        554E 'Xceed unicode extra field [UN]'
-0681   Length              0026
-0683   ID                  NUCX
-0687   Length              000F
+0653 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0655   Length              32 (0x20)
+0657   Reserved            0 (0x0)
+065B   Tag1                1 (0x1)
+065D   Size1               24 (0x18)
+065F   Mtime               130760696090000000 (0x1D08E290906FA80) 'Thu May 14 09:33:29 2015 0ns'
+0667   Atime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+066F   Ctime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+0677 Extra ID #2           17491 (0x4453) 'Windows NT security descriptor [SD]'
+0679   Length              4 (0x4)
+067B   Uncompressed Size   172 (0xAC)
+067F Extra ID #3           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0681   Length              38 (0x26)
+0683   ID                  1480807758 (0x5843554E)
+0687   Length              15 (0xF)
 0689   Null                0000
 068B   UTF16LE Name        'F4\TestFile.txt'
 
-06A9 CENTRAL HEADER #5     02014B50
-06AD Created Zip Spec      15 '2.1'
-06AE Created OS            00 'MS-DOS'
-06AF Extract Zip Spec      14 '2.0'
-06B0 Extract OS            00 'MS-DOS'
-06B1 General Purpose Flag  0000
-06B3 Compression Method    0012 'IBM/TERSE or Xceed BWT'
-06B5 Last Mod Time         46AE842F 'Thu May 14 16:33:30 2015'
-06B9 CRC                   480D300B
-06BD Compressed Length     00000023
-06C1 Uncompressed Length   00000015
-06C5 Filename Length       000F
-06C7 Extra Length          0056
-06C9 Comment Length        0000
-06CB Disk Start            0000
-06CD Int File Attributes   0000
+06A9 CENTRAL HEADER #5     33639248 (0x2014B50)
+06AD Created Zip Spec      21 (0x15) '2.1'
+06AE Created OS            0 (0x0) 'MS-DOS'
+06AF Extract Zip Spec      20 (0x14) '2.0'
+06B0 Extract OS            0 (0x0) 'MS-DOS'
+06B1 General Purpose Flag  0 (0x0)
+06B3 Compression Method    18 (0x12) 'IBM/TERSE or Xceed BWT'
+06B5 Last Mod Time         1185842223 (0x46AE842F) 'Thu May 14 16:33:30 2015'
+06B9 CRC                   1208823819 (0x480D300B)
+06BD Compressed Length     35 (0x23)
+06C1 Uncompressed Length   21 (0x15)
+06C5 Filename Length       15 (0xF)
+06C7 Extra Length          86 (0x56)
+06C9 Comment Length        0 (0x0)
+06CB Disk Start            0 (0x0)
+06CD Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-06CF Ext File Attributes   00000020
+06CF Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-06D3 Local Header Offset   0000037E
+06D3 Local Header Offset   894 (0x37E)
 06D7 Filename              'F5/TestFile.txt'
-06E6 Extra ID #0001        000A 'NTFS FileTimes'
-06E8   Length              0020
-06EA   Reserved            00000000
-06EE   Tag1                0001
-06F0   Size1               0018
-06F2   Mtime               01D08E290906FA80 'Thu May 14 09:33:29
-                           2015 0ns'
-06FA   Atime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-0702   Ctime               01D8A2849A90E700 'Thu Jul 28 13:19:02
-                           2022 0ns'
-070A Extra ID #0002        4453 'Windows NT security descriptor
-                           [SD]'
-070C   Length              0004
-070E   Uncompressed Size   000000AC
-0712 Extra ID #0003        554E 'Xceed unicode extra field [UN]'
-0714   Length              0026
-0716   ID                  NUCX
-071A   Length              000F
+06E6 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+06E8   Length              32 (0x20)
+06EA   Reserved            0 (0x0)
+06EE   Tag1                1 (0x1)
+06F0   Size1               24 (0x18)
+06F2   Mtime               130760696090000000 (0x1D08E290906FA80) 'Thu May 14 09:33:29 2015 0ns'
+06FA   Atime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+0702   Ctime               133034879420000000 (0x1D8A2849A90E700) 'Thu Jul 28 13:19:02 2022 0ns'
+070A Extra ID #2           17491 (0x4453) 'Windows NT security descriptor [SD]'
+070C   Length              4 (0x4)
+070E   Uncompressed Size   172 (0xAC)
+0712 Extra ID #3           21838 (0x554E) 'Xceed unicode extra field [UN]'
+0714   Length              38 (0x26)
+0716   ID                  1480807758 (0x5843554E)
+071A   Length              15 (0xF)
 071C   Null                0000
 071E   UTF16LE Name        'F5\TestFile.txt'
 
-073C END CENTRAL HEADER    06054B50
-0740 Number of this disk   0000
-0742 Central Dir Disk no   0000
-0744 Entries in this disk  0005
-0746 Total Entries         0005
-0748 Size of Central Dir   000002DF
-074C Offset to Central Dir 0000045D
-0750 Comment Length        0000
+073C END CENTRAL HEADER    101010256 (0x6054B50)
+0740 Number of this disk   0 (0x0)
+0742 Central Dir Disk no   0 (0x0)
+0744 Entries in this disk  5 (0x5)
+0746 Total Entries         5 (0x5)
+0748 Size of Central Dir   735 (0x2DF)
+074C Offset to Central Dir 1117 (0x45D)
+0750 Comment Length        0 (0x0)
 #
 # Done

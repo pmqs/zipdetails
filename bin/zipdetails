@@ -27,7 +27,7 @@ use Encode;
 use Getopt::Long;
 use List::Util qw(min max);
 
-my $VERSION = "3.002" ;
+my $VERSION = "3.004" ;
 
 sub fatal_tryWalk;
 sub fatal_truncated ;
@@ -38,6 +38,7 @@ sub fatal ;
 sub topLevelFatal ;
 sub internalFatal;
 sub need ;
+sub decimalHex;
 
 use constant MAX32 => 0xFFFFFFFF ;
 use constant MAX16 => 0xFFFF ;
@@ -443,6 +444,10 @@ sub setupFormat
     my $width = '@' . ('>' x ($nibbles -1));
     my $space = " " x length($width);
 
+    # See https://github.com/Perl/perl5/issues/14255 for issue with "^*" in perl < 5.22
+    # my $rightColumn = "^*" ;
+    my $rightColumn = "^" . ("<" x 132);
+
     # Fill mode can split on space or newline chars
     # Spliting on hyphen works differently from Perl 5.20 onwards
     $: = " \n";
@@ -452,17 +457,17 @@ sub setupFormat
     if ($wantVerbose) {
 
         eval "format $FMT1 =
-$width $width $width ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-\$OFF,     \$ENDS_AT, \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
-$space $space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
-                    \$CONTENT, \$TEXT,               \$VALUE
+$width $width $width ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< $rightColumn
+\$OFF,     \$ENDS_AT, \$LENGTH,  \$CONTENT, \$TEXT,    \$VALUE
+$space $space $space ^<<<<<<<<<<<^<<<<<<<<<<<<<<<<<<<< $rightColumn~~
+                    \$CONTENT, \$TEXT,                 \$VALUE
 .
 ";
 
         eval "format $FMT2 =
-$width $width $width ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$width $width $width ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< $rightColumn
 \$OFF,     \$ENDS_AT, \$LENGTH,  \$CONTENT, \$TEXT,               \$VALUE
-$space $space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+$space $space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< $rightColumn~~
               \$CONTENT, \$TEXT,               \$VALUE
 .
 ";
@@ -470,17 +475,17 @@ $space $space $space ^<<<<<<<<<<<  ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<
     }
     else {
         eval "format $FMT1 =
-$width ^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$width ^<<<<<<<<<<<<<<<<<<<< $rightColumn
 \$OFF,      \$TEXT,               \$VALUE
-$space ^<<<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+$space ^<<<<<<<<<<<<<<<<<<<< $rightColumn~~
                     \$TEXT,               \$VALUE
 .
 ";
 
         eval "format $FMT2 =
-$width   ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$width   ^<<<<<<<<<<<<<<<<<< $rightColumn
 \$OFF,     \$TEXT,               \$VALUE
-$space   ^<<<<<<<<<<<<<<<<<< ^<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+$space   ^<<<<<<<<<<<<<<<<<< $rightColumn~~
                     \$TEXT,               \$VALUE
 .
 "
@@ -524,6 +529,20 @@ sub hexDump
     return $out;
 }
 
+sub hexDump16
+{
+    my $input = shift;
+
+    my $out = unpack('H*', $input) ;
+    $out =~ s#(.{32})#$1\n#g ;
+    $out =~ s#(..)# $1#g ;
+    $out =~ s/^ //mg;
+    $out =~ s/\n/\r/g;
+    $out = uc $out;
+
+    return $out;
+}
+
 sub charDump
 {
     sprintf "%v04X", $_[0];
@@ -561,10 +580,15 @@ sub outHexdump
     # else
     {
         myRead(my $payload, $size);
-        out($payload, $text, hexDump($payload));
+        out($payload, $text, hexDump16($payload));
     }
 
     return $size;
+}
+
+sub decimalHex
+{
+    sprintf("%u (0x%X)", $_[0], $_[0])
 }
 
 sub out
@@ -646,21 +670,24 @@ sub out2
     $lastWasMessage = 0;
 }
 
+
 sub Value
 {
     my $letter = shift;
     my @value = @_;
 
-    if ($letter eq 'C')
-      { return Value_C(@value) }
-    elsif ($letter eq 'v')
-      { return Value_v(@value) }
-    elsif ($letter eq 'V')
-      { return Value_V(@value) }
-    elsif ($letter eq 'Q<')
-      { return Value_Q(@value) }
-    else
-      { internalFatal undef, "here letter $letter"}
+    return decimalHex( $_[0]);
+
+    # if ($letter eq 'C')
+    #   { return Value_C(@value) }
+    # elsif ($letter eq 'v')
+    #   { return Value_v(@value) }
+    # elsif ($letter eq 'V')
+    #   { return Value_V(@value) }
+    # elsif ($letter eq 'Q<')
+    #   { return Value_Q(@value) }
+    # else
+    #   { internalFatal undef, "here letter $letter"}
 }
 
 sub outer
@@ -775,7 +802,8 @@ sub unpackValue_C
 
 sub Value_C
 {
-    sprintf "%02X", $_[0];
+    return decimalHex( $_[0]);
+    # sprintf "%02X", $_[0];
 }
 
 
@@ -786,7 +814,8 @@ sub unpackValue_v
 
 sub Value_v
 {
-    sprintf "%04X", $_[0];
+    return decimalHex( $_[0]);
+    # sprintf "%04X", $_[0];
 }
 
 sub unpackValue_V
@@ -796,8 +825,9 @@ sub unpackValue_V
 
 sub Value_V
 {
-    my $v = defined $_[0] ? $_[0] : 0;
-    sprintf "%08X", $v;
+    return decimalHex( $_[0] // 0);
+    # my $v = defined $_[0] ? $_[0] : 0;
+    # sprintf "%08X", $v;
 }
 
 sub unpackValue_Q
@@ -808,8 +838,9 @@ sub unpackValue_Q
 
 sub Value_Q
 {
-    my $v = shift ;
-    sprintf "%016X", $v;
+    return decimalHex( $_[0]);
+    # my $v = shift ;
+    # sprintf "%016X", $v;
 }
 
 sub read_Q
@@ -869,7 +900,6 @@ sub deltaToNextSignature
     my $got = scanForSignature(1);
 
     my $delta = $FH->tell() - $start ;
-        # say sprintf "GOT %X %X", $start, $FH->tell();
     seekTo($start);
 
     if ($got)
@@ -1129,7 +1159,7 @@ if ($opt_scan || $opt_walk)
                 reportPrefixData($delta)
                     if $lastEndsAt == 0 ;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info  $FH->tell() - $delta, hexValue($delta) . " Unexpected Padding bytes"
+                info  $FH->tell() - $delta, decimalHex($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $POSSIBLE_PREFIX_DELTA = $delta
                     if $lastEndsAt ==  0;
@@ -1208,7 +1238,7 @@ else
         if ($here >= $TRAILING) {
             my $delta = $FILELEN - $TRAILING;
             outSomeDataParagraph($delta, "TRAILING DATA");
-            info  $FH->tell(), "Unexpected Trailing Data: " . hexValue($delta) . " bytes";
+            info  $FH->tell(), "Unexpected Trailing Data: " . decimalHex($delta) . " bytes";
 
             last;
         }
@@ -1307,7 +1337,7 @@ else
                 reportPrefixData($delta)
                     if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info  $FH->tell() - $delta, hexValue($delta) . " Unexpected Padding bytes"
+                info  $FH->tell() - $delta, decimalHex($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $HeaderOffsetIndex->rewindIndex();
                 next;
@@ -1364,7 +1394,7 @@ else
             # }
             # else
             {
-                fatal $here, sprintf "Unexpected Zip Signature '%s' at offset 0x%08X", Value_V($signature), $here ;
+                fatal $here, sprintf "Unexpected Zip Signature '%s' at offset %s", Value_V($signature), decimalHex($here) ;
                 last;
             }
         }
@@ -1515,11 +1545,11 @@ sub dislayMessages
                     my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
                     if ($localEntry)
                     {
-                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . hexValue($offset);
+                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex($offset);
                     }
                     else
                     {
-                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . hexValue($offset);
+                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . decimalHex($offset);
                     }
 
                     my $ow = max length("Offset"),
@@ -1581,12 +1611,12 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $nested{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for filename '" . $outerEntry->filename . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
+                    say "Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex($loc) .  "  has $count nested Local Headers";
                     for my $n ( @{ $nested{$loc} } )
                     {
                         my $innerEntry = $LocalDirectory->getByLocalOffset($n);
 
-                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . hexValue($n)  ;
+                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . decimalHex($n)  ;
                     }
                 }
             }
@@ -1602,7 +1632,7 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "# Local Header for filename '" . $outerEntry->filename . "' at offset " . hexValue($loc) .  "  has $count nested Local Headers";
+                    say "# Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex($loc) .  "  has $count nested Local Headers";
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_ }
@@ -1878,9 +1908,8 @@ sub LocalHeader
     my $locHeaderOffset = $FH->tell() -4 ;
 
     ++ $LocalHeaderCount;
-    my $hexHdrCount = sprintf("%X", $LocalHeaderCount) ;
     print "\n";
-    out $data, "LOCAL HEADER #$hexHdrCount" , Value_V($signature);
+    out $data, "LOCAL HEADER #$LocalHeaderCount" , Value_V($signature);
 
     need 26, Signatures::name($signature);
 
@@ -1929,7 +1958,7 @@ sub LocalHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2079,7 +2108,7 @@ sub LocalHeader
             outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
             my $auth ;
             myRead($auth, 10);
-            out $auth, "AES Auth",  hexDump($auth);
+            out $auth, "AES Auth",  hexDump16($auth);
         }
         else {
             outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
@@ -2316,10 +2345,9 @@ sub CentralHeader
     my $cdEntryOffset = $FH->tell() - 4 ;
 
     ++ $CentralHeaderCount;
-    my $hexHdrCount = sprintf("%X", $CentralHeaderCount) ;
 
     print "\n";
-    out $data, "CENTRAL HEADER #$hexHdrCount", Value_V($signature);
+    out $data, "CENTRAL HEADER #$CentralHeaderCount", Value_V($signature);
     my $buffer;
 
     need 42, Signatures::name($signature);
@@ -2337,7 +2365,7 @@ sub CentralHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2622,7 +2650,7 @@ sub Zip64EndCentralHeader
 
         my ($bcm, $compressedMethod) = read_v();
         out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . hexValue16($compressedMethod)
+        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
             if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
         out_Q "Compressed Length";
         out_Q "Uncompressed Length";
@@ -2791,7 +2819,7 @@ sub EndCentralHeader
         {
             error $here,
                   "file truncated while reading 'Comment' field in '" . Signatures::name($signature) . "'",
-                  sprintf("Expected 0x%X bytes, but only 0x%X available", $comment_length, $available) ;
+                  "Expected " . decimalHex($comment_length) . " bytes, but only " . decimalHex($available) . " available" ;
             $comment_length = $available;
         }
 
@@ -3005,7 +3033,7 @@ sub DigitalSignature
 
 
     myRead(my $payload, $Size);
-    out $payload, "Signature", hexDump($payload);
+    out $payload, "Signature", hexDump16($payload);
 
     return {};
 }
@@ -3187,10 +3215,10 @@ sub offsetIsValid
     $offset += $PREFIX_DELTA
         if $PREFIX_DELTA ;
 
-    return sprintf("value 0x%X is 0x%X bytes past EOF", $offset, $delta)
+    return sprintf("value %s is %s bytes past EOF", decimalHex($offset), decimalHex($delta))
         if $delta > 0 ;
 
-    return sprintf "value %s must be less that %s", hexValue($offset), hexValue($headerStart)
+    return sprintf "value %s must be less that %s", decimalHex($offset), decimalHex($headerStart)
         if $must_point_back && $offset >= $headerStart;
 
     if ($dereferencePointer)
@@ -3426,7 +3454,7 @@ sub reportPrefixData
     state $reported = 0;
     return if $reported || $delta == 0;
 
-    info 0, "found " . hexValue($delta) . " bytes before beginning of zipfile" ;
+    info 0, "found " . decimalHex($delta) . " bytes before beginning of zipfile" ;
     $reported = 1;
 }
 
@@ -3499,7 +3527,7 @@ sub walkExtra
             {
                 # All nulls
                 out $payload, "Null Padding in Extra";
-                info $FH->tell() - length($payload), hexValue(length $payload) . " Null Padding Bytes in Extra Field" ;
+                info $FH->tell() - length($payload), decimalHex(length $payload) . " Null Padding Bytes in Extra Field" ;
             }
             else
             {
@@ -3523,7 +3551,7 @@ sub walkExtra
             {
                 my $len = length ($id . $rest) ;
                 out $id . $rest, "Null Padding in Extra";
-                info $FH->tell() - $len, hexValue($len) . " Null Padding Bytes in Extra Field";
+                info $FH->tell() - $len, decimalHex($len) . " Null Padding Bytes in Extra Field";
                 return undef;
             }
 
@@ -3535,8 +3563,8 @@ sub walkExtra
         $who = "'$who'" if $who ;
         my $idString =  Value_v($lookID) . " $who" ;
 
-        out $id, "Extra ID #" . Value_v($count), $idString ;
-        info $FH->tell() - 2, "Unknown Extra ID " . hexValue16($lookID)
+        out $id, "Extra ID #$count", $idString ;
+        info $FH->tell() - 2, "Unknown Extra ID $idString"
             if ! exists $Extras{$lookID} ;
 
         myRead($buff, ZIP_EXTRA_SUBFIELD_LEN_SIZE);
@@ -3550,7 +3578,7 @@ sub walkExtra
         {
             error $FH->tell() -2,
                   extraFieldIdentifier($lookID) . ": 'Length' field invalid",
-                  sprintf("value %s > %s bytes remaining", hexValue($subLen), hexValue($remaining));
+                  sprintf("value %s > %s bytes remaining", decimalHex($subLen), decimalHex($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -3560,7 +3588,7 @@ sub walkExtra
             if ($subLen)
             {
                 myRead($payload, $subLen);
-                my $data = hexDump($payload);
+                my $data = hexDump16($payload);
 
                 out2 $payload, "Extra Payload", $data;
             }
@@ -3581,14 +3609,14 @@ sub walkExtra
                 {
                     # gone too far, so need to bomb out now
                     internalFatal $here, "Overflow processing " . extraFieldIdentifier($lookID) . ".",
-                                  sprintf("Should be at offset %s, actually at %s", hexValue($endExtraOffset),  hexValue($here));
+                                  sprintf("Should be at offset %s, actually at %s", decimalHex($endExtraOffset),  decimalHex($here));
                 }
                 elsif ($here < $endExtraOffset)
                 {
                     # not gone far enough, can recover
                     error $here,
-                            sprintf("Expected to be at offset %s after processing %s, actually at %s", hexValue($endExtraOffset),  extraFieldIdentifier($lookID), hexValue($here)),
-                            "Skipping " . hexValue($endExtraOffset - $here) . " bytes";
+                            sprintf("Expected to be at offset %s after processing %s, actually at %s", decimalHex($endExtraOffset),  extraFieldIdentifier($lookID), decimalHex($here)),
+                            "Skipping " . decimalHex($endExtraOffset - $here) . " bytes";
                     outSomeData $endExtraOffset - $here, "  Extra Data";
                 }
             }
@@ -3622,7 +3650,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s", extraFieldIdentifier($lookID), decimalHex($min),  decimalHex($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -3631,7 +3659,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), hexValue($min), hexValue($max), hexValue($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), decimalHex($min), decimalHex($max), decimalHex($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -3642,7 +3670,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s", extraFieldIdentifier($lookID), hexValue($min),  hexValue($size);
+            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s", extraFieldIdentifier($lookID), decimalHex($min),  decimalHex($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }
@@ -3707,7 +3735,7 @@ sub walk_Zip64_in_LD
         # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Uncompressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Uncompressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3724,7 +3752,7 @@ sub walk_Zip64_in_LD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Compressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Compressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3765,8 +3793,8 @@ sub walk_Zip64_in_LD
     {
         if ($display)
         {
-            out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
-            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
+            out2 $zip64Extended, "Unexpected Data", hexDump16 $zip64Extended ;
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex(length $zip64Extended) . " bytes";
         }
     }
 
@@ -3797,7 +3825,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Uncompressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Uncompressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3814,7 +3842,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Compressed Size': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Compressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3832,7 +3860,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Offset to Local Dir': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Offset to Local Dir': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3854,7 +3882,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 4)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected 0x4 bytes for 'Disk Number': only " . hexValue(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(4) . " bytes for 'Disk Number': only " . decimalHex(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3874,8 +3902,8 @@ sub walk_Zip64_in_CD
     {
         if ($display)
         {
-            out2 $zip64Extended, "Unexpected Data", hexDump $zip64Extended ;
-            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . hexValue(length $zip64Extended) . " bytes";
+            out2 $zip64Extended, "Unexpected Data", hexDump16 $zip64Extended ;
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex(length $zip64Extended) . " bytes";
         }
     }
 }
@@ -3944,7 +3972,7 @@ sub OpenVMS_DumpBytes
 
     myRead(my $data, $size);
 
-    out($data, "    Attribute", hexDump($data));
+    out($data, "    Attribute", hexDump16($data));
 
 }
 
@@ -4059,8 +4087,7 @@ sub decode_OpenVMS
             ($tagname, $decoder) = @{ $openVMS_tags->{$tag} } ;
         }
 
-        my $ixt = Value_v $ix;
-        out2 $data,  "Tag# $ixt", Value_v($tag) . " '" . $tagname . "'" ;
+        out2 $data,  "Tag #$ix", Value_v($tag) . " '" . $tagname . "'" ;
         my $size = out_v "    Size";
 
         if (defined $decoder)
@@ -4134,7 +4161,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
-        warning $FH->tell(), "'Last Mod Time' value " . hexValue32($dt).  "  decodes to '$dosDecode': not a valid DOS date/time" ;
+        warning $FH->tell(), "'Last Mod Time' value " . decimalHex($dt) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 
@@ -4165,12 +4192,15 @@ sub decode_UT
 
     my ($data, $flags) = read_C();
 
-    my $f = Value_C $flags;
-    $f .= " mod"    if $flags & 1;
-    $f .= " access" if $flags & 2;
-    $f .= " change" if $flags & 4;
+    my $v = Value_C $flags;
+    my @f ;
+    push @f, "mod"    if $flags & 1;
+    push @f, "access" if $flags & 2;
+    push @f, "change" if $flags & 4;
+    $v .= " '" . join(' ', @f) . "'"
+        if @f;
 
-    out $data, "  Flags", "'$f'";
+    out $data, "  Flags", $v;
 
     info $FH->tell() - 1, extraFieldIdentifier($extraID) . ": Reserved bits set in 'Flags' field"
         if $flags & ~0x7;
@@ -4195,7 +4225,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) .  ": Truncated reading 'Mod Time'",
-                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
+                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
                 return;
             }
 
@@ -4225,7 +4255,8 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Access Time'" ,
-                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes" ;
+                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
+
                 return;
             }
 
@@ -4253,7 +4284,8 @@ sub decode_UT
 
                 error  $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Change Time'" ,
-                    "Expected 0x4 bytes, got " .  hexValue($remaining) . " bytes";
+                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
+
                 return;
             }
 
@@ -4334,7 +4366,7 @@ sub decode_Minizip_Hash
         # error $fieldOffset, $message;
         # out2 $zip64Extended, $message;
 
-        error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . hexValue($digestSize) . " > bytes remaining (" . hexValue($remaining) . ") in extra field" ;
+        error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . decimalHex($digestSize) . " >  " . decimalHex($remaining) . " bytes remaining in extra field" ;
         $digestSize = $remaining ;
     }
 
@@ -4345,7 +4377,7 @@ sub decode_Minizip_Hash
     if ($remaining)
     {
         outHexdump($remaining, "  Unexpected Data");
-        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . hexValue($remaining) . " unexpected trailing bytes" ;
+        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . decimalHex($remaining) . " unexpected trailing bytes" ;
     }
 }
 
@@ -4415,7 +4447,7 @@ sub decode_AES
     if (! defined $ZIP_CompressionMethods{$method})
     {
         $validAES = 0;
-        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . hexValue16($method)
+        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . decimalHex($method)
     }
 
     $entry->aesStrength = $strength ;
@@ -4464,7 +4496,7 @@ sub decode_GrowthHint
 
     my $padding;
     myRead($padding, $len - 4);
-    my $data = hexDump($padding);
+    my $data = hexDump16($padding);
 
     out2 $padding, "Padding", $data;
 
@@ -4504,7 +4536,7 @@ sub decode_DataStreamAlignment
         my $padding;
         myRead($padding, $len - 2);
 
-        out2 $padding, "Padding", hexDump($padding);
+        out2 $padding, "Padding", hexDump16($padding);
     }
 }
 
@@ -4583,7 +4615,7 @@ sub decode_ux
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
-    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be 0x1, got " . hexValue($version)
+    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be " . decimalHex(1) . ", got " . decimalHex($version)
         if $version != 1 ;
 
     my $available = $len - 1 ;
@@ -4598,7 +4630,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                 extraFieldIdentifier($extraID) . ": truncated reading 'UID'",
-                "Expected " . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
+                "Expected " . decimalHex($uidSize) . " bytes, got " .  decimalHex($available) . " bytes";
             return;
         }
 
@@ -4611,7 +4643,7 @@ sub decode_ux
     {
         error $FH->tell(),
                     extraFieldIdentifier($extraID) . ": truncated reading 'GID Size'",
-                    "Expected 0x01" . hexValue($uidSize) . " bytes, got " .  hexValue($available) . " bytes";
+                    "Expected " . decimalHex($uidSize) . " bytes, got " .  decimalHex($available) . " bytes";
         return ;
     }
 
@@ -4624,7 +4656,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                         extraFieldIdentifier($extraID) . ": truncated reading 'GID'",
-                        "Expected " . hexValue($gidSize) . " bytes, got " .  hexValue($available) . " bytes";
+                        "Expected " . decimalHex($gidSize) . " bytes, got " .  decimalHex($available) . " bytes";
             return;
         }
 
@@ -4694,8 +4726,7 @@ sub decode_Xceed_unicode
     # which uses this field
 
     # First 4 bytes appear to be "NUCX" all the time
-    myRead($data, 4);
-    out $data, "  ID", $data;
+    out_V "  ID";
 
     # Next 2 bytes contains a count of the remaining bytes/2
     # Probably the number of UTF-16 characters, including the
@@ -4739,8 +4770,7 @@ sub decode_NT_security
         out_V "  CRC" ;
 
         my $plen = $len - 4 - 1 - 2 - 4;
-        myRead(my $payload, $plen);
-        out $payload, "  Extra Payload", hexDump($payload);
+        outHexdump $plen, "  Extra Payload";
     }
 }
 
@@ -4761,7 +4791,7 @@ sub decode_MVS
         out($d, "  ID", "'Z390'");
     }
 
-    out($data, "  Extra Payload", hexDump($data));
+    out($data, "  Extra Payload", hexDump16($data));
 }
 
 sub decode_strong_encryption
@@ -4817,7 +4847,7 @@ sub decode_strong_encryption
         for (0 .. $recipients-1)
         {
             myRead(my $payload, $HSize);
-            my $data = hexDump($payload);
+            my $data = hexDump16($payload);
 
             out2 $payload, sprintf("Key #%X", $ix), $data;
             ++ $ix;
@@ -4842,9 +4872,9 @@ sub printAes
                     );
 
     myRead(my $salt, $saltSize{$entry->aesStrength } // 0);
-    out $salt, "AES Salt", hexDump($salt);
+    out $salt, "AES Salt", hexDump16($salt);
     myRead(my $pwv, 2);
-    out $pwv, "AES Pwd Ver", hexDump($pwv);
+    out $pwv, "AES Pwd Ver", hexDump16($pwv);
 
     return  $saltSize{$entry->aesStrength} + 2 + 10;
 }
@@ -5874,8 +5904,8 @@ sub nibbles
             {
                 ::error $CentralDirectoryOffset,
                         "Duplicate Central Directory entries for filename '$filename'",
-                        "New Central Directory entry is at offset " . ::hexValue($CentralDirectoryOffset),
-                        "Existing Central Directory entry is at offset " . ::hexValue($self->{byName}{$filename}{centralHeaderOffset});
+                        "New Central Directory entry is at offset " . ::decimalHex($CentralDirectoryOffset),
+                        "Existing Central Directory entry is at offset " . ::decimalHex($self->{byName}{$filename}{centralHeaderOffset});
             }
 
             # not strictly illegal to have duplicate filename, so save this one
@@ -6196,8 +6226,8 @@ sub nibbles
         if ($existingEntry)
         {
             ::error $localEntry->localHeaderOffset(),
-                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::hexValue($localEntry->localHeaderOffset) ,
-                    "Existing Local Directory entry is at offset " . ::hexValue($existingEntry->localHeaderOffset)
+                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::decimalHex($localEntry->localHeaderOffset) ,
+                    "Existing Local Directory entry is at offset " . ::decimalHex($existingEntry->localHeaderOffset)
         }
 
         # keep nested local entries for zipbomb deteection
@@ -6332,7 +6362,7 @@ sub displayFileInfo
 
     info undef,
         "Filename       : '$filename'",
-        "Size           : " . (-s $filename) . " (" . hexValue(-s $filename) . ")",
+        "Size           : " . (-s $filename) . " (" . decimalHex(-s $filename) . ")",
         # "Native Encoding: '" . TextEncoding::getNativeLocaleName() . "'",
 }
 
@@ -6648,59 +6678,55 @@ at hand to help understand the output from this program.
 =head2 Default Behaviour
 
 By default the program expects to be given a well-formed zip file.  It will
-navigate the Zip file by first parsing the zip central directory at the end
-of the file.  If the central directory is found, it will then walk
-sequentally through the zip records starting at the beginning of the file.
-Badly formed zip data structures encountered are likely to terminate the
-program. if you do encounter an unexpected termination please report it
-(see L<"SUPPORT">).
+navigate the Zip file by first parsing the zip central directory at the end of
+the file.  If the central directory is found, it will then walk sequentally
+through the zip records starting at the beginning of the file.  Badly formed zip
+data structures encountered are likely to terminate the program. if you do
+encounter an unexpected termination please report it (see L<"SUPPORT">).
 
-If the program finds any structural problems with the zip file it will
-print a summary at the end of the output report. The set of error cases
-reported is a work in progress, so don't rely on this feature to
-find all the possible errors in a zip file. If you have suggestions for
-use-cases where this could be enhanced please consider creating an
-enhancement request (see L<"SUPPORT">).
+If the program finds any structural problems with the zip file it will print a
+summary at the end of the output report. The set of error cases reported is a
+work in progress, so don't rely on this feature to find all the possible errors
+in a zip file. If you have suggestions for use-cases where this could be
+enhanced please consider creating an enhancement request (see L<"SUPPORT">).
 
 Date/time fields found in zip files are displayed in local time. Use the
-C<--utc> option to display these fields in Coordinated Universal Time
-(UTC).
+C<--utc> option to display these fields in Coordinated Universal Time (UTC).
 
 =head2 Analysis of corrupt or non-standard zip files
 
 If you have a corrupt or non-standard zip file, particulatly one where the
-central directory metadata at the end of the file is absent/incomplete, you
-can use either the C<--walk> option or the C<--scan> option to search for
-any zip metadata that is still present in the file.
+central directory metadata at the end of the file is absent/incomplete, you can
+use either the C<--walk> option or the C<--scan> option to search for any zip
+metadata that is still present in the file.
 
-When either of these options is enabled, this program will bypass the
-initial step of reading the central directory at the end of the file and
-simply scan the zip file sequentially from the start of the file looking
-for zip metedata records. Although this can be error prone, for the most
-part it will find any zip file metadata that is still present in the file.
+When either of these options is enabled, this program will bypass the initial
+step of reading the central directory at the end of the file and simply scan the
+zip file sequentially from the start of the file looking for zip metedata
+records. Although this can be error prone, for the most part it will find any
+zip file metadata that is still present in the file.
 
-The difference between the two options is how aggressive the sequential
-scan is: C<--walk> is optimistic, while C<--scan> is pessimistic.
+The difference between the two options is how aggressive the sequential scan is:
+C<--walk> is optimistic, while C<--scan> is pessimistic.
 
-To understand the difference in more detail you need to know a bit about
-how zip file metadata is structured. Under the hood, a zip file uses a
-series of 4-byte signatures to flag the start of a each of the metadata
-records it uses. When the C<--walk> or the C<--scan> option is enabled both
-work identically by scanning the file from the beginning looking for any
-the of these valid 4-byte metadata signatures. When a 4-byte signature is
-found both options will blindly assume that it has found a vald metadata
-record and display it.
+To understand the difference in more detail you need to know a bit about how zip
+file metadata is structured. Under the hood, a zip file uses a series of 4-byte
+signatures to flag the start of a each of the metadata records it uses. When the
+C<--walk> or the C<--scan> option is enabled both work identically by scanning
+the file from the beginning looking for any the of these valid 4-byte metadata
+signatures. When a 4-byte signature is found both options will blindly assume
+that it has found a vald metadata record and display it.
 
-In the case of the C<--walk> option it optimistically assumes that it has
-found a real zip metatada record and so starts the scan for the next record
-directly after the record it has just output.
+In the case of the C<--walk> option it optimistically assumes that it has found
+a real zip metatada record and so starts the scan for the next record directly
+after the record it has just output.
 
-The C<--scan> option is pessimistic and assumes the 4-byte signature
-sequence may have been a false-positive, so before starting the scan for
-the next resord, it will rewind to the location in the file directly after
-the 4-byte sequecce it just processed. This means it will rescan data that
-has already been processed. For very lage zip files the C<--scan> option
-can be really realy slow, so  trying the C<--walk> option first.
+The C<--scan> option is pessimistic and assumes the 4-byte signature sequence
+may have been a false-positive, so before starting the scan for the next resord,
+it will rewind to the location in the file directly after the 4-byte sequecce it
+just processed. This means it will rescan data that has already been processed.
+For very lage zip files the C<--scan> option can be really realy slow, so
+trying the C<--walk> option first.
 
 If the zip file being processed contains one or more nested zip files, and the
 outer zip file uses the C<STORE> compression method, the C<--scan> option will
@@ -6828,7 +6854,8 @@ Bitmask values are: 1 for info, 2 for warning and 4 for error.
 
 =head2 Default Output
 
-By default C<zipdetails> will output the details of the zip file in three columns.
+By default C<zipdetails> will output the details of each field in the zip file
+in three columns.
 
 =over 5
 
@@ -6843,13 +6870,34 @@ The name of the field.
 
 =item 3
 
-Information about the contents of the field.
+Detailed information about the contents of the field. The format depends on the
+type of data:
 
-If the field contains a numeric value it will be displayed in hex. Zip files
-store most numbers in I<little-endian> - the value displayed will have the
-I<little-endian> encoding removed.
+=over 5
+
+=item * Numeric Values
+
+If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
+be displayed in both decimal and hex -- for example "C<42 (0x2A)>".
+
+Note that Zip files store most numeric values in I<little-endian> encoding.
+(there area few rare instances where I<big-endian> is used). The value read from
+the zip file will have the I<endian> encoding removed before being displayed.
 
 Next, is an optional description of what the value means.
+
+=item * String
+
+If the field corresponds to a printable string, it will be output enclosed in
+single quotes.
+
+=item * Binary Data
+
+The term I<Binary Data> is just a catch-all for all other metadata in the zip
+file. This data is displayed as a series of ascii-hex byte values in the same
+order they are stored in the zip file.
+
+=back
 
 =back
 
@@ -6859,59 +6907,61 @@ For example, assuming you have a zip file, C<test,zip>, with one entry
     Archive:  test.zip
     Length      Date    Time    Name
     ---------  ---------- -----   ----
-        16133  2023-02-21 16:42   file1.txt
+        446  2023-03-22 20:03   lorem.txt
     ---------                     -------
-        16133                     1 file
+        446                     1 file
 
 Running C<zipdetails> will gives this output
 
     $ zipdetails test.zip
 
-    0000 LOCAL HEADER #1       04034B50
-    0004 Extract Zip Spec      14 '2.0'
-    0005 Extract OS            00 'MS-DOS'
-    0006 General Purpose Flag  0000
+    0000 LOCAL HEADER #1       67324752 (0x4034B50)
+    0004 Extract Zip Spec      20 (0x14) '2.0'
+    0005 Extract OS            0 (0x0) 'MS-DOS'
+    0006 General Purpose Flag  0 (0x0)
          [Bits 1-2]            0 'Normal Compression'
-    0008 Compression Method    0008 'Deflated'
-    000A Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
-    000E CRC                   6A7EF2E1
-    0012 Compressed Length     000011E1
-    0016 Uncompressed Length   00003F05
-    001A Filename Length       0009
-    001C Extra Length          0000
-    001E Filename              'file1.txt'
+    0008 Compression Method    8 (0x8) 'Deflated'
+    000A Last Mod Time         1450614898 (0x5676A072) 'Wed Mar 22 20:03:36 2023'
+    000E CRC                   4178503679 (0xF90EE7FF)
+    0012 Compressed Length     270 (0x10E)
+    0016 Uncompressed Length   446 (0x1BE)
+    001A Filename Length       9 (0x9)
+    001C Extra Length          0 (0x0)
+    001E Filename              'lorem.txt'
     0027 PAYLOAD
 
-    1208 CENTRAL HEADER #1     02014B50
-    120C Created Zip Spec      1E '3.0'
-    120D Created OS            03 'Unix'
-    120E Extract Zip Spec      14 '2.0'
-    120F Extract OS            00 'MS-DOS'
-    1210 General Purpose Flag  0000
+    0135 CENTRAL HEADER #1     33639248 (0x2014B50)
+    0139 Created Zip Spec      30 (0x1E) '3.0'
+    013A Created OS            3 (0x3) 'Unix'
+    013B Extract Zip Spec      20 (0x14) '2.0'
+    013C Extract OS            0 (0x0) 'MS-DOS'
+    013D General Purpose Flag  0 (0x0)
          [Bits 1-2]            0 'Normal Compression'
-    1212 Compression Method    0008 'Deflated'
-    1214 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
-    1218 CRC                   6A7EF2E1
-    121C Compressed Length     000011E1
-    1220 Uncompressed Length   00003F05
-    1224 Filename Length       0009
-    1226 Extra Length          0000
-    1228 Comment Length        0000
-    122A Disk Start            0000
-    122C Int File Attributes   0001
-         [Bit 0]               1 Text Data
-    122E Ext File Attributes   81A40000
-    1232 Local Header Offset   00000000
-    1236 Filename              'file1.txt'
+    013F Compression Method    8 (0x8) 'Deflated'
+    0141 Last Mod Time         1450614898 (0x5676A072) 'Wed Mar 22 20:03:36 2023'
+    0145 CRC                   4178503679 (0xF90EE7FF)
+    0149 Compressed Length     270 (0x10E)
+    014D Uncompressed Length   446 (0x1BE)
+    0151 Filename Length       9 (0x9)
+    0153 Extra Length          0 (0x0)
+    0155 Comment Length        0 (0x0)
+    0157 Disk Start            0 (0x0)
+    0159 Int File Attributes   1 (0x1)
+         [Bit 0]               1 'Text Data'
+    015B Ext File Attributes   2179792896 (0x81ED0000)
+         [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+         [Bits 28-31]          8 (0x8) 'Regular File'
+    015F Local Header Offset   0 (0x0)
+    0163 Filename              'lorem.txt'
 
-    123F END CENTRAL HEADER    06054B50
-    1243 Number of this disk   0000
-    1245 Central Dir Disk no   0000
-    1247 Entries in this disk  0001
-    1249 Total Entries         0001
-    124B Size of Central Dir   00000037
-    124F Offset to Central Dir 00001208
-    1253 Comment Length        0000
+    016C END CENTRAL HEADER    101010256 (0x6054B50)
+    0170 Number of this disk   0 (0x0)
+    0172 Central Dir Disk no   0 (0x0)
+    0174 Entries in this disk  1 (0x1)
+    0176 Total Entries         1 (0x1)
+    0178 Size of Central Dir   55 (0x37)
+    017C Offset to Central Dir 309 (0x135)
+    0180 Comment Length        0 (0x0)
     #
     # Done
 
@@ -6947,69 +6997,67 @@ A textual description of the field.
 
 =item 6
 
-Information about the contents of the field.
-
-If the field contains a numeric value it will be displayed in hex. Zip files
-store most numbers in I<little-endian> - the value displayed will have the
-I<little-endian> encoding removed.
-
-Next, is an optional description of what the value means.
+Information about the contents of the field. See the description in the
+L<Default Output> for more details.
 
 =back
 
-Here is the same zip file, C<test.zip>, dumped using the C<zipdetails> C<-v> option:
+Here is the same zip file, C<test.zip>, dumped using the C<zipdetails> C<-v>
+option:
 
     $ zipdetails -v test.zip
 
-    0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-    0004 0004 0001 14          Extract Zip Spec      14 '2.0'
-    0005 0005 0001 00          Extract OS            00 'MS-DOS'
-    0006 0007 0002 00 00       General Purpose Flag  0000
+    0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+    0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+    0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+    0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
                                [Bits 1-2]            0 'Normal Compression'
-    0008 0009 0002 08 00       Compression Method    0008 'Deflated'
-    000A 000D 0004 40 85 55 56 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
-    000E 0011 0004 E1 F2 7E 6A CRC                   6A7EF2E1
-    0012 0015 0004 E1 11 00 00 Compressed Length     000011E1
-    0016 0019 0004 05 3F 00 00 Uncompressed Length   00003F05
-    001A 001B 0002 09 00       Filename Length       0009
-    001C 001D 0002 00 00       Extra Length          0000
-    001E 0026 0009 66 69 6C 65 Filename              'file1.txt'
-                   31 2E 74 78
+    0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+    000A 000D 0004 72 A0 76 56 Last Mod Time         1450614898 (0x5676A072) 'Wed Mar 22 20:03:36 2023'
+    000E 0011 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+    0012 0015 0004 0E 01 00 00 Compressed Length     270 (0x10E)
+    0016 0019 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+    001A 001B 0002 09 00       Filename Length       9 (0x9)
+    001C 001D 0002 00 00       Extra Length          0 (0x0)
+    001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+                   6D 2E 74 78
                    74
-    0027 1207 11E1 ...         PAYLOAD
+    0027 0134 010E ...         PAYLOAD
 
-    1208 120B 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-    120C 120C 0001 1E          Created Zip Spec      1E '3.0'
-    120D 120D 0001 03          Created OS            03 'Unix'
-    120E 120E 0001 14          Extract Zip Spec      14 '2.0'
-    120F 120F 0001 00          Extract OS            00 'MS-DOS'
-    1210 1211 0002 00 00       General Purpose Flag  0000
+    0135 0138 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+    0139 0139 0001 1E          Created Zip Spec      30 (0x1E) '3.0'
+    013A 013A 0001 03          Created OS            3 (0x3) 'Unix'
+    013B 013B 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+    013C 013C 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+    013D 013E 0002 00 00       General Purpose Flag  0 (0x0)
                                [Bits 1-2]            0 'Normal Compression'
-    1212 1213 0002 08 00       Compression Method    0008 'Deflated'
-    1214 1217 0004 40 85 55 56 Last Mod Time         56558540 'Tue Feb 21 16:42:00 2023'
-    1218 121B 0004 E1 F2 7E 6A CRC                   6A7EF2E1
-    121C 121F 0004 E1 11 00 00 Compressed Length     000011E1
-    1220 1223 0004 05 3F 00 00 Uncompressed Length   00003F05
-    1224 1225 0002 09 00       Filename Length       0009
-    1226 1227 0002 00 00       Extra Length          0000
-    1228 1229 0002 00 00       Comment Length        0000
-    122A 122B 0002 00 00       Disk Start            0000
-    122C 122D 0002 01 00       Int File Attributes   0001
-                               [Bit 0]               1 Text Data
-    122E 1231 0004 00 00 A4 81 Ext File Attributes   81A40000
-    1232 1235 0004 00 00 00 00 Local Header Offset   00000000
-    1236 123E 0009 66 69 6C 65 Filename              'file1.txt'
-                   31 2E 74 78
+    013F 0140 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+    0141 0144 0004 72 A0 76 56 Last Mod Time         1450614898 (0x5676A072) 'Wed Mar 22 20:03:36 2023'
+    0145 0148 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+    0149 014C 0004 0E 01 00 00 Compressed Length     270 (0x10E)
+    014D 0150 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+    0151 0152 0002 09 00       Filename Length       9 (0x9)
+    0153 0154 0002 00 00       Extra Length          0 (0x0)
+    0155 0156 0002 00 00       Comment Length        0 (0x0)
+    0157 0158 0002 00 00       Disk Start            0 (0x0)
+    0159 015A 0002 01 00       Int File Attributes   1 (0x1)
+                               [Bit 0]               1 'Text Data'
+    015B 015E 0004 00 00 ED 81 Ext File Attributes   2179792896 (0x81ED0000)
+                               [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+                               [Bits 28-31]          8 (0x8) 'Regular File'
+    015F 0162 0004 00 00 00 00 Local Header Offset   0 (0x0)
+    0163 016B 0009 6C 6F 72 65 Filename              'lorem.txt'
+                   6D 2E 74 78
                    74
 
-    123F 1242 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-    1243 1244 0002 00 00       Number of this disk   0000
-    1245 1246 0002 00 00       Central Dir Disk no   0000
-    1247 1248 0002 01 00       Entries in this disk  0001
-    1249 124A 0002 01 00       Total Entries         0001
-    124B 124E 0004 37 00 00 00 Size of Central Dir   00000037
-    124F 1252 0004 08 12 00 00 Offset to Central Dir 00001208
-    1253 1254 0002 00 00       Comment Length        0000
+    016C 016F 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+    0170 0171 0002 00 00       Number of this disk   0 (0x0)
+    0172 0173 0002 00 00       Central Dir Disk no   0 (0x0)
+    0174 0175 0002 01 00       Entries in this disk  1 (0x1)
+    0176 0177 0002 01 00       Total Entries         1 (0x1)
+    0178 017B 0004 37 00 00 00 Size of Central Dir   55 (0x37)
+    017C 017F 0004 35 01 00 00 Offset to Central Dir 309 (0x135)
+    0180 0181 0002 00 00       Comment Length        0 (0x0)
     #
     # Done
 
@@ -7097,11 +7145,12 @@ An alternative reference is the Info-Zip appnote. This is available from
 L<ftp://ftp.info-zip.org/pub/infozip/doc/>
 
 For details of WinZip AES encryption see L<AES Encryption Information:
-Encryption Specification AE-1 and AE-2|https://www.winzip.com/en/support/aes-encryption/>.
+Encryption Specification AE-1 and
+AE-2|https://www.winzip.com/en/support/aes-encryption/>.
 
 The C<zipinfo> program that comes with the info-zip distribution
-(L<http://www.info-zip.org/>) can also display details of the structure of
-a zip file.
+(L<http://www.info-zip.org/>) can also display details of the structure of a zip
+file.
 
 
 =head1 AUTHOR
@@ -7112,5 +7161,5 @@ Paul Marquess F<pmqs@cpan.org>.
 
 Copyright (c) 2011-2023 Paul Marquess. All rights reserved.
 
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This program is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.

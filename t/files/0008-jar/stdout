@@ -1,154 +1,153 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0808
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         4F27B46B 'Sat Sep  7 22:35:22 2019'
-000E CRC                   00000000
-0012 Compressed Length     00000000
-0016 Uncompressed Length   00000000
-001A Filename Length       0009
-001C Extra Length          0004
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         1328002155 (0x4F27B46B) 'Sat Sep  7 22:35:22 2019'
+000E CRC                   0 (0x0)
+0012 Compressed Length     0 (0x0)
+0016 Uncompressed Length   0 (0x0)
+001A Filename Length       9 (0x9)
+001C Extra Length          4 (0x4)
 001E Filename              'META-INF/'
-0027 Extra ID #0001        CAFE 'Java Executable'
-0029   Length              0000
+0027 Extra ID #1           51966 (0xCAFE) 'Java Executable'
+0029   Length              0 (0x0)
 002B PAYLOAD               ..
 
-002D DATA DESCRIPTOR       08074B50
-0031 CRC                   00000000
-0035 Compressed Length     00000002
-0039 Uncompressed Length   00000000
+002D DATA DESCRIPTOR       134695760 (0x8074B50)
+0031 CRC                   0 (0x0)
+0035 Compressed Length     2 (0x2)
+0039 Uncompressed Length   0 (0x0)
 
-003D LOCAL HEADER #2       04034B50
-0041 Extract Zip Spec      14 '2.0'
-0042 Extract OS            00 'MS-DOS'
-0043 General Purpose Flag  0808
+003D LOCAL HEADER #2       67324752 (0x4034B50)
+0041 Extract Zip Spec      20 (0x14) '2.0'
+0042 Extract OS            0 (0x0) 'MS-DOS'
+0043 General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0045 Compression Method    0008 'Deflated'
-0047 Last Mod Time         4F27B46B 'Sat Sep  7 22:35:22 2019'
-004B CRC                   00000000
-004F Compressed Length     00000000
-0053 Uncompressed Length   00000000
-0057 Filename Length       0014
-0059 Extra Length          0000
+0045 Compression Method    8 (0x8) 'Deflated'
+0047 Last Mod Time         1328002155 (0x4F27B46B) 'Sat Sep  7 22:35:22 2019'
+004B CRC                   0 (0x0)
+004F Compressed Length     0 (0x0)
+0053 Uncompressed Length   0 (0x0)
+0057 Filename Length       20 (0x14)
+0059 Extra Length          0 (0x0)
 005B Filename              'META-INF/MANIFEST.MF'
-006F PAYLOAD               .M..LK-...K-*....R0.3..r.JM,IM.u....E.L.
-                           4B.J.JJ5y.x..
+006F PAYLOAD               .M..LK-...K-*....R0.3..r.JM,IM.u....E.L.4B.J.JJ5y.x..
 
-00A4 DATA DESCRIPTOR       08074B50
-00A8 CRC                   934E49FF
-00AC Compressed Length     00000035
-00B0 Uncompressed Length   00000036
+00A4 DATA DESCRIPTOR       134695760 (0x8074B50)
+00A8 CRC                   2471381503 (0x934E49FF)
+00AC Compressed Length     53 (0x35)
+00B0 Uncompressed Length   54 (0x36)
 
-00B4 LOCAL HEADER #3       04034B50
-00B8 Extract Zip Spec      14 '2.0'
-00B9 Extract OS            00 'MS-DOS'
-00BA General Purpose Flag  0808
+00B4 LOCAL HEADER #3       67324752 (0x4034B50)
+00B8 Extract Zip Spec      20 (0x14) '2.0'
+00B9 Extract OS            0 (0x0) 'MS-DOS'
+00BA General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-00BC Compression Method    0008 'Deflated'
-00BE Last Mod Time         4F27B46A 'Sat Sep  7 22:35:20 2019'
-00C2 CRC                   00000000
-00C6 Compressed Length     00000000
-00CA Uncompressed Length   00000000
-00CE Filename Length       0004
-00D0 Extra Length          0000
+00BC Compression Method    8 (0x8) 'Deflated'
+00BE Last Mod Time         1328002154 (0x4F27B46A) 'Sat Sep  7 22:35:20 2019'
+00C2 CRC                   0 (0x0)
+00C6 Compressed Length     0 (0x0)
+00CA Uncompressed Length   0 (0x0)
+00CE Filename Length       4 (0x4)
+00D0 Extra Length          0 (0x0)
 00D2 Filename              'file'
 00D6 PAYLOAD               +I-....
 
-00DD DATA DESCRIPTOR       08074B50
-00E1 CRC                   3BB935C6
-00E5 Compressed Length     00000007
-00E9 Uncompressed Length   00000005
+00DD DATA DESCRIPTOR       134695760 (0x8074B50)
+00E1 CRC                   1001993670 (0x3BB935C6)
+00E5 Compressed Length     7 (0x7)
+00E9 Uncompressed Length   5 (0x5)
 
-00ED CENTRAL HEADER #1     02014B50
-00F1 Created Zip Spec      14 '2.0'
-00F2 Created OS            00 'MS-DOS'
-00F3 Extract Zip Spec      14 '2.0'
-00F4 Extract OS            00 'MS-DOS'
-00F5 General Purpose Flag  0808
+00ED CENTRAL HEADER #1     33639248 (0x2014B50)
+00F1 Created Zip Spec      20 (0x14) '2.0'
+00F2 Created OS            0 (0x0) 'MS-DOS'
+00F3 Extract Zip Spec      20 (0x14) '2.0'
+00F4 Extract OS            0 (0x0) 'MS-DOS'
+00F5 General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-00F7 Compression Method    0008 'Deflated'
-00F9 Last Mod Time         4F27B46B 'Sat Sep  7 22:35:22 2019'
-00FD CRC                   00000000
-0101 Compressed Length     00000002
-0105 Uncompressed Length   00000000
-0109 Filename Length       0009
-010B Extra Length          0004
-010D Comment Length        0000
-010F Disk Start            0000
-0111 Int File Attributes   0000
+00F7 Compression Method    8 (0x8) 'Deflated'
+00F9 Last Mod Time         1328002155 (0x4F27B46B) 'Sat Sep  7 22:35:22 2019'
+00FD CRC                   0 (0x0)
+0101 Compressed Length     2 (0x2)
+0105 Uncompressed Length   0 (0x0)
+0109 Filename Length       9 (0x9)
+010B Extra Length          4 (0x4)
+010D Comment Length        0 (0x0)
+010F Disk Start            0 (0x0)
+0111 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-0113 Ext File Attributes   00000000
-0117 Local Header Offset   00000000
+0113 Ext File Attributes   0 (0x0)
+0117 Local Header Offset   0 (0x0)
 011B Filename              'META-INF/'
-0124 Extra ID #0001        CAFE 'Java Executable'
-0126   Length              0000
+0124 Extra ID #1           51966 (0xCAFE) 'Java Executable'
+0126   Length              0 (0x0)
 
-0128 CENTRAL HEADER #2     02014B50
-012C Created Zip Spec      14 '2.0'
-012D Created OS            00 'MS-DOS'
-012E Extract Zip Spec      14 '2.0'
-012F Extract OS            00 'MS-DOS'
-0130 General Purpose Flag  0808
+0128 CENTRAL HEADER #2     33639248 (0x2014B50)
+012C Created Zip Spec      20 (0x14) '2.0'
+012D Created OS            0 (0x0) 'MS-DOS'
+012E Extract Zip Spec      20 (0x14) '2.0'
+012F Extract OS            0 (0x0) 'MS-DOS'
+0130 General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0132 Compression Method    0008 'Deflated'
-0134 Last Mod Time         4F27B46B 'Sat Sep  7 22:35:22 2019'
-0138 CRC                   934E49FF
-013C Compressed Length     00000035
-0140 Uncompressed Length   00000036
-0144 Filename Length       0014
-0146 Extra Length          0000
-0148 Comment Length        0000
-014A Disk Start            0000
-014C Int File Attributes   0000
+0132 Compression Method    8 (0x8) 'Deflated'
+0134 Last Mod Time         1328002155 (0x4F27B46B) 'Sat Sep  7 22:35:22 2019'
+0138 CRC                   2471381503 (0x934E49FF)
+013C Compressed Length     53 (0x35)
+0140 Uncompressed Length   54 (0x36)
+0144 Filename Length       20 (0x14)
+0146 Extra Length          0 (0x0)
+0148 Comment Length        0 (0x0)
+014A Disk Start            0 (0x0)
+014C Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-014E Ext File Attributes   00000000
-0152 Local Header Offset   0000003D
+014E Ext File Attributes   0 (0x0)
+0152 Local Header Offset   61 (0x3D)
 0156 Filename              'META-INF/MANIFEST.MF'
 
-016A CENTRAL HEADER #3     02014B50
-016E Created Zip Spec      14 '2.0'
-016F Created OS            00 'MS-DOS'
-0170 Extract Zip Spec      14 '2.0'
-0171 Extract OS            00 'MS-DOS'
-0172 General Purpose Flag  0808
+016A CENTRAL HEADER #3     33639248 (0x2014B50)
+016E Created Zip Spec      20 (0x14) '2.0'
+016F Created OS            0 (0x0) 'MS-DOS'
+0170 Extract Zip Spec      20 (0x14) '2.0'
+0171 Extract OS            0 (0x0) 'MS-DOS'
+0172 General Purpose Flag  2056 (0x808)
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0174 Compression Method    0008 'Deflated'
-0176 Last Mod Time         4F27B46A 'Sat Sep  7 22:35:20 2019'
-017A CRC                   3BB935C6
-017E Compressed Length     00000007
-0182 Uncompressed Length   00000005
-0186 Filename Length       0004
-0188 Extra Length          0000
-018A Comment Length        0000
-018C Disk Start            0000
-018E Int File Attributes   0000
+0174 Compression Method    8 (0x8) 'Deflated'
+0176 Last Mod Time         1328002154 (0x4F27B46A) 'Sat Sep  7 22:35:20 2019'
+017A CRC                   1001993670 (0x3BB935C6)
+017E Compressed Length     7 (0x7)
+0182 Uncompressed Length   5 (0x5)
+0186 Filename Length       4 (0x4)
+0188 Extra Length          0 (0x0)
+018A Comment Length        0 (0x0)
+018C Disk Start            0 (0x0)
+018E Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-0190 Ext File Attributes   00000000
-0194 Local Header Offset   000000B4
+0190 Ext File Attributes   0 (0x0)
+0194 Local Header Offset   180 (0xB4)
 0198 Filename              'file'
 
-019C END CENTRAL HEADER    06054B50
-01A0 Number of this disk   0000
-01A2 Central Dir Disk no   0000
-01A4 Entries in this disk  0003
-01A6 Total Entries         0003
-01A8 Size of Central Dir   000000AF
-01AC Offset to Central Dir 000000ED
-01B0 Comment Length        0000
+019C END CENTRAL HEADER    101010256 (0x6054B50)
+01A0 Number of this disk   0 (0x0)
+01A2 Central Dir Disk no   0 (0x0)
+01A4 Entries in this disk  3 (0x3)
+01A6 Total Entries         3 (0x3)
+01A8 Size of Central Dir   175 (0xAF)
+01AC Offset to Central Dir 237 (0xED)
+01B0 Comment Length        0 (0x0)
 #
 # Done

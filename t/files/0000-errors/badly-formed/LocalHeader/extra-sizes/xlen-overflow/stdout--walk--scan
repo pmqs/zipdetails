@@ -1,16 +1,16 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
-0008 Compression Method    0000 'Stored'
-000A Last Mod Time         555D8ADD 'Sat Oct 29 17:22:58 2022'
-000E CRC                   8587D865
-0012 Compressed Length     00000005
-0016 Uncompressed Length   00000005
-001A Filename Length       0008
-001C Extra Length          0007
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    0 (0x0) 'Stored'
+000A Last Mod Time         1432193757 (0x555D8ADD) 'Sat Oct 29 17:22:58 2022'
+000E CRC                   2240272485 (0x8587D865)
+0012 Compressed Length     5 (0x5)
+0016 Uncompressed Length   5 (0x5)
+001A Filename Length       8 (0x8)
+001C Extra Length          7 (0x7)
 001E Filename              'filename'
-0026 Extra ID #0001        FFFF 'DUMMY'
-0028   Length              0003
-002A   Data                61333231
+0026 Extra ID #1           65535 (0xFFFF) 'DUMMY'
+0028   Length              3 (0x3)
+002A   Data                1630745137 (0x61333231)

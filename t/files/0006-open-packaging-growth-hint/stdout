@@ -1,589 +1,552 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0006
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-000E CRC                   6CD2A4DF
-0012 Compressed Length     0000015A
-0016 Uncompressed Length   00000520
-001A Filename Length       0013
-001C Extra Length          0208
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+000E CRC                   1825744095 (0x6CD2A4DF)
+0012 Compressed Length     346 (0x15A)
+0016 Uncompressed Length   1312 (0x520)
+001A Filename Length       19 (0x13)
+001C Extra Length          520 (0x208)
 001E Filename              '[Content_Types].xml'
-0031 Extra ID #0001        A220 'Open Packaging Growth Hint'
-0033   Length              0204
-0035   Signature           A028
-0037   Initial Value       0200
-0039   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00
+0031 Extra ID #1           41504 (0xA220) 'Open Packaging Growth Hint'
+0033   Length              516 (0x204)
+0035   Signature           41000 (0xA028)
+0037   Initial Value       512 (0x200)
+0039   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 0239 PAYLOAD
 
-0393 LOCAL HEADER #2       04034B50
-0397 Extract Zip Spec      14 '2.0'
-0398 Extract OS            00 'MS-DOS'
-0399 General Purpose Flag  0006
+0393 LOCAL HEADER #2       67324752 (0x4034B50)
+0397 Extract Zip Spec      20 (0x14) '2.0'
+0398 Extract OS            0 (0x0) 'MS-DOS'
+0399 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-039B Compression Method    0008 'Deflated'
-039D Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-03A1 CRC                   B71A911E
-03A5 Compressed Length     000000EF
-03A9 Uncompressed Length   0000024E
-03AD Filename Length       000B
-03AF Extra Length          0208
+039B Compression Method    8 (0x8) 'Deflated'
+039D Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+03A1 CRC                   3071971614 (0xB71A911E)
+03A5 Compressed Length     239 (0xEF)
+03A9 Uncompressed Length   590 (0x24E)
+03AD Filename Length       11 (0xB)
+03AF Extra Length          520 (0x208)
 03B1 Filename              '_rels/.rels'
-03BC Extra ID #0001        A220 'Open Packaging Growth Hint'
-03BE   Length              0204
-03C0   Signature           A028
-03C2   Initial Value       0200
-03C4   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00
-05C4 PAYLOAD               ...j.0.@......Q....N/c......[IL...j...<.
-                           ..].aG.....zs.Fu..]...U......^.[..x.....
-                           1x.p.....f..#I)...Y.............*D....i"
-                           )..c$...qU...~3..1..jH[{..=E......~.f?..
-                           3-.....].T...2.j).,.l0/%..b.......z.....
-                           .,..../.|f\.Z.....?6.!Y._.o..]A........
+03BC Extra ID #1           41504 (0xA220) 'Open Packaging Growth Hint'
+03BE   Length              516 (0x204)
+03C0   Signature           41000 (0xA028)
+03C2   Initial Value       512 (0x200)
+03C4   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+05C4 PAYLOAD               ...j.0.@......Q....N/c......[IL...j...<...].aG.....zs.Fu..]...U......^.[..x.....1x.p.....f..#I)...Y.............*D....i")..c$...qU...
+                           ~3..1..jH[{..=E......~.f?..3-.....].T...2.j).,.l0/%..b.......z......,..../.|f\.Z.....?6.!Y._.o..]A........
 
-06B3 LOCAL HEADER #3       04034B50
-06B7 Extract Zip Spec      14 '2.0'
-06B8 Extract OS            00 'MS-DOS'
-06B9 General Purpose Flag  0006
+06B3 LOCAL HEADER #3       67324752 (0x4034B50)
+06B7 Extract Zip Spec      20 (0x14) '2.0'
+06B8 Extract OS            0 (0x0) 'MS-DOS'
+06B9 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-06BB Compression Method    0008 'Deflated'
-06BD Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-06C1 CRC                   5E82D687
-06C5 Compressed Length     000002BE
-06C9 Uncompressed Length   00000A80
-06CD Filename Length       0011
-06CF Extra Length          0000
+06BB Compression Method    8 (0x8) 'Deflated'
+06BD Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+06C1 CRC                   1585632903 (0x5E82D687)
+06C5 Compressed Length     702 (0x2BE)
+06C9 Uncompressed Length   2688 (0xA80)
+06CD Filename Length       17 (0x11)
+06CF Extra Length          0 (0x0)
 06D1 Filename              'word/document.xml'
 06E2 PAYLOAD
 
-09A0 LOCAL HEADER #4       04034B50
-09A4 Extract Zip Spec      14 '2.0'
-09A5 Extract OS            00 'MS-DOS'
-09A6 General Purpose Flag  0006
+09A0 LOCAL HEADER #4       67324752 (0x4034B50)
+09A4 Extract Zip Spec      20 (0x14) '2.0'
+09A5 Extract OS            0 (0x0) 'MS-DOS'
+09A6 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-09A8 Compression Method    0008 'Deflated'
-09AA Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-09AE CRC                   51B364D6
-09B2 Compressed Length     000000F4
-09B6 Uncompressed Length   00000331
-09BA Filename Length       001C
-09BC Extra Length          0108
+09A8 Compression Method    8 (0x8) 'Deflated'
+09AA Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+09AE CRC                   1370711254 (0x51B364D6)
+09B2 Compressed Length     244 (0xF4)
+09B6 Uncompressed Length   817 (0x331)
+09BA Filename Length       28 (0x1C)
+09BC Extra Length          264 (0x108)
 09BE Filename              'word/_rels/document.xml.rels'
-09DA Extra ID #0001        A220 'Open Packaging Growth Hint'
-09DC   Length              0104
-09DE   Signature           A028
-09E0   Initial Value       0100
-09E2   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00
-0AE2 PAYLOAD               ...j.0.E.....}-;}PB.lJ!....E.?.,......HI
-                           ..`..r..s..6....w..{...r....{.*x....A.kW
-                           k..*..`[^^l..jNK...D.8R.1...d:.4e>.K/...
-                           .4.V.m^u.r..w2N.P.0..V.w.5.j....o....7o.
-                           :>S!?p....8JX.[d..0KD..EVK....c2.P,.....
-                           .a...]...........s.Y....+......(!O>z....
-                           ....
+09DA Extra ID #1           41504 (0xA220) 'Open Packaging Growth Hint'
+09DC   Length              260 (0x104)
+09DE   Signature           41000 (0xA028)
+09E0   Initial Value       256 (0x100)
+09E2   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0AE2 PAYLOAD               ...j.0.E.....}-;}PB.lJ!....E.?.,......HI..`..r..s..6....w..{...r....{.*x....A.kWk..*..`[^^l..jNK...D.8R.1...d:.4e>.K/....4.V.m^u.r..w
+                           2N.P.0..V.w.5.j....o....7o.:>S!?p....8JX.[d..0KD..EVK....c2.P,......a...]...........s.Y....+......(!O>z........
 
-0BD6 LOCAL HEADER #5       04034B50
-0BDA Extract Zip Spec      14 '2.0'
-0BDB Extract OS            00 'MS-DOS'
-0BDC General Purpose Flag  0006
+0BD6 LOCAL HEADER #5       67324752 (0x4034B50)
+0BDA Extract Zip Spec      20 (0x14) '2.0'
+0BDB Extract OS            0 (0x0) 'MS-DOS'
+0BDC General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-0BDE Compression Method    0008 'Deflated'
-0BE0 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-0BE4 CRC                   9867F4B6
-0BE8 Compressed Length     000006D2
-0BEC Uncompressed Length   000020C9
-0BF0 Filename Length       0015
-0BF2 Extra Length          0000
+0BDE Compression Method    8 (0x8) 'Deflated'
+0BE0 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+0BE4 CRC                   2556949686 (0x9867F4B6)
+0BE8 Compressed Length     1746 (0x6D2)
+0BEC Uncompressed Length   8393 (0x20C9)
+0BF0 Filename Length       21 (0x15)
+0BF2 Extra Length          0 (0x0)
 0BF4 Filename              'word/theme/theme1.xml'
 0C09 PAYLOAD
 
-12DB LOCAL HEADER #6       04034B50
-12DF Extract Zip Spec      14 '2.0'
-12E0 Extract OS            00 'MS-DOS'
-12E1 General Purpose Flag  0006
+12DB LOCAL HEADER #6       67324752 (0x4034B50)
+12DF Extract Zip Spec      20 (0x14) '2.0'
+12E0 Extract OS            0 (0x0) 'MS-DOS'
+12E1 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-12E3 Compression Method    0008 'Deflated'
-12E5 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-12E9 CRC                   4FFAA254
-12ED Compressed Length     0000041F
-12F1 Uncompressed Length   00000BC4
-12F5 Filename Length       0011
-12F7 Extra Length          0000
+12E3 Compression Method    8 (0x8) 'Deflated'
+12E5 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+12E9 CRC                   1341825620 (0x4FFAA254)
+12ED Compressed Length     1055 (0x41F)
+12F1 Uncompressed Length   3012 (0xBC4)
+12F5 Filename Length       17 (0x11)
+12F7 Extra Length          0 (0x0)
 12F9 Filename              'word/settings.xml'
 130A PAYLOAD
 
-1729 LOCAL HEADER #7       04034B50
-172D Extract Zip Spec      14 '2.0'
-172E Extract OS            00 'MS-DOS'
-172F General Purpose Flag  0006
+1729 LOCAL HEADER #7       67324752 (0x4034B50)
+172D Extract Zip Spec      20 (0x14) '2.0'
+172E Extract OS            0 (0x0) 'MS-DOS'
+172F General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-1731 Compression Method    0008 'Deflated'
-1733 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-1737 CRC                   70CF11B2
-173B Compressed Length     00000B67
-173F Uncompressed Length   000071CF
-1743 Filename Length       000F
-1745 Extra Length          0000
+1731 Compression Method    8 (0x8) 'Deflated'
+1733 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+1737 CRC                   1892618674 (0x70CF11B2)
+173B Compressed Length     2919 (0xB67)
+173F Uncompressed Length   29135 (0x71CF)
+1743 Filename Length       15 (0xF)
+1745 Extra Length          0 (0x0)
 1747 Filename              'word/styles.xml'
 1756 PAYLOAD
 
-22BD LOCAL HEADER #8       04034B50
-22C1 Extract Zip Spec      14 '2.0'
-22C2 Extract OS            00 'MS-DOS'
-22C3 General Purpose Flag  0006
+22BD LOCAL HEADER #8       67324752 (0x4034B50)
+22C1 Extract Zip Spec      20 (0x14) '2.0'
+22C2 Extract OS            0 (0x0) 'MS-DOS'
+22C3 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-22C5 Compression Method    0008 'Deflated'
-22C7 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-22CB CRC                   F1FFC140
-22CF Compressed Length     00000139
-22D3 Uncompressed Length   00000323
-22D7 Filename Length       0014
-22D9 Extra Length          0000
+22C5 Compression Method    8 (0x8) 'Deflated'
+22C7 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+22CB CRC                   4060070208 (0xF1FFC140)
+22CF Compressed Length     313 (0x139)
+22D3 Uncompressed Length   803 (0x323)
+22D7 Filename Length       20 (0x14)
+22D9 Extra Length          0 (0x0)
 22DB Filename              'word/webSettings.xml'
 22EF PAYLOAD
 
-2428 LOCAL HEADER #9       04034B50
-242C Extract Zip Spec      14 '2.0'
-242D Extract OS            00 'MS-DOS'
-242E General Purpose Flag  0006
+2428 LOCAL HEADER #9       67324752 (0x4034B50)
+242C Extract Zip Spec      20 (0x14) '2.0'
+242D Extract OS            0 (0x0) 'MS-DOS'
+242E General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2430 Compression Method    0008 'Deflated'
-2432 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2436 CRC                   9A97D49A
-243A Compressed Length     000001DA
-243E Uncompressed Length   0000061F
-2442 Filename Length       0012
-2444 Extra Length          0000
+2430 Compression Method    8 (0x8) 'Deflated'
+2432 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2436 CRC                   2593641626 (0x9A97D49A)
+243A Compressed Length     474 (0x1DA)
+243E Uncompressed Length   1567 (0x61F)
+2442 Filename Length       18 (0x12)
+2444 Extra Length          0 (0x0)
 2446 Filename              'word/fontTable.xml'
 2458 PAYLOAD
 
-2632 LOCAL HEADER #A       04034B50
-2636 Extract Zip Spec      14 '2.0'
-2637 Extract OS            00 'MS-DOS'
-2638 General Purpose Flag  0006
+2632 LOCAL HEADER #10      67324752 (0x4034B50)
+2636 Extract Zip Spec      20 (0x14) '2.0'
+2637 Extract OS            0 (0x0) 'MS-DOS'
+2638 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-263A Compression Method    0008 'Deflated'
-263C Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2640 CRC                   961DE956
-2644 Compressed Length     00000171
-2648 Uncompressed Length   000002F1
-264C Filename Length       0011
-264E Extra Length          0108
+263A Compression Method    8 (0x8) 'Deflated'
+263C Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2640 CRC                   2518542678 (0x961DE956)
+2644 Compressed Length     369 (0x171)
+2648 Uncompressed Length   753 (0x2F1)
+264C Filename Length       17 (0x11)
+264E Extra Length          264 (0x108)
 2650 Filename              'docProps/core.xml'
-2661 Extra ID #0001        A220 'Open Packaging Growth Hint'
-2663   Length              0104
-2665   Signature           A028
-2667   Initial Value       0100
-2669   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00
+2661 Extra ID #1           41504 (0xA220) 'Open Packaging Growth Hint'
+2663   Length              260 (0x104)
+2665   Signature           41000 (0xA028)
+2667   Initial Value       256 (0x100)
+2669   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 2769 PAYLOAD
 
-28DA LOCAL HEADER #B       04034B50
-28DE Extract Zip Spec      14 '2.0'
-28DF Extract OS            00 'MS-DOS'
-28E0 General Purpose Flag  0006
+28DA LOCAL HEADER #11      67324752 (0x4034B50)
+28DE Extract Zip Spec      20 (0x14) '2.0'
+28DF Extract OS            0 (0x0) 'MS-DOS'
+28E0 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-28E2 Compression Method    0008 'Deflated'
-28E4 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-28E8 CRC                   871A189A
-28EC Compressed Length     0000016C
-28F0 Uncompressed Length   000002C5
-28F4 Filename Length       0010
-28F6 Extra Length          0108
+28E2 Compression Method    8 (0x8) 'Deflated'
+28E4 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+28E8 CRC                   2266634394 (0x871A189A)
+28EC Compressed Length     364 (0x16C)
+28F0 Uncompressed Length   709 (0x2C5)
+28F4 Filename Length       16 (0x10)
+28F6 Extra Length          264 (0x108)
 28F8 Filename              'docProps/app.xml'
-2908 Extra ID #0001        A220 'Open Packaging Growth Hint'
-290A   Length              0104
-290C   Signature           A028
-290E   Initial Value       0100
-2910   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00 00 00 00 00
-                           00 00 00 00 00 00 00 00 00
+2908 Extra ID #1           41504 (0xA220) 'Open Packaging Growth Hint'
+290A   Length              260 (0x104)
+290C   Signature           41000 (0xA028)
+290E   Initial Value       256 (0x100)
+2910   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+                           00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 2A10 PAYLOAD
 
-2B7C CENTRAL HEADER #1     02014B50
-2B80 Created Zip Spec      2D '4.5'
-2B81 Created OS            00 'MS-DOS'
-2B82 Extract Zip Spec      14 '2.0'
-2B83 Extract OS            00 'MS-DOS'
-2B84 General Purpose Flag  0006
+2B7C CENTRAL HEADER #1     33639248 (0x2014B50)
+2B80 Created Zip Spec      45 (0x2D) '4.5'
+2B81 Created OS            0 (0x0) 'MS-DOS'
+2B82 Extract Zip Spec      20 (0x14) '2.0'
+2B83 Extract OS            0 (0x0) 'MS-DOS'
+2B84 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2B86 Compression Method    0008 'Deflated'
-2B88 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2B8C CRC                   6CD2A4DF
-2B90 Compressed Length     0000015A
-2B94 Uncompressed Length   00000520
-2B98 Filename Length       0013
-2B9A Extra Length          0000
-2B9C Comment Length        0000
-2B9E Disk Start            0000
-2BA0 Int File Attributes   0000
+2B86 Compression Method    8 (0x8) 'Deflated'
+2B88 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2B8C CRC                   1825744095 (0x6CD2A4DF)
+2B90 Compressed Length     346 (0x15A)
+2B94 Uncompressed Length   1312 (0x520)
+2B98 Filename Length       19 (0x13)
+2B9A Extra Length          0 (0x0)
+2B9C Comment Length        0 (0x0)
+2B9E Disk Start            0 (0x0)
+2BA0 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2BA2 Ext File Attributes   00000000
-2BA6 Local Header Offset   00000000
+2BA2 Ext File Attributes   0 (0x0)
+2BA6 Local Header Offset   0 (0x0)
 2BAA Filename              '[Content_Types].xml'
 
-2BBD CENTRAL HEADER #2     02014B50
-2BC1 Created Zip Spec      2D '4.5'
-2BC2 Created OS            00 'MS-DOS'
-2BC3 Extract Zip Spec      14 '2.0'
-2BC4 Extract OS            00 'MS-DOS'
-2BC5 General Purpose Flag  0006
+2BBD CENTRAL HEADER #2     33639248 (0x2014B50)
+2BC1 Created Zip Spec      45 (0x2D) '4.5'
+2BC2 Created OS            0 (0x0) 'MS-DOS'
+2BC3 Extract Zip Spec      20 (0x14) '2.0'
+2BC4 Extract OS            0 (0x0) 'MS-DOS'
+2BC5 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2BC7 Compression Method    0008 'Deflated'
-2BC9 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2BCD CRC                   B71A911E
-2BD1 Compressed Length     000000EF
-2BD5 Uncompressed Length   0000024E
-2BD9 Filename Length       000B
-2BDB Extra Length          0000
-2BDD Comment Length        0000
-2BDF Disk Start            0000
-2BE1 Int File Attributes   0000
+2BC7 Compression Method    8 (0x8) 'Deflated'
+2BC9 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2BCD CRC                   3071971614 (0xB71A911E)
+2BD1 Compressed Length     239 (0xEF)
+2BD5 Uncompressed Length   590 (0x24E)
+2BD9 Filename Length       11 (0xB)
+2BDB Extra Length          0 (0x0)
+2BDD Comment Length        0 (0x0)
+2BDF Disk Start            0 (0x0)
+2BE1 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2BE3 Ext File Attributes   00000000
-2BE7 Local Header Offset   00000393
+2BE3 Ext File Attributes   0 (0x0)
+2BE7 Local Header Offset   915 (0x393)
 2BEB Filename              '_rels/.rels'
 
-2BF6 CENTRAL HEADER #3     02014B50
-2BFA Created Zip Spec      2D '4.5'
-2BFB Created OS            00 'MS-DOS'
-2BFC Extract Zip Spec      14 '2.0'
-2BFD Extract OS            00 'MS-DOS'
-2BFE General Purpose Flag  0006
+2BF6 CENTRAL HEADER #3     33639248 (0x2014B50)
+2BFA Created Zip Spec      45 (0x2D) '4.5'
+2BFB Created OS            0 (0x0) 'MS-DOS'
+2BFC Extract Zip Spec      20 (0x14) '2.0'
+2BFD Extract OS            0 (0x0) 'MS-DOS'
+2BFE General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2C00 Compression Method    0008 'Deflated'
-2C02 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2C06 CRC                   5E82D687
-2C0A Compressed Length     000002BE
-2C0E Uncompressed Length   00000A80
-2C12 Filename Length       0011
-2C14 Extra Length          0000
-2C16 Comment Length        0000
-2C18 Disk Start            0000
-2C1A Int File Attributes   0000
+2C00 Compression Method    8 (0x8) 'Deflated'
+2C02 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2C06 CRC                   1585632903 (0x5E82D687)
+2C0A Compressed Length     702 (0x2BE)
+2C0E Uncompressed Length   2688 (0xA80)
+2C12 Filename Length       17 (0x11)
+2C14 Extra Length          0 (0x0)
+2C16 Comment Length        0 (0x0)
+2C18 Disk Start            0 (0x0)
+2C1A Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2C1C Ext File Attributes   00000000
-2C20 Local Header Offset   000006B3
+2C1C Ext File Attributes   0 (0x0)
+2C20 Local Header Offset   1715 (0x6B3)
 2C24 Filename              'word/document.xml'
 
-2C35 CENTRAL HEADER #4     02014B50
-2C39 Created Zip Spec      2D '4.5'
-2C3A Created OS            00 'MS-DOS'
-2C3B Extract Zip Spec      14 '2.0'
-2C3C Extract OS            00 'MS-DOS'
-2C3D General Purpose Flag  0006
+2C35 CENTRAL HEADER #4     33639248 (0x2014B50)
+2C39 Created Zip Spec      45 (0x2D) '4.5'
+2C3A Created OS            0 (0x0) 'MS-DOS'
+2C3B Extract Zip Spec      20 (0x14) '2.0'
+2C3C Extract OS            0 (0x0) 'MS-DOS'
+2C3D General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2C3F Compression Method    0008 'Deflated'
-2C41 Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2C45 CRC                   51B364D6
-2C49 Compressed Length     000000F4
-2C4D Uncompressed Length   00000331
-2C51 Filename Length       001C
-2C53 Extra Length          0000
-2C55 Comment Length        0000
-2C57 Disk Start            0000
-2C59 Int File Attributes   0000
+2C3F Compression Method    8 (0x8) 'Deflated'
+2C41 Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2C45 CRC                   1370711254 (0x51B364D6)
+2C49 Compressed Length     244 (0xF4)
+2C4D Uncompressed Length   817 (0x331)
+2C51 Filename Length       28 (0x1C)
+2C53 Extra Length          0 (0x0)
+2C55 Comment Length        0 (0x0)
+2C57 Disk Start            0 (0x0)
+2C59 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2C5B Ext File Attributes   00000000
-2C5F Local Header Offset   000009A0
+2C5B Ext File Attributes   0 (0x0)
+2C5F Local Header Offset   2464 (0x9A0)
 2C63 Filename              'word/_rels/document.xml.rels'
 
-2C7F CENTRAL HEADER #5     02014B50
-2C83 Created Zip Spec      2D '4.5'
-2C84 Created OS            00 'MS-DOS'
-2C85 Extract Zip Spec      14 '2.0'
-2C86 Extract OS            00 'MS-DOS'
-2C87 General Purpose Flag  0006
+2C7F CENTRAL HEADER #5     33639248 (0x2014B50)
+2C83 Created Zip Spec      45 (0x2D) '4.5'
+2C84 Created OS            0 (0x0) 'MS-DOS'
+2C85 Extract Zip Spec      20 (0x14) '2.0'
+2C86 Extract OS            0 (0x0) 'MS-DOS'
+2C87 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2C89 Compression Method    0008 'Deflated'
-2C8B Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2C8F CRC                   9867F4B6
-2C93 Compressed Length     000006D2
-2C97 Uncompressed Length   000020C9
-2C9B Filename Length       0015
-2C9D Extra Length          0000
-2C9F Comment Length        0000
-2CA1 Disk Start            0000
-2CA3 Int File Attributes   0000
+2C89 Compression Method    8 (0x8) 'Deflated'
+2C8B Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2C8F CRC                   2556949686 (0x9867F4B6)
+2C93 Compressed Length     1746 (0x6D2)
+2C97 Uncompressed Length   8393 (0x20C9)
+2C9B Filename Length       21 (0x15)
+2C9D Extra Length          0 (0x0)
+2C9F Comment Length        0 (0x0)
+2CA1 Disk Start            0 (0x0)
+2CA3 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2CA5 Ext File Attributes   00000000
-2CA9 Local Header Offset   00000BD6
+2CA5 Ext File Attributes   0 (0x0)
+2CA9 Local Header Offset   3030 (0xBD6)
 2CAD Filename              'word/theme/theme1.xml'
 
-2CC2 CENTRAL HEADER #6     02014B50
-2CC6 Created Zip Spec      2D '4.5'
-2CC7 Created OS            00 'MS-DOS'
-2CC8 Extract Zip Spec      14 '2.0'
-2CC9 Extract OS            00 'MS-DOS'
-2CCA General Purpose Flag  0006
+2CC2 CENTRAL HEADER #6     33639248 (0x2014B50)
+2CC6 Created Zip Spec      45 (0x2D) '4.5'
+2CC7 Created OS            0 (0x0) 'MS-DOS'
+2CC8 Extract Zip Spec      20 (0x14) '2.0'
+2CC9 Extract OS            0 (0x0) 'MS-DOS'
+2CCA General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2CCC Compression Method    0008 'Deflated'
-2CCE Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2CD2 CRC                   4FFAA254
-2CD6 Compressed Length     0000041F
-2CDA Uncompressed Length   00000BC4
-2CDE Filename Length       0011
-2CE0 Extra Length          0000
-2CE2 Comment Length        0000
-2CE4 Disk Start            0000
-2CE6 Int File Attributes   0000
+2CCC Compression Method    8 (0x8) 'Deflated'
+2CCE Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2CD2 CRC                   1341825620 (0x4FFAA254)
+2CD6 Compressed Length     1055 (0x41F)
+2CDA Uncompressed Length   3012 (0xBC4)
+2CDE Filename Length       17 (0x11)
+2CE0 Extra Length          0 (0x0)
+2CE2 Comment Length        0 (0x0)
+2CE4 Disk Start            0 (0x0)
+2CE6 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2CE8 Ext File Attributes   00000000
-2CEC Local Header Offset   000012DB
+2CE8 Ext File Attributes   0 (0x0)
+2CEC Local Header Offset   4827 (0x12DB)
 2CF0 Filename              'word/settings.xml'
 
-2D01 CENTRAL HEADER #7     02014B50
-2D05 Created Zip Spec      2D '4.5'
-2D06 Created OS            00 'MS-DOS'
-2D07 Extract Zip Spec      14 '2.0'
-2D08 Extract OS            00 'MS-DOS'
-2D09 General Purpose Flag  0006
+2D01 CENTRAL HEADER #7     33639248 (0x2014B50)
+2D05 Created Zip Spec      45 (0x2D) '4.5'
+2D06 Created OS            0 (0x0) 'MS-DOS'
+2D07 Extract Zip Spec      20 (0x14) '2.0'
+2D08 Extract OS            0 (0x0) 'MS-DOS'
+2D09 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2D0B Compression Method    0008 'Deflated'
-2D0D Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2D11 CRC                   70CF11B2
-2D15 Compressed Length     00000B67
-2D19 Uncompressed Length   000071CF
-2D1D Filename Length       000F
-2D1F Extra Length          0000
-2D21 Comment Length        0000
-2D23 Disk Start            0000
-2D25 Int File Attributes   0000
+2D0B Compression Method    8 (0x8) 'Deflated'
+2D0D Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2D11 CRC                   1892618674 (0x70CF11B2)
+2D15 Compressed Length     2919 (0xB67)
+2D19 Uncompressed Length   29135 (0x71CF)
+2D1D Filename Length       15 (0xF)
+2D1F Extra Length          0 (0x0)
+2D21 Comment Length        0 (0x0)
+2D23 Disk Start            0 (0x0)
+2D25 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2D27 Ext File Attributes   00000000
-2D2B Local Header Offset   00001729
+2D27 Ext File Attributes   0 (0x0)
+2D2B Local Header Offset   5929 (0x1729)
 2D2F Filename              'word/styles.xml'
 
-2D3E CENTRAL HEADER #8     02014B50
-2D42 Created Zip Spec      2D '4.5'
-2D43 Created OS            00 'MS-DOS'
-2D44 Extract Zip Spec      14 '2.0'
-2D45 Extract OS            00 'MS-DOS'
-2D46 General Purpose Flag  0006
+2D3E CENTRAL HEADER #8     33639248 (0x2014B50)
+2D42 Created Zip Spec      45 (0x2D) '4.5'
+2D43 Created OS            0 (0x0) 'MS-DOS'
+2D44 Extract Zip Spec      20 (0x14) '2.0'
+2D45 Extract OS            0 (0x0) 'MS-DOS'
+2D46 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2D48 Compression Method    0008 'Deflated'
-2D4A Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2D4E CRC                   F1FFC140
-2D52 Compressed Length     00000139
-2D56 Uncompressed Length   00000323
-2D5A Filename Length       0014
-2D5C Extra Length          0000
-2D5E Comment Length        0000
-2D60 Disk Start            0000
-2D62 Int File Attributes   0000
+2D48 Compression Method    8 (0x8) 'Deflated'
+2D4A Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2D4E CRC                   4060070208 (0xF1FFC140)
+2D52 Compressed Length     313 (0x139)
+2D56 Uncompressed Length   803 (0x323)
+2D5A Filename Length       20 (0x14)
+2D5C Extra Length          0 (0x0)
+2D5E Comment Length        0 (0x0)
+2D60 Disk Start            0 (0x0)
+2D62 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2D64 Ext File Attributes   00000000
-2D68 Local Header Offset   000022BD
+2D64 Ext File Attributes   0 (0x0)
+2D68 Local Header Offset   8893 (0x22BD)
 2D6C Filename              'word/webSettings.xml'
 
-2D80 CENTRAL HEADER #9     02014B50
-2D84 Created Zip Spec      2D '4.5'
-2D85 Created OS            00 'MS-DOS'
-2D86 Extract Zip Spec      14 '2.0'
-2D87 Extract OS            00 'MS-DOS'
-2D88 General Purpose Flag  0006
+2D80 CENTRAL HEADER #9     33639248 (0x2014B50)
+2D84 Created Zip Spec      45 (0x2D) '4.5'
+2D85 Created OS            0 (0x0) 'MS-DOS'
+2D86 Extract Zip Spec      20 (0x14) '2.0'
+2D87 Extract OS            0 (0x0) 'MS-DOS'
+2D88 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2D8A Compression Method    0008 'Deflated'
-2D8C Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2D90 CRC                   9A97D49A
-2D94 Compressed Length     000001DA
-2D98 Uncompressed Length   0000061F
-2D9C Filename Length       0012
-2D9E Extra Length          0000
-2DA0 Comment Length        0000
-2DA2 Disk Start            0000
-2DA4 Int File Attributes   0000
+2D8A Compression Method    8 (0x8) 'Deflated'
+2D8C Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2D90 CRC                   2593641626 (0x9A97D49A)
+2D94 Compressed Length     474 (0x1DA)
+2D98 Uncompressed Length   1567 (0x61F)
+2D9C Filename Length       18 (0x12)
+2D9E Extra Length          0 (0x0)
+2DA0 Comment Length        0 (0x0)
+2DA2 Disk Start            0 (0x0)
+2DA4 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2DA6 Ext File Attributes   00000000
-2DAA Local Header Offset   00002428
+2DA6 Ext File Attributes   0 (0x0)
+2DAA Local Header Offset   9256 (0x2428)
 2DAE Filename              'word/fontTable.xml'
 
-2DC0 CENTRAL HEADER #A     02014B50
-2DC4 Created Zip Spec      2D '4.5'
-2DC5 Created OS            00 'MS-DOS'
-2DC6 Extract Zip Spec      14 '2.0'
-2DC7 Extract OS            00 'MS-DOS'
-2DC8 General Purpose Flag  0006
+2DC0 CENTRAL HEADER #10    33639248 (0x2014B50)
+2DC4 Created Zip Spec      45 (0x2D) '4.5'
+2DC5 Created OS            0 (0x0) 'MS-DOS'
+2DC6 Extract Zip Spec      20 (0x14) '2.0'
+2DC7 Extract OS            0 (0x0) 'MS-DOS'
+2DC8 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2DCA Compression Method    0008 'Deflated'
-2DCC Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2DD0 CRC                   961DE956
-2DD4 Compressed Length     00000171
-2DD8 Uncompressed Length   000002F1
-2DDC Filename Length       0011
-2DDE Extra Length          0000
-2DE0 Comment Length        0000
-2DE2 Disk Start            0000
-2DE4 Int File Attributes   0000
+2DCA Compression Method    8 (0x8) 'Deflated'
+2DCC Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2DD0 CRC                   2518542678 (0x961DE956)
+2DD4 Compressed Length     369 (0x171)
+2DD8 Uncompressed Length   753 (0x2F1)
+2DDC Filename Length       17 (0x11)
+2DDE Extra Length          0 (0x0)
+2DE0 Comment Length        0 (0x0)
+2DE2 Disk Start            0 (0x0)
+2DE4 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2DE6 Ext File Attributes   00000000
-2DEA Local Header Offset   00002632
+2DE6 Ext File Attributes   0 (0x0)
+2DEA Local Header Offset   9778 (0x2632)
 2DEE Filename              'docProps/core.xml'
 
-2DFF CENTRAL HEADER #B     02014B50
-2E03 Created Zip Spec      2D '4.5'
-2E04 Created OS            00 'MS-DOS'
-2E05 Extract Zip Spec      14 '2.0'
-2E06 Extract OS            00 'MS-DOS'
-2E07 General Purpose Flag  0006
+2DFF CENTRAL HEADER #11    33639248 (0x2014B50)
+2E03 Created Zip Spec      45 (0x2D) '4.5'
+2E04 Created OS            0 (0x0) 'MS-DOS'
+2E05 Extract Zip Spec      20 (0x14) '2.0'
+2E06 Extract OS            0 (0x0) 'MS-DOS'
+2E07 General Purpose Flag  6 (0x6)
      [Bits 1-2]            3 'Super Fast Compression'
-2E09 Compression Method    0008 'Deflated'
-2E0B Last Mod Time         00210000 'Tue Jan  1 00:00:00 1980'
-2E0F CRC                   871A189A
-2E13 Compressed Length     0000016C
-2E17 Uncompressed Length   000002C5
-2E1B Filename Length       0010
-2E1D Extra Length          0000
-2E1F Comment Length        0000
-2E21 Disk Start            0000
-2E23 Int File Attributes   0000
+2E09 Compression Method    8 (0x8) 'Deflated'
+2E0B Last Mod Time         2162688 (0x210000) 'Tue Jan  1 00:00:00 1980'
+2E0F CRC                   2266634394 (0x871A189A)
+2E13 Compressed Length     364 (0x16C)
+2E17 Uncompressed Length   709 (0x2C5)
+2E1B Filename Length       16 (0x10)
+2E1D Extra Length          0 (0x0)
+2E1F Comment Length        0 (0x0)
+2E21 Disk Start            0 (0x0)
+2E23 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-2E25 Ext File Attributes   00000000
-2E29 Local Header Offset   000028DA
+2E25 Ext File Attributes   0 (0x0)
+2E29 Local Header Offset   10458 (0x28DA)
 2E2D Filename              'docProps/app.xml'
 
-2E3D END CENTRAL HEADER    06054B50
-2E41 Number of this disk   0000
-2E43 Central Dir Disk no   0000
-2E45 Entries in this disk  000B
-2E47 Total Entries         000B
-2E49 Size of Central Dir   000002C1
-2E4D Offset to Central Dir 00002B7C
-2E51 Comment Length        0000
+2E3D END CENTRAL HEADER    101010256 (0x6054B50)
+2E41 Number of this disk   0 (0x0)
+2E43 Central Dir Disk no   0 (0x0)
+2E45 Entries in this disk  11 (0xB)
+2E47 Total Entries         11 (0xB)
+2E49 Size of Central Dir   705 (0x2C1)
+2E4D Offset to Central Dir 11132 (0x2B7C)
+2E51 Comment Length        0 (0x0)
 #
 # Done

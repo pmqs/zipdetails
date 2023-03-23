@@ -1,61 +1,58 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      3F '6.3'
-0005 Extract OS            03 'Unix'
-0006 General Purpose Flag  0000
-0008 Compression Method    0062 'PPMd version I, Rev 1'
-000A Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
-000E CRC                   F90EE7FF
-0012 Compressed Length     00000106
-0016 Uncompressed Length   000001BE
-001A Filename Length       0009
-001C Extra Length          0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      63 (0x3F) '6.3'
+0005 Extract OS            3 (0x3) 'Unix'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    98 (0x62) 'PPMd version I, Rev 1'
+000A Last Mod Time         1384751906 (0x5289A322) 'Fri Apr  9 20:25:04 2021'
+000E CRC                   4178503679 (0xF90EE7FF)
+0012 Compressed Length     262 (0x106)
+0016 Uncompressed Length   446 (0x1BE)
+001A Filename Length       9 (0x9)
+001C Extra Length          0 (0x0)
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-012D CENTRAL HEADER #1     02014B50
-0131 Created Zip Spec      3F '6.3'
-0132 Created OS            03 'Unix'
-0133 Extract Zip Spec      3F '6.3'
-0134 Extract OS            03 'Unix'
-0135 General Purpose Flag  0000
-0137 Compression Method    0062 'PPMd version I, Rev 1'
-0139 Last Mod Time         5289A322 'Fri Apr  9 20:25:04 2021'
-013D CRC                   F90EE7FF
-0141 Compressed Length     00000106
-0145 Uncompressed Length   000001BE
-0149 Filename Length       0009
-014B Extra Length          0024
-014D Comment Length        0000
-014F Disk Start            0000
-0151 Int File Attributes   0000
+012D CENTRAL HEADER #1     33639248 (0x2014B50)
+0131 Created Zip Spec      63 (0x3F) '6.3'
+0132 Created OS            3 (0x3) 'Unix'
+0133 Extract Zip Spec      63 (0x3F) '6.3'
+0134 Extract OS            3 (0x3) 'Unix'
+0135 General Purpose Flag  0 (0x0)
+0137 Compression Method    98 (0x62) 'PPMd version I, Rev 1'
+0139 Last Mod Time         1384751906 (0x5289A322) 'Fri Apr  9 20:25:04 2021'
+013D CRC                   4178503679 (0xF90EE7FF)
+0141 Compressed Length     262 (0x106)
+0145 Uncompressed Length   446 (0x1BE)
+0149 Filename Length       9 (0x9)
+014B Extra Length          36 (0x24)
+014D Comment Length        0 (0x0)
+014F Disk Start            0 (0x0)
+0151 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-0153 Ext File Attributes   81ED8020
+0153 Ext File Attributes   2179825696 (0x81ED8020)
      [Bit 5]               Archive
-     [Bits 11-15]          8000 'Unknown DOS attrib'
-     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 'Regular File'
-0157 Local Header Offset   00000000
+     [Bits 11-15]          32768 (0x8000) 'Unknown DOS attrib'
+     [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+0157 Local Header Offset   0 (0x0)
 015B Filename              'lorem.txt'
-0164 Extra ID #0001        000A 'NTFS FileTimes'
-0166   Length              0020
-0168   Reserved            00000000
-016C   Tag1                0001
-016E   Size1               0018
-0170   Mtime               01D72D760AB8E800 'Fri Apr  9 19:25:04
-                           2021 0ns'
-0178   Atime               01D7392095761700 'Sat Apr 24 15:43:34
-                           2021 0ns'
-0180   Ctime               01D734492C3A6380 'Sun Apr 18 11:51:31
-                           2021 0ns'
+0164 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0166   Length              32 (0x20)
+0168   Reserved            0 (0x0)
+016C   Tag1                1 (0x1)
+016E   Size1               24 (0x18)
+0170   Mtime               132624699040000000 (0x1D72D760AB8E800) 'Fri Apr  9 19:25:04 2021 0ns'
+0178   Atime               132637526140000000 (0x1D7392095761700) 'Sat Apr 24 15:43:34 2021 0ns'
+0180   Ctime               132632202910000000 (0x1D734492C3A6380) 'Sun Apr 18 11:51:31 2021 0ns'
 
-0188 END CENTRAL HEADER    06054B50
-018C Number of this disk   0000
-018E Central Dir Disk no   0000
-0190 Entries in this disk  0001
-0192 Total Entries         0001
-0194 Size of Central Dir   0000005B
-0198 Offset to Central Dir 0000012D
-019C Comment Length        0000
+0188 END CENTRAL HEADER    101010256 (0x6054B50)
+018C Number of this disk   0 (0x0)
+018E Central Dir Disk no   0 (0x0)
+0190 Entries in this disk  1 (0x1)
+0192 Total Entries         1 (0x1)
+0194 Size of Central Dir   91 (0x5B)
+0198 Offset to Central Dir 301 (0x12D)
+019C Comment Length        0 (0x0)
 #
 # Done

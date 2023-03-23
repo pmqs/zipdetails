@@ -1,51 +1,51 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      0A '1.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0008
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      10 (0xA) '1.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  8 (0x8)
      [Bit  3]              1 'Streamed'
-0008 Compression Method    0000 'Stored'
-000A Last Mod Time         55944B23 'Tue Dec 20 09:25:06 2022'
-000E CRC                   00000000
-0012 Compressed Length     000001BE
-0016 Uncompressed Length   000001BE
-001A Filename Length       0009
-001C Extra Length          0000
+0008 Compression Method    0 (0x0) 'Stored'
+000A Last Mod Time         1435781923 (0x55944B23) 'Tue Dec 20 09:25:06 2022'
+000E CRC                   0 (0x0)
+0012 Compressed Length     446 (0x1BE)
+0016 Uncompressed Length   446 (0x1BE)
+001A Filename Length       9 (0x9)
+001C Extra Length          0 (0x0)
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-01E5 CENTRAL HEADER #1     02014B50
-01E9 Created Zip Spec      1E '3.0'
-01EA Created OS            03 'Unix'
-01EB Extract Zip Spec      0A '1.0'
-01EC Extract OS            00 'MS-DOS'
-01ED General Purpose Flag  0008
+01E5 CENTRAL HEADER #1     33639248 (0x2014B50)
+01E9 Created Zip Spec      30 (0x1E) '3.0'
+01EA Created OS            3 (0x3) 'Unix'
+01EB Extract Zip Spec      10 (0xA) '1.0'
+01EC Extract OS            0 (0x0) 'MS-DOS'
+01ED General Purpose Flag  8 (0x8)
      [Bit  3]              1 'Streamed'
-01EF Compression Method    0000 'Stored'
-01F1 Last Mod Time         55944B23 'Tue Dec 20 09:25:06 2022'
-01F5 CRC                   F90EE7FF
-01F9 Compressed Length     000001BE
-01FD Uncompressed Length   000001BE
-0201 Filename Length       0009
-0203 Extra Length          0000
-0205 Comment Length        0000
-0207 Disk Start            0000
-0209 Int File Attributes   0000
+01EF Compression Method    0 (0x0) 'Stored'
+01F1 Last Mod Time         1435781923 (0x55944B23) 'Tue Dec 20 09:25:06 2022'
+01F5 CRC                   4178503679 (0xF90EE7FF)
+01F9 Compressed Length     446 (0x1BE)
+01FD Uncompressed Length   446 (0x1BE)
+0201 Filename Length       9 (0x9)
+0203 Extra Length          0 (0x0)
+0205 Comment Length        0 (0x0)
+0207 Disk Start            0 (0x0)
+0209 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-020B Ext File Attributes   81ED0000
-     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 'Regular File'
-020F Local Header Offset   00000000
+020B Ext File Attributes   2179792896 (0x81ED0000)
+     [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+020F Local Header Offset   0 (0x0)
 0213 Filename              'lorem.txt'
 
-021C END CENTRAL HEADER    06054B50
-0220 Number of this disk   0000
-0222 Central Dir Disk no   0000
-0224 Entries in this disk  0001
-0226 Total Entries         0001
-0228 Size of Central Dir   00000037
-022C Offset to Central Dir 000001E5
-0230 Comment Length        0000
+021C END CENTRAL HEADER    101010256 (0x6054B50)
+0220 Number of this disk   0 (0x0)
+0222 Central Dir Disk no   0 (0x0)
+0224 Entries in this disk  1 (0x1)
+0226 Total Entries         1 (0x1)
+0228 Size of Central Dir   55 (0x37)
+022C Offset to Central Dir 485 (0x1E5)
+0230 Comment Length        0 (0x0)
 #
 # ERROR: Offset 0x0: Filename 'lorem.txt': Missing 'Data Descriptor'
 #

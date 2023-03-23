@@ -1,77 +1,77 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      2D '4.5'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      45 (0x2D) '4.5'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
-000E CRC                   F90EE7FF
-0012 Compressed Length     FFFFFFFF
-0016 Uncompressed Length   FFFFFFFF
-001A Filename Length       0001
-001C Extra Length          0014
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
+000E CRC                   4178503679 (0xF90EE7FF)
+0012 Compressed Length     4294967295 (0xFFFFFFFF)
+0016 Uncompressed Length   4294967295 (0xFFFFFFFF)
+001A Filename Length       1 (0x1)
+001C Extra Length          20 (0x14)
 001E Filename              '-'
-001F Extra ID #0001        0001 'ZIP64'
-0021   Length              0010
-0023   Uncompressed Size   00000000000001BE
-002B   Compressed Size     000000000000010E
+001F Extra ID #1           1 (0x1) 'ZIP64'
+0021   Length              16 (0x10)
+0023   Uncompressed Size   446 (0x1BE)
+002B   Compressed Size     270 (0x10E)
 0033 PAYLOAD
 
-0141 CENTRAL HEADER #1     02014B50
-0145 Created Zip Spec      1E '3.0'
-0146 Created OS            03 'Unix'
-0147 Extract Zip Spec      2D '4.5'
-0148 Extract OS            00 'MS-DOS'
-0149 General Purpose Flag  0000
+0141 CENTRAL HEADER #1     33639248 (0x2014B50)
+0145 Created Zip Spec      30 (0x1E) '3.0'
+0146 Created OS            3 (0x3) 'Unix'
+0147 Extract Zip Spec      45 (0x2D) '4.5'
+0148 Extract OS            0 (0x0) 'MS-DOS'
+0149 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-014B Compression Method    0008 'Deflated'
-014D Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
-0151 CRC                   F90EE7FF
-0155 Compressed Length     0000010E
-0159 Uncompressed Length   FFFFFFFF
-015D Filename Length       0001
-015F Extra Length          000C
-0161 Comment Length        0000
-0163 Disk Start            0000
-0165 Int File Attributes   0001
+014B Compression Method    8 (0x8) 'Deflated'
+014D Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
+0151 CRC                   4178503679 (0xF90EE7FF)
+0155 Compressed Length     270 (0x10E)
+0159 Uncompressed Length   4294967295 (0xFFFFFFFF)
+015D Filename Length       1 (0x1)
+015F Extra Length          12 (0xC)
+0161 Comment Length        0 (0x0)
+0163 Disk Start            0 (0x0)
+0165 Int File Attributes   1 (0x1)
      [Bit 0]               1 'Text Data'
-0167 Ext File Attributes   81ED0000
-     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 'Regular File'
-016B Local Header Offset   00000000
+0167 Ext File Attributes   2179792896 (0x81ED0000)
+     [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+016B Local Header Offset   0 (0x0)
 016F Filename              '-'
-0170 Extra ID #0001        0001 'ZIP64'
-0172   Length              0008
-0174   Uncompressed Size   00000000000001BE
+0170 Extra ID #1           1 (0x1) 'ZIP64'
+0172   Length              8 (0x8)
+0174   Uncompressed Size   446 (0x1BE)
 
-017C ZIP64 END CENTRAL DIR 06064B50
+017C ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
      RECORD
-0180 Size of record        000000000000002C
-0188 Created Zip Spec      1E '3.0'
-0189 Created OS            03 'Unix'
-018A Extract Zip Spec      2D '4.5'
-018B Extract OS            00 'MS-DOS'
-018C Number of this disk   00000000
-0190 Central Dir Disk no   00000000
-0194 Entries in this disk  0000000000000001
-019C Total Entries         0000000000000001
-01A4 Size of Central Dir   000000000000003B
-01AC Offset to Central dir 0000000000000141
+0180 Size of record        44 (0x2C)
+0188 Created Zip Spec      30 (0x1E) '3.0'
+0189 Created OS            3 (0x3) 'Unix'
+018A Extract Zip Spec      45 (0x2D) '4.5'
+018B Extract OS            0 (0x0) 'MS-DOS'
+018C Number of this disk   0 (0x0)
+0190 Central Dir Disk no   0 (0x0)
+0194 Entries in this disk  1 (0x1)
+019C Total Entries         1 (0x1)
+01A4 Size of Central Dir   59 (0x3B)
+01AC Offset to Central dir 321 (0x141)
 
-01B4 ZIP64 END CENTRAL DIR 07064B50
+01B4 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
      LOCATOR
-01B8 Central Dir Disk no   00000000
-01BC Offset to Zip64 EOCD  000000000000017C
-01C4 Total no of Disks     00000001
+01B8 Central Dir Disk no   0 (0x0)
+01BC Offset to Zip64 EOCD  380 (0x17C)
+01C4 Total no of Disks     1 (0x1)
 
-01C8 END CENTRAL HEADER    06054B50
-01CC Number of this disk   0000
-01CE Central Dir Disk no   0000
-01D0 Entries in this disk  0001
-01D2 Total Entries         0001
-01D4 Size of Central Dir   0000003B
-01D8 Offset to Central Dir FFFFFFFF
-01DC Comment Length        0000
+01C8 END CENTRAL HEADER    101010256 (0x6054B50)
+01CC Number of this disk   0 (0x0)
+01CE Central Dir Disk no   0 (0x0)
+01D0 Entries in this disk  1 (0x1)
+01D2 Total Entries         1 (0x1)
+01D4 Size of Central Dir   59 (0x3B)
+01D8 Offset to Central Dir 4294967295 (0xFFFFFFFF)
+01DC Comment Length        0 (0x0)
 #
 # Done

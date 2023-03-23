@@ -1,53 +1,53 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      0A '1.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
-0008 Compression Method    0000 'Stored'
-000A Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-000E CRC                   0F8A149C
-0012 Compressed Length     00000006
-0016 Uncompressed Length   00000006
-001A Filename Length       000B
-001C Extra Length          0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      10 (0xA) '1.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    0 (0x0) 'Stored'
+000A Last Mod Time         1383569469 (0x5277983D) 'Tue Mar 23 19:01:58 2021'
+000E CRC                   260707484 (0xF8A149C)
+0012 Compressed Length     6 (0x6)
+0016 Uncompressed Length   6 (0x6)
+001A Filename Length       11 (0xB)
+001C Extra Length          0 (0x0)
 001E Filename              'letters.txt'
 0029 PAYLOAD               abcde.
 
-002F LOCAL HEADER #2       04034B50
-0033 Extract Zip Spec      0A '1.0'
-0034 Extract OS            00 'MS-DOS'
-0035 General Purpose Flag  0000
-0037 Compression Method    0000 'Stored'
-0039 Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-003D CRC                   261DAFE6
-0041 Compressed Length     00000006
-0045 Uncompressed Length   00000006
-0049 Filename Length       000B
-004B Extra Length          0000
+002F LOCAL HEADER #2       67324752 (0x4034B50)
+0033 Extract Zip Spec      10 (0xA) '1.0'
+0034 Extract OS            0 (0x0) 'MS-DOS'
+0035 General Purpose Flag  0 (0x0)
+0037 Compression Method    0 (0x0) 'Stored'
+0039 Last Mod Time         1383569469 (0x5277983D) 'Tue Mar 23 19:01:58 2021'
+003D CRC                   639479782 (0x261DAFE6)
+0041 Compressed Length     6 (0x6)
+0045 Uncompressed Length   6 (0x6)
+0049 Filename Length       11 (0xB)
+004B Extra Length          0 (0x0)
 004D Filename              'numbers.txt'
 0058 PAYLOAD               12345.
 
-005E CENTRAL HEADER #1     02014B50
-0062 Created Zip Spec      1E '3.0'
-0063 Created OS            03 'Unix'
-0064 Extract Zip Spec      0A '1.0'
-0065 Extract OS            00 'MS-DOS'
-0066 General Purpose Flag  0000
-0068 Compression Method    0000 'Stored'
-006A Last Mod Time         5277983D 'Tue Mar 23 19:01:58 2021'
-006E CRC                   0F8A149C
-0072 Compressed Length     00000006
-0076 Uncompressed Length   00000006
-007A Filename Length       000B
-007C Extra Length          0000
-007E Comment Length        0000
-0080 Disk Start            0000
-0082 Int File Attributes   0001
+005E CENTRAL HEADER #1     33639248 (0x2014B50)
+0062 Created Zip Spec      30 (0x1E) '3.0'
+0063 Created OS            3 (0x3) 'Unix'
+0064 Extract Zip Spec      10 (0xA) '1.0'
+0065 Extract OS            0 (0x0) 'MS-DOS'
+0066 General Purpose Flag  0 (0x0)
+0068 Compression Method    0 (0x0) 'Stored'
+006A Last Mod Time         1383569469 (0x5277983D) 'Tue Mar 23 19:01:58 2021'
+006E CRC                   260707484 (0xF8A149C)
+0072 Compressed Length     6 (0x6)
+0076 Uncompressed Length   6 (0x6)
+007A Filename Length       11 (0xB)
+007C Extra Length          0 (0x0)
+007E Comment Length        0 (0x0)
+0080 Disk Start            0 (0x0)
+0082 Int File Attributes   1 (0x1)
      [Bit 0]               1 'Text Data'
-0084 Ext File Attributes   81B40000
-     [Bits 16-24]          01B4 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          08 'Regular File'
-0088 Local Header Offset   00000000
+0084 Ext File Attributes   2176057344 (0x81B40000)
+     [Bits 16-24]          436 (0x1B4) 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+0088 Local Header Offset   0 (0x0)
 008C Filename              'letters.txt'
 
-0097 CENTRAL HEADER #2     02014B50
+0097 CENTRAL HEADER #2     33639248 (0x2014B50)

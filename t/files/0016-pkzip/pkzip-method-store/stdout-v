@@ -1,117 +1,117 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 0A          Extract Zip Spec      0A '1.0'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 00 08       General Purpose Flag  0800
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 00 08       General Purpose Flag  2048 (0x800)
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 00 00       Compression Method    0000 'Stored'
-000A 000D 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0015 0004 BE 01 00 00 Compressed Length     000001BE
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE
-001A 001B 0002 09 00       Filename Length       0009
-001C 001D 0002 00 00       Extra Length          0000
+0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
+000A 000D 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+000E 0011 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0012 0015 0004 BE 01 00 00 Compressed Length     446 (0x1BE)
+0016 0019 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+001A 001B 0002 09 00       Filename Length       9 (0x9)
+001C 001D 0002 00 00       Extra Length          0 (0x0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 0027 01E4 01BE ...         PAYLOAD
 
-01E5 01E8 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
-01E9 01E9 0001 0A          Extract Zip Spec      0A '1.0'
-01EA 01EA 0001 00          Extract OS            00 'MS-DOS'
-01EB 01EC 0002 00 08       General Purpose Flag  0800
+01E5 01E8 0004 50 4B 03 04 LOCAL HEADER #2       67324752 (0x4034B50)
+01E9 01E9 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
+01EA 01EA 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+01EB 01EC 0002 00 08       General Purpose Flag  2048 (0x800)
                            [Bit 11]              1 'Language Encoding'
-01ED 01EE 0002 00 00       Compression Method    0000 'Stored'
-01EF 01F2 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-01F3 01F6 0004 3C C8 F5 41 CRC                   41F5C83C
-01F7 01FA 0004 BF 01 00 00 Compressed Length     000001BF
-01FB 01FE 0004 BF 01 00 00 Uncompressed Length   000001BF
-01FF 0200 0002 0A 00       Filename Length       000A
-0201 0202 0002 00 00       Extra Length          0000
+01ED 01EE 0002 00 00       Compression Method    0 (0x0) 'Stored'
+01EF 01F2 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+01F3 01F6 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+01F7 01FA 0004 BF 01 00 00 Compressed Length     447 (0x1BF)
+01FB 01FE 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+01FF 0200 0002 0A 00       Filename Length       10 (0xA)
+0201 0202 0002 00 00       Extra Length          0 (0x0)
 0203 020C 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
 020D 03CB 01BF ...         PAYLOAD
 
-03CC 03CF 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-03D0 03D0 0001 41          Created Zip Spec      41 '6.5'
-03D1 03D1 0001 00          Created OS            00 'MS-DOS'
-03D2 03D2 0001 0A          Extract Zip Spec      0A '1.0'
-03D3 03D3 0001 00          Extract OS            00 'MS-DOS'
-03D4 03D5 0002 00 08       General Purpose Flag  0800
+03CC 03CF 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+03D0 03D0 0001 41          Created Zip Spec      65 (0x41) '6.5'
+03D1 03D1 0001 00          Created OS            0 (0x0) 'MS-DOS'
+03D2 03D2 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
+03D3 03D3 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+03D4 03D5 0002 00 08       General Purpose Flag  2048 (0x800)
                            [Bit 11]              1 'Language Encoding'
-03D6 03D7 0002 00 00       Compression Method    0000 'Stored'
-03D8 03DB 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-03DC 03DF 0004 FF E7 0E F9 CRC                   F90EE7FF
-03E0 03E3 0004 BE 01 00 00 Compressed Length     000001BE
-03E4 03E7 0004 BE 01 00 00 Uncompressed Length   000001BE
-03E8 03E9 0002 09 00       Filename Length       0009
-03EA 03EB 0002 24 00       Extra Length          0024
-03EC 03ED 0002 00 00       Comment Length        0000
-03EE 03EF 0002 00 00       Disk Start            0000
-03F0 03F1 0002 01 00       Int File Attributes   0001
+03D6 03D7 0002 00 00       Compression Method    0 (0x0) 'Stored'
+03D8 03DB 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+03DC 03DF 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+03E0 03E3 0004 BE 01 00 00 Compressed Length     446 (0x1BE)
+03E4 03E7 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+03E8 03E9 0002 09 00       Filename Length       9 (0x9)
+03EA 03EB 0002 24 00       Extra Length          36 (0x24)
+03EC 03ED 0002 00 00       Comment Length        0 (0x0)
+03EE 03EF 0002 00 00       Disk Start            0 (0x0)
+03F0 03F1 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-03F2 03F5 0004 20 00 00 00 Ext File Attributes   00000020
+03F2 03F5 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-03F6 03F9 0004 00 00 00 00 Local Header Offset   00000000
+03F6 03F9 0004 00 00 00 00 Local Header Offset   0 (0x0)
 03FA 0402 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-0403 0404 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0405 0406 0002 20 00         Length              0020
-0407 040A 0004 00 00 00 00   Reserved            00000000
-040B 040C 0002 01 00         Tag1                0001
-040D 040E 0002 18 00         Size1               0018
-040F 0416 0008 00 6B 65 42   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
-               D4 9D D8 01                       2022 0ns'
-0417 041E 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-041F 0426 0008 1D FB 7D DB   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
-               5F 9F D8 01                       2022 60572500ns'
+0403 0404 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0405 0406 0002 20 00         Length              32 (0x20)
+0407 040A 0004 00 00 00 00   Reserved            0 (0x0)
+040B 040C 0002 01 00         Tag1                1 (0x1)
+040D 040E 0002 18 00         Size1               24 (0x18)
+040F 0416 0008 00 6B 65 42   Mtime               133029723980000000 (0x1D89DD442656B00) 'Fri Jul 22 14:06:38 2022 0ns'
+               D4 9D D8 01
+0417 041E 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+041F 0426 0008 1D FB 7D DB   Ctime               133031423060605725 (0x1D89F5FDB7DFB1D) 'Sun Jul 24 13:18:26 2022 60572500ns'
+               5F 9F D8 01
 
-0427 042A 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
-042B 042B 0001 41          Created Zip Spec      41 '6.5'
-042C 042C 0001 00          Created OS            00 'MS-DOS'
-042D 042D 0001 0A          Extract Zip Spec      0A '1.0'
-042E 042E 0001 00          Extract OS            00 'MS-DOS'
-042F 0430 0002 00 08       General Purpose Flag  0800
+0427 042A 0004 50 4B 01 02 CENTRAL HEADER #2     33639248 (0x2014B50)
+042B 042B 0001 41          Created Zip Spec      65 (0x41) '6.5'
+042C 042C 0001 00          Created OS            0 (0x0) 'MS-DOS'
+042D 042D 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
+042E 042E 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+042F 0430 0002 00 08       General Purpose Flag  2048 (0x800)
                            [Bit 11]              1 'Language Encoding'
-0431 0432 0002 00 00       Compression Method    0000 'Stored'
-0433 0436 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-0437 043A 0004 3C C8 F5 41 CRC                   41F5C83C
-043B 043E 0004 BF 01 00 00 Compressed Length     000001BF
-043F 0442 0004 BF 01 00 00 Uncompressed Length   000001BF
-0443 0444 0002 0A 00       Filename Length       000A
-0445 0446 0002 24 00       Extra Length          0024
-0447 0448 0002 00 00       Comment Length        0000
-0449 044A 0002 00 00       Disk Start            0000
-044B 044C 0002 01 00       Int File Attributes   0001
+0431 0432 0002 00 00       Compression Method    0 (0x0) 'Stored'
+0433 0436 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+0437 043A 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+043B 043E 0004 BF 01 00 00 Compressed Length     447 (0x1BF)
+043F 0442 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+0443 0444 0002 0A 00       Filename Length       10 (0xA)
+0445 0446 0002 24 00       Extra Length          36 (0x24)
+0447 0448 0002 00 00       Comment Length        0 (0x0)
+0449 044A 0002 00 00       Disk Start            0 (0x0)
+044B 044C 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-044D 0450 0004 20 00 00 00 Ext File Attributes   00000020
+044D 0450 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-0451 0454 0004 E5 01 00 00 Local Header Offset   000001E5
+0451 0454 0004 E5 01 00 00 Local Header Offset   485 (0x1E5)
 0455 045E 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
-045F 0460 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0461 0462 0002 20 00         Length              0020
-0463 0466 0004 00 00 00 00   Reserved            00000000
-0467 0468 0002 01 00         Tag1                0001
-0469 046A 0002 18 00         Size1               0018
-046B 0472 0008 14 EA 72 27   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
-               4A A3 D8 01                       2022 217947600ns'
-0473 047A 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-047B 0482 0008 C3 C8 58 21   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
-               4A A3 D8 01                       2022 980371500ns'
+045F 0460 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0461 0462 0002 20 00         Length              32 (0x20)
+0463 0466 0004 00 00 00 00   Reserved            0 (0x0)
+0467 0468 0002 01 00         Tag1                1 (0x1)
+0469 046A 0002 18 00         Size1               24 (0x18)
+046B 0472 0008 14 EA 72 27   Mtime               133035727892179476 (0x1D8A34A2772EA14) 'Fri Jul 29 12:53:09 2022 217947600ns'
+               4A A3 D8 01
+0473 047A 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+047B 0482 0008 C3 C8 58 21   Ctime               133035727789803715 (0x1D8A34A2158C8C3) 'Fri Jul 29 12:52:58 2022 980371500ns'
+               4A A3 D8 01
 
-0483 0486 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0487 0488 0002 00 00       Number of this disk   0000
-0489 048A 0002 00 00       Central Dir Disk no   0000
-048B 048C 0002 02 00       Entries in this disk  0002
-048D 048E 0002 02 00       Total Entries         0002
-048F 0492 0004 B7 00 00 00 Size of Central Dir   000000B7
-0493 0496 0004 CC 03 00 00 Offset to Central Dir 000003CC
-0497 0498 0002 00 00       Comment Length        0000
+0483 0486 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+0487 0488 0002 00 00       Number of this disk   0 (0x0)
+0489 048A 0002 00 00       Central Dir Disk no   0 (0x0)
+048B 048C 0002 02 00       Entries in this disk  2 (0x2)
+048D 048E 0002 02 00       Total Entries         2 (0x2)
+048F 0492 0004 B7 00 00 00 Size of Central Dir   183 (0xB7)
+0493 0496 0004 CC 03 00 00 Offset to Central Dir 972 (0x3CC)
+0497 0498 0002 00 00       Comment Length        0 (0x0)
 #
 # Done

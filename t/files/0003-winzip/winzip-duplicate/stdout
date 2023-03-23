@@ -1,166 +1,155 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      0A '1.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
-0008 Compression Method    0000 'Stored'
-000A Last Mod Time         55074150 'Sun Aug  7 08:10:32 2022'
-000E CRC                   F692DA94
-0012 Compressed Length     00003E2B
-0016 Uncompressed Length   00003E2B
-001A Filename Length       0002
-001C Extra Length          0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      10 (0xA) '1.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    0 (0x0) 'Stored'
+000A Last Mod Time         1426538832 (0x55074150) 'Sun Aug  7 08:10:32 2022'
+000E CRC                   4136819348 (0xF692DA94)
+0012 Compressed Length     15915 (0x3E2B)
+0016 Uncompressed Length   15915 (0x3E2B)
+001A Filename Length       2 (0x2)
+001C Extra Length          0 (0x0)
 001E Filename              'f1'
 0020 PAYLOAD
 
-3E4B LOCAL HEADER #2       04034B50
-3E4F Extract Zip Spec      14 '2.0'
-3E50 Extract OS            00 'MS-DOS'
-3E51 General Purpose Flag  0000
-3E53 Compression Method    005C 'Reference'
-3E55 Last Mod Time         55074158 'Sun Aug  7 08:10:48 2022'
-3E59 CRC                   F692DA94
-3E5D Compressed Length     00000014
-3E61 Uncompressed Length   00003E2B
-3E65 Filename Length       0002
-3E67 Extra Length          0000
+3E4B LOCAL HEADER #2       67324752 (0x4034B50)
+3E4F Extract Zip Spec      20 (0x14) '2.0'
+3E50 Extract OS            0 (0x0) 'MS-DOS'
+3E51 General Purpose Flag  0 (0x0)
+3E53 Compression Method    92 (0x5C) 'Reference'
+3E55 Last Mod Time         1426538840 (0x55074158) 'Sun Aug  7 08:10:48 2022'
+3E59 CRC                   4136819348 (0xF692DA94)
+3E5D Compressed Length     20 (0x14)
+3E61 Uncompressed Length   15915 (0x3E2B)
+3E65 Filename Length       2 (0x2)
+3E67 Extra Length          0 (0x0)
 3E69 Filename              'f2'
-3E6B PAYLOAD               SHA-1 Hash: 5B 0B 59 83 CE B4 4B 0D 73
-                           55 78 49 9C EB D0 6A B3 29 3C C8
+3E6B PAYLOAD               SHA-1 Hash: 5B 0B 59 83 CE B4 4B 0D 73 55 78 49 9C EB D0 6A B3 29 3C C8
 
-3E7F LOCAL HEADER #3       04034B50
-3E83 Extract Zip Spec      14 '2.0'
-3E84 Extract OS            00 'MS-DOS'
-3E85 General Purpose Flag  0000
-3E87 Compression Method    005C 'Reference'
-3E89 Last Mod Time         55074159 'Sun Aug  7 08:10:50 2022'
-3E8D CRC                   F692DA94
-3E91 Compressed Length     00000014
-3E95 Uncompressed Length   00003E2B
-3E99 Filename Length       0002
-3E9B Extra Length          0000
+3E7F LOCAL HEADER #3       67324752 (0x4034B50)
+3E83 Extract Zip Spec      20 (0x14) '2.0'
+3E84 Extract OS            0 (0x0) 'MS-DOS'
+3E85 General Purpose Flag  0 (0x0)
+3E87 Compression Method    92 (0x5C) 'Reference'
+3E89 Last Mod Time         1426538841 (0x55074159) 'Sun Aug  7 08:10:50 2022'
+3E8D CRC                   4136819348 (0xF692DA94)
+3E91 Compressed Length     20 (0x14)
+3E95 Uncompressed Length   15915 (0x3E2B)
+3E99 Filename Length       2 (0x2)
+3E9B Extra Length          0 (0x0)
 3E9D Filename              'f3'
-3E9F PAYLOAD               SHA-1 Hash: 5B 0B 59 83 CE B4 4B 0D 73
-                           55 78 49 9C EB D0 6A B3 29 3C C8
+3E9F PAYLOAD               SHA-1 Hash: 5B 0B 59 83 CE B4 4B 0D 73 55 78 49 9C EB D0 6A B3 29 3C C8
 
-3EB3 CENTRAL HEADER #1     02014B50
-3EB7 Created Zip Spec      14 '2.0'
-3EB8 Created OS            00 'MS-DOS'
-3EB9 Extract Zip Spec      0A '1.0'
-3EBA Extract OS            00 'MS-DOS'
-3EBB General Purpose Flag  0000
-3EBD Compression Method    0000 'Stored'
-3EBF Last Mod Time         55074150 'Sun Aug  7 08:10:32 2022'
-3EC3 CRC                   F692DA94
-3EC7 Compressed Length     00003E2B
-3ECB Uncompressed Length   00003E2B
-3ECF Filename Length       0002
-3ED1 Extra Length          003C
-3ED3 Comment Length        0000
-3ED5 Disk Start            0000
-3ED7 Int File Attributes   0001
+3EB3 CENTRAL HEADER #1     33639248 (0x2014B50)
+3EB7 Created Zip Spec      20 (0x14) '2.0'
+3EB8 Created OS            0 (0x0) 'MS-DOS'
+3EB9 Extract Zip Spec      10 (0xA) '1.0'
+3EBA Extract OS            0 (0x0) 'MS-DOS'
+3EBB General Purpose Flag  0 (0x0)
+3EBD Compression Method    0 (0x0) 'Stored'
+3EBF Last Mod Time         1426538832 (0x55074150) 'Sun Aug  7 08:10:32 2022'
+3EC3 CRC                   4136819348 (0xF692DA94)
+3EC7 Compressed Length     15915 (0x3E2B)
+3ECB Uncompressed Length   15915 (0x3E2B)
+3ECF Filename Length       2 (0x2)
+3ED1 Extra Length          60 (0x3C)
+3ED3 Comment Length        0 (0x0)
+3ED5 Disk Start            0 (0x0)
+3ED7 Int File Attributes   1 (0x1)
      [Bit 0]               1 'Text Data'
-3ED9 Ext File Attributes   00000020
+3ED9 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-3EDD Local Header Offset   00000000
+3EDD Local Header Offset   0 (0x0)
 3EE1 Filename              'f1'
-3EE3 Extra ID #0001        000A 'NTFS FileTimes'
-3EE5   Length              0020
-3EE7   Reserved            00000000
-3EEB   Tag1                0001
-3EED   Size1               0018
-3EEF   Mtime               01D8AA6FD60D3070 'Sun Aug  7 15:10:31
-                           2022 671000000ns'
-3EF7   Atime               01D8AA6FD60D3070 'Sun Aug  7 15:10:31
-                           2022 671000000ns'
-3EFF   Ctime               01D8AA6FD6076410 'Sun Aug  7 15:10:31
-                           2022 633000000ns'
-3F07 Extra ID #0002        9903 'Reference'
-3F09   Length              0014
-3F0B   CRC                 D6CC4D1F
+3EE3 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+3EE5   Length              32 (0x20)
+3EE7   Reserved            0 (0x0)
+3EEB   Tag1                1 (0x1)
+3EED   Size1               24 (0x18)
+3EEF   Mtime               133043586316710000 (0x1D8AA6FD60D3070) 'Sun Aug  7 15:10:31 2022 671000000ns'
+3EF7   Atime               133043586316710000 (0x1D8AA6FD60D3070) 'Sun Aug  7 15:10:31 2022 671000000ns'
+3EFF   Ctime               133043586316330000 (0x1D8AA6FD6076410) 'Sun Aug  7 15:10:31 2022 633000000ns'
+3F07 Extra ID #2           39171 (0x9903) 'Reference'
+3F09   Length              20 (0x14)
+3F0B   CRC                 3603713311 (0xD6CC4D1F)
 3F0F   UUID                e02fbe4e-a804-4383-852b-a71f7f52deb4
 
-3F1F CENTRAL HEADER #2     02014B50
-3F23 Created Zip Spec      14 '2.0'
-3F24 Created OS            00 'MS-DOS'
-3F25 Extract Zip Spec      14 '2.0'
-3F26 Extract OS            00 'MS-DOS'
-3F27 General Purpose Flag  0000
-3F29 Compression Method    005C 'Reference'
-3F2B Last Mod Time         55074158 'Sun Aug  7 08:10:48 2022'
-3F2F CRC                   F692DA94
-3F33 Compressed Length     00000014
-3F37 Uncompressed Length   00003E2B
-3F3B Filename Length       0002
-3F3D Extra Length          003C
-3F3F Comment Length        0000
-3F41 Disk Start            0000
-3F43 Int File Attributes   0000
+3F1F CENTRAL HEADER #2     33639248 (0x2014B50)
+3F23 Created Zip Spec      20 (0x14) '2.0'
+3F24 Created OS            0 (0x0) 'MS-DOS'
+3F25 Extract Zip Spec      20 (0x14) '2.0'
+3F26 Extract OS            0 (0x0) 'MS-DOS'
+3F27 General Purpose Flag  0 (0x0)
+3F29 Compression Method    92 (0x5C) 'Reference'
+3F2B Last Mod Time         1426538840 (0x55074158) 'Sun Aug  7 08:10:48 2022'
+3F2F CRC                   4136819348 (0xF692DA94)
+3F33 Compressed Length     20 (0x14)
+3F37 Uncompressed Length   15915 (0x3E2B)
+3F3B Filename Length       2 (0x2)
+3F3D Extra Length          60 (0x3C)
+3F3F Comment Length        0 (0x0)
+3F41 Disk Start            0 (0x0)
+3F43 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-3F45 Ext File Attributes   00000020
+3F45 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-3F49 Local Header Offset   00003E4B
+3F49 Local Header Offset   15947 (0x3E4B)
 3F4D Filename              'f2'
-3F4F Extra ID #0001        000A 'NTFS FileTimes'
-3F51   Length              0020
-3F53   Reserved            00000000
-3F57   Tag1                0001
-3F59   Size1               0018
-3F5B   Mtime               01D8AA6FE01390A0 'Sun Aug  7 15:10:48
-                           2022 490000000ns'
-3F63   Atime               01D8AA6FE01390A0 'Sun Aug  7 15:10:48
-                           2022 490000000ns'
-3F6B   Ctime               01D8AA6FE01390A0 'Sun Aug  7 15:10:48
-                           2022 490000000ns'
-3F73 Extra ID #0002        9903 'Reference'
-3F75   Length              0014
-3F77   CRC                 7999FBAD
+3F4F Extra ID #1           10 (0xA) 'NTFS FileTimes'
+3F51   Length              32 (0x20)
+3F53   Reserved            0 (0x0)
+3F57   Tag1                1 (0x1)
+3F59   Size1               24 (0x18)
+3F5B   Mtime               133043586484900000 (0x1D8AA6FE01390A0) 'Sun Aug  7 15:10:48 2022 490000000ns'
+3F63   Atime               133043586484900000 (0x1D8AA6FE01390A0) 'Sun Aug  7 15:10:48 2022 490000000ns'
+3F6B   Ctime               133043586484900000 (0x1D8AA6FE01390A0) 'Sun Aug  7 15:10:48 2022 490000000ns'
+3F73 Extra ID #2           39171 (0x9903) 'Reference'
+3F75   Length              20 (0x14)
+3F77   CRC                 2040134573 (0x7999FBAD)
 3F7B   UUID                e02fbe4e-a804-4383-852b-a71f7f52deb4
 
-3F8B CENTRAL HEADER #3     02014B50
-3F8F Created Zip Spec      14 '2.0'
-3F90 Created OS            00 'MS-DOS'
-3F91 Extract Zip Spec      14 '2.0'
-3F92 Extract OS            00 'MS-DOS'
-3F93 General Purpose Flag  0000
-3F95 Compression Method    005C 'Reference'
-3F97 Last Mod Time         55074159 'Sun Aug  7 08:10:50 2022'
-3F9B CRC                   F692DA94
-3F9F Compressed Length     00000014
-3FA3 Uncompressed Length   00003E2B
-3FA7 Filename Length       0002
-3FA9 Extra Length          003C
-3FAB Comment Length        0000
-3FAD Disk Start            0000
-3FAF Int File Attributes   0000
+3F8B CENTRAL HEADER #3     33639248 (0x2014B50)
+3F8F Created Zip Spec      20 (0x14) '2.0'
+3F90 Created OS            0 (0x0) 'MS-DOS'
+3F91 Extract Zip Spec      20 (0x14) '2.0'
+3F92 Extract OS            0 (0x0) 'MS-DOS'
+3F93 General Purpose Flag  0 (0x0)
+3F95 Compression Method    92 (0x5C) 'Reference'
+3F97 Last Mod Time         1426538841 (0x55074159) 'Sun Aug  7 08:10:50 2022'
+3F9B CRC                   4136819348 (0xF692DA94)
+3F9F Compressed Length     20 (0x14)
+3FA3 Uncompressed Length   15915 (0x3E2B)
+3FA7 Filename Length       2 (0x2)
+3FA9 Extra Length          60 (0x3C)
+3FAB Comment Length        0 (0x0)
+3FAD Disk Start            0 (0x0)
+3FAF Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-3FB1 Ext File Attributes   00000020
+3FB1 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-3FB5 Local Header Offset   00003E7F
+3FB5 Local Header Offset   15999 (0x3E7F)
 3FB9 Filename              'f3'
-3FBB Extra ID #0001        000A 'NTFS FileTimes'
-3FBD   Length              0020
-3FBF   Reserved            00000000
-3FC3   Tag1                0001
-3FC5   Size1               0018
-3FC7   Mtime               01D8AA6FE0E9F370 'Sun Aug  7 15:10:49
-                           2022 895000000ns'
-3FCF   Atime               01D8AA6FE0E9F370 'Sun Aug  7 15:10:49
-                           2022 895000000ns'
-3FD7   Ctime               01D8AA6FE0E9F370 'Sun Aug  7 15:10:49
-                           2022 895000000ns'
-3FDF Extra ID #0002        9903 'Reference'
-3FE1   Length              0014
-3FE3   CRC                 F8BC9E8A
+3FBB Extra ID #1           10 (0xA) 'NTFS FileTimes'
+3FBD   Length              32 (0x20)
+3FBF   Reserved            0 (0x0)
+3FC3   Tag1                1 (0x1)
+3FC5   Size1               24 (0x18)
+3FC7   Mtime               133043586498950000 (0x1D8AA6FE0E9F370) 'Sun Aug  7 15:10:49 2022 895000000ns'
+3FCF   Atime               133043586498950000 (0x1D8AA6FE0E9F370) 'Sun Aug  7 15:10:49 2022 895000000ns'
+3FD7   Ctime               133043586498950000 (0x1D8AA6FE0E9F370) 'Sun Aug  7 15:10:49 2022 895000000ns'
+3FDF Extra ID #2           39171 (0x9903) 'Reference'
+3FE1   Length              20 (0x14)
+3FE3   CRC                 4173110922 (0xF8BC9E8A)
 3FE7   UUID                e02fbe4e-a804-4383-852b-a71f7f52deb4
 
-3FF7 END CENTRAL HEADER    06054B50
-3FFB Number of this disk   0000
-3FFD Central Dir Disk no   0000
-3FFF Entries in this disk  0003
-4001 Total Entries         0003
-4003 Size of Central Dir   00000144
-4007 Offset to Central Dir 00003EB3
-400B Comment Length        0000
+3FF7 END CENTRAL HEADER    101010256 (0x6054B50)
+3FFB Number of this disk   0 (0x0)
+3FFD Central Dir Disk no   0 (0x0)
+3FFF Entries in this disk  3 (0x3)
+4001 Total Entries         3 (0x3)
+4003 Size of Central Dir   324 (0x144)
+4007 Offset to Central Dir 16051 (0x3EB3)
+400B Comment Length        0 (0x0)
 #
 # Done

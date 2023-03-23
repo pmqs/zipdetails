@@ -1,61 +1,61 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0000
-0008 0009 0002 00 00       Compression Method    0000 'Stored'
-000A 000D 0004 DD 5D 61 56 Last Mod Time         56615DDD 'Wed Mar  1 11:46:58 2023'
-000E 0011 0004 C2 41 24 35 CRC                   352441C2
-0012 0015 0004 03 00 00 00 Compressed Length     00000003
-0016 0019 0004 03 00 00 00 Uncompressed Length   00000003
-001A 001B 0002 08 00       Filename Length       0008
-001C 001D 0002 04 00       Extra Length          0004
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
+0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
+000A 000D 0004 DD 5D 61 56 Last Mod Time         1449221597 (0x56615DDD) 'Wed Mar  1 11:46:58 2023'
+000E 0011 0004 C2 41 24 35 CRC                   891568578 (0x352441C2)
+0012 0015 0004 03 00 00 00 Compressed Length     3 (0x3)
+0016 0019 0004 03 00 00 00 Uncompressed Length   3 (0x3)
+001A 001B 0002 08 00       Filename Length       8 (0x8)
+001C 001D 0002 04 00       Extra Length          4 (0x4)
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 C5 10       Extra ID #0001        10C5 'Minizip CMS Signature'
-0028 0029 0002 00 00         Length              0000
+0026 0027 0002 C5 10       Extra ID #1           4293 (0x10C5) 'Minizip CMS Signature'
+0028 0029 0002 00 00         Length              0 (0x0)
 #
 # INFO: Offset 0x28: Extra Field 'Minizip CMS Signature' (ID 0x10C5): Zero length Signature
 #
 002A 002C 0003 61 62 63    PAYLOAD               abc
 
-002D 0030 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0031 0031 0001 14          Created Zip Spec      14 '2.0'
-0032 0032 0001 03          Created OS            03 'Unix'
-0033 0033 0001 14          Extract Zip Spec      14 '2.0'
-0034 0034 0001 00          Extract OS            00 'MS-DOS'
-0035 0036 0002 00 00       General Purpose Flag  0000
-0037 0038 0002 00 00       Compression Method    0000 'Stored'
-0039 003C 0004 DD 5D 61 56 Last Mod Time         56615DDD 'Wed Mar  1 11:46:58 2023'
-003D 0040 0004 C2 41 24 35 CRC                   352441C2
-0041 0044 0004 03 00 00 00 Compressed Length     00000003
-0045 0048 0004 03 00 00 00 Uncompressed Length   00000003
-0049 004A 0002 08 00       Filename Length       0008
-004B 004C 0002 04 00       Extra Length          0004
-004D 004E 0002 00 00       Comment Length        0000
-004F 0050 0002 00 00       Disk Start            0000
-0051 0052 0002 00 00       Int File Attributes   0000
+002D 0030 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+0031 0031 0001 14          Created Zip Spec      20 (0x14) '2.0'
+0032 0032 0001 03          Created OS            3 (0x3) 'Unix'
+0033 0033 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+0034 0034 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0035 0036 0002 00 00       General Purpose Flag  0 (0x0)
+0037 0038 0002 00 00       Compression Method    0 (0x0) 'Stored'
+0039 003C 0004 DD 5D 61 56 Last Mod Time         1449221597 (0x56615DDD) 'Wed Mar  1 11:46:58 2023'
+003D 0040 0004 C2 41 24 35 CRC                   891568578 (0x352441C2)
+0041 0044 0004 03 00 00 00 Compressed Length     3 (0x3)
+0045 0048 0004 03 00 00 00 Uncompressed Length   3 (0x3)
+0049 004A 0002 08 00       Filename Length       8 (0x8)
+004B 004C 0002 04 00       Extra Length          4 (0x4)
+004D 004E 0002 00 00       Comment Length        0 (0x0)
+004F 0050 0002 00 00       Disk Start            0 (0x0)
+0051 0052 0002 00 00       Int File Attributes   0 (0x0)
                            [Bit 0]               0 'Binary Data'
-0053 0056 0004 00 00 A4 81 Ext File Attributes   81A40000
-                           [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          08 'Regular File'
-0057 005A 0004 00 00 00 00 Local Header Offset   00000000
+0053 0056 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
+                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          8 (0x8) 'Regular File'
+0057 005A 0004 00 00 00 00 Local Header Offset   0 (0x0)
 005B 0062 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0063 0064 0002 C5 10       Extra ID #0001        10C5 'Minizip CMS Signature'
-0065 0066 0002 00 00         Length              0000
+0063 0064 0002 C5 10       Extra ID #1           4293 (0x10C5) 'Minizip CMS Signature'
+0065 0066 0002 00 00         Length              0 (0x0)
 #
 # INFO: Offset 0x65: Extra Field 'Minizip CMS Signature' (ID 0x10C5): Zero length Signature
 #
 
-0067 006A 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-006B 006C 0002 00 00       Number of this disk   0000
-006D 006E 0002 00 00       Central Dir Disk no   0000
-006F 0070 0002 01 00       Entries in this disk  0001
-0071 0072 0002 01 00       Total Entries         0001
-0073 0076 0004 3A 00 00 00 Size of Central Dir   0000003A
-0077 007A 0004 2D 00 00 00 Offset to Central Dir 0000002D
-007B 007C 0002 00 00       Comment Length        0000
+0067 006A 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+006B 006C 0002 00 00       Number of this disk   0 (0x0)
+006D 006E 0002 00 00       Central Dir Disk no   0 (0x0)
+006F 0070 0002 01 00       Entries in this disk  1 (0x1)
+0071 0072 0002 01 00       Total Entries         1 (0x1)
+0073 0076 0004 3A 00 00 00 Size of Central Dir   58 (0x3A)
+0077 007A 0004 2D 00 00 00 Offset to Central Dir 45 (0x2D)
+007B 007C 0002 00 00       Comment Length        0 (0x0)
 #
 # Info Count: 2
 #

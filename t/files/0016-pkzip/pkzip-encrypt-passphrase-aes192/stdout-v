@@ -1,48 +1,48 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 33          Extract Zip Spec      33 '5.1'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 41 08       General Purpose Flag  0841
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 33          Extract Zip Spec      51 (0x33) '5.1'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 08 00       Compression Method    0008 'Deflated'
-000A 000D 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0015 0004 46 02 00 00 Compressed Length     00000246
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE
-001A 001B 0002 09 00       Filename Length       0009
-001C 001D 0002 00 00       Extra Length          0000
+0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+000A 000D 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+000E 0011 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0012 0015 0004 46 02 00 00 Compressed Length     582 (0x246)
+0016 0019 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+001A 001B 0002 09 00       Filename Length       9 (0x9)
+001C 001D 0002 00 00       Extra Length          0 (0x0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 
 0027 0026 0000             DECRYPTION HEADER
                            RECORD
-0027 0028 0002 10 00       IVSize                0010
-0029 0038 0010 29 07 81 15 IVData                29 07 81 15 52 CC 5D 1C 21 A7 D0 60
-               52 CC 5D 1C                       53 24 83 1E
+0027 0028 0002 10 00       IVSize                16 (0x10)
+0029 0038 0010 29 07 81 15 IVData                29 07 81 15 52 CC 5D 1C 21 A7 D0 60 53 24 83 1E
+               52 CC 5D 1C
                21 A7 D0 60
                53 24 83 1E
-0039 003C 0004 20 01 00 00 Size                  00000120
-003D 003E 0002 03 00       Format                0003
-003F 0040 0002 0F 66       AlgId                 660F 'AES 192'
-0041 0042 0002 C0 00       BitLen                00C0
-0043 0044 0002 01 00       Flags                 0001 'Password required to decrypt'
-0045 0046 0002 90 00       ErdSize               0090
-0047 00D6 0090 99 5C 9C 73 ErdData               99 5C 9C 73 FC 9F B3 9A C0 8C 46 EA
-               FC 9F B3 9A                       9E 1B E7 EF BD CC 25 B6 67 EE 2C F0
-               C0 8C 46 EA                       34 93 B8 0A CB CB C0 3A 65 7A 40 FF
-               9E 1B E7 EF                       26 07 3A CD BB C8 62 B5 CC 4C 9C 6E
-               BD CC 25 B6                       60 D7 5C FB B4 47 EF 7B 6F F5 DB 25
-               67 EE 2C F0                       72 31 A7 9D F5 74 32 84 7C 3D 47 98
-               34 93 B8 0A                       00 39 4A 58 E6 22 FF 76 CE 87 EA 6E
-               CB CB C0 3A                       A2 FF D2 9E 12 BA AB 4E FD DA 3A DB
-               65 7A 40 FF                       22 FA C1 50 F2 E4 DF F0 F6 5B DA 17
-               26 07 3A CD                       D8 C9 62 1C 15 32 D3 40 C6 E9 71 39
-               BB C8 62 B5                       2B DE 9A 37 DC 47 CA 1E 10 92 43 CF
-               CC 4C 9C 6E                       CD 68 0C ED B4 25 AC 1C E0 78 59 01
+0039 003C 0004 20 01 00 00 Size                  288 (0x120)
+003D 003E 0002 03 00       Format                3 (0x3)
+003F 0040 0002 0F 66       AlgId                 26127 (0x660F) 'AES 192'
+0041 0042 0002 C0 00       BitLen                192 (0xC0)
+0043 0044 0002 01 00       Flags                 1 (0x1) 'Password required to decrypt'
+0045 0046 0002 90 00       ErdSize               144 (0x90)
+0047 00D6 0090 99 5C 9C 73 ErdData               99 5C 9C 73 FC 9F B3 9A C0 8C 46 EA 9E 1B E7 EF
+               FC 9F B3 9A                       BD CC 25 B6 67 EE 2C F0 34 93 B8 0A CB CB C0 3A
+               C0 8C 46 EA                       65 7A 40 FF 26 07 3A CD BB C8 62 B5 CC 4C 9C 6E
+               9E 1B E7 EF                       60 D7 5C FB B4 47 EF 7B 6F F5 DB 25 72 31 A7 9D
+               BD CC 25 B6                       F5 74 32 84 7C 3D 47 98 00 39 4A 58 E6 22 FF 76
+               67 EE 2C F0                       CE 87 EA 6E A2 FF D2 9E 12 BA AB 4E FD DA 3A DB
+               34 93 B8 0A                       22 FA C1 50 F2 E4 DF F0 F6 5B DA 17 D8 C9 62 1C
+               CB CB C0 3A                       15 32 D3 40 C6 E9 71 39 2B DE 9A 37 DC 47 CA 1E
+               65 7A 40 FF                       10 92 43 CF CD 68 0C ED B4 25 AC 1C E0 78 59 01
+               26 07 3A CD
+               BB C8 62 B5
+               CC 4C 9C 6E
                60 D7 5C FB
                B4 47 EF 7B
                6F F5 DB 25
@@ -67,19 +67,19 @@
                CD 68 0C ED
                B4 25 AC 1C
                E0 78 59 01
-00D7 00DA 0004 00 00 00 00 RCount                00000000
-00DB 00DC 0002 80 00       VSize                 0080
-00DD 0158 007C 41 B0 6D C2 VData                 41 B0 6D C2 75 42 AE 8E 13 B2 D3 76
-               75 42 AE 8E                       3E 1A 6A 6A B0 45 33 85 28 77 8B B0
-               13 B2 D3 76                       00 A7 2E B5 AB 5C D7 6E 7E CD DB 1E
-               3E 1A 6A 6A                       B4 B6 BD 06 4F FE 1B 68 2F 82 49 3C
-               B0 45 33 85                       FD 3C DC C1 43 CE 14 77 D8 43 EE 7E
-               28 77 8B B0                       04 5F E5 06 4B 44 64 A0 6A 0B 90 F4
-               00 A7 2E B5                       89 49 F9 6A E4 5A 15 B0 03 87 49 E5
-               AB 5C D7 6E                       3C D6 CB 71 BA BE 68 87 79 B1 FE CB
-               7E CD DB 1E                       CC 16 7F 15 EA 71 B7 45 C2 4C AF CF
-               B4 B6 BD 06                       7A 26 91 A8 E7 75 DC E1 EF AE 1E C8
-               4F FE 1B 68                       BF 8D F0 1B
+00D7 00DA 0004 00 00 00 00 RCount                0 (0x0)
+00DB 00DC 0002 80 00       VSize                 128 (0x80)
+00DD 0158 007C 41 B0 6D C2 VData                 41 B0 6D C2 75 42 AE 8E 13 B2 D3 76 3E 1A 6A 6A
+               75 42 AE 8E                       B0 45 33 85 28 77 8B B0 00 A7 2E B5 AB 5C D7 6E
+               13 B2 D3 76                       7E CD DB 1E B4 B6 BD 06 4F FE 1B 68 2F 82 49 3C
+               3E 1A 6A 6A                       FD 3C DC C1 43 CE 14 77 D8 43 EE 7E 04 5F E5 06
+               B0 45 33 85                       4B 44 64 A0 6A 0B 90 F4 89 49 F9 6A E4 5A 15 B0
+               28 77 8B B0                       03 87 49 E5 3C D6 CB 71 BA BE 68 87 79 B1 FE CB
+               00 A7 2E B5                       CC 16 7F 15 EA 71 B7 45 C2 4C AF CF 7A 26 91 A8
+               AB 5C D7 6E                       E7 75 DC E1 EF AE 1E C8 BF 8D F0 1B
+               7E CD DB 1E
+               B4 B6 BD 06
+               4F FE 1B 68
                2F 82 49 3C
                FD 3C DC C1
                43 CE 14 77
@@ -100,53 +100,53 @@
                E7 75 DC E1
                EF AE 1E C8
                BF 8D F0 1B
-0159 015C 0004 2A 82 6B 54 VCRC32                546B822A
+0159 015C 0004 2A 82 6B 54 VCRC32                1416331818 (0x546B822A)
 015D 026C 0110 ...         PAYLOAD
 
-026D 0270 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
-0271 0271 0001 33          Extract Zip Spec      33 '5.1'
-0272 0272 0001 00          Extract OS            00 'MS-DOS'
-0273 0274 0002 41 08       General Purpose Flag  0841
+026D 0270 0004 50 4B 03 04 LOCAL HEADER #2       67324752 (0x4034B50)
+0271 0271 0001 33          Extract Zip Spec      51 (0x33) '5.1'
+0272 0272 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0273 0274 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0275 0276 0002 08 00       Compression Method    0008 'Deflated'
-0277 027A 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-027B 027E 0004 3C C8 F5 41 CRC                   41F5C83C
-027F 0282 0004 56 02 00 00 Compressed Length     00000256
-0283 0286 0004 BF 01 00 00 Uncompressed Length   000001BF
-0287 0288 0002 0A 00       Filename Length       000A
-0289 028A 0002 00 00       Extra Length          0000
+0275 0276 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+0277 027A 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+027B 027E 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+027F 0282 0004 56 02 00 00 Compressed Length     598 (0x256)
+0283 0286 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+0287 0288 0002 0A 00       Filename Length       10 (0xA)
+0289 028A 0002 00 00       Extra Length          0 (0x0)
 028B 0294 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
 
 0295 0294 0000             DECRYPTION HEADER
                            RECORD
-0295 0296 0002 10 00       IVSize                0010
-0297 02A6 0010 FD F6 B3 1A IVData                FD F6 B3 1A 8F B4 24 68 A0 C9 F3 39
-               8F B4 24 68                       5C 24 05 B6
+0295 0296 0002 10 00       IVSize                16 (0x10)
+0297 02A6 0010 FD F6 B3 1A IVData                FD F6 B3 1A 8F B4 24 68 A0 C9 F3 39 5C 24 05 B6
+               8F B4 24 68
                A0 C9 F3 39
                5C 24 05 B6
-02A7 02AA 0004 20 01 00 00 Size                  00000120
-02AB 02AC 0002 03 00       Format                0003
-02AD 02AE 0002 0F 66       AlgId                 660F 'AES 192'
-02AF 02B0 0002 C0 00       BitLen                00C0
-02B1 02B2 0002 01 00       Flags                 0001 'Password required to decrypt'
-02B3 02B4 0002 90 00       ErdSize               0090
-02B5 0344 0090 99 5C 9C 73 ErdData               99 5C 9C 73 FC 9F B3 9A C0 8C 46 EA
-               FC 9F B3 9A                       9E 1B E7 EF BD CC 25 B6 67 EE 2C F0
-               C0 8C 46 EA                       34 93 B8 0A CB CB C0 3A 65 7A 40 FF
-               9E 1B E7 EF                       26 07 3A CD BB C8 62 B5 CC 4C 9C 6E
-               BD CC 25 B6                       60 D7 5C FB B4 47 EF 7B 6F F5 DB 25
-               67 EE 2C F0                       72 31 A7 9D F5 74 32 84 7C 3D 47 98
-               34 93 B8 0A                       00 39 4A 58 E6 22 FF 76 CE 87 EA 6E
-               CB CB C0 3A                       A2 FF D2 9E 12 BA AB 4E FD DA 3A DB
-               65 7A 40 FF                       22 FA C1 50 F2 E4 DF F0 F6 5B DA 17
-               26 07 3A CD                       D8 C9 62 1C 15 32 D3 40 C6 E9 71 39
-               BB C8 62 B5                       2B DE 9A 37 DC 47 CA 1E 10 92 43 CF
-               CC 4C 9C 6E                       CD 68 0C ED B4 25 AC 1C E0 78 59 01
+02A7 02AA 0004 20 01 00 00 Size                  288 (0x120)
+02AB 02AC 0002 03 00       Format                3 (0x3)
+02AD 02AE 0002 0F 66       AlgId                 26127 (0x660F) 'AES 192'
+02AF 02B0 0002 C0 00       BitLen                192 (0xC0)
+02B1 02B2 0002 01 00       Flags                 1 (0x1) 'Password required to decrypt'
+02B3 02B4 0002 90 00       ErdSize               144 (0x90)
+02B5 0344 0090 99 5C 9C 73 ErdData               99 5C 9C 73 FC 9F B3 9A C0 8C 46 EA 9E 1B E7 EF
+               FC 9F B3 9A                       BD CC 25 B6 67 EE 2C F0 34 93 B8 0A CB CB C0 3A
+               C0 8C 46 EA                       65 7A 40 FF 26 07 3A CD BB C8 62 B5 CC 4C 9C 6E
+               9E 1B E7 EF                       60 D7 5C FB B4 47 EF 7B 6F F5 DB 25 72 31 A7 9D
+               BD CC 25 B6                       F5 74 32 84 7C 3D 47 98 00 39 4A 58 E6 22 FF 76
+               67 EE 2C F0                       CE 87 EA 6E A2 FF D2 9E 12 BA AB 4E FD DA 3A DB
+               34 93 B8 0A                       22 FA C1 50 F2 E4 DF F0 F6 5B DA 17 D8 C9 62 1C
+               CB CB C0 3A                       15 32 D3 40 C6 E9 71 39 2B DE 9A 37 DC 47 CA 1E
+               65 7A 40 FF                       10 92 43 CF CD 68 0C ED B4 25 AC 1C E0 78 59 01
+               26 07 3A CD
+               BB C8 62 B5
+               CC 4C 9C 6E
                60 D7 5C FB
                B4 47 EF 7B
                6F F5 DB 25
@@ -171,19 +171,19 @@
                CD 68 0C ED
                B4 25 AC 1C
                E0 78 59 01
-0345 0348 0004 00 00 00 00 RCount                00000000
-0349 034A 0002 80 00       VSize                 0080
-034B 03C6 007C 8E D8 02 A6 VData                 8E D8 02 A6 25 B5 04 CC 83 19 56 2F
-               25 B5 04 CC                       18 DE 15 9B 1A 75 D7 09 4C AE 14 BA
-               83 19 56 2F                       5B 85 C3 87 D0 FE 1F 44 4E 76 4E 67
-               18 DE 15 9B                       4E C0 75 6A 79 AF 54 E9 8E 01 F8 60
-               1A 75 D7 09                       7A 50 FC B4 5D 88 F3 B1 14 AF F8 18
-               4C AE 14 BA                       27 10 4C D5 92 A7 95 D2 AB D6 E4 35
-               5B 85 C3 87                       E4 8A 5E DB 63 48 1E 7A 99 B2 2F 7E
-               D0 FE 1F 44                       E0 77 65 5C 85 EE E4 00 2A B6 73 E9
-               4E 76 4E 67                       09 4E B1 1B 16 AA 6E A6 D7 B6 96 45
-               4E C0 75 6A                       60 99 D8 0F A2 02 62 55 F4 CC F7 B9
-               79 AF 54 E9                       F1 7E 94 0C
+0345 0348 0004 00 00 00 00 RCount                0 (0x0)
+0349 034A 0002 80 00       VSize                 128 (0x80)
+034B 03C6 007C 8E D8 02 A6 VData                 8E D8 02 A6 25 B5 04 CC 83 19 56 2F 18 DE 15 9B
+               25 B5 04 CC                       1A 75 D7 09 4C AE 14 BA 5B 85 C3 87 D0 FE 1F 44
+               83 19 56 2F                       4E 76 4E 67 4E C0 75 6A 79 AF 54 E9 8E 01 F8 60
+               18 DE 15 9B                       7A 50 FC B4 5D 88 F3 B1 14 AF F8 18 27 10 4C D5
+               1A 75 D7 09                       92 A7 95 D2 AB D6 E4 35 E4 8A 5E DB 63 48 1E 7A
+               4C AE 14 BA                       99 B2 2F 7E E0 77 65 5C 85 EE E4 00 2A B6 73 E9
+               5B 85 C3 87                       09 4E B1 1B 16 AA 6E A6 D7 B6 96 45 60 99 D8 0F
+               D0 FE 1F 44                       A2 02 62 55 F4 CC F7 B9 F1 7E 94 0C
+               4E 76 4E 67
+               4E C0 75 6A
+               79 AF 54 E9
                8E 01 F8 60
                7A 50 FC B4
                5D 88 F3 B1
@@ -204,108 +204,108 @@
                A2 02 62 55
                F4 CC F7 B9
                F1 7E 94 0C
-03C7 03CA 0004 4D F7 F1 E1 VCRC32                E1F1F74D
+03C7 03CA 0004 4D F7 F1 E1 VCRC32                3790731085 (0xE1F1F74D)
 03CB 04EA 0120 ...         PAYLOAD
 
-04EB 04EE 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-04EF 04EF 0001 41          Created Zip Spec      41 '6.5'
-04F0 04F0 0001 00          Created OS            00 'MS-DOS'
-04F1 04F1 0001 33          Extract Zip Spec      33 '5.1'
-04F2 04F2 0001 00          Extract OS            00 'MS-DOS'
-04F3 04F4 0002 41 08       General Purpose Flag  0841
+04EB 04EE 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+04EF 04EF 0001 41          Created Zip Spec      65 (0x41) '6.5'
+04F0 04F0 0001 00          Created OS            0 (0x0) 'MS-DOS'
+04F1 04F1 0001 33          Extract Zip Spec      51 (0x33) '5.1'
+04F2 04F2 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+04F3 04F4 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-04F5 04F6 0002 08 00       Compression Method    0008 'Deflated'
-04F7 04FA 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-04FB 04FE 0004 FF E7 0E F9 CRC                   F90EE7FF
-04FF 0502 0004 46 02 00 00 Compressed Length     00000246
-0503 0506 0004 BE 01 00 00 Uncompressed Length   000001BE
-0507 0508 0002 09 00       Filename Length       0009
-0509 050A 0002 34 00       Extra Length          0034
-050B 050C 0002 00 00       Comment Length        0000
-050D 050E 0002 00 00       Disk Start            0000
-050F 0510 0002 01 00       Int File Attributes   0001
+04F5 04F6 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+04F7 04FA 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+04FB 04FE 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+04FF 0502 0004 46 02 00 00 Compressed Length     582 (0x246)
+0503 0506 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+0507 0508 0002 09 00       Filename Length       9 (0x9)
+0509 050A 0002 34 00       Extra Length          52 (0x34)
+050B 050C 0002 00 00       Comment Length        0 (0x0)
+050D 050E 0002 00 00       Disk Start            0 (0x0)
+050F 0510 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-0511 0514 0004 20 00 00 00 Ext File Attributes   00000020
+0511 0514 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-0515 0518 0004 00 00 00 00 Local Header Offset   00000000
+0515 0518 0004 00 00 00 00 Local Header Offset   0 (0x0)
 0519 0521 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-0522 0523 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0524 0525 0002 20 00         Length              0020
-0526 0529 0004 00 00 00 00   Reserved            00000000
-052A 052B 0002 01 00         Tag1                0001
-052C 052D 0002 18 00         Size1               0018
-052E 0535 0008 00 6B 65 42   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
-               D4 9D D8 01                       2022 0ns'
-0536 053D 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-053E 0545 0008 1D FB 7D DB   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
-               5F 9F D8 01                       2022 60572500ns'
-0546 0547 0002 17 00       Extra ID #0002        0017 'Strong Encryption Header'
-0548 0549 0002 0C 00         Length              000C
-054A 054B 0002 02 00         Format              0002
-054C 054D 0002 0F 66         AlgId               660F 'AES 192'
-054E 054F 0002 C0 00         BitLen              00C0
-0550 0551 0002 01 00         Flags               0001 'Password required to decrypt'
-0552 0555 0004 00 00 00 00   Recipients          00000000
+0522 0523 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0524 0525 0002 20 00         Length              32 (0x20)
+0526 0529 0004 00 00 00 00   Reserved            0 (0x0)
+052A 052B 0002 01 00         Tag1                1 (0x1)
+052C 052D 0002 18 00         Size1               24 (0x18)
+052E 0535 0008 00 6B 65 42   Mtime               133029723980000000 (0x1D89DD442656B00) 'Fri Jul 22 14:06:38 2022 0ns'
+               D4 9D D8 01
+0536 053D 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+053E 0545 0008 1D FB 7D DB   Ctime               133031423060605725 (0x1D89F5FDB7DFB1D) 'Sun Jul 24 13:18:26 2022 60572500ns'
+               5F 9F D8 01
+0546 0547 0002 17 00       Extra ID #2           23 (0x17) 'Strong Encryption Header'
+0548 0549 0002 0C 00         Length              12 (0xC)
+054A 054B 0002 02 00         Format              2 (0x2)
+054C 054D 0002 0F 66         AlgId               26127 (0x660F) 'AES 192'
+054E 054F 0002 C0 00         BitLen              192 (0xC0)
+0550 0551 0002 01 00         Flags               1 (0x1) 'Password required to decrypt'
+0552 0555 0004 00 00 00 00   Recipients          0 (0x0)
 
-0556 0559 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
-055A 055A 0001 41          Created Zip Spec      41 '6.5'
-055B 055B 0001 00          Created OS            00 'MS-DOS'
-055C 055C 0001 33          Extract Zip Spec      33 '5.1'
-055D 055D 0001 00          Extract OS            00 'MS-DOS'
-055E 055F 0002 41 08       General Purpose Flag  0841
+0556 0559 0004 50 4B 01 02 CENTRAL HEADER #2     33639248 (0x2014B50)
+055A 055A 0001 41          Created Zip Spec      65 (0x41) '6.5'
+055B 055B 0001 00          Created OS            0 (0x0) 'MS-DOS'
+055C 055C 0001 33          Extract Zip Spec      51 (0x33) '5.1'
+055D 055D 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+055E 055F 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0560 0561 0002 08 00       Compression Method    0008 'Deflated'
-0562 0565 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-0566 0569 0004 3C C8 F5 41 CRC                   41F5C83C
-056A 056D 0004 56 02 00 00 Compressed Length     00000256
-056E 0571 0004 BF 01 00 00 Uncompressed Length   000001BF
-0572 0573 0002 0A 00       Filename Length       000A
-0574 0575 0002 34 00       Extra Length          0034
-0576 0577 0002 00 00       Comment Length        0000
-0578 0579 0002 00 00       Disk Start            0000
-057A 057B 0002 01 00       Int File Attributes   0001
+0560 0561 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+0562 0565 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+0566 0569 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+056A 056D 0004 56 02 00 00 Compressed Length     598 (0x256)
+056E 0571 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+0572 0573 0002 0A 00       Filename Length       10 (0xA)
+0574 0575 0002 34 00       Extra Length          52 (0x34)
+0576 0577 0002 00 00       Comment Length        0 (0x0)
+0578 0579 0002 00 00       Disk Start            0 (0x0)
+057A 057B 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-057C 057F 0004 20 00 00 00 Ext File Attributes   00000020
+057C 057F 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-0580 0583 0004 6D 02 00 00 Local Header Offset   0000026D
+0580 0583 0004 6D 02 00 00 Local Header Offset   621 (0x26D)
 0584 058D 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
-058E 058F 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0590 0591 0002 20 00         Length              0020
-0592 0595 0004 00 00 00 00   Reserved            00000000
-0596 0597 0002 01 00         Tag1                0001
-0598 0599 0002 18 00         Size1               0018
-059A 05A1 0008 14 EA 72 27   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
-               4A A3 D8 01                       2022 217947600ns'
-05A2 05A9 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-05AA 05B1 0008 C3 C8 58 21   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
-               4A A3 D8 01                       2022 980371500ns'
-05B2 05B3 0002 17 00       Extra ID #0002        0017 'Strong Encryption Header'
-05B4 05B5 0002 0C 00         Length              000C
-05B6 05B7 0002 02 00         Format              0002
-05B8 05B9 0002 0F 66         AlgId               660F 'AES 192'
-05BA 05BB 0002 C0 00         BitLen              00C0
-05BC 05BD 0002 01 00         Flags               0001 'Password required to decrypt'
-05BE 05C1 0004 00 00 00 00   Recipients          00000000
+058E 058F 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0590 0591 0002 20 00         Length              32 (0x20)
+0592 0595 0004 00 00 00 00   Reserved            0 (0x0)
+0596 0597 0002 01 00         Tag1                1 (0x1)
+0598 0599 0002 18 00         Size1               24 (0x18)
+059A 05A1 0008 14 EA 72 27   Mtime               133035727892179476 (0x1D8A34A2772EA14) 'Fri Jul 29 12:53:09 2022 217947600ns'
+               4A A3 D8 01
+05A2 05A9 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+05AA 05B1 0008 C3 C8 58 21   Ctime               133035727789803715 (0x1D8A34A2158C8C3) 'Fri Jul 29 12:52:58 2022 980371500ns'
+               4A A3 D8 01
+05B2 05B3 0002 17 00       Extra ID #2           23 (0x17) 'Strong Encryption Header'
+05B4 05B5 0002 0C 00         Length              12 (0xC)
+05B6 05B7 0002 02 00         Format              2 (0x2)
+05B8 05B9 0002 0F 66         AlgId               26127 (0x660F) 'AES 192'
+05BA 05BB 0002 C0 00         BitLen              192 (0xC0)
+05BC 05BD 0002 01 00         Flags               1 (0x1) 'Password required to decrypt'
+05BE 05C1 0004 00 00 00 00   Recipients          0 (0x0)
 
-05C2 05C5 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-05C6 05C7 0002 00 00       Number of this disk   0000
-05C8 05C9 0002 00 00       Central Dir Disk no   0000
-05CA 05CB 0002 02 00       Entries in this disk  0002
-05CC 05CD 0002 02 00       Total Entries         0002
-05CE 05D1 0004 D7 00 00 00 Size of Central Dir   000000D7
-05D2 05D5 0004 EB 04 00 00 Offset to Central Dir 000004EB
-05D6 05D7 0002 00 00       Comment Length        0000
+05C2 05C5 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+05C6 05C7 0002 00 00       Number of this disk   0 (0x0)
+05C8 05C9 0002 00 00       Central Dir Disk no   0 (0x0)
+05CA 05CB 0002 02 00       Entries in this disk  2 (0x2)
+05CC 05CD 0002 02 00       Total Entries         2 (0x2)
+05CE 05D1 0004 D7 00 00 00 Size of Central Dir   215 (0xD7)
+05D2 05D5 0004 EB 04 00 00 Offset to Central Dir 1259 (0x4EB)
+05D6 05D7 0002 00 00       Comment Length        0 (0x0)
 #
 # Done

@@ -1,60 +1,57 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
-000E CRC                   CA7AF99D
-0012 Compressed Length     0000000B
-0016 Uncompressed Length   00000006
-001A Filename Length       0005
-001C Extra Length          0000
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         1358148504 (0x50F3B398) 'Sun Jul 19 22:28:48 2020'
+000E CRC                   3397056925 (0xCA7AF99D)
+0012 Compressed Length     11 (0xB)
+0016 Uncompressed Length   6 (0x6)
+001A Filename Length       5 (0x5)
+001C Extra Length          0 (0x0)
 001E Filename              'abcde'
 0023 PAYLOAD               .....ancde.
 
-002E CENTRAL HEADER #1     02014B50
-0032 Created Zip Spec      14 '2.0'
-0033 Created OS            00 'MS-DOS'
-0034 Extract Zip Spec      14 '2.0'
-0035 Extract OS            00 'MS-DOS'
-0036 General Purpose Flag  0000
+002E CENTRAL HEADER #1     33639248 (0x2014B50)
+0032 Created Zip Spec      20 (0x14) '2.0'
+0033 Created OS            0 (0x0) 'MS-DOS'
+0034 Extract Zip Spec      20 (0x14) '2.0'
+0035 Extract OS            0 (0x0) 'MS-DOS'
+0036 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0038 Compression Method    0008 'Deflated'
-003A Last Mod Time         50F3B398 'Sun Jul 19 22:28:48 2020'
-003E CRC                   CA7AF99D
-0042 Compressed Length     0000000B
-0046 Uncompressed Length   00000006
-004A Filename Length       0005
-004C Extra Length          0024
-004E Comment Length        0000
-0050 Disk Start            0000
-0052 Int File Attributes   0001
+0038 Compression Method    8 (0x8) 'Deflated'
+003A Last Mod Time         1358148504 (0x50F3B398) 'Sun Jul 19 22:28:48 2020'
+003E CRC                   3397056925 (0xCA7AF99D)
+0042 Compressed Length     11 (0xB)
+0046 Uncompressed Length   6 (0x6)
+004A Filename Length       5 (0x5)
+004C Extra Length          36 (0x24)
+004E Comment Length        0 (0x0)
+0050 Disk Start            0 (0x0)
+0052 Int File Attributes   1 (0x1)
      [Bit 0]               1 'Text Data'
-0054 Ext File Attributes   00000020
+0054 Ext File Attributes   32 (0x20)
      [Bit 5]               Archive
-0058 Local Header Offset   00000000
+0058 Local Header Offset   0 (0x0)
 005C Filename              'abcde'
-0061 Extra ID #0001        000A 'NTFS FileTimes'
-0063   Length              0020
-0065   Reserved            00000000
-0069   Tag1                0001
-006B   Size1               0018
-006D   Mtime               01D65E13969B0660 'Sun Jul 19 21:28:47
-                           2020 814000000ns'
-0075   Atime               01D65E13969BA2A0 'Sun Jul 19 21:28:47
-                           2020 818000000ns'
-007D   Ctime               01D65E13969B0660 'Sun Jul 19 21:28:47
-                           2020 814000000ns'
+0061 Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0063   Length              32 (0x20)
+0065   Reserved            0 (0x0)
+0069   Tag1                1 (0x1)
+006B   Size1               24 (0x18)
+006D   Mtime               132396677278140000 (0x1D65E13969B0660) 'Sun Jul 19 21:28:47 2020 814000000ns'
+0075   Atime               132396677278180000 (0x1D65E13969BA2A0) 'Sun Jul 19 21:28:47 2020 818000000ns'
+007D   Ctime               132396677278140000 (0x1D65E13969B0660) 'Sun Jul 19 21:28:47 2020 814000000ns'
 
-0085 END CENTRAL HEADER    06054B50
-0089 Number of this disk   0000
-008B Central Dir Disk no   0000
-008D Entries in this disk  0001
-008F Total Entries         0001
-0091 Size of Central Dir   00000057
-0095 Offset to Central Dir 0000002E
-0099 Comment Length        0000
+0085 END CENTRAL HEADER    101010256 (0x6054B50)
+0089 Number of this disk   0 (0x0)
+008B Central Dir Disk no   0 (0x0)
+008D Entries in this disk  1 (0x1)
+008F Total Entries         1 (0x1)
+0091 Size of Central Dir   87 (0x57)
+0095 Offset to Central Dir 46 (0x2E)
+0099 Comment Length        0 (0x0)
 #
 # Done

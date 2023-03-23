@@ -1,57 +1,57 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
-0008 Compression Method    0000 'Stored'
-000A Last Mod Time         555D8A6A 'Sat Oct 29 17:19:20 2022'
-000E CRC                   8587D865
-0012 Compressed Length     00000005
-0016 Uncompressed Length   00000005
-001A Filename Length       0008
-001C Extra Length          0009
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
+0008 Compression Method    0 (0x0) 'Stored'
+000A Last Mod Time         1432193642 (0x555D8A6A) 'Sat Oct 29 17:19:20 2022'
+000E CRC                   2240272485 (0x8587D865)
+0012 Compressed Length     5 (0x5)
+0016 Uncompressed Length   5 (0x5)
+001A Filename Length       8 (0x8)
+001C Extra Length          9 (0x9)
 001E Filename              'filename'
-0026 Extra ID #0001        FFFF 'DUMMY'
-0028   Length              0005
-002A   Data                34333231
+0026 Extra ID #1           65535 (0xFFFF) 'DUMMY'
+0028   Length              5 (0x5)
+002A   Data                875770417 (0x34333231)
 #
-# ERROR: Offset 0x2E: Expected to be at offset 0x2F after processing Extra Field 'DUMMY' (ID 0xFFFF), actually at 0x2E
-#        Skipping 0x1 bytes
+# ERROR: Offset 0x2E: Expected to be at offset 47 (0x2F) after processing Extra Field 'DUMMY' (ID 0xFFFF), actually at 46 (0x2E)
+#        Skipping 1 (0x1) bytes
 #
 002E   Extra Data          5
 002F PAYLOAD               abcde
 
-0034 CENTRAL HEADER #1     02014B50
-0038 Created Zip Spec      14 '2.0'
-0039 Created OS            03 'Unix'
-003A Extract Zip Spec      14 '2.0'
-003B Extract OS            00 'MS-DOS'
-003C General Purpose Flag  0000
-003E Compression Method    0000 'Stored'
-0040 Last Mod Time         555D8A6A 'Sat Oct 29 17:19:20 2022'
-0044 CRC                   8587D865
-0048 Compressed Length     00000005
-004C Uncompressed Length   00000005
-0050 Filename Length       0008
-0052 Extra Length          0000
-0054 Comment Length        0000
-0056 Disk Start            0000
-0058 Int File Attributes   0000
+0034 CENTRAL HEADER #1     33639248 (0x2014B50)
+0038 Created Zip Spec      20 (0x14) '2.0'
+0039 Created OS            3 (0x3) 'Unix'
+003A Extract Zip Spec      20 (0x14) '2.0'
+003B Extract OS            0 (0x0) 'MS-DOS'
+003C General Purpose Flag  0 (0x0)
+003E Compression Method    0 (0x0) 'Stored'
+0040 Last Mod Time         1432193642 (0x555D8A6A) 'Sat Oct 29 17:19:20 2022'
+0044 CRC                   2240272485 (0x8587D865)
+0048 Compressed Length     5 (0x5)
+004C Uncompressed Length   5 (0x5)
+0050 Filename Length       8 (0x8)
+0052 Extra Length          0 (0x0)
+0054 Comment Length        0 (0x0)
+0056 Disk Start            0 (0x0)
+0058 Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-005A Ext File Attributes   81A40000
-     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          08 'Regular File'
-005E Local Header Offset   00000000
+005A Ext File Attributes   2175008768 (0x81A40000)
+     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+005E Local Header Offset   0 (0x0)
 0062 Filename              'filename'
 
-006A END CENTRAL HEADER    06054B50
-006E Number of this disk   0000
-0070 Central Dir Disk no   0000
-0072 Entries in this disk  0001
-0074 Total Entries         0001
-0076 Size of Central Dir   00000036
-007A Offset to Central Dir 00000034
-007E Comment Length        0000
+006A END CENTRAL HEADER    101010256 (0x6054B50)
+006E Number of this disk   0 (0x0)
+0070 Central Dir Disk no   0 (0x0)
+0072 Entries in this disk  1 (0x1)
+0074 Total Entries         1 (0x1)
+0076 Size of Central Dir   54 (0x36)
+007A Offset to Central Dir 52 (0x34)
+007E Comment Length        0 (0x0)
 #
 # Error Count: 1
 #

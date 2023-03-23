@@ -1,71 +1,71 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 08 00       General Purpose Flag  0008
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 08 00       General Purpose Flag  8 (0x8)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
-0008 0009 0002 08 00       Compression Method    0008 'Deflated'
-000A 000D 0004 CF 53 94 55 Last Mod Time         559453CF 'Tue Dec 20 10:30:30 2022'
-000E 0011 0004 00 00 00 00 CRC                   00000000
-0012 0015 0004 00 00 00 00 Compressed Length     00000000
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000
-001A 001B 0002 09 00       Filename Length       0009
-001C 001D 0002 00 00       Extra Length          0000
+0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+000A 000D 0004 CF 53 94 55 Last Mod Time         1435784143 (0x559453CF) 'Tue Dec 20 10:30:30 2022'
+000E 0011 0004 00 00 00 00 CRC                   0 (0x0)
+0012 0015 0004 00 00 00 00 Compressed Length     0 (0x0)
+0016 0019 0004 00 00 00 00 Uncompressed Length   0 (0x0)
+001A 001B 0002 09 00       Filename Length       9 (0x9)
+001C 001D 0002 00 00       Extra Length          0 (0x0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 0027 0134 010E ...         PAYLOAD
 
-                           Missing DATA          08074B50
+                           Missing DATA          134695760 (0x8074B50)
                            DESCRIPTOR Signature
 #
 # ERROR: Offset 0x135: Missimg DATA DESCRIPTOR Signature
 #
-0135 0138 0004 FF E7 0E F9 CRC                   F90EE7FF
-0139 0140 0008 0E 01 00 00 Compressed Length     000000000000010E
+0135 0138 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0139 0140 0008 0E 01 00 00 Compressed Length     270 (0x10E)
                00 00 00 00
-0141 0148 0008 BE 01 00 00 Uncompressed Length   00000000000001BE
+0141 0148 0008 BE 01 00 00 Uncompressed Length   446 (0x1BE)
                00 00 00 00
 #
 # ERROR: Offset 0x135: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
 #
 
-0149 014C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-014D 014D 0001 14          Created Zip Spec      14 '2.0'
-014E 014E 0001 03          Created OS            03 'Unix'
-014F 014F 0001 14          Extract Zip Spec      14 '2.0'
-0150 0150 0001 00          Extract OS            00 'MS-DOS'
-0151 0152 0002 08 00       General Purpose Flag  0008
+0149 014C 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+014D 014D 0001 14          Created Zip Spec      20 (0x14) '2.0'
+014E 014E 0001 03          Created OS            3 (0x3) 'Unix'
+014F 014F 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+0150 0150 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0151 0152 0002 08 00       General Purpose Flag  8 (0x8)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
-0153 0154 0002 08 00       Compression Method    0008 'Deflated'
-0155 0158 0004 CF 53 94 55 Last Mod Time         559453CF 'Tue Dec 20 10:30:30 2022'
-0159 015C 0004 FF E7 0E F9 CRC                   F90EE7FF
-015D 0160 0004 0E 01 00 00 Compressed Length     0000010E
-0161 0164 0004 BE 01 00 00 Uncompressed Length   000001BE
-0165 0166 0002 09 00       Filename Length       0009
-0167 0168 0002 00 00       Extra Length          0000
-0169 016A 0002 00 00       Comment Length        0000
-016B 016C 0002 00 00       Disk Start            0000
-016D 016E 0002 01 00       Int File Attributes   0001
+0153 0154 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+0155 0158 0004 CF 53 94 55 Last Mod Time         1435784143 (0x559453CF) 'Tue Dec 20 10:30:30 2022'
+0159 015C 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+015D 0160 0004 0E 01 00 00 Compressed Length     270 (0x10E)
+0161 0164 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+0165 0166 0002 09 00       Filename Length       9 (0x9)
+0167 0168 0002 00 00       Extra Length          0 (0x0)
+0169 016A 0002 00 00       Comment Length        0 (0x0)
+016B 016C 0002 00 00       Disk Start            0 (0x0)
+016D 016E 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-016F 0172 0004 00 00 A4 81 Ext File Attributes   81A40000
-                           [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          08 'Regular File'
-0173 0176 0004 00 00 00 00 Local Header Offset   00000000
+016F 0172 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
+                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          8 (0x8) 'Regular File'
+0173 0176 0004 00 00 00 00 Local Header Offset   0 (0x0)
 0177 017F 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 
-0180 0183 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0184 0185 0002 00 00       Number of this disk   0000
-0186 0187 0002 00 00       Central Dir Disk no   0000
-0188 0189 0002 01 00       Entries in this disk  0001
-018A 018B 0002 01 00       Total Entries         0001
-018C 018F 0004 37 00 00 00 Size of Central Dir   00000037
-0190 0193 0004 49 01 00 00 Offset to Central Dir 00000149
-0194 0195 0002 00 00       Comment Length        0000
+0180 0183 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+0184 0185 0002 00 00       Number of this disk   0 (0x0)
+0186 0187 0002 00 00       Central Dir Disk no   0 (0x0)
+0188 0189 0002 01 00       Entries in this disk  1 (0x1)
+018A 018B 0002 01 00       Total Entries         1 (0x1)
+018C 018F 0004 37 00 00 00 Size of Central Dir   55 (0x37)
+0190 0193 0004 49 01 00 00 Offset to Central Dir 329 (0x149)
+0194 0195 0002 00 00       Comment Length        0 (0x0)
 #
 # Error Count: 2
 #

@@ -1,47 +1,46 @@
 #
-# INFO: Offset 0x0: found 0x1CC0 bytes before beginning of zipfile
+# INFO: Offset 0x0: found 7360 (0x1CC0) bytes before beginning of zipfile
 #
 
 0000 UNEXPECTED PADDING
 
-1CC0 ZIP64 END CENTRAL DIR 06064B50
+1CC0 ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
      RECORD
-1CC4 Size of record        000000000000004C
-1CCC Created Zip Spec      41 '6.5'
-1CCD Created OS            00 'MS-DOS'
-1CCE Extract Zip Spec      3E '6.2'
-1CCF Extract OS            00 'MS-DOS'
-1CD0 Number of this disk   00000000
-1CD4 Central Dir Disk no   00000000
-1CD8 Entries in this disk  0000000000000000
-1CE0 Total Entries         0000000000000002
-1CE8 Size of Central Dir   0000000000000F6E
-1CF0 Offset to Central dir 0000000000000D52
-1CF8 Compression Method    0008 'Deflated'
-1CFA Compressed Length     0000000000000F6E
-1D02 Uncompressed Length   0000000000000B2A
-1D0A AlgId                 6603 '3DES 168'
-1D0C BitLen                00A8
-1D0E Flags                 0102 'reserved for certificate
-                           processing'
-1D10 HashID                0001 'CRC32'
-1D12 Hash Length           0004
+1CC4 Size of record        76 (0x4C)
+1CCC Created Zip Spec      65 (0x41) '6.5'
+1CCD Created OS            0 (0x0) 'MS-DOS'
+1CCE Extract Zip Spec      62 (0x3E) '6.2'
+1CCF Extract OS            0 (0x0) 'MS-DOS'
+1CD0 Number of this disk   0 (0x0)
+1CD4 Central Dir Disk no   0 (0x0)
+1CD8 Entries in this disk  0 (0x0)
+1CE0 Total Entries         2 (0x2)
+1CE8 Size of Central Dir   3950 (0xF6E)
+1CF0 Offset to Central dir 3410 (0xD52)
+1CF8 Compression Method    8 (0x8) 'Deflated'
+1CFA Compressed Length     3950 (0xF6E)
+1D02 Uncompressed Length   2858 (0xB2A)
+1D0A AlgId                 26115 (0x6603) '3DES 168'
+1D0C BitLen                168 (0xA8)
+1D0E Flags                 258 (0x102) 'reserved for certificate processing'
+1D10 HashID                1 (0x1) 'CRC32'
+1D12 Hash Length           4 (0x4)
 1D14 Hash Data             30 0A EE 66
 
-1D18 ZIP64 END CENTRAL DIR 07064B50
+1D18 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
      LOCATOR
-1D1C Central Dir Disk no   00000000
-1D20 Offset to Zip64 EOCD  0000000000001CC0
-1D28 Total no of Disks     00000001
+1D1C Central Dir Disk no   0 (0x0)
+1D20 Offset to Zip64 EOCD  7360 (0x1CC0)
+1D28 Total no of Disks     1 (0x1)
 
-1D2C END CENTRAL HEADER    06054B50
-1D30 Number of this disk   0000
-1D32 Central Dir Disk no   0000
-1D34 Entries in this disk  0000
-1D36 Total Entries         FFFF
-1D38 Size of Central Dir   00000F6E
-1D3C Offset to Central Dir 00000D52
-1D40 Comment Length        0000
+1D2C END CENTRAL HEADER    101010256 (0x6054B50)
+1D30 Number of this disk   0 (0x0)
+1D32 Central Dir Disk no   0 (0x0)
+1D34 Entries in this disk  0 (0x0)
+1D36 Total Entries         65535 (0xFFFF)
+1D38 Size of Central Dir   3950 (0xF6E)
+1D3C Offset to Central Dir 3410 (0xD52)
+1D40 Comment Length        0 (0x0)
 #
 # Info Count: 1
 #

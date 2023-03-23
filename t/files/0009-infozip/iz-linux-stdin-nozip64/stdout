@@ -1,50 +1,50 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
-000E CRC                   F90EE7FF
-0012 Compressed Length     0000010E
-0016 Uncompressed Length   000001BE
-001A Filename Length       0001
-001C Extra Length          0000
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
+000E CRC                   4178503679 (0xF90EE7FF)
+0012 Compressed Length     270 (0x10E)
+0016 Uncompressed Length   446 (0x1BE)
+001A Filename Length       1 (0x1)
+001C Extra Length          0 (0x0)
 001E Filename              '-'
 001F PAYLOAD
 
-012D CENTRAL HEADER #1     02014B50
-0131 Created Zip Spec      1E '3.0'
-0132 Created OS            03 'Unix'
-0133 Extract Zip Spec      14 '2.0'
-0134 Extract OS            00 'MS-DOS'
-0135 General Purpose Flag  0000
+012D CENTRAL HEADER #1     33639248 (0x2014B50)
+0131 Created Zip Spec      30 (0x1E) '3.0'
+0132 Created OS            3 (0x3) 'Unix'
+0133 Extract Zip Spec      20 (0x14) '2.0'
+0134 Extract OS            0 (0x0) 'MS-DOS'
+0135 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0137 Compression Method    0008 'Deflated'
-0139 Last Mod Time         52988571 'Sat Apr 24 16:43:34 2021'
-013D CRC                   F90EE7FF
-0141 Compressed Length     0000010E
-0145 Uncompressed Length   000001BE
-0149 Filename Length       0001
-014B Extra Length          0000
-014D Comment Length        0000
-014F Disk Start            0000
-0151 Int File Attributes   0001
+0137 Compression Method    8 (0x8) 'Deflated'
+0139 Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
+013D CRC                   4178503679 (0xF90EE7FF)
+0141 Compressed Length     270 (0x10E)
+0145 Uncompressed Length   446 (0x1BE)
+0149 Filename Length       1 (0x1)
+014B Extra Length          0 (0x0)
+014D Comment Length        0 (0x0)
+014F Disk Start            0 (0x0)
+0151 Int File Attributes   1 (0x1)
      [Bit 0]               1 'Text Data'
-0153 Ext File Attributes   81ED0000
-     [Bits 16-24]          01ED 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 'Regular File'
-0157 Local Header Offset   00000000
+0153 Ext File Attributes   2179792896 (0x81ED0000)
+     [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+0157 Local Header Offset   0 (0x0)
 015B Filename              '-'
 
-015C END CENTRAL HEADER    06054B50
-0160 Number of this disk   0000
-0162 Central Dir Disk no   0000
-0164 Entries in this disk  0001
-0166 Total Entries         0001
-0168 Size of Central Dir   0000002F
-016C Offset to Central Dir 0000012D
-0170 Comment Length        0000
+015C END CENTRAL HEADER    101010256 (0x6054B50)
+0160 Number of this disk   0 (0x0)
+0162 Central Dir Disk no   0 (0x0)
+0164 Entries in this disk  1 (0x1)
+0166 Total Entries         1 (0x1)
+0168 Size of Central Dir   47 (0x2F)
+016C Offset to Central Dir 301 (0x12D)
+0170 Comment Length        0 (0x0)
 #
 # Done

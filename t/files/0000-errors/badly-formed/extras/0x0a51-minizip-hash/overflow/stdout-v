@@ -1,68 +1,68 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 14          Extract Zip Spec      14 '2.0'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0000
-0008 0009 0002 00 00       Compression Method    0000 'Stored'
-000A 000D 0004 28 7E 61 56 Last Mod Time         56617E28 'Wed Mar  1 15:49:16 2023'
-000E 0011 0004 C2 41 24 35 CRC                   352441C2
-0012 0015 0004 03 00 00 00 Compressed Length     00000003
-0016 0019 0004 03 00 00 00 Uncompressed Length   00000003
-001A 001B 0002 08 00       Filename Length       0008
-001C 001D 0002 0B 00       Extra Length          000B
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
+0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
+000A 000D 0004 28 7E 61 56 Last Mod Time         1449229864 (0x56617E28) 'Wed Mar  1 15:49:16 2023'
+000E 0011 0004 C2 41 24 35 CRC                   891568578 (0x352441C2)
+0012 0015 0004 03 00 00 00 Compressed Length     3 (0x3)
+0016 0019 0004 03 00 00 00 Uncompressed Length   3 (0x3)
+001A 001B 0002 08 00       Filename Length       8 (0x8)
+001C 001D 0002 0B 00       Extra Length          11 (0xB)
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
-0028 0029 0002 07 00         Length              0007
-002A 002B 0002 0A 00         Algorithm           000A 'MD5'
-002C 002D 0002 02 00         Digest Size         0002
+0026 0027 0002 51 1A       Extra ID #1           6737 (0x1A51) 'Minizip Hash'
+0028 0029 0002 07 00         Length              7 (0x7)
+002A 002B 0002 0A 00         Algorithm           10 (0xA) 'MD5'
+002C 002D 0002 02 00         Digest Size         2 (0x2)
 002E 002F 0002 01 02         Digest              01 02
 0030 0030 0001 03            Unexpected Data     03
 #
-# ERROR: Offset 0x30: Extra Field 'Minizip Hash' (ID 0x1A51): 0x1 unexpected trailing bytes
+# ERROR: Offset 0x30: Extra Field 'Minizip Hash' (ID 0x1A51): 1 (0x1) unexpected trailing bytes
 #
 0031 0033 0003 61 62 63    PAYLOAD               abc
 
-0034 0037 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0038 0038 0001 14          Created Zip Spec      14 '2.0'
-0039 0039 0001 03          Created OS            03 'Unix'
-003A 003A 0001 14          Extract Zip Spec      14 '2.0'
-003B 003B 0001 00          Extract OS            00 'MS-DOS'
-003C 003D 0002 00 00       General Purpose Flag  0000
-003E 003F 0002 00 00       Compression Method    0000 'Stored'
-0040 0043 0004 28 7E 61 56 Last Mod Time         56617E28 'Wed Mar  1 15:49:16 2023'
-0044 0047 0004 C2 41 24 35 CRC                   352441C2
-0048 004B 0004 03 00 00 00 Compressed Length     00000003
-004C 004F 0004 03 00 00 00 Uncompressed Length   00000003
-0050 0051 0002 08 00       Filename Length       0008
-0052 0053 0002 0B 00       Extra Length          000B
-0054 0055 0002 00 00       Comment Length        0000
-0056 0057 0002 00 00       Disk Start            0000
-0058 0059 0002 00 00       Int File Attributes   0000
+0034 0037 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+0038 0038 0001 14          Created Zip Spec      20 (0x14) '2.0'
+0039 0039 0001 03          Created OS            3 (0x3) 'Unix'
+003A 003A 0001 14          Extract Zip Spec      20 (0x14) '2.0'
+003B 003B 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+003C 003D 0002 00 00       General Purpose Flag  0 (0x0)
+003E 003F 0002 00 00       Compression Method    0 (0x0) 'Stored'
+0040 0043 0004 28 7E 61 56 Last Mod Time         1449229864 (0x56617E28) 'Wed Mar  1 15:49:16 2023'
+0044 0047 0004 C2 41 24 35 CRC                   891568578 (0x352441C2)
+0048 004B 0004 03 00 00 00 Compressed Length     3 (0x3)
+004C 004F 0004 03 00 00 00 Uncompressed Length   3 (0x3)
+0050 0051 0002 08 00       Filename Length       8 (0x8)
+0052 0053 0002 0B 00       Extra Length          11 (0xB)
+0054 0055 0002 00 00       Comment Length        0 (0x0)
+0056 0057 0002 00 00       Disk Start            0 (0x0)
+0058 0059 0002 00 00       Int File Attributes   0 (0x0)
                            [Bit 0]               0 'Binary Data'
-005A 005D 0004 00 00 A4 81 Ext File Attributes   81A40000
-                           [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          08 'Regular File'
-005E 0061 0004 00 00 00 00 Local Header Offset   00000000
+005A 005D 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
+                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          8 (0x8) 'Regular File'
+005E 0061 0004 00 00 00 00 Local Header Offset   0 (0x0)
 0062 0069 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-006A 006B 0002 51 1A       Extra ID #0001        1A51 'Minizip Hash'
-006C 006D 0002 07 00         Length              0007
-006E 006F 0002 0A 00         Algorithm           000A 'MD5'
-0070 0071 0002 04 00         Digest Size         0004
+006A 006B 0002 51 1A       Extra ID #1           6737 (0x1A51) 'Minizip Hash'
+006C 006D 0002 07 00         Length              7 (0x7)
+006E 006F 0002 0A 00         Algorithm           10 (0xA) 'MD5'
+0070 0071 0002 04 00         Digest Size         4 (0x4)
 #
-# ERROR: Offset 0x70: Extra Field 'Minizip Hash' (ID 0x1A51): Digest Size 0x4 > bytes remaining (0x3) in extra field
+# ERROR: Offset 0x70: Extra Field 'Minizip Hash' (ID 0x1A51): Digest Size 4 (0x4) >  3 (0x3) bytes remaining in extra field
 #
 0072 0074 0003 01 02 03      Digest              01 02 03
 
-0075 0078 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0079 007A 0002 00 00       Number of this disk   0000
-007B 007C 0002 00 00       Central Dir Disk no   0000
-007D 007E 0002 01 00       Entries in this disk  0001
-007F 0080 0002 01 00       Total Entries         0001
-0081 0084 0004 41 00 00 00 Size of Central Dir   00000041
-0085 0088 0004 34 00 00 00 Offset to Central Dir 00000034
-0089 008A 0002 00 00       Comment Length        0000
+0075 0078 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+0079 007A 0002 00 00       Number of this disk   0 (0x0)
+007B 007C 0002 00 00       Central Dir Disk no   0 (0x0)
+007D 007E 0002 01 00       Entries in this disk  1 (0x1)
+007F 0080 0002 01 00       Total Entries         1 (0x1)
+0081 0084 0004 41 00 00 00 Size of Central Dir   65 (0x41)
+0085 0088 0004 34 00 00 00 Offset to Central Dir 52 (0x34)
+0089 008A 0002 00 00       Comment Length        0 (0x0)
 #
 # Error Count: 2
 #

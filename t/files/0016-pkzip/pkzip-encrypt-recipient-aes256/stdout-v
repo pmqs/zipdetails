@@ -1,49 +1,48 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50
-0004 0004 0001 3D          Extract Zip Spec      3D '6.1'
-0005 0005 0001 00          Extract OS            00 'MS-DOS'
-0006 0007 0002 41 08       General Purpose Flag  0841
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 0004 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
+0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0006 0007 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 08 00       Compression Method    0008 'Deflated'
-000A 000D 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF
-0012 0015 0004 86 06 00 00 Compressed Length     00000686
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE
-001A 001B 0002 09 00       Filename Length       0009
-001C 001D 0002 00 00       Extra Length          0000
+0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+000A 000D 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+000E 0011 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0012 0015 0004 86 06 00 00 Compressed Length     1670 (0x686)
+0016 0019 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+001A 001B 0002 09 00       Filename Length       9 (0x9)
+001C 001D 0002 00 00       Extra Length          0 (0x0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 
 0027 0026 0000             DECRYPTION HEADER
                            RECORD
-0027 0028 0002 10 00       IVSize                0010
-0029 0038 0010 AA F9 EF 6F IVData                AA F9 EF 6F 42 7A 30 DF 7C 29 6E 9E
-               42 7A 30 DF                       5A CB E5 2A
+0027 0028 0002 10 00       IVSize                16 (0x10)
+0029 0038 0010 AA F9 EF 6F IVData                AA F9 EF 6F 42 7A 30 DF 7C 29 6E 9E 5A CB E5 2A
+               42 7A 30 DF
                7C 29 6E 9E
                5A CB E5 2A
-0039 003C 0004 60 05 00 00 Size                  00000560
-003D 003E 0002 03 00       Format                0003
-003F 0040 0002 10 66       AlgId                 6610 'AES 256'
-0041 0042 0002 00 01       BitLen                0100
-0043 0044 0002 02 41       Flags                 4102 'Reserved for certificate
-                                                 processing'
-0045 0046 0002 88 00       ErdSize               0088
-0047 00CE 0088 E0 EB E5 25 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4
-               02 F9 6B 5D                       B2 42 95 D8 E8 4A 7A 18 0C C2 0C 39
-               EC 01 1F C4                       A9 FD B9 4F FA 73 13 E2 F0 0D 40 CC
-               B2 42 95 D8                       81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
-               E8 4A 7A 18                       57 54 00 F4 BE C4 82 C7 1D F2 FE A6
-               0C C2 0C 39                       13 7A 5E B5 03 EA FC 04 78 2A 90 B9
-               A9 FD B9 4F                       F2 6E 4C 81 57 FA 82 A0 F8 AE 69 B3
-               FA 73 13 E2                       C0 C7 B2 68 73 AF 8E 9A C8 65 F0 32
-               F0 0D 40 CC                       01 82 03 88 88 73 A2 80 64 76 43 16
-               81 D7 35 8F                       FA 81 88 37 4F C8 D8 03 58 5A 53 BE
-               92 4A 4E 3A                       8B DC 2F 79 FB 01 6A 6B 55 45 19 48
-               CC 51 59 B7                       7E 49 D4 E5
+0039 003C 0004 60 05 00 00 Size                  1376 (0x560)
+003D 003E 0002 03 00       Format                3 (0x3)
+003F 0040 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
+0041 0042 0002 00 01       BitLen                256 (0x100)
+0043 0044 0002 02 41       Flags                 16642 (0x4102) 'Reserved for certificate processing'
+0045 0046 0002 88 00       ErdSize               136 (0x88)
+0047 00CE 0088 E0 EB E5 25 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4 B2 42 95 D8
+               02 F9 6B 5D                       E8 4A 7A 18 0C C2 0C 39 A9 FD B9 4F FA 73 13 E2
+               EC 01 1F C4                       F0 0D 40 CC 81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
+               B2 42 95 D8                       57 54 00 F4 BE C4 82 C7 1D F2 FE A6 13 7A 5E B5
+               E8 4A 7A 18                       03 EA FC 04 78 2A 90 B9 F2 6E 4C 81 57 FA 82 A0
+               0C C2 0C 39                       F8 AE 69 B3 C0 C7 B2 68 73 AF 8E 9A C8 65 F0 32
+               A9 FD B9 4F                       01 82 03 88 88 73 A2 80 64 76 43 16 FA 81 88 37
+               FA 73 13 E2                       4F C8 D8 03 58 5A 53 BE 8B DC 2F 79 FB 01 6A 6B
+               F0 0D 40 CC                       55 45 19 48 7E 49 D4 E5
+               81 D7 35 8F
+               92 4A 4E 3A
+               CC 51 59 B7
                57 54 00 F4
                BE C4 82 C7
                1D F2 FE A6
@@ -66,59 +65,59 @@
                FB 01 6A 6B
                55 45 19 48
                7E 49 D4 E5
-00CF 00D2 0004 02 00 00 00 RCount                00000002
-00D3 00D4 0002 04 80       HashAlg               8004 'SHA1'
-00D5 00D6 0002 14 00       HSize                 0014
-00D7 00D8 0002 20 02       RESize Key #1         0220
-00D9 00EC 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA
-               6E 93 D0 8B                       94 11 36 F8 68 3D 0B 1A
+00CF 00D2 0004 02 00 00 00 RCount                2 (0x2)
+00D3 00D4 0002 04 80       HashAlg               32772 (0x8004) 'SHA1'
+00D5 00D6 0002 14 00       HSize                 20 (0x14)
+00D7 00D8 0002 20 02       RESize Key #1         544 (0x220)
+00D9 00EC 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
+               6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
                94 11 36 F8
                68 3D 0B 1A
-00ED 02F8 020C 01 02 00 00 REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00
-               03 66 00 00                       95 CF EE 32 39 7B 5D 55 EA 81 6C 26
-               00 A4 00 00                       3A 84 F6 99 5E 55 DB 21 CB 49 02 02
-               95 CF EE 32                       E1 3F DC 22 3C 5F 59 1A 0D 7A 70 E9
-               39 7B 5D 55                       6D 35 DD F1 6C 1F 72 0E D6 F7 46 07
-               EA 81 6C 26                       93 DD FD AE DB 2D C2 BA 17 41 A7 5E
-               3A 84 F6 99                       E5 B0 A3 C0 93 8A 24 62 B9 A3 50 73
-               5E 55 DB 21                       12 6E 5B 9F F5 FE 1E 93 0C BC C3 2E
-               CB 49 02 02                       07 09 B8 4D 19 A1 84 0D F8 1E 4C A2
-               E1 3F DC 22                       0B CB 97 A3 93 3A 2D 48 DB 4B 44 C2
-               3C 5F 59 1A                       58 73 3A 37 B9 B9 12 FB 67 73 CF 4F
-               0D 7A 70 E9                       C1 6E 95 5D C3 31 12 C6 12 28 62 DF
-               6D 35 DD F1                       EC 67 57 26 4F 6E 30 2D 4F C4 07 9D
-               6C 1F 72 0E                       5B 67 52 89 84 15 C7 47 27 37 C0 E9
-               D6 F7 46 07                       65 9C A8 63 4E 8E B4 4C AC F1 2A C0
-               93 DD FD AE                       E0 95 B0 92 7A 9C 04 66 8A C0 A0 EF
-               DB 2D C2 BA                       2D 71 D7 B8 6D 29 1D B2 D4 7F 56 6E
-               17 41 A7 5E                       BC 1D 89 08 99 8F 95 A1 42 7A D7 B3
-               E5 B0 A3 C0                       E5 E3 C5 46 BC 5A AE 26 8C 5E D7 1B
-               93 8A 24 62                       75 1D BC 6D C7 62 50 96 EB D2 E4 8F
-               B9 A3 50 73                       55 DF 31 AF 49 5A 31 FA 49 0D 6E 76
-               12 6E 5B 9F                       00 DF 22 B9 E9 E7 87 C9 17 96 B0 0D
-               F5 FE 1E 93                       94 6D 11 C0 4E E8 9E FB 4F 84 16 C8
-               0C BC C3 2E                       92 DB 56 E0 D3 F9 62 DE 97 E5 04 DE
-               07 09 B8 4D                       96 A0 EB 3B 0D 0F 29 06 9C 06 39 75
-               19 A1 84 0D                       BA 4C BB 20 CD 2A 99 2B 37 CE C6 F2
-               F8 1E 4C A2                       A4 14 CE 4D B9 49 F8 DE 2D 75 B9 B1
-               0B CB 97 A3                       5A 5A 0A 5D 7B 2D 85 32 8B 47 1B A1
-               93 3A 2D 48                       9F 6E 29 FE 3D 5E E4 36 CD 3F 27 A9
-               DB 4B 44 C2                       2D A9 AF 33 A8 33 22 8E A1 BB 9D 99
-               58 73 3A 37                       2A 14 12 3E 9C 63 78 88 31 AE FC B3
-               B9 B9 12 FB                       5E 32 1F 2A 83 B3 53 8F 42 A6 38 ED
-               67 73 CF 4F                       3D 46 8D 2F D2 75 A8 DA 44 AA 48 33
-               C1 6E 95 5D                       11 57 CD C8 10 9D 16 A5 55 84 52 A1
-               C3 31 12 C6                       D2 6D A7 FF 4F 3C 95 17 42 EE 60 99
-               12 28 62 DF                       6F BF 9C 72 4D 90 0A AA 6B 76 D8 F3
-               EC 67 57 26                       AB 82 42 7C 71 A5 08 3F EE FD 3B E7
-               4F 6E 30 2D                       C3 DC D4 F0 98 8D 5B F0 21 E1 64 04
-               4F C4 07 9D                       CF 05 1A 33 AA 3F 4D 79 60 31 1D 2F
-               5B 67 52 89                       7D 81 63 14 05 69 7B 2C E4 79 BA 55
-               84 15 C7 47                       18 DA 2E BB 95 ED 60 BE A2 4C A6 93
-               27 37 C0 E9                       59 48 B8 59 BA 36 20 42 C7 75 EF CC
-               65 9C A8 63                       10 7C 6E 8D F0 AC 72 29 CB 23 89 92
-               4E 8E B4 4C                       61 7D 20 E9 B0 FE 7B 41
+00ED 02F8 020C 01 02 00 00 REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00 95 CF EE 32
+               03 66 00 00                       39 7B 5D 55 EA 81 6C 26 3A 84 F6 99 5E 55 DB 21
+               00 A4 00 00                       CB 49 02 02 E1 3F DC 22 3C 5F 59 1A 0D 7A 70 E9
+               95 CF EE 32                       6D 35 DD F1 6C 1F 72 0E D6 F7 46 07 93 DD FD AE
+               39 7B 5D 55                       DB 2D C2 BA 17 41 A7 5E E5 B0 A3 C0 93 8A 24 62
+               EA 81 6C 26                       B9 A3 50 73 12 6E 5B 9F F5 FE 1E 93 0C BC C3 2E
+               3A 84 F6 99                       07 09 B8 4D 19 A1 84 0D F8 1E 4C A2 0B CB 97 A3
+               5E 55 DB 21                       93 3A 2D 48 DB 4B 44 C2 58 73 3A 37 B9 B9 12 FB
+               CB 49 02 02                       67 73 CF 4F C1 6E 95 5D C3 31 12 C6 12 28 62 DF
+               E1 3F DC 22                       EC 67 57 26 4F 6E 30 2D 4F C4 07 9D 5B 67 52 89
+               3C 5F 59 1A                       84 15 C7 47 27 37 C0 E9 65 9C A8 63 4E 8E B4 4C
+               0D 7A 70 E9                       AC F1 2A C0 E0 95 B0 92 7A 9C 04 66 8A C0 A0 EF
+               6D 35 DD F1                       2D 71 D7 B8 6D 29 1D B2 D4 7F 56 6E BC 1D 89 08
+               6C 1F 72 0E                       99 8F 95 A1 42 7A D7 B3 E5 E3 C5 46 BC 5A AE 26
+               D6 F7 46 07                       8C 5E D7 1B 75 1D BC 6D C7 62 50 96 EB D2 E4 8F
+               93 DD FD AE                       55 DF 31 AF 49 5A 31 FA 49 0D 6E 76 00 DF 22 B9
+               DB 2D C2 BA                       E9 E7 87 C9 17 96 B0 0D 94 6D 11 C0 4E E8 9E FB
+               17 41 A7 5E                       4F 84 16 C8 92 DB 56 E0 D3 F9 62 DE 97 E5 04 DE
+               E5 B0 A3 C0                       96 A0 EB 3B 0D 0F 29 06 9C 06 39 75 BA 4C BB 20
+               93 8A 24 62                       CD 2A 99 2B 37 CE C6 F2 A4 14 CE 4D B9 49 F8 DE
+               B9 A3 50 73                       2D 75 B9 B1 5A 5A 0A 5D 7B 2D 85 32 8B 47 1B A1
+               12 6E 5B 9F                       9F 6E 29 FE 3D 5E E4 36 CD 3F 27 A9 2D A9 AF 33
+               F5 FE 1E 93                       A8 33 22 8E A1 BB 9D 99 2A 14 12 3E 9C 63 78 88
+               0C BC C3 2E                       31 AE FC B3 5E 32 1F 2A 83 B3 53 8F 42 A6 38 ED
+               07 09 B8 4D                       3D 46 8D 2F D2 75 A8 DA 44 AA 48 33 11 57 CD C8
+               19 A1 84 0D                       10 9D 16 A5 55 84 52 A1 D2 6D A7 FF 4F 3C 95 17
+               F8 1E 4C A2                       42 EE 60 99 6F BF 9C 72 4D 90 0A AA 6B 76 D8 F3
+               0B CB 97 A3                       AB 82 42 7C 71 A5 08 3F EE FD 3B E7 C3 DC D4 F0
+               93 3A 2D 48                       98 8D 5B F0 21 E1 64 04 CF 05 1A 33 AA 3F 4D 79
+               DB 4B 44 C2                       60 31 1D 2F 7D 81 63 14 05 69 7B 2C E4 79 BA 55
+               58 73 3A 37                       18 DA 2E BB 95 ED 60 BE A2 4C A6 93 59 48 B8 59
+               B9 B9 12 FB                       BA 36 20 42 C7 75 EF CC 10 7C 6E 8D F0 AC 72 29
+               67 73 CF 4F                       CB 23 89 92 61 7D 20 E9 B0 FE 7B 41
+               C1 6E 95 5D
+               C3 31 12 C6
+               12 28 62 DF
+               EC 67 57 26
+               4F 6E 30 2D
+               4F C4 07 9D
+               5B 67 52 89
+               84 15 C7 47
+               27 37 C0 E9
+               65 9C A8 63
+               4E 8E B4 4C
                AC F1 2A C0
                E0 95 B0 92
                7A 9C 04 66
@@ -206,56 +205,56 @@
                CB 23 89 92
                61 7D 20 E9
                B0 FE 7B 41
-02F9 02FA 0002 20 02       RESize Key #2         0220
-02FB 030E 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46
-               4A 1E 2C 17                       3C 46 5B 69 05 F0 35 B9
+02F9 02FA 0002 20 02       RESize Key #2         544 (0x220)
+02FB 030E 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
+               4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
                3C 46 5B 69
                05 F0 35 B9
-030F 051A 020C 01 02 00 00 REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00
-               03 66 00 00                       6D 8E 29 84 C3 8A 6B AB E6 B7 B1 42
-               00 A4 00 00                       04 D7 B4 62 7B 7C 8D DB CE F3 01 2A
-               6D 8E 29 84                       BB EB BA FD 9A 3E C4 3C D3 DF 7E 73
-               C3 8A 6B AB                       36 63 29 DA BF DF 5A 65 EE 3A 92 9F
-               E6 B7 B1 42                       53 1D E9 08 65 66 FD F1 73 BD 41 9C
-               04 D7 B4 62                       16 CC 44 C0 55 93 8C 11 02 E4 4F FA
-               7B 7C 8D DB                       6A 16 12 52 26 E0 BE D4 FC D9 9F E0
-               CE F3 01 2A                       B7 7A 01 9D 5C B7 F8 1B A3 71 28 80
-               BB EB BA FD                       8B E9 D9 8C 99 86 D6 2A 87 06 90 42
-               9A 3E C4 3C                       C8 55 A7 E2 F3 E0 D2 A4 61 72 9F E9
-               D3 DF 7E 73                       B6 C6 A3 E6 90 AD 7B 4B 9C CC D0 D5
-               36 63 29 DA                       10 A9 76 94 01 91 26 A4 B3 53 51 6C
-               BF DF 5A 65                       EE 95 E4 61 66 8C 05 DC 5E 2C 1D 8E
-               EE 3A 92 9F                       31 5D 4B 79 46 D7 50 EB 6C 6E 33 A9
-               53 1D E9 08                       BD AE A2 84 1E 51 8E 1D EB 9D DE 1B
-               65 66 FD F1                       C7 9F 24 82 98 D8 E1 B3 14 18 D2 91
-               73 BD 41 9C                       52 7C C7 A5 AB 0A 6B 51 E3 D8 A2 4D
-               16 CC 44 C0                       5E 98 E4 65 B8 D5 77 05 1B 6B 90 4C
-               55 93 8C 11                       2E 4D 36 CB 23 B2 55 43 A4 5D 3B 0A
-               02 E4 4F FA                       12 BC 18 65 28 0B 9C 73 84 A7 08 E1
-               6A 16 12 52                       8A 11 94 67 C4 9E 60 45 F7 30 75 B1
-               26 E0 BE D4                       18 D4 2E 95 D5 34 A7 D4 C7 3C 67 FC
-               FC D9 9F E0                       63 CA EC CF DD FA 75 C6 A5 3B D4 52
-               B7 7A 01 9D                       DB 5F C3 F5 8F 8E 12 F8 E5 4E F9 D1
-               5C B7 F8 1B                       20 73 0F 72 F8 58 BE 20 05 74 57 B6
-               A3 71 28 80                       09 AE 9A 2F FD 4B 07 CF 35 FE F5 BF
-               8B E9 D9 8C                       AD B1 03 32 63 31 53 31 6A 20 BA 1D
-               99 86 D6 2A                       25 B0 3D 01 EC 26 0B E7 E2 62 0B 87
-               87 06 90 42                       EA 99 F2 2E BF F9 A9 1A 5D 99 FE 57
-               C8 55 A7 E2                       F7 E2 3B 6B E9 C5 2E EE 43 EF 3B 24
-               F3 E0 D2 A4                       9C F3 A9 EB B0 7A B9 D2 62 88 7F 40
-               61 72 9F E9                       EF 6E FF 5E 84 DE 9D 78 F0 B5 A7 57
-               B6 C6 A3 E6                       9F 79 21 70 A6 7B 50 E3 07 BF E6 1F
-               90 AD 7B 4B                       D5 1F 4D AC B2 AD 07 80 D0 57 48 E0
-               9C CC D0 D5                       66 48 CB 9F B0 5D EC 95 22 4D 6C 23
-               10 A9 76 94                       9D 51 45 AD D7 6B 04 3C FF 52 AA FF
-               01 91 26 A4                       22 9A 85 F1 EC F9 37 EC 11 35 0A 05
-               B3 53 51 6C                       F2 20 23 1F 2A 93 46 CE 1F 1E C1 9C
-               EE 95 E4 61                       61 36 91 22 2E 04 44 6D 87 05 6E E4
-               66 8C 05 DC                       AB DC 0D 34 AD F8 C5 13 C3 28 C4 08
-               5E 2C 1D 8E                       50 D4 F3 2C 9B D8 1C D3 37 61 E4 A8
-               31 5D 4B 79                       D4 F6 E5 6A FA 22 A8 AD 06 51 73 E9
-               46 D7 50 EB                       1F D9 BA 5C 94 33 1C 5C
+030F 051A 020C 01 02 00 00 REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00 6D 8E 29 84
+               03 66 00 00                       C3 8A 6B AB E6 B7 B1 42 04 D7 B4 62 7B 7C 8D DB
+               00 A4 00 00                       CE F3 01 2A BB EB BA FD 9A 3E C4 3C D3 DF 7E 73
+               6D 8E 29 84                       36 63 29 DA BF DF 5A 65 EE 3A 92 9F 53 1D E9 08
+               C3 8A 6B AB                       65 66 FD F1 73 BD 41 9C 16 CC 44 C0 55 93 8C 11
+               E6 B7 B1 42                       02 E4 4F FA 6A 16 12 52 26 E0 BE D4 FC D9 9F E0
+               04 D7 B4 62                       B7 7A 01 9D 5C B7 F8 1B A3 71 28 80 8B E9 D9 8C
+               7B 7C 8D DB                       99 86 D6 2A 87 06 90 42 C8 55 A7 E2 F3 E0 D2 A4
+               CE F3 01 2A                       61 72 9F E9 B6 C6 A3 E6 90 AD 7B 4B 9C CC D0 D5
+               BB EB BA FD                       10 A9 76 94 01 91 26 A4 B3 53 51 6C EE 95 E4 61
+               9A 3E C4 3C                       66 8C 05 DC 5E 2C 1D 8E 31 5D 4B 79 46 D7 50 EB
+               D3 DF 7E 73                       6C 6E 33 A9 BD AE A2 84 1E 51 8E 1D EB 9D DE 1B
+               36 63 29 DA                       C7 9F 24 82 98 D8 E1 B3 14 18 D2 91 52 7C C7 A5
+               BF DF 5A 65                       AB 0A 6B 51 E3 D8 A2 4D 5E 98 E4 65 B8 D5 77 05
+               EE 3A 92 9F                       1B 6B 90 4C 2E 4D 36 CB 23 B2 55 43 A4 5D 3B 0A
+               53 1D E9 08                       12 BC 18 65 28 0B 9C 73 84 A7 08 E1 8A 11 94 67
+               65 66 FD F1                       C4 9E 60 45 F7 30 75 B1 18 D4 2E 95 D5 34 A7 D4
+               73 BD 41 9C                       C7 3C 67 FC 63 CA EC CF DD FA 75 C6 A5 3B D4 52
+               16 CC 44 C0                       DB 5F C3 F5 8F 8E 12 F8 E5 4E F9 D1 20 73 0F 72
+               55 93 8C 11                       F8 58 BE 20 05 74 57 B6 09 AE 9A 2F FD 4B 07 CF
+               02 E4 4F FA                       35 FE F5 BF AD B1 03 32 63 31 53 31 6A 20 BA 1D
+               6A 16 12 52                       25 B0 3D 01 EC 26 0B E7 E2 62 0B 87 EA 99 F2 2E
+               26 E0 BE D4                       BF F9 A9 1A 5D 99 FE 57 F7 E2 3B 6B E9 C5 2E EE
+               FC D9 9F E0                       43 EF 3B 24 9C F3 A9 EB B0 7A B9 D2 62 88 7F 40
+               B7 7A 01 9D                       EF 6E FF 5E 84 DE 9D 78 F0 B5 A7 57 9F 79 21 70
+               5C B7 F8 1B                       A6 7B 50 E3 07 BF E6 1F D5 1F 4D AC B2 AD 07 80
+               A3 71 28 80                       D0 57 48 E0 66 48 CB 9F B0 5D EC 95 22 4D 6C 23
+               8B E9 D9 8C                       9D 51 45 AD D7 6B 04 3C FF 52 AA FF 22 9A 85 F1
+               99 86 D6 2A                       EC F9 37 EC 11 35 0A 05 F2 20 23 1F 2A 93 46 CE
+               87 06 90 42                       1F 1E C1 9C 61 36 91 22 2E 04 44 6D 87 05 6E E4
+               C8 55 A7 E2                       AB DC 0D 34 AD F8 C5 13 C3 28 C4 08 50 D4 F3 2C
+               F3 E0 D2 A4                       9B D8 1C D3 37 61 E4 A8 D4 F6 E5 6A FA 22 A8 AD
+               61 72 9F E9                       06 51 73 E9 1F D9 BA 5C 94 33 1C 5C
+               B6 C6 A3 E6
+               90 AD 7B 4B
+               9C CC D0 D5
+               10 A9 76 94
+               01 91 26 A4
+               B3 53 51 6C
+               EE 95 E4 61
+               66 8C 05 DC
+               5E 2C 1D 8E
+               31 5D 4B 79
+               46 D7 50 EB
                6C 6E 33 A9
                BD AE A2 84
                1E 51 8E 1D
@@ -343,18 +342,18 @@
                06 51 73 E9
                1F D9 BA 5C
                94 33 1C 5C
-051B 051C 0002 80 00       VSize                 0080
-051D 0598 007C 50 48 05 D5 VData                 50 48 05 D5 6F E9 28 E1 3F 9C 48 E3
-               6F E9 28 E1                       41 FF 68 3D 36 10 FF FC 9D 61 A1 3F
-               3F 9C 48 E3                       8D 9A DC B8 C0 6E 06 8F 3E D7 F2 63
-               41 FF 68 3D                       E9 D2 9C 57 83 4C C5 B0 43 64 06 F8
-               36 10 FF FC                       27 57 B3 43 37 56 74 44 F0 F8 E0 54
-               9D 61 A1 3F                       A8 04 54 97 3E 0F 2B 5B BA 94 B3 8E
-               8D 9A DC B8                       A4 7F 56 23 0C 73 48 43 EF CE 6D 02
-               C0 6E 06 8F                       56 CB 9E E8 B0 E1 9F 2A 17 89 E2 88
-               3E D7 F2 63                       29 FD 69 F9 09 06 1A F3 79 BE 4C 58
-               E9 D2 9C 57                       C1 FC 9A 64 9A A7 2B CA 1D C9 9A 9F
-               83 4C C5 B0                       4B 81 06 4B
+051B 051C 0002 80 00       VSize                 128 (0x80)
+051D 0598 007C 50 48 05 D5 VData                 50 48 05 D5 6F E9 28 E1 3F 9C 48 E3 41 FF 68 3D
+               6F E9 28 E1                       36 10 FF FC 9D 61 A1 3F 8D 9A DC B8 C0 6E 06 8F
+               3F 9C 48 E3                       3E D7 F2 63 E9 D2 9C 57 83 4C C5 B0 43 64 06 F8
+               41 FF 68 3D                       27 57 B3 43 37 56 74 44 F0 F8 E0 54 A8 04 54 97
+               36 10 FF FC                       3E 0F 2B 5B BA 94 B3 8E A4 7F 56 23 0C 73 48 43
+               9D 61 A1 3F                       EF CE 6D 02 56 CB 9E E8 B0 E1 9F 2A 17 89 E2 88
+               8D 9A DC B8                       29 FD 69 F9 09 06 1A F3 79 BE 4C 58 C1 FC 9A 64
+               C0 6E 06 8F                       9A A7 2B CA 1D C9 9A 9F 4B 81 06 4B
+               3E D7 F2 63
+               E9 D2 9C 57
+               83 4C C5 B0
                43 64 06 F8
                27 57 B3 43
                37 56 74 44
@@ -375,54 +374,53 @@
                9A A7 2B CA
                1D C9 9A 9F
                4B 81 06 4B
-0599 059C 0004 1D 1F 6F A4 VCRC32                A46F1F1D
+0599 059C 0004 1D 1F 6F A4 VCRC32                2758745885 (0xA46F1F1D)
 059D 06AC 0110 ...         PAYLOAD
 
-06AD 06B0 0004 50 4B 03 04 LOCAL HEADER #2       04034B50
-06B1 06B1 0001 3D          Extract Zip Spec      3D '6.1'
-06B2 06B2 0001 00          Extract OS            00 'MS-DOS'
-06B3 06B4 0002 41 08       General Purpose Flag  0841
+06AD 06B0 0004 50 4B 03 04 LOCAL HEADER #2       67324752 (0x4034B50)
+06B1 06B1 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
+06B2 06B2 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+06B3 06B4 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-06B5 06B6 0002 08 00       Compression Method    0008 'Deflated'
-06B7 06BA 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-06BB 06BE 0004 3C C8 F5 41 CRC                   41F5C83C
-06BF 06C2 0004 96 06 00 00 Compressed Length     00000696
-06C3 06C6 0004 BF 01 00 00 Uncompressed Length   000001BF
-06C7 06C8 0002 0A 00       Filename Length       000A
-06C9 06CA 0002 00 00       Extra Length          0000
+06B5 06B6 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+06B7 06BA 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+06BB 06BE 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+06BF 06C2 0004 96 06 00 00 Compressed Length     1686 (0x696)
+06C3 06C6 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+06C7 06C8 0002 0A 00       Filename Length       10 (0xA)
+06C9 06CA 0002 00 00       Extra Length          0 (0x0)
 06CB 06D4 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
 
 06D5 06D4 0000             DECRYPTION HEADER
                            RECORD
-06D5 06D6 0002 10 00       IVSize                0010
-06D7 06E6 0010 0D 18 89 31 IVData                0D 18 89 31 A6 E4 3B 81 E7 DC B7 40
-               A6 E4 3B 81                       5D 4E 42 29
+06D5 06D6 0002 10 00       IVSize                16 (0x10)
+06D7 06E6 0010 0D 18 89 31 IVData                0D 18 89 31 A6 E4 3B 81 E7 DC B7 40 5D 4E 42 29
+               A6 E4 3B 81
                E7 DC B7 40
                5D 4E 42 29
-06E7 06EA 0004 60 05 00 00 Size                  00000560
-06EB 06EC 0002 03 00       Format                0003
-06ED 06EE 0002 10 66       AlgId                 6610 'AES 256'
-06EF 06F0 0002 00 01       BitLen                0100
-06F1 06F2 0002 02 41       Flags                 4102 'Reserved for certificate
-                                                 processing'
-06F3 06F4 0002 88 00       ErdSize               0088
-06F5 077C 0088 E0 EB E5 25 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4
-               02 F9 6B 5D                       B2 42 95 D8 E8 4A 7A 18 0C C2 0C 39
-               EC 01 1F C4                       A9 FD B9 4F FA 73 13 E2 F0 0D 40 CC
-               B2 42 95 D8                       81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
-               E8 4A 7A 18                       57 54 00 F4 BE C4 82 C7 1D F2 FE A6
-               0C C2 0C 39                       13 7A 5E B5 03 EA FC 04 78 2A 90 B9
-               A9 FD B9 4F                       F2 6E 4C 81 57 FA 82 A0 F8 AE 69 B3
-               FA 73 13 E2                       C0 C7 B2 68 73 AF 8E 9A C8 65 F0 32
-               F0 0D 40 CC                       01 82 03 88 88 73 A2 80 64 76 43 16
-               81 D7 35 8F                       FA 81 88 37 4F C8 D8 03 58 5A 53 BE
-               92 4A 4E 3A                       8B DC 2F 79 FB 01 6A 6B 55 45 19 48
-               CC 51 59 B7                       7E 49 D4 E5
+06E7 06EA 0004 60 05 00 00 Size                  1376 (0x560)
+06EB 06EC 0002 03 00       Format                3 (0x3)
+06ED 06EE 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
+06EF 06F0 0002 00 01       BitLen                256 (0x100)
+06F1 06F2 0002 02 41       Flags                 16642 (0x4102) 'Reserved for certificate processing'
+06F3 06F4 0002 88 00       ErdSize               136 (0x88)
+06F5 077C 0088 E0 EB E5 25 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4 B2 42 95 D8
+               02 F9 6B 5D                       E8 4A 7A 18 0C C2 0C 39 A9 FD B9 4F FA 73 13 E2
+               EC 01 1F C4                       F0 0D 40 CC 81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
+               B2 42 95 D8                       57 54 00 F4 BE C4 82 C7 1D F2 FE A6 13 7A 5E B5
+               E8 4A 7A 18                       03 EA FC 04 78 2A 90 B9 F2 6E 4C 81 57 FA 82 A0
+               0C C2 0C 39                       F8 AE 69 B3 C0 C7 B2 68 73 AF 8E 9A C8 65 F0 32
+               A9 FD B9 4F                       01 82 03 88 88 73 A2 80 64 76 43 16 FA 81 88 37
+               FA 73 13 E2                       4F C8 D8 03 58 5A 53 BE 8B DC 2F 79 FB 01 6A 6B
+               F0 0D 40 CC                       55 45 19 48 7E 49 D4 E5
+               81 D7 35 8F
+               92 4A 4E 3A
+               CC 51 59 B7
                57 54 00 F4
                BE C4 82 C7
                1D F2 FE A6
@@ -445,59 +443,59 @@
                FB 01 6A 6B
                55 45 19 48
                7E 49 D4 E5
-077D 0780 0004 02 00 00 00 RCount                00000002
-0781 0782 0002 04 80       HashAlg               8004 'SHA1'
-0783 0784 0002 14 00       HSize                 0014
-0785 0786 0002 20 02       RESize Key #1         0220
-0787 079A 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA
-               6E 93 D0 8B                       94 11 36 F8 68 3D 0B 1A
+077D 0780 0004 02 00 00 00 RCount                2 (0x2)
+0781 0782 0002 04 80       HashAlg               32772 (0x8004) 'SHA1'
+0783 0784 0002 14 00       HSize                 20 (0x14)
+0785 0786 0002 20 02       RESize Key #1         544 (0x220)
+0787 079A 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
+               6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
                94 11 36 F8
                68 3D 0B 1A
-079B 09A6 020C 01 02 00 00 REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00
-               03 66 00 00                       95 CF EE 32 39 7B 5D 55 EA 81 6C 26
-               00 A4 00 00                       3A 84 F6 99 5E 55 DB 21 CB 49 02 02
-               95 CF EE 32                       E1 3F DC 22 3C 5F 59 1A 0D 7A 70 E9
-               39 7B 5D 55                       6D 35 DD F1 6C 1F 72 0E D6 F7 46 07
-               EA 81 6C 26                       93 DD FD AE DB 2D C2 BA 17 41 A7 5E
-               3A 84 F6 99                       E5 B0 A3 C0 93 8A 24 62 B9 A3 50 73
-               5E 55 DB 21                       12 6E 5B 9F F5 FE 1E 93 0C BC C3 2E
-               CB 49 02 02                       07 09 B8 4D 19 A1 84 0D F8 1E 4C A2
-               E1 3F DC 22                       0B CB 97 A3 93 3A 2D 48 DB 4B 44 C2
-               3C 5F 59 1A                       58 73 3A 37 B9 B9 12 FB 67 73 CF 4F
-               0D 7A 70 E9                       C1 6E 95 5D C3 31 12 C6 12 28 62 DF
-               6D 35 DD F1                       EC 67 57 26 4F 6E 30 2D 4F C4 07 9D
-               6C 1F 72 0E                       5B 67 52 89 84 15 C7 47 27 37 C0 E9
-               D6 F7 46 07                       65 9C A8 63 4E 8E B4 4C AC F1 2A C0
-               93 DD FD AE                       E0 95 B0 92 7A 9C 04 66 8A C0 A0 EF
-               DB 2D C2 BA                       2D 71 D7 B8 6D 29 1D B2 D4 7F 56 6E
-               17 41 A7 5E                       BC 1D 89 08 99 8F 95 A1 42 7A D7 B3
-               E5 B0 A3 C0                       E5 E3 C5 46 BC 5A AE 26 8C 5E D7 1B
-               93 8A 24 62                       75 1D BC 6D C7 62 50 96 EB D2 E4 8F
-               B9 A3 50 73                       55 DF 31 AF 49 5A 31 FA 49 0D 6E 76
-               12 6E 5B 9F                       00 DF 22 B9 E9 E7 87 C9 17 96 B0 0D
-               F5 FE 1E 93                       94 6D 11 C0 4E E8 9E FB 4F 84 16 C8
-               0C BC C3 2E                       92 DB 56 E0 D3 F9 62 DE 97 E5 04 DE
-               07 09 B8 4D                       96 A0 EB 3B 0D 0F 29 06 9C 06 39 75
-               19 A1 84 0D                       BA 4C BB 20 CD 2A 99 2B 37 CE C6 F2
-               F8 1E 4C A2                       A4 14 CE 4D B9 49 F8 DE 2D 75 B9 B1
-               0B CB 97 A3                       5A 5A 0A 5D 7B 2D 85 32 8B 47 1B A1
-               93 3A 2D 48                       9F 6E 29 FE 3D 5E E4 36 CD 3F 27 A9
-               DB 4B 44 C2                       2D A9 AF 33 A8 33 22 8E A1 BB 9D 99
-               58 73 3A 37                       2A 14 12 3E 9C 63 78 88 31 AE FC B3
-               B9 B9 12 FB                       5E 32 1F 2A 83 B3 53 8F 42 A6 38 ED
-               67 73 CF 4F                       3D 46 8D 2F D2 75 A8 DA 44 AA 48 33
-               C1 6E 95 5D                       11 57 CD C8 10 9D 16 A5 55 84 52 A1
-               C3 31 12 C6                       D2 6D A7 FF 4F 3C 95 17 42 EE 60 99
-               12 28 62 DF                       6F BF 9C 72 4D 90 0A AA 6B 76 D8 F3
-               EC 67 57 26                       AB 82 42 7C 71 A5 08 3F EE FD 3B E7
-               4F 6E 30 2D                       C3 DC D4 F0 98 8D 5B F0 21 E1 64 04
-               4F C4 07 9D                       CF 05 1A 33 AA 3F 4D 79 60 31 1D 2F
-               5B 67 52 89                       7D 81 63 14 05 69 7B 2C E4 79 BA 55
-               84 15 C7 47                       18 DA 2E BB 95 ED 60 BE A2 4C A6 93
-               27 37 C0 E9                       59 48 B8 59 BA 36 20 42 C7 75 EF CC
-               65 9C A8 63                       10 7C 6E 8D F0 AC 72 29 CB 23 89 92
-               4E 8E B4 4C                       61 7D 20 E9 B0 FE 7B 41
+079B 09A6 020C 01 02 00 00 REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00 95 CF EE 32
+               03 66 00 00                       39 7B 5D 55 EA 81 6C 26 3A 84 F6 99 5E 55 DB 21
+               00 A4 00 00                       CB 49 02 02 E1 3F DC 22 3C 5F 59 1A 0D 7A 70 E9
+               95 CF EE 32                       6D 35 DD F1 6C 1F 72 0E D6 F7 46 07 93 DD FD AE
+               39 7B 5D 55                       DB 2D C2 BA 17 41 A7 5E E5 B0 A3 C0 93 8A 24 62
+               EA 81 6C 26                       B9 A3 50 73 12 6E 5B 9F F5 FE 1E 93 0C BC C3 2E
+               3A 84 F6 99                       07 09 B8 4D 19 A1 84 0D F8 1E 4C A2 0B CB 97 A3
+               5E 55 DB 21                       93 3A 2D 48 DB 4B 44 C2 58 73 3A 37 B9 B9 12 FB
+               CB 49 02 02                       67 73 CF 4F C1 6E 95 5D C3 31 12 C6 12 28 62 DF
+               E1 3F DC 22                       EC 67 57 26 4F 6E 30 2D 4F C4 07 9D 5B 67 52 89
+               3C 5F 59 1A                       84 15 C7 47 27 37 C0 E9 65 9C A8 63 4E 8E B4 4C
+               0D 7A 70 E9                       AC F1 2A C0 E0 95 B0 92 7A 9C 04 66 8A C0 A0 EF
+               6D 35 DD F1                       2D 71 D7 B8 6D 29 1D B2 D4 7F 56 6E BC 1D 89 08
+               6C 1F 72 0E                       99 8F 95 A1 42 7A D7 B3 E5 E3 C5 46 BC 5A AE 26
+               D6 F7 46 07                       8C 5E D7 1B 75 1D BC 6D C7 62 50 96 EB D2 E4 8F
+               93 DD FD AE                       55 DF 31 AF 49 5A 31 FA 49 0D 6E 76 00 DF 22 B9
+               DB 2D C2 BA                       E9 E7 87 C9 17 96 B0 0D 94 6D 11 C0 4E E8 9E FB
+               17 41 A7 5E                       4F 84 16 C8 92 DB 56 E0 D3 F9 62 DE 97 E5 04 DE
+               E5 B0 A3 C0                       96 A0 EB 3B 0D 0F 29 06 9C 06 39 75 BA 4C BB 20
+               93 8A 24 62                       CD 2A 99 2B 37 CE C6 F2 A4 14 CE 4D B9 49 F8 DE
+               B9 A3 50 73                       2D 75 B9 B1 5A 5A 0A 5D 7B 2D 85 32 8B 47 1B A1
+               12 6E 5B 9F                       9F 6E 29 FE 3D 5E E4 36 CD 3F 27 A9 2D A9 AF 33
+               F5 FE 1E 93                       A8 33 22 8E A1 BB 9D 99 2A 14 12 3E 9C 63 78 88
+               0C BC C3 2E                       31 AE FC B3 5E 32 1F 2A 83 B3 53 8F 42 A6 38 ED
+               07 09 B8 4D                       3D 46 8D 2F D2 75 A8 DA 44 AA 48 33 11 57 CD C8
+               19 A1 84 0D                       10 9D 16 A5 55 84 52 A1 D2 6D A7 FF 4F 3C 95 17
+               F8 1E 4C A2                       42 EE 60 99 6F BF 9C 72 4D 90 0A AA 6B 76 D8 F3
+               0B CB 97 A3                       AB 82 42 7C 71 A5 08 3F EE FD 3B E7 C3 DC D4 F0
+               93 3A 2D 48                       98 8D 5B F0 21 E1 64 04 CF 05 1A 33 AA 3F 4D 79
+               DB 4B 44 C2                       60 31 1D 2F 7D 81 63 14 05 69 7B 2C E4 79 BA 55
+               58 73 3A 37                       18 DA 2E BB 95 ED 60 BE A2 4C A6 93 59 48 B8 59
+               B9 B9 12 FB                       BA 36 20 42 C7 75 EF CC 10 7C 6E 8D F0 AC 72 29
+               67 73 CF 4F                       CB 23 89 92 61 7D 20 E9 B0 FE 7B 41
+               C1 6E 95 5D
+               C3 31 12 C6
+               12 28 62 DF
+               EC 67 57 26
+               4F 6E 30 2D
+               4F C4 07 9D
+               5B 67 52 89
+               84 15 C7 47
+               27 37 C0 E9
+               65 9C A8 63
+               4E 8E B4 4C
                AC F1 2A C0
                E0 95 B0 92
                7A 9C 04 66
@@ -585,56 +583,56 @@
                CB 23 89 92
                61 7D 20 E9
                B0 FE 7B 41
-09A7 09A8 0002 20 02       RESize Key #2         0220
-09A9 09BC 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46
-               4A 1E 2C 17                       3C 46 5B 69 05 F0 35 B9
+09A7 09A8 0002 20 02       RESize Key #2         544 (0x220)
+09A9 09BC 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
+               4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
                3C 46 5B 69
                05 F0 35 B9
-09BD 0BC8 020C 01 02 00 00 REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00
-               03 66 00 00                       6D 8E 29 84 C3 8A 6B AB E6 B7 B1 42
-               00 A4 00 00                       04 D7 B4 62 7B 7C 8D DB CE F3 01 2A
-               6D 8E 29 84                       BB EB BA FD 9A 3E C4 3C D3 DF 7E 73
-               C3 8A 6B AB                       36 63 29 DA BF DF 5A 65 EE 3A 92 9F
-               E6 B7 B1 42                       53 1D E9 08 65 66 FD F1 73 BD 41 9C
-               04 D7 B4 62                       16 CC 44 C0 55 93 8C 11 02 E4 4F FA
-               7B 7C 8D DB                       6A 16 12 52 26 E0 BE D4 FC D9 9F E0
-               CE F3 01 2A                       B7 7A 01 9D 5C B7 F8 1B A3 71 28 80
-               BB EB BA FD                       8B E9 D9 8C 99 86 D6 2A 87 06 90 42
-               9A 3E C4 3C                       C8 55 A7 E2 F3 E0 D2 A4 61 72 9F E9
-               D3 DF 7E 73                       B6 C6 A3 E6 90 AD 7B 4B 9C CC D0 D5
-               36 63 29 DA                       10 A9 76 94 01 91 26 A4 B3 53 51 6C
-               BF DF 5A 65                       EE 95 E4 61 66 8C 05 DC 5E 2C 1D 8E
-               EE 3A 92 9F                       31 5D 4B 79 46 D7 50 EB 6C 6E 33 A9
-               53 1D E9 08                       BD AE A2 84 1E 51 8E 1D EB 9D DE 1B
-               65 66 FD F1                       C7 9F 24 82 98 D8 E1 B3 14 18 D2 91
-               73 BD 41 9C                       52 7C C7 A5 AB 0A 6B 51 E3 D8 A2 4D
-               16 CC 44 C0                       5E 98 E4 65 B8 D5 77 05 1B 6B 90 4C
-               55 93 8C 11                       2E 4D 36 CB 23 B2 55 43 A4 5D 3B 0A
-               02 E4 4F FA                       12 BC 18 65 28 0B 9C 73 84 A7 08 E1
-               6A 16 12 52                       8A 11 94 67 C4 9E 60 45 F7 30 75 B1
-               26 E0 BE D4                       18 D4 2E 95 D5 34 A7 D4 C7 3C 67 FC
-               FC D9 9F E0                       63 CA EC CF DD FA 75 C6 A5 3B D4 52
-               B7 7A 01 9D                       DB 5F C3 F5 8F 8E 12 F8 E5 4E F9 D1
-               5C B7 F8 1B                       20 73 0F 72 F8 58 BE 20 05 74 57 B6
-               A3 71 28 80                       09 AE 9A 2F FD 4B 07 CF 35 FE F5 BF
-               8B E9 D9 8C                       AD B1 03 32 63 31 53 31 6A 20 BA 1D
-               99 86 D6 2A                       25 B0 3D 01 EC 26 0B E7 E2 62 0B 87
-               87 06 90 42                       EA 99 F2 2E BF F9 A9 1A 5D 99 FE 57
-               C8 55 A7 E2                       F7 E2 3B 6B E9 C5 2E EE 43 EF 3B 24
-               F3 E0 D2 A4                       9C F3 A9 EB B0 7A B9 D2 62 88 7F 40
-               61 72 9F E9                       EF 6E FF 5E 84 DE 9D 78 F0 B5 A7 57
-               B6 C6 A3 E6                       9F 79 21 70 A6 7B 50 E3 07 BF E6 1F
-               90 AD 7B 4B                       D5 1F 4D AC B2 AD 07 80 D0 57 48 E0
-               9C CC D0 D5                       66 48 CB 9F B0 5D EC 95 22 4D 6C 23
-               10 A9 76 94                       9D 51 45 AD D7 6B 04 3C FF 52 AA FF
-               01 91 26 A4                       22 9A 85 F1 EC F9 37 EC 11 35 0A 05
-               B3 53 51 6C                       F2 20 23 1F 2A 93 46 CE 1F 1E C1 9C
-               EE 95 E4 61                       61 36 91 22 2E 04 44 6D 87 05 6E E4
-               66 8C 05 DC                       AB DC 0D 34 AD F8 C5 13 C3 28 C4 08
-               5E 2C 1D 8E                       50 D4 F3 2C 9B D8 1C D3 37 61 E4 A8
-               31 5D 4B 79                       D4 F6 E5 6A FA 22 A8 AD 06 51 73 E9
-               46 D7 50 EB                       1F D9 BA 5C 94 33 1C 5C
+09BD 0BC8 020C 01 02 00 00 REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00 6D 8E 29 84
+               03 66 00 00                       C3 8A 6B AB E6 B7 B1 42 04 D7 B4 62 7B 7C 8D DB
+               00 A4 00 00                       CE F3 01 2A BB EB BA FD 9A 3E C4 3C D3 DF 7E 73
+               6D 8E 29 84                       36 63 29 DA BF DF 5A 65 EE 3A 92 9F 53 1D E9 08
+               C3 8A 6B AB                       65 66 FD F1 73 BD 41 9C 16 CC 44 C0 55 93 8C 11
+               E6 B7 B1 42                       02 E4 4F FA 6A 16 12 52 26 E0 BE D4 FC D9 9F E0
+               04 D7 B4 62                       B7 7A 01 9D 5C B7 F8 1B A3 71 28 80 8B E9 D9 8C
+               7B 7C 8D DB                       99 86 D6 2A 87 06 90 42 C8 55 A7 E2 F3 E0 D2 A4
+               CE F3 01 2A                       61 72 9F E9 B6 C6 A3 E6 90 AD 7B 4B 9C CC D0 D5
+               BB EB BA FD                       10 A9 76 94 01 91 26 A4 B3 53 51 6C EE 95 E4 61
+               9A 3E C4 3C                       66 8C 05 DC 5E 2C 1D 8E 31 5D 4B 79 46 D7 50 EB
+               D3 DF 7E 73                       6C 6E 33 A9 BD AE A2 84 1E 51 8E 1D EB 9D DE 1B
+               36 63 29 DA                       C7 9F 24 82 98 D8 E1 B3 14 18 D2 91 52 7C C7 A5
+               BF DF 5A 65                       AB 0A 6B 51 E3 D8 A2 4D 5E 98 E4 65 B8 D5 77 05
+               EE 3A 92 9F                       1B 6B 90 4C 2E 4D 36 CB 23 B2 55 43 A4 5D 3B 0A
+               53 1D E9 08                       12 BC 18 65 28 0B 9C 73 84 A7 08 E1 8A 11 94 67
+               65 66 FD F1                       C4 9E 60 45 F7 30 75 B1 18 D4 2E 95 D5 34 A7 D4
+               73 BD 41 9C                       C7 3C 67 FC 63 CA EC CF DD FA 75 C6 A5 3B D4 52
+               16 CC 44 C0                       DB 5F C3 F5 8F 8E 12 F8 E5 4E F9 D1 20 73 0F 72
+               55 93 8C 11                       F8 58 BE 20 05 74 57 B6 09 AE 9A 2F FD 4B 07 CF
+               02 E4 4F FA                       35 FE F5 BF AD B1 03 32 63 31 53 31 6A 20 BA 1D
+               6A 16 12 52                       25 B0 3D 01 EC 26 0B E7 E2 62 0B 87 EA 99 F2 2E
+               26 E0 BE D4                       BF F9 A9 1A 5D 99 FE 57 F7 E2 3B 6B E9 C5 2E EE
+               FC D9 9F E0                       43 EF 3B 24 9C F3 A9 EB B0 7A B9 D2 62 88 7F 40
+               B7 7A 01 9D                       EF 6E FF 5E 84 DE 9D 78 F0 B5 A7 57 9F 79 21 70
+               5C B7 F8 1B                       A6 7B 50 E3 07 BF E6 1F D5 1F 4D AC B2 AD 07 80
+               A3 71 28 80                       D0 57 48 E0 66 48 CB 9F B0 5D EC 95 22 4D 6C 23
+               8B E9 D9 8C                       9D 51 45 AD D7 6B 04 3C FF 52 AA FF 22 9A 85 F1
+               99 86 D6 2A                       EC F9 37 EC 11 35 0A 05 F2 20 23 1F 2A 93 46 CE
+               87 06 90 42                       1F 1E C1 9C 61 36 91 22 2E 04 44 6D 87 05 6E E4
+               C8 55 A7 E2                       AB DC 0D 34 AD F8 C5 13 C3 28 C4 08 50 D4 F3 2C
+               F3 E0 D2 A4                       9B D8 1C D3 37 61 E4 A8 D4 F6 E5 6A FA 22 A8 AD
+               61 72 9F E9                       06 51 73 E9 1F D9 BA 5C 94 33 1C 5C
+               B6 C6 A3 E6
+               90 AD 7B 4B
+               9C CC D0 D5
+               10 A9 76 94
+               01 91 26 A4
+               B3 53 51 6C
+               EE 95 E4 61
+               66 8C 05 DC
+               5E 2C 1D 8E
+               31 5D 4B 79
+               46 D7 50 EB
                6C 6E 33 A9
                BD AE A2 84
                1E 51 8E 1D
@@ -722,18 +720,18 @@
                06 51 73 E9
                1F D9 BA 5C
                94 33 1C 5C
-0BC9 0BCA 0002 80 00       VSize                 0080
-0BCB 0C46 007C B6 F3 8F 3E VData                 B6 F3 8F 3E 45 F4 A1 FE 8B E7 85 56
-               45 F4 A1 FE                       A6 05 D5 1F 88 1D 70 DA 29 02 BB E2
-               8B E7 85 56                       19 EC 18 32 56 5D 1E 88 CF A7 3B F1
-               A6 05 D5 1F                       27 CF 64 27 4E 4C AB E5 06 ED 08 97
-               88 1D 70 DA                       24 22 D8 A8 F9 A3 1D B4 C0 F4 E1 B5
-               29 02 BB E2                       66 4E E6 36 99 3F AB ED 5D 44 41 C4
-               19 EC 18 32                       FC 0C C0 31 80 26 A4 16 54 F9 E0 17
-               56 5D 1E 88                       4E 8C D5 F9 80 18 16 70 FD 4C F8 A9
-               CF A7 3B F1                       90 98 4F 82 8F 83 4A 6F 10 A9 E6 37
-               27 CF 64 27                       3C AC 55 1F FE 13 B4 43 E3 45 8B F7
-               4E 4C AB E5                       29 E0 7F 22
+0BC9 0BCA 0002 80 00       VSize                 128 (0x80)
+0BCB 0C46 007C B6 F3 8F 3E VData                 B6 F3 8F 3E 45 F4 A1 FE 8B E7 85 56 A6 05 D5 1F
+               45 F4 A1 FE                       88 1D 70 DA 29 02 BB E2 19 EC 18 32 56 5D 1E 88
+               8B E7 85 56                       CF A7 3B F1 27 CF 64 27 4E 4C AB E5 06 ED 08 97
+               A6 05 D5 1F                       24 22 D8 A8 F9 A3 1D B4 C0 F4 E1 B5 66 4E E6 36
+               88 1D 70 DA                       99 3F AB ED 5D 44 41 C4 FC 0C C0 31 80 26 A4 16
+               29 02 BB E2                       54 F9 E0 17 4E 8C D5 F9 80 18 16 70 FD 4C F8 A9
+               19 EC 18 32                       90 98 4F 82 8F 83 4A 6F 10 A9 E6 37 3C AC 55 1F
+               56 5D 1E 88                       FE 13 B4 43 E3 45 8B F7 29 E0 7F 22
+               CF A7 3B F1
+               27 CF 64 27
+               4E 4C AB E5
                06 ED 08 97
                24 22 D8 A8
                F9 A3 1D B4
@@ -754,134 +752,132 @@
                FE 13 B4 43
                E3 45 8B F7
                29 E0 7F 22
-0C47 0C4A 0004 28 DB BD A2 VCRC32                A2BDDB28
+0C47 0C4A 0004 28 DB BD A2 VCRC32                2730351400 (0xA2BDDB28)
 0C4B 0D6A 0120 ...         PAYLOAD
 
-0D6B 0D6E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50
-0D6F 0D6F 0001 41          Created Zip Spec      41 '6.5'
-0D70 0D70 0001 00          Created OS            00 'MS-DOS'
-0D71 0D71 0001 3D          Extract Zip Spec      3D '6.1'
-0D72 0D72 0001 00          Extract OS            00 'MS-DOS'
-0D73 0D74 0002 41 08       General Purpose Flag  0841
+0D6B 0D6E 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
+0D6F 0D6F 0001 41          Created Zip Spec      65 (0x41) '6.5'
+0D70 0D70 0001 00          Created OS            0 (0x0) 'MS-DOS'
+0D71 0D71 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
+0D72 0D72 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0D73 0D74 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0D75 0D76 0002 08 00       Compression Method    0008 'Deflated'
-0D77 0D7A 0004 D3 78 F6 54 Last Mod Time         54F678D3 'Fri Jul 22 15:06:38 2022'
-0D7B 0D7E 0004 FF E7 0E F9 CRC                   F90EE7FF
-0D7F 0D82 0004 86 06 00 00 Compressed Length     00000686
-0D83 0D86 0004 BE 01 00 00 Uncompressed Length   000001BE
-0D87 0D88 0002 09 00       Filename Length       0009
-0D89 0D8A 0002 60 00       Extra Length          0060
-0D8B 0D8C 0002 00 00       Comment Length        0000
-0D8D 0D8E 0002 00 00       Disk Start            0000
-0D8F 0D90 0002 01 00       Int File Attributes   0001
+0D75 0D76 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+0D77 0D7A 0004 D3 78 F6 54 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
+0D7B 0D7E 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0D7F 0D82 0004 86 06 00 00 Compressed Length     1670 (0x686)
+0D83 0D86 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+0D87 0D88 0002 09 00       Filename Length       9 (0x9)
+0D89 0D8A 0002 60 00       Extra Length          96 (0x60)
+0D8B 0D8C 0002 00 00       Comment Length        0 (0x0)
+0D8D 0D8E 0002 00 00       Disk Start            0 (0x0)
+0D8F 0D90 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-0D91 0D94 0004 20 00 00 00 Ext File Attributes   00000020
+0D91 0D94 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-0D95 0D98 0004 00 00 00 00 Local Header Offset   00000000
+0D95 0D98 0004 00 00 00 00 Local Header Offset   0 (0x0)
 0D99 0DA1 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-0DA2 0DA3 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0DA4 0DA5 0002 20 00         Length              0020
-0DA6 0DA9 0004 00 00 00 00   Reserved            00000000
-0DAA 0DAB 0002 01 00         Tag1                0001
-0DAC 0DAD 0002 18 00         Size1               0018
-0DAE 0DB5 0008 00 6B 65 42   Mtime               01D89DD442656B00 'Fri Jul 22 14:06:38
-               D4 9D D8 01                       2022 0ns'
-0DB6 0DBD 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-0DBE 0DC5 0008 1D FB 7D DB   Ctime               01D89F5FDB7DFB1D 'Sun Jul 24 13:18:26
-               5F 9F D8 01                       2022 60572500ns'
-0DC6 0DC7 0002 17 00       Extra ID #0002        0017 'Strong Encryption Header'
-0DC8 0DC9 0002 38 00         Length              0038
-0DCA 0DCB 0002 02 00         Format              0002
-0DCC 0DCD 0002 10 66         AlgId               6610 'AES 256'
-0DCE 0DCF 0002 00 01         BitLen              0100
-0DD0 0DD1 0002 02 41         Flags               4102 'reserved for certificate
-                                                 processing'
-0DD2 0DD5 0004 02 00 00 00   Recipients          00000002
-0DD6 0DD7 0002 04 80         HashAlg             8004 'SHA1'
-0DD8 0DD9 0002 14 00         HSize               0014
-0DDA 0DED 0014 A0 6B CD BB   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA
-               6E 93 D0 8B                       94 11 36 F8 68 3D 0B 1A
+0DA2 0DA3 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0DA4 0DA5 0002 20 00         Length              32 (0x20)
+0DA6 0DA9 0004 00 00 00 00   Reserved            0 (0x0)
+0DAA 0DAB 0002 01 00         Tag1                1 (0x1)
+0DAC 0DAD 0002 18 00         Size1               24 (0x18)
+0DAE 0DB5 0008 00 6B 65 42   Mtime               133029723980000000 (0x1D89DD442656B00) 'Fri Jul 22 14:06:38 2022 0ns'
+               D4 9D D8 01
+0DB6 0DBD 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+0DBE 0DC5 0008 1D FB 7D DB   Ctime               133031423060605725 (0x1D89F5FDB7DFB1D) 'Sun Jul 24 13:18:26 2022 60572500ns'
+               5F 9F D8 01
+0DC6 0DC7 0002 17 00       Extra ID #2           23 (0x17) 'Strong Encryption Header'
+0DC8 0DC9 0002 38 00         Length              56 (0x38)
+0DCA 0DCB 0002 02 00         Format              2 (0x2)
+0DCC 0DCD 0002 10 66         AlgId               26128 (0x6610) 'AES 256'
+0DCE 0DCF 0002 00 01         BitLen              256 (0x100)
+0DD0 0DD1 0002 02 41         Flags               16642 (0x4102) 'reserved for certificate processing'
+0DD2 0DD5 0004 02 00 00 00   Recipients          2 (0x2)
+0DD6 0DD7 0002 04 80         HashAlg             32772 (0x8004) 'SHA1'
+0DD8 0DD9 0002 14 00         HSize               20 (0x14)
+0DDA 0DED 0014 A0 6B CD BB   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
+               6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
                94 11 36 F8
                68 3D 0B 1A
-0DEE 0E01 0014 64 E1 4A BC   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46
-               4A 1E 2C 17                       3C 46 5B 69 05 F0 35 B9
+0DEE 0E01 0014 64 E1 4A BC   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
+               4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
                3C 46 5B 69
                05 F0 35 B9
 
-0E02 0E05 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50
-0E06 0E06 0001 41          Created Zip Spec      41 '6.5'
-0E07 0E07 0001 00          Created OS            00 'MS-DOS'
-0E08 0E08 0001 3D          Extract Zip Spec      3D '6.1'
-0E09 0E09 0001 00          Extract OS            00 'MS-DOS'
-0E0A 0E0B 0002 41 08       General Purpose Flag  0841
+0E02 0E05 0004 50 4B 01 02 CENTRAL HEADER #2     33639248 (0x2014B50)
+0E06 0E06 0001 41          Created Zip Spec      65 (0x41) '6.5'
+0E07 0E07 0001 00          Created OS            0 (0x0) 'MS-DOS'
+0E08 0E08 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
+0E09 0E09 0001 00          Extract OS            0 (0x0) 'MS-DOS'
+0E0A 0E0B 0002 41 08       General Purpose Flag  2113 (0x841)
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
-0E0C 0E0D 0002 08 00       Compression Method    0008 'Deflated'
-0E0E 0E11 0004 A5 6E FD 54 Last Mod Time         54FD6EA5 'Fri Jul 29 13:53:10 2022'
-0E12 0E15 0004 3C C8 F5 41 CRC                   41F5C83C
-0E16 0E19 0004 96 06 00 00 Compressed Length     00000696
-0E1A 0E1D 0004 BF 01 00 00 Uncompressed Length   000001BF
-0E1E 0E1F 0002 0A 00       Filename Length       000A
-0E20 0E21 0002 60 00       Extra Length          0060
-0E22 0E23 0002 00 00       Comment Length        0000
-0E24 0E25 0002 00 00       Disk Start            0000
-0E26 0E27 0002 01 00       Int File Attributes   0001
+0E0C 0E0D 0002 08 00       Compression Method    8 (0x8) 'Deflated'
+0E0E 0E11 0004 A5 6E FD 54 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
+0E12 0E15 0004 3C C8 F5 41 CRC                   1106626620 (0x41F5C83C)
+0E16 0E19 0004 96 06 00 00 Compressed Length     1686 (0x696)
+0E1A 0E1D 0004 BF 01 00 00 Uncompressed Length   447 (0x1BF)
+0E1E 0E1F 0002 0A 00       Filename Length       10 (0xA)
+0E20 0E21 0002 60 00       Extra Length          96 (0x60)
+0E22 0E23 0002 00 00       Comment Length        0 (0x0)
+0E24 0E25 0002 00 00       Disk Start            0 (0x0)
+0E26 0E27 0002 01 00       Int File Attributes   1 (0x1)
                            [Bit 0]               1 'Text Data'
-0E28 0E2B 0004 20 00 00 00 Ext File Attributes   00000020
+0E28 0E2B 0004 20 00 00 00 Ext File Attributes   32 (0x20)
                            [Bit 5]               Archive
-0E2C 0E2F 0004 AD 06 00 00 Local Header Offset   000006AD
+0E2C 0E2F 0004 AD 06 00 00 Local Header Offset   1709 (0x6AD)
 0E30 0E39 000A 6C 6F 72 65 Filename              'lorem2.txt'
                6D 32 2E 74
                78 74
-0E3A 0E3B 0002 0A 00       Extra ID #0001        000A 'NTFS FileTimes'
-0E3C 0E3D 0002 20 00         Length              0020
-0E3E 0E41 0004 00 00 00 00   Reserved            00000000
-0E42 0E43 0002 01 00         Tag1                0001
-0E44 0E45 0002 18 00         Size1               0018
-0E46 0E4D 0008 14 EA 72 27   Mtime               01D8A34A2772EA14 'Fri Jul 29 12:53:09
-               4A A3 D8 01                       2022 217947600ns'
-0E4E 0E55 0008 A2 97 3A E1   Atime               01D8A4B6E13A97A2 'Sun Jul 31 08:23:57
-               B6 A4 D8 01                       2022 714627400ns'
-0E56 0E5D 0008 C3 C8 58 21   Ctime               01D8A34A2158C8C3 'Fri Jul 29 12:52:58
-               4A A3 D8 01                       2022 980371500ns'
-0E5E 0E5F 0002 17 00       Extra ID #0002        0017 'Strong Encryption Header'
-0E60 0E61 0002 38 00         Length              0038
-0E62 0E63 0002 02 00         Format              0002
-0E64 0E65 0002 10 66         AlgId               6610 'AES 256'
-0E66 0E67 0002 00 01         BitLen              0100
-0E68 0E69 0002 02 41         Flags               4102 'reserved for certificate
-                                                 processing'
-0E6A 0E6D 0004 02 00 00 00   Recipients          00000002
-0E6E 0E6F 0002 04 80         HashAlg             8004 'SHA1'
-0E70 0E71 0002 14 00         HSize               0014
-0E72 0E85 0014 A0 6B CD BB   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA
-               6E 93 D0 8B                       94 11 36 F8 68 3D 0B 1A
+0E3A 0E3B 0002 0A 00       Extra ID #1           10 (0xA) 'NTFS FileTimes'
+0E3C 0E3D 0002 20 00         Length              32 (0x20)
+0E3E 0E41 0004 00 00 00 00   Reserved            0 (0x0)
+0E42 0E43 0002 01 00         Tag1                1 (0x1)
+0E44 0E45 0002 18 00         Size1               24 (0x18)
+0E46 0E4D 0008 14 EA 72 27   Mtime               133035727892179476 (0x1D8A34A2772EA14) 'Fri Jul 29 12:53:09 2022 217947600ns'
+               4A A3 D8 01
+0E4E 0E55 0008 A2 97 3A E1   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
+               B6 A4 D8 01
+0E56 0E5D 0008 C3 C8 58 21   Ctime               133035727789803715 (0x1D8A34A2158C8C3) 'Fri Jul 29 12:52:58 2022 980371500ns'
+               4A A3 D8 01
+0E5E 0E5F 0002 17 00       Extra ID #2           23 (0x17) 'Strong Encryption Header'
+0E60 0E61 0002 38 00         Length              56 (0x38)
+0E62 0E63 0002 02 00         Format              2 (0x2)
+0E64 0E65 0002 10 66         AlgId               26128 (0x6610) 'AES 256'
+0E66 0E67 0002 00 01         BitLen              256 (0x100)
+0E68 0E69 0002 02 41         Flags               16642 (0x4102) 'reserved for certificate processing'
+0E6A 0E6D 0004 02 00 00 00   Recipients          2 (0x2)
+0E6E 0E6F 0002 04 80         HashAlg             32772 (0x8004) 'SHA1'
+0E70 0E71 0002 14 00         HSize               20 (0x14)
+0E72 0E85 0014 A0 6B CD BB   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
+               6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
                94 11 36 F8
                68 3D 0B 1A
-0E86 0E99 0014 64 E1 4A BC   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46
-               4A 1E 2C 17                       3C 46 5B 69 05 F0 35 B9
+0E86 0E99 0014 64 E1 4A BC   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
+               4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
                3C 46 5B 69
                05 F0 35 B9
 
-0E9A 0E9D 0004 50 4B 05 06 END CENTRAL HEADER    06054B50
-0E9E 0E9F 0002 00 00       Number of this disk   0000
-0EA0 0EA1 0002 00 00       Central Dir Disk no   0000
-0EA2 0EA3 0002 02 00       Entries in this disk  0002
-0EA4 0EA5 0002 02 00       Total Entries         0002
-0EA6 0EA9 0004 2F 01 00 00 Size of Central Dir   0000012F
-0EAA 0EAD 0004 6B 0D 00 00 Offset to Central Dir 00000D6B
-0EAE 0EAF 0002 00 00       Comment Length        0000
+0E9A 0E9D 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
+0E9E 0E9F 0002 00 00       Number of this disk   0 (0x0)
+0EA0 0EA1 0002 00 00       Central Dir Disk no   0 (0x0)
+0EA2 0EA3 0002 02 00       Entries in this disk  2 (0x2)
+0EA4 0EA5 0002 02 00       Total Entries         2 (0x2)
+0EA6 0EA9 0004 2F 01 00 00 Size of Central Dir   303 (0x12F)
+0EAA 0EAD 0004 6B 0D 00 00 Offset to Central Dir 3435 (0xD6B)
+0EAE 0EAF 0002 00 00       Comment Length        0 (0x0)
 #
 # Done

@@ -1,57 +1,57 @@
 
-0000 LOCAL HEADER #1       04034B50
-0004 Extract Zip Spec      14 '2.0'
-0005 Extract OS            00 'MS-DOS'
-0006 General Purpose Flag  0000
+0000 LOCAL HEADER #1       67324752 (0x4034B50)
+0004 Extract Zip Spec      20 (0x14) '2.0'
+0005 Extract OS            0 (0x0) 'MS-DOS'
+0006 General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 'Deflated'
-000A Last Mod Time         56675961 'Tue Mar  7 11:11:02 2023'
-000E CRC                   ED82CD11
-0012 Compressed Length     00000006
-0016 Uncompressed Length   00000004
-001A Filename Length       0002
-001C Extra Length          0000
+0008 Compression Method    8 (0x8) 'Deflated'
+000A Last Mod Time         1449613665 (0x56675961) 'Tue Mar  7 11:11:02 2023'
+000E CRC                   3984772369 (0xED82CD11)
+0012 Compressed Length     6 (0x6)
+0016 Uncompressed Length   4 (0x4)
+001A Filename Length       2 (0x2)
+001C Extra Length          0 (0x0)
 #
 # WARNING: Offset 0x1E: Could not encode 'iso-8859-1' Filename: "\x{03c0}" does not map to iso-8859-1
 #
 001E Filename              'ππ'
 0020 PAYLOAD               KLJN..
 
-0026 CENTRAL HEADER #1     02014B50
-002A Created Zip Spec      14 '2.0'
-002B Created OS            03 'Unix'
-002C Extract Zip Spec      14 '2.0'
-002D Extract OS            00 'MS-DOS'
-002E General Purpose Flag  0000
+0026 CENTRAL HEADER #1     33639248 (0x2014B50)
+002A Created Zip Spec      20 (0x14) '2.0'
+002B Created OS            3 (0x3) 'Unix'
+002C Extract Zip Spec      20 (0x14) '2.0'
+002D Extract OS            0 (0x0) 'MS-DOS'
+002E General Purpose Flag  0 (0x0)
      [Bits 1-2]            0 'Normal Compression'
-0030 Compression Method    0008 'Deflated'
-0032 Last Mod Time         56675961 'Tue Mar  7 11:11:02 2023'
-0036 CRC                   ED82CD11
-003A Compressed Length     00000006
-003E Uncompressed Length   00000004
-0042 Filename Length       0002
-0044 Extra Length          0000
-0046 Comment Length        0000
-0048 Disk Start            0000
-004A Int File Attributes   0000
+0030 Compression Method    8 (0x8) 'Deflated'
+0032 Last Mod Time         1449613665 (0x56675961) 'Tue Mar  7 11:11:02 2023'
+0036 CRC                   3984772369 (0xED82CD11)
+003A Compressed Length     6 (0x6)
+003E Uncompressed Length   4 (0x4)
+0042 Filename Length       2 (0x2)
+0044 Extra Length          0 (0x0)
+0046 Comment Length        0 (0x0)
+0048 Disk Start            0 (0x0)
+004A Int File Attributes   0 (0x0)
      [Bit 0]               0 'Binary Data'
-004C Ext File Attributes   81A40000
-     [Bits 16-24]          01A4 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          08 'Regular File'
-0050 Local Header Offset   00000000
+004C Ext File Attributes   2175008768 (0x81A40000)
+     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          8 (0x8) 'Regular File'
+0050 Local Header Offset   0 (0x0)
 #
 # WARNING: Offset 0x54: Could not encode 'iso-8859-1' Filename: "\x{03c0}" does not map to iso-8859-1
 #
 0054 Filename              'ππ'
 
-0056 END CENTRAL HEADER    06054B50
-005A Number of this disk   0000
-005C Central Dir Disk no   0000
-005E Entries in this disk  0001
-0060 Total Entries         0001
-0062 Size of Central Dir   00000030
-0066 Offset to Central Dir 00000026
-006A Comment Length        0000
+0056 END CENTRAL HEADER    101010256 (0x6054B50)
+005A Number of this disk   0 (0x0)
+005C Central Dir Disk no   0 (0x0)
+005E Entries in this disk  1 (0x1)
+0060 Total Entries         1 (0x1)
+0062 Size of Central Dir   48 (0x30)
+0066 Offset to Central Dir 38 (0x26)
+006A Comment Length        0 (0x0)
 #
 # Warning Count: 2
 #
