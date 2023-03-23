@@ -25,8 +25,8 @@ at hand to help understand the output from this program.
 By default the program expects to be given a well-formed zip file.  It will
 navigate the Zip file by first parsing the zip central directory at the end of
 the file.  If the central directory is found, it will then walk sequentally
-through the zip records starting at the beginning of the file. See ["Advanced
-Analysis Options"](#advanced-analysis-options) for other processing options.
+through the zip records starting at the beginning of the file.
+See ["Advanced Analysis"](#advanced-analysis) for other processing options.
 
 If the program finds any structural problems with the zip file it will print a
 message at the point it finds the issue and/or a summary at the end of the
@@ -52,7 +52,7 @@ filename/comment fields are assumed to be encoded in UTF-8.
 See ["Filename & Comment Encoding Options"](#filename-comment-encoding-options) for ways to control the encoding of
 filename/comment fields.
 
-## Advanced Analysis Options
+## Advanced Analysis
 
 If you have a corrupt or non-standard zip file, particulatly one where the
 central directory metadata at the end of the file is absent/incomplete, you can

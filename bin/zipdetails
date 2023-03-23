@@ -6680,8 +6680,8 @@ at hand to help understand the output from this program.
 By default the program expects to be given a well-formed zip file.  It will
 navigate the Zip file by first parsing the zip central directory at the end of
 the file.  If the central directory is found, it will then walk sequentally
-through the zip records starting at the beginning of the file. See L<Advanced
-Analysis Options> for other processing options.
+through the zip records starting at the beginning of the file.
+See L<Advanced Analysis> for other processing options.
 
 If the program finds any structural problems with the zip file it will print a
 message at the point it finds the issue and/or a summary at the end of the
@@ -6716,7 +6716,7 @@ the definition for the metadata field implies UTF-8 charset encoding
 See L<Filename & Comment Encoding Options> for ways to control the encoding of
 filename/comment fields.
 
-=head2 Advanced Analysis Options
+=head2 Advanced Analysis
 
 If you have a corrupt or non-standard zip file, particulatly one where the
 central directory metadata at the end of the file is absent/incomplete, you can
