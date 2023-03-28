@@ -6,7 +6,7 @@
 New feature in WinZip 25 that detects duplicate file and stores a reference entry.
 See https://www.winzip.com/en/support/compression-methods/.
 
-Create three files rae have same content: f1, f2, f3.
+Create three files that have same content: f1, f2, f3.
 
     wzzip -a -e0 winzip-duplicate.zip f1 f2 f3
 
@@ -63,7 +63,7 @@ See https://www.winzip.com/en/support/aes-encryption/
 
 ## Split Archive
 
-Single 
+Single
 
     zip -0 lorem.zip lorem.txt
     wzzip -ys64 lorem.zip lorem-split.zip
