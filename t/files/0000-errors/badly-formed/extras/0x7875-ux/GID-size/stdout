@@ -1,67 +1,67 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      20 (0x14) '2.0'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
-0008 Compression Method    0 (0x0) 'Stored'
-000A Last Mod Time         1433169589 (0x556C6EB5) 'Sat Nov 12 13:53:42 2022'
-000E CRC                   2240272485 (0x8587D865)
-0012 Compressed Length     5 (0x5)
-0016 Uncompressed Length   5 (0x5)
-001A Filename Length       8 (0x8)
-001C Extra Length          10 (0xA)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x14 [20] '2.0'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
+0008 Compression Method    0x0000 [0] 'Stored'
+000A Last Mod Time         0x556C6EB5 [1433169589] 'Sat Nov 12 13:53:42 2022'
+000E CRC                   0x8587D865 [2240272485]
+0012 Compressed Length     0x00000005 [5]
+0016 Uncompressed Length   0x00000005 [5]
+001A Filename Length       0x0008 [8]
+001C Extra Length          0x000A [10]
 001E Filename              'filename'
-0026 Extra ID #1           30837 (0x7875) 'Unix Extra type 3 [ux]'
-0028   Length              6 (0x6)
-002A   Version             1 (0x1)
-002B   UID Size            4 (0x4)
-002C   UID                 1684234849 (0x64636261)
+0026 Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
+0028   Length              0x0006 [6]
+002A   Version             0x01 [1]
+002B   UID Size            0x04 [4]
+002C   UID                 0x64636261 [1684234849]
 #
 # ERROR: Offset 0x30: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 4 (0x4) bytes, got 0 (0x0) bytes
+#        Expected 0x4 [4] bytes, got 0x0 [0] bytes
 #
 0030 PAYLOAD               abcde
 
-0035 CENTRAL HEADER #1     33639248 (0x2014B50)
-0039 Created Zip Spec      20 (0x14) '2.0'
-003A Created OS            3 (0x3) 'Unix'
-003B Extract Zip Spec      20 (0x14) '2.0'
-003C Extract OS            0 (0x0) 'MS-DOS'
-003D General Purpose Flag  0 (0x0)
-003F Compression Method    0 (0x0) 'Stored'
-0041 Last Mod Time         1433169589 (0x556C6EB5) 'Sat Nov 12 13:53:42 2022'
-0045 CRC                   2240272485 (0x8587D865)
-0049 Compressed Length     5 (0x5)
-004D Uncompressed Length   5 (0x5)
-0051 Filename Length       8 (0x8)
-0053 Extra Length          10 (0xA)
-0055 Comment Length        0 (0x0)
-0057 Disk Start            0 (0x0)
-0059 Int File Attributes   0 (0x0)
+0035 CENTRAL HEADER #1     0x02014B50 [33639248]
+0039 Created Zip Spec      0x14 [20] '2.0'
+003A Created OS            0x03 [3] 'Unix'
+003B Extract Zip Spec      0x14 [20] '2.0'
+003C Extract OS            0x00 [0] 'MS-DOS'
+003D General Purpose Flag  0x0000 [0]
+003F Compression Method    0x0000 [0] 'Stored'
+0041 Last Mod Time         0x556C6EB5 [1433169589] 'Sat Nov 12 13:53:42 2022'
+0045 CRC                   0x8587D865 [2240272485]
+0049 Compressed Length     0x00000005 [5]
+004D Uncompressed Length   0x00000005 [5]
+0051 Filename Length       0x0008 [8]
+0053 Extra Length          0x000A [10]
+0055 Comment Length        0x0000 [0]
+0057 Disk Start            0x0000 [0]
+0059 Int File Attributes   0x0000 [0]
      [Bit 0]               0 'Binary Data'
-005B Ext File Attributes   2175008768 (0x81A40000)
-     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-005F Local Header Offset   0 (0x0)
+005B Ext File Attributes   0x81A40000 [2175008768]
+     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+005F Local Header Offset   0x00000000 [0]
 0063 Filename              'filename'
-006B Extra ID #1           30837 (0x7875) 'Unix Extra type 3 [ux]'
-006D   Length              6 (0x6)
-006F   Version             1 (0x1)
-0070   UID Size            4 (0x4)
-0071   UID                 1684234849 (0x64636261)
+006B Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
+006D   Length              0x0006 [6]
+006F   Version             0x01 [1]
+0070   UID Size            0x04 [4]
+0071   UID                 0x64636261 [1684234849]
 #
 # ERROR: Offset 0x75: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 4 (0x4) bytes, got 0 (0x0) bytes
+#        Expected 0x4 [4] bytes, got 0x0 [0] bytes
 #
 
-0075 END CENTRAL HEADER    101010256 (0x6054B50)
-0079 Number of this disk   0 (0x0)
-007B Central Dir Disk no   0 (0x0)
-007D Entries in this disk  1 (0x1)
-007F Total Entries         1 (0x1)
-0081 Size of Central Dir   64 (0x40)
-0085 Offset to Central Dir 53 (0x35)
-0089 Comment Length        0 (0x0)
+0075 END CENTRAL HEADER    0x06054B50 [101010256]
+0079 Number of this disk   0x0000 [0]
+007B Central Dir Disk no   0x0000 [0]
+007D Entries in this disk  0x0001 [1]
+007F Total Entries         0x0001 [1]
+0081 Size of Central Dir   0x00000040 [64]
+0085 Offset to Central Dir 0x00000035 [53]
+0089 Comment Length        0x0000 [0]
 #
 # Error Count: 2
 #

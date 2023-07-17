@@ -1,85 +1,85 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      45 (0x2D) '4.5'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  8 (0x8)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x2D [45] '4.5'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0008 [8]
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
-0008 Compression Method    8 (0x8) 'Deflated'
-000A Last Mod Time         1435992740 (0x559782A4) 'Fri Dec 23 16:21:08 2022'
-000E CRC                   0 (0x0)
-0012 Compressed Length     4294967295 (0xFFFFFFFF)
-0016 Uncompressed Length   4294967295 (0xFFFFFFFF)
-001A Filename Length       9 (0x9)
-001C Extra Length          20 (0x14)
+0008 Compression Method    0x0008 [8] 'Deflated'
+000A Last Mod Time         0x559782A4 [1435992740] 'Fri Dec 23 16:21:08 2022'
+000E CRC                   0x00000000 [0]
+0012 Compressed Length     0xFFFFFFFF [4294967295]
+0016 Uncompressed Length   0xFFFFFFFF [4294967295]
+001A Filename Length       0x0009 [9]
+001C Extra Length          0x0014 [20]
 001E Filename              'lorem.txt'
-0027 Extra ID #1           1 (0x1) 'ZIP64'
-0029   Length              16 (0x10)
-002B   Uncompressed Size   0 (0x0)
-0033   Compressed Size     0 (0x0)
+0027 Extra ID #1           0x0001 [1] 'ZIP64'
+0029   Length              0x0010 [16]
+002B   Uncompressed Size   0x0000000000000000 [0]
+0033   Compressed Size     0x0000000000000000 [0]
 003B PAYLOAD
 
-0149 DATA DESCRIPTOR       134695760 (0x8074B50)
-014D CRC                   4178503679 (0xF90EE7FF)
+0149 DATA DESCRIPTOR       0x08074B50 [134695760]
+014D CRC                   0xF90EE7FF [4178503679]
 #
 # ERROR: Offset 0x14D: 'DATA DESCRIPTOR': expected 64-bit values, got 32-bit
 #
-0151 Compressed Length     270 (0x10E)
-0155 Uncompressed Length   446 (0x1BE)
+0151 Compressed Length     0x0000010E [270]
+0155 Uncompressed Length   0x000001BE [446]
 
-0159 CENTRAL HEADER #1     33639248 (0x2014B50)
-015D Created Zip Spec      45 (0x2D) '4.5'
-015E Created OS            3 (0x3) 'Unix'
-015F Extract Zip Spec      45 (0x2D) '4.5'
-0160 Extract OS            0 (0x0) 'MS-DOS'
-0161 General Purpose Flag  8 (0x8)
+0159 CENTRAL HEADER #1     0x02014B50 [33639248]
+015D Created Zip Spec      0x2D [45] '4.5'
+015E Created OS            0x03 [3] 'Unix'
+015F Extract Zip Spec      0x2D [45] '4.5'
+0160 Extract OS            0x00 [0] 'MS-DOS'
+0161 General Purpose Flag  0x0008 [8]
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
-0163 Compression Method    8 (0x8) 'Deflated'
-0165 Last Mod Time         1435992740 (0x559782A4) 'Fri Dec 23 16:21:08 2022'
-0169 CRC                   4178503679 (0xF90EE7FF)
-016D Compressed Length     270 (0x10E)
-0171 Uncompressed Length   446 (0x1BE)
-0175 Filename Length       9 (0x9)
-0177 Extra Length          0 (0x0)
-0179 Comment Length        0 (0x0)
-017B Disk Start            0 (0x0)
-017D Int File Attributes   1 (0x1)
+0163 Compression Method    0x0008 [8] 'Deflated'
+0165 Last Mod Time         0x559782A4 [1435992740] 'Fri Dec 23 16:21:08 2022'
+0169 CRC                   0xF90EE7FF [4178503679]
+016D Compressed Length     0x0000010E [270]
+0171 Uncompressed Length   0x000001BE [446]
+0175 Filename Length       0x0009 [9]
+0177 Extra Length          0x0000 [0]
+0179 Comment Length        0x0000 [0]
+017B Disk Start            0x0000 [0]
+017D Int File Attributes   0x0001 [1]
      [Bit 0]               1 'Text Data'
-017F Ext File Attributes   2175008768 (0x81A40000)
-     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-0183 Local Header Offset   0 (0x0)
+017F Ext File Attributes   0x81A40000 [2175008768]
+     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+0183 Local Header Offset   0x00000000 [0]
 0187 Filename              'lorem.txt'
 
-0190 ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
+0190 ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
      RECORD
-0194 Size of record        44 (0x2C)
-019C Created Zip Spec      45 (0x2D) '4.5'
-019D Created OS            3 (0x3) 'Unix'
-019E Extract Zip Spec      45 (0x2D) '4.5'
-019F Extract OS            0 (0x0) 'MS-DOS'
-01A0 Number of this disk   0 (0x0)
-01A4 Central Dir Disk no   0 (0x0)
-01A8 Entries in this disk  1 (0x1)
-01B0 Total Entries         1 (0x1)
-01B8 Size of Central Dir   55 (0x37)
-01C0 Offset to Central dir 345 (0x159)
+0194 Size of record        0x000000000000002C [44]
+019C Created Zip Spec      0x2D [45] '4.5'
+019D Created OS            0x03 [3] 'Unix'
+019E Extract Zip Spec      0x2D [45] '4.5'
+019F Extract OS            0x00 [0] 'MS-DOS'
+01A0 Number of this disk   0x00000000 [0]
+01A4 Central Dir Disk no   0x00000000 [0]
+01A8 Entries in this disk  0x0000000000000001 [1]
+01B0 Total Entries         0x0000000000000001 [1]
+01B8 Size of Central Dir   0x0000000000000037 [55]
+01C0 Offset to Central dir 0x0000000000000159 [345]
 
-01C8 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
+01C8 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
      LOCATOR
-01CC Central Dir Disk no   0 (0x0)
-01D0 Offset to Zip64 EOCD  400 (0x190)
-01D8 Total no of Disks     1 (0x1)
+01CC Central Dir Disk no   0x00000000 [0]
+01D0 Offset to Zip64 EOCD  0x0000000000000190 [400]
+01D8 Total no of Disks     0x00000001 [1]
 
-01DC END CENTRAL HEADER    101010256 (0x6054B50)
-01E0 Number of this disk   0 (0x0)
-01E2 Central Dir Disk no   0 (0x0)
-01E4 Entries in this disk  1 (0x1)
-01E6 Total Entries         1 (0x1)
-01E8 Size of Central Dir   55 (0x37)
-01EC Offset to Central Dir 4294967295 (0xFFFFFFFF)
-01F0 Comment Length        0 (0x0)
+01DC END CENTRAL HEADER    0x06054B50 [101010256]
+01E0 Number of this disk   0x0000 [0]
+01E2 Central Dir Disk no   0x0000 [0]
+01E4 Entries in this disk  0x0001 [1]
+01E6 Total Entries         0x0001 [1]
+01E8 Size of Central Dir   0x00000037 [55]
+01EC Offset to Central Dir 0xFFFFFFFF [4294967295]
+01F0 Comment Length        0x0000 [0]
 #
 # Error Count: 1
 #

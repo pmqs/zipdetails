@@ -1,70 +1,70 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
-0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
-000A 000D 0004 AC 4A 72 55 Last Mod Time         1433553580 (0x55724AAC) 'Fri Nov 18 09:21:24 2022'
-000E 0011 0004 65 D8 87 85 CRC                   2240272485 (0x8587D865)
-0012 0015 0004 05 00 00 00 Compressed Length     5 (0x5)
-0016 0019 0004 05 00 00 00 Uncompressed Length   5 (0x5)
-001A 001B 0002 08 00       Filename Length       8 (0x8)
-001C 001D 0002 11 00       Extra Length          17 (0x11)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+000A 000D 0004 AC 4A 72 55 Last Mod Time         0x55724AAC [1433553580] 'Fri Nov 18 09:21:24 2022'
+000E 0011 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
+0012 0015 0004 05 00 00 00 Compressed Length     0x00000005 [5]
+0016 0019 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
+001A 001B 0002 08 00       Filename Length       0x0008 [8]
+001C 001D 0002 11 00       Extra Length          0x0011 [17]
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 55 54       Extra ID #1           21589 (0x5455) 'Extended Timestamp [UT]'
-0028 0029 0002 0D 00         Length              13 (0xD)
-002A 002A 0001 07            Flags               7 (0x7) 'mod access change'
-002B 002E 0004 61 62 63 64   Mod Time            1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
-002F 0032 0004 61 62 63 64   Access Time         1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
-0033 0036 0004 61 62 63 64   Change Time         1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
+0026 0027 0002 55 54       Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
+0028 0029 0002 0D 00         Length              0x000D [13]
+002A 002A 0001 07            Flags               0x07 [7] 'mod access change'
+002B 002E 0004 61 62 63 64   Mod Time            0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+002F 0032 0004 61 62 63 64   Access Time         0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+0033 0036 0004 61 62 63 64   Change Time         0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
 0037 003B 0005 61 62 63 64 PAYLOAD               abcde
                65
 
-003C 003F 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-0040 0040 0001 14          Created Zip Spec      20 (0x14) '2.0'
-0041 0041 0001 03          Created OS            3 (0x3) 'Unix'
-0042 0042 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0043 0043 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0044 0045 0002 00 00       General Purpose Flag  0 (0x0)
-0046 0047 0002 00 00       Compression Method    0 (0x0) 'Stored'
-0048 004B 0004 AC 4A 72 55 Last Mod Time         1433553580 (0x55724AAC) 'Fri Nov 18 09:21:24 2022'
-004C 004F 0004 65 D8 87 85 CRC                   2240272485 (0x8587D865)
-0050 0053 0004 05 00 00 00 Compressed Length     5 (0x5)
-0054 0057 0004 05 00 00 00 Uncompressed Length   5 (0x5)
-0058 0059 0002 08 00       Filename Length       8 (0x8)
-005A 005B 0002 11 00       Extra Length          17 (0x11)
-005C 005D 0002 00 00       Comment Length        0 (0x0)
-005E 005F 0002 00 00       Disk Start            0 (0x0)
-0060 0061 0002 00 00       Int File Attributes   0 (0x0)
+003C 003F 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+0040 0040 0001 14          Created Zip Spec      0x14 [20] '2.0'
+0041 0041 0001 03          Created OS            0x03 [3] 'Unix'
+0042 0042 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0043 0043 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0044 0045 0002 00 00       General Purpose Flag  0x0000 [0]
+0046 0047 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+0048 004B 0004 AC 4A 72 55 Last Mod Time         0x55724AAC [1433553580] 'Fri Nov 18 09:21:24 2022'
+004C 004F 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
+0050 0053 0004 05 00 00 00 Compressed Length     0x00000005 [5]
+0054 0057 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
+0058 0059 0002 08 00       Filename Length       0x0008 [8]
+005A 005B 0002 11 00       Extra Length          0x0011 [17]
+005C 005D 0002 00 00       Comment Length        0x0000 [0]
+005E 005F 0002 00 00       Disk Start            0x0000 [0]
+0060 0061 0002 00 00       Int File Attributes   0x0000 [0]
                            [Bit 0]               0 'Binary Data'
-0062 0065 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
-                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-0066 0069 0004 00 00 00 00 Local Header Offset   0 (0x0)
+0062 0065 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
+                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+0066 0069 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 006A 0071 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0072 0073 0002 55 54       Extra ID #1           21589 (0x5455) 'Extended Timestamp [UT]'
-0074 0075 0002 0D 00         Length              13 (0xD)
-0076 0076 0001 07            Flags               7 (0x7) 'mod access change'
-0077 007A 0004 61 62 63 64   Mod Time            1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
+0072 0073 0002 55 54       Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
+0074 0075 0002 0D 00         Length              0x000D [13]
+0076 0076 0001 07            Flags               0x07 [7] 'mod access change'
+0077 007A 0004 61 62 63 64   Mod Time            0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x7B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
 #
-007B 007E 0004 61 62 63 64   Access Time         1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
+007B 007E 0004 61 62 63 64   Access Time         0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x7F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
 #
-007F 0082 0004 61 62 63 64   Change Time         1684234849 (0x64636261) 'Tue May 16 11:00:49 2023'
+007F 0082 0004 61 62 63 64   Change Time         0x64636261 [1684234849] 'Tue May 16 11:00:49 2023'
 
-0083 0086 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-0087 0088 0002 00 00       Number of this disk   0 (0x0)
-0089 008A 0002 00 00       Central Dir Disk no   0 (0x0)
-008B 008C 0002 01 00       Entries in this disk  1 (0x1)
-008D 008E 0002 01 00       Total Entries         1 (0x1)
-008F 0092 0004 47 00 00 00 Size of Central Dir   71 (0x47)
-0093 0096 0004 3C 00 00 00 Offset to Central Dir 60 (0x3C)
-0097 0098 0002 00 00       Comment Length        0 (0x0)
+0083 0086 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+0087 0088 0002 00 00       Number of this disk   0x0000 [0]
+0089 008A 0002 00 00       Central Dir Disk no   0x0000 [0]
+008B 008C 0002 01 00       Entries in this disk  0x0001 [1]
+008D 008E 0002 01 00       Total Entries         0x0001 [1]
+008F 0092 0004 47 00 00 00 Size of Central Dir   0x00000047 [71]
+0093 0096 0004 3C 00 00 00 Offset to Central Dir 0x0000003C [60]
+0097 0098 0002 00 00       Comment Length        0x0000 [0]
 #
 # Info Count: 2
 #

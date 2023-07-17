@@ -1,18 +1,18 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
-0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
-000A 000D 0004 A7 53 9D 55 Last Mod Time         1436373927 (0x559D53A7) 'Thu Dec 29 10:29:14 2022'
-000E 0011 0004 7C E0 5A 88 CRC                   2287657084 (0x885AE07C)
-0012 0015 0004 18 00 00 00 Compressed Length     24 (0x18)
-0016 0019 0004 18 00 00 00 Uncompressed Length   24 (0x18)
-001A 001B 0002 00 00       Filename Length       0 (0x0)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+000A 000D 0004 A7 53 9D 55 Last Mod Time         0x559D53A7 [1436373927] 'Thu Dec 29 10:29:14 2022'
+000E 0011 0004 7C E0 5A 88 CRC                   0x885AE07C [2287657084]
+0012 0015 0004 18 00 00 00 Compressed Length     0x00000018 [24]
+0016 0019 0004 18 00 00 00 Uncompressed Length   0x00000018 [24]
+001A 001B 0002 00 00       Filename Length       0x0000 [0]
 #
 # INFO: Offset 0x1A: Zero Length filename
 #
-001C 001D 0002 00 00       Extra Length          0 (0x0)
+001C 001D 0002 00 00       Extra Length          0x0000 [0]
 001E 0035 0018 50 4B 07 08 PAYLOAD               PK......................
                01 02 03 04
                01 02 03 04
@@ -20,7 +20,7 @@
                01 02 03 04
                05 06 07 08
 
-001E 0021 0004 50 4B 07 08 DATA DESCRIPTOR       134695760 (0x8074B50)
+001E 0021 0004 50 4B 07 08 DATA DESCRIPTOR       0x08074B50 [134695760]
 0022 0021 0000             Skipping nested
                            payload
 
@@ -30,42 +30,42 @@
                01 02 03 04
                05 06 07 08
 #
-# INFO: Offset 0x22: 20 (0x14) Unexpected Padding bytes
+# INFO: Offset 0x22: 0x14 [20] Unexpected Padding bytes
 #
 
-0036 0039 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-003A 003A 0001 14          Created Zip Spec      20 (0x14) '2.0'
-003B 003B 0001 03          Created OS            3 (0x3) 'Unix'
-003C 003C 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-003D 003D 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-003E 003F 0002 00 00       General Purpose Flag  0 (0x0)
-0040 0041 0002 00 00       Compression Method    0 (0x0) 'Stored'
-0042 0045 0004 A7 53 9D 55 Last Mod Time         1436373927 (0x559D53A7) 'Thu Dec 29 10:29:14 2022'
-0046 0049 0004 7C E0 5A 88 CRC                   2287657084 (0x885AE07C)
-004A 004D 0004 18 00 00 00 Compressed Length     24 (0x18)
-004E 0051 0004 18 00 00 00 Uncompressed Length   24 (0x18)
-0052 0053 0002 00 00       Filename Length       0 (0x0)
+0036 0039 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+003A 003A 0001 14          Created Zip Spec      0x14 [20] '2.0'
+003B 003B 0001 03          Created OS            0x03 [3] 'Unix'
+003C 003C 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+003D 003D 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+003E 003F 0002 00 00       General Purpose Flag  0x0000 [0]
+0040 0041 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+0042 0045 0004 A7 53 9D 55 Last Mod Time         0x559D53A7 [1436373927] 'Thu Dec 29 10:29:14 2022'
+0046 0049 0004 7C E0 5A 88 CRC                   0x885AE07C [2287657084]
+004A 004D 0004 18 00 00 00 Compressed Length     0x00000018 [24]
+004E 0051 0004 18 00 00 00 Uncompressed Length   0x00000018 [24]
+0052 0053 0002 00 00       Filename Length       0x0000 [0]
 #
 # INFO: Offset 0x52: Zero Length filename
 #
-0054 0055 0002 00 00       Extra Length          0 (0x0)
-0056 0057 0002 00 00       Comment Length        0 (0x0)
-0058 0059 0002 00 00       Disk Start            0 (0x0)
-005A 005B 0002 00 00       Int File Attributes   0 (0x0)
+0054 0055 0002 00 00       Extra Length          0x0000 [0]
+0056 0057 0002 00 00       Comment Length        0x0000 [0]
+0058 0059 0002 00 00       Disk Start            0x0000 [0]
+005A 005B 0002 00 00       Int File Attributes   0x0000 [0]
                            [Bit 0]               0 'Binary Data'
-005C 005F 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
-                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-0060 0063 0004 00 00 00 00 Local Header Offset   0 (0x0)
+005C 005F 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
+                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+0060 0063 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 
-0064 0067 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-0068 0069 0002 00 00       Number of this disk   0 (0x0)
-006A 006B 0002 00 00       Central Dir Disk no   0 (0x0)
-006C 006D 0002 01 00       Entries in this disk  1 (0x1)
-006E 006F 0002 01 00       Total Entries         1 (0x1)
-0070 0073 0004 2E 00 00 00 Size of Central Dir   46 (0x2E)
-0074 0077 0004 36 00 00 00 Offset to Central Dir 54 (0x36)
-0078 0079 0002 00 00       Comment Length        0 (0x0)
+0064 0067 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+0068 0069 0002 00 00       Number of this disk   0x0000 [0]
+006A 006B 0002 00 00       Central Dir Disk no   0x0000 [0]
+006C 006D 0002 01 00       Entries in this disk  0x0001 [1]
+006E 006F 0002 01 00       Total Entries         0x0001 [1]
+0070 0073 0004 2E 00 00 00 Size of Central Dir   0x0000002E [46]
+0074 0077 0004 36 00 00 00 Offset to Central Dir 0x00000036 [54]
+0078 0079 0002 00 00       Comment Length        0x0000 [0]
 #
 # Info Count: 3
 #

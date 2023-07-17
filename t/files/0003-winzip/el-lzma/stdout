@@ -1,56 +1,56 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      63 (0x3F) '6.3'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x3F [63] '6.3'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
      [Bit 1]               0 'LZMA EOS Marker Not Present'
-0008 Compression Method    14 (0xE) 'LZMA'
-000A Last Mod Time         1358279393 (0x50F5B2E1) 'Tue Jul 21 22:23:02 2020'
-000E CRC                   4178503679 (0xF90EE7FF)
-0012 Compressed Length     347 (0x15B)
-0016 Uncompressed Length   446 (0x1BE)
-001A Filename Length       9 (0x9)
-001C Extra Length          0 (0x0)
+0008 Compression Method    0x000E [14] 'LZMA'
+000A Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+000E CRC                   0xF90EE7FF [4178503679]
+0012 Compressed Length     0x0000015B [347]
+0016 Uncompressed Length   0x000001BE [446]
+001A Filename Length       0x0009 [9]
+001C Extra Length          0x0000 [0]
 001E Filename              'lorem.txt'
 0027 LZMA Version          0914 '9.20'
-0029 LZMA Properties Size  5 (0x5)
-002B LZMA Info             94 (0x5E) '
+0029 LZMA Properties Size  0x0005 [5]
+002B LZMA Info             0x5E [94] '
        PosStateBits        2
        LiteralPosStateBits 0
        LiteralContextBits  4
-002C LZMA Dictionary Size  4096 (0x1000)
+002C LZMA Dictionary Size  0x00001000 [4096]
 0030 PAYLOAD
 
-0182 CENTRAL HEADER #1     33639248 (0x2014B50)
-0186 Created Zip Spec      63 (0x3F) '6.3'
-0187 Created OS            0 (0x0) 'MS-DOS'
-0188 Extract Zip Spec      63 (0x3F) '6.3'
-0189 Extract OS            0 (0x0) 'MS-DOS'
-018A General Purpose Flag  0 (0x0)
+0182 CENTRAL HEADER #1     0x02014B50 [33639248]
+0186 Created Zip Spec      0x3F [63] '6.3'
+0187 Created OS            0x00 [0] 'MS-DOS'
+0188 Extract Zip Spec      0x3F [63] '6.3'
+0189 Extract OS            0x00 [0] 'MS-DOS'
+018A General Purpose Flag  0x0000 [0]
      [Bit 1]               0 'LZMA EOS Marker Not Present'
-018C Compression Method    14 (0xE) 'LZMA'
-018E Last Mod Time         1358279393 (0x50F5B2E1) 'Tue Jul 21 22:23:02 2020'
-0192 CRC                   4178503679 (0xF90EE7FF)
-0196 Compressed Length     347 (0x15B)
-019A Uncompressed Length   446 (0x1BE)
-019E Filename Length       9 (0x9)
-01A0 Extra Length          0 (0x0)
-01A2 Comment Length        0 (0x0)
-01A4 Disk Start            0 (0x0)
-01A6 Int File Attributes   1 (0x1)
+018C Compression Method    0x000E [14] 'LZMA'
+018E Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+0192 CRC                   0xF90EE7FF [4178503679]
+0196 Compressed Length     0x0000015B [347]
+019A Uncompressed Length   0x000001BE [446]
+019E Filename Length       0x0009 [9]
+01A0 Extra Length          0x0000 [0]
+01A2 Comment Length        0x0000 [0]
+01A4 Disk Start            0x0000 [0]
+01A6 Int File Attributes   0x0001 [1]
      [Bit 0]               1 'Text Data'
-01A8 Ext File Attributes   32 (0x20)
+01A8 Ext File Attributes   0x00000020 [32]
      [Bit 5]               Archive
-01AC Local Header Offset   0 (0x0)
+01AC Local Header Offset   0x00000000 [0]
 01B0 Filename              'lorem.txt'
 
-01B9 END CENTRAL HEADER    101010256 (0x6054B50)
-01BD Number of this disk   0 (0x0)
-01BF Central Dir Disk no   0 (0x0)
-01C1 Entries in this disk  1 (0x1)
-01C3 Total Entries         1 (0x1)
-01C5 Size of Central Dir   55 (0x37)
-01C9 Offset to Central Dir 386 (0x182)
-01CD Comment Length        0 (0x0)
+01B9 END CENTRAL HEADER    0x06054B50 [101010256]
+01BD Number of this disk   0x0000 [0]
+01BF Central Dir Disk no   0x0000 [0]
+01C1 Entries in this disk  0x0001 [1]
+01C3 Total Entries         0x0001 [1]
+01C5 Size of Central Dir   0x00000037 [55]
+01C9 Offset to Central Dir 0x00000182 [386]
+01CD Comment Length        0x0000 [0]
 #
 # Done

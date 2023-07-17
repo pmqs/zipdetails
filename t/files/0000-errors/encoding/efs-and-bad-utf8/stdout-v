@@ -5,19 +5,19 @@
 #       Encoding used for display output:         'utf8'
 #
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 00 08       General Purpose Flag  2048 (0x800)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 08       General Purpose Flag  0x0800 [2048]
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-000A 000D 0004 96 54 68 56 Last Mod Time         1449677974 (0x56685496) 'Wed Mar  8 10:36:44 2023'
-000E 0011 0004 11 CD 82 ED CRC                   3984772369 (0xED82CD11)
-0012 0015 0004 06 00 00 00 Compressed Length     6 (0x6)
-0016 0019 0004 04 00 00 00 Uncompressed Length   4 (0x4)
-001A 001B 0002 03 00       Filename Length       3 (0x3)
-001C 001D 0002 00 00       Extra Length          0 (0x0)
+0008 0009 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+000A 000D 0004 96 54 68 56 Last Mod Time         0x56685496 [1449677974] 'Wed Mar  8 10:36:44 2023'
+000E 0011 0004 11 CD 82 ED CRC                   0xED82CD11 [3984772369]
+0012 0015 0004 06 00 00 00 Compressed Length     0x00000006 [6]
+0016 0019 0004 04 00 00 00 Uncompressed Length   0x00000004 [4]
+001A 001B 0002 03 00       Filename Length       0x0003 [3]
+001C 001D 0002 00 00       Extra Length          0x0000 [0]
 #
 # WARNING: Offset 0x1E: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
 #
@@ -31,29 +31,29 @@
 0021 0026 0006 4B 4C 4A 4E PAYLOAD               KLJN..
                01 00
 
-0027 002A 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-002B 002B 0001 14          Created Zip Spec      20 (0x14) '2.0'
-002C 002C 0001 03          Created OS            3 (0x3) 'Unix'
-002D 002D 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-002E 002E 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-002F 0030 0002 00 08       General Purpose Flag  2048 (0x800)
+0027 002A 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+002B 002B 0001 14          Created Zip Spec      0x14 [20] '2.0'
+002C 002C 0001 03          Created OS            0x03 [3] 'Unix'
+002D 002D 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+002E 002E 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+002F 0030 0002 00 08       General Purpose Flag  0x0800 [2048]
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit 11]              1 'Language Encoding'
-0031 0032 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-0033 0036 0004 96 54 68 56 Last Mod Time         1449677974 (0x56685496) 'Wed Mar  8 10:36:44 2023'
-0037 003A 0004 11 CD 82 ED CRC                   3984772369 (0xED82CD11)
-003B 003E 0004 06 00 00 00 Compressed Length     6 (0x6)
-003F 0042 0004 04 00 00 00 Uncompressed Length   4 (0x4)
-0043 0044 0002 03 00       Filename Length       3 (0x3)
-0045 0046 0002 00 00       Extra Length          0 (0x0)
-0047 0048 0002 00 00       Comment Length        0 (0x0)
-0049 004A 0002 00 00       Disk Start            0 (0x0)
-004B 004C 0002 00 00       Int File Attributes   0 (0x0)
+0031 0032 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+0033 0036 0004 96 54 68 56 Last Mod Time         0x56685496 [1449677974] 'Wed Mar  8 10:36:44 2023'
+0037 003A 0004 11 CD 82 ED CRC                   0xED82CD11 [3984772369]
+003B 003E 0004 06 00 00 00 Compressed Length     0x00000006 [6]
+003F 0042 0004 04 00 00 00 Uncompressed Length   0x00000004 [4]
+0043 0044 0002 03 00       Filename Length       0x0003 [3]
+0045 0046 0002 00 00       Extra Length          0x0000 [0]
+0047 0048 0002 00 00       Comment Length        0x0000 [0]
+0049 004A 0002 00 00       Disk Start            0x0000 [0]
+004B 004C 0002 00 00       Int File Attributes   0x0000 [0]
                            [Bit 0]               0 'Binary Data'
-004D 0050 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
-                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-0051 0054 0004 00 00 00 00 Local Header Offset   0 (0x0)
+004D 0050 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
+                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+0051 0054 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 #
 # WARNING: Offset 0x55: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
 #
@@ -65,14 +65,14 @@
 #       Octets Written         [aåa][4] [0061.00C3.00A5.0061]
 #
 
-0058 005B 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-005C 005D 0002 00 00       Number of this disk   0 (0x0)
-005E 005F 0002 00 00       Central Dir Disk no   0 (0x0)
-0060 0061 0002 01 00       Entries in this disk  1 (0x1)
-0062 0063 0002 01 00       Total Entries         1 (0x1)
-0064 0067 0004 31 00 00 00 Size of Central Dir   49 (0x31)
-0068 006B 0004 27 00 00 00 Offset to Central Dir 39 (0x27)
-006C 006D 0002 00 00       Comment Length        0 (0x0)
+0058 005B 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+005C 005D 0002 00 00       Number of this disk   0x0000 [0]
+005E 005F 0002 00 00       Central Dir Disk no   0x0000 [0]
+0060 0061 0002 01 00       Entries in this disk  0x0001 [1]
+0062 0063 0002 01 00       Total Entries         0x0001 [1]
+0064 0067 0004 31 00 00 00 Size of Central Dir   0x00000031 [49]
+0068 006B 0004 27 00 00 00 Offset to Central Dir 0x00000027 [39]
+006C 006D 0002 00 00       Comment Length        0x0000 [0]
 #
 # Warning Count: 2
 # Info Count: 3

@@ -1,14 +1,14 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      20 (0x14) '2.0'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x14 [20] '2.0'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    8 (0x8) 'Deflated'
-000A Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
-000E CRC                   4178503679 (0xF90EE7FF)
-0012 Compressed Length     270 (0x10E)
-0016 Uncompressed Length   446 (0x1BE)
-001A Filename Length       9 (0x9)
-001C Extra Length          28 (0x1C)
+0008 Compression Method    0x0008 [8] 'Deflated'
+000A Last Mod Time         0x52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
+000E CRC                   0xF90EE7FF [4178503679]
+0012 Compressed Length     0x0000010E [270]
+0016 Uncompressed Length   0x000001BE [446]
+001A Filename Length       0x0009 [9]
+001C Extra Length          0x001C [28]
 001E Filename              'lorem.txt'

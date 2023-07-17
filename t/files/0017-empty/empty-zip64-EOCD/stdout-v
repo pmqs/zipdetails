@@ -1,37 +1,37 @@
 
-0000 0003 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
+0000 0003 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
                            RECORD
-0004 000B 0008 2C 00 00 00 Size of record        44 (0x2C)
+0004 000B 0008 2C 00 00 00 Size of record        0x000000000000002C [44]
                00 00 00 00
-000C 000C 0001 1E          Created Zip Spec      30 (0x1E) '3.0'
-000D 000D 0001 03          Created OS            3 (0x3) 'Unix'
-000E 000E 0001 2D          Extract Zip Spec      45 (0x2D) '4.5'
-000F 000F 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0010 0013 0004 00 00 00 00 Number of this disk   0 (0x0)
-0014 0017 0004 00 00 00 00 Central Dir Disk no   0 (0x0)
-0018 001F 0008 00 00 00 00 Entries in this disk  0 (0x0)
+000C 000C 0001 1E          Created Zip Spec      0x1E [30] '3.0'
+000D 000D 0001 03          Created OS            0x03 [3] 'Unix'
+000E 000E 0001 2D          Extract Zip Spec      0x2D [45] '4.5'
+000F 000F 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0010 0013 0004 00 00 00 00 Number of this disk   0x00000000 [0]
+0014 0017 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
+0018 001F 0008 00 00 00 00 Entries in this disk  0x0000000000000000 [0]
                00 00 00 00
-0020 0027 0008 00 00 00 00 Total Entries         0 (0x0)
+0020 0027 0008 00 00 00 00 Total Entries         0x0000000000000000 [0]
                00 00 00 00
-0028 002F 0008 00 00 00 00 Size of Central Dir   0 (0x0)
+0028 002F 0008 00 00 00 00 Size of Central Dir   0x0000000000000000 [0]
                00 00 00 00
-0030 0037 0008 00 00 00 00 Offset to Central dir 0 (0x0)
+0030 0037 0008 00 00 00 00 Offset to Central dir 0x0000000000000000 [0]
                00 00 00 00
 
-0038 003B 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
+0038 003B 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
                            LOCATOR
-003C 003F 0004 00 00 00 00 Central Dir Disk no   0 (0x0)
-0040 0047 0008 00 00 00 00 Offset to Zip64 EOCD  0 (0x0)
+003C 003F 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
+0040 0047 0008 00 00 00 00 Offset to Zip64 EOCD  0x0000000000000000 [0]
                00 00 00 00
-0048 004B 0004 01 00 00 00 Total no of Disks     1 (0x1)
+0048 004B 0004 01 00 00 00 Total no of Disks     0x00000001 [1]
 
-004C 004F 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-0050 0051 0002 00 00       Number of this disk   0 (0x0)
-0052 0053 0002 00 00       Central Dir Disk no   0 (0x0)
-0054 0055 0002 00 00       Entries in this disk  0 (0x0)
-0056 0057 0002 00 00       Total Entries         0 (0x0)
-0058 005B 0004 00 00 00 00 Size of Central Dir   0 (0x0)
-005C 005F 0004 FF FF FF FF Offset to Central Dir 4294967295 (0xFFFFFFFF)
-0060 0061 0002 00 00       Comment Length        0 (0x0)
+004C 004F 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+0050 0051 0002 00 00       Number of this disk   0x0000 [0]
+0052 0053 0002 00 00       Central Dir Disk no   0x0000 [0]
+0054 0055 0002 00 00       Entries in this disk  0x0000 [0]
+0056 0057 0002 00 00       Total Entries         0x0000 [0]
+0058 005B 0004 00 00 00 00 Size of Central Dir   0x00000000 [0]
+005C 005F 0004 FF FF FF FF Offset to Central Dir 0xFFFFFFFF [4294967295]
+0060 0061 0002 00 00       Comment Length        0x0000 [0]
 #
 # Done

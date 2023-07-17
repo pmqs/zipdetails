@@ -1,52 +1,52 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
-0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
-000A 000D 0004 79 82 89 55 Last Mod Time         1435075193 (0x55898279) 'Fri Dec  9 16:19:50 2022'
-000E 0011 0004 A1 9D F5 F1 CRC                   4059405729 (0xF1F59DA1)
-0012 0015 0004 F8 01 00 00 Compressed Length     504 (0x1F8)
-0016 0019 0004 F8 01 00 00 Uncompressed Length   504 (0x1F8)
-001A 001B 0002 0A 00       Filename Length       10 (0xA)
-001C 001D 0002 00 00       Extra Length          0 (0x0)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 0A          Extract Zip Spec      0x0A [10] '1.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+000A 000D 0004 79 82 89 55 Last Mod Time         0x55898279 [1435075193] 'Fri Dec  9 16:19:50 2022'
+000E 0011 0004 A1 9D F5 F1 CRC                   0xF1F59DA1 [4059405729]
+0012 0015 0004 F8 01 00 00 Compressed Length     0x000001F8 [504]
+0016 0019 0004 F8 01 00 00 Uncompressed Length   0x000001F8 [504]
+001A 001B 0002 0A 00       Filename Length       0x000A [10]
+001C 001D 0002 00 00       Extra Length          0x0000 [0]
 001E 0027 000A 69 6E 6E 65 Filename              'inner2.zip'
                72 32 2E 7A
                69 70
 0028 021F 01F8 ...         PAYLOAD
 
-0220 0223 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-0224 0224 0001 1E          Created Zip Spec      30 (0x1E) '3.0'
-0225 0225 0001 03          Created OS            3 (0x3) 'Unix'
-0226 0226 0001 0A          Extract Zip Spec      10 (0xA) '1.0'
-0227 0227 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0228 0229 0002 00 00       General Purpose Flag  0 (0x0)
-022A 022B 0002 00 00       Compression Method    0 (0x0) 'Stored'
-022C 022F 0004 79 82 89 55 Last Mod Time         1435075193 (0x55898279) 'Fri Dec  9 16:19:50 2022'
-0230 0233 0004 A1 9D F5 F1 CRC                   4059405729 (0xF1F59DA1)
-0234 0237 0004 F8 01 00 00 Compressed Length     504 (0x1F8)
-0238 023B 0004 F8 01 00 00 Uncompressed Length   504 (0x1F8)
-023C 023D 0002 0A 00       Filename Length       10 (0xA)
-023E 023F 0002 00 00       Extra Length          0 (0x0)
-0240 0241 0002 00 00       Comment Length        0 (0x0)
-0242 0243 0002 00 00       Disk Start            0 (0x0)
-0244 0245 0002 00 00       Int File Attributes   0 (0x0)
+0220 0223 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+0224 0224 0001 1E          Created Zip Spec      0x1E [30] '3.0'
+0225 0225 0001 03          Created OS            0x03 [3] 'Unix'
+0226 0226 0001 0A          Extract Zip Spec      0x0A [10] '1.0'
+0227 0227 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0228 0229 0002 00 00       General Purpose Flag  0x0000 [0]
+022A 022B 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+022C 022F 0004 79 82 89 55 Last Mod Time         0x55898279 [1435075193] 'Fri Dec  9 16:19:50 2022'
+0230 0233 0004 A1 9D F5 F1 CRC                   0xF1F59DA1 [4059405729]
+0234 0237 0004 F8 01 00 00 Compressed Length     0x000001F8 [504]
+0238 023B 0004 F8 01 00 00 Uncompressed Length   0x000001F8 [504]
+023C 023D 0002 0A 00       Filename Length       0x000A [10]
+023E 023F 0002 00 00       Extra Length          0x0000 [0]
+0240 0241 0002 00 00       Comment Length        0x0000 [0]
+0242 0243 0002 00 00       Disk Start            0x0000 [0]
+0244 0245 0002 00 00       Int File Attributes   0x0000 [0]
                            [Bit 0]               0 'Binary Data'
-0246 0249 0004 00 00 B4 81 Ext File Attributes   2176057344 (0x81B40000)
-                           [Bits 16-24]          436 (0x1B4) 'Unix attrib: rw-rw-r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-024A 024D 0004 00 00 00 00 Local Header Offset   0 (0x0)
+0246 0249 0004 00 00 B4 81 Ext File Attributes   0x81B40000 [2176057344]
+                           [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+024A 024D 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 024E 0257 000A 69 6E 6E 65 Filename              'inner2.zip'
                72 32 2E 7A
                69 70
 
-0258 025B 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-025C 025D 0002 00 00       Number of this disk   0 (0x0)
-025E 025F 0002 00 00       Central Dir Disk no   0 (0x0)
-0260 0261 0002 01 00       Entries in this disk  1 (0x1)
-0262 0263 0002 01 00       Total Entries         1 (0x1)
-0264 0267 0004 38 00 00 00 Size of Central Dir   56 (0x38)
-0268 026B 0004 20 02 00 00 Offset to Central Dir 544 (0x220)
-026C 026D 0002 00 00       Comment Length        0 (0x0)
+0258 025B 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+025C 025D 0002 00 00       Number of this disk   0x0000 [0]
+025E 025F 0002 00 00       Central Dir Disk no   0x0000 [0]
+0260 0261 0002 01 00       Entries in this disk  0x0001 [1]
+0262 0263 0002 01 00       Total Entries         0x0001 [1]
+0264 0267 0004 38 00 00 00 Size of Central Dir   0x00000038 [56]
+0268 026B 0004 20 02 00 00 Offset to Central Dir 0x00000220 [544]
+026C 026D 0002 00 00       Comment Length        0x0000 [0]
 #
 # Done

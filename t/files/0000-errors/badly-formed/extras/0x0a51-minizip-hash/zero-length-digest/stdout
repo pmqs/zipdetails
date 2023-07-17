@@ -1,69 +1,69 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      20 (0x14) '2.0'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
-0008 Compression Method    0 (0x0) 'Stored'
-000A Last Mod Time         1449221867 (0x56615EEB) 'Wed Mar  1 11:55:22 2023'
-000E CRC                   891568578 (0x352441C2)
-0012 Compressed Length     3 (0x3)
-0016 Uncompressed Length   3 (0x3)
-001A Filename Length       8 (0x8)
-001C Extra Length          8 (0x8)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x14 [20] '2.0'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
+0008 Compression Method    0x0000 [0] 'Stored'
+000A Last Mod Time         0x56615EEB [1449221867] 'Wed Mar  1 11:55:22 2023'
+000E CRC                   0x352441C2 [891568578]
+0012 Compressed Length     0x00000003 [3]
+0016 Uncompressed Length   0x00000003 [3]
+001A Filename Length       0x0008 [8]
+001C Extra Length          0x0008 [8]
 001E Filename              'filename'
-0026 Extra ID #1           6737 (0x1A51) 'Minizip Hash'
-0028   Length              4 (0x4)
-002A   Algorithm           68 (0x44) 'Unknown'
+0026 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
+0028   Length              0x0004 [4]
+002A   Algorithm           0x0044 [68] 'Unknown'
 #
-# INFO: Offset 0x2A: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 68 (0x44)
+# INFO: Offset 0x2A: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 0x0044 [68]
 #
-002C   Digest Size         0 (0x0)
+002C   Digest Size         0x0000 [0]
 #
 # INFO: Offset 0x2C: Extra Field 'Minizip Hash' (ID 0x1A51): Zero length Digest
 #
 002E PAYLOAD               abc
 
-0031 CENTRAL HEADER #1     33639248 (0x2014B50)
-0035 Created Zip Spec      20 (0x14) '2.0'
-0036 Created OS            3 (0x3) 'Unix'
-0037 Extract Zip Spec      20 (0x14) '2.0'
-0038 Extract OS            0 (0x0) 'MS-DOS'
-0039 General Purpose Flag  0 (0x0)
-003B Compression Method    0 (0x0) 'Stored'
-003D Last Mod Time         1449221867 (0x56615EEB) 'Wed Mar  1 11:55:22 2023'
-0041 CRC                   891568578 (0x352441C2)
-0045 Compressed Length     3 (0x3)
-0049 Uncompressed Length   3 (0x3)
-004D Filename Length       8 (0x8)
-004F Extra Length          8 (0x8)
-0051 Comment Length        0 (0x0)
-0053 Disk Start            0 (0x0)
-0055 Int File Attributes   0 (0x0)
+0031 CENTRAL HEADER #1     0x02014B50 [33639248]
+0035 Created Zip Spec      0x14 [20] '2.0'
+0036 Created OS            0x03 [3] 'Unix'
+0037 Extract Zip Spec      0x14 [20] '2.0'
+0038 Extract OS            0x00 [0] 'MS-DOS'
+0039 General Purpose Flag  0x0000 [0]
+003B Compression Method    0x0000 [0] 'Stored'
+003D Last Mod Time         0x56615EEB [1449221867] 'Wed Mar  1 11:55:22 2023'
+0041 CRC                   0x352441C2 [891568578]
+0045 Compressed Length     0x00000003 [3]
+0049 Uncompressed Length   0x00000003 [3]
+004D Filename Length       0x0008 [8]
+004F Extra Length          0x0008 [8]
+0051 Comment Length        0x0000 [0]
+0053 Disk Start            0x0000 [0]
+0055 Int File Attributes   0x0000 [0]
      [Bit 0]               0 'Binary Data'
-0057 Ext File Attributes   2175008768 (0x81A40000)
-     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-005B Local Header Offset   0 (0x0)
+0057 Ext File Attributes   0x81A40000 [2175008768]
+     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+005B Local Header Offset   0x00000000 [0]
 005F Filename              'filename'
-0067 Extra ID #1           6737 (0x1A51) 'Minizip Hash'
-0069   Length              4 (0x4)
-006B   Algorithm           68 (0x44) 'Unknown'
+0067 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
+0069   Length              0x0004 [4]
+006B   Algorithm           0x0044 [68] 'Unknown'
 #
-# INFO: Offset 0x6B: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 68 (0x44)
+# INFO: Offset 0x6B: Extra Field 'Minizip Hash' (ID 0x1A51): Unknown algorithm ID 0x0044 [68]
 #
-006D   Digest Size         0 (0x0)
+006D   Digest Size         0x0000 [0]
 #
 # INFO: Offset 0x6D: Extra Field 'Minizip Hash' (ID 0x1A51): Zero length Digest
 #
 
-006F END CENTRAL HEADER    101010256 (0x6054B50)
-0073 Number of this disk   0 (0x0)
-0075 Central Dir Disk no   0 (0x0)
-0077 Entries in this disk  1 (0x1)
-0079 Total Entries         1 (0x1)
-007B Size of Central Dir   62 (0x3E)
-007F Offset to Central Dir 49 (0x31)
-0083 Comment Length        0 (0x0)
+006F END CENTRAL HEADER    0x06054B50 [101010256]
+0073 Number of this disk   0x0000 [0]
+0075 Central Dir Disk no   0x0000 [0]
+0077 Entries in this disk  0x0001 [1]
+0079 Total Entries         0x0001 [1]
+007B Size of Central Dir   0x0000003E [62]
+007F Offset to Central Dir 0x00000031 [49]
+0083 Comment Length        0x0000 [0]
 #
 # Info Count: 4
 #

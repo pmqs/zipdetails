@@ -1,58 +1,58 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      20 (0x14) '2.0'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  2 (0x2)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x14 [20] '2.0'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0002 [2]
      [Bits 1-2]            1 'Maximum Compression'
-0008 Compression Method    8 (0x8) 'Deflated'
-000A Last Mod Time         1263233896 (0x4B4B6B68) 'Wed Oct 11 13:27:16 2017'
-000E CRC                   1798066389 (0x6B2C50D5)
-0012 Compressed Length     82 (0x52)
-0016 Uncompressed Length   152 (0x98)
-001A Filename Length       19 (0x13)
-001C Extra Length          0 (0x0)
+0008 Compression Method    0x0008 [8] 'Deflated'
+000A Last Mod Time         0x4B4B6B68 [1263233896] 'Wed Oct 11 13:27:16 2017'
+000E CRC                   0x6B2C50D5 [1798066389]
+0012 Compressed Length     0x00000052 [82]
+0016 Uncompressed Length   0x00000098 [152]
+001A Filename Length       0x0013 [19]
+001C Extra Length          0x0000 [0]
 001E Filename              'AndroidManifest.xml'
 0031 PAYLOAD               e.1..@.....".6)...kkK.r.QD.A..oM.....0. ..#`..j}...:........f...)1:....._..*Y.1.l-
 
 0083 APK SIGNING BLOCK
-0083 Block Length Copy #1  452 (0x1C4)
-008B ID/Value Length #1    420 (0x1A4)
-0093   ID                  1896449818 (0x7109871A) 'APK Signature v2'
+0083 Block Length Copy #1  0x00000000000001C4 [452]
+008B ID/Value Length #1    0x00000000000001A4 [420]
+0093   ID                  0x7109871A [1896449818] 'APK Signature v2'
 0097   Value
-0237 Block Length Copy #2  452 (0x1C4)
+0237 Block Length Copy #2  0x00000000000001C4 [452]
 023F Magic                 'APK Sig Block 42'
 
-024F CENTRAL HEADER #1     33639248 (0x2014B50)
-0253 Created Zip Spec      30 (0x1E) '3.0'
-0254 Created OS            3 (0x3) 'Unix'
-0255 Extract Zip Spec      20 (0x14) '2.0'
-0256 Extract OS            0 (0x0) 'MS-DOS'
-0257 General Purpose Flag  2 (0x2)
+024F CENTRAL HEADER #1     0x02014B50 [33639248]
+0253 Created Zip Spec      0x1E [30] '3.0'
+0254 Created OS            0x03 [3] 'Unix'
+0255 Extract Zip Spec      0x14 [20] '2.0'
+0256 Extract OS            0x00 [0] 'MS-DOS'
+0257 General Purpose Flag  0x0002 [2]
      [Bits 1-2]            1 'Maximum Compression'
-0259 Compression Method    8 (0x8) 'Deflated'
-025B Last Mod Time         1263233896 (0x4B4B6B68) 'Wed Oct 11 13:27:16 2017'
-025F CRC                   1798066389 (0x6B2C50D5)
-0263 Compressed Length     82 (0x52)
-0267 Uncompressed Length   152 (0x98)
-026B Filename Length       19 (0x13)
-026D Extra Length          0 (0x0)
-026F Comment Length        0 (0x0)
-0271 Disk Start            0 (0x0)
-0273 Int File Attributes   0 (0x0)
+0259 Compression Method    0x0008 [8] 'Deflated'
+025B Last Mod Time         0x4B4B6B68 [1263233896] 'Wed Oct 11 13:27:16 2017'
+025F CRC                   0x6B2C50D5 [1798066389]
+0263 Compressed Length     0x00000052 [82]
+0267 Uncompressed Length   0x00000098 [152]
+026B Filename Length       0x0013 [19]
+026D Extra Length          0x0000 [0]
+026F Comment Length        0x0000 [0]
+0271 Disk Start            0x0000 [0]
+0273 Int File Attributes   0x0000 [0]
      [Bit 0]               0 'Binary Data'
-0275 Ext File Attributes   2174746624 (0x81A00000)
-     [Bits 16-24]          416 (0x1A0) 'Unix attrib: rw-r-----'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-0279 Local Header Offset   0 (0x0)
+0275 Ext File Attributes   0x81A00000 [2174746624]
+     [Bits 16-24]          0x01A0 [416] 'Unix attrib: rw-r-----'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+0279 Local Header Offset   0x00000000 [0]
 027D Filename              'AndroidManifest.xml'
 
-0290 END CENTRAL HEADER    101010256 (0x6054B50)
-0294 Number of this disk   0 (0x0)
-0296 Central Dir Disk no   0 (0x0)
-0298 Entries in this disk  1 (0x1)
-029A Total Entries         1 (0x1)
-029C Size of Central Dir   65 (0x41)
-02A0 Offset to Central Dir 591 (0x24F)
-02A4 Comment Length        0 (0x0)
+0290 END CENTRAL HEADER    0x06054B50 [101010256]
+0294 Number of this disk   0x0000 [0]
+0296 Central Dir Disk no   0x0000 [0]
+0298 Entries in this disk  0x0001 [1]
+029A Total Entries         0x0001 [1]
+029C Size of Central Dir   0x00000041 [65]
+02A0 Offset to Central Dir 0x0000024F [591]
+02A4 Comment Length        0x0000 [0]
 #
 # Done

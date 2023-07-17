@@ -1,82 +1,82 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      45 (0x2D) '4.5'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x2D [45] '4.5'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    8 (0x8) 'Deflated'
-000A Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
-000E CRC                   4178503679 (0xF90EE7FF)
-0012 Compressed Length     4294967295 (0xFFFFFFFF)
-0016 Uncompressed Length   4294967295 (0xFFFFFFFF)
-001A Filename Length       1 (0x1)
-001C Extra Length          20 (0x14)
+0008 Compression Method    0x0008 [8] 'Deflated'
+000A Last Mod Time         0x52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
+000E CRC                   0xF90EE7FF [4178503679]
+0012 Compressed Length     0xFFFFFFFF [4294967295]
+0016 Uncompressed Length   0xFFFFFFFF [4294967295]
+001A Filename Length       0x0001 [1]
+001C Extra Length          0x0014 [20]
 001E Filename              '-'
-001F Extra ID #1           1 (0x1) 'ZIP64'
-0021   Length              16 (0x10)
-0023   Uncompressed Size   446 (0x1BE)
-002B   Compressed Size     270 (0x10E)
+001F Extra ID #1           0x0001 [1] 'ZIP64'
+0021   Length              0x0010 [16]
+0023   Uncompressed Size   0x00000000000001BE [446]
+002B   Compressed Size     0x000000000000010E [270]
 0033 PAYLOAD
 
-0141 CENTRAL HEADER #1     33639248 (0x2014B50)
-0145 Created Zip Spec      30 (0x1E) '3.0'
-0146 Created OS            3 (0x3) 'Unix'
-0147 Extract Zip Spec      45 (0x2D) '4.5'
-0148 Extract OS            0 (0x0) 'MS-DOS'
-0149 General Purpose Flag  0 (0x0)
+0141 CENTRAL HEADER #1     0x02014B50 [33639248]
+0145 Created Zip Spec      0x1E [30] '3.0'
+0146 Created OS            0x03 [3] 'Unix'
+0147 Extract Zip Spec      0x2D [45] '4.5'
+0148 Extract OS            0x00 [0] 'MS-DOS'
+0149 General Purpose Flag  0x0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-014B Compression Method    8 (0x8) 'Deflated'
-014D Last Mod Time         1385727345 (0x52988571) 'Sat Apr 24 16:43:34 2021'
-0151 CRC                   4178503679 (0xF90EE7FF)
-0155 Compressed Length     270 (0x10E)
-0159 Uncompressed Length   4294967295 (0xFFFFFFFF)
-015D Filename Length       1 (0x1)
-015F Extra Length          12 (0xC)
-0161 Comment Length        0 (0x0)
-0163 Disk Start            0 (0x0)
-0165 Int File Attributes   1 (0x1)
+014B Compression Method    0x0008 [8] 'Deflated'
+014D Last Mod Time         0x52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
+0151 CRC                   0xF90EE7FF [4178503679]
+0155 Compressed Length     0x0000010E [270]
+0159 Uncompressed Length   0xFFFFFFFF [4294967295]
+015D Filename Length       0x0001 [1]
+015F Extra Length          0x000C [12]
+0161 Comment Length        0x0000 [0]
+0163 Disk Start            0x0000 [0]
+0165 Int File Attributes   0x0001 [1]
      [Bit 0]               1 'Text Data'
-0167 Ext File Attributes   2179792896 (0x81ED0000)
-     [Bits 16-24]          493 (0x1ED) 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-016B Local Header Offset   0 (0x0)
+0167 Ext File Attributes   0x81ED0000 [2179792896]
+     [Bits 16-24]          0x01ED [493] 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+016B Local Header Offset   0x00000000 [0]
 016F Filename              '-'
-0170 Extra ID #1           1 (0x1) 'ZIP64'
-0172   Length              8 (0x8)
-0174   Uncompressed Size   446 (0x1BE)
+0170 Extra ID #1           0x0001 [1] 'ZIP64'
+0172   Length              0x0008 [8]
+0174   Uncompressed Size   0x00000000000001BE [446]
 
-017C ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
+017C ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
      RECORD
-0180 Size of record        44 (0x2C)
-0188 Created Zip Spec      30 (0x1E) '3.0'
-0189 Created OS            3 (0x3) 'Unix'
-018A Extract Zip Spec      45 (0x2D) '4.5'
-018B Extract OS            0 (0x0) 'MS-DOS'
-018C Number of this disk   0 (0x0)
-0190 Central Dir Disk no   0 (0x0)
-0194 Entries in this disk  1 (0x1)
-019C Total Entries         1 (0x1)
-01A4 Size of Central Dir   59 (0x3B)
-01AC Offset to Central dir 322 (0x142)
+0180 Size of record        0x000000000000002C [44]
+0188 Created Zip Spec      0x1E [30] '3.0'
+0189 Created OS            0x03 [3] 'Unix'
+018A Extract Zip Spec      0x2D [45] '4.5'
+018B Extract OS            0x00 [0] 'MS-DOS'
+018C Number of this disk   0x00000000 [0]
+0190 Central Dir Disk no   0x00000000 [0]
+0194 Entries in this disk  0x0000000000000001 [1]
+019C Total Entries         0x0000000000000001 [1]
+01A4 Size of Central Dir   0x000000000000003B [59]
+01AC Offset to Central dir 0x0000000000000142 [322]
 #
 # ERROR: Offset 0x1AC: 'Offset to Central Directory' field in 'Zip64 End of Central Directory Record' is invalid
 #        value @ 0x142 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x1E02014B
 #
 
-01B4 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
+01B4 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
      LOCATOR
-01B8 Central Dir Disk no   0 (0x0)
-01BC Offset to Zip64 EOCD  380 (0x17C)
-01C4 Total no of Disks     1 (0x1)
+01B8 Central Dir Disk no   0x00000000 [0]
+01BC Offset to Zip64 EOCD  0x000000000000017C [380]
+01C4 Total no of Disks     0x00000001 [1]
 
-01C8 END CENTRAL HEADER    101010256 (0x6054B50)
-01CC Number of this disk   0 (0x0)
-01CE Central Dir Disk no   0 (0x0)
-01D0 Entries in this disk  1 (0x1)
-01D2 Total Entries         1 (0x1)
-01D4 Size of Central Dir   59 (0x3B)
-01D8 Offset to Central Dir 4294967295 (0xFFFFFFFF)
-01DC Comment Length        0 (0x0)
+01C8 END CENTRAL HEADER    0x06054B50 [101010256]
+01CC Number of this disk   0x0000 [0]
+01CE Central Dir Disk no   0x0000 [0]
+01D0 Entries in this disk  0x0001 [1]
+01D2 Total Entries         0x0001 [1]
+01D4 Size of Central Dir   0x0000003B [59]
+01D8 Offset to Central Dir 0xFFFFFFFF [4294967295]
+01DC Comment Length        0x0000 [0]
 #
 # Error Count: 1
 #

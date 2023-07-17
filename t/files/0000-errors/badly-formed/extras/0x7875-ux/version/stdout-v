@@ -1,68 +1,68 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0 (0x0)
-0008 0009 0002 00 00       Compression Method    0 (0x0) 'Stored'
-000A 000D 0004 ED 70 6C 55 Last Mod Time         1433170157 (0x556C70ED) 'Sat Nov 12 14:07:26 2022'
-000E 0011 0004 65 D8 87 85 CRC                   2240272485 (0x8587D865)
-0012 0015 0004 05 00 00 00 Compressed Length     5 (0x5)
-0016 0019 0004 05 00 00 00 Uncompressed Length   5 (0x5)
-001A 001B 0002 08 00       Filename Length       8 (0x8)
-001C 001D 0002 07 00       Extra Length          7 (0x7)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+000A 000D 0004 ED 70 6C 55 Last Mod Time         0x556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
+000E 0011 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
+0012 0015 0004 05 00 00 00 Compressed Length     0x00000005 [5]
+0016 0019 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
+001A 001B 0002 08 00       Filename Length       0x0008 [8]
+001C 001D 0002 07 00       Extra Length          0x0007 [7]
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 75 78       Extra ID #1           30837 (0x7875) 'Unix Extra type 3 [ux]'
-0028 0029 0002 03 00         Length              3 (0x3)
-002A 002A 0001 02            Version             2 (0x2)
+0026 0027 0002 75 78       Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
+0028 0029 0002 03 00         Length              0x0003 [3]
+002A 002A 0001 02            Version             0x02 [2]
 #
-# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 (0x1), got 2 (0x2)
+# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x2 [2]
 #
-002B 002B 0001 00            UID Size            0 (0x0)
-002C 002C 0001 00            GID Size            0 (0x0)
+002B 002B 0001 00            UID Size            0x00 [0]
+002C 002C 0001 00            GID Size            0x00 [0]
 002D 0031 0005 61 62 63 64 PAYLOAD               abcde
                65
 
-0032 0035 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-0036 0036 0001 14          Created Zip Spec      20 (0x14) '2.0'
-0037 0037 0001 03          Created OS            3 (0x3) 'Unix'
-0038 0038 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0039 0039 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-003A 003B 0002 00 00       General Purpose Flag  0 (0x0)
-003C 003D 0002 00 00       Compression Method    0 (0x0) 'Stored'
-003E 0041 0004 ED 70 6C 55 Last Mod Time         1433170157 (0x556C70ED) 'Sat Nov 12 14:07:26 2022'
-0042 0045 0004 65 D8 87 85 CRC                   2240272485 (0x8587D865)
-0046 0049 0004 05 00 00 00 Compressed Length     5 (0x5)
-004A 004D 0004 05 00 00 00 Uncompressed Length   5 (0x5)
-004E 004F 0002 08 00       Filename Length       8 (0x8)
-0050 0051 0002 07 00       Extra Length          7 (0x7)
-0052 0053 0002 00 00       Comment Length        0 (0x0)
-0054 0055 0002 00 00       Disk Start            0 (0x0)
-0056 0057 0002 00 00       Int File Attributes   0 (0x0)
+0032 0035 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+0036 0036 0001 14          Created Zip Spec      0x14 [20] '2.0'
+0037 0037 0001 03          Created OS            0x03 [3] 'Unix'
+0038 0038 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0039 0039 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+003A 003B 0002 00 00       General Purpose Flag  0x0000 [0]
+003C 003D 0002 00 00       Compression Method    0x0000 [0] 'Stored'
+003E 0041 0004 ED 70 6C 55 Last Mod Time         0x556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
+0042 0045 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
+0046 0049 0004 05 00 00 00 Compressed Length     0x00000005 [5]
+004A 004D 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
+004E 004F 0002 08 00       Filename Length       0x0008 [8]
+0050 0051 0002 07 00       Extra Length          0x0007 [7]
+0052 0053 0002 00 00       Comment Length        0x0000 [0]
+0054 0055 0002 00 00       Disk Start            0x0000 [0]
+0056 0057 0002 00 00       Int File Attributes   0x0000 [0]
                            [Bit 0]               0 'Binary Data'
-0058 005B 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
-                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-005C 005F 0004 00 00 00 00 Local Header Offset   0 (0x0)
+0058 005B 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
+                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+005C 005F 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 0060 0067 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0068 0069 0002 75 78       Extra ID #1           30837 (0x7875) 'Unix Extra type 3 [ux]'
-006A 006B 0002 03 00         Length              3 (0x3)
-006C 006C 0001 03            Version             3 (0x3)
+0068 0069 0002 75 78       Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
+006A 006B 0002 03 00         Length              0x0003 [3]
+006C 006C 0001 03            Version             0x03 [3]
 #
-# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 (0x1), got 3 (0x3)
+# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x3 [3]
 #
-006D 006D 0001 00            UID Size            0 (0x0)
-006E 006E 0001 00            GID Size            0 (0x0)
+006D 006D 0001 00            UID Size            0x00 [0]
+006E 006E 0001 00            GID Size            0x00 [0]
 
-006F 0072 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-0073 0074 0002 00 00       Number of this disk   0 (0x0)
-0075 0076 0002 00 00       Central Dir Disk no   0 (0x0)
-0077 0078 0002 01 00       Entries in this disk  1 (0x1)
-0079 007A 0002 01 00       Total Entries         1 (0x1)
-007B 007E 0004 3D 00 00 00 Size of Central Dir   61 (0x3D)
-007F 0082 0004 32 00 00 00 Offset to Central Dir 50 (0x32)
-0083 0084 0002 00 00       Comment Length        0 (0x0)
+006F 0072 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+0073 0074 0002 00 00       Number of this disk   0x0000 [0]
+0075 0076 0002 00 00       Central Dir Disk no   0x0000 [0]
+0077 0078 0002 01 00       Entries in this disk  0x0001 [1]
+0079 007A 0002 01 00       Total Entries         0x0001 [1]
+007B 007E 0004 3D 00 00 00 Size of Central Dir   0x0000003D [61]
+007F 0082 0004 32 00 00 00 Offset to Central Dir 0x00000032 [50]
+0083 0084 0002 00 00       Comment Length        0x0000 [0]
 #
 # Info Count: 2
 #

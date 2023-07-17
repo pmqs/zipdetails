@@ -1,67 +1,67 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 08 00       General Purpose Flag  8 (0x8)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 08 00       General Purpose Flag  0x0008 [8]
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
-0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-000A 000D 0004 A2 82 97 55 Last Mod Time         1435992738 (0x559782A2) 'Fri Dec 23 16:21:04 2022'
-000E 0011 0004 00 00 00 00 CRC                   0 (0x0)
-0012 0015 0004 00 00 00 00 Compressed Length     0 (0x0)
-0016 0019 0004 00 00 00 00 Uncompressed Length   0 (0x0)
-001A 001B 0002 09 00       Filename Length       9 (0x9)
-001C 001D 0002 00 00       Extra Length          0 (0x0)
+0008 0009 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+000A 000D 0004 A2 82 97 55 Last Mod Time         0x559782A2 [1435992738] 'Fri Dec 23 16:21:04 2022'
+000E 0011 0004 00 00 00 00 CRC                   0x00000000 [0]
+0012 0015 0004 00 00 00 00 Compressed Length     0x00000000 [0]
+0016 0019 0004 00 00 00 00 Uncompressed Length   0x00000000 [0]
+001A 001B 0002 09 00       Filename Length       0x0009 [9]
+001C 001D 0002 00 00       Extra Length          0x0000 [0]
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 0027 0134 010E ...         PAYLOAD
 
-0135 0138 0004 50 4B 07 08 DATA DESCRIPTOR       134695760 (0x8074B50)
-0139 013C 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
+0135 0138 0004 50 4B 07 08 DATA DESCRIPTOR       0x08074B50 [134695760]
+0139 013C 0004 FF E7 0E F9 CRC                   0xF90EE7FF [4178503679]
 #
 # ERROR: Offset 0x139: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
 #
-013D 0144 0008 0E 01 00 00 Compressed Length     270 (0x10E)
+013D 0144 0008 0E 01 00 00 Compressed Length     0x000000000000010E [270]
                00 00 00 00
-0145 014C 0008 BE 01 00 00 Uncompressed Length   446 (0x1BE)
+0145 014C 0008 BE 01 00 00 Uncompressed Length   0x00000000000001BE [446]
                00 00 00 00
 
-014D 0150 0004 50 4B 01 02 CENTRAL HEADER #1     33639248 (0x2014B50)
-0151 0151 0001 14          Created Zip Spec      20 (0x14) '2.0'
-0152 0152 0001 03          Created OS            3 (0x3) 'Unix'
-0153 0153 0001 14          Extract Zip Spec      20 (0x14) '2.0'
-0154 0154 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0155 0156 0002 08 00       General Purpose Flag  8 (0x8)
+014D 0150 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+0151 0151 0001 14          Created Zip Spec      0x14 [20] '2.0'
+0152 0152 0001 03          Created OS            0x03 [3] 'Unix'
+0153 0153 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0154 0154 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0155 0156 0002 08 00       General Purpose Flag  0x0008 [8]
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
-0157 0158 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-0159 015C 0004 A2 82 97 55 Last Mod Time         1435992738 (0x559782A2) 'Fri Dec 23 16:21:04 2022'
-015D 0160 0004 FF E7 0E F9 CRC                   4178503679 (0xF90EE7FF)
-0161 0164 0004 0E 01 00 00 Compressed Length     270 (0x10E)
-0165 0168 0004 BE 01 00 00 Uncompressed Length   446 (0x1BE)
-0169 016A 0002 09 00       Filename Length       9 (0x9)
-016B 016C 0002 00 00       Extra Length          0 (0x0)
-016D 016E 0002 00 00       Comment Length        0 (0x0)
-016F 0170 0002 00 00       Disk Start            0 (0x0)
-0171 0172 0002 01 00       Int File Attributes   1 (0x1)
+0157 0158 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+0159 015C 0004 A2 82 97 55 Last Mod Time         0x559782A2 [1435992738] 'Fri Dec 23 16:21:04 2022'
+015D 0160 0004 FF E7 0E F9 CRC                   0xF90EE7FF [4178503679]
+0161 0164 0004 0E 01 00 00 Compressed Length     0x0000010E [270]
+0165 0168 0004 BE 01 00 00 Uncompressed Length   0x000001BE [446]
+0169 016A 0002 09 00       Filename Length       0x0009 [9]
+016B 016C 0002 00 00       Extra Length          0x0000 [0]
+016D 016E 0002 00 00       Comment Length        0x0000 [0]
+016F 0170 0002 00 00       Disk Start            0x0000 [0]
+0171 0172 0002 01 00       Int File Attributes   0x0001 [1]
                            [Bit 0]               1 'Text Data'
-0173 0176 0004 00 00 A4 81 Ext File Attributes   2175008768 (0x81A40000)
-                           [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          8 (0x8) 'Regular File'
-0177 017A 0004 00 00 00 00 Local Header Offset   0 (0x0)
+0173 0176 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
+                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+0177 017A 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
 017B 0183 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 
-0184 0187 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-0188 0189 0002 00 00       Number of this disk   0 (0x0)
-018A 018B 0002 00 00       Central Dir Disk no   0 (0x0)
-018C 018D 0002 01 00       Entries in this disk  1 (0x1)
-018E 018F 0002 01 00       Total Entries         1 (0x1)
-0190 0193 0004 37 00 00 00 Size of Central Dir   55 (0x37)
-0194 0197 0004 4D 01 00 00 Offset to Central Dir 333 (0x14D)
-0198 0199 0002 00 00       Comment Length        0 (0x0)
+0184 0187 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+0188 0189 0002 00 00       Number of this disk   0x0000 [0]
+018A 018B 0002 00 00       Central Dir Disk no   0x0000 [0]
+018C 018D 0002 01 00       Entries in this disk  0x0001 [1]
+018E 018F 0002 01 00       Total Entries         0x0001 [1]
+0190 0193 0004 37 00 00 00 Size of Central Dir   0x00000037 [55]
+0194 0197 0004 4D 01 00 00 Offset to Central Dir 0x0000014D [333]
+0198 0199 0002 00 00       Comment Length        0x0000 [0]
 #
 # Error Count: 1
 #

@@ -1,35 +1,35 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 0004 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
-0005 0005 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-0006 0007 0002 41 28       General Purpose Flag  10305 (0x2841)
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 3D          Extract Zip Spec      0x3D [61] '6.1'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 41 28       General Purpose Flag  0x2841 [10305]
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
-0008 0009 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-000A 000D 0004 00 00 00 00 Last Mod Time         0 (0x0) 'No Date/Time'
-000E 0011 0004 00 00 00 00 CRC                   0 (0x0)
-0012 0015 0004 86 06 00 00 Compressed Length     1670 (0x686)
-0016 0019 0004 00 00 00 00 Uncompressed Length   0 (0x0)
-001A 001B 0002 01 00       Filename Length       1 (0x1)
-001C 001D 0002 00 00       Extra Length          0 (0x0)
+0008 0009 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+000A 000D 0004 00 00 00 00 Last Mod Time         0x00000000 [0] 'No Date/Time'
+000E 0011 0004 00 00 00 00 CRC                   0x00000000 [0]
+0012 0015 0004 86 06 00 00 Compressed Length     0x00000686 [1670]
+0016 0019 0004 00 00 00 00 Uncompressed Length   0x00000000 [0]
+001A 001B 0002 01 00       Filename Length       0x0001 [1]
+001C 001D 0002 00 00       Extra Length          0x0000 [0]
 001E 001E 0001 31          Filename              '1'
 
 001F 001E 0000             DECRYPTION HEADER
                            RECORD
-001F 0020 0002 10 00       IVSize                16 (0x10)
+001F 0020 0002 10 00       IVSize                0x0010 [16]
 0021 0030 0010 30 ED 74 CE IVData                30 ED 74 CE 2B 70 A8 97 B0 3B AE 43 00 B9 2D 22
                2B 70 A8 97
                B0 3B AE 43
                00 B9 2D 22
-0031 0034 0004 60 05 00 00 Size                  1376 (0x560)
-0035 0036 0002 03 00       Format                3 (0x3)
-0037 0038 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
-0039 003A 0002 00 01       BitLen                256 (0x100)
-003B 003C 0002 02 41       Flags                 16642 (0x4102) 'Reserved for certificate processing'
-003D 003E 0002 88 00       ErdSize               136 (0x88)
+0031 0034 0004 60 05 00 00 Size                  0x00000560 [1376]
+0035 0036 0002 03 00       Format                0x0003 [3]
+0037 0038 0002 10 66       AlgId                 0x6610 [26128] 'AES 256'
+0039 003A 0002 00 01       BitLen                0x0100 [256]
+003B 003C 0002 02 41       Flags                 0x4102 [16642] 'Reserved for certificate processing'
+003D 003E 0002 88 00       ErdSize               0x0088 [136]
 003F 00C6 0088 A6 7B AD 0D ErdData               A6 7B AD 0D A3 F4 7E 1F 8A 62 04 FC 2B B6 88 35
                A3 F4 7E 1F                       E3 CE 74 7C 81 36 06 76 97 33 FE 3C 7F FA 3D 41
                8A 62 04 FC                       46 45 9E D0 28 35 09 C4 43 B4 45 90 E6 5B 2C CA
@@ -64,10 +64,10 @@
                12 D3 CC 68
                FA 88 7A CF
                17 16 D5 A2
-00C7 00CA 0004 02 00 00 00 RCount                2 (0x2)
-00CB 00CC 0002 04 80       HashAlg               32772 (0x8004) 'SHA1'
-00CD 00CE 0002 14 00       HSize                 20 (0x14)
-00CF 00D0 0002 20 02       RESize Key #1         544 (0x220)
+00C7 00CA 0004 02 00 00 00 RCount                0x00000002 [2]
+00CB 00CC 0002 04 80       HashAlg               0x8004 [32772] 'SHA1'
+00CD 00CE 0002 14 00       HSize                 0x0014 [20]
+00CF 00D0 0002 20 02       RESize Key #1         0x0220 [544]
 00D1 00E4 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
@@ -204,7 +204,7 @@
                C5 84 C1 DE
                18 3C 8F E9
                6E 1A 0B A7
-02F1 02F2 0002 20 02       RESize Key #2         544 (0x220)
+02F1 02F2 0002 20 02       RESize Key #2         0x0220 [544]
 02F3 0306 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
@@ -341,7 +341,7 @@
                82 CB 49 2D
                1D 9F 44 EF
                73 D1 5E 04
-0513 0514 0002 80 00       VSize                 128 (0x80)
+0513 0514 0002 80 00       VSize                 0x0080 [128]
 0515 0590 007C 67 40 10 76 VData                 67 40 10 76 16 77 2F F5 4D 6D 47 C1 C4 4F D8 A5
                16 77 2F F5                       71 0A 9B 83 6E BD E5 00 D6 11 08 6F D1 CC C6 87
                4D 6D 47 C1                       FE F3 FF 36 45 9A CE 01 34 85 79 6B 42 B8 E5 6B
@@ -373,40 +373,40 @@
                DE 9B B8 58
                D6 12 0B 3D
                62 89 68 4C
-0591 0594 0004 9A CF E3 1B VCRC32                467914650 (0x1BE3CF9A)
+0591 0594 0004 9A CF E3 1B VCRC32                0x1BE3CF9A [467914650]
 0595 06A4 0110 ...         PAYLOAD
 
-06A5 06A8 0004 50 4B 03 04 LOCAL HEADER #2       67324752 (0x4034B50)
-06A9 06A9 0001 3D          Extract Zip Spec      61 (0x3D) '6.1'
-06AA 06AA 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-06AB 06AC 0002 41 28       General Purpose Flag  10305 (0x2841)
+06A5 06A8 0004 50 4B 03 04 LOCAL HEADER #2       0x04034B50 [67324752]
+06A9 06A9 0001 3D          Extract Zip Spec      0x3D [61] '6.1'
+06AA 06AA 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+06AB 06AC 0002 41 28       General Purpose Flag  0x2841 [10305]
                            [Bit  0]              1 'Encryption'
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  6]              1 'Strong Encryption'
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
-06AD 06AE 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-06AF 06B2 0004 00 00 00 00 Last Mod Time         0 (0x0) 'No Date/Time'
-06B3 06B6 0004 00 00 00 00 CRC                   0 (0x0)
-06B7 06BA 0004 96 06 00 00 Compressed Length     1686 (0x696)
-06BB 06BE 0004 00 00 00 00 Uncompressed Length   0 (0x0)
-06BF 06C0 0002 01 00       Filename Length       1 (0x1)
-06C1 06C2 0002 00 00       Extra Length          0 (0x0)
+06AD 06AE 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+06AF 06B2 0004 00 00 00 00 Last Mod Time         0x00000000 [0] 'No Date/Time'
+06B3 06B6 0004 00 00 00 00 CRC                   0x00000000 [0]
+06B7 06BA 0004 96 06 00 00 Compressed Length     0x00000696 [1686]
+06BB 06BE 0004 00 00 00 00 Uncompressed Length   0x00000000 [0]
+06BF 06C0 0002 01 00       Filename Length       0x0001 [1]
+06C1 06C2 0002 00 00       Extra Length          0x0000 [0]
 06C3 06C3 0001 32          Filename              '2'
 
 06C4 06C3 0000             DECRYPTION HEADER
                            RECORD
-06C4 06C5 0002 10 00       IVSize                16 (0x10)
+06C4 06C5 0002 10 00       IVSize                0x0010 [16]
 06C6 06D5 0010 E9 A6 31 9D IVData                E9 A6 31 9D 76 B2 73 A5 27 70 84 39 46 73 A4 76
                76 B2 73 A5
                27 70 84 39
                46 73 A4 76
-06D6 06D9 0004 60 05 00 00 Size                  1376 (0x560)
-06DA 06DB 0002 03 00       Format                3 (0x3)
-06DC 06DD 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
-06DE 06DF 0002 00 01       BitLen                256 (0x100)
-06E0 06E1 0002 02 41       Flags                 16642 (0x4102) 'Reserved for certificate processing'
-06E2 06E3 0002 88 00       ErdSize               136 (0x88)
+06D6 06D9 0004 60 05 00 00 Size                  0x00000560 [1376]
+06DA 06DB 0002 03 00       Format                0x0003 [3]
+06DC 06DD 0002 10 66       AlgId                 0x6610 [26128] 'AES 256'
+06DE 06DF 0002 00 01       BitLen                0x0100 [256]
+06E0 06E1 0002 02 41       Flags                 0x4102 [16642] 'Reserved for certificate processing'
+06E2 06E3 0002 88 00       ErdSize               0x0088 [136]
 06E4 076B 0088 A6 7B AD 0D ErdData               A6 7B AD 0D A3 F4 7E 1F 8A 62 04 FC 2B B6 88 35
                A3 F4 7E 1F                       E3 CE 74 7C 81 36 06 76 97 33 FE 3C 7F FA 3D 41
                8A 62 04 FC                       46 45 9E D0 28 35 09 C4 43 B4 45 90 E6 5B 2C CA
@@ -441,10 +441,10 @@
                12 D3 CC 68
                FA 88 7A CF
                17 16 D5 A2
-076C 076F 0004 02 00 00 00 RCount                2 (0x2)
-0770 0771 0002 04 80       HashAlg               32772 (0x8004) 'SHA1'
-0772 0773 0002 14 00       HSize                 20 (0x14)
-0774 0775 0002 20 02       RESize Key #1         544 (0x220)
+076C 076F 0004 02 00 00 00 RCount                0x00000002 [2]
+0770 0771 0002 04 80       HashAlg               0x8004 [32772] 'SHA1'
+0772 0773 0002 14 00       HSize                 0x0014 [20]
+0774 0775 0002 20 02       RESize Key #1         0x0220 [544]
 0776 0789 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
@@ -581,7 +581,7 @@
                C5 84 C1 DE
                18 3C 8F E9
                6E 1A 0B A7
-0996 0997 0002 20 02       RESize Key #2         544 (0x220)
+0996 0997 0002 20 02       RESize Key #2         0x0220 [544]
 0998 09AB 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
@@ -718,7 +718,7 @@
                82 CB 49 2D
                1D 9F 44 EF
                73 D1 5E 04
-0BB8 0BB9 0002 80 00       VSize                 128 (0x80)
+0BB8 0BB9 0002 80 00       VSize                 0x0080 [128]
 0BBA 0C35 007C F4 54 4A 3C VData                 F4 54 4A 3C 26 B7 F9 FB AF DC 13 93 8E 76 34 A3
                26 B7 F9 FB                       E6 ED 32 CD CC 7C 0C C3 68 42 22 67 CD 7F 90 8A
                AF DC 13 93                       8C 3C 75 25 35 CD 0F D0 91 CD 0E FD B1 E5 23 5B
@@ -750,22 +750,22 @@
                EC F2 96 F7
                1B 7D EE 39
                87 AD D3 BA
-0C36 0C39 0004 F8 AD F9 73 VCRC32                1945742840 (0x73F9ADF8)
+0C36 0C39 0004 F8 AD F9 73 VCRC32                0x73F9ADF8 [1945742840]
 0C3A 0D59 0120 ...         PAYLOAD
 
 0D5A 0D59 0000             CENTRAL HEADER
                            DECRYPTION RECORD
-0D5A 0D5B 0002 10 00       IVSize                16 (0x10)
+0D5A 0D5B 0002 10 00       IVSize                0x0010 [16]
 0D5C 0D6B 0010 29 68 57 AD IVData                29 68 57 AD 72 27 E8 4E 9A 73 EA 8A CE CF CE 43
                72 27 E8 4E
                9A 73 EA 8A
                CE CF CE 43
-0D6C 0D6F 0004 60 05 00 00 Size                  1376 (0x560)
-0D70 0D71 0002 03 00       Format                3 (0x3)
-0D72 0D73 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
-0D74 0D75 0002 00 01       BitLen                256 (0x100)
-0D76 0D77 0002 02 41       Flags                 16642 (0x4102) 'Reserved for certificate processing'
-0D78 0D79 0002 88 00       ErdSize               136 (0x88)
+0D6C 0D6F 0004 60 05 00 00 Size                  0x00000560 [1376]
+0D70 0D71 0002 03 00       Format                0x0003 [3]
+0D72 0D73 0002 10 66       AlgId                 0x6610 [26128] 'AES 256'
+0D74 0D75 0002 00 01       BitLen                0x0100 [256]
+0D76 0D77 0002 02 41       Flags                 0x4102 [16642] 'Reserved for certificate processing'
+0D78 0D79 0002 88 00       ErdSize               0x0088 [136]
 0D7A 0E01 0088 A6 7B AD 0D ErdData               A6 7B AD 0D A3 F4 7E 1F 8A 62 04 FC 2B B6 88 35
                A3 F4 7E 1F                       E3 CE 74 7C 81 36 06 76 97 33 FE 3C 7F FA 3D 41
                8A 62 04 FC                       46 45 9E D0 28 35 09 C4 43 B4 45 90 E6 5B 2C CA
@@ -800,10 +800,10 @@
                12 D3 CC 68
                FA 88 7A CF
                17 16 D5 A2
-0E02 0E05 0004 02 00 00 00 RCount                2 (0x2)
-0E06 0E07 0002 04 80       HashAlg               32772 (0x8004) 'SHA1'
-0E08 0E09 0002 14 00       HSize                 20 (0x14)
-0E0A 0E0B 0002 20 02       RESize Key #1         544 (0x220)
+0E02 0E05 0004 02 00 00 00 RCount                0x00000002 [2]
+0E06 0E07 0002 04 80       HashAlg               0x8004 [32772] 'SHA1'
+0E08 0E09 0002 14 00       HSize                 0x0014 [20]
+0E0A 0E0B 0002 20 02       RESize Key #1         0x0220 [544]
 0E0C 0E1F 0014 A0 6B CD BB REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                6E 93 D0 8B                       68 3D 0B 1A
                12 B6 E5 DA
@@ -940,7 +940,7 @@
                C5 84 C1 DE
                18 3C 8F E9
                6E 1A 0B A7
-102C 102D 0002 20 02       RESize Key #2         544 (0x220)
+102C 102D 0002 20 02       RESize Key #2         0x0220 [544]
 102E 1041 0014 64 E1 4A BC REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                4A 1E 2C 17                       05 F0 35 B9
                CA F0 51 46
@@ -1077,7 +1077,7 @@
                82 CB 49 2D
                1D 9F 44 EF
                73 D1 5E 04
-124E 124F 0002 80 00       VSize                 128 (0x80)
+124E 124F 0002 80 00       VSize                 0x0080 [128]
 1250 12CB 007C 40 89 98 18 VData                 40 89 98 18 A9 2C 3F C1 6E 96 4C 21 07 29 EC C1
                A9 2C 3F C1                       64 42 5A 1A AE FF B6 CA 71 E6 1C C3 E5 6E 25 40
                6E 96 4C 21                       9A 17 DB 62 DA C1 D3 6C B6 64 0C 60 E4 86 1D 71
@@ -1109,14 +1109,14 @@
                C7 97 52 02
                73 D4 97 70
                46 8F 7B B6
-12CC 12CF 0004 6F A7 D3 22 VCRC32                584296303 (0x22D3A76F)
+12CC 12CF 0004 6F A7 D3 22 VCRC32                0x22D3A76F [584296303]
 
 12D0 256F 12A0 ...         ENCRYPTED CENTRAL
                            DIRECTORY
 
-2570 2573 0004 50 4B 05 05 DIGITAL SIGNATURE     84233040 (0x5054B50)
+2570 2573 0004 50 4B 05 05 DIGITAL SIGNATURE     0x05054B50 [84233040]
                            RECORD
-2574 2575 0002 39 02       Size of record        569 (0x239)
+2574 2575 0002 39 02       Size of record        0x0239 [569]
 2576 27AE 0239 01 00 04 80 Signature             01 00 04 80 31 00 2D 00 00 00 2D 00 00 00 18 00
                31 00 2D 00                       00 00 30 16 31 14 30 12 06 03 55 04 03 0C 0B 65
                00 00 2D 00                       78 61 6D 70 6C 65 2E 63 6F 6D 09 00 00 00 97 9C
@@ -1261,55 +1261,55 @@
                B2 6E FE 30
                AD
 
-27AF 27B2 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
+27AF 27B2 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
                            RECORD
-27B3 27BA 0008 5C 00 00 00 Size of record        92 (0x5C)
+27B3 27BA 0008 5C 00 00 00 Size of record        0x000000000000005C [92]
                00 00 00 00
-27BB 27BB 0001 41          Created Zip Spec      65 (0x41) '6.5'
-27BC 27BC 0001 00          Created OS            0 (0x0) 'MS-DOS'
-27BD 27BD 0001 3E          Extract Zip Spec      62 (0x3E) '6.2'
-27BE 27BE 0001 00          Extract OS            0 (0x0) 'MS-DOS'
-27BF 27C2 0004 00 00 00 00 Number of this disk   0 (0x0)
-27C3 27C6 0004 00 00 00 00 Central Dir Disk no   0 (0x0)
-27C7 27CE 0008 00 00 00 00 Entries in this disk  0 (0x0)
+27BB 27BB 0001 41          Created Zip Spec      0x41 [65] '6.5'
+27BC 27BC 0001 00          Created OS            0x00 [0] 'MS-DOS'
+27BD 27BD 0001 3E          Extract Zip Spec      0x3E [62] '6.2'
+27BE 27BE 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+27BF 27C2 0004 00 00 00 00 Number of this disk   0x00000000 [0]
+27C3 27C6 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
+27C7 27CE 0008 00 00 00 00 Entries in this disk  0x0000000000000000 [0]
                00 00 00 00
-27CF 27D6 0008 02 00 00 00 Total Entries         2 (0x2)
+27CF 27D6 0008 02 00 00 00 Total Entries         0x0000000000000002 [2]
                00 00 00 00
-27D7 27DE 0008 55 1A 00 00 Size of Central Dir   6741 (0x1A55)
+27D7 27DE 0008 55 1A 00 00 Size of Central Dir   0x0000000000001A55 [6741]
                00 00 00 00
-27DF 27E6 0008 5A 0D 00 00 Offset to Central dir 3418 (0xD5A)
+27DF 27E6 0008 5A 0D 00 00 Offset to Central dir 0x0000000000000D5A [3418]
                00 00 00 00
-27E7 27E8 0002 08 00       Compression Method    8 (0x8) 'Deflated'
-27E9 27F0 0008 16 18 00 00 Compressed Length     6166 (0x1816)
+27E7 27E8 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
+27E9 27F0 0008 16 18 00 00 Compressed Length     0x0000000000001816 [6166]
                00 00 00 00
-27F1 27F8 0008 02 15 00 00 Uncompressed Length   5378 (0x1502)
+27F1 27F8 0008 02 15 00 00 Uncompressed Length   0x0000000000001502 [5378]
                00 00 00 00
-27F9 27FA 0002 10 66       AlgId                 26128 (0x6610) 'AES 256'
-27FB 27FC 0002 00 01       BitLen                256 (0x100)
-27FD 27FE 0002 02 41       Flags                 16642 (0x4102) 'reserved for certificate processing'
-27FF 2800 0002 04 80       HashID                32772 (0x8004) 'SHA1'
-2801 2802 0002 14 00       Hash Length           20 (0x14)
+27F9 27FA 0002 10 66       AlgId                 0x6610 [26128] 'AES 256'
+27FB 27FC 0002 00 01       BitLen                0x0100 [256]
+27FD 27FE 0002 02 41       Flags                 0x4102 [16642] 'reserved for certificate processing'
+27FF 2800 0002 04 80       HashID                0x8004 [32772] 'SHA1'
+2801 2802 0002 14 00       Hash Length           0x0014 [20]
 2803 2816 0014 3B ED 67 C6 Hash Data             3B ED 67 C6 EE 06 6A 63 4B C0 22 62 7B 5D AA 15
                EE 06 6A 63                       6E C4 A3 A3
                4B C0 22 62
                7B 5D AA 15
                6E C4 A3 A3
 
-2817 281A 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
+2817 281A 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
                            LOCATOR
-281B 281E 0004 00 00 00 00 Central Dir Disk no   0 (0x0)
-281F 2826 0008 AF 27 00 00 Offset to Zip64 EOCD  10159 (0x27AF)
+281B 281E 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
+281F 2826 0008 AF 27 00 00 Offset to Zip64 EOCD  0x00000000000027AF [10159]
                00 00 00 00
-2827 282A 0004 01 00 00 00 Total no of Disks     1 (0x1)
+2827 282A 0004 01 00 00 00 Total no of Disks     0x00000001 [1]
 
-282B 282E 0004 50 4B 05 06 END CENTRAL HEADER    101010256 (0x6054B50)
-282F 2830 0002 00 00       Number of this disk   0 (0x0)
-2831 2832 0002 00 00       Central Dir Disk no   0 (0x0)
-2833 2834 0002 00 00       Entries in this disk  0 (0x0)
-2835 2836 0002 FF FF       Total Entries         65535 (0xFFFF)
-2837 283A 0004 55 1A 00 00 Size of Central Dir   6741 (0x1A55)
-283B 283E 0004 5A 0D 00 00 Offset to Central Dir 3418 (0xD5A)
-283F 2840 0002 00 00       Comment Length        0 (0x0)
+282B 282E 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+282F 2830 0002 00 00       Number of this disk   0x0000 [0]
+2831 2832 0002 00 00       Central Dir Disk no   0x0000 [0]
+2833 2834 0002 00 00       Entries in this disk  0x0000 [0]
+2835 2836 0002 FF FF       Total Entries         0xFFFF [65535]
+2837 283A 0004 55 1A 00 00 Size of Central Dir   0x00001A55 [6741]
+283B 283E 0004 5A 0D 00 00 Offset to Central Dir 0x00000D5A [3418]
+283F 2840 0002 00 00       Comment Length        0x0000 [0]
 #
 # WARNING: Local Directory exists, but Central Directory is encrypted
 #

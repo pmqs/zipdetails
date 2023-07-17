@@ -1,46 +1,46 @@
 #
-# INFO: Offset 0x0: found 1664 (0x680) bytes before beginning of zipfile
+# INFO: Offset 0x0: found 0x680 [1664] bytes before beginning of zipfile
 #
 
 0000 UNEXPECTED PADDING
 
-0680 ZIP64 END CENTRAL DIR 101075792 (0x6064B50)
+0680 ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
      RECORD
-0684 Size of record        76 (0x4C)
-068C Created Zip Spec      65 (0x41) '6.5'
-068D Created OS            0 (0x0) 'MS-DOS'
-068E Extract Zip Spec      62 (0x3E) '6.2'
-068F Extract OS            0 (0x0) 'MS-DOS'
-0690 Number of this disk   0 (0x0)
-0694 Central Dir Disk no   0 (0x0)
-0698 Entries in this disk  0 (0x0)
-06A0 Total Entries         2 (0x2)
-06A8 Size of Central Dir   446 (0x1BE)
-06B0 Offset to Central dir 1218 (0x4C2)
-06B8 Compression Method    8 (0x8) 'Deflated'
-06BA Compressed Length     446 (0x1BE)
-06C2 Uncompressed Length   215 (0xD7)
-06CA AlgId                 26115 (0x6603) '3DES 168'
-06CC BitLen                168 (0xA8)
-06CE Flags                 1 (0x1) 'Password required to decrypt'
-06D0 HashID                1 (0x1) 'CRC32'
-06D2 Hash Length           4 (0x4)
+0684 Size of record        0x000000000000004C [76]
+068C Created Zip Spec      0x41 [65] '6.5'
+068D Created OS            0x00 [0] 'MS-DOS'
+068E Extract Zip Spec      0x3E [62] '6.2'
+068F Extract OS            0x00 [0] 'MS-DOS'
+0690 Number of this disk   0x00000000 [0]
+0694 Central Dir Disk no   0x00000000 [0]
+0698 Entries in this disk  0x0000000000000000 [0]
+06A0 Total Entries         0x0000000000000002 [2]
+06A8 Size of Central Dir   0x00000000000001BE [446]
+06B0 Offset to Central dir 0x00000000000004C2 [1218]
+06B8 Compression Method    0x0008 [8] 'Deflated'
+06BA Compressed Length     0x00000000000001BE [446]
+06C2 Uncompressed Length   0x00000000000000D7 [215]
+06CA AlgId                 0x6603 [26115] '3DES 168'
+06CC BitLen                0x00A8 [168]
+06CE Flags                 0x0001 [1] 'Password required to decrypt'
+06D0 HashID                0x0001 [1] 'CRC32'
+06D2 Hash Length           0x0004 [4]
 06D4 Hash Data             40 A2 01 AB
 
-06D8 ZIP64 END CENTRAL DIR 117853008 (0x7064B50)
+06D8 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
      LOCATOR
-06DC Central Dir Disk no   0 (0x0)
-06E0 Offset to Zip64 EOCD  1664 (0x680)
-06E8 Total no of Disks     1 (0x1)
+06DC Central Dir Disk no   0x00000000 [0]
+06E0 Offset to Zip64 EOCD  0x0000000000000680 [1664]
+06E8 Total no of Disks     0x00000001 [1]
 
-06EC END CENTRAL HEADER    101010256 (0x6054B50)
-06F0 Number of this disk   0 (0x0)
-06F2 Central Dir Disk no   0 (0x0)
-06F4 Entries in this disk  0 (0x0)
-06F6 Total Entries         65535 (0xFFFF)
-06F8 Size of Central Dir   446 (0x1BE)
-06FC Offset to Central Dir 1218 (0x4C2)
-0700 Comment Length        0 (0x0)
+06EC END CENTRAL HEADER    0x06054B50 [101010256]
+06F0 Number of this disk   0x0000 [0]
+06F2 Central Dir Disk no   0x0000 [0]
+06F4 Entries in this disk  0x0000 [0]
+06F6 Total Entries         0xFFFF [65535]
+06F8 Size of Central Dir   0x000001BE [446]
+06FC Offset to Central Dir 0x000004C2 [1218]
+0700 Comment Length        0x0000 [0]
 #
 # Info Count: 1
 #

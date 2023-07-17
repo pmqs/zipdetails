@@ -588,7 +588,7 @@ sub outHexdump
 
 sub decimalHex
 {
-    sprintf("%u (0x%X)", $_[0], $_[0])
+    sprintf("0x%0*X [%u]", $_[1] // 0, $_[0], $_[0])
 }
 
 sub out
@@ -674,20 +674,17 @@ sub out2
 sub Value
 {
     my $letter = shift;
-    my @value = @_;
 
-    return decimalHex( $_[0]);
-
-    # if ($letter eq 'C')
-    #   { return Value_C(@value) }
-    # elsif ($letter eq 'v')
-    #   { return Value_v(@value) }
-    # elsif ($letter eq 'V')
-    #   { return Value_V(@value) }
-    # elsif ($letter eq 'Q<')
-    #   { return Value_Q(@value) }
-    # else
-    #   { internalFatal undef, "here letter $letter"}
+    if ($letter eq 'C')
+      { return decimalHex($_[0], 2) }
+    elsif ($letter eq 'v')
+      { return decimalHex($_[0], 4) }
+    elsif ($letter eq 'V')
+      { return decimalHex($_[0], 8) }
+    elsif ($letter eq 'Q<')
+      { return decimalHex($_[0], 16) }
+    else
+      { internalFatal undef, "here letter $letter"}
 }
 
 sub outer
@@ -802,8 +799,7 @@ sub unpackValue_C
 
 sub Value_C
 {
-    return decimalHex( $_[0]);
-    # sprintf "%02X", $_[0];
+    return decimalHex($_[0], 2);
 }
 
 
@@ -814,8 +810,7 @@ sub unpackValue_v
 
 sub Value_v
 {
-    return decimalHex( $_[0]);
-    # sprintf "%04X", $_[0];
+    return decimalHex($_[0], 4);
 }
 
 sub unpackValue_V
@@ -825,9 +820,7 @@ sub unpackValue_V
 
 sub Value_V
 {
-    return decimalHex( $_[0] // 0);
-    # my $v = defined $_[0] ? $_[0] : 0;
-    # sprintf "%08X", $v;
+    return decimalHex($_[0] // 0, 8);
 }
 
 sub unpackValue_Q
@@ -838,9 +831,7 @@ sub unpackValue_Q
 
 sub Value_Q
 {
-    return decimalHex( $_[0]);
-    # my $v = shift ;
-    # sprintf "%016X", $v;
+    return decimalHex($_[0], 16);
 }
 
 sub read_Q
@@ -1958,7 +1949,7 @@ sub LocalHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2365,7 +2356,7 @@ sub CentralHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2650,7 +2641,7 @@ sub Zip64EndCentralHeader
 
         my ($bcm, $compressedMethod) = read_v();
         out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod)
+        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
             if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
         out_Q "Compressed Length";
         out_Q "Uncompressed Length";
@@ -4161,7 +4152,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
-        warning $FH->tell(), "'Last Mod Time' value " . decimalHex($dt) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
+        warning $FH->tell(), "'Last Mod Time' value " . decimalHex($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 
@@ -4447,7 +4438,7 @@ sub decode_AES
     if (! defined $ZIP_CompressionMethods{$method})
     {
         $validAES = 0;
-        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . decimalHex($method)
+        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . decimalHex($method, 2)
     }
 
     $entry->aesStrength = $strength ;
@@ -4615,7 +4606,7 @@ sub decode_ux
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
-    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be " . decimalHex(1) . ", got " . decimalHex($version)
+    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be " . decimalHex(1) . ", got " . decimalHex($version, 1)
         if $version != 1 ;
 
     my $available = $len - 1 ;
@@ -6973,7 +6964,7 @@ type of data:
 =item * Numeric Values
 
 If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
-be displayed in both decimal and hex -- for example "C<42 (0x2A)>".
+be displayed in both hex and decimal -- for example "C<0x2A [42]>".
 
 Note that Zip files store most numeric values in I<little-endian> encoding.
 (there area few rare instances where I<big-endian> is used). The value read from

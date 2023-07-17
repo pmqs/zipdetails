@@ -1,55 +1,55 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      20 (0x14) '2.0'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  0 (0x0)
-0008 Compression Method    0 (0x0) 'Stored'
-000A Last Mod Time         1432115532 (0x555C594C) 'Fri Oct 28 11:10:24 2022'
-000E CRC                   2240272485 (0x8587D865)
-0012 Compressed Length     5 (0x5)
-0016 Uncompressed Length   5 (0x5)
-001A Filename Length       8 (0x8)
-001C Extra Length          5 (0x5)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x14 [20] '2.0'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0000 [0]
+0008 Compression Method    0x0000 [0] 'Stored'
+000A Last Mod Time         0x555C594C [1432115532] 'Fri Oct 28 11:10:24 2022'
+000E CRC                   0x8587D865 [2240272485]
+0012 Compressed Length     0x00000005 [5]
+0016 Uncompressed Length   0x00000005 [5]
+001A Filename Length       0x0008 [8]
+001C Extra Length          0x0005 [5]
 001E Filename              'filename'
-0026 Extra ID #1           28789 (0x7075) 'Unicode Path [up]'
-0028   Length              1 (0x1)
+0026 Extra ID #1           0x7075 [28789] 'Unicode Path [up]'
+0028   Length              0x0001 [1]
 #
-# ERROR: Offset 0x28: Extra Field 'Unicode Path [up]' (ID 0x7075): 'Length' field invalid: value must be at least 5 (0x5), got 1 (0x1)
+# ERROR: Offset 0x28: Extra Field 'Unicode Path [up]' (ID 0x7075): 'Length' field invalid: value must be at least 0x5 [5], got 0x1 [1]
 #
 002A   Extra Payload       1
 002B PAYLOAD               abcde
 
-0030 CENTRAL HEADER #1     33639248 (0x2014B50)
-0034 Created Zip Spec      20 (0x14) '2.0'
-0035 Created OS            3 (0x3) 'Unix'
-0036 Extract Zip Spec      20 (0x14) '2.0'
-0037 Extract OS            0 (0x0) 'MS-DOS'
-0038 General Purpose Flag  0 (0x0)
-003A Compression Method    0 (0x0) 'Stored'
-003C Last Mod Time         1432115532 (0x555C594C) 'Fri Oct 28 11:10:24 2022'
-0040 CRC                   2240272485 (0x8587D865)
-0044 Compressed Length     5 (0x5)
-0048 Uncompressed Length   5 (0x5)
-004C Filename Length       8 (0x8)
-004E Extra Length          0 (0x0)
-0050 Comment Length        0 (0x0)
-0052 Disk Start            0 (0x0)
-0054 Int File Attributes   0 (0x0)
+0030 CENTRAL HEADER #1     0x02014B50 [33639248]
+0034 Created Zip Spec      0x14 [20] '2.0'
+0035 Created OS            0x03 [3] 'Unix'
+0036 Extract Zip Spec      0x14 [20] '2.0'
+0037 Extract OS            0x00 [0] 'MS-DOS'
+0038 General Purpose Flag  0x0000 [0]
+003A Compression Method    0x0000 [0] 'Stored'
+003C Last Mod Time         0x555C594C [1432115532] 'Fri Oct 28 11:10:24 2022'
+0040 CRC                   0x8587D865 [2240272485]
+0044 Compressed Length     0x00000005 [5]
+0048 Uncompressed Length   0x00000005 [5]
+004C Filename Length       0x0008 [8]
+004E Extra Length          0x0000 [0]
+0050 Comment Length        0x0000 [0]
+0052 Disk Start            0x0000 [0]
+0054 Int File Attributes   0x0000 [0]
      [Bit 0]               0 'Binary Data'
-0056 Ext File Attributes   2175008768 (0x81A40000)
-     [Bits 16-24]          420 (0x1A4) 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          8 (0x8) 'Regular File'
-005A Local Header Offset   0 (0x0)
+0056 Ext File Attributes   0x81A40000 [2175008768]
+     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          0x08 [8] 'Regular File'
+005A Local Header Offset   0x00000000 [0]
 005E Filename              'filename'
 
-0066 END CENTRAL HEADER    101010256 (0x6054B50)
-006A Number of this disk   0 (0x0)
-006C Central Dir Disk no   0 (0x0)
-006E Entries in this disk  1 (0x1)
-0070 Total Entries         1 (0x1)
-0072 Size of Central Dir   54 (0x36)
-0076 Offset to Central Dir 48 (0x30)
-007A Comment Length        0 (0x0)
+0066 END CENTRAL HEADER    0x06054B50 [101010256]
+006A Number of this disk   0x0000 [0]
+006C Central Dir Disk no   0x0000 [0]
+006E Entries in this disk  0x0001 [1]
+0070 Total Entries         0x0001 [1]
+0072 Size of Central Dir   0x00000036 [54]
+0076 Offset to Central Dir 0x00000030 [48]
+007A Comment Length        0x0000 [0]
 #
 # Error Count: 1
 #

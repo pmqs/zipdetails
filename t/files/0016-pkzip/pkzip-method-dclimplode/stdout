@@ -1,103 +1,103 @@
 
-0000 LOCAL HEADER #1       67324752 (0x4034B50)
-0004 Extract Zip Spec      25 (0x19) '2.5'
-0005 Extract OS            0 (0x0) 'MS-DOS'
-0006 General Purpose Flag  2048 (0x800)
+0000 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 Extract Zip Spec      0x19 [25] '2.5'
+0005 Extract OS            0x00 [0] 'MS-DOS'
+0006 General Purpose Flag  0x0800 [2048]
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    10 (0xA) 'PKWARE Data Compression Library Imploding'
-000A Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
-000E CRC                   4178503679 (0xF90EE7FF)
-0012 Compressed Length     349 (0x15D)
-0016 Uncompressed Length   446 (0x1BE)
-001A Filename Length       9 (0x9)
-001C Extra Length          0 (0x0)
+0008 Compression Method    0x000A [10] 'PKWARE Data Compression Library Imploding'
+000A Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+000E CRC                   0xF90EE7FF [4178503679]
+0012 Compressed Length     0x0000015D [349]
+0016 Uncompressed Length   0x000001BE [446]
+001A Filename Length       0x0009 [9]
+001C Extra Length          0x0000 [0]
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-0184 LOCAL HEADER #2       67324752 (0x4034B50)
-0188 Extract Zip Spec      25 (0x19) '2.5'
-0189 Extract OS            0 (0x0) 'MS-DOS'
-018A General Purpose Flag  2048 (0x800)
+0184 LOCAL HEADER #2       0x04034B50 [67324752]
+0188 Extract Zip Spec      0x19 [25] '2.5'
+0189 Extract OS            0x00 [0] 'MS-DOS'
+018A General Purpose Flag  0x0800 [2048]
      [Bit 11]              1 'Language Encoding'
-018C Compression Method    10 (0xA) 'PKWARE Data Compression Library Imploding'
-018E Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
-0192 CRC                   1106626620 (0x41F5C83C)
-0196 Compressed Length     351 (0x15F)
-019A Uncompressed Length   447 (0x1BF)
-019E Filename Length       10 (0xA)
-01A0 Extra Length          0 (0x0)
+018C Compression Method    0x000A [10] 'PKWARE Data Compression Library Imploding'
+018E Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+0192 CRC                   0x41F5C83C [1106626620]
+0196 Compressed Length     0x0000015F [351]
+019A Uncompressed Length   0x000001BF [447]
+019E Filename Length       0x000A [10]
+01A0 Extra Length          0x0000 [0]
 01A2 Filename              'lorem2.txt'
 01AC PAYLOAD
 
-030B CENTRAL HEADER #1     33639248 (0x2014B50)
-030F Created Zip Spec      65 (0x41) '6.5'
-0310 Created OS            0 (0x0) 'MS-DOS'
-0311 Extract Zip Spec      25 (0x19) '2.5'
-0312 Extract OS            0 (0x0) 'MS-DOS'
-0313 General Purpose Flag  2048 (0x800)
+030B CENTRAL HEADER #1     0x02014B50 [33639248]
+030F Created Zip Spec      0x41 [65] '6.5'
+0310 Created OS            0x00 [0] 'MS-DOS'
+0311 Extract Zip Spec      0x19 [25] '2.5'
+0312 Extract OS            0x00 [0] 'MS-DOS'
+0313 General Purpose Flag  0x0800 [2048]
      [Bit 11]              1 'Language Encoding'
-0315 Compression Method    10 (0xA) 'PKWARE Data Compression Library Imploding'
-0317 Last Mod Time         1425438931 (0x54F678D3) 'Fri Jul 22 15:06:38 2022'
-031B CRC                   4178503679 (0xF90EE7FF)
-031F Compressed Length     349 (0x15D)
-0323 Uncompressed Length   446 (0x1BE)
-0327 Filename Length       9 (0x9)
-0329 Extra Length          36 (0x24)
-032B Comment Length        0 (0x0)
-032D Disk Start            0 (0x0)
-032F Int File Attributes   1 (0x1)
+0315 Compression Method    0x000A [10] 'PKWARE Data Compression Library Imploding'
+0317 Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+031B CRC                   0xF90EE7FF [4178503679]
+031F Compressed Length     0x0000015D [349]
+0323 Uncompressed Length   0x000001BE [446]
+0327 Filename Length       0x0009 [9]
+0329 Extra Length          0x0024 [36]
+032B Comment Length        0x0000 [0]
+032D Disk Start            0x0000 [0]
+032F Int File Attributes   0x0001 [1]
      [Bit 0]               1 'Text Data'
-0331 Ext File Attributes   32 (0x20)
+0331 Ext File Attributes   0x00000020 [32]
      [Bit 5]               Archive
-0335 Local Header Offset   0 (0x0)
+0335 Local Header Offset   0x00000000 [0]
 0339 Filename              'lorem.txt'
-0342 Extra ID #1           10 (0xA) 'NTFS FileTimes'
-0344   Length              32 (0x20)
-0346   Reserved            0 (0x0)
-034A   Tag1                1 (0x1)
-034C   Size1               24 (0x18)
-034E   Mtime               133029723980000000 (0x1D89DD442656B00) 'Fri Jul 22 14:06:38 2022 0ns'
-0356   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
-035E   Ctime               133031423060605725 (0x1D89F5FDB7DFB1D) 'Sun Jul 24 13:18:26 2022 60572500ns'
+0342 Extra ID #1           0x000A [10] 'NTFS FileTimes'
+0344   Length              0x0020 [32]
+0346   Reserved            0x00000000 [0]
+034A   Tag1                0x0001 [1]
+034C   Size1               0x0018 [24]
+034E   Mtime               0x01D89DD442656B00 [133029723980000000] 'Fri Jul 22 14:06:38 2022 0ns'
+0356   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+035E   Ctime               0x01D89F5FDB7DFB1D [133031423060605725] 'Sun Jul 24 13:18:26 2022 60572500ns'
 
-0366 CENTRAL HEADER #2     33639248 (0x2014B50)
-036A Created Zip Spec      65 (0x41) '6.5'
-036B Created OS            0 (0x0) 'MS-DOS'
-036C Extract Zip Spec      25 (0x19) '2.5'
-036D Extract OS            0 (0x0) 'MS-DOS'
-036E General Purpose Flag  2048 (0x800)
+0366 CENTRAL HEADER #2     0x02014B50 [33639248]
+036A Created Zip Spec      0x41 [65] '6.5'
+036B Created OS            0x00 [0] 'MS-DOS'
+036C Extract Zip Spec      0x19 [25] '2.5'
+036D Extract OS            0x00 [0] 'MS-DOS'
+036E General Purpose Flag  0x0800 [2048]
      [Bit 11]              1 'Language Encoding'
-0370 Compression Method    10 (0xA) 'PKWARE Data Compression Library Imploding'
-0372 Last Mod Time         1425895077 (0x54FD6EA5) 'Fri Jul 29 13:53:10 2022'
-0376 CRC                   1106626620 (0x41F5C83C)
-037A Compressed Length     351 (0x15F)
-037E Uncompressed Length   447 (0x1BF)
-0382 Filename Length       10 (0xA)
-0384 Extra Length          36 (0x24)
-0386 Comment Length        0 (0x0)
-0388 Disk Start            0 (0x0)
-038A Int File Attributes   1 (0x1)
+0370 Compression Method    0x000A [10] 'PKWARE Data Compression Library Imploding'
+0372 Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+0376 CRC                   0x41F5C83C [1106626620]
+037A Compressed Length     0x0000015F [351]
+037E Uncompressed Length   0x000001BF [447]
+0382 Filename Length       0x000A [10]
+0384 Extra Length          0x0024 [36]
+0386 Comment Length        0x0000 [0]
+0388 Disk Start            0x0000 [0]
+038A Int File Attributes   0x0001 [1]
      [Bit 0]               1 'Text Data'
-038C Ext File Attributes   32 (0x20)
+038C Ext File Attributes   0x00000020 [32]
      [Bit 5]               Archive
-0390 Local Header Offset   388 (0x184)
+0390 Local Header Offset   0x00000184 [388]
 0394 Filename              'lorem2.txt'
-039E Extra ID #1           10 (0xA) 'NTFS FileTimes'
-03A0   Length              32 (0x20)
-03A2   Reserved            0 (0x0)
-03A6   Tag1                1 (0x1)
-03A8   Size1               24 (0x18)
-03AA   Mtime               133035727892179476 (0x1D8A34A2772EA14) 'Fri Jul 29 12:53:09 2022 217947600ns'
-03B2   Atime               133037294377146274 (0x1D8A4B6E13A97A2) 'Sun Jul 31 08:23:57 2022 714627400ns'
-03BA   Ctime               133035727789803715 (0x1D8A34A2158C8C3) 'Fri Jul 29 12:52:58 2022 980371500ns'
+039E Extra ID #1           0x000A [10] 'NTFS FileTimes'
+03A0   Length              0x0020 [32]
+03A2   Reserved            0x00000000 [0]
+03A6   Tag1                0x0001 [1]
+03A8   Size1               0x0018 [24]
+03AA   Mtime               0x01D8A34A2772EA14 [133035727892179476] 'Fri Jul 29 12:53:09 2022 217947600ns'
+03B2   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+03BA   Ctime               0x01D8A34A2158C8C3 [133035727789803715] 'Fri Jul 29 12:52:58 2022 980371500ns'
 
-03C2 END CENTRAL HEADER    101010256 (0x6054B50)
-03C6 Number of this disk   0 (0x0)
-03C8 Central Dir Disk no   0 (0x0)
-03CA Entries in this disk  2 (0x2)
-03CC Total Entries         2 (0x2)
-03CE Size of Central Dir   183 (0xB7)
-03D2 Offset to Central Dir 779 (0x30B)
-03D6 Comment Length        0 (0x0)
+03C2 END CENTRAL HEADER    0x06054B50 [101010256]
+03C6 Number of this disk   0x0000 [0]
+03C8 Central Dir Disk no   0x0000 [0]
+03CA Entries in this disk  0x0002 [2]
+03CC Total Entries         0x0002 [2]
+03CE Size of Central Dir   0x000000B7 [183]
+03D2 Offset to Central Dir 0x0000030B [779]
+03D6 Comment Length        0x0000 [0]
 #
 # Done
