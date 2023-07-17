@@ -1,51 +1,51 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
-0008 0009 0002 5F 00       Compression Method    0x005F [95] 'XZ'
-000A 000D 0004 E1 B2 F5 50 Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
-000E 0011 0004 FF E7 0E F9 CRC                   0xF90EE7FF [4178503679]
-0012 0015 0004 8C 01 00 00 Compressed Length     0x0000018C [396]
-0016 0019 0004 BE 01 00 00 Uncompressed Length   0x000001BE [446]
-001A 001B 0002 09 00       Filename Length       0x0009 [9]
-001C 001D 0002 00 00       Extra Length          0x0000 [0]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
+0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 [0]
+0008 0009 0002 5F 00       Compression Method    005F [95] 'XZ'
+000A 000D 0004 E1 B2 F5 50 Last Mod Time         50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
+0012 0015 0004 8C 01 00 00 Compressed Length     0000018C [396]
+0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
+001A 001B 0002 09 00       Filename Length       0009 [9]
+001C 001D 0002 00 00       Extra Length          0000 [0]
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 0027 01B2 018C ...         PAYLOAD
 
-01B3 01B6 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
-01B7 01B7 0001 14          Created Zip Spec      0x14 [20] '2.0'
-01B8 01B8 0001 00          Created OS            0x00 [0] 'MS-DOS'
-01B9 01B9 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-01BA 01BA 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-01BB 01BC 0002 00 00       General Purpose Flag  0x0000 [0]
-01BD 01BE 0002 5F 00       Compression Method    0x005F [95] 'XZ'
-01BF 01C2 0004 E1 B2 F5 50 Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
-01C3 01C6 0004 FF E7 0E F9 CRC                   0xF90EE7FF [4178503679]
-01C7 01CA 0004 8C 01 00 00 Compressed Length     0x0000018C [396]
-01CB 01CE 0004 BE 01 00 00 Uncompressed Length   0x000001BE [446]
-01CF 01D0 0002 09 00       Filename Length       0x0009 [9]
-01D1 01D2 0002 00 00       Extra Length          0x0000 [0]
-01D3 01D4 0002 00 00       Comment Length        0x0000 [0]
-01D5 01D6 0002 00 00       Disk Start            0x0000 [0]
-01D7 01D8 0002 01 00       Int File Attributes   0x0001 [1]
+01B3 01B6 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
+01B7 01B7 0001 14          Created Zip Spec      14 [20] '2.0'
+01B8 01B8 0001 00          Created OS            00 [0] 'MS-DOS'
+01B9 01B9 0001 14          Extract Zip Spec      14 [20] '2.0'
+01BA 01BA 0001 00          Extract OS            00 [0] 'MS-DOS'
+01BB 01BC 0002 00 00       General Purpose Flag  0000 [0]
+01BD 01BE 0002 5F 00       Compression Method    005F [95] 'XZ'
+01BF 01C2 0004 E1 B2 F5 50 Last Mod Time         50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+01C3 01C6 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
+01C7 01CA 0004 8C 01 00 00 Compressed Length     0000018C [396]
+01CB 01CE 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
+01CF 01D0 0002 09 00       Filename Length       0009 [9]
+01D1 01D2 0002 00 00       Extra Length          0000 [0]
+01D3 01D4 0002 00 00       Comment Length        0000 [0]
+01D5 01D6 0002 00 00       Disk Start            0000 [0]
+01D7 01D8 0002 01 00       Int File Attributes   0001 [1]
                            [Bit 0]               1 'Text Data'
-01D9 01DC 0004 20 00 00 00 Ext File Attributes   0x00000020 [32]
+01D9 01DC 0004 20 00 00 00 Ext File Attributes   00000020 [32]
                            [Bit 5]               Archive
-01DD 01E0 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+01DD 01E0 0004 00 00 00 00 Local Header Offset   00000000 [0]
 01E1 01E9 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
 
-01EA 01ED 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-01EE 01EF 0002 00 00       Number of this disk   0x0000 [0]
-01F0 01F1 0002 00 00       Central Dir Disk no   0x0000 [0]
-01F2 01F3 0002 01 00       Entries in this disk  0x0001 [1]
-01F4 01F5 0002 01 00       Total Entries         0x0001 [1]
-01F6 01F9 0004 37 00 00 00 Size of Central Dir   0x00000037 [55]
-01FA 01FD 0004 B3 01 00 00 Offset to Central Dir 0x000001B3 [435]
-01FE 01FF 0002 00 00       Comment Length        0x0000 [0]
+01EA 01ED 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+01EE 01EF 0002 00 00       Number of this disk   0000 [0]
+01F0 01F1 0002 00 00       Central Dir Disk no   0000 [0]
+01F2 01F3 0002 01 00       Entries in this disk  0001 [1]
+01F4 01F5 0002 01 00       Total Entries         0001 [1]
+01F6 01F9 0004 37 00 00 00 Size of Central Dir   00000037 [55]
+01FA 01FD 0004 B3 01 00 00 Offset to Central Dir 000001B3 [435]
+01FE 01FF 0002 00 00       Comment Length        0000 [0]
 #
 # Done

@@ -1,98 +1,98 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x2D [45] '4.5'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
-0008 Compression Method    0x0000 [0] 'Stored'
-000A Last Mod Time         0x50C18861 [1354860641] 'Mon Jun  1 17:03:02 2020'
-000E CRC                   0x72051312 [1912935186]
-0012 Compressed Length     0xFFFFFFFF [4294967295]
-0016 Uncompressed Length   0xFFFFFFFF [4294967295]
-001A Filename Length       0x0008 [8]
-001C Extra Length          0x0030 [48]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      2D [45] '4.5'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
+0008 Compression Method    0000 [0] 'Stored'
+000A Last Mod Time         50C18861 [1354860641] 'Mon Jun  1 17:03:02 2020'
+000E CRC                   72051312 [1912935186]
+0012 Compressed Length     FFFFFFFF [4294967295]
+0016 Uncompressed Length   FFFFFFFF [4294967295]
+001A Filename Length       0008 [8]
+001C Extra Length          0030 [48]
 001E Filename              'data.txt'
-0026 Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-0028   Length              0x0009 [9]
-002A   Flags               0x03 [3] 'mod access'
-002B   Mod Time            0x5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
-002F   Access Time         0x5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
-0033 Extra ID #2           0x7875 [30837] 'Unix Extra type 3 [ux]'
-0035   Length              0x000B [11]
-0037   Version             0x01 [1]
-0038   UID Size            0x04 [4]
-0039   UID                 0x000003E8 [1000]
-003D   GID Size            0x04 [4]
-003E   GID                 0x000003E8 [1000]
-0042 Extra ID #3           0x0001 [1] 'ZIP64'
-0044   Length              0x0010 [16]
-0046   Uncompressed Size   0x000000000000000F [15]
-004E   Compressed Size     0x000000000000000F [15]
+0026 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+0028   Length              0009 [9]
+002A   Flags               03 [3] 'mod access'
+002B   Mod Time            5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
+002F   Access Time         5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
+0033 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
+0035   Length              000B [11]
+0037   Version             01 [1]
+0038   UID Size            04 [4]
+0039   UID                 000003E8 [1000]
+003D   GID Size            04 [4]
+003E   GID                 000003E8 [1000]
+0042 Extra ID #3           0001 [1] 'ZIP64'
+0044   Length              0010 [16]
+0046   Uncompressed Size   000000000000000F [15]
+004E   Compressed Size     000000000000000F [15]
 0056 PAYLOAD               this is a test.
 
-0065 CENTRAL HEADER #1     0x02014B50 [33639248]
-0069 Created Zip Spec      0x1E [30] '3.0'
-006A Created OS            0x03 [3] 'Unix'
-006B Extract Zip Spec      0x2D [45] '4.5'
-006C Extract OS            0x00 [0] 'MS-DOS'
-006D General Purpose Flag  0x0000 [0]
-006F Compression Method    0x0000 [0] 'Stored'
-0071 Last Mod Time         0x50C18861 [1354860641] 'Mon Jun  1 17:03:02 2020'
-0075 CRC                   0x72051312 [1912935186]
-0079 Compressed Length     0x0000000F [15]
-007D Uncompressed Length   0xFFFFFFFF [4294967295]
-0081 Filename Length       0x0008 [8]
-0083 Extra Length          0x0024 [36]
-0085 Comment Length        0x0000 [0]
-0087 Disk Start            0x0000 [0]
-0089 Int File Attributes   0x0001 [1]
+0065 CENTRAL HEADER #1     02014B50 [33639248]
+0069 Created Zip Spec      1E [30] '3.0'
+006A Created OS            03 [3] 'Unix'
+006B Extract Zip Spec      2D [45] '4.5'
+006C Extract OS            00 [0] 'MS-DOS'
+006D General Purpose Flag  0000 [0]
+006F Compression Method    0000 [0] 'Stored'
+0071 Last Mod Time         50C18861 [1354860641] 'Mon Jun  1 17:03:02 2020'
+0075 CRC                   72051312 [1912935186]
+0079 Compressed Length     0000000F [15]
+007D Uncompressed Length   FFFFFFFF [4294967295]
+0081 Filename Length       0008 [8]
+0083 Extra Length          0024 [36]
+0085 Comment Length        0000 [0]
+0087 Disk Start            0000 [0]
+0089 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-008B Ext File Attributes   0x81B40000 [2176057344]
-     [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-008F Local Header Offset   0x00000000 [0]
+008B Ext File Attributes   81B40000 [2176057344]
+     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+008F Local Header Offset   00000000 [0]
 0093 Filename              'data.txt'
-009B Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-009D   Length              0x0005 [5]
-009F   Flags               0x03 [3] 'mod access'
-00A0   Mod Time            0x5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
-00A4 Extra ID #2           0x7875 [30837] 'Unix Extra type 3 [ux]'
-00A6   Length              0x000B [11]
-00A8   Version             0x01 [1]
-00A9   UID Size            0x04 [4]
-00AA   UID                 0x000003E8 [1000]
-00AE   GID Size            0x04 [4]
-00AF   GID                 0x000003E8 [1000]
-00B3 Extra ID #3           0x0001 [1] 'ZIP64'
-00B5   Length              0x0008 [8]
-00B7   Uncompressed Size   0x000000000000000F [15]
+009B Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+009D   Length              0005 [5]
+009F   Flags               03 [3] 'mod access'
+00A0   Mod Time            5ED526B6 [1591027382] 'Mon Jun  1 16:03:02 2020'
+00A4 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
+00A6   Length              000B [11]
+00A8   Version             01 [1]
+00A9   UID Size            04 [4]
+00AA   UID                 000003E8 [1000]
+00AE   GID Size            04 [4]
+00AF   GID                 000003E8 [1000]
+00B3 Extra ID #3           0001 [1] 'ZIP64'
+00B5   Length              0008 [8]
+00B7   Uncompressed Size   000000000000000F [15]
 
-00BF ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
+00BF ZIP64 END CENTRAL DIR 06064B50 [101075792]
      RECORD
-00C3 Size of record        0x000000000000002C [44]
-00CB Created Zip Spec      0x1E [30] '3.0'
-00CC Created OS            0x03 [3] 'Unix'
-00CD Extract Zip Spec      0x2D [45] '4.5'
-00CE Extract OS            0x00 [0] 'MS-DOS'
-00CF Number of this disk   0x00000000 [0]
-00D3 Central Dir Disk no   0x00000000 [0]
-00D7 Entries in this disk  0x0000000000000001 [1]
-00DF Total Entries         0x0000000000000001 [1]
-00E7 Size of Central Dir   0x000000000000005A [90]
-00EF Offset to Central dir 0x0000000000000065 [101]
+00C3 Size of record        000000000000002C [44]
+00CB Created Zip Spec      1E [30] '3.0'
+00CC Created OS            03 [3] 'Unix'
+00CD Extract Zip Spec      2D [45] '4.5'
+00CE Extract OS            00 [0] 'MS-DOS'
+00CF Number of this disk   00000000 [0]
+00D3 Central Dir Disk no   00000000 [0]
+00D7 Entries in this disk  0000000000000001 [1]
+00DF Total Entries         0000000000000001 [1]
+00E7 Size of Central Dir   000000000000005A [90]
+00EF Offset to Central dir 0000000000000065 [101]
 
-00F7 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
+00F7 ZIP64 END CENTRAL DIR 07064B50 [117853008]
      LOCATOR
-00FB Central Dir Disk no   0x00000000 [0]
-00FF Offset to Zip64 EOCD  0x00000000000000BF [191]
-0107 Total no of Disks     0x00000000 [0]
+00FB Central Dir Disk no   00000000 [0]
+00FF Offset to Zip64 EOCD  00000000000000BF [191]
+0107 Total no of Disks     00000000 [0]
 
-010B END CENTRAL HEADER    0x06054B50 [101010256]
-010F Number of this disk   0x0000 [0]
-0111 Central Dir Disk no   0x0000 [0]
-0113 Entries in this disk  0x0001 [1]
-0115 Total Entries         0x0001 [1]
-0117 Size of Central Dir   0x0000005A [90]
-011B Offset to Central Dir 0xFFFFFFFF [4294967295]
-011F Comment Length        0x0000 [0]
+010B END CENTRAL HEADER    06054B50 [101010256]
+010F Number of this disk   0000 [0]
+0111 Central Dir Disk no   0000 [0]
+0113 Entries in this disk  0001 [1]
+0115 Total Entries         0001 [1]
+0117 Size of Central Dir   0000005A [90]
+011B Offset to Central Dir FFFFFFFF [4294967295]
+011F Comment Length        0000 [0]
 #
 # Done

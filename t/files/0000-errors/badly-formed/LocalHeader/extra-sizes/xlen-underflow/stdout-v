@@ -1,60 +1,60 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
-0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-000A 000D 0004 6A 8A 5D 55 Last Mod Time         0x555D8A6A [1432193642] 'Sat Oct 29 17:19:20 2022'
-000E 0011 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
-0012 0015 0004 05 00 00 00 Compressed Length     0x00000005 [5]
-0016 0019 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
-001A 001B 0002 08 00       Filename Length       0x0008 [8]
-001C 001D 0002 09 00       Extra Length          0x0009 [9]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
+0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 [0]
+0008 0009 0002 00 00       Compression Method    0000 [0] 'Stored'
+000A 000D 0004 6A 8A 5D 55 Last Mod Time         555D8A6A [1432193642] 'Sat Oct 29 17:19:20 2022'
+000E 0011 0004 65 D8 87 85 CRC                   8587D865 [2240272485]
+0012 0015 0004 05 00 00 00 Compressed Length     00000005 [5]
+0016 0019 0004 05 00 00 00 Uncompressed Length   00000005 [5]
+001A 001B 0002 08 00       Filename Length       0008 [8]
+001C 001D 0002 09 00       Extra Length          0009 [9]
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 FF FF       Extra ID #1           0xFFFF [65535] 'DUMMY'
-0028 0029 0002 05 00         Length              0x0005 [5]
-002A 002D 0004 31 32 33 34   Data                0x34333231 [875770417]
+0026 0027 0002 FF FF       Extra ID #1           FFFF [65535] 'DUMMY'
+0028 0029 0002 05 00         Length              0005 [5]
+002A 002D 0004 31 32 33 34   Data                34333231 [875770417]
 #
-# ERROR: Offset 0x2E: Expected to be at offset 0x2F [47] after processing Extra Field 'DUMMY' (ID 0xFFFF), actually at 0x2E [46]
-#        Skipping 0x1 [1] bytes
+# ERROR: Offset 0x2E: Expected to be at offset 2F [47] after processing Extra Field 'DUMMY' (ID 0xFFFF), actually at 2E [46]
+#        Skipping 1 [1] bytes
 #
 002E 002E 0001 35            Extra Data          5
 002F 0033 0005 61 62 63 64 PAYLOAD               abcde
                65
 
-0034 0037 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
-0038 0038 0001 14          Created Zip Spec      0x14 [20] '2.0'
-0039 0039 0001 03          Created OS            0x03 [3] 'Unix'
-003A 003A 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-003B 003B 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-003C 003D 0002 00 00       General Purpose Flag  0x0000 [0]
-003E 003F 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-0040 0043 0004 6A 8A 5D 55 Last Mod Time         0x555D8A6A [1432193642] 'Sat Oct 29 17:19:20 2022'
-0044 0047 0004 65 D8 87 85 CRC                   0x8587D865 [2240272485]
-0048 004B 0004 05 00 00 00 Compressed Length     0x00000005 [5]
-004C 004F 0004 05 00 00 00 Uncompressed Length   0x00000005 [5]
-0050 0051 0002 08 00       Filename Length       0x0008 [8]
-0052 0053 0002 00 00       Extra Length          0x0000 [0]
-0054 0055 0002 00 00       Comment Length        0x0000 [0]
-0056 0057 0002 00 00       Disk Start            0x0000 [0]
-0058 0059 0002 00 00       Int File Attributes   0x0000 [0]
+0034 0037 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
+0038 0038 0001 14          Created Zip Spec      14 [20] '2.0'
+0039 0039 0001 03          Created OS            03 [3] 'Unix'
+003A 003A 0001 14          Extract Zip Spec      14 [20] '2.0'
+003B 003B 0001 00          Extract OS            00 [0] 'MS-DOS'
+003C 003D 0002 00 00       General Purpose Flag  0000 [0]
+003E 003F 0002 00 00       Compression Method    0000 [0] 'Stored'
+0040 0043 0004 6A 8A 5D 55 Last Mod Time         555D8A6A [1432193642] 'Sat Oct 29 17:19:20 2022'
+0044 0047 0004 65 D8 87 85 CRC                   8587D865 [2240272485]
+0048 004B 0004 05 00 00 00 Compressed Length     00000005 [5]
+004C 004F 0004 05 00 00 00 Uncompressed Length   00000005 [5]
+0050 0051 0002 08 00       Filename Length       0008 [8]
+0052 0053 0002 00 00       Extra Length          0000 [0]
+0054 0055 0002 00 00       Comment Length        0000 [0]
+0056 0057 0002 00 00       Disk Start            0000 [0]
+0058 0059 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-005A 005D 0004 00 00 A4 81 Ext File Attributes   0x81A40000 [2175008768]
-                           [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          0x08 [8] 'Regular File'
-005E 0061 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+005A 005D 0004 00 00 A4 81 Ext File Attributes   81A40000 [2175008768]
+                           [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 [8] 'Regular File'
+005E 0061 0004 00 00 00 00 Local Header Offset   00000000 [0]
 0062 0069 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
 
-006A 006D 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-006E 006F 0002 00 00       Number of this disk   0x0000 [0]
-0070 0071 0002 00 00       Central Dir Disk no   0x0000 [0]
-0072 0073 0002 01 00       Entries in this disk  0x0001 [1]
-0074 0075 0002 01 00       Total Entries         0x0001 [1]
-0076 0079 0004 36 00 00 00 Size of Central Dir   0x00000036 [54]
-007A 007D 0004 34 00 00 00 Offset to Central Dir 0x00000034 [52]
-007E 007F 0002 00 00       Comment Length        0x0000 [0]
+006A 006D 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+006E 006F 0002 00 00       Number of this disk   0000 [0]
+0070 0071 0002 00 00       Central Dir Disk no   0000 [0]
+0072 0073 0002 01 00       Entries in this disk  0001 [1]
+0074 0075 0002 01 00       Total Entries         0001 [1]
+0076 0079 0004 36 00 00 00 Size of Central Dir   00000036 [54]
+007A 007D 0004 34 00 00 00 Offset to Central Dir 00000034 [52]
+007E 007F 0002 00 00       Comment Length        0000 [0]
 #
 # Error Count: 1
 #

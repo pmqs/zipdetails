@@ -1,55 +1,55 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0x0008 [8] 'Deflated'
-000A Last Mod Time         0x559D5662 [1436374626] 'Thu Dec 29 10:51:04 2022'
-000E CRC                   0x00000000 [0]
-0012 Compressed Length     0x00000000 [0]
-0016 Uncompressed Length   0x00000000 [0]
-001A Filename Length       0x0009 [9]
-001C Extra Length          0x0000 [0]
+0008 Compression Method    0008 [8] 'Deflated'
+000A Last Mod Time         559D5662 [1436374626] 'Thu Dec 29 10:51:04 2022'
+000E CRC                   00000000 [0]
+0012 Compressed Length     00000000 [0]
+0016 Uncompressed Length   00000000 [0]
+001A Filename Length       0009 [9]
+001C Extra Length          0000 [0]
 001E Filename              'lorem.txt'
 
 0027 UNEXPECTED PADDING
 #
-# INFO: Offset 0x27: 0x11E [286] Unexpected Padding bytes
+# INFO: Offset 0x27: 11E [286] Unexpected Padding bytes
 #
 
-0145 CENTRAL HEADER #1     0x02014B50 [33639248]
-0149 Created Zip Spec      0x14 [20] '2.0'
-014A Created OS            0x03 [3] 'Unix'
-014B Extract Zip Spec      0x14 [20] '2.0'
-014C Extract OS            0x00 [0] 'MS-DOS'
-014D General Purpose Flag  0x0000 [0]
+0145 CENTRAL HEADER #1     02014B50 [33639248]
+0149 Created Zip Spec      14 [20] '2.0'
+014A Created OS            03 [3] 'Unix'
+014B Extract Zip Spec      14 [20] '2.0'
+014C Extract OS            00 [0] 'MS-DOS'
+014D General Purpose Flag  0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-014F Compression Method    0x0008 [8] 'Deflated'
-0151 Last Mod Time         0x559D5662 [1436374626] 'Thu Dec 29 10:51:04 2022'
-0155 CRC                   0xF90EE7FF [4178503679]
-0159 Compressed Length     0x0000010E [270]
-015D Uncompressed Length   0x000001BE [446]
-0161 Filename Length       0x0009 [9]
-0163 Extra Length          0x0000 [0]
-0165 Comment Length        0x0000 [0]
-0167 Disk Start            0x0000 [0]
-0169 Int File Attributes   0x0001 [1]
+014F Compression Method    0008 [8] 'Deflated'
+0151 Last Mod Time         559D5662 [1436374626] 'Thu Dec 29 10:51:04 2022'
+0155 CRC                   F90EE7FF [4178503679]
+0159 Compressed Length     0000010E [270]
+015D Uncompressed Length   000001BE [446]
+0161 Filename Length       0009 [9]
+0163 Extra Length          0000 [0]
+0165 Comment Length        0000 [0]
+0167 Disk Start            0000 [0]
+0169 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-016B Ext File Attributes   0x81A40000 [2175008768]
-     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-016F Local Header Offset   0x00000000 [0]
+016B Ext File Attributes   81A40000 [2175008768]
+     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+016F Local Header Offset   00000000 [0]
 0173 Filename              'lorem.txt'
 
-017C END CENTRAL HEADER    0x06054B50 [101010256]
-0180 Number of this disk   0x0000 [0]
-0182 Central Dir Disk no   0x0000 [0]
-0184 Entries in this disk  0x0001 [1]
-0186 Total Entries         0x0001 [1]
-0188 Size of Central Dir   0x00000037 [55]
-018C Offset to Central Dir 0x00000145 [325]
-0190 Comment Length        0x0000 [0]
+017C END CENTRAL HEADER    06054B50 [101010256]
+0180 Number of this disk   0000 [0]
+0182 Central Dir Disk no   0000 [0]
+0184 Entries in this disk  0001 [1]
+0186 Total Entries         0001 [1]
+0188 Size of Central Dir   00000037 [55]
+018C Offset to Central Dir 00000145 [325]
+0190 Comment Length        0000 [0]
 #
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
 #

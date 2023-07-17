@@ -1,95 +1,95 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
+0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0008 0009 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-000A 000D 0004 A0 6C 48 05 Last Mod Time         0x05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
-000E 0011 0004 C3 F1 D4 19 CRC                   0x19D4F1C3 [433385923]
-0012 0015 0004 00 08 00 00 Compressed Length     0x00000800 [2048]
-0016 0019 0004 89 03 20 00 Uncompressed Length   0x00200389 [2098057]
-001A 001B 0002 01 00       Filename Length       0x0001 [1]
-001C 001D 0002 00 00       Extra Length          0x0000 [0]
+0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
+000A 000D 0004 A0 6C 48 05 Last Mod Time         05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
+000E 0011 0004 C3 F1 D4 19 CRC                   19D4F1C3 [433385923]
+0012 0015 0004 00 08 00 00 Compressed Length     00000800 [2048]
+0016 0019 0004 89 03 20 00 Uncompressed Length   00200389 [2098057]
+001A 001B 0002 01 00       Filename Length       0001 [1]
+001C 001D 0002 00 00       Extra Length          0000 [0]
 001E 001E 0001 30          Filename              '0'
 001F 081E 0800 ...         PAYLOAD
 
-081F 0822 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
-0823 0823 0001 14          Created Zip Spec      0x14 [20] '2.0'
-0824 0824 0001 00          Created OS            0x00 [0] 'MS-DOS'
-0825 0825 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0826 0826 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0827 0828 0002 00 00       General Purpose Flag  0x0000 [0]
+081F 0822 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
+0823 0823 0001 14          Created Zip Spec      14 [20] '2.0'
+0824 0824 0001 00          Created OS            00 [0] 'MS-DOS'
+0825 0825 0001 14          Extract Zip Spec      14 [20] '2.0'
+0826 0826 0001 00          Extract OS            00 [0] 'MS-DOS'
+0827 0828 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0829 082A 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-082B 082E 0004 A0 6C 48 05 Last Mod Time         0x05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
-082F 0832 0004 C3 F1 D4 19 CRC                   0x19D4F1C3 [433385923]
-0833 0836 0004 00 08 00 00 Compressed Length     0x00000800 [2048]
-0837 083A 0004 89 03 20 00 Uncompressed Length   0x00200389 [2098057]
-083B 083C 0002 01 00       Filename Length       0x0001 [1]
-083D 083E 0002 00 00       Extra Length          0x0000 [0]
-083F 0840 0002 00 00       Comment Length        0x0000 [0]
-0841 0842 0002 00 00       Disk Start            0x0000 [0]
-0843 0844 0002 00 00       Int File Attributes   0x0000 [0]
+0829 082A 0002 08 00       Compression Method    0008 [8] 'Deflated'
+082B 082E 0004 A0 6C 48 05 Last Mod Time         05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
+082F 0832 0004 C3 F1 D4 19 CRC                   19D4F1C3 [433385923]
+0833 0836 0004 00 08 00 00 Compressed Length     00000800 [2048]
+0837 083A 0004 89 03 20 00 Uncompressed Length   00200389 [2098057]
+083B 083C 0002 01 00       Filename Length       0001 [1]
+083D 083E 0002 00 00       Extra Length          0000 [0]
+083F 0840 0002 00 00       Comment Length        0000 [0]
+0841 0842 0002 00 00       Disk Start            0000 [0]
+0843 0844 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-0845 0848 0004 00 00 00 00 Ext File Attributes   0x00000000 [0]
-0849 084C 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+0845 0848 0004 00 00 00 00 Ext File Attributes   00000000 [0]
+0849 084C 0004 00 00 00 00 Local Header Offset   00000000 [0]
 084D 084D 0001 30          Filename              '0'
 
-084E 0851 0004 50 4B 01 02 CENTRAL HEADER #2     0x02014B50 [33639248]
-0852 0852 0001 14          Created Zip Spec      0x14 [20] '2.0'
-0853 0853 0001 00          Created OS            0x00 [0] 'MS-DOS'
-0854 0854 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0855 0855 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0856 0857 0002 00 00       General Purpose Flag  0x0000 [0]
+084E 0851 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 [33639248]
+0852 0852 0001 14          Created Zip Spec      14 [20] '2.0'
+0853 0853 0001 00          Created OS            00 [0] 'MS-DOS'
+0854 0854 0001 14          Extract Zip Spec      14 [20] '2.0'
+0855 0855 0001 00          Extract OS            00 [0] 'MS-DOS'
+0856 0857 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0858 0859 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-085A 085D 0004 A0 6C 48 05 Last Mod Time         0x05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
-085E 0861 0004 C3 F1 D4 19 CRC                   0x19D4F1C3 [433385923]
-0862 0865 0004 00 08 00 00 Compressed Length     0x00000800 [2048]
-0866 0869 0004 89 03 20 00 Uncompressed Length   0x00200389 [2098057]
-086A 086B 0002 01 00       Filename Length       0x0001 [1]
-086C 086D 0002 00 00       Extra Length          0x0000 [0]
-086E 086F 0002 00 00       Comment Length        0x0000 [0]
-0870 0871 0002 00 00       Disk Start            0x0000 [0]
-0872 0873 0002 00 00       Int File Attributes   0x0000 [0]
+0858 0859 0002 08 00       Compression Method    0008 [8] 'Deflated'
+085A 085D 0004 A0 6C 48 05 Last Mod Time         05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
+085E 0861 0004 C3 F1 D4 19 CRC                   19D4F1C3 [433385923]
+0862 0865 0004 00 08 00 00 Compressed Length     00000800 [2048]
+0866 0869 0004 89 03 20 00 Uncompressed Length   00200389 [2098057]
+086A 086B 0002 01 00       Filename Length       0001 [1]
+086C 086D 0002 00 00       Extra Length          0000 [0]
+086E 086F 0002 00 00       Comment Length        0000 [0]
+0870 0871 0002 00 00       Disk Start            0000 [0]
+0872 0873 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-0874 0877 0004 00 00 00 00 Ext File Attributes   0x00000000 [0]
-0878 087B 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+0874 0877 0004 00 00 00 00 Ext File Attributes   00000000 [0]
+0878 087B 0004 00 00 00 00 Local Header Offset   00000000 [0]
 087C 087C 0001 31          Filename              '1'
 
-087D 0880 0004 50 4B 01 02 CENTRAL HEADER #3     0x02014B50 [33639248]
-0881 0881 0001 14          Created Zip Spec      0x14 [20] '2.0'
-0882 0882 0001 00          Created OS            0x00 [0] 'MS-DOS'
-0883 0883 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0884 0884 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0885 0886 0002 00 00       General Purpose Flag  0x0000 [0]
+087D 0880 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 [33639248]
+0881 0881 0001 14          Created Zip Spec      14 [20] '2.0'
+0882 0882 0001 00          Created OS            00 [0] 'MS-DOS'
+0883 0883 0001 14          Extract Zip Spec      14 [20] '2.0'
+0884 0884 0001 00          Extract OS            00 [0] 'MS-DOS'
+0885 0886 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0887 0888 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-0889 088C 0004 A0 6C 48 05 Last Mod Time         0x05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
-088D 0890 0004 C3 F1 D4 19 CRC                   0x19D4F1C3 [433385923]
-0891 0894 0004 00 08 00 00 Compressed Length     0x00000800 [2048]
-0895 0898 0004 89 03 20 00 Uncompressed Length   0x00200389 [2098057]
-0899 089A 0002 01 00       Filename Length       0x0001 [1]
-089B 089C 0002 00 00       Extra Length          0x0000 [0]
-089D 089E 0002 00 00       Comment Length        0x0000 [0]
-089F 08A0 0002 00 00       Disk Start            0x0000 [0]
-08A1 08A2 0002 00 00       Int File Attributes   0x0000 [0]
+0887 0888 0002 08 00       Compression Method    0008 [8] 'Deflated'
+0889 088C 0004 A0 6C 48 05 Last Mod Time         05486CA0 [88632480] 'Fri Oct  8 13:37:00 1982'
+088D 0890 0004 C3 F1 D4 19 CRC                   19D4F1C3 [433385923]
+0891 0894 0004 00 08 00 00 Compressed Length     00000800 [2048]
+0895 0898 0004 89 03 20 00 Uncompressed Length   00200389 [2098057]
+0899 089A 0002 01 00       Filename Length       0001 [1]
+089B 089C 0002 00 00       Extra Length          0000 [0]
+089D 089E 0002 00 00       Comment Length        0000 [0]
+089F 08A0 0002 00 00       Disk Start            0000 [0]
+08A1 08A2 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-08A3 08A6 0004 00 00 00 00 Ext File Attributes   0x00000000 [0]
-08A7 08AA 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+08A3 08A6 0004 00 00 00 00 Ext File Attributes   00000000 [0]
+08A7 08AA 0004 00 00 00 00 Local Header Offset   00000000 [0]
 08AB 08AB 0001 32          Filename              '2'
 
-08AC 08AF 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-08B0 08B1 0002 00 00       Number of this disk   0x0000 [0]
-08B2 08B3 0002 00 00       Central Dir Disk no   0x0000 [0]
-08B4 08B5 0002 03 00       Entries in this disk  0x0003 [3]
-08B6 08B7 0002 03 00       Total Entries         0x0003 [3]
-08B8 08BB 0004 8D 00 00 00 Size of Central Dir   0x0000008D [141]
-08BC 08BF 0004 1F 08 00 00 Offset to Central Dir 0x0000081F [2079]
-08C0 08C1 0002 00 00       Comment Length        0x0000 [0]
+08AC 08AF 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+08B0 08B1 0002 00 00       Number of this disk   0000 [0]
+08B2 08B3 0002 00 00       Central Dir Disk no   0000 [0]
+08B4 08B5 0002 03 00       Entries in this disk  0003 [3]
+08B6 08B7 0002 03 00       Total Entries         0003 [3]
+08B8 08BB 0004 8D 00 00 00 Size of Central Dir   0000008D [141]
+08BC 08BF 0004 1F 08 00 00 Offset to Central Dir 0000081F [2079]
+08C0 08C1 0002 00 00       Comment Length        0000 [0]
 #
-# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '0' at offset 0x0 [0]
+# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '0' at offset 0 [0]
 #  Offset  Filename
 #   0x81F  '0'
 #   0x84E  '1'

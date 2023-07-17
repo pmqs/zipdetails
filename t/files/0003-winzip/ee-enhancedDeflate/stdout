@@ -1,47 +1,47 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x15 [21] '2.1'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0002 [2]
-0008 Compression Method    0x0009 [9] 'Deflate64'
-000A Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
-000E CRC                   0xF90EE7FF [4178503679]
-0012 Compressed Length     0x00000109 [265]
-0016 Uncompressed Length   0x000001BE [446]
-001A Filename Length       0x0009 [9]
-001C Extra Length          0x0000 [0]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      15 [21] '2.1'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0002 [2]
+0008 Compression Method    0009 [9] 'Deflate64'
+000A Last Mod Time         50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+000E CRC                   F90EE7FF [4178503679]
+0012 Compressed Length     00000109 [265]
+0016 Uncompressed Length   000001BE [446]
+001A Filename Length       0009 [9]
+001C Extra Length          0000 [0]
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-0130 CENTRAL HEADER #1     0x02014B50 [33639248]
-0134 Created Zip Spec      0x15 [21] '2.1'
-0135 Created OS            0x00 [0] 'MS-DOS'
-0136 Extract Zip Spec      0x15 [21] '2.1'
-0137 Extract OS            0x00 [0] 'MS-DOS'
-0138 General Purpose Flag  0x0002 [2]
-013A Compression Method    0x0009 [9] 'Deflate64'
-013C Last Mod Time         0x50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
-0140 CRC                   0xF90EE7FF [4178503679]
-0144 Compressed Length     0x00000109 [265]
-0148 Uncompressed Length   0x000001BE [446]
-014C Filename Length       0x0009 [9]
-014E Extra Length          0x0000 [0]
-0150 Comment Length        0x0000 [0]
-0152 Disk Start            0x0000 [0]
-0154 Int File Attributes   0x0001 [1]
+0130 CENTRAL HEADER #1     02014B50 [33639248]
+0134 Created Zip Spec      15 [21] '2.1'
+0135 Created OS            00 [0] 'MS-DOS'
+0136 Extract Zip Spec      15 [21] '2.1'
+0137 Extract OS            00 [0] 'MS-DOS'
+0138 General Purpose Flag  0002 [2]
+013A Compression Method    0009 [9] 'Deflate64'
+013C Last Mod Time         50F5B2E1 [1358279393] 'Tue Jul 21 22:23:02 2020'
+0140 CRC                   F90EE7FF [4178503679]
+0144 Compressed Length     00000109 [265]
+0148 Uncompressed Length   000001BE [446]
+014C Filename Length       0009 [9]
+014E Extra Length          0000 [0]
+0150 Comment Length        0000 [0]
+0152 Disk Start            0000 [0]
+0154 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0156 Ext File Attributes   0x00000020 [32]
+0156 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-015A Local Header Offset   0x00000000 [0]
+015A Local Header Offset   00000000 [0]
 015E Filename              'lorem.txt'
 
-0167 END CENTRAL HEADER    0x06054B50 [101010256]
-016B Number of this disk   0x0000 [0]
-016D Central Dir Disk no   0x0000 [0]
-016F Entries in this disk  0x0001 [1]
-0171 Total Entries         0x0001 [1]
-0173 Size of Central Dir   0x00000037 [55]
-0177 Offset to Central Dir 0x00000130 [304]
-017B Comment Length        0x0000 [0]
+0167 END CENTRAL HEADER    06054B50 [101010256]
+016B Number of this disk   0000 [0]
+016D Central Dir Disk no   0000 [0]
+016F Entries in this disk  0001 [1]
+0171 Total Entries         0001 [1]
+0173 Size of Central Dir   00000037 [55]
+0177 Offset to Central Dir 00000130 [304]
+017B Comment Length        0000 [0]
 #
 # Done

@@ -1,69 +1,69 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0800 [2048]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    0x0008 [8] 'Deflated'
-000A Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
-000E CRC                   0xF90EE7FF [4178503679]
-0012 Compressed Length     0x0000010E [270]
-0016 Uncompressed Length   0x000001BE [446]
-001A Filename Length       0x0009 [9]
-001C Extra Length          0x0000 [0]
+0008 Compression Method    0008 [8] 'Deflated'
+000A Last Mod Time         54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+000E CRC                   F90EE7FF [4178503679]
+0012 Compressed Length     0000010E [270]
+0016 Uncompressed Length   000001BE [446]
+001A Filename Length       0009 [9]
+001C Extra Length          0000 [0]
 001E Filename              'lorem.txt'
 0027 PAYLOAD
 
-0135 LOCAL HEADER #2       0x04034B50 [67324752]
-0139 Extract Zip Spec      0x14 [20] '2.0'
-013A Extract OS            0x00 [0] 'MS-DOS'
-013B General Purpose Flag  0x0800 [2048]
+0135 LOCAL HEADER #2       04034B50 [67324752]
+0139 Extract Zip Spec      14 [20] '2.0'
+013A Extract OS            00 [0] 'MS-DOS'
+013B General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-013D Compression Method    0x0008 [8] 'Deflated'
-013F Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
-0143 CRC                   0x41F5C83C [1106626620]
-0147 Compressed Length     0x00000110 [272]
-014B Uncompressed Length   0x000001BF [447]
-014F Filename Length       0x000A [10]
-0151 Extra Length          0x0000 [0]
+013D Compression Method    0008 [8] 'Deflated'
+013F Last Mod Time         54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+0143 CRC                   41F5C83C [1106626620]
+0147 Compressed Length     00000110 [272]
+014B Uncompressed Length   000001BF [447]
+014F Filename Length       000A [10]
+0151 Extra Length          0000 [0]
 0153 Filename              'lorem2.txt'
 015D PAYLOAD
 
-026D CENTRAL HEADER #1     0x02014B50 [33639248]
-0271 Created Zip Spec      0x41 [65] '6.5'
-0272 Created OS            0x00 [0] 'MS-DOS'
-0273 Extract Zip Spec      0x14 [20] '2.0'
-0274 Extract OS            0x00 [0] 'MS-DOS'
-0275 General Purpose Flag  0x0800 [2048]
+026D CENTRAL HEADER #1     02014B50 [33639248]
+0271 Created Zip Spec      41 [65] '6.5'
+0272 Created OS            00 [0] 'MS-DOS'
+0273 Extract Zip Spec      14 [20] '2.0'
+0274 Extract OS            00 [0] 'MS-DOS'
+0275 General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-0277 Compression Method    0x0008 [8] 'Deflated'
-0279 Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
-027D CRC                   0xF90EE7FF [4178503679]
-0281 Compressed Length     0x0000010E [270]
-0285 Uncompressed Length   0x000001BE [446]
-0289 Filename Length       0x0009 [9]
-028B Extra Length          0x07BB [1979]
-028D Comment Length        0x0000 [0]
-028F Disk Start            0x0000 [0]
-0291 Int File Attributes   0x0001 [1]
+0277 Compression Method    0008 [8] 'Deflated'
+0279 Last Mod Time         54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+027D CRC                   F90EE7FF [4178503679]
+0281 Compressed Length     0000010E [270]
+0285 Uncompressed Length   000001BE [446]
+0289 Filename Length       0009 [9]
+028B Extra Length          07BB [1979]
+028D Comment Length        0000 [0]
+028F Disk Start            0000 [0]
+0291 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0293 Ext File Attributes   0x00000020 [32]
+0293 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-0297 Local Header Offset   0x00000000 [0]
+0297 Local Header Offset   00000000 [0]
 029B Filename              'lorem.txt'
-02A4 Extra ID #1           0x000A [10] 'NTFS FileTimes'
-02A6   Length              0x0020 [32]
-02A8   Reserved            0x00000000 [0]
-02AC   Tag1                0x0001 [1]
-02AE   Size1               0x0018 [24]
-02B0   Mtime               0x01D89DD442656B00 [133029723980000000] 'Fri Jul 22 14:06:38 2022 0ns'
-02B8   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
-02C0   Ctime               0x01D89F5FDB7DFB1D [133031423060605725] 'Sun Jul 24 13:18:26 2022 60572500ns'
-02C8 Extra ID #2           0x0015 [21] 'X.509 Certificate ID and Signature for individual file'
-02CA   Length              0x0239 [569]
+02A4 Extra ID #1           000A [10] 'NTFS FileTimes'
+02A6   Length              0020 [32]
+02A8   Reserved            00000000 [0]
+02AC   Tag1                0001 [1]
+02AE   Size1               0018 [24]
+02B0   Mtime               01D89DD442656B00 [133029723980000000] 'Fri Jul 22 14:06:38 2022 0ns'
+02B8   Atime               01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+02C0   Ctime               01D89F5FDB7DFB1D [133031423060605725] 'Sun Jul 24 13:18:26 2022 60572500ns'
+02C8 Extra ID #2           0015 [21] 'X.509 Certificate ID and Signature for individual file'
+02CA   Length              0239 [569]
 02CC   Extra Payload       01 00 04 80 31 00 2D 00 00 00 2D 00 00 00 18 00
                            00 00 30 16 31 14 30 12 06 03 55 04 03 0C 0B 65
                            78 61 6D 70 6C 65 2E 63 6F 6D 09 00 00 00 97 9C
@@ -100,14 +100,14 @@
                            41 6C 44 5C AC 4C BC 6E 4C A4 A2 43 B6 DA E3 EB
                            93 B5 7E 26 FA B4 28 4C AA F3 F3 46 BA 87 1F D4
                            34 55 71 D4 63 59 B4 03 40
-0505 Extra ID #3           0x0016 [22] 'X.509 Certificate ID for Central Directory'
-0507   Length              0x0039 [57]
+0505 Extra ID #3           0016 [22] 'X.509 Certificate ID for Central Directory'
+0507   Length              0039 [57]
 0509   Extra Payload       01 00 04 80 31 00 2D 00 00 00 2D 00 00 00 18 00
                            00 00 30 16 31 14 30 12 06 03 55 04 03 0C 0B 65
                            78 61 6D 70 6C 65 2E 63 6F 6D 09 00 00 00 97 9C
                            4A BE 74 0B 4E C9 00 00 00
-0542 Extra ID #4           0x0014 [20] 'PKCS#7 Store for X.509 Certificates'
-0544   Length              0x0519 [1305]
+0542 Extra ID #4           0014 [20] 'PKCS#7 Store for X.509 Certificates'
+0544   Length              0519 [1305]
 0546   Extra Payload       01 00 30 82 05 0F 06 09 2A 86 48 86 F7 0D 01 07
                            02 A0 82 05 00 30 82 04 FC 02 01 01 31 00 30 0B
                            06 09 2A 86 48 86 F7 0D 01 07 01 A0 82 04 E4 30
@@ -191,39 +191,39 @@
                            18 48 CB 9D C7 5C 0B DF 84 7A 02 BC FA 52 C8 63
                            B3 C7 00 31 00 00 00 00 00
 
-0A5F CENTRAL HEADER #2     0x02014B50 [33639248]
-0A63 Created Zip Spec      0x41 [65] '6.5'
-0A64 Created OS            0x00 [0] 'MS-DOS'
-0A65 Extract Zip Spec      0x14 [20] '2.0'
-0A66 Extract OS            0x00 [0] 'MS-DOS'
-0A67 General Purpose Flag  0x0800 [2048]
+0A5F CENTRAL HEADER #2     02014B50 [33639248]
+0A63 Created Zip Spec      41 [65] '6.5'
+0A64 Created OS            00 [0] 'MS-DOS'
+0A65 Extract Zip Spec      14 [20] '2.0'
+0A66 Extract OS            00 [0] 'MS-DOS'
+0A67 General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-0A69 Compression Method    0x0008 [8] 'Deflated'
-0A6B Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
-0A6F CRC                   0x41F5C83C [1106626620]
-0A73 Compressed Length     0x00000110 [272]
-0A77 Uncompressed Length   0x000001BF [447]
-0A7B Filename Length       0x000A [10]
-0A7D Extra Length          0x0261 [609]
-0A7F Comment Length        0x0000 [0]
-0A81 Disk Start            0x0000 [0]
-0A83 Int File Attributes   0x0001 [1]
+0A69 Compression Method    0008 [8] 'Deflated'
+0A6B Last Mod Time         54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+0A6F CRC                   41F5C83C [1106626620]
+0A73 Compressed Length     00000110 [272]
+0A77 Uncompressed Length   000001BF [447]
+0A7B Filename Length       000A [10]
+0A7D Extra Length          0261 [609]
+0A7F Comment Length        0000 [0]
+0A81 Disk Start            0000 [0]
+0A83 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0A85 Ext File Attributes   0x00000020 [32]
+0A85 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-0A89 Local Header Offset   0x00000135 [309]
+0A89 Local Header Offset   00000135 [309]
 0A8D Filename              'lorem2.txt'
-0A97 Extra ID #1           0x000A [10] 'NTFS FileTimes'
-0A99   Length              0x0020 [32]
-0A9B   Reserved            0x00000000 [0]
-0A9F   Tag1                0x0001 [1]
-0AA1   Size1               0x0018 [24]
-0AA3   Mtime               0x01D8A34A2772EA14 [133035727892179476] 'Fri Jul 29 12:53:09 2022 217947600ns'
-0AAB   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
-0AB3   Ctime               0x01D8A34A2158C8C3 [133035727789803715] 'Fri Jul 29 12:52:58 2022 980371500ns'
-0ABB Extra ID #2           0x0015 [21] 'X.509 Certificate ID and Signature for individual file'
-0ABD   Length              0x0239 [569]
+0A97 Extra ID #1           000A [10] 'NTFS FileTimes'
+0A99   Length              0020 [32]
+0A9B   Reserved            00000000 [0]
+0A9F   Tag1                0001 [1]
+0AA1   Size1               0018 [24]
+0AA3   Mtime               01D8A34A2772EA14 [133035727892179476] 'Fri Jul 29 12:53:09 2022 217947600ns'
+0AAB   Atime               01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+0AB3   Ctime               01D8A34A2158C8C3 [133035727789803715] 'Fri Jul 29 12:52:58 2022 980371500ns'
+0ABB Extra ID #2           0015 [21] 'X.509 Certificate ID and Signature for individual file'
+0ABD   Length              0239 [569]
 0ABF   Extra Payload       01 00 04 80 31 00 2D 00 00 00 2D 00 00 00 18 00
                            00 00 30 16 31 14 30 12 06 03 55 04 03 0C 0B 65
                            78 61 6D 70 6C 65 2E 63 6F 6D 09 00 00 00 97 9C
@@ -261,9 +261,9 @@
                            8A FD D0 93 66 00 61 12 70 E4 7B 4A C7 B7 7D 61
                            41 9A 58 7F 3A 71 C5 A0 74
 
-0CF8 DIGITAL SIGNATURE     0x05054B50 [84233040]
+0CF8 DIGITAL SIGNATURE     05054B50 [84233040]
      RECORD
-0CFC Size of record        0x0239 [569]
+0CFC Size of record        0239 [569]
 0CFE Signature             01 00 04 80 31 00 2D 00 00 00 2D 00 00 00 18 00
                            00 00 30 16 31 14 30 12 06 03 55 04 03 0C 0B 65
                            78 61 6D 70 6C 65 2E 63 6F 6D 09 00 00 00 97 9C
@@ -301,13 +301,13 @@
                            84 3F 61 E6 52 5B 3F B0 F9 F1 60 07 1A 14 4E 88
                            93 23 49 85 81 2C 21 98 2F
 
-0F37 END CENTRAL HEADER    0x06054B50 [101010256]
-0F3B Number of this disk   0x0000 [0]
-0F3D Central Dir Disk no   0x0000 [0]
-0F3F Entries in this disk  0x0002 [2]
-0F41 Total Entries         0x0002 [2]
-0F43 Size of Central Dir   0x00000CCA [3274]
-0F47 Offset to Central Dir 0x0000026D [621]
-0F4B Comment Length        0x0000 [0]
+0F37 END CENTRAL HEADER    06054B50 [101010256]
+0F3B Number of this disk   0000 [0]
+0F3D Central Dir Disk no   0000 [0]
+0F3F Entries in this disk  0002 [2]
+0F41 Total Entries         0002 [2]
+0F43 Size of Central Dir   00000CCA [3274]
+0F47 Offset to Central Dir 0000026D [621]
+0F4B Comment Length        0000 [0]
 #
 # Done

@@ -1,76 +1,76 @@
 #
-# INFO: Offset 0x0: found 0x708 [1800] bytes before beginning of zipfile
+# INFO: Offset 0x0: found 708 [1800] bytes before beginning of zipfile
 #
 
 0000 UNEXPECTED PADDING
 
-0708 LOCAL HEADER #1       0x04034B50 [67324752]
-070C Extract Zip Spec      0x14 [20] '2.0'
-070D Extract OS            0x00 [0] 'MS-DOS'
-070E General Purpose Flag  0x080A [2058]
+0708 LOCAL HEADER #1       04034B50 [67324752]
+070C Extract Zip Spec      14 [20] '2.0'
+070D Extract OS            00 [0] 'MS-DOS'
+070E General Purpose Flag  080A [2058]
      [Bits 1-2]            1 'Maximum Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0710 Compression Method    0x0008 [8] 'Deflated'
-0712 Last Mod Time         0x5621712E [1445032238] 'Sun Jan  1 14:09:28 2023'
-0716 CRC                   0x00000000 [0]
-071A Compressed Length     0x00000000 [0]
-071E Uncompressed Length   0x000000CA [202]
-0722 Filename Length       0x0008 [8]
-0724 Extra Length          0x000C [12]
+0710 Compression Method    0008 [8] 'Deflated'
+0712 Last Mod Time         5621712E [1445032238] 'Sun Jan  1 14:09:28 2023'
+0716 CRC                   00000000 [0]
+071A Compressed Length     00000000 [0]
+071E Uncompressed Length   000000CA [202]
+0722 Filename Length       0008 [8]
+0724 Extra Length          000C [12]
 0726 Filename              '__cdcd__'
-072E Extra ID #1           0xCDCD [52685] 'Minizip Central Directory'
-0730   Length              0x0008 [8]
-0732   Entries             0x0000000000000002 [2]
+072E Extra ID #1           CDCD [52685] 'Minizip Central Directory'
+0730   Length              0008 [8]
+0732   Entries             0000000000000002 [2]
 073A PAYLOAD               ..fd.g.a...`.+T.........a=7......*..ONIN....Ra.gP`8...G..Ck...<.D.._...Ty8C.......&.9{..A..7.f...CP.b...w.....@....U....q........T...
                            ..].m.....y87.....}...%....z......=...
 
-07E5 DATA DESCRIPTOR       0x08074B50 [134695760]
-07E9 CRC                   0x9ED5B873 [2664806515]
-07ED Compressed Length     0x000000AB [171]
-07F1 Uncompressed Length   0x000000CA [202]
+07E5 DATA DESCRIPTOR       08074B50 [134695760]
+07E9 CRC                   9ED5B873 [2664806515]
+07ED Compressed Length     000000AB [171]
+07F1 Uncompressed Length   000000CA [202]
 
-07F5 CENTRAL HEADER #1     0x02014B50 [33639248]
-07F9 Created Zip Spec      0x3F [63] '6.3'
-07FA Created OS            0x03 [3] 'Unix'
-07FB Extract Zip Spec      0x14 [20] '2.0'
-07FC Extract OS            0x00 [0] 'MS-DOS'
-07FD General Purpose Flag  0x080A [2058]
+07F5 CENTRAL HEADER #1     02014B50 [33639248]
+07F9 Created Zip Spec      3F [63] '6.3'
+07FA Created OS            03 [3] 'Unix'
+07FB Extract Zip Spec      14 [20] '2.0'
+07FC Extract OS            00 [0] 'MS-DOS'
+07FD General Purpose Flag  080A [2058]
      [Bits 1-2]            1 'Maximum Compression'
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-07FF Compression Method    0x0008 [8] 'Deflated'
-0801 Last Mod Time         0x5621712E [1445032238] 'Sun Jan  1 14:09:28 2023'
-0805 CRC                   0x9ED5B873 [2664806515]
-0809 Compressed Length     0x000000AB [171]
-080D Uncompressed Length   0x000000CA [202]
-0811 Filename Length       0x0008 [8]
-0813 Extra Length          0x0034 [52]
-0815 Comment Length        0x0000 [0]
-0817 Disk Start            0x0000 [0]
-0819 Int File Attributes   0x0000 [0]
+07FF Compression Method    0008 [8] 'Deflated'
+0801 Last Mod Time         5621712E [1445032238] 'Sun Jan  1 14:09:28 2023'
+0805 CRC                   9ED5B873 [2664806515]
+0809 Compressed Length     000000AB [171]
+080D Uncompressed Length   000000CA [202]
+0811 Filename Length       0008 [8]
+0813 Extra Length          0034 [52]
+0815 Comment Length        0000 [0]
+0817 Disk Start            0000 [0]
+0819 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-081B Ext File Attributes   0x00000000 [0]
-081F Local Header Offset   0x00000708 [1800]
+081B Ext File Attributes   00000000 [0]
+081F Local Header Offset   00000708 [1800]
 0823 Filename              '__cdcd__'
-082B Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-082D   Length              0x0024 [36]
-082F   Algorithm           0x0017 [23] 'SHA256'
-0831   Digest Size         0x0020 [32]
+082B Extra ID #1           1A51 [6737] 'Minizip Hash'
+082D   Length              0024 [36]
+082F   Algorithm           0017 [23] 'SHA256'
+0831   Digest Size         0020 [32]
 0833   Digest              B7 00 68 ED 93 EB DF 14 F3 0A A0 C1 28 3A 0B 2A
                            1F 08 3F 66 B1 BC 1B 29 5C D1 E5 60 3F BB F0 F1
-0853 Extra ID #2           0xCDCD [52685] 'Minizip Central Directory'
-0855   Length              0x0008 [8]
-0857   Entries             0x0000000000000002 [2]
+0853 Extra ID #2           CDCD [52685] 'Minizip Central Directory'
+0855   Length              0008 [8]
+0857   Entries             0000000000000002 [2]
 
-085F END CENTRAL HEADER    0x06054B50 [101010256]
-0863 Number of this disk   0x0000 [0]
-0865 Central Dir Disk no   0x0000 [0]
-0867 Entries in this disk  0x0003 [3]
-0869 Total Entries         0x0003 [3]
-086B Size of Central Dir   0x0000006A [106]
-086F Offset to Central Dir 0x000007F5 [2037]
-0873 Comment Length        0x0000 [0]
+085F END CENTRAL HEADER    06054B50 [101010256]
+0863 Number of this disk   0000 [0]
+0865 Central Dir Disk no   0000 [0]
+0867 Entries in this disk  0003 [3]
+0869 Total Entries         0003 [3]
+086B Size of Central Dir   0000006A [106]
+086F Offset to Central Dir 000007F5 [2037]
+0873 Comment Length        0000 [0]
 #
 # Info Count: 1
 #

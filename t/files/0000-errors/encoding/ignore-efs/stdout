@@ -1,52 +1,52 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0800 [2048]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    0x0008 [8] 'Deflated'
-000A Last Mod Time         0x56685B28 [1449679656] 'Wed Mar  8 11:25:16 2023'
-000E CRC                   0xED82CD11 [3984772369]
-0012 Compressed Length     0x00000006 [6]
-0016 Uncompressed Length   0x00000004 [4]
-001A Filename Length       0x0001 [1]
-001C Extra Length          0x0000 [0]
+0008 Compression Method    0008 [8] 'Deflated'
+000A Last Mod Time         56685B28 [1449679656] 'Wed Mar  8 11:25:16 2023'
+000E CRC                   ED82CD11 [3984772369]
+0012 Compressed Length     00000006 [6]
+0016 Uncompressed Length   00000004 [4]
+001A Filename Length       0001 [1]
+001C Extra Length          0000 [0]
 001E Filename              'π'
 001F PAYLOAD               KLJN..
 
-0025 CENTRAL HEADER #1     0x02014B50 [33639248]
-0029 Created Zip Spec      0x14 [20] '2.0'
-002A Created OS            0x03 [3] 'Unix'
-002B Extract Zip Spec      0x14 [20] '2.0'
-002C Extract OS            0x00 [0] 'MS-DOS'
-002D General Purpose Flag  0x0800 [2048]
+0025 CENTRAL HEADER #1     02014B50 [33639248]
+0029 Created Zip Spec      14 [20] '2.0'
+002A Created OS            03 [3] 'Unix'
+002B Extract Zip Spec      14 [20] '2.0'
+002C Extract OS            00 [0] 'MS-DOS'
+002D General Purpose Flag  0800 [2048]
      [Bits 1-2]            0 'Normal Compression'
      [Bit 11]              1 'Language Encoding'
-002F Compression Method    0x0008 [8] 'Deflated'
-0031 Last Mod Time         0x56685B28 [1449679656] 'Wed Mar  8 11:25:16 2023'
-0035 CRC                   0xED82CD11 [3984772369]
-0039 Compressed Length     0x00000006 [6]
-003D Uncompressed Length   0x00000004 [4]
-0041 Filename Length       0x0001 [1]
-0043 Extra Length          0x0000 [0]
-0045 Comment Length        0x0000 [0]
-0047 Disk Start            0x0000 [0]
-0049 Int File Attributes   0x0000 [0]
+002F Compression Method    0008 [8] 'Deflated'
+0031 Last Mod Time         56685B28 [1449679656] 'Wed Mar  8 11:25:16 2023'
+0035 CRC                   ED82CD11 [3984772369]
+0039 Compressed Length     00000006 [6]
+003D Uncompressed Length   00000004 [4]
+0041 Filename Length       0001 [1]
+0043 Extra Length          0000 [0]
+0045 Comment Length        0000 [0]
+0047 Disk Start            0000 [0]
+0049 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-004B Ext File Attributes   0x81A40000 [2175008768]
-     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-004F Local Header Offset   0x00000000 [0]
+004B Ext File Attributes   81A40000 [2175008768]
+     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+004F Local Header Offset   00000000 [0]
 0053 Filename              'π'
 
-0054 END CENTRAL HEADER    0x06054B50 [101010256]
-0058 Number of this disk   0x0000 [0]
-005A Central Dir Disk no   0x0000 [0]
-005C Entries in this disk  0x0001 [1]
-005E Total Entries         0x0001 [1]
-0060 Size of Central Dir   0x0000002F [47]
-0064 Offset to Central Dir 0x00000025 [37]
-0068 Comment Length        0x0000 [0]
+0054 END CENTRAL HEADER    06054B50 [101010256]
+0058 Number of this disk   0000 [0]
+005A Central Dir Disk no   0000 [0]
+005C Entries in this disk  0001 [1]
+005E Total Entries         0001 [1]
+0060 Size of Central Dir   0000002F [47]
+0064 Offset to Central Dir 00000025 [37]
+0068 Comment Length        0000 [0]
 #
 # Done

@@ -1,66 +1,66 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0x0008 [8] 'Deflated'
-000A Last Mod Time         0x552854F5 [1428706549] 'Thu Sep  8 10:39:42 2022'
-000E CRC                   0xF90EE7FF [4178503679]
-0012 Compressed Length     0x0000010A [266]
-0016 Uncompressed Length   0x000001BE [446]
-001A Filename Length       0x0008 [8]
-001C Extra Length          0x0012 [18]
+0008 Compression Method    0008 [8] 'Deflated'
+000A Last Mod Time         552854F5 [1428706549] 'Thu Sep  8 10:39:42 2022'
+000E CRC                   F90EE7FF [4178503679]
+0012 Compressed Length     0000010A [266]
+0016 Uncompressed Length   000001BE [446]
+001A Filename Length       0008 [8]
+001C Extra Length          0012 [18]
 001E Filename              'Café.txt'
-0026 Extra ID #1           0x7075 [28789] 'Unicode Path [up]'
-0028   Length              0x000E [14]
-002A   Version             0x01 [1]
-002B   NameCRC32           0x59E10CD9 [1507921113]
+0026 Extra ID #1           7075 [28789] 'Unicode Path [up]'
+0028   Length              000E [14]
+002A   Version             01 [1]
+002B   NameCRC32           59E10CD9 [1507921113]
 002F   UnicodeName         'Café.txt'
 0038 PAYLOAD
 
-0142 CENTRAL HEADER #1     0x02014B50 [33639248]
-0146 Created Zip Spec      0x14 [20] '2.0'
-0147 Created OS            0x00 [0] 'MS-DOS'
-0148 Extract Zip Spec      0x14 [20] '2.0'
-0149 Extract OS            0x00 [0] 'MS-DOS'
-014A General Purpose Flag  0x0000 [0]
+0142 CENTRAL HEADER #1     02014B50 [33639248]
+0146 Created Zip Spec      14 [20] '2.0'
+0147 Created OS            00 [0] 'MS-DOS'
+0148 Extract Zip Spec      14 [20] '2.0'
+0149 Extract OS            00 [0] 'MS-DOS'
+014A General Purpose Flag  0000 [0]
      [Bits 1-2]            0 'Normal Compression'
-014C Compression Method    0x0008 [8] 'Deflated'
-014E Last Mod Time         0x552854F5 [1428706549] 'Thu Sep  8 10:39:42 2022'
-0152 CRC                   0xF90EE7FF [4178503679]
-0156 Compressed Length     0x0000010A [266]
-015A Uncompressed Length   0x000001BE [446]
-015E Filename Length       0x0008 [8]
-0160 Extra Length          0x0020 [32]
-0162 Comment Length        0x0004 [4]
-0164 Disk Start            0x0000 [0]
-0166 Int File Attributes   0x0001 [1]
+014C Compression Method    0008 [8] 'Deflated'
+014E Last Mod Time         552854F5 [1428706549] 'Thu Sep  8 10:39:42 2022'
+0152 CRC                   F90EE7FF [4178503679]
+0156 Compressed Length     0000010A [266]
+015A Uncompressed Length   000001BE [446]
+015E Filename Length       0008 [8]
+0160 Extra Length          0020 [32]
+0162 Comment Length        0004 [4]
+0164 Disk Start            0000 [0]
+0166 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0168 Ext File Attributes   0x00000020 [32]
+0168 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-016C Local Header Offset   0x00000000 [0]
+016C Local Header Offset   00000000 [0]
 0170 Filename              'Café.txt'
-0178 Extra ID #1           0x7075 [28789] 'Unicode Path [up]'
-017A   Length              0x000E [14]
-017C   Version             0x01 [1]
-017D   NameCRC32           0x59E10CD9 [1507921113]
+0178 Extra ID #1           7075 [28789] 'Unicode Path [up]'
+017A   Length              000E [14]
+017C   Version             01 [1]
+017D   NameCRC32           59E10CD9 [1507921113]
 0181   UnicodeName         'Café.txt'
-018A Extra ID #2           0x6375 [25461] 'Unicode Comment [uc]'
-018C   Length              0x000A [10]
-018E   Version             0x01 [1]
-018F   ComCRC32            0x00000000 [0]
+018A Extra ID #2           6375 [25461] 'Unicode Comment [uc]'
+018C   Length              000A [10]
+018E   Version             01 [1]
+018F   ComCRC32            00000000 [0]
 0193   UnicodeCom          'Café'
 0198 Comment               'Café'
 
-019C END CENTRAL HEADER    0x06054B50 [101010256]
-01A0 Number of this disk   0x0000 [0]
-01A2 Central Dir Disk no   0x0000 [0]
-01A4 Entries in this disk  0x0001 [1]
-01A6 Total Entries         0x0001 [1]
-01A8 Size of Central Dir   0x0000005A [90]
-01AC Offset to Central Dir 0x00000142 [322]
-01B0 Comment Length        0x0004 [4]
+019C END CENTRAL HEADER    06054B50 [101010256]
+01A0 Number of this disk   0000 [0]
+01A2 Central Dir Disk no   0000 [0]
+01A4 Entries in this disk  0001 [1]
+01A6 Total Entries         0001 [1]
+01A8 Size of Central Dir   0000005A [90]
+01AC Offset to Central Dir 00000142 [322]
+01B0 Comment Length        0004 [4]
 01B2 Comment               'CafÚ'
 #
 # Done

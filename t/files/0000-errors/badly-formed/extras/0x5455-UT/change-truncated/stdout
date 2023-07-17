@@ -1,65 +1,65 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
-0008 Compression Method    0x0000 [0] 'Stored'
-000A Last Mod Time         0x556C6BE5 [1433168869] 'Sat Nov 12 13:31:10 2022'
-000E CRC                   0x8587D865 [2240272485]
-0012 Compressed Length     0x00000005 [5]
-0016 Uncompressed Length   0x00000005 [5]
-001A Filename Length       0x0008 [8]
-001C Extra Length          0x0008 [8]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
+0008 Compression Method    0000 [0] 'Stored'
+000A Last Mod Time         556C6BE5 [1433168869] 'Sat Nov 12 13:31:10 2022'
+000E CRC                   8587D865 [2240272485]
+0012 Compressed Length     00000005 [5]
+0016 Uncompressed Length   00000005 [5]
+001A Filename Length       0008 [8]
+001C Extra Length          0008 [8]
 001E Filename              'filename'
-0026 Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-0028   Length              0x0004 [4]
-002A   Flags               0x04 [4] 'change'
+0026 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+0028   Length              0004 [4]
+002A   Flags               04 [4] 'change'
 002B   Extra Data          abc
 #
 # ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Change Time'
-#        Expected 0x4 [4] bytes, got 0x3 [3] bytes
+#        Expected 4 [4] bytes, got 3 [3] bytes
 #
 002E PAYLOAD               abcde
 
-0033 CENTRAL HEADER #1     0x02014B50 [33639248]
-0037 Created Zip Spec      0x14 [20] '2.0'
-0038 Created OS            0x03 [3] 'Unix'
-0039 Extract Zip Spec      0x14 [20] '2.0'
-003A Extract OS            0x00 [0] 'MS-DOS'
-003B General Purpose Flag  0x0000 [0]
-003D Compression Method    0x0000 [0] 'Stored'
-003F Last Mod Time         0x556C6BE5 [1433168869] 'Sat Nov 12 13:31:10 2022'
-0043 CRC                   0x8587D865 [2240272485]
-0047 Compressed Length     0x00000005 [5]
-004B Uncompressed Length   0x00000005 [5]
-004F Filename Length       0x0008 [8]
-0051 Extra Length          0x0008 [8]
-0053 Comment Length        0x0000 [0]
-0055 Disk Start            0x0000 [0]
-0057 Int File Attributes   0x0000 [0]
+0033 CENTRAL HEADER #1     02014B50 [33639248]
+0037 Created Zip Spec      14 [20] '2.0'
+0038 Created OS            03 [3] 'Unix'
+0039 Extract Zip Spec      14 [20] '2.0'
+003A Extract OS            00 [0] 'MS-DOS'
+003B General Purpose Flag  0000 [0]
+003D Compression Method    0000 [0] 'Stored'
+003F Last Mod Time         556C6BE5 [1433168869] 'Sat Nov 12 13:31:10 2022'
+0043 CRC                   8587D865 [2240272485]
+0047 Compressed Length     00000005 [5]
+004B Uncompressed Length   00000005 [5]
+004F Filename Length       0008 [8]
+0051 Extra Length          0008 [8]
+0053 Comment Length        0000 [0]
+0055 Disk Start            0000 [0]
+0057 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-0059 Ext File Attributes   0x81A40000 [2175008768]
-     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-005D Local Header Offset   0x00000000 [0]
+0059 Ext File Attributes   81A40000 [2175008768]
+     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+005D Local Header Offset   00000000 [0]
 0061 Filename              'filename'
-0069 Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-006B   Length              0x0004 [4]
-006D   Flags               0x05 [5] 'mod change'
+0069 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+006B   Length              0004 [4]
+006D   Flags               05 [5] 'mod change'
 006E   Extra Data          abc
 #
 # ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
-#        Expected 0x4 [4] bytes, got 0x3 [3] bytes
+#        Expected 4 [4] bytes, got 3 [3] bytes
 #
 
-0071 END CENTRAL HEADER    0x06054B50 [101010256]
-0075 Number of this disk   0x0000 [0]
-0077 Central Dir Disk no   0x0000 [0]
-0079 Entries in this disk  0x0001 [1]
-007B Total Entries         0x0001 [1]
-007D Size of Central Dir   0x0000003E [62]
-0081 Offset to Central Dir 0x00000033 [51]
-0085 Comment Length        0x0000 [0]
+0071 END CENTRAL HEADER    06054B50 [101010256]
+0075 Number of this disk   0000 [0]
+0077 Central Dir Disk no   0000 [0]
+0079 Entries in this disk  0001 [1]
+007B Total Entries         0001 [1]
+007D Size of Central Dir   0000003E [62]
+0081 Offset to Central Dir 00000033 [51]
+0085 Comment Length        0000 [0]
 #
 # Error Count: 2
 #

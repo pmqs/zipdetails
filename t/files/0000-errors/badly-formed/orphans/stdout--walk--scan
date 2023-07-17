@@ -1,114 +1,114 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x0A [10] '1.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
-0008 Compression Method    0x0000 [0] 'Stored'
-000A Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-000E CRC                   0x9F606EEC [2673897196]
-0012 Compressed Length     0x00000006 [6]
-0016 Uncompressed Length   0x00000006 [6]
-001A Filename Length       0x0005 [5]
-001C Extra Length          0x0000 [0]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      0A [10] '1.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
+0008 Compression Method    0000 [0] 'Stored'
+000A Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+000E CRC                   9F606EEC [2673897196]
+0012 Compressed Length     00000006 [6]
+0016 Uncompressed Length   00000006 [6]
+001A Filename Length       0005 [5]
+001C Extra Length          0000 [0]
 001E Filename              'alpha'
 0023 PAYLOAD               alpha.
 
-0029 LOCAL HEADER #2       0x04034B50 [67324752]
-002D Extract Zip Spec      0x0A [10] '1.0'
-002E Extract OS            0x00 [0] 'MS-DOS'
-002F General Purpose Flag  0x0000 [0]
-0031 Compression Method    0x0000 [0] 'Stored'
-0033 Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-0037 CRC                   0xE6E3A775 [3873679221]
-003B Compressed Length     0x00000005 [5]
-003F Uncompressed Length   0x00000005 [5]
-0043 Filename Length       0x0004 [4]
-0045 Extra Length          0x0000 [0]
+0029 LOCAL HEADER #2       04034B50 [67324752]
+002D Extract Zip Spec      0A [10] '1.0'
+002E Extract OS            00 [0] 'MS-DOS'
+002F General Purpose Flag  0000 [0]
+0031 Compression Method    0000 [0] 'Stored'
+0033 Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+0037 CRC                   E6E3A775 [3873679221]
+003B Compressed Length     00000005 [5]
+003F Uncompressed Length   00000005 [5]
+0043 Filename Length       0004 [4]
+0045 Extra Length          0000 [0]
 0047 Filename              'beta'
 004B PAYLOAD               beta.
 
-0050 LOCAL HEADER #3       0x04034B50 [67324752]
-0054 Extract Zip Spec      0x0A [10] '1.0'
-0055 Extract OS            0x00 [0] 'MS-DOS'
-0056 General Purpose Flag  0x0000 [0]
-0058 Compression Method    0x0000 [0] 'Stored'
-005A Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-005E CRC                   0x151104E9 [353436905]
-0062 Compressed Length     0x00000006 [6]
-0066 Uncompressed Length   0x00000006 [6]
-006A Filename Length       0x0005 [5]
-006C Extra Length          0x0000 [0]
+0050 LOCAL HEADER #3       04034B50 [67324752]
+0054 Extract Zip Spec      0A [10] '1.0'
+0055 Extract OS            00 [0] 'MS-DOS'
+0056 General Purpose Flag  0000 [0]
+0058 Compression Method    0000 [0] 'Stored'
+005A Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+005E CRC                   151104E9 [353436905]
+0062 Compressed Length     00000006 [6]
+0066 Uncompressed Length   00000006 [6]
+006A Filename Length       0005 [5]
+006C Extra Length          0000 [0]
 006E Filename              'gamma'
 0073 PAYLOAD               gamma.
 
-0079 LOCAL HEADER #4       0x04034B50 [67324752]
-007D Extract Zip Spec      0x0A [10] '1.0'
-007E Extract OS            0x00 [0] 'MS-DOS'
-007F General Purpose Flag  0x0000 [0]
-0081 Compression Method    0x0000 [0] 'Stored'
-0083 Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-0087 CRC                   0xCD4E2F1D [3444453149]
-008B Compressed Length     0x00000006 [6]
-008F Uncompressed Length   0x00000006 [6]
-0093 Filename Length       0x0005 [5]
-0095 Extra Length          0x0000 [0]
+0079 LOCAL HEADER #4       04034B50 [67324752]
+007D Extract Zip Spec      0A [10] '1.0'
+007E Extract OS            00 [0] 'MS-DOS'
+007F General Purpose Flag  0000 [0]
+0081 Compression Method    0000 [0] 'Stored'
+0083 Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+0087 CRC                   CD4E2F1D [3444453149]
+008B Compressed Length     00000006 [6]
+008F Uncompressed Length   00000006 [6]
+0093 Filename Length       0005 [5]
+0095 Extra Length          0000 [0]
 0097 Filename              'delta'
 009C PAYLOAD               delta.
 
-00A2 CENTRAL HEADER #1     0x02014B50 [33639248]
-00A6 Created Zip Spec      0x1E [30] '3.0'
-00A7 Created OS            0x03 [3] 'Unix'
-00A8 Extract Zip Spec      0x0A [10] '1.0'
-00A9 Extract OS            0x00 [0] 'MS-DOS'
-00AA General Purpose Flag  0x0000 [0]
-00AC Compression Method    0x0000 [0] 'Stored'
-00AE Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-00B2 CRC                   0x9F606EEC [2673897196]
-00B6 Compressed Length     0x00000006 [6]
-00BA Uncompressed Length   0x00000006 [6]
-00BE Filename Length       0x0005 [5]
-00C0 Extra Length          0x0000 [0]
-00C2 Comment Length        0x0000 [0]
-00C4 Disk Start            0x0000 [0]
-00C6 Int File Attributes   0x0001 [1]
+00A2 CENTRAL HEADER #1     02014B50 [33639248]
+00A6 Created Zip Spec      1E [30] '3.0'
+00A7 Created OS            03 [3] 'Unix'
+00A8 Extract Zip Spec      0A [10] '1.0'
+00A9 Extract OS            00 [0] 'MS-DOS'
+00AA General Purpose Flag  0000 [0]
+00AC Compression Method    0000 [0] 'Stored'
+00AE Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+00B2 CRC                   9F606EEC [2673897196]
+00B6 Compressed Length     00000006 [6]
+00BA Uncompressed Length   00000006 [6]
+00BE Filename Length       0005 [5]
+00C0 Extra Length          0000 [0]
+00C2 Comment Length        0000 [0]
+00C4 Disk Start            0000 [0]
+00C6 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-00C8 Ext File Attributes   0x81B40000 [2176057344]
-     [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-00CC Local Header Offset   0x00000000 [0]
+00C8 Ext File Attributes   81B40000 [2176057344]
+     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+00CC Local Header Offset   00000000 [0]
 00D0 Filename              'alpha'
 
-00D5 CENTRAL HEADER #2     0x02014B50 [33639248]
-00D9 Created Zip Spec      0x1E [30] '3.0'
-00DA Created OS            0x03 [3] 'Unix'
-00DB Extract Zip Spec      0x0A [10] '1.0'
-00DC Extract OS            0x00 [0] 'MS-DOS'
-00DD General Purpose Flag  0x0000 [0]
-00DF Compression Method    0x0000 [0] 'Stored'
-00E1 Last Mod Time         0x557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
-00E5 CRC                   0x151104E9 [353436905]
-00E9 Compressed Length     0x00000006 [6]
-00ED Uncompressed Length   0x00000006 [6]
-00F1 Filename Length       0x0005 [5]
-00F3 Extra Length          0x0000 [0]
-00F5 Comment Length        0x0000 [0]
-00F7 Disk Start            0x0000 [0]
-00F9 Int File Attributes   0x0001 [1]
+00D5 CENTRAL HEADER #2     02014B50 [33639248]
+00D9 Created Zip Spec      1E [30] '3.0'
+00DA Created OS            03 [3] 'Unix'
+00DB Extract Zip Spec      0A [10] '1.0'
+00DC Extract OS            00 [0] 'MS-DOS'
+00DD General Purpose Flag  0000 [0]
+00DF Compression Method    0000 [0] 'Stored'
+00E1 Last Mod Time         557D5DC0 [1434279360] 'Tue Nov 29 11:46:00 2022'
+00E5 CRC                   151104E9 [353436905]
+00E9 Compressed Length     00000006 [6]
+00ED Uncompressed Length   00000006 [6]
+00F1 Filename Length       0005 [5]
+00F3 Extra Length          0000 [0]
+00F5 Comment Length        0000 [0]
+00F7 Disk Start            0000 [0]
+00F9 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-00FB Ext File Attributes   0x81B40000 [2176057344]
-     [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-00FF Local Header Offset   0x00000050 [80]
+00FB Ext File Attributes   81B40000 [2176057344]
+     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+00FF Local Header Offset   00000050 [80]
 0103 Filename              'gamma'
 
-0108 END CENTRAL HEADER    0x06054B50 [101010256]
-010C Number of this disk   0x0000 [0]
-010E Central Dir Disk no   0x0000 [0]
-0110 Entries in this disk  0x0002 [2]
-0112 Total Entries         0x0002 [2]
-0114 Size of Central Dir   0x00000066 [102]
-0118 Offset to Central Dir 0x000000A2 [162]
-011C Comment Length        0x0000 [0]
+0108 END CENTRAL HEADER    06054B50 [101010256]
+010C Number of this disk   0000 [0]
+010E Central Dir Disk no   0000 [0]
+0110 Entries in this disk  0002 [2]
+0112 Total Entries         0002 [2]
+0114 Size of Central Dir   00000066 [102]
+0118 Offset to Central Dir 000000A2 [162]
+011C Comment Length        0000 [0]
 #
 # ERROR: Orphan Local Headers found: 2
 #  Offset  Filename

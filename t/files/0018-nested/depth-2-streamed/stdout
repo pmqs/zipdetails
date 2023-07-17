@@ -1,55 +1,55 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x0A [10] '1.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0008 [8]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      0A [10] '1.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0008 [8]
      [Bit  3]              1 'Streamed'
-0008 Compression Method    0x0000 [0] 'Stored'
-000A Last Mod Time         0x55897978 [1435072888] 'Fri Dec  9 15:11:48 2022'
-000E CRC                   0x00000000 [0]
-0012 Compressed Length     0x00000208 [520]
-0016 Uncompressed Length   0x00000208 [520]
-001A Filename Length       0x000A [10]
-001C Extra Length          0x0000 [0]
+0008 Compression Method    0000 [0] 'Stored'
+000A Last Mod Time         55897978 [1435072888] 'Fri Dec  9 15:11:48 2022'
+000E CRC                   00000000 [0]
+0012 Compressed Length     00000208 [520]
+0016 Uncompressed Length   00000208 [520]
+001A Filename Length       000A [10]
+001C Extra Length          0000 [0]
 001E Filename              'inner2.zip'
 0028 PAYLOAD
 
-0230 DATA DESCRIPTOR       0x08074B50 [134695760]
-0234 CRC                   0xB0236139 [2955108665]
-0238 Compressed Length     0x00000208 [520]
-023C Uncompressed Length   0x00000208 [520]
+0230 DATA DESCRIPTOR       08074B50 [134695760]
+0234 CRC                   B0236139 [2955108665]
+0238 Compressed Length     00000208 [520]
+023C Uncompressed Length   00000208 [520]
 
-0240 CENTRAL HEADER #1     0x02014B50 [33639248]
-0244 Created Zip Spec      0x1E [30] '3.0'
-0245 Created OS            0x03 [3] 'Unix'
-0246 Extract Zip Spec      0x0A [10] '1.0'
-0247 Extract OS            0x00 [0] 'MS-DOS'
-0248 General Purpose Flag  0x0008 [8]
+0240 CENTRAL HEADER #1     02014B50 [33639248]
+0244 Created Zip Spec      1E [30] '3.0'
+0245 Created OS            03 [3] 'Unix'
+0246 Extract Zip Spec      0A [10] '1.0'
+0247 Extract OS            00 [0] 'MS-DOS'
+0248 General Purpose Flag  0008 [8]
      [Bit  3]              1 'Streamed'
-024A Compression Method    0x0000 [0] 'Stored'
-024C Last Mod Time         0x55897978 [1435072888] 'Fri Dec  9 15:11:48 2022'
-0250 CRC                   0xB0236139 [2955108665]
-0254 Compressed Length     0x00000208 [520]
-0258 Uncompressed Length   0x00000208 [520]
-025C Filename Length       0x000A [10]
-025E Extra Length          0x0000 [0]
-0260 Comment Length        0x0000 [0]
-0262 Disk Start            0x0000 [0]
-0264 Int File Attributes   0x0000 [0]
+024A Compression Method    0000 [0] 'Stored'
+024C Last Mod Time         55897978 [1435072888] 'Fri Dec  9 15:11:48 2022'
+0250 CRC                   B0236139 [2955108665]
+0254 Compressed Length     00000208 [520]
+0258 Uncompressed Length   00000208 [520]
+025C Filename Length       000A [10]
+025E Extra Length          0000 [0]
+0260 Comment Length        0000 [0]
+0262 Disk Start            0000 [0]
+0264 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-0266 Ext File Attributes   0x81B40000 [2176057344]
-     [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-026A Local Header Offset   0x00000000 [0]
+0266 Ext File Attributes   81B40000 [2176057344]
+     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+026A Local Header Offset   00000000 [0]
 026E Filename              'inner2.zip'
 
-0278 END CENTRAL HEADER    0x06054B50 [101010256]
-027C Number of this disk   0x0000 [0]
-027E Central Dir Disk no   0x0000 [0]
-0280 Entries in this disk  0x0001 [1]
-0282 Total Entries         0x0001 [1]
-0284 Size of Central Dir   0x00000038 [56]
-0288 Offset to Central Dir 0x00000240 [576]
-028C Comment Length        0x0000 [0]
+0278 END CENTRAL HEADER    06054B50 [101010256]
+027C Number of this disk   0000 [0]
+027E Central Dir Disk no   0000 [0]
+0280 Entries in this disk  0001 [1]
+0282 Total Entries         0001 [1]
+0284 Size of Central Dir   00000038 [56]
+0288 Offset to Central Dir 00000240 [576]
+028C Comment Length        0000 [0]
 #
 # Done

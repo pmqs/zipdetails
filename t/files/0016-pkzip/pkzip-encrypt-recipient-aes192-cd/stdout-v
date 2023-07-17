@@ -1,54 +1,54 @@
 #
-# INFO: Offset 0x0: found 0x1CD0 [7376] bytes before beginning of zipfile
+# INFO: Offset 0x0: found 1CD0 [7376] bytes before beginning of zipfile
 #
 
 0000 1CCF 1CD0 ...         UNEXPECTED PADDING
 
-1CD0 1CD3 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 0x06064B50 [101075792]
+1CD0 1CD3 0004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50 [101075792]
                            RECORD
-1CD4 1CDB 0008 4C 00 00 00 Size of record        0x000000000000004C [76]
+1CD4 1CDB 0008 4C 00 00 00 Size of record        000000000000004C [76]
                00 00 00 00
-1CDC 1CDC 0001 41          Created Zip Spec      0x41 [65] '6.5'
-1CDD 1CDD 0001 00          Created OS            0x00 [0] 'MS-DOS'
-1CDE 1CDE 0001 3E          Extract Zip Spec      0x3E [62] '6.2'
-1CDF 1CDF 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-1CE0 1CE3 0004 00 00 00 00 Number of this disk   0x00000000 [0]
-1CE4 1CE7 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
-1CE8 1CEF 0008 00 00 00 00 Entries in this disk  0x0000000000000000 [0]
+1CDC 1CDC 0001 41          Created Zip Spec      41 [65] '6.5'
+1CDD 1CDD 0001 00          Created OS            00 [0] 'MS-DOS'
+1CDE 1CDE 0001 3E          Extract Zip Spec      3E [62] '6.2'
+1CDF 1CDF 0001 00          Extract OS            00 [0] 'MS-DOS'
+1CE0 1CE3 0004 00 00 00 00 Number of this disk   00000000 [0]
+1CE4 1CE7 0004 00 00 00 00 Central Dir Disk no   00000000 [0]
+1CE8 1CEF 0008 00 00 00 00 Entries in this disk  0000000000000000 [0]
                00 00 00 00
-1CF0 1CF7 0008 02 00 00 00 Total Entries         0x0000000000000002 [2]
+1CF0 1CF7 0008 02 00 00 00 Total Entries         0000000000000002 [2]
                00 00 00 00
-1CF8 1CFF 0008 76 0F 00 00 Size of Central Dir   0x0000000000000F76 [3958]
+1CF8 1CFF 0008 76 0F 00 00 Size of Central Dir   0000000000000F76 [3958]
                00 00 00 00
-1D00 1D07 0008 5A 0D 00 00 Offset to Central dir 0x0000000000000D5A [3418]
+1D00 1D07 0008 5A 0D 00 00 Offset to Central dir 0000000000000D5A [3418]
                00 00 00 00
-1D08 1D09 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-1D0A 1D11 0008 76 0F 00 00 Compressed Length     0x0000000000000F76 [3958]
+1D08 1D09 0002 08 00       Compression Method    0008 [8] 'Deflated'
+1D0A 1D11 0008 76 0F 00 00 Compressed Length     0000000000000F76 [3958]
                00 00 00 00
-1D12 1D19 0008 2A 0B 00 00 Uncompressed Length   0x0000000000000B2A [2858]
+1D12 1D19 0008 2A 0B 00 00 Uncompressed Length   0000000000000B2A [2858]
                00 00 00 00
-1D1A 1D1B 0002 0F 66       AlgId                 0x660F [26127] 'AES 192'
-1D1C 1D1D 0002 C0 00       BitLen                0x00C0 [192]
-1D1E 1D1F 0002 02 41       Flags                 0x4102 [16642] 'reserved for certificate processing'
-1D20 1D21 0002 01 00       HashID                0x0001 [1] 'CRC32'
-1D22 1D23 0002 04 00       Hash Length           0x0004 [4]
+1D1A 1D1B 0002 0F 66       AlgId                 660F [26127] 'AES 192'
+1D1C 1D1D 0002 C0 00       BitLen                00C0 [192]
+1D1E 1D1F 0002 02 41       Flags                 4102 [16642] 'reserved for certificate processing'
+1D20 1D21 0002 01 00       HashID                0001 [1] 'CRC32'
+1D22 1D23 0002 04 00       Hash Length           0004 [4]
 1D24 1D27 0004 9C BE D0 2F Hash Data             9C BE D0 2F
 
-1D28 1D2B 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 0x07064B50 [117853008]
+1D28 1D2B 0004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50 [117853008]
                            LOCATOR
-1D2C 1D2F 0004 00 00 00 00 Central Dir Disk no   0x00000000 [0]
-1D30 1D37 0008 D0 1C 00 00 Offset to Zip64 EOCD  0x0000000000001CD0 [7376]
+1D2C 1D2F 0004 00 00 00 00 Central Dir Disk no   00000000 [0]
+1D30 1D37 0008 D0 1C 00 00 Offset to Zip64 EOCD  0000000000001CD0 [7376]
                00 00 00 00
-1D38 1D3B 0004 01 00 00 00 Total no of Disks     0x00000001 [1]
+1D38 1D3B 0004 01 00 00 00 Total no of Disks     00000001 [1]
 
-1D3C 1D3F 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-1D40 1D41 0002 00 00       Number of this disk   0x0000 [0]
-1D42 1D43 0002 00 00       Central Dir Disk no   0x0000 [0]
-1D44 1D45 0002 00 00       Entries in this disk  0x0000 [0]
-1D46 1D47 0002 FF FF       Total Entries         0xFFFF [65535]
-1D48 1D4B 0004 76 0F 00 00 Size of Central Dir   0x00000F76 [3958]
-1D4C 1D4F 0004 5A 0D 00 00 Offset to Central Dir 0x00000D5A [3418]
-1D50 1D51 0002 00 00       Comment Length        0x0000 [0]
+1D3C 1D3F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+1D40 1D41 0002 00 00       Number of this disk   0000 [0]
+1D42 1D43 0002 00 00       Central Dir Disk no   0000 [0]
+1D44 1D45 0002 00 00       Entries in this disk  0000 [0]
+1D46 1D47 0002 FF FF       Total Entries         FFFF [65535]
+1D48 1D4B 0004 76 0F 00 00 Size of Central Dir   00000F76 [3958]
+1D4C 1D4F 0004 5A 0D 00 00 Offset to Central Dir 00000D5A [3418]
+1D50 1D51 0002 00 00       Comment Length        0000 [0]
 #
 # Info Count: 1
 #

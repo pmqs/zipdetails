@@ -1,65 +1,65 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x14 [20] '2.0'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0000 [0]
-0008 Compression Method    0x0000 [0] 'Stored'
-000A Last Mod Time         0x556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
-000E CRC                   0x8587D865 [2240272485]
-0012 Compressed Length     0x00000005 [5]
-0016 Uncompressed Length   0x00000005 [5]
-001A Filename Length       0x0008 [8]
-001C Extra Length          0x0007 [7]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      14 [20] '2.0'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0000 [0]
+0008 Compression Method    0000 [0] 'Stored'
+000A Last Mod Time         556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
+000E CRC                   8587D865 [2240272485]
+0012 Compressed Length     00000005 [5]
+0016 Uncompressed Length   00000005 [5]
+001A Filename Length       0008 [8]
+001C Extra Length          0007 [7]
 001E Filename              'filename'
-0026 Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
-0028   Length              0x0003 [3]
-002A   Version             0x02 [2]
+0026 Extra ID #1           7875 [30837] 'Unix Extra type 3 [ux]'
+0028   Length              0003 [3]
+002A   Version             02 [2]
 #
-# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x2 [2]
+# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 [1], got 2 [2]
 #
-002B   UID Size            0x00 [0]
-002C   GID Size            0x00 [0]
+002B   UID Size            00 [0]
+002C   GID Size            00 [0]
 002D PAYLOAD               abcde
 
-0032 CENTRAL HEADER #1     0x02014B50 [33639248]
-0036 Created Zip Spec      0x14 [20] '2.0'
-0037 Created OS            0x03 [3] 'Unix'
-0038 Extract Zip Spec      0x14 [20] '2.0'
-0039 Extract OS            0x00 [0] 'MS-DOS'
-003A General Purpose Flag  0x0000 [0]
-003C Compression Method    0x0000 [0] 'Stored'
-003E Last Mod Time         0x556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
-0042 CRC                   0x8587D865 [2240272485]
-0046 Compressed Length     0x00000005 [5]
-004A Uncompressed Length   0x00000005 [5]
-004E Filename Length       0x0008 [8]
-0050 Extra Length          0x0007 [7]
-0052 Comment Length        0x0000 [0]
-0054 Disk Start            0x0000 [0]
-0056 Int File Attributes   0x0000 [0]
+0032 CENTRAL HEADER #1     02014B50 [33639248]
+0036 Created Zip Spec      14 [20] '2.0'
+0037 Created OS            03 [3] 'Unix'
+0038 Extract Zip Spec      14 [20] '2.0'
+0039 Extract OS            00 [0] 'MS-DOS'
+003A General Purpose Flag  0000 [0]
+003C Compression Method    0000 [0] 'Stored'
+003E Last Mod Time         556C70ED [1433170157] 'Sat Nov 12 14:07:26 2022'
+0042 CRC                   8587D865 [2240272485]
+0046 Compressed Length     00000005 [5]
+004A Uncompressed Length   00000005 [5]
+004E Filename Length       0008 [8]
+0050 Extra Length          0007 [7]
+0052 Comment Length        0000 [0]
+0054 Disk Start            0000 [0]
+0056 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-0058 Ext File Attributes   0x81A40000 [2175008768]
-     [Bits 16-24]          0x01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-005C Local Header Offset   0x00000000 [0]
+0058 Ext File Attributes   81A40000 [2175008768]
+     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 [8] 'Regular File'
+005C Local Header Offset   00000000 [0]
 0060 Filename              'filename'
-0068 Extra ID #1           0x7875 [30837] 'Unix Extra type 3 [ux]'
-006A   Length              0x0003 [3]
-006C   Version             0x03 [3]
+0068 Extra ID #1           7875 [30837] 'Unix Extra type 3 [ux]'
+006A   Length              0003 [3]
+006C   Version             03 [3]
 #
-# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x3 [3]
+# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 [1], got 3 [3]
 #
-006D   UID Size            0x00 [0]
-006E   GID Size            0x00 [0]
+006D   UID Size            00 [0]
+006E   GID Size            00 [0]
 
-006F END CENTRAL HEADER    0x06054B50 [101010256]
-0073 Number of this disk   0x0000 [0]
-0075 Central Dir Disk no   0x0000 [0]
-0077 Entries in this disk  0x0001 [1]
-0079 Total Entries         0x0001 [1]
-007B Size of Central Dir   0x0000003D [61]
-007F Offset to Central Dir 0x00000032 [50]
-0083 Comment Length        0x0000 [0]
+006F END CENTRAL HEADER    06054B50 [101010256]
+0073 Number of this disk   0000 [0]
+0075 Central Dir Disk no   0000 [0]
+0077 Entries in this disk  0001 [1]
+0079 Total Entries         0001 [1]
+007B Size of Central Dir   0000003D [61]
+007F Offset to Central Dir 00000032 [50]
+0083 Comment Length        0000 [0]
 #
 # Info Count: 2
 #

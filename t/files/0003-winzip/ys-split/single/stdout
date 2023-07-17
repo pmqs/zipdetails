@@ -1,74 +1,74 @@
 
-0000 SPLIT ARCHIVE         0x30304B50 [808471376]
+0000 SPLIT ARCHIVE         30304B50 [808471376]
      SINGLE-SEGMENT MARKER
 
-0004 LOCAL HEADER #1       0x04034B50 [67324752]
-0008 Extract Zip Spec      0x0A [10] '1.0'
-0009 Extract OS            0x00 [0] 'MS-DOS'
-000A General Purpose Flag  0x0000 [0]
-000C Compression Method    0x0000 [0] 'Stored'
-000E Last Mod Time         0x556A585C [1433032796] 'Thu Nov 10 11:02:56 2022'
-0012 CRC                   0xF90EE7FF [4178503679]
-0016 Compressed Length     0x000001BE [446]
-001A Uncompressed Length   0x000001BE [446]
-001E Filename Length       0x0019 [25]
-0020 Extra Length          0x001C [28]
+0004 LOCAL HEADER #1       04034B50 [67324752]
+0008 Extract Zip Spec      0A [10] '1.0'
+0009 Extract OS            00 [0] 'MS-DOS'
+000A General Purpose Flag  0000 [0]
+000C Compression Method    0000 [0] 'Stored'
+000E Last Mod Time         556A585C [1433032796] 'Thu Nov 10 11:02:56 2022'
+0012 CRC                   F90EE7FF [4178503679]
+0016 Compressed Length     000001BE [446]
+001A Uncompressed Length   000001BE [446]
+001E Filename Length       0019 [25]
+0020 Extra Length          001C [28]
 0022 Filename              'home/paul/share/lorem.txt'
-003B Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-003D   Length              0x0009 [9]
-003F   Flags               0x03 [3] 'mod access'
-0040   Mod Time            0x636CDA60 [1668078176] 'Thu Nov 10 11:02:56 2022'
-0044   Access Time         0x636CDA96 [1668078230] 'Thu Nov 10 11:03:50 2022'
-0048 Extra ID #2           0x7875 [30837] 'Unix Extra type 3 [ux]'
-004A   Length              0x000B [11]
-004C   Version             0x01 [1]
-004D   UID Size            0x04 [4]
-004E   UID                 0x00000000 [0]
-0052   GID Size            0x04 [4]
-0053   GID                 0x000003E7 [999]
+003B Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+003D   Length              0009 [9]
+003F   Flags               03 [3] 'mod access'
+0040   Mod Time            636CDA60 [1668078176] 'Thu Nov 10 11:02:56 2022'
+0044   Access Time         636CDA96 [1668078230] 'Thu Nov 10 11:03:50 2022'
+0048 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
+004A   Length              000B [11]
+004C   Version             01 [1]
+004D   UID Size            04 [4]
+004E   UID                 00000000 [0]
+0052   GID Size            04 [4]
+0053   GID                 000003E7 [999]
 0057 PAYLOAD
 
-0215 CENTRAL HEADER #1     0x02014B50 [33639248]
-0219 Created Zip Spec      0x1E [30] '3.0'
-021A Created OS            0x03 [3] 'Unix'
-021B Extract Zip Spec      0x0A [10] '1.0'
-021C Extract OS            0x00 [0] 'MS-DOS'
-021D General Purpose Flag  0x0000 [0]
-021F Compression Method    0x0000 [0] 'Stored'
-0221 Last Mod Time         0x556A585C [1433032796] 'Thu Nov 10 11:02:56 2022'
-0225 CRC                   0xF90EE7FF [4178503679]
-0229 Compressed Length     0x000001BE [446]
-022D Uncompressed Length   0x000001BE [446]
-0231 Filename Length       0x0019 [25]
-0233 Extra Length          0x0018 [24]
-0235 Comment Length        0x0000 [0]
-0237 Disk Start            0x0000 [0]
-0239 Int File Attributes   0x0000 [0]
+0215 CENTRAL HEADER #1     02014B50 [33639248]
+0219 Created Zip Spec      1E [30] '3.0'
+021A Created OS            03 [3] 'Unix'
+021B Extract Zip Spec      0A [10] '1.0'
+021C Extract OS            00 [0] 'MS-DOS'
+021D General Purpose Flag  0000 [0]
+021F Compression Method    0000 [0] 'Stored'
+0221 Last Mod Time         556A585C [1433032796] 'Thu Nov 10 11:02:56 2022'
+0225 CRC                   F90EE7FF [4178503679]
+0229 Compressed Length     000001BE [446]
+022D Uncompressed Length   000001BE [446]
+0231 Filename Length       0019 [25]
+0233 Extra Length          0018 [24]
+0235 Comment Length        0000 [0]
+0237 Disk Start            0000 [0]
+0239 Int File Attributes   0000 [0]
      [Bit 0]               0 'Binary Data'
-023B Ext File Attributes   0x81F80000 [2180513792]
-     [Bits 16-24]          0x01F8 [504] 'Unix attrib: rwxrwx---'
-     [Bits 28-31]          0x08 [8] 'Regular File'
-023F Local Header Offset   0x00000004 [4]
+023B Ext File Attributes   81F80000 [2180513792]
+     [Bits 16-24]          01F8 [504] 'Unix attrib: rwxrwx---'
+     [Bits 28-31]          08 [8] 'Regular File'
+023F Local Header Offset   00000004 [4]
 0243 Filename              'home/paul/share/lorem.txt'
-025C Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
-025E   Length              0x0005 [5]
-0260   Flags               0x03 [3] 'mod access'
-0261   Mod Time            0x636CDA60 [1668078176] 'Thu Nov 10 11:02:56 2022'
-0265 Extra ID #2           0x7875 [30837] 'Unix Extra type 3 [ux]'
-0267   Length              0x000B [11]
-0269   Version             0x01 [1]
-026A   UID Size            0x04 [4]
-026B   UID                 0x00000000 [0]
-026F   GID Size            0x04 [4]
-0270   GID                 0x000003E7 [999]
+025C Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
+025E   Length              0005 [5]
+0260   Flags               03 [3] 'mod access'
+0261   Mod Time            636CDA60 [1668078176] 'Thu Nov 10 11:02:56 2022'
+0265 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
+0267   Length              000B [11]
+0269   Version             01 [1]
+026A   UID Size            04 [4]
+026B   UID                 00000000 [0]
+026F   GID Size            04 [4]
+0270   GID                 000003E7 [999]
 
-0274 END CENTRAL HEADER    0x06054B50 [101010256]
-0278 Number of this disk   0x0000 [0]
-027A Central Dir Disk no   0x0000 [0]
-027C Entries in this disk  0x0001 [1]
-027E Total Entries         0x0001 [1]
-0280 Size of Central Dir   0x0000005F [95]
-0284 Offset to Central Dir 0x00000215 [533]
-0288 Comment Length        0x0000 [0]
+0274 END CENTRAL HEADER    06054B50 [101010256]
+0278 Number of this disk   0000 [0]
+027A Central Dir Disk no   0000 [0]
+027C Entries in this disk  0001 [1]
+027E Total Entries         0001 [1]
+0280 Size of Central Dir   0000005F [95]
+0284 Offset to Central Dir 00000215 [533]
+0288 Comment Length        0000 [0]
 #
 # Done

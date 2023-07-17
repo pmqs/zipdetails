@@ -1,64 +1,64 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
+0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0008 0009 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-000A 000D 0004 98 B3 F3 50 Last Mod Time         0x50F3B398 [1358148504] 'Sun Jul 19 22:28:48 2020'
-000E 0011 0004 9D F9 7A CA CRC                   0xCA7AF99D [3397056925]
-0012 0015 0004 0B 00 00 00 Compressed Length     0x0000000B [11]
-0016 0019 0004 06 00 00 00 Uncompressed Length   0x00000006 [6]
-001A 001B 0002 05 00       Filename Length       0x0005 [5]
-001C 001D 0002 00 00       Extra Length          0x0000 [0]
+0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
+000A 000D 0004 98 B3 F3 50 Last Mod Time         50F3B398 [1358148504] 'Sun Jul 19 22:28:48 2020'
+000E 0011 0004 9D F9 7A CA CRC                   CA7AF99D [3397056925]
+0012 0015 0004 0B 00 00 00 Compressed Length     0000000B [11]
+0016 0019 0004 06 00 00 00 Uncompressed Length   00000006 [6]
+001A 001B 0002 05 00       Filename Length       0005 [5]
+001C 001D 0002 00 00       Extra Length          0000 [0]
 001E 0022 0005 61 62 63 64 Filename              'abcde'
                65
 0023 002D 000B 01 06 00 F9 PAYLOAD               .....ancde.
                FF 61 6E 63
                64 65 0A
 
-002E 0031 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
-0032 0032 0001 14          Created Zip Spec      0x14 [20] '2.0'
-0033 0033 0001 00          Created OS            0x00 [0] 'MS-DOS'
-0034 0034 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0035 0035 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0036 0037 0002 00 00       General Purpose Flag  0x0000 [0]
+002E 0031 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
+0032 0032 0001 14          Created Zip Spec      14 [20] '2.0'
+0033 0033 0001 00          Created OS            00 [0] 'MS-DOS'
+0034 0034 0001 14          Extract Zip Spec      14 [20] '2.0'
+0035 0035 0001 00          Extract OS            00 [0] 'MS-DOS'
+0036 0037 0002 00 00       General Purpose Flag  0000 [0]
                            [Bits 1-2]            0 'Normal Compression'
-0038 0039 0002 08 00       Compression Method    0x0008 [8] 'Deflated'
-003A 003D 0004 98 B3 F3 50 Last Mod Time         0x50F3B398 [1358148504] 'Sun Jul 19 22:28:48 2020'
-003E 0041 0004 9D F9 7A CA CRC                   0xCA7AF99D [3397056925]
-0042 0045 0004 0B 00 00 00 Compressed Length     0x0000000B [11]
-0046 0049 0004 06 00 00 00 Uncompressed Length   0x00000006 [6]
-004A 004B 0002 05 00       Filename Length       0x0005 [5]
-004C 004D 0002 24 00       Extra Length          0x0024 [36]
-004E 004F 0002 00 00       Comment Length        0x0000 [0]
-0050 0051 0002 00 00       Disk Start            0x0000 [0]
-0052 0053 0002 01 00       Int File Attributes   0x0001 [1]
+0038 0039 0002 08 00       Compression Method    0008 [8] 'Deflated'
+003A 003D 0004 98 B3 F3 50 Last Mod Time         50F3B398 [1358148504] 'Sun Jul 19 22:28:48 2020'
+003E 0041 0004 9D F9 7A CA CRC                   CA7AF99D [3397056925]
+0042 0045 0004 0B 00 00 00 Compressed Length     0000000B [11]
+0046 0049 0004 06 00 00 00 Uncompressed Length   00000006 [6]
+004A 004B 0002 05 00       Filename Length       0005 [5]
+004C 004D 0002 24 00       Extra Length          0024 [36]
+004E 004F 0002 00 00       Comment Length        0000 [0]
+0050 0051 0002 00 00       Disk Start            0000 [0]
+0052 0053 0002 01 00       Int File Attributes   0001 [1]
                            [Bit 0]               1 'Text Data'
-0054 0057 0004 20 00 00 00 Ext File Attributes   0x00000020 [32]
+0054 0057 0004 20 00 00 00 Ext File Attributes   00000020 [32]
                            [Bit 5]               Archive
-0058 005B 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+0058 005B 0004 00 00 00 00 Local Header Offset   00000000 [0]
 005C 0060 0005 61 62 63 64 Filename              'abcde'
                65
-0061 0062 0002 0A 00       Extra ID #1           0x000A [10] 'NTFS FileTimes'
-0063 0064 0002 20 00         Length              0x0020 [32]
-0065 0068 0004 00 00 00 00   Reserved            0x00000000 [0]
-0069 006A 0002 01 00         Tag1                0x0001 [1]
-006B 006C 0002 18 00         Size1               0x0018 [24]
-006D 0074 0008 60 06 9B 96   Mtime               0x01D65E13969B0660 [132396677278140000] 'Sun Jul 19 21:28:47 2020 814000000ns'
+0061 0062 0002 0A 00       Extra ID #1           000A [10] 'NTFS FileTimes'
+0063 0064 0002 20 00         Length              0020 [32]
+0065 0068 0004 00 00 00 00   Reserved            00000000 [0]
+0069 006A 0002 01 00         Tag1                0001 [1]
+006B 006C 0002 18 00         Size1               0018 [24]
+006D 0074 0008 60 06 9B 96   Mtime               01D65E13969B0660 [132396677278140000] 'Sun Jul 19 21:28:47 2020 814000000ns'
                13 5E D6 01
-0075 007C 0008 A0 A2 9B 96   Atime               0x01D65E13969BA2A0 [132396677278180000] 'Sun Jul 19 21:28:47 2020 818000000ns'
+0075 007C 0008 A0 A2 9B 96   Atime               01D65E13969BA2A0 [132396677278180000] 'Sun Jul 19 21:28:47 2020 818000000ns'
                13 5E D6 01
-007D 0084 0008 60 06 9B 96   Ctime               0x01D65E13969B0660 [132396677278140000] 'Sun Jul 19 21:28:47 2020 814000000ns'
+007D 0084 0008 60 06 9B 96   Ctime               01D65E13969B0660 [132396677278140000] 'Sun Jul 19 21:28:47 2020 814000000ns'
                13 5E D6 01
 
-0085 0088 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-0089 008A 0002 00 00       Number of this disk   0x0000 [0]
-008B 008C 0002 00 00       Central Dir Disk no   0x0000 [0]
-008D 008E 0002 01 00       Entries in this disk  0x0001 [1]
-008F 0090 0002 01 00       Total Entries         0x0001 [1]
-0091 0094 0004 57 00 00 00 Size of Central Dir   0x00000057 [87]
-0095 0098 0004 2E 00 00 00 Offset to Central Dir 0x0000002E [46]
-0099 009A 0002 00 00       Comment Length        0x0000 [0]
+0085 0088 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+0089 008A 0002 00 00       Number of this disk   0000 [0]
+008B 008C 0002 00 00       Central Dir Disk no   0000 [0]
+008D 008E 0002 01 00       Entries in this disk  0001 [1]
+008F 0090 0002 01 00       Total Entries         0001 [1]
+0091 0094 0004 57 00 00 00 Size of Central Dir   00000057 [87]
+0095 0098 0004 2E 00 00 00 Offset to Central Dir 0000002E [46]
+0099 009A 0002 00 00       Comment Length        0000 [0]
 #
 # Done

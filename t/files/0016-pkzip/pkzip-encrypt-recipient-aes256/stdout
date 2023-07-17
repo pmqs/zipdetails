@@ -1,31 +1,31 @@
 
-0000 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 Extract Zip Spec      0x3D [61] '6.1'
-0005 Extract OS            0x00 [0] 'MS-DOS'
-0006 General Purpose Flag  0x0841 [2113]
+0000 LOCAL HEADER #1       04034B50 [67324752]
+0004 Extract Zip Spec      3D [61] '6.1'
+0005 Extract OS            00 [0] 'MS-DOS'
+0006 General Purpose Flag  0841 [2113]
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    0x0008 [8] 'Deflated'
-000A Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
-000E CRC                   0xF90EE7FF [4178503679]
-0012 Compressed Length     0x00000686 [1670]
-0016 Uncompressed Length   0x000001BE [446]
-001A Filename Length       0x0009 [9]
-001C Extra Length          0x0000 [0]
+0008 Compression Method    0008 [8] 'Deflated'
+000A Last Mod Time         54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+000E CRC                   F90EE7FF [4178503679]
+0012 Compressed Length     00000686 [1670]
+0016 Uncompressed Length   000001BE [446]
+001A Filename Length       0009 [9]
+001C Extra Length          0000 [0]
 001E Filename              'lorem.txt'
 
 0027 DECRYPTION HEADER
      RECORD
-0027 IVSize                0x0010 [16]
+0027 IVSize                0010 [16]
 0029 IVData                AA F9 EF 6F 42 7A 30 DF 7C 29 6E 9E 5A CB E5 2A
-0039 Size                  0x00000560 [1376]
-003D Format                0x0003 [3]
-003F AlgId                 0x6610 [26128] 'AES 256'
-0041 BitLen                0x0100 [256]
-0043 Flags                 0x4102 [16642] 'Reserved for certificate processing'
-0045 ErdSize               0x0088 [136]
+0039 Size                  00000560 [1376]
+003D Format                0003 [3]
+003F AlgId                 6610 [26128] 'AES 256'
+0041 BitLen                0100 [256]
+0043 Flags                 4102 [16642] 'Reserved for certificate processing'
+0045 ErdSize               0088 [136]
 0047 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4 B2 42 95 D8
                            E8 4A 7A 18 0C C2 0C 39 A9 FD B9 4F FA 73 13 E2
                            F0 0D 40 CC 81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
@@ -35,10 +35,10 @@
                            01 82 03 88 88 73 A2 80 64 76 43 16 FA 81 88 37
                            4F C8 D8 03 58 5A 53 BE 8B DC 2F 79 FB 01 6A 6B
                            55 45 19 48 7E 49 D4 E5
-00CF RCount                0x00000002 [2]
-00D3 HashAlg               0x8004 [32772] 'SHA1'
-00D5 HSize                 0x0014 [20]
-00D7 RESize Key #1         0x0220 [544]
+00CF RCount                00000002 [2]
+00D3 HashAlg               8004 [32772] 'SHA1'
+00D5 HSize                 0014 [20]
+00D7 RESize Key #1         0220 [544]
 00D9 REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                            68 3D 0B 1A
 00ED REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00 95 CF EE 32
@@ -74,7 +74,7 @@
                            18 DA 2E BB 95 ED 60 BE A2 4C A6 93 59 48 B8 59
                            BA 36 20 42 C7 75 EF CC 10 7C 6E 8D F0 AC 72 29
                            CB 23 89 92 61 7D 20 E9 B0 FE 7B 41
-02F9 RESize Key #2         0x0220 [544]
+02F9 RESize Key #2         0220 [544]
 02FB REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                            05 F0 35 B9
 030F REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00 6D 8E 29 84
@@ -110,7 +110,7 @@
                            AB DC 0D 34 AD F8 C5 13 C3 28 C4 08 50 D4 F3 2C
                            9B D8 1C D3 37 61 E4 A8 D4 F6 E5 6A FA 22 A8 AD
                            06 51 73 E9 1F D9 BA 5C 94 33 1C 5C
-051B VSize                 0x0080 [128]
+051B VSize                 0080 [128]
 051D VData                 50 48 05 D5 6F E9 28 E1 3F 9C 48 E3 41 FF 68 3D
                            36 10 FF FC 9D 61 A1 3F 8D 9A DC B8 C0 6E 06 8F
                            3E D7 F2 63 E9 D2 9C 57 83 4C C5 B0 43 64 06 F8
@@ -119,36 +119,36 @@
                            EF CE 6D 02 56 CB 9E E8 B0 E1 9F 2A 17 89 E2 88
                            29 FD 69 F9 09 06 1A F3 79 BE 4C 58 C1 FC 9A 64
                            9A A7 2B CA 1D C9 9A 9F 4B 81 06 4B
-0599 VCRC32                0xA46F1F1D [2758745885]
+0599 VCRC32                A46F1F1D [2758745885]
 059D PAYLOAD
 
-06AD LOCAL HEADER #2       0x04034B50 [67324752]
-06B1 Extract Zip Spec      0x3D [61] '6.1'
-06B2 Extract OS            0x00 [0] 'MS-DOS'
-06B3 General Purpose Flag  0x0841 [2113]
+06AD LOCAL HEADER #2       04034B50 [67324752]
+06B1 Extract Zip Spec      3D [61] '6.1'
+06B2 Extract OS            00 [0] 'MS-DOS'
+06B3 General Purpose Flag  0841 [2113]
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
-06B5 Compression Method    0x0008 [8] 'Deflated'
-06B7 Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
-06BB CRC                   0x41F5C83C [1106626620]
-06BF Compressed Length     0x00000696 [1686]
-06C3 Uncompressed Length   0x000001BF [447]
-06C7 Filename Length       0x000A [10]
-06C9 Extra Length          0x0000 [0]
+06B5 Compression Method    0008 [8] 'Deflated'
+06B7 Last Mod Time         54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+06BB CRC                   41F5C83C [1106626620]
+06BF Compressed Length     00000696 [1686]
+06C3 Uncompressed Length   000001BF [447]
+06C7 Filename Length       000A [10]
+06C9 Extra Length          0000 [0]
 06CB Filename              'lorem2.txt'
 
 06D5 DECRYPTION HEADER
      RECORD
-06D5 IVSize                0x0010 [16]
+06D5 IVSize                0010 [16]
 06D7 IVData                0D 18 89 31 A6 E4 3B 81 E7 DC B7 40 5D 4E 42 29
-06E7 Size                  0x00000560 [1376]
-06EB Format                0x0003 [3]
-06ED AlgId                 0x6610 [26128] 'AES 256'
-06EF BitLen                0x0100 [256]
-06F1 Flags                 0x4102 [16642] 'Reserved for certificate processing'
-06F3 ErdSize               0x0088 [136]
+06E7 Size                  00000560 [1376]
+06EB Format                0003 [3]
+06ED AlgId                 6610 [26128] 'AES 256'
+06EF BitLen                0100 [256]
+06F1 Flags                 4102 [16642] 'Reserved for certificate processing'
+06F3 ErdSize               0088 [136]
 06F5 ErdData               E0 EB E5 25 02 F9 6B 5D EC 01 1F C4 B2 42 95 D8
                            E8 4A 7A 18 0C C2 0C 39 A9 FD B9 4F FA 73 13 E2
                            F0 0D 40 CC 81 D7 35 8F 92 4A 4E 3A CC 51 59 B7
@@ -158,10 +158,10 @@
                            01 82 03 88 88 73 A2 80 64 76 43 16 FA 81 88 37
                            4F C8 D8 03 58 5A 53 BE 8B DC 2F 79 FB 01 6A 6B
                            55 45 19 48 7E 49 D4 E5
-077D RCount                0x00000002 [2]
-0781 HashAlg               0x8004 [32772] 'SHA1'
-0783 HSize                 0x0014 [20]
-0785 RESize Key #1         0x0220 [544]
+077D RCount                00000002 [2]
+0781 HashAlg               8004 [32772] 'SHA1'
+0783 HSize                 0014 [20]
+0785 RESize Key #1         0220 [544]
 0787 REHData Key #1        A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                            68 3D 0B 1A
 079B REKData Key #1        01 02 00 00 03 66 00 00 00 A4 00 00 95 CF EE 32
@@ -197,7 +197,7 @@
                            18 DA 2E BB 95 ED 60 BE A2 4C A6 93 59 48 B8 59
                            BA 36 20 42 C7 75 EF CC 10 7C 6E 8D F0 AC 72 29
                            CB 23 89 92 61 7D 20 E9 B0 FE 7B 41
-09A7 RESize Key #2         0x0220 [544]
+09A7 RESize Key #2         0220 [544]
 09A9 REHData Key #2        64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                            05 F0 35 B9
 09BD REKData Key #2        01 02 00 00 03 66 00 00 00 A4 00 00 6D 8E 29 84
@@ -233,7 +233,7 @@
                            AB DC 0D 34 AD F8 C5 13 C3 28 C4 08 50 D4 F3 2C
                            9B D8 1C D3 37 61 E4 A8 D4 F6 E5 6A FA 22 A8 AD
                            06 51 73 E9 1F D9 BA 5C 94 33 1C 5C
-0BC9 VSize                 0x0080 [128]
+0BC9 VSize                 0080 [128]
 0BCB VData                 B6 F3 8F 3E 45 F4 A1 FE 8B E7 85 56 A6 05 D5 1F
                            88 1D 70 DA 29 02 BB E2 19 EC 18 32 56 5D 1E 88
                            CF A7 3B F1 27 CF 64 27 4E 4C AB E5 06 ED 08 97
@@ -242,110 +242,110 @@
                            54 F9 E0 17 4E 8C D5 F9 80 18 16 70 FD 4C F8 A9
                            90 98 4F 82 8F 83 4A 6F 10 A9 E6 37 3C AC 55 1F
                            FE 13 B4 43 E3 45 8B F7 29 E0 7F 22
-0C47 VCRC32                0xA2BDDB28 [2730351400]
+0C47 VCRC32                A2BDDB28 [2730351400]
 0C4B PAYLOAD
 
-0D6B CENTRAL HEADER #1     0x02014B50 [33639248]
-0D6F Created Zip Spec      0x41 [65] '6.5'
-0D70 Created OS            0x00 [0] 'MS-DOS'
-0D71 Extract Zip Spec      0x3D [61] '6.1'
-0D72 Extract OS            0x00 [0] 'MS-DOS'
-0D73 General Purpose Flag  0x0841 [2113]
+0D6B CENTRAL HEADER #1     02014B50 [33639248]
+0D6F Created Zip Spec      41 [65] '6.5'
+0D70 Created OS            00 [0] 'MS-DOS'
+0D71 Extract Zip Spec      3D [61] '6.1'
+0D72 Extract OS            00 [0] 'MS-DOS'
+0D73 General Purpose Flag  0841 [2113]
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
-0D75 Compression Method    0x0008 [8] 'Deflated'
-0D77 Last Mod Time         0x54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
-0D7B CRC                   0xF90EE7FF [4178503679]
-0D7F Compressed Length     0x00000686 [1670]
-0D83 Uncompressed Length   0x000001BE [446]
-0D87 Filename Length       0x0009 [9]
-0D89 Extra Length          0x0060 [96]
-0D8B Comment Length        0x0000 [0]
-0D8D Disk Start            0x0000 [0]
-0D8F Int File Attributes   0x0001 [1]
+0D75 Compression Method    0008 [8] 'Deflated'
+0D77 Last Mod Time         54F678D3 [1425438931] 'Fri Jul 22 15:06:38 2022'
+0D7B CRC                   F90EE7FF [4178503679]
+0D7F Compressed Length     00000686 [1670]
+0D83 Uncompressed Length   000001BE [446]
+0D87 Filename Length       0009 [9]
+0D89 Extra Length          0060 [96]
+0D8B Comment Length        0000 [0]
+0D8D Disk Start            0000 [0]
+0D8F Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0D91 Ext File Attributes   0x00000020 [32]
+0D91 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-0D95 Local Header Offset   0x00000000 [0]
+0D95 Local Header Offset   00000000 [0]
 0D99 Filename              'lorem.txt'
-0DA2 Extra ID #1           0x000A [10] 'NTFS FileTimes'
-0DA4   Length              0x0020 [32]
-0DA6   Reserved            0x00000000 [0]
-0DAA   Tag1                0x0001 [1]
-0DAC   Size1               0x0018 [24]
-0DAE   Mtime               0x01D89DD442656B00 [133029723980000000] 'Fri Jul 22 14:06:38 2022 0ns'
-0DB6   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
-0DBE   Ctime               0x01D89F5FDB7DFB1D [133031423060605725] 'Sun Jul 24 13:18:26 2022 60572500ns'
-0DC6 Extra ID #2           0x0017 [23] 'Strong Encryption Header'
-0DC8   Length              0x0038 [56]
-0DCA   Format              0x0002 [2]
-0DCC   AlgId               0x6610 [26128] 'AES 256'
-0DCE   BitLen              0x0100 [256]
-0DD0   Flags               0x4102 [16642] 'reserved for certificate processing'
-0DD2   Recipients          0x00000002 [2]
-0DD6   HashAlg             0x8004 [32772] 'SHA1'
-0DD8   HSize               0x0014 [20]
+0DA2 Extra ID #1           000A [10] 'NTFS FileTimes'
+0DA4   Length              0020 [32]
+0DA6   Reserved            00000000 [0]
+0DAA   Tag1                0001 [1]
+0DAC   Size1               0018 [24]
+0DAE   Mtime               01D89DD442656B00 [133029723980000000] 'Fri Jul 22 14:06:38 2022 0ns'
+0DB6   Atime               01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+0DBE   Ctime               01D89F5FDB7DFB1D [133031423060605725] 'Sun Jul 24 13:18:26 2022 60572500ns'
+0DC6 Extra ID #2           0017 [23] 'Strong Encryption Header'
+0DC8   Length              0038 [56]
+0DCA   Format              0002 [2]
+0DCC   AlgId               6610 [26128] 'AES 256'
+0DCE   BitLen              0100 [256]
+0DD0   Flags               4102 [16642] 'reserved for certificate processing'
+0DD2   Recipients          00000002 [2]
+0DD6   HashAlg             8004 [32772] 'SHA1'
+0DD8   HSize               0014 [20]
 0DDA   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                            68 3D 0B 1A
 0DEE   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                            05 F0 35 B9
 
-0E02 CENTRAL HEADER #2     0x02014B50 [33639248]
-0E06 Created Zip Spec      0x41 [65] '6.5'
-0E07 Created OS            0x00 [0] 'MS-DOS'
-0E08 Extract Zip Spec      0x3D [61] '6.1'
-0E09 Extract OS            0x00 [0] 'MS-DOS'
-0E0A General Purpose Flag  0x0841 [2113]
+0E02 CENTRAL HEADER #2     02014B50 [33639248]
+0E06 Created Zip Spec      41 [65] '6.5'
+0E07 Created OS            00 [0] 'MS-DOS'
+0E08 Extract Zip Spec      3D [61] '6.1'
+0E09 Extract OS            00 [0] 'MS-DOS'
+0E0A General Purpose Flag  0841 [2113]
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
-0E0C Compression Method    0x0008 [8] 'Deflated'
-0E0E Last Mod Time         0x54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
-0E12 CRC                   0x41F5C83C [1106626620]
-0E16 Compressed Length     0x00000696 [1686]
-0E1A Uncompressed Length   0x000001BF [447]
-0E1E Filename Length       0x000A [10]
-0E20 Extra Length          0x0060 [96]
-0E22 Comment Length        0x0000 [0]
-0E24 Disk Start            0x0000 [0]
-0E26 Int File Attributes   0x0001 [1]
+0E0C Compression Method    0008 [8] 'Deflated'
+0E0E Last Mod Time         54FD6EA5 [1425895077] 'Fri Jul 29 13:53:10 2022'
+0E12 CRC                   41F5C83C [1106626620]
+0E16 Compressed Length     00000696 [1686]
+0E1A Uncompressed Length   000001BF [447]
+0E1E Filename Length       000A [10]
+0E20 Extra Length          0060 [96]
+0E22 Comment Length        0000 [0]
+0E24 Disk Start            0000 [0]
+0E26 Int File Attributes   0001 [1]
      [Bit 0]               1 'Text Data'
-0E28 Ext File Attributes   0x00000020 [32]
+0E28 Ext File Attributes   00000020 [32]
      [Bit 5]               Archive
-0E2C Local Header Offset   0x000006AD [1709]
+0E2C Local Header Offset   000006AD [1709]
 0E30 Filename              'lorem2.txt'
-0E3A Extra ID #1           0x000A [10] 'NTFS FileTimes'
-0E3C   Length              0x0020 [32]
-0E3E   Reserved            0x00000000 [0]
-0E42   Tag1                0x0001 [1]
-0E44   Size1               0x0018 [24]
-0E46   Mtime               0x01D8A34A2772EA14 [133035727892179476] 'Fri Jul 29 12:53:09 2022 217947600ns'
-0E4E   Atime               0x01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
-0E56   Ctime               0x01D8A34A2158C8C3 [133035727789803715] 'Fri Jul 29 12:52:58 2022 980371500ns'
-0E5E Extra ID #2           0x0017 [23] 'Strong Encryption Header'
-0E60   Length              0x0038 [56]
-0E62   Format              0x0002 [2]
-0E64   AlgId               0x6610 [26128] 'AES 256'
-0E66   BitLen              0x0100 [256]
-0E68   Flags               0x4102 [16642] 'reserved for certificate processing'
-0E6A   Recipients          0x00000002 [2]
-0E6E   HashAlg             0x8004 [32772] 'SHA1'
-0E70   HSize               0x0014 [20]
+0E3A Extra ID #1           000A [10] 'NTFS FileTimes'
+0E3C   Length              0020 [32]
+0E3E   Reserved            00000000 [0]
+0E42   Tag1                0001 [1]
+0E44   Size1               0018 [24]
+0E46   Mtime               01D8A34A2772EA14 [133035727892179476] 'Fri Jul 29 12:53:09 2022 217947600ns'
+0E4E   Atime               01D8A4B6E13A97A2 [133037294377146274] 'Sun Jul 31 08:23:57 2022 714627400ns'
+0E56   Ctime               01D8A34A2158C8C3 [133035727789803715] 'Fri Jul 29 12:52:58 2022 980371500ns'
+0E5E Extra ID #2           0017 [23] 'Strong Encryption Header'
+0E60   Length              0038 [56]
+0E62   Format              0002 [2]
+0E64   AlgId               6610 [26128] 'AES 256'
+0E66   BitLen              0100 [256]
+0E68   Flags               4102 [16642] 'reserved for certificate processing'
+0E6A   Recipients          00000002 [2]
+0E6E   HashAlg             8004 [32772] 'SHA1'
+0E70   HSize               0014 [20]
 0E72   Key #1              A0 6B CD BB 6E 93 D0 8B 12 B6 E5 DA 94 11 36 F8
                            68 3D 0B 1A
 0E86   Key #2              64 E1 4A BC 4A 1E 2C 17 CA F0 51 46 3C 46 5B 69
                            05 F0 35 B9
 
-0E9A END CENTRAL HEADER    0x06054B50 [101010256]
-0E9E Number of this disk   0x0000 [0]
-0EA0 Central Dir Disk no   0x0000 [0]
-0EA2 Entries in this disk  0x0002 [2]
-0EA4 Total Entries         0x0002 [2]
-0EA6 Size of Central Dir   0x0000012F [303]
-0EAA Offset to Central Dir 0x00000D6B [3435]
-0EAE Comment Length        0x0000 [0]
+0E9A END CENTRAL HEADER    06054B50 [101010256]
+0E9E Number of this disk   0000 [0]
+0EA0 Central Dir Disk no   0000 [0]
+0EA2 Entries in this disk  0002 [2]
+0EA4 Total Entries         0002 [2]
+0EA6 Size of Central Dir   0000012F [303]
+0EAA Offset to Central Dir 00000D6B [3435]
+0EAE Comment Length        0000 [0]
 #
 # Done

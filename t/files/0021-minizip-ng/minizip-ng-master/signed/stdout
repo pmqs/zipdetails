@@ -1,31 +1,31 @@
 
-00000 LOCAL HEADER #1       0x04034B50 [67324752]
-00004 Extract Zip Spec      0x14 [20] '2.0'
-00005 Extract OS            0x00 [0] 'MS-DOS'
-00006 General Purpose Flag  0x080A [2058]
+00000 LOCAL HEADER #1       04034B50 [67324752]
+00004 Extract Zip Spec      14 [20] '2.0'
+00005 Extract OS            00 [0] 'MS-DOS'
+00006 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-00008 Compression Method    0x0008 [8] 'Deflated'
-0000A Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-0000E CRC                   0x00000000 [0]
-00012 Compressed Length     0xFFFFFFFF [4294967295]
-00016 Uncompressed Length   0xFFFFFFFF [4294967295]
-0001A Filename Length       0x0009 [9]
-0001C Extra Length          0x06E4 [1764]
+00008 Compression Method    0008 [8] 'Deflated'
+0000A Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+0000E CRC                   00000000 [0]
+00012 Compressed Length     FFFFFFFF [4294967295]
+00016 Uncompressed Length   FFFFFFFF [4294967295]
+0001A Filename Length       0009 [9]
+0001C Extra Length          06E4 [1764]
 0001E Filename              'empty.txt'
-00027 Extra ID #1           0x0001 [1] 'ZIP64'
-00029   Length              0x0010 [16]
-0002B   Uncompressed Size   0x0000000000000000 [0]
-00033   Compressed Size     0x0000000000000000 [0]
-0003B Extra ID #2           0x1A51 [6737] 'Minizip Hash'
-0003D   Length              0x0024 [36]
-0003F   Algorithm           0x0017 [23] 'SHA256'
-00041   Digest Size         0x0020 [32]
+00027 Extra ID #1           0001 [1] 'ZIP64'
+00029   Length              0010 [16]
+0002B   Uncompressed Size   0000000000000000 [0]
+00033   Compressed Size     0000000000000000 [0]
+0003B Extra ID #2           1A51 [6737] 'Minizip Hash'
+0003D   Length              0024 [36]
+0003F   Algorithm           0017 [23] 'SHA256'
+00041   Digest Size         0020 [32]
 00043   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8 99 6F B9 24
                             27 AE 41 E4 64 9B 93 4C A4 95 99 1B 78 52 B8 55
-00063 Extra ID #3           0x10C5 [4293] 'Minizip CMS Signature'
-00065   Length              0x06A4 [1700]
+00063 Extra ID #3           10C5 [4293] 'Minizip CMS Signature'
+00065   Length              06A4 [1700]
 00067   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -135,34 +135,34 @@
                             6F 6E 54 CD
 0070B PAYLOAD               ..
 
-0070D DATA DESCRIPTOR       0x08074B50 [134695760]
-00711 CRC                   0x00000000 [0]
-00715 Compressed Length     0x0000000000000002 [2]
-0071D Uncompressed Length   0x0000000000000000 [0]
+0070D DATA DESCRIPTOR       08074B50 [134695760]
+00711 CRC                   00000000 [0]
+00715 Compressed Length     0000000000000002 [2]
+0071D Uncompressed Length   0000000000000000 [0]
 
-00725 LOCAL HEADER #2       0x04034B50 [67324752]
-00729 Extract Zip Spec      0x14 [20] '2.0'
-0072A Extract OS            0x00 [0] 'MS-DOS'
-0072B General Purpose Flag  0x080A [2058]
+00725 LOCAL HEADER #2       04034B50 [67324752]
+00729 Extract Zip Spec      14 [20] '2.0'
+0072A Extract OS            00 [0] 'MS-DOS'
+0072B General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-0072D Compression Method    0x0008 [8] 'Deflated'
-0072F Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-00733 CRC                   0x00000000 [0]
-00737 Compressed Length     0x00000000 [0]
-0073B Uncompressed Length   0x00020000 [131072]
-0073F Filename Length       0x000A [10]
-00741 Extra Length          0x06D0 [1744]
+0072D Compression Method    0008 [8] 'Deflated'
+0072F Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+00733 CRC                   00000000 [0]
+00737 Compressed Length     00000000 [0]
+0073B Uncompressed Length   00020000 [131072]
+0073F Filename Length       000A [10]
+00741 Extra Length          06D0 [1744]
 00743 Filename              'random.bin'
-0074D Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-0074F   Length              0x0024 [36]
-00751   Algorithm           0x0017 [23] 'SHA256'
-00753   Digest Size         0x0020 [32]
+0074D Extra ID #1           1A51 [6737] 'Minizip Hash'
+0074F   Length              0024 [36]
+00751   Algorithm           0017 [23] 'SHA256'
+00753   Digest Size         0020 [32]
 00755   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19 9D 2C E9 84
                             44 D3 A1 D1 4D 85 C4 7E DE 68 2C FF 94 9E F3 38
-00775 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-00777   Length              0x06A4 [1700]
+00775 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+00777   Length              06A4 [1700]
 00779   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -272,34 +272,34 @@
                             3C D0 73 C6
 00E1D PAYLOAD
 
-20E45 DATA DESCRIPTOR       0x08074B50 [134695760]
-20E49 CRC                   0xA85D40DC [2824683740]
-20E4D Compressed Length     0x00020028 [131112]
-20E51 Uncompressed Length   0x00020000 [131072]
+20E45 DATA DESCRIPTOR       08074B50 [134695760]
+20E49 CRC                   A85D40DC [2824683740]
+20E4D Compressed Length     00020028 [131112]
+20E51 Uncompressed Length   00020000 [131072]
 
-20E55 LOCAL HEADER #3       0x04034B50 [67324752]
-20E59 Extract Zip Spec      0x14 [20] '2.0'
-20E5A Extract OS            0x00 [0] 'MS-DOS'
-20E5B General Purpose Flag  0x080A [2058]
+20E55 LOCAL HEADER #3       04034B50 [67324752]
+20E59 Extract Zip Spec      14 [20] '2.0'
+20E5A Extract OS            00 [0] 'MS-DOS'
+20E5B General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-20E5D Compression Method    0x0008 [8] 'Deflated'
-20E5F Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-20E63 CRC                   0x00000000 [0]
-20E67 Compressed Length     0x00000000 [0]
-20E6B Uncompressed Length   0x00018000 [98304]
-20E6F Filename Length       0x000B [11]
-20E71 Extra Length          0x06D0 [1744]
+20E5D Compression Method    0008 [8] 'Deflated'
+20E5F Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+20E63 CRC                   00000000 [0]
+20E67 Compressed Length     00000000 [0]
+20E6B Uncompressed Length   00018000 [98304]
+20E6F Filename Length       000B [11]
+20E71 Extra Length          06D0 [1744]
 20E73 Filename              'uniform.bin'
-20E7E Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-20E80   Length              0x0024 [36]
-20E82   Algorithm           0x0017 [23] 'SHA256'
-20E84   Digest Size         0x0020 [32]
+20E7E Extra ID #1           1A51 [6737] 'Minizip Hash'
+20E80   Length              0024 [36]
+20E82   Algorithm           0017 [23] 'SHA256'
+20E84   Digest Size         0020 [32]
 20E86   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB 3A AC 04 FA
                             CD 9D A2 AD 49 04 45 65 ED 9D 62 61 F6 77 6B 85
-20EA6 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-20EA8   Length              0x06A4 [1700]
+20EA6 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+20EA8   Length              06A4 [1700]
 20EAA   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -409,34 +409,34 @@
                             00 36 29 5E
 2154E PAYLOAD               .........*.....(...............................................................................................n
 
-215BE DATA DESCRIPTOR       0x08074B50 [134695760]
-215C2 CRC                   0x0F79DE80 [259645056]
-215C6 Compressed Length     0x00000070 [112]
-215CA Uncompressed Length   0x00018000 [98304]
+215BE DATA DESCRIPTOR       08074B50 [134695760]
+215C2 CRC                   0F79DE80 [259645056]
+215C6 Compressed Length     00000070 [112]
+215CA Uncompressed Length   00018000 [98304]
 
-215CE LOCAL HEADER #4       0x04034B50 [67324752]
-215D2 Extract Zip Spec      0x14 [20] '2.0'
-215D3 Extract OS            0x00 [0] 'MS-DOS'
-215D4 General Purpose Flag  0x080A [2058]
+215CE LOCAL HEADER #4       04034B50 [67324752]
+215D2 Extract Zip Spec      14 [20] '2.0'
+215D3 Extract OS            00 [0] 'MS-DOS'
+215D4 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-215D6 Compression Method    0x0008 [8] 'Deflated'
-215D8 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-215DC CRC                   0x00000000 [0]
-215E0 Compressed Length     0x00000000 [0]
-215E4 Uncompressed Length   0x000009E0 [2528]
-215E8 Filename Length       0x000C [12]
-215EA Extra Length          0x06D0 [1744]
+215D6 Compression Method    0008 [8] 'Deflated'
+215D8 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+215DC CRC                   00000000 [0]
+215E0 Compressed Length     00000000 [0]
+215E4 Uncompressed Length   000009E0 [2528]
+215E8 Filename Length       000C [12]
+215EA Extra Length          06D0 [1744]
 215EC Filename              'standalone.c'
-215F8 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-215FA   Length              0x0024 [36]
-215FC   Algorithm           0x0017 [23] 'SHA256'
-215FE   Digest Size         0x0020 [32]
+215F8 Extra ID #1           1A51 [6737] 'Minizip Hash'
+215FA   Length              0024 [36]
+215FC   Algorithm           0017 [23] 'SHA256'
+215FE   Digest Size         0020 [32]
 21600   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D F4 42 FA 34
                             BF 00 B2 1C 3B FC 2B E7 D4 A9 97 91 9F 74 16 FB
-21620 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-21622   Length              0x06A4 [1700]
+21620 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+21622   Length              06A4 [1700]
 21624   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -546,34 +546,34 @@
                             01 BF 98 27
 21CC8 PAYLOAD
 
-22055 DATA DESCRIPTOR       0x08074B50 [134695760]
-22059 CRC                   0x54F920F0 [1425613040]
-2205D Compressed Length     0x0000038D [909]
-22061 Uncompressed Length   0x000009E0 [2528]
+22055 DATA DESCRIPTOR       08074B50 [134695760]
+22059 CRC                   54F920F0 [1425613040]
+2205D Compressed Length     0000038D [909]
+22061 Uncompressed Length   000009E0 [2528]
 
-22065 LOCAL HEADER #5       0x04034B50 [67324752]
-22069 Extract Zip Spec      0x14 [20] '2.0'
-2206A Extract OS            0x00 [0] 'MS-DOS'
-2206B General Purpose Flag  0x080A [2058]
+22065 LOCAL HEADER #5       04034B50 [67324752]
+22069 Extract Zip Spec      14 [20] '2.0'
+2206A Extract OS            00 [0] 'MS-DOS'
+2206B General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2206D Compression Method    0x0008 [8] 'Deflated'
-2206F Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-22073 CRC                   0x00000000 [0]
-22077 Compressed Length     0x00000000 [0]
-2207B Uncompressed Length   0x00000D4E [3406]
-2207F Filename Length       0x000C [12]
-22081 Extra Length          0x06D0 [1744]
+2206D Compression Method    0008 [8] 'Deflated'
+2206F Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+22073 CRC                   00000000 [0]
+22077 Compressed Length     00000000 [0]
+2207B Uncompressed Length   00000D4E [3406]
+2207F Filename Length       000C [12]
+22081 Extra Length          06D0 [1744]
 22083 Filename              'zip_fuzzer.c'
-2208F Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-22091   Length              0x0024 [36]
-22093   Algorithm           0x0017 [23] 'SHA256'
-22095   Digest Size         0x0020 [32]
+2208F Extra ID #1           1A51 [6737] 'Minizip Hash'
+22091   Length              0024 [36]
+22093   Algorithm           0017 [23] 'SHA256'
+22095   Digest Size         0020 [32]
 22097   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5 8D 1D F5 89
                             42 90 3A 10 AF 48 38 36 00 A8 66 3F BF A9 C1 F2
-220B7 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-220B9   Length              0x06A4 [1700]
+220B7 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+220B9   Length              06A4 [1700]
 220BB   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -683,34 +683,34 @@
                             38 9D 91 73
 2275F PAYLOAD
 
-22B46 DATA DESCRIPTOR       0x08074B50 [134695760]
-22B4A CRC                   0xC1588FFF [3243806719]
-22B4E Compressed Length     0x000003E7 [999]
-22B52 Uncompressed Length   0x00000D4E [3406]
+22B46 DATA DESCRIPTOR       08074B50 [134695760]
+22B4A CRC                   C1588FFF [3243806719]
+22B4E Compressed Length     000003E7 [999]
+22B52 Uncompressed Length   00000D4E [3406]
 
-22B56 LOCAL HEADER #6       0x04034B50 [67324752]
-22B5A Extract Zip Spec      0x14 [20] '2.0'
-22B5B Extract OS            0x00 [0] 'MS-DOS'
-22B5C General Purpose Flag  0x080A [2058]
+22B56 LOCAL HEADER #6       04034B50 [67324752]
+22B5A Extract Zip Spec      14 [20] '2.0'
+22B5B Extract OS            00 [0] 'MS-DOS'
+22B5C General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-22B5E Compression Method    0x0008 [8] 'Deflated'
-22B60 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-22B64 CRC                   0x00000000 [0]
-22B68 Compressed Length     0x00000000 [0]
-22B6C Uncompressed Length   0x00000D07 [3335]
-22B70 Filename Length       0x000E [14]
-22B72 Extra Length          0x06D0 [1744]
+22B5E Compression Method    0008 [8] 'Deflated'
+22B60 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+22B64 CRC                   00000000 [0]
+22B68 Compressed Length     00000000 [0]
+22B6C Uncompressed Length   00000D07 [3335]
+22B70 Filename Length       000E [14]
+22B72 Extra Length          06D0 [1744]
 22B74 Filename              'unzip_fuzzer.c'
-22B82 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-22B84   Length              0x0024 [36]
-22B86   Algorithm           0x0017 [23] 'SHA256'
-22B88   Digest Size         0x0020 [32]
+22B82 Extra ID #1           1A51 [6737] 'Minizip Hash'
+22B84   Length              0024 [36]
+22B86   Algorithm           0017 [23] 'SHA256'
+22B88   Digest Size         0020 [32]
 22B8A   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73 52 C8 E7 83
                             53 83 C3 21 ED 84 77 06 C3 2F 88 CF B0 FA 6D 65
-22BAA Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-22BAC   Length              0x06A4 [1700]
+22BAA Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+22BAC   Length              06A4 [1700]
 22BAE   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -820,48 +820,48 @@
                             0E 87 61 62
 23252 PAYLOAD
 
-23674 DATA DESCRIPTOR       0x08074B50 [134695760]
-23678 CRC                   0x9062EB2C [2422401836]
-2367C Compressed Length     0x00000422 [1058]
-23680 Uncompressed Length   0x00000D07 [3335]
+23674 DATA DESCRIPTOR       08074B50 [134695760]
+23678 CRC                   9062EB2C [2422401836]
+2367C Compressed Length     00000422 [1058]
+23680 Uncompressed Length   00000D07 [3335]
 
-23684 LOCAL HEADER #7       0x04034B50 [67324752]
-23688 Extract Zip Spec      0x14 [20] '2.0'
-23689 Extract OS            0x00 [0] 'MS-DOS'
-2368A General Purpose Flag  0x0802 [2050]
+23684 LOCAL HEADER #7       04034B50 [67324752]
+23688 Extract Zip Spec      14 [20] '2.0'
+23689 Extract OS            00 [0] 'MS-DOS'
+2368A General Purpose Flag  0802 [2050]
       [Bit 11]              1 'Language Encoding'
-2368C Compression Method    0x0000 [0] 'Stored'
-2368E Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-23692 CRC                   0x00000000 [0]
-23696 Compressed Length     0x00000000 [0]
-2369A Uncompressed Length   0x00000000 [0]
-2369E Filename Length       0x0019 [25]
-236A0 Extra Length          0x0000 [0]
+2368C Compression Method    0000 [0] 'Stored'
+2368E Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+23692 CRC                   00000000 [0]
+23696 Compressed Length     00000000 [0]
+2369A Uncompressed Length   00000000 [0]
+2369E Filename Length       0019 [25]
+236A0 Extra Length          0000 [0]
 236A2 Filename              'unzip_fuzzer_seed_corpus/'
 
-236BB LOCAL HEADER #8       0x04034B50 [67324752]
-236BF Extract Zip Spec      0x14 [20] '2.0'
-236C0 Extract OS            0x00 [0] 'MS-DOS'
-236C1 General Purpose Flag  0x080A [2058]
+236BB LOCAL HEADER #8       04034B50 [67324752]
+236BF Extract Zip Spec      14 [20] '2.0'
+236C0 Extract OS            00 [0] 'MS-DOS'
+236C1 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-236C3 Compression Method    0x0008 [8] 'Deflated'
-236C5 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-236C9 CRC                   0x00000000 [0]
-236CD Compressed Length     0x00000000 [0]
-236D1 Uncompressed Length   0x000002DE [734]
-236D5 Filename Length       0x0029 [41]
-236D7 Extra Length          0x06D0 [1744]
+236C3 Compression Method    0008 [8] 'Deflated'
+236C5 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+236C9 CRC                   00000000 [0]
+236CD Compressed Length     00000000 [0]
+236D1 Uncompressed Length   000002DE [734]
+236D5 Filename Length       0029 [41]
+236D7 Extra Length          06D0 [1744]
 236D9 Filename              'unzip_fuzzer_seed_corpus/license_zstd.zip'
-23702 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-23704   Length              0x0024 [36]
-23706   Algorithm           0x0017 [23] 'SHA256'
-23708   Digest Size         0x0020 [32]
+23702 Extra ID #1           1A51 [6737] 'Minizip Hash'
+23704   Length              0024 [36]
+23706   Algorithm           0017 [23] 'SHA256'
+23708   Digest Size         0020 [32]
 2370A   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48 1D 7C 2F A1
                             BD 45 F3 34 BE 5B 94 34 59 97 83 29 42 F3 D7 C1
-2372A Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2372C   Length              0x06A4 [1700]
+2372A Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2372C   Length              06A4 [1700]
 2372E   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -971,34 +971,34 @@
                             BB BE 92 EE
 23DD2 PAYLOAD
 
-24073 DATA DESCRIPTOR       0x08074B50 [134695760]
-24077 CRC                   0x0DFE0B22 [234752802]
-2407B Compressed Length     0x000002A1 [673]
-2407F Uncompressed Length   0x000002DE [734]
+24073 DATA DESCRIPTOR       08074B50 [134695760]
+24077 CRC                   0DFE0B22 [234752802]
+2407B Compressed Length     000002A1 [673]
+2407F Uncompressed Length   000002DE [734]
 
-24083 LOCAL HEADER #9       0x04034B50 [67324752]
-24087 Extract Zip Spec      0x14 [20] '2.0'
-24088 Extract OS            0x00 [0] 'MS-DOS'
-24089 General Purpose Flag  0x080A [2058]
+24083 LOCAL HEADER #9       04034B50 [67324752]
+24087 Extract Zip Spec      14 [20] '2.0'
+24088 Extract OS            00 [0] 'MS-DOS'
+24089 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2408B Compression Method    0x0008 [8] 'Deflated'
-2408D Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-24091 CRC                   0x00000000 [0]
-24095 Compressed Length     0x00000000 [0]
-24099 Uncompressed Length   0x000070C0 [28864]
-2409D Filename Length       0x0021 [33]
-2409F Extra Length          0x06D0 [1744]
+2408B Compression Method    0008 [8] 'Deflated'
+2408D Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+24091 CRC                   00000000 [0]
+24095 Compressed Length     00000000 [0]
+24099 Uncompressed Length   000070C0 [28864]
+2409D Filename Length       0021 [33]
+2409F Extra Length          06D0 [1744]
 240A1 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
-240C2 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-240C4   Length              0x0024 [36]
-240C6   Algorithm           0x0017 [23] 'SHA256'
-240C8   Digest Size         0x0020 [32]
+240C2 Extra ID #1           1A51 [6737] 'Minizip Hash'
+240C4   Length              0024 [36]
+240C6   Algorithm           0017 [23] 'SHA256'
+240C8   Digest Size         0020 [32]
 240CA   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F B1 50 0B 7D
                             A3 E4 75 A5 B0 44 B8 E7 C9 D1 31 D3 5F 3B 85 33
-240EA Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-240EC   Length              0x06A4 [1700]
+240EA Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+240EC   Length              06A4 [1700]
 240EE   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1108,34 +1108,34 @@
                             86 56 8C 40
 24792 PAYLOAD
 
-2B858 DATA DESCRIPTOR       0x08074B50 [134695760]
-2B85C CRC                   0x7FF0384D [2146449485]
-2B860 Compressed Length     0x000070C6 [28870]
-2B864 Uncompressed Length   0x000070C0 [28864]
+2B858 DATA DESCRIPTOR       08074B50 [134695760]
+2B85C CRC                   7FF0384D [2146449485]
+2B860 Compressed Length     000070C6 [28870]
+2B864 Uncompressed Length   000070C0 [28864]
 
-2B868 LOCAL HEADER #10      0x04034B50 [67324752]
-2B86C Extract Zip Spec      0x14 [20] '2.0'
-2B86D Extract OS            0x00 [0] 'MS-DOS'
-2B86E General Purpose Flag  0x080A [2058]
+2B868 LOCAL HEADER #10      04034B50 [67324752]
+2B86C Extract Zip Spec      14 [20] '2.0'
+2B86D Extract OS            00 [0] 'MS-DOS'
+2B86E General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2B870 Compression Method    0x0008 [8] 'Deflated'
-2B872 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2B876 CRC                   0x00000000 [0]
-2B87A Compressed Length     0x00000000 [0]
-2B87E Uncompressed Length   0x000000F6 [246]
-2B882 Filename Length       0x001F [31]
-2B884 Extra Length          0x06D0 [1744]
+2B870 Compression Method    0008 [8] 'Deflated'
+2B872 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2B876 CRC                   00000000 [0]
+2B87A Compressed Length     00000000 [0]
+2B87E Uncompressed Length   000000F6 [246]
+2B882 Filename Length       001F [31]
+2B884 Extra Length          06D0 [1744]
 2B886 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
-2B8A5 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2B8A7   Length              0x0024 [36]
-2B8A9   Algorithm           0x0017 [23] 'SHA256'
-2B8AB   Digest Size         0x0020 [32]
+2B8A5 Extra ID #1           1A51 [6737] 'Minizip Hash'
+2B8A7   Length              0024 [36]
+2B8A9   Algorithm           0017 [23] 'SHA256'
+2B8AB   Digest Size         0020 [32]
 2B8AD   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54 10 28 AE BE
                             2E B6 F1 07 4D 1C 92 5D 1D 40 F5 45 3D 11 BF 90
-2B8CD Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2B8CF   Length              0x06A4 [1700]
+2B8CD Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2B8CF   Length              06A4 [1700]
 2B8D1   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1245,34 +1245,34 @@
                             15 C6 5E 23
 2BF75 PAYLOAD               ..ff.b..?E..$.. ........p2.H.y ..(...S.+DCz.H.y.-.L...l..1..:.(...p;.ifE.......d?....oV6.<.......j.
 
-2BFD8 DATA DESCRIPTOR       0x08074B50 [134695760]
-2BFDC CRC                   0x32453FDC [843399132]
-2BFE0 Compressed Length     0x00000063 [99]
-2BFE4 Uncompressed Length   0x000000F6 [246]
+2BFD8 DATA DESCRIPTOR       08074B50 [134695760]
+2BFDC CRC                   32453FDC [843399132]
+2BFE0 Compressed Length     00000063 [99]
+2BFE4 Uncompressed Length   000000F6 [246]
 
-2BFE8 LOCAL HEADER #11      0x04034B50 [67324752]
-2BFEC Extract Zip Spec      0x14 [20] '2.0'
-2BFED Extract OS            0x00 [0] 'MS-DOS'
-2BFEE General Purpose Flag  0x080A [2058]
+2BFE8 LOCAL HEADER #11      04034B50 [67324752]
+2BFEC Extract Zip Spec      14 [20] '2.0'
+2BFED Extract OS            00 [0] 'MS-DOS'
+2BFEE General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2BFF0 Compression Method    0x0008 [8] 'Deflated'
-2BFF2 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2BFF6 CRC                   0x00000000 [0]
-2BFFA Compressed Length     0x00000000 [0]
-2BFFE Uncompressed Length   0x00000016 [22]
-2C002 Filename Length       0x0021 [33]
-2C004 Extra Length          0x06D0 [1744]
+2BFF0 Compression Method    0008 [8] 'Deflated'
+2BFF2 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2BFF6 CRC                   00000000 [0]
+2BFFA Compressed Length     00000000 [0]
+2BFFE Uncompressed Length   00000016 [22]
+2C002 Filename Length       0021 [33]
+2C004 Extra Length          06D0 [1744]
 2C006 Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
-2C027 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2C029   Length              0x0024 [36]
-2C02B   Algorithm           0x0017 [23] 'SHA256'
-2C02D   Digest Size         0x0020 [32]
+2C027 Extra ID #1           1A51 [6737] 'Minizip Hash'
+2C029   Length              0024 [36]
+2C02B   Algorithm           0017 [23] 'SHA256'
+2C02D   Digest Size         0020 [32]
 2C02F   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9 DF 0E F7 5C
                             F4 21 D3 9C AB B5 46 50 C4 B9 AD 19 B6 A7 6D 85
-2C04F Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2C051   Length              0x06A4 [1700]
+2C04F Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2C051   Length              06A4 [1700]
 2C053   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1382,34 +1382,34 @@
                             38 42 46 5D
 2C6F7 PAYLOAD               ..fec...
 
-2C6FF DATA DESCRIPTOR       0x08074B50 [134695760]
-2C703 CRC                   0xD7CBC50E [3620455694]
-2C707 Compressed Length     0x00000008 [8]
-2C70B Uncompressed Length   0x00000016 [22]
+2C6FF DATA DESCRIPTOR       08074B50 [134695760]
+2C703 CRC                   D7CBC50E [3620455694]
+2C707 Compressed Length     00000008 [8]
+2C70B Uncompressed Length   00000016 [22]
 
-2C70F LOCAL HEADER #12      0x04034B50 [67324752]
-2C713 Extract Zip Spec      0x14 [20] '2.0'
-2C714 Extract OS            0x00 [0] 'MS-DOS'
-2C715 General Purpose Flag  0x080A [2058]
+2C70F LOCAL HEADER #12      04034B50 [67324752]
+2C713 Extract Zip Spec      14 [20] '2.0'
+2C714 Extract OS            00 [0] 'MS-DOS'
+2C715 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2C717 Compression Method    0x0008 [8] 'Deflated'
-2C719 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2C71D CRC                   0x00000000 [0]
-2C721 Compressed Length     0x00000000 [0]
-2C725 Uncompressed Length   0x00011714 [71444]
-2C729 Filename Length       0x0023 [35]
-2C72B Extra Length          0x06D0 [1744]
+2C717 Compression Method    0008 [8] 'Deflated'
+2C719 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2C71D CRC                   00000000 [0]
+2C721 Compressed Length     00000000 [0]
+2C725 Uncompressed Length   00011714 [71444]
+2C729 Filename Length       0023 [35]
+2C72B Extra Length          06D0 [1744]
 2C72D Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
-2C750 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2C752   Length              0x0024 [36]
-2C754   Algorithm           0x0017 [23] 'SHA256'
-2C756   Digest Size         0x0020 [32]
+2C750 Extra ID #1           1A51 [6737] 'Minizip Hash'
+2C752   Length              0024 [36]
+2C754   Algorithm           0017 [23] 'SHA256'
+2C756   Digest Size         0020 [32]
 2C758   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6 DC 6C C8 0F
                             DA 97 01 64 2A 96 C4 A3 15 21 83 13 47 DB 0E 07
-2C778 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2C77A   Length              0x06A4 [1700]
+2C778 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2C77A   Length              06A4 [1700]
 2C77C   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1519,34 +1519,34 @@
                             D3 60 DA 8E
 2CE20 PAYLOAD
 
-2D59F DATA DESCRIPTOR       0x08074B50 [134695760]
-2D5A3 CRC                   0xBF8FDF10 [3213877008]
-2D5A7 Compressed Length     0x0000077F [1919]
-2D5AB Uncompressed Length   0x00011714 [71444]
+2D59F DATA DESCRIPTOR       08074B50 [134695760]
+2D5A3 CRC                   BF8FDF10 [3213877008]
+2D5A7 Compressed Length     0000077F [1919]
+2D5AB Uncompressed Length   00011714 [71444]
 
-2D5AF LOCAL HEADER #13      0x04034B50 [67324752]
-2D5B3 Extract Zip Spec      0x14 [20] '2.0'
-2D5B4 Extract OS            0x00 [0] 'MS-DOS'
-2D5B5 General Purpose Flag  0x080A [2058]
+2D5AF LOCAL HEADER #13      04034B50 [67324752]
+2D5B3 Extract Zip Spec      14 [20] '2.0'
+2D5B4 Extract OS            00 [0] 'MS-DOS'
+2D5B5 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2D5B7 Compression Method    0x0008 [8] 'Deflated'
-2D5B9 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2D5BD CRC                   0x00000000 [0]
-2D5C1 Compressed Length     0x00000000 [0]
-2D5C5 Uncompressed Length   0x00000148 [328]
-2D5C9 Filename Length       0x002D [45]
-2D5CB Extra Length          0x06D0 [1744]
+2D5B7 Compression Method    0008 [8] 'Deflated'
+2D5B9 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2D5BD CRC                   00000000 [0]
+2D5C1 Compressed Length     00000000 [0]
+2D5C5 Uncompressed Length   00000148 [328]
+2D5C9 Filename Length       002D [45]
+2D5CB Extra Length          06D0 [1744]
 2D5CD Filename              'unzip_fuzzer_seed_corpus/infozip_symlinks.zip'
-2D5FA Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2D5FC   Length              0x0024 [36]
-2D5FE   Algorithm           0x0017 [23] 'SHA256'
-2D600   Digest Size         0x0020 [32]
+2D5FA Extra ID #1           1A51 [6737] 'Minizip Hash'
+2D5FC   Length              0024 [36]
+2D5FE   Algorithm           0017 [23] 'SHA256'
+2D600   Digest Size         0020 [32]
 2D602   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10 0F 0E ED 09
                             FB 7E 80 A3 3C F5 2F 82 DF E8 A5 8E AC 51 5B 54
-2D622 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2D624   Length              0x06A4 [1700]
+2D622 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2D624   Length              06A4 [1700]
 2D626   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1658,34 +1658,34 @@
                             .P.ZQ............:..K+...Y^030.....'....*..r..M{.4....%..I...@..+ss2.......2.4.fa.7#..3..I....xI#.....V.3.LE6..a..@..B?..`.d.8..0V6.b
                             & ........
 
-2DD70 DATA DESCRIPTOR       0x08074B50 [134695760]
-2DD74 CRC                   0xEC62549D [3965867165]
-2DD78 Compressed Length     0x000000A6 [166]
-2DD7C Uncompressed Length   0x00000148 [328]
+2DD70 DATA DESCRIPTOR       08074B50 [134695760]
+2DD74 CRC                   EC62549D [3965867165]
+2DD78 Compressed Length     000000A6 [166]
+2DD7C Uncompressed Length   00000148 [328]
 
-2DD80 LOCAL HEADER #14      0x04034B50 [67324752]
-2DD84 Extract Zip Spec      0x14 [20] '2.0'
-2DD85 Extract OS            0x00 [0] 'MS-DOS'
-2DD86 General Purpose Flag  0x080A [2058]
+2DD80 LOCAL HEADER #14      04034B50 [67324752]
+2DD84 Extract Zip Spec      14 [20] '2.0'
+2DD85 Extract OS            00 [0] 'MS-DOS'
+2DD86 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2DD88 Compression Method    0x0008 [8] 'Deflated'
-2DD8A Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2DD8E CRC                   0x00000000 [0]
-2DD92 Compressed Length     0x00000000 [0]
-2DD96 Uncompressed Length   0x00010B15 [68373]
-2DD9A Filename Length       0x0026 [38]
-2DD9C Extra Length          0x06D0 [1744]
+2DD88 Compression Method    0008 [8] 'Deflated'
+2DD8A Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2DD8E CRC                   00000000 [0]
+2DD92 Compressed Length     00000000 [0]
+2DD96 Uncompressed Length   00010B15 [68373]
+2DD9A Filename Length       0026 [38]
+2DD9C Extra Length          06D0 [1744]
 2DD9E Filename              'unzip_fuzzer_seed_corpus/storeonly.zip'
-2DDC4 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2DDC6   Length              0x0024 [36]
-2DDC8   Algorithm           0x0017 [23] 'SHA256'
-2DDCA   Digest Size         0x0020 [32]
+2DDC4 Extra ID #1           1A51 [6737] 'Minizip Hash'
+2DDC6   Length              0024 [36]
+2DDC8   Algorithm           0017 [23] 'SHA256'
+2DDCA   Digest Size         0020 [32]
 2DDCC   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60 9D 0D 77 A7
                             B7 A8 0D 62 F9 9B 65 10 77 10 33 0E 93 63 42 32
-2DDEC Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2DDEE   Length              0x06A4 [1700]
+2DDEC Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2DDEE   Length              06A4 [1700]
 2DDF0   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1795,34 +1795,34 @@
                             78 B5 A0 CF
 2E494 PAYLOAD
 
-2E942 DATA DESCRIPTOR       0x08074B50 [134695760]
-2E946 CRC                   0xA0D9E167 [2698633575]
-2E94A Compressed Length     0x000004AE [1198]
-2E94E Uncompressed Length   0x00010B15 [68373]
+2E942 DATA DESCRIPTOR       08074B50 [134695760]
+2E946 CRC                   A0D9E167 [2698633575]
+2E94A Compressed Length     000004AE [1198]
+2E94E Uncompressed Length   00010B15 [68373]
 
-2E952 LOCAL HEADER #15      0x04034B50 [67324752]
-2E956 Extract Zip Spec      0x14 [20] '2.0'
-2E957 Extract OS            0x00 [0] 'MS-DOS'
-2E958 General Purpose Flag  0x080A [2058]
+2E952 LOCAL HEADER #15      04034B50 [67324752]
+2E956 Extract Zip Spec      14 [20] '2.0'
+2E957 Extract OS            00 [0] 'MS-DOS'
+2E958 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-2E95A Compression Method    0x0008 [8] 'Deflated'
-2E95C Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-2E960 CRC                   0x00000000 [0]
-2E964 Compressed Length     0x00000000 [0]
-2E968 Uncompressed Length   0x0000BE64 [48740]
-2E96C Filename Length       0x001F [31]
-2E96E Extra Length          0x06D0 [1744]
+2E95A Compression Method    0008 [8] 'Deflated'
+2E95C Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+2E960 CRC                   00000000 [0]
+2E964 Compressed Length     00000000 [0]
+2E968 Uncompressed Length   0000BE64 [48740]
+2E96C Filename Length       001F [31]
+2E96E Extra Length          06D0 [1744]
 2E970 Filename              'unzip_fuzzer_seed_corpus/xz.zip'
-2E98F Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-2E991   Length              0x0024 [36]
-2E993   Algorithm           0x0017 [23] 'SHA256'
-2E995   Digest Size         0x0020 [32]
+2E98F Extra ID #1           1A51 [6737] 'Minizip Hash'
+2E991   Length              0024 [36]
+2E993   Algorithm           0017 [23] 'SHA256'
+2E995   Digest Size         0020 [32]
 2E997   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99 4E 7A 43 EA
                             22 34 EA DE 07 F1 21 B0 AB D5 CC DD 5B 1F C5 13
-2E9B7 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-2E9B9   Length              0x06A4 [1700]
+2E9B7 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+2E9B9   Length              06A4 [1700]
 2E9BB   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -1932,34 +1932,34 @@
                             93 64 D3 21
 2F05F PAYLOAD
 
-3AED2 DATA DESCRIPTOR       0x08074B50 [134695760]
-3AED6 CRC                   0x74CB250C [1959470348]
-3AEDA Compressed Length     0x0000BE73 [48755]
-3AEDE Uncompressed Length   0x0000BE64 [48740]
+3AED2 DATA DESCRIPTOR       08074B50 [134695760]
+3AED6 CRC                   74CB250C [1959470348]
+3AEDA Compressed Length     0000BE73 [48755]
+3AEDE Uncompressed Length   0000BE64 [48740]
 
-3AEE2 LOCAL HEADER #16      0x04034B50 [67324752]
-3AEE6 Extract Zip Spec      0x14 [20] '2.0'
-3AEE7 Extract OS            0x00 [0] 'MS-DOS'
-3AEE8 General Purpose Flag  0x080A [2058]
+3AEE2 LOCAL HEADER #16      04034B50 [67324752]
+3AEE6 Extract Zip Spec      14 [20] '2.0'
+3AEE7 Extract OS            00 [0] 'MS-DOS'
+3AEE8 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3AEEA Compression Method    0x0008 [8] 'Deflated'
-3AEEC Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3AEF0 CRC                   0x00000000 [0]
-3AEF4 Compressed Length     0x00000000 [0]
-3AEF8 Uncompressed Length   0x0000011F [287]
-3AEFC Filename Length       0x0034 [52]
-3AEFE Extra Length          0x06D0 [1744]
+3AEEA Compression Method    0008 [8] 'Deflated'
+3AEEC Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3AEF0 CRC                   00000000 [0]
+3AEF4 Compressed Length     00000000 [0]
+3AEF8 Uncompressed Length   0000011F [287]
+3AEFC Filename Length       0034 [52]
+3AEFE Extra Length          06D0 [1744]
 3AF00 Filename              'unzip_fuzzer_seed_corpus/unsupported_permissions.zip'
-3AF34 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3AF36   Length              0x0024 [36]
-3AF38   Algorithm           0x0017 [23] 'SHA256'
-3AF3A   Digest Size         0x0020 [32]
+3AF34 Extra ID #1           1A51 [6737] 'Minizip Hash'
+3AF36   Length              0024 [36]
+3AF38   Algorithm           0017 [23] 'SHA256'
+3AF3A   Digest Size         0020 [32]
 3AF3C   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8 EA C8 40 10
                             75 09 5E A1 57 D0 BC 5C 03 32 1F 8B A8 C3 B6 1D
-3AF5C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3AF5E   Length              0x06A4 [1700]
+3AF5C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3AF5E   Length              06A4 [1700]
 3AF60   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2071,34 +2071,34 @@
                             ..+.-(./*IM./H-..,.....+.(.=}........{.....]b....z..9G..e.mw}..9.&...=...\.U.....>..^..i.....u...X..."...5.....%3...=.w.Hg.Q.z.......
                             .oF&y.\.Sa...(...\P5....f..-~L...k.:yd:.......!.H.....
 
-3B6D9 DATA DESCRIPTOR       0x08074B50 [134695760]
-3B6DD CRC                   0x13178F24 [320311076]
-3B6E1 Compressed Length     0x000000D5 [213]
-3B6E5 Uncompressed Length   0x0000011F [287]
+3B6D9 DATA DESCRIPTOR       08074B50 [134695760]
+3B6DD CRC                   13178F24 [320311076]
+3B6E1 Compressed Length     000000D5 [213]
+3B6E5 Uncompressed Length   0000011F [287]
 
-3B6E9 LOCAL HEADER #17      0x04034B50 [67324752]
-3B6ED Extract Zip Spec      0x14 [20] '2.0'
-3B6EE Extract OS            0x00 [0] 'MS-DOS'
-3B6EF General Purpose Flag  0x080A [2058]
+3B6E9 LOCAL HEADER #17      04034B50 [67324752]
+3B6ED Extract Zip Spec      14 [20] '2.0'
+3B6EE Extract OS            00 [0] 'MS-DOS'
+3B6EF General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3B6F1 Compression Method    0x0008 [8] 'Deflated'
-3B6F3 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3B6F7 CRC                   0x00000000 [0]
-3B6FB Compressed Length     0x00000000 [0]
-3B6FF Uncompressed Length   0x000000DC [220]
-3B703 Filename Length       0x0025 [37]
-3B705 Extra Length          0x06D0 [1744]
+3B6F1 Compression Method    0008 [8] 'Deflated'
+3B6F3 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3B6F7 CRC                   00000000 [0]
+3B6FB Compressed Length     00000000 [0]
+3B6FF Uncompressed Length   000000DC [220]
+3B703 Filename Length       0025 [37]
+3B705 Extra Length          06D0 [1744]
 3B707 Filename              'unzip_fuzzer_seed_corpus/comments.zip'
-3B72C Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3B72E   Length              0x0024 [36]
-3B730   Algorithm           0x0017 [23] 'SHA256'
-3B732   Digest Size         0x0020 [32]
+3B72C Extra ID #1           1A51 [6737] 'Minizip Hash'
+3B72E   Length              0024 [36]
+3B730   Algorithm           0017 [23] 'SHA256'
+3B732   Digest Size         0020 [32]
 3B734   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D DD F7 96 BE
                             75 84 21 F7 4A 25 FB 58 5D 92 26 13 C8 07 9C BA
-3B754 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3B756   Length              0x06A4 [1700]
+3B754 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3B756   Length              06A4 [1700]
 3B758   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2209,34 +2209,34 @@
 3BDFC PAYLOAD               ..ff.b..%.i.-.^l...A..A.!-??4...y....e..G.Vp30..|f``..gd.H....Q../.IQ...fd.c.e...8.f..5.T..f...flHFf...%*.e..*$........x..1..`dH...@,
                             .P...X...Y....
 
-3BE8F DATA DESCRIPTOR       0x08074B50 [134695760]
-3BE93 CRC                   0xCDF7477A [3455534970]
-3BE97 Compressed Length     0x00000093 [147]
-3BE9B Uncompressed Length   0x000000DC [220]
+3BE8F DATA DESCRIPTOR       08074B50 [134695760]
+3BE93 CRC                   CDF7477A [3455534970]
+3BE97 Compressed Length     00000093 [147]
+3BE9B Uncompressed Length   000000DC [220]
 
-3BE9F LOCAL HEADER #18      0x04034B50 [67324752]
-3BEA3 Extract Zip Spec      0x14 [20] '2.0'
-3BEA4 Extract OS            0x00 [0] 'MS-DOS'
-3BEA5 General Purpose Flag  0x080A [2058]
+3BE9F LOCAL HEADER #18      04034B50 [67324752]
+3BEA3 Extract Zip Spec      14 [20] '2.0'
+3BEA4 Extract OS            00 [0] 'MS-DOS'
+3BEA5 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3BEA7 Compression Method    0x0008 [8] 'Deflated'
-3BEA9 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3BEAD CRC                   0x00000000 [0]
-3BEB1 Compressed Length     0x00000000 [0]
-3BEB5 Uncompressed Length   0x000000D7 [215]
-3BEB9 Filename Length       0x0022 [34]
-3BEBB Extra Length          0x06D0 [1744]
+3BEA7 Compression Method    0008 [8] 'Deflated'
+3BEA9 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3BEAD CRC                   00000000 [0]
+3BEB1 Compressed Length     00000000 [0]
+3BEB5 Uncompressed Length   000000D7 [215]
+3BEB9 Filename Length       0022 [34]
+3BEBB Extra Length          06D0 [1744]
 3BEBD Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
-3BEDF Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3BEE1   Length              0x0024 [36]
-3BEE3   Algorithm           0x0017 [23] 'SHA256'
-3BEE5   Digest Size         0x0020 [32]
+3BEDF Extra ID #1           1A51 [6737] 'Minizip Hash'
+3BEE1   Length              0024 [36]
+3BEE3   Algorithm           0017 [23] 'SHA256'
+3BEE5   Digest Size         0020 [32]
 3BEE7   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A 15 C6 2D 9A
                             93 3B 40 69 B7 FD 08 FC DF DF 9E 04 C5 74 B1 57
-3BF07 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3BF09   Length              0x06A4 [1700]
+3BF07 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3BF09   Length              06A4 [1700]
 3BF0B   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2346,34 +2346,34 @@
                             5A 85 DD 9E
 3C5AF PAYLOAD               ..ff.e...`.S......@.........dr1(....$..R..-,...N..8{...@....<.Y....9...z..5-......a....&T@.....l.5...@:....
 
-3C61A DATA DESCRIPTOR       0x08074B50 [134695760]
-3C61E CRC                   0x71548DF8 [1901366776]
-3C622 Compressed Length     0x0000006B [107]
-3C626 Uncompressed Length   0x000000D7 [215]
+3C61A DATA DESCRIPTOR       08074B50 [134695760]
+3C61E CRC                   71548DF8 [1901366776]
+3C622 Compressed Length     0000006B [107]
+3C626 Uncompressed Length   000000D7 [215]
 
-3C62A LOCAL HEADER #19      0x04034B50 [67324752]
-3C62E Extract Zip Spec      0x14 [20] '2.0'
-3C62F Extract OS            0x00 [0] 'MS-DOS'
-3C630 General Purpose Flag  0x080A [2058]
+3C62A LOCAL HEADER #19      04034B50 [67324752]
+3C62E Extract Zip Spec      14 [20] '2.0'
+3C62F Extract OS            00 [0] 'MS-DOS'
+3C630 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3C632 Compression Method    0x0008 [8] 'Deflated'
-3C634 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3C638 CRC                   0x00000000 [0]
-3C63C Compressed Length     0x00000000 [0]
-3C640 Uncompressed Length   0x000000CC [204]
-3C644 Filename Length       0x002C [44]
-3C646 Extra Length          0x06D0 [1744]
+3C632 Compression Method    0008 [8] 'Deflated'
+3C634 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3C638 CRC                   00000000 [0]
+3C63C Compressed Length     00000000 [0]
+3C640 Uncompressed Length   000000CC [204]
+3C644 Filename Length       002C [44]
+3C646 Extra Length          06D0 [1744]
 3C648 Filename              'unzip_fuzzer_seed_corpus/encrypted_wzaes.zip'
-3C674 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3C676   Length              0x0024 [36]
-3C678   Algorithm           0x0017 [23] 'SHA256'
-3C67A   Digest Size         0x0020 [32]
+3C674 Extra ID #1           1A51 [6737] 'Minizip Hash'
+3C676   Length              0024 [36]
+3C678   Algorithm           0017 [23] 'SHA256'
+3C67A   Digest Size         0020 [32]
 3C67C   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35 FB 3F C3 E7
                             9A A7 03 2F 6A 05 83 53 C2 2F 15 7E 6F CE 47 C9
-3C69C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3C69E   Length              0x06A4 [1700]
+3C69C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3C69E   Length              06A4 [1700]
 3C6A0   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2484,34 +2484,34 @@
 3CD44 PAYLOAD               ..ff1f`dHfX.:.................g.3018.230.r...N..$..Z.......k...}9v.........|O.L.;..6.x32.3.2W.....4...(..A..!.v...+.6Q...Z.0...U.h$..
                             x..A.32$..0.f.
 
-3CDD7 DATA DESCRIPTOR       0x08074B50 [134695760]
-3CDDB CRC                   0xA88ECD9D [2827931037]
-3CDDF Compressed Length     0x00000093 [147]
-3CDE3 Uncompressed Length   0x000000CC [204]
+3CDD7 DATA DESCRIPTOR       08074B50 [134695760]
+3CDDB CRC                   A88ECD9D [2827931037]
+3CDDF Compressed Length     00000093 [147]
+3CDE3 Uncompressed Length   000000CC [204]
 
-3CDE7 LOCAL HEADER #20      0x04034B50 [67324752]
-3CDEB Extract Zip Spec      0x14 [20] '2.0'
-3CDEC Extract OS            0x00 [0] 'MS-DOS'
-3CDED General Purpose Flag  0x080A [2058]
+3CDE7 LOCAL HEADER #20      04034B50 [67324752]
+3CDEB Extract Zip Spec      14 [20] '2.0'
+3CDEC Extract OS            00 [0] 'MS-DOS'
+3CDED General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3CDEF Compression Method    0x0008 [8] 'Deflated'
-3CDF1 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3CDF5 CRC                   0x00000000 [0]
-3CDF9 Compressed Length     0x00000000 [0]
-3CDFD Uncompressed Length   0x0000027A [634]
-3CE01 Filename Length       0x0028 [40]
-3CE03 Extra Length          0x06D0 [1744]
+3CDEF Compression Method    0008 [8] 'Deflated'
+3CDF1 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3CDF5 CRC                   00000000 [0]
+3CDF9 Compressed Length     00000000 [0]
+3CDFD Uncompressed Length   0000027A [634]
+3CE01 Filename Length       0028 [40]
+3CE03 Extra Length          06D0 [1744]
 3CE05 Filename              'unzip_fuzzer_seed_corpus/permissions.zip'
-3CE2D Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3CE2F   Length              0x0024 [36]
-3CE31   Algorithm           0x0017 [23] 'SHA256'
-3CE33   Digest Size         0x0020 [32]
+3CE2D Extra ID #1           1A51 [6737] 'Minizip Hash'
+3CE2F   Length              0024 [36]
+3CE31   Algorithm           0017 [23] 'SHA256'
+3CE33   Digest Size         0020 [32]
 3CE35   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1 74 EA 8A 26
                             89 04 35 2F E9 2F 38 57 68 22 A2 F8 3A A8 F3 08
-3CE55 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3CE57   Length              0x06A4 [1700]
+3CE55 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3CE57   Length              06A4 [1700]
 3CE59   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2623,34 +2623,34 @@
                             .P.Z..Y\....of`.WRQ.......6'...K+...Y.220...u..U.+...).dd...9......9).I..@c...v&...=.....&p;[....fg~).N.$;..v.=....Nsss.....M!.N.1@;.
                             ...q...X.h&CC#..-.Y!a.n?...!.0.....\...-....%...._....3VH.a.........@...!..
 
-3D5E4 DATA DESCRIPTOR       0x08074B50 [134695760]
-3D5E8 CRC                   0x36E86346 [921199430]
-3D5EC Compressed Length     0x000000E7 [231]
-3D5F0 Uncompressed Length   0x0000027A [634]
+3D5E4 DATA DESCRIPTOR       08074B50 [134695760]
+3D5E8 CRC                   36E86346 [921199430]
+3D5EC Compressed Length     000000E7 [231]
+3D5F0 Uncompressed Length   0000027A [634]
 
-3D5F4 LOCAL HEADER #21      0x04034B50 [67324752]
-3D5F8 Extract Zip Spec      0x14 [20] '2.0'
-3D5F9 Extract OS            0x00 [0] 'MS-DOS'
-3D5FA General Purpose Flag  0x080A [2058]
+3D5F4 LOCAL HEADER #21      04034B50 [67324752]
+3D5F8 Extract Zip Spec      14 [20] '2.0'
+3D5F9 Extract OS            00 [0] 'MS-DOS'
+3D5FA General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3D5FC Compression Method    0x0008 [8] 'Deflated'
-3D5FE Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3D602 CRC                   0x00000000 [0]
-3D606 Compressed Length     0x00000000 [0]
-3D60A Uncompressed Length   0x000100F9 [65785]
-3D60E Filename Length       0x002D [45]
-3D610 Extra Length          0x06D0 [1744]
+3D5FC Compression Method    0008 [8] 'Deflated'
+3D5FE Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3D602 CRC                   00000000 [0]
+3D606 Compressed Length     00000000 [0]
+3D60A Uncompressed Length   000100F9 [65785]
+3D60E Filename Length       002D [45]
+3D610 Extra Length          06D0 [1744]
 3D612 Filename              'unzip_fuzzer_seed_corpus/large_cd_comment.zip'
-3D63F Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3D641   Length              0x0024 [36]
-3D643   Algorithm           0x0017 [23] 'SHA256'
-3D645   Digest Size         0x0020 [32]
+3D63F Extra ID #1           1A51 [6737] 'Minizip Hash'
+3D641   Length              0024 [36]
+3D643   Algorithm           0017 [23] 'SHA256'
+3D645   Digest Size         0020 [32]
 3D647   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E A7 88 AA 73
                             49 9E 6E 90 82 76 7F 13 5F 8F 3D 75 0D 2B E2 6F
-3D667 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3D669   Length              0x06A4 [1700]
+3D667 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3D669   Length              06A4 [1700]
 3D66B   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2760,34 +2760,34 @@
                             6B 9A E1 7B
 3DD0F PAYLOAD
 
-3DE10 DATA DESCRIPTOR       0x08074B50 [134695760]
-3DE14 CRC                   0x38E24104 [954351876]
-3DE18 Compressed Length     0x00000101 [257]
-3DE1C Uncompressed Length   0x000100F9 [65785]
+3DE10 DATA DESCRIPTOR       08074B50 [134695760]
+3DE14 CRC                   38E24104 [954351876]
+3DE18 Compressed Length     00000101 [257]
+3DE1C Uncompressed Length   000100F9 [65785]
 
-3DE20 LOCAL HEADER #22      0x04034B50 [67324752]
-3DE24 Extract Zip Spec      0x14 [20] '2.0'
-3DE25 Extract OS            0x00 [0] 'MS-DOS'
-3DE26 General Purpose Flag  0x080A [2058]
+3DE20 LOCAL HEADER #22      04034B50 [67324752]
+3DE24 Extract Zip Spec      14 [20] '2.0'
+3DE25 Extract OS            00 [0] 'MS-DOS'
+3DE26 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3DE28 Compression Method    0x0008 [8] 'Deflated'
-3DE2A Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3DE2E CRC                   0x00000000 [0]
-3DE32 Compressed Length     0x00000000 [0]
-3DE36 Uncompressed Length   0x000000C6 [198]
-3DE3A Filename Length       0x002E [46]
-3DE3C Extra Length          0x06D0 [1744]
+3DE28 Compression Method    0008 [8] 'Deflated'
+3DE2A Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3DE2E CRC                   00000000 [0]
+3DE32 Compressed Length     00000000 [0]
+3DE36 Uncompressed Length   000000C6 [198]
+3DE3A Filename Length       002E [46]
+3DE3C Extra Length          06D0 [1744]
 3DE3E Filename              'unzip_fuzzer_seed_corpus/encrypted_pkcrypt.zip'
-3DE6C Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3DE6E   Length              0x0024 [36]
-3DE70   Algorithm           0x0017 [23] 'SHA256'
-3DE72   Digest Size         0x0020 [32]
+3DE6C Extra ID #1           1A51 [6737] 'Minizip Hash'
+3DE6E   Length              0024 [36]
+3DE70   Algorithm           0017 [23] 'SHA256'
+3DE72   Digest Size         0020 [32]
 3DE74   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B D5 09 0A 88
                             C7 68 EB 68 5A D4 AE 51 4B 66 A3 91 7B F8 D3 3D
-3DE94 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3DE96   Length              0x06A4 [1700]
+3DE94 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3DE96   Length              06A4 [1700]
 3DE98   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -2897,34 +2897,34 @@
                             B3 59 3A 28
 3E53C PAYLOAD               ..ff.b.d``X....2...) .....d....CC8....=.....n.F.....,......m.n.9}..pK..#...4U...^.O...f.@6,...I...E.. ...k.....B.E.2.........H.....
 
-3E5BF DATA DESCRIPTOR       0x08074B50 [134695760]
-3E5C3 CRC                   0x9690AAFE [2526063358]
-3E5C7 Compressed Length     0x00000083 [131]
-3E5CB Uncompressed Length   0x000000C6 [198]
+3E5BF DATA DESCRIPTOR       08074B50 [134695760]
+3E5C3 CRC                   9690AAFE [2526063358]
+3E5C7 Compressed Length     00000083 [131]
+3E5CB Uncompressed Length   000000C6 [198]
 
-3E5CF LOCAL HEADER #23      0x04034B50 [67324752]
-3E5D3 Extract Zip Spec      0x14 [20] '2.0'
-3E5D4 Extract OS            0x00 [0] 'MS-DOS'
-3E5D5 General Purpose Flag  0x080A [2058]
+3E5CF LOCAL HEADER #23      04034B50 [67324752]
+3E5D3 Extract Zip Spec      14 [20] '2.0'
+3E5D4 Extract OS            00 [0] 'MS-DOS'
+3E5D5 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3E5D7 Compression Method    0x0008 [8] 'Deflated'
-3E5D9 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3E5DD CRC                   0x00000000 [0]
-3E5E1 Compressed Length     0x00000000 [0]
-3E5E5 Uncompressed Length   0x000000E9 [233]
-3E5E9 Filename Length       0x001F [31]
-3E5EB Extra Length          0x06D0 [1744]
+3E5D7 Compression Method    0008 [8] 'Deflated'
+3E5D9 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3E5DD CRC                   00000000 [0]
+3E5E1 Compressed Length     00000000 [0]
+3E5E5 Uncompressed Length   000000E9 [233]
+3E5E9 Filename Length       001F [31]
+3E5EB Extra Length          06D0 [1744]
 3E5ED Filename              'unzip_fuzzer_seed_corpus/as.zip'
-3E60C Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3E60E   Length              0x0024 [36]
-3E610   Algorithm           0x0017 [23] 'SHA256'
-3E612   Digest Size         0x0020 [32]
+3E60C Extra ID #1           1A51 [6737] 'Minizip Hash'
+3E60E   Length              0024 [36]
+3E610   Algorithm           0017 [23] 'SHA256'
+3E612   Digest Size         0020 [32]
 3E614   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57 64 CD B6 09
                             86 74 C9 E9 40 88 85 2B C4 D7 3A 03 65 71 BE 29
-3E634 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3E636   Length              0x06A4 [1700]
+3E634 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3E636   Length              06A4 [1700]
 3E638   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3034,34 +3034,34 @@
                             68 4A AC D5
 3ECDC PAYLOAD               ..ff.a``.`h...n............ ..X...........@\Z.....?....C.....F.Z...m.....b..H.x32.1.r..X.#./...r.+.ih...fe..ed....`..
 
-3ED51 DATA DESCRIPTOR       0x08074B50 [134695760]
-3ED55 CRC                   0x51D69FF3 [1373020147]
-3ED59 Compressed Length     0x00000075 [117]
-3ED5D Uncompressed Length   0x000000E9 [233]
+3ED51 DATA DESCRIPTOR       08074B50 [134695760]
+3ED55 CRC                   51D69FF3 [1373020147]
+3ED59 Compressed Length     00000075 [117]
+3ED5D Uncompressed Length   000000E9 [233]
 
-3ED61 LOCAL HEADER #24      0x04034B50 [67324752]
-3ED65 Extract Zip Spec      0x14 [20] '2.0'
-3ED66 Extract OS            0x00 [0] 'MS-DOS'
-3ED67 General Purpose Flag  0x080A [2058]
+3ED61 LOCAL HEADER #24      04034B50 [67324752]
+3ED65 Extract Zip Spec      14 [20] '2.0'
+3ED66 Extract OS            00 [0] 'MS-DOS'
+3ED67 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-3ED69 Compression Method    0x0008 [8] 'Deflated'
-3ED6B Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-3ED6F CRC                   0x00000000 [0]
-3ED73 Compressed Length     0x00000000 [0]
-3ED77 Uncompressed Length   0x00028065 [163941]
-3ED7B Filename Length       0x0022 [34]
-3ED7D Extra Length          0x06D0 [1744]
+3ED69 Compression Method    0008 [8] 'Deflated'
+3ED6B Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+3ED6F CRC                   00000000 [0]
+3ED73 Compressed Length     00000000 [0]
+3ED77 Uncompressed Length   00028065 [163941]
+3ED7B Filename Length       0022 [34]
+3ED7D Extra Length          06D0 [1744]
 3ED7F Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
-3EDA1 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-3EDA3   Length              0x0024 [36]
-3EDA5   Algorithm           0x0017 [23] 'SHA256'
-3EDA7   Digest Size         0x0020 [32]
+3EDA1 Extra ID #1           1A51 [6737] 'Minizip Hash'
+3EDA3   Length              0024 [36]
+3EDA5   Algorithm           0017 [23] 'SHA256'
+3EDA7   Digest Size         0020 [32]
 3EDA9   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8 90 8B B7 66
                             6A 39 85 EF 88 21 2B 86 F3 76 A1 34 C9 B3 E7 D5
-3EDC9 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-3EDCB   Length              0x06A4 [1700]
+3EDC9 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+3EDCB   Length              06A4 [1700]
 3EDCD   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3171,34 +3171,34 @@
                             36 F2 53 BD
 3F471 PAYLOAD
 
-674E4 DATA DESCRIPTOR       0x08074B50 [134695760]
-674E8 CRC                   0xA55A8615 [2774173205]
-674EC Compressed Length     0x00028073 [163955]
-674F0 Uncompressed Length   0x00028065 [163941]
+674E4 DATA DESCRIPTOR       08074B50 [134695760]
+674E8 CRC                   A55A8615 [2774173205]
+674EC Compressed Length     00028073 [163955]
+674F0 Uncompressed Length   00028065 [163941]
 
-674F4 LOCAL HEADER #25      0x04034B50 [67324752]
-674F8 Extract Zip Spec      0x14 [20] '2.0'
-674F9 Extract OS            0x00 [0] 'MS-DOS'
-674FA General Purpose Flag  0x080A [2058]
+674F4 LOCAL HEADER #25      04034B50 [67324752]
+674F8 Extract Zip Spec      14 [20] '2.0'
+674F9 Extract OS            00 [0] 'MS-DOS'
+674FA General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-674FC Compression Method    0x0008 [8] 'Deflated'
-674FE Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-67502 CRC                   0x00000000 [0]
-67506 Compressed Length     0x00000000 [0]
-6750A Uncompressed Length   0x00008D1A [36122]
-6750E Filename Length       0x0023 [35]
-67510 Extra Length          0x06D0 [1744]
+674FC Compression Method    0008 [8] 'Deflated'
+674FE Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+67502 CRC                   00000000 [0]
+67506 Compressed Length     00000000 [0]
+6750A Uncompressed Length   00008D1A [36122]
+6750E Filename Length       0023 [35]
+67510 Extra Length          06D0 [1744]
 67512 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
-67535 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-67537   Length              0x0024 [36]
-67539   Algorithm           0x0017 [23] 'SHA256'
-6753B   Digest Size         0x0020 [32]
+67535 Extra ID #1           1A51 [6737] 'Minizip Hash'
+67537   Length              0024 [36]
+67539   Algorithm           0017 [23] 'SHA256'
+6753B   Digest Size         0020 [32]
 6753D   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89 48 BB 2D 65
                             F6 4E A2 7F 30 50 35 AE B4 40 FB 1C 78 E7 D3 96
-6755D Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6755F   Length              0x06A4 [1700]
+6755D Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6755F   Length              06A4 [1700]
 67561   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3308,34 +3308,34 @@
                             58 A2 17 AC
 67C05 PAYLOAD
 
-6B50A DATA DESCRIPTOR       0x08074B50 [134695760]
-6B50E CRC                   0xCE376013 [3459735571]
-6B512 Compressed Length     0x00003905 [14597]
-6B516 Uncompressed Length   0x00008D1A [36122]
+6B50A DATA DESCRIPTOR       08074B50 [134695760]
+6B50E CRC                   CE376013 [3459735571]
+6B512 Compressed Length     00003905 [14597]
+6B516 Uncompressed Length   00008D1A [36122]
 
-6B51A LOCAL HEADER #26      0x04034B50 [67324752]
-6B51E Extract Zip Spec      0x14 [20] '2.0'
-6B51F Extract OS            0x00 [0] 'MS-DOS'
-6B520 General Purpose Flag  0x080A [2058]
+6B51A LOCAL HEADER #26      04034B50 [67324752]
+6B51E Extract Zip Spec      14 [20] '2.0'
+6B51F Extract OS            00 [0] 'MS-DOS'
+6B520 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6B522 Compression Method    0x0008 [8] 'Deflated'
-6B524 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6B528 CRC                   0x00000000 [0]
-6B52C Compressed Length     0x00000000 [0]
-6B530 Uncompressed Length   0x0000011E [286]
-6B534 Filename Length       0x0011 [17]
-6B536 Extra Length          0x06D0 [1744]
+6B522 Compression Method    0008 [8] 'Deflated'
+6B524 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6B528 CRC                   00000000 [0]
+6B52C Compressed Length     00000000 [0]
+6B530 Uncompressed Length   0000011E [286]
+6B534 Filename Length       0011 [17]
+6B536 Extra Length          06D0 [1744]
 6B538 Filename              'unzip_fuzzer.dict'
-6B549 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6B54B   Length              0x0024 [36]
-6B54D   Algorithm           0x0017 [23] 'SHA256'
-6B54F   Digest Size         0x0020 [32]
+6B549 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6B54B   Length              0024 [36]
+6B54D   Algorithm           0017 [23] 'SHA256'
+6B54F   Digest Size         0020 [32]
 6B551   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52 BF 33 30 69
                             CA 56 B8 DC DC 7F E6 F6 35 33 6F E2 F9 6F 24 81
-6B571 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6B573   Length              0x06A4 [1700]
+6B571 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6B573   Length              06A4 [1700]
 6B575   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3446,34 +3446,34 @@
 6BC19 PAYLOAD               m.?..@...>..G.xp&........;.4&.......H...6B...y.a../N.*.?.;..8..2.[&.0.....1.....L>Jd.v...._{.h...=\o...].*.......F.:.T....:.k..*ko..p
                             .N..j..6..Pv.l.~.)fy=.f..l.a..Z.#...cZ..cZ.O.1mR.y..
 
-6BCD2 DATA DESCRIPTOR       0x08074B50 [134695760]
-6BCD6 CRC                   0x1CA3704F [480473167]
-6BCDA Compressed Length     0x000000B9 [185]
-6BCDE Uncompressed Length   0x0000011E [286]
+6BCD2 DATA DESCRIPTOR       08074B50 [134695760]
+6BCD6 CRC                   1CA3704F [480473167]
+6BCDA Compressed Length     000000B9 [185]
+6BCDE Uncompressed Length   0000011E [286]
 
-6BCE2 LOCAL HEADER #27      0x04034B50 [67324752]
-6BCE6 Extract Zip Spec      0x14 [20] '2.0'
-6BCE7 Extract OS            0x00 [0] 'MS-DOS'
-6BCE8 General Purpose Flag  0x080A [2058]
+6BCE2 LOCAL HEADER #27      04034B50 [67324752]
+6BCE6 Extract Zip Spec      14 [20] '2.0'
+6BCE7 Extract OS            00 [0] 'MS-DOS'
+6BCE8 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6BCEA Compression Method    0x0008 [8] 'Deflated'
-6BCEC Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6BCF0 CRC                   0x00000000 [0]
-6BCF4 Compressed Length     0x00000000 [0]
-6BCF8 Uncompressed Length   0x00000001 [1]
-6BCFC Filename Length       0x000A [10]
-6BCFE Extra Length          0x06D0 [1744]
+6BCEA Compression Method    0008 [8] 'Deflated'
+6BCEC Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6BCF0 CRC                   00000000 [0]
+6BCF4 Compressed Length     00000000 [0]
+6BCF8 Uncompressed Length   00000001 [1]
+6BCFC Filename Length       000A [10]
+6BCFE Extra Length          06D0 [1744]
 6BD00 Filename              'single.txt'
-6BD0A Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6BD0C   Length              0x0024 [36]
-6BD0E   Algorithm           0x0017 [23] 'SHA256'
-6BD10   Digest Size         0x0020 [32]
+6BD0A Extra ID #1           1A51 [6737] 'Minizip Hash'
+6BD0C   Length              0024 [36]
+6BD0E   Algorithm           0017 [23] 'SHA256'
+6BD10   Digest Size         0020 [32]
 6BD12   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E FF 5A 3F 57
                             47 AD A4 EA A2 2F 1D 49 C0 1E 52 DD B7 87 5B 4B
-6BD32 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6BD34   Length              0x06A4 [1700]
+6BD32 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6BD34   Length              06A4 [1700]
 6BD36   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3583,45 +3583,45 @@
                             AE 9C 9B 6E
 6C3DA PAYLOAD               3..
 
-6C3DD DATA DESCRIPTOR       0x08074B50 [134695760]
-6C3E1 CRC                   0x83DCEFB7 [2212294583]
-6C3E5 Compressed Length     0x00000003 [3]
-6C3E9 Uncompressed Length   0x00000001 [1]
+6C3DD DATA DESCRIPTOR       08074B50 [134695760]
+6C3E1 CRC                   83DCEFB7 [2212294583]
+6C3E5 Compressed Length     00000003 [3]
+6C3E9 Uncompressed Length   00000001 [1]
 
-6C3ED CENTRAL HEADER #1     0x02014B50 [33639248]
-6C3F1 Created Zip Spec      0x3F [63] '6.3'
-6C3F2 Created OS            0x03 [3] 'Unix'
-6C3F3 Extract Zip Spec      0x14 [20] '2.0'
-6C3F4 Extract OS            0x00 [0] 'MS-DOS'
-6C3F5 General Purpose Flag  0x080A [2058]
+6C3ED CENTRAL HEADER #1     02014B50 [33639248]
+6C3F1 Created Zip Spec      3F [63] '6.3'
+6C3F2 Created OS            03 [3] 'Unix'
+6C3F3 Extract Zip Spec      14 [20] '2.0'
+6C3F4 Extract OS            00 [0] 'MS-DOS'
+6C3F5 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6C3F7 Compression Method    0x0008 [8] 'Deflated'
-6C3F9 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6C3FD CRC                   0x00000000 [0]
-6C401 Compressed Length     0x00000002 [2]
-6C405 Uncompressed Length   0x00000000 [0]
-6C409 Filename Length       0x0009 [9]
-6C40B Extra Length          0x06D0 [1744]
-6C40D Comment Length        0x0000 [0]
-6C40F Disk Start            0x0000 [0]
-6C411 Int File Attributes   0x0000 [0]
+6C3F7 Compression Method    0008 [8] 'Deflated'
+6C3F9 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6C3FD CRC                   00000000 [0]
+6C401 Compressed Length     00000002 [2]
+6C405 Uncompressed Length   00000000 [0]
+6C409 Filename Length       0009 [9]
+6C40B Extra Length          06D0 [1744]
+6C40D Comment Length        0000 [0]
+6C40F Disk Start            0000 [0]
+6C411 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6C413 Ext File Attributes   0x81B40080 [2176057472]
+6C413 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6C417 Local Header Offset   0x00000000 [0]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6C417 Local Header Offset   00000000 [0]
 6C41B Filename              'empty.txt'
-6C424 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6C426   Length              0x0024 [36]
-6C428   Algorithm           0x0017 [23] 'SHA256'
-6C42A   Digest Size         0x0020 [32]
+6C424 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6C426   Length              0024 [36]
+6C428   Algorithm           0017 [23] 'SHA256'
+6C42A   Digest Size         0020 [32]
 6C42C   Digest              E3 B0 C4 42 98 FC 1C 14 9A FB F4 C8 99 6F B9 24
                             27 AE 41 E4 64 9B 93 4C A4 95 99 1B 78 52 B8 55
-6C44C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6C44E   Length              0x06A4 [1700]
+6C44C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6C44E   Length              06A4 [1700]
 6C450   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3730,40 +3730,40 @@
                             A0 BF 82 9E 65 B3 26 D3 91 90 F0 F2 F8 59 0D E3
                             6F 6E 54 CD
 
-6CAF4 CENTRAL HEADER #2     0x02014B50 [33639248]
-6CAF8 Created Zip Spec      0x3F [63] '6.3'
-6CAF9 Created OS            0x03 [3] 'Unix'
-6CAFA Extract Zip Spec      0x14 [20] '2.0'
-6CAFB Extract OS            0x00 [0] 'MS-DOS'
-6CAFC General Purpose Flag  0x080A [2058]
+6CAF4 CENTRAL HEADER #2     02014B50 [33639248]
+6CAF8 Created Zip Spec      3F [63] '6.3'
+6CAF9 Created OS            03 [3] 'Unix'
+6CAFA Extract Zip Spec      14 [20] '2.0'
+6CAFB Extract OS            00 [0] 'MS-DOS'
+6CAFC General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6CAFE Compression Method    0x0008 [8] 'Deflated'
-6CB00 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6CB04 CRC                   0xA85D40DC [2824683740]
-6CB08 Compressed Length     0x00020028 [131112]
-6CB0C Uncompressed Length   0x00020000 [131072]
-6CB10 Filename Length       0x000A [10]
-6CB12 Extra Length          0x06D0 [1744]
-6CB14 Comment Length        0x0000 [0]
-6CB16 Disk Start            0x0000 [0]
-6CB18 Int File Attributes   0x0000 [0]
+6CAFE Compression Method    0008 [8] 'Deflated'
+6CB00 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6CB04 CRC                   A85D40DC [2824683740]
+6CB08 Compressed Length     00020028 [131112]
+6CB0C Uncompressed Length   00020000 [131072]
+6CB10 Filename Length       000A [10]
+6CB12 Extra Length          06D0 [1744]
+6CB14 Comment Length        0000 [0]
+6CB16 Disk Start            0000 [0]
+6CB18 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6CB1A Ext File Attributes   0x81B40080 [2176057472]
+6CB1A Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6CB1E Local Header Offset   0x00000725 [1829]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6CB1E Local Header Offset   00000725 [1829]
 6CB22 Filename              'random.bin'
-6CB2C Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6CB2E   Length              0x0024 [36]
-6CB30   Algorithm           0x0017 [23] 'SHA256'
-6CB32   Digest Size         0x0020 [32]
+6CB2C Extra ID #1           1A51 [6737] 'Minizip Hash'
+6CB2E   Length              0024 [36]
+6CB30   Algorithm           0017 [23] 'SHA256'
+6CB32   Digest Size         0020 [32]
 6CB34   Digest              22 58 23 8A CE 2C FC 25 D5 09 AB 19 9D 2C E9 84
                             44 D3 A1 D1 4D 85 C4 7E DE 68 2C FF 94 9E F3 38
-6CB54 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6CB56   Length              0x06A4 [1700]
+6CB54 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6CB56   Length              06A4 [1700]
 6CB58   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -3872,40 +3872,40 @@
                             A7 19 B5 C3 F7 29 5B 7A 70 49 A8 66 25 64 1E C5
                             3C D0 73 C6
 
-6D1FC CENTRAL HEADER #3     0x02014B50 [33639248]
-6D200 Created Zip Spec      0x3F [63] '6.3'
-6D201 Created OS            0x03 [3] 'Unix'
-6D202 Extract Zip Spec      0x14 [20] '2.0'
-6D203 Extract OS            0x00 [0] 'MS-DOS'
-6D204 General Purpose Flag  0x080A [2058]
+6D1FC CENTRAL HEADER #3     02014B50 [33639248]
+6D200 Created Zip Spec      3F [63] '6.3'
+6D201 Created OS            03 [3] 'Unix'
+6D202 Extract Zip Spec      14 [20] '2.0'
+6D203 Extract OS            00 [0] 'MS-DOS'
+6D204 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6D206 Compression Method    0x0008 [8] 'Deflated'
-6D208 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6D20C CRC                   0x0F79DE80 [259645056]
-6D210 Compressed Length     0x00000070 [112]
-6D214 Uncompressed Length   0x00018000 [98304]
-6D218 Filename Length       0x000B [11]
-6D21A Extra Length          0x06D0 [1744]
-6D21C Comment Length        0x0000 [0]
-6D21E Disk Start            0x0000 [0]
-6D220 Int File Attributes   0x0000 [0]
+6D206 Compression Method    0008 [8] 'Deflated'
+6D208 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6D20C CRC                   0F79DE80 [259645056]
+6D210 Compressed Length     00000070 [112]
+6D214 Uncompressed Length   00018000 [98304]
+6D218 Filename Length       000B [11]
+6D21A Extra Length          06D0 [1744]
+6D21C Comment Length        0000 [0]
+6D21E Disk Start            0000 [0]
+6D220 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6D222 Ext File Attributes   0x81B40080 [2176057472]
+6D222 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6D226 Local Header Offset   0x00020E55 [134741]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6D226 Local Header Offset   00020E55 [134741]
 6D22A Filename              'uniform.bin'
-6D235 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6D237   Length              0x0024 [36]
-6D239   Algorithm           0x0017 [23] 'SHA256'
-6D23B   Digest Size         0x0020 [32]
+6D235 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6D237   Length              0024 [36]
+6D239   Algorithm           0017 [23] 'SHA256'
+6D23B   Digest Size         0020 [32]
 6D23D   Digest              38 05 EB 7D BC 09 40 49 24 AD 77 BB 3A AC 04 FA
                             CD 9D A2 AD 49 04 45 65 ED 9D 62 61 F6 77 6B 85
-6D25D Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6D25F   Length              0x06A4 [1700]
+6D25D Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6D25F   Length              06A4 [1700]
 6D261   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4014,40 +4014,40 @@
                             AB 13 FA 78 70 47 47 E4 5F E3 8C 03 93 08 7C 43
                             00 36 29 5E
 
-6D905 CENTRAL HEADER #4     0x02014B50 [33639248]
-6D909 Created Zip Spec      0x3F [63] '6.3'
-6D90A Created OS            0x03 [3] 'Unix'
-6D90B Extract Zip Spec      0x14 [20] '2.0'
-6D90C Extract OS            0x00 [0] 'MS-DOS'
-6D90D General Purpose Flag  0x080A [2058]
+6D905 CENTRAL HEADER #4     02014B50 [33639248]
+6D909 Created Zip Spec      3F [63] '6.3'
+6D90A Created OS            03 [3] 'Unix'
+6D90B Extract Zip Spec      14 [20] '2.0'
+6D90C Extract OS            00 [0] 'MS-DOS'
+6D90D General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6D90F Compression Method    0x0008 [8] 'Deflated'
-6D911 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6D915 CRC                   0x54F920F0 [1425613040]
-6D919 Compressed Length     0x0000038D [909]
-6D91D Uncompressed Length   0x000009E0 [2528]
-6D921 Filename Length       0x000C [12]
-6D923 Extra Length          0x06D0 [1744]
-6D925 Comment Length        0x0000 [0]
-6D927 Disk Start            0x0000 [0]
-6D929 Int File Attributes   0x0000 [0]
+6D90F Compression Method    0008 [8] 'Deflated'
+6D911 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6D915 CRC                   54F920F0 [1425613040]
+6D919 Compressed Length     0000038D [909]
+6D91D Uncompressed Length   000009E0 [2528]
+6D921 Filename Length       000C [12]
+6D923 Extra Length          06D0 [1744]
+6D925 Comment Length        0000 [0]
+6D927 Disk Start            0000 [0]
+6D929 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6D92B Ext File Attributes   0x81B40080 [2176057472]
+6D92B Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6D92F Local Header Offset   0x000215CE [136654]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6D92F Local Header Offset   000215CE [136654]
 6D933 Filename              'standalone.c'
-6D93F Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6D941   Length              0x0024 [36]
-6D943   Algorithm           0x0017 [23] 'SHA256'
-6D945   Digest Size         0x0020 [32]
+6D93F Extra ID #1           1A51 [6737] 'Minizip Hash'
+6D941   Length              0024 [36]
+6D943   Algorithm           0017 [23] 'SHA256'
+6D945   Digest Size         0020 [32]
 6D947   Digest              9E 11 33 9C 89 56 8F 0B 41 82 78 3D F4 42 FA 34
                             BF 00 B2 1C 3B FC 2B E7 D4 A9 97 91 9F 74 16 FB
-6D967 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6D969   Length              0x06A4 [1700]
+6D967 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6D969   Length              06A4 [1700]
 6D96B   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4156,40 +4156,40 @@
                             2A E3 6E E9 80 96 2B B7 80 21 FF 3B 82 CB EC 28
                             01 BF 98 27
 
-6E00F CENTRAL HEADER #5     0x02014B50 [33639248]
-6E013 Created Zip Spec      0x3F [63] '6.3'
-6E014 Created OS            0x03 [3] 'Unix'
-6E015 Extract Zip Spec      0x14 [20] '2.0'
-6E016 Extract OS            0x00 [0] 'MS-DOS'
-6E017 General Purpose Flag  0x080A [2058]
+6E00F CENTRAL HEADER #5     02014B50 [33639248]
+6E013 Created Zip Spec      3F [63] '6.3'
+6E014 Created OS            03 [3] 'Unix'
+6E015 Extract Zip Spec      14 [20] '2.0'
+6E016 Extract OS            00 [0] 'MS-DOS'
+6E017 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6E019 Compression Method    0x0008 [8] 'Deflated'
-6E01B Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6E01F CRC                   0xC1588FFF [3243806719]
-6E023 Compressed Length     0x000003E7 [999]
-6E027 Uncompressed Length   0x00000D4E [3406]
-6E02B Filename Length       0x000C [12]
-6E02D Extra Length          0x06D0 [1744]
-6E02F Comment Length        0x0000 [0]
-6E031 Disk Start            0x0000 [0]
-6E033 Int File Attributes   0x0000 [0]
+6E019 Compression Method    0008 [8] 'Deflated'
+6E01B Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6E01F CRC                   C1588FFF [3243806719]
+6E023 Compressed Length     000003E7 [999]
+6E027 Uncompressed Length   00000D4E [3406]
+6E02B Filename Length       000C [12]
+6E02D Extra Length          06D0 [1744]
+6E02F Comment Length        0000 [0]
+6E031 Disk Start            0000 [0]
+6E033 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6E035 Ext File Attributes   0x81B40080 [2176057472]
+6E035 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6E039 Local Header Offset   0x00022065 [139365]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6E039 Local Header Offset   00022065 [139365]
 6E03D Filename              'zip_fuzzer.c'
-6E049 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6E04B   Length              0x0024 [36]
-6E04D   Algorithm           0x0017 [23] 'SHA256'
-6E04F   Digest Size         0x0020 [32]
+6E049 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6E04B   Length              0024 [36]
+6E04D   Algorithm           0017 [23] 'SHA256'
+6E04F   Digest Size         0020 [32]
 6E051   Digest              37 BA 70 8E 34 F9 45 38 91 E8 DA C5 8D 1D F5 89
                             42 90 3A 10 AF 48 38 36 00 A8 66 3F BF A9 C1 F2
-6E071 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6E073   Length              0x06A4 [1700]
+6E071 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6E073   Length              06A4 [1700]
 6E075   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4298,40 +4298,40 @@
                             27 69 5F BE D1 E2 E0 99 95 73 ED C9 82 46 D1 80
                             38 9D 91 73
 
-6E719 CENTRAL HEADER #6     0x02014B50 [33639248]
-6E71D Created Zip Spec      0x3F [63] '6.3'
-6E71E Created OS            0x03 [3] 'Unix'
-6E71F Extract Zip Spec      0x14 [20] '2.0'
-6E720 Extract OS            0x00 [0] 'MS-DOS'
-6E721 General Purpose Flag  0x080A [2058]
+6E719 CENTRAL HEADER #6     02014B50 [33639248]
+6E71D Created Zip Spec      3F [63] '6.3'
+6E71E Created OS            03 [3] 'Unix'
+6E71F Extract Zip Spec      14 [20] '2.0'
+6E720 Extract OS            00 [0] 'MS-DOS'
+6E721 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6E723 Compression Method    0x0008 [8] 'Deflated'
-6E725 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6E729 CRC                   0x9062EB2C [2422401836]
-6E72D Compressed Length     0x00000422 [1058]
-6E731 Uncompressed Length   0x00000D07 [3335]
-6E735 Filename Length       0x000E [14]
-6E737 Extra Length          0x06D0 [1744]
-6E739 Comment Length        0x0000 [0]
-6E73B Disk Start            0x0000 [0]
-6E73D Int File Attributes   0x0000 [0]
+6E723 Compression Method    0008 [8] 'Deflated'
+6E725 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6E729 CRC                   9062EB2C [2422401836]
+6E72D Compressed Length     00000422 [1058]
+6E731 Uncompressed Length   00000D07 [3335]
+6E735 Filename Length       000E [14]
+6E737 Extra Length          06D0 [1744]
+6E739 Comment Length        0000 [0]
+6E73B Disk Start            0000 [0]
+6E73D Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6E73F Ext File Attributes   0x81B40080 [2176057472]
+6E73F Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6E743 Local Header Offset   0x00022B56 [142166]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6E743 Local Header Offset   00022B56 [142166]
 6E747 Filename              'unzip_fuzzer.c'
-6E755 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6E757   Length              0x0024 [36]
-6E759   Algorithm           0x0017 [23] 'SHA256'
-6E75B   Digest Size         0x0020 [32]
+6E755 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6E757   Length              0024 [36]
+6E759   Algorithm           0017 [23] 'SHA256'
+6E75B   Digest Size         0020 [32]
 6E75D   Digest              84 DF 07 03 89 75 66 67 BF 61 8C 73 52 C8 E7 83
                             53 83 C3 21 ED 84 77 06 C3 2F 88 CF B0 FA 6D 65
-6E77D Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6E77F   Length              0x06A4 [1700]
+6E77D Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6E77F   Length              06A4 [1700]
 6E781   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4440,65 +4440,65 @@
                             89 28 BB 85 FC C4 E8 07 BE CD F9 09 CC B7 01 BC
                             0E 87 61 62
 
-6EE25 CENTRAL HEADER #7     0x02014B50 [33639248]
-6EE29 Created Zip Spec      0x3F [63] '6.3'
-6EE2A Created OS            0x03 [3] 'Unix'
-6EE2B Extract Zip Spec      0x14 [20] '2.0'
-6EE2C Extract OS            0x00 [0] 'MS-DOS'
-6EE2D General Purpose Flag  0x0802 [2050]
+6EE25 CENTRAL HEADER #7     02014B50 [33639248]
+6EE29 Created Zip Spec      3F [63] '6.3'
+6EE2A Created OS            03 [3] 'Unix'
+6EE2B Extract Zip Spec      14 [20] '2.0'
+6EE2C Extract OS            00 [0] 'MS-DOS'
+6EE2D General Purpose Flag  0802 [2050]
       [Bit 11]              1 'Language Encoding'
-6EE2F Compression Method    0x0000 [0] 'Stored'
-6EE31 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6EE35 CRC                   0x00000000 [0]
-6EE39 Compressed Length     0x00000000 [0]
-6EE3D Uncompressed Length   0x00000000 [0]
-6EE41 Filename Length       0x0019 [25]
-6EE43 Extra Length          0x0000 [0]
-6EE45 Comment Length        0x0000 [0]
-6EE47 Disk Start            0x0000 [0]
-6EE49 Int File Attributes   0x0000 [0]
+6EE2F Compression Method    0000 [0] 'Stored'
+6EE31 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6EE35 CRC                   00000000 [0]
+6EE39 Compressed Length     00000000 [0]
+6EE3D Uncompressed Length   00000000 [0]
+6EE41 Filename Length       0019 [25]
+6EE43 Extra Length          0000 [0]
+6EE45 Comment Length        0000 [0]
+6EE47 Disk Start            0000 [0]
+6EE49 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6EE4B Ext File Attributes   0x41FD0010 [1107099664]
+6EE4B Ext File Attributes   41FD0010 [1107099664]
       [Bit 4]               Directory
-      [Bits 16-24]          0x01FD [509] 'Unix attrib: rwxrwxr-x'
-      [Bits 28-31]          0x04 [4] 'Directory'
-6EE4F Local Header Offset   0x00023684 [145028]
+      [Bits 16-24]          01FD [509] 'Unix attrib: rwxrwxr-x'
+      [Bits 28-31]          04 [4] 'Directory'
+6EE4F Local Header Offset   00023684 [145028]
 6EE53 Filename              'unzip_fuzzer_seed_corpus/'
 
-6EE6C CENTRAL HEADER #8     0x02014B50 [33639248]
-6EE70 Created Zip Spec      0x3F [63] '6.3'
-6EE71 Created OS            0x03 [3] 'Unix'
-6EE72 Extract Zip Spec      0x14 [20] '2.0'
-6EE73 Extract OS            0x00 [0] 'MS-DOS'
-6EE74 General Purpose Flag  0x080A [2058]
+6EE6C CENTRAL HEADER #8     02014B50 [33639248]
+6EE70 Created Zip Spec      3F [63] '6.3'
+6EE71 Created OS            03 [3] 'Unix'
+6EE72 Extract Zip Spec      14 [20] '2.0'
+6EE73 Extract OS            00 [0] 'MS-DOS'
+6EE74 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6EE76 Compression Method    0x0008 [8] 'Deflated'
-6EE78 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6EE7C CRC                   0x0DFE0B22 [234752802]
-6EE80 Compressed Length     0x000002A1 [673]
-6EE84 Uncompressed Length   0x000002DE [734]
-6EE88 Filename Length       0x0029 [41]
-6EE8A Extra Length          0x06D0 [1744]
-6EE8C Comment Length        0x0000 [0]
-6EE8E Disk Start            0x0000 [0]
-6EE90 Int File Attributes   0x0000 [0]
+6EE76 Compression Method    0008 [8] 'Deflated'
+6EE78 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6EE7C CRC                   0DFE0B22 [234752802]
+6EE80 Compressed Length     000002A1 [673]
+6EE84 Uncompressed Length   000002DE [734]
+6EE88 Filename Length       0029 [41]
+6EE8A Extra Length          06D0 [1744]
+6EE8C Comment Length        0000 [0]
+6EE8E Disk Start            0000 [0]
+6EE90 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6EE92 Ext File Attributes   0x81B40080 [2176057472]
+6EE92 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6EE96 Local Header Offset   0x000236BB [145083]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6EE96 Local Header Offset   000236BB [145083]
 6EE9A Filename              'unzip_fuzzer_seed_corpus/license_zstd.zip'
-6EEC3 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6EEC5   Length              0x0024 [36]
-6EEC7   Algorithm           0x0017 [23] 'SHA256'
-6EEC9   Digest Size         0x0020 [32]
+6EEC3 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6EEC5   Length              0024 [36]
+6EEC7   Algorithm           0017 [23] 'SHA256'
+6EEC9   Digest Size         0020 [32]
 6EECB   Digest              B5 5B BD 30 0E 03 1B B6 07 17 C6 48 1D 7C 2F A1
                             BD 45 F3 34 BE 5B 94 34 59 97 83 29 42 F3 D7 C1
-6EEEB Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6EEED   Length              0x06A4 [1700]
+6EEEB Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6EEED   Length              06A4 [1700]
 6EEEF   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4607,40 +4607,40 @@
                             FD EB 06 F0 96 42 2C 7C EA B3 EC 48 9B AE 42 D0
                             BB BE 92 EE
 
-6F593 CENTRAL HEADER #9     0x02014B50 [33639248]
-6F597 Created Zip Spec      0x3F [63] '6.3'
-6F598 Created OS            0x03 [3] 'Unix'
-6F599 Extract Zip Spec      0x14 [20] '2.0'
-6F59A Extract OS            0x00 [0] 'MS-DOS'
-6F59B General Purpose Flag  0x080A [2058]
+6F593 CENTRAL HEADER #9     02014B50 [33639248]
+6F597 Created Zip Spec      3F [63] '6.3'
+6F598 Created OS            03 [3] 'Unix'
+6F599 Extract Zip Spec      14 [20] '2.0'
+6F59A Extract OS            00 [0] 'MS-DOS'
+6F59B General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6F59D Compression Method    0x0008 [8] 'Deflated'
-6F59F Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6F5A3 CRC                   0x7FF0384D [2146449485]
-6F5A7 Compressed Length     0x000070C6 [28870]
-6F5AB Uncompressed Length   0x000070C0 [28864]
-6F5AF Filename Length       0x0021 [33]
-6F5B1 Extra Length          0x06D0 [1744]
-6F5B3 Comment Length        0x0000 [0]
-6F5B5 Disk Start            0x0000 [0]
-6F5B7 Int File Attributes   0x0000 [0]
+6F59D Compression Method    0008 [8] 'Deflated'
+6F59F Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6F5A3 CRC                   7FF0384D [2146449485]
+6F5A7 Compressed Length     000070C6 [28870]
+6F5AB Uncompressed Length   000070C0 [28864]
+6F5AF Filename Length       0021 [33]
+6F5B1 Extra Length          06D0 [1744]
+6F5B3 Comment Length        0000 [0]
+6F5B5 Disk Start            0000 [0]
+6F5B7 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6F5B9 Ext File Attributes   0x81B40080 [2176057472]
+6F5B9 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6F5BD Local Header Offset   0x00024083 [147587]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6F5BD Local Header Offset   00024083 [147587]
 6F5C1 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
-6F5E2 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6F5E4   Length              0x0024 [36]
-6F5E6   Algorithm           0x0017 [23] 'SHA256'
-6F5E8   Digest Size         0x0020 [32]
+6F5E2 Extra ID #1           1A51 [6737] 'Minizip Hash'
+6F5E4   Length              0024 [36]
+6F5E6   Algorithm           0017 [23] 'SHA256'
+6F5E8   Digest Size         0020 [32]
 6F5EA   Digest              49 43 5B F7 C3 B4 FA 37 24 37 1E 0F B1 50 0B 7D
                             A3 E4 75 A5 B0 44 B8 E7 C9 D1 31 D3 5F 3B 85 33
-6F60A Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6F60C   Length              0x06A4 [1700]
+6F60A Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6F60C   Length              06A4 [1700]
 6F60E   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4749,40 +4749,40 @@
                             F3 6F 68 09 D4 FD 01 FC D4 07 BA 03 97 15 9A 0E
                             86 56 8C 40
 
-6FCB2 CENTRAL HEADER #10    0x02014B50 [33639248]
-6FCB6 Created Zip Spec      0x3F [63] '6.3'
-6FCB7 Created OS            0x03 [3] 'Unix'
-6FCB8 Extract Zip Spec      0x14 [20] '2.0'
-6FCB9 Extract OS            0x00 [0] 'MS-DOS'
-6FCBA General Purpose Flag  0x080A [2058]
+6FCB2 CENTRAL HEADER #10    02014B50 [33639248]
+6FCB6 Created Zip Spec      3F [63] '6.3'
+6FCB7 Created OS            03 [3] 'Unix'
+6FCB8 Extract Zip Spec      14 [20] '2.0'
+6FCB9 Extract OS            00 [0] 'MS-DOS'
+6FCBA General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-6FCBC Compression Method    0x0008 [8] 'Deflated'
-6FCBE Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-6FCC2 CRC                   0x32453FDC [843399132]
-6FCC6 Compressed Length     0x00000063 [99]
-6FCCA Uncompressed Length   0x000000F6 [246]
-6FCCE Filename Length       0x001F [31]
-6FCD0 Extra Length          0x06D0 [1744]
-6FCD2 Comment Length        0x0000 [0]
-6FCD4 Disk Start            0x0000 [0]
-6FCD6 Int File Attributes   0x0000 [0]
+6FCBC Compression Method    0008 [8] 'Deflated'
+6FCBE Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+6FCC2 CRC                   32453FDC [843399132]
+6FCC6 Compressed Length     00000063 [99]
+6FCCA Uncompressed Length   000000F6 [246]
+6FCCE Filename Length       001F [31]
+6FCD0 Extra Length          06D0 [1744]
+6FCD2 Comment Length        0000 [0]
+6FCD4 Disk Start            0000 [0]
+6FCD6 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-6FCD8 Ext File Attributes   0x81B40080 [2176057472]
+6FCD8 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-6FCDC Local Header Offset   0x0002B868 [178280]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+6FCDC Local Header Offset   0002B868 [178280]
 6FCE0 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
-6FCFF Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-6FD01   Length              0x0024 [36]
-6FD03   Algorithm           0x0017 [23] 'SHA256'
-6FD05   Digest Size         0x0020 [32]
+6FCFF Extra ID #1           1A51 [6737] 'Minizip Hash'
+6FD01   Length              0024 [36]
+6FD03   Algorithm           0017 [23] 'SHA256'
+6FD05   Digest Size         0020 [32]
 6FD07   Digest              09 E4 6B 58 CE 28 F8 11 47 80 93 54 10 28 AE BE
                             2E B6 F1 07 4D 1C 92 5D 1D 40 F5 45 3D 11 BF 90
-6FD27 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-6FD29   Length              0x06A4 [1700]
+6FD27 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+6FD29   Length              06A4 [1700]
 6FD2B   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -4891,40 +4891,40 @@
                             BD 2B 8E 78 0C 01 66 29 A8 31 65 AE 6E FC 10 80
                             15 C6 5E 23
 
-703CF CENTRAL HEADER #11    0x02014B50 [33639248]
-703D3 Created Zip Spec      0x3F [63] '6.3'
-703D4 Created OS            0x03 [3] 'Unix'
-703D5 Extract Zip Spec      0x14 [20] '2.0'
-703D6 Extract OS            0x00 [0] 'MS-DOS'
-703D7 General Purpose Flag  0x080A [2058]
+703CF CENTRAL HEADER #11    02014B50 [33639248]
+703D3 Created Zip Spec      3F [63] '6.3'
+703D4 Created OS            03 [3] 'Unix'
+703D5 Extract Zip Spec      14 [20] '2.0'
+703D6 Extract OS            00 [0] 'MS-DOS'
+703D7 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-703D9 Compression Method    0x0008 [8] 'Deflated'
-703DB Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-703DF CRC                   0xD7CBC50E [3620455694]
-703E3 Compressed Length     0x00000008 [8]
-703E7 Uncompressed Length   0x00000016 [22]
-703EB Filename Length       0x0021 [33]
-703ED Extra Length          0x06D0 [1744]
-703EF Comment Length        0x0000 [0]
-703F1 Disk Start            0x0000 [0]
-703F3 Int File Attributes   0x0000 [0]
+703D9 Compression Method    0008 [8] 'Deflated'
+703DB Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+703DF CRC                   D7CBC50E [3620455694]
+703E3 Compressed Length     00000008 [8]
+703E7 Uncompressed Length   00000016 [22]
+703EB Filename Length       0021 [33]
+703ED Extra Length          06D0 [1744]
+703EF Comment Length        0000 [0]
+703F1 Disk Start            0000 [0]
+703F3 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-703F5 Ext File Attributes   0x81B40080 [2176057472]
+703F5 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-703F9 Local Header Offset   0x0002BFE8 [180200]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+703F9 Local Header Offset   0002BFE8 [180200]
 703FD Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
-7041E Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-70420   Length              0x0024 [36]
-70422   Algorithm           0x0017 [23] 'SHA256'
-70424   Digest Size         0x0020 [32]
+7041E Extra ID #1           1A51 [6737] 'Minizip Hash'
+70420   Length              0024 [36]
+70422   Algorithm           0017 [23] 'SHA256'
+70424   Digest Size         0020 [32]
 70426   Digest              87 39 C7 6E 68 1F 90 09 23 B9 00 C9 DF 0E F7 5C
                             F4 21 D3 9C AB B5 46 50 C4 B9 AD 19 B6 A7 6D 85
-70446 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-70448   Length              0x06A4 [1700]
+70446 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+70448   Length              06A4 [1700]
 7044A   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5033,40 +5033,40 @@
                             AF 27 48 19 EC 77 19 CE 45 FB 9A ED F9 75 1F 24
                             38 42 46 5D
 
-70AEE CENTRAL HEADER #12    0x02014B50 [33639248]
-70AF2 Created Zip Spec      0x3F [63] '6.3'
-70AF3 Created OS            0x03 [3] 'Unix'
-70AF4 Extract Zip Spec      0x14 [20] '2.0'
-70AF5 Extract OS            0x00 [0] 'MS-DOS'
-70AF6 General Purpose Flag  0x080A [2058]
+70AEE CENTRAL HEADER #12    02014B50 [33639248]
+70AF2 Created Zip Spec      3F [63] '6.3'
+70AF3 Created OS            03 [3] 'Unix'
+70AF4 Extract Zip Spec      14 [20] '2.0'
+70AF5 Extract OS            00 [0] 'MS-DOS'
+70AF6 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-70AF8 Compression Method    0x0008 [8] 'Deflated'
-70AFA Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-70AFE CRC                   0xBF8FDF10 [3213877008]
-70B02 Compressed Length     0x0000077F [1919]
-70B06 Uncompressed Length   0x00011714 [71444]
-70B0A Filename Length       0x0023 [35]
-70B0C Extra Length          0x06D0 [1744]
-70B0E Comment Length        0x0000 [0]
-70B10 Disk Start            0x0000 [0]
-70B12 Int File Attributes   0x0000 [0]
+70AF8 Compression Method    0008 [8] 'Deflated'
+70AFA Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+70AFE CRC                   BF8FDF10 [3213877008]
+70B02 Compressed Length     0000077F [1919]
+70B06 Uncompressed Length   00011714 [71444]
+70B0A Filename Length       0023 [35]
+70B0C Extra Length          06D0 [1744]
+70B0E Comment Length        0000 [0]
+70B10 Disk Start            0000 [0]
+70B12 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-70B14 Ext File Attributes   0x81B40080 [2176057472]
+70B14 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-70B18 Local Header Offset   0x0002C70F [182031]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+70B18 Local Header Offset   0002C70F [182031]
 70B1C Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
-70B3F Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-70B41   Length              0x0024 [36]
-70B43   Algorithm           0x0017 [23] 'SHA256'
-70B45   Digest Size         0x0020 [32]
+70B3F Extra ID #1           1A51 [6737] 'Minizip Hash'
+70B41   Length              0024 [36]
+70B43   Algorithm           0017 [23] 'SHA256'
+70B45   Digest Size         0020 [32]
 70B47   Digest              0A 8A 80 EF 4E FE 04 68 5E F8 2F E6 DC 6C C8 0F
                             DA 97 01 64 2A 96 C4 A3 15 21 83 13 47 DB 0E 07
-70B67 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-70B69   Length              0x06A4 [1700]
+70B67 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+70B69   Length              06A4 [1700]
 70B6B   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5175,40 +5175,40 @@
                             C4 8A 3E 02 97 41 D6 0C CC 07 B2 56 48 17 96 DD
                             D3 60 DA 8E
 
-7120F CENTRAL HEADER #13    0x02014B50 [33639248]
-71213 Created Zip Spec      0x3F [63] '6.3'
-71214 Created OS            0x03 [3] 'Unix'
-71215 Extract Zip Spec      0x14 [20] '2.0'
-71216 Extract OS            0x00 [0] 'MS-DOS'
-71217 General Purpose Flag  0x080A [2058]
+7120F CENTRAL HEADER #13    02014B50 [33639248]
+71213 Created Zip Spec      3F [63] '6.3'
+71214 Created OS            03 [3] 'Unix'
+71215 Extract Zip Spec      14 [20] '2.0'
+71216 Extract OS            00 [0] 'MS-DOS'
+71217 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-71219 Compression Method    0x0008 [8] 'Deflated'
-7121B Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7121F CRC                   0xEC62549D [3965867165]
-71223 Compressed Length     0x000000A6 [166]
-71227 Uncompressed Length   0x00000148 [328]
-7122B Filename Length       0x002D [45]
-7122D Extra Length          0x06D0 [1744]
-7122F Comment Length        0x0000 [0]
-71231 Disk Start            0x0000 [0]
-71233 Int File Attributes   0x0000 [0]
+71219 Compression Method    0008 [8] 'Deflated'
+7121B Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7121F CRC                   EC62549D [3965867165]
+71223 Compressed Length     000000A6 [166]
+71227 Uncompressed Length   00000148 [328]
+7122B Filename Length       002D [45]
+7122D Extra Length          06D0 [1744]
+7122F Comment Length        0000 [0]
+71231 Disk Start            0000 [0]
+71233 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-71235 Ext File Attributes   0x81B40080 [2176057472]
+71235 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-71239 Local Header Offset   0x0002D5AF [185775]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+71239 Local Header Offset   0002D5AF [185775]
 7123D Filename              'unzip_fuzzer_seed_corpus/infozip_symlinks.zip'
-7126A Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-7126C   Length              0x0024 [36]
-7126E   Algorithm           0x0017 [23] 'SHA256'
-71270   Digest Size         0x0020 [32]
+7126A Extra ID #1           1A51 [6737] 'Minizip Hash'
+7126C   Length              0024 [36]
+7126E   Algorithm           0017 [23] 'SHA256'
+71270   Digest Size         0020 [32]
 71272   Digest              43 E4 2A D8 A9 B5 9D 9E 3D C6 28 10 0F 0E ED 09
                             FB 7E 80 A3 3C F5 2F 82 DF E8 A5 8E AC 51 5B 54
-71292 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-71294   Length              0x06A4 [1700]
+71292 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+71294   Length              06A4 [1700]
 71296   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5317,40 +5317,40 @@
                             71 44 7B D5 43 C4 BC CB C5 9C B3 A7 CB 10 34 E4
                             38 6D 9A BE
 
-7193A CENTRAL HEADER #14    0x02014B50 [33639248]
-7193E Created Zip Spec      0x3F [63] '6.3'
-7193F Created OS            0x03 [3] 'Unix'
-71940 Extract Zip Spec      0x14 [20] '2.0'
-71941 Extract OS            0x00 [0] 'MS-DOS'
-71942 General Purpose Flag  0x080A [2058]
+7193A CENTRAL HEADER #14    02014B50 [33639248]
+7193E Created Zip Spec      3F [63] '6.3'
+7193F Created OS            03 [3] 'Unix'
+71940 Extract Zip Spec      14 [20] '2.0'
+71941 Extract OS            00 [0] 'MS-DOS'
+71942 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-71944 Compression Method    0x0008 [8] 'Deflated'
-71946 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7194A CRC                   0xA0D9E167 [2698633575]
-7194E Compressed Length     0x000004AE [1198]
-71952 Uncompressed Length   0x00010B15 [68373]
-71956 Filename Length       0x0026 [38]
-71958 Extra Length          0x06D0 [1744]
-7195A Comment Length        0x0000 [0]
-7195C Disk Start            0x0000 [0]
-7195E Int File Attributes   0x0000 [0]
+71944 Compression Method    0008 [8] 'Deflated'
+71946 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7194A CRC                   A0D9E167 [2698633575]
+7194E Compressed Length     000004AE [1198]
+71952 Uncompressed Length   00010B15 [68373]
+71956 Filename Length       0026 [38]
+71958 Extra Length          06D0 [1744]
+7195A Comment Length        0000 [0]
+7195C Disk Start            0000 [0]
+7195E Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-71960 Ext File Attributes   0x81B40080 [2176057472]
+71960 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-71964 Local Header Offset   0x0002DD80 [187776]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+71964 Local Header Offset   0002DD80 [187776]
 71968 Filename              'unzip_fuzzer_seed_corpus/storeonly.zip'
-7198E Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-71990   Length              0x0024 [36]
-71992   Algorithm           0x0017 [23] 'SHA256'
-71994   Digest Size         0x0020 [32]
+7198E Extra ID #1           1A51 [6737] 'Minizip Hash'
+71990   Length              0024 [36]
+71992   Algorithm           0017 [23] 'SHA256'
+71994   Digest Size         0020 [32]
 71996   Digest              10 BE 91 B6 5A E9 59 26 85 29 A0 60 9D 0D 77 A7
                             B7 A8 0D 62 F9 9B 65 10 77 10 33 0E 93 63 42 32
-719B6 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-719B8   Length              0x06A4 [1700]
+719B6 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+719B8   Length              06A4 [1700]
 719BA   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5459,40 +5459,40 @@
                             32 ED 87 60 CF E7 56 D4 3C DD 95 34 D5 EA B9 BE
                             78 B5 A0 CF
 
-7205E CENTRAL HEADER #15    0x02014B50 [33639248]
-72062 Created Zip Spec      0x3F [63] '6.3'
-72063 Created OS            0x03 [3] 'Unix'
-72064 Extract Zip Spec      0x14 [20] '2.0'
-72065 Extract OS            0x00 [0] 'MS-DOS'
-72066 General Purpose Flag  0x080A [2058]
+7205E CENTRAL HEADER #15    02014B50 [33639248]
+72062 Created Zip Spec      3F [63] '6.3'
+72063 Created OS            03 [3] 'Unix'
+72064 Extract Zip Spec      14 [20] '2.0'
+72065 Extract OS            00 [0] 'MS-DOS'
+72066 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-72068 Compression Method    0x0008 [8] 'Deflated'
-7206A Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7206E CRC                   0x74CB250C [1959470348]
-72072 Compressed Length     0x0000BE73 [48755]
-72076 Uncompressed Length   0x0000BE64 [48740]
-7207A Filename Length       0x001F [31]
-7207C Extra Length          0x06D0 [1744]
-7207E Comment Length        0x0000 [0]
-72080 Disk Start            0x0000 [0]
-72082 Int File Attributes   0x0000 [0]
+72068 Compression Method    0008 [8] 'Deflated'
+7206A Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7206E CRC                   74CB250C [1959470348]
+72072 Compressed Length     0000BE73 [48755]
+72076 Uncompressed Length   0000BE64 [48740]
+7207A Filename Length       001F [31]
+7207C Extra Length          06D0 [1744]
+7207E Comment Length        0000 [0]
+72080 Disk Start            0000 [0]
+72082 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-72084 Ext File Attributes   0x81B40080 [2176057472]
+72084 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-72088 Local Header Offset   0x0002E952 [190802]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+72088 Local Header Offset   0002E952 [190802]
 7208C Filename              'unzip_fuzzer_seed_corpus/xz.zip'
-720AB Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-720AD   Length              0x0024 [36]
-720AF   Algorithm           0x0017 [23] 'SHA256'
-720B1   Digest Size         0x0020 [32]
+720AB Extra ID #1           1A51 [6737] 'Minizip Hash'
+720AD   Length              0024 [36]
+720AF   Algorithm           0017 [23] 'SHA256'
+720B1   Digest Size         0020 [32]
 720B3   Digest              CD 8A 6B 13 CD C1 CC 25 EC 06 FA 99 4E 7A 43 EA
                             22 34 EA DE 07 F1 21 B0 AB D5 CC DD 5B 1F C5 13
-720D3 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-720D5   Length              0x06A4 [1700]
+720D3 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+720D5   Length              06A4 [1700]
 720D7   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5601,40 +5601,40 @@
                             50 B3 BD D8 E6 EA E8 EE DC E9 53 E8 FC 61 09 5F
                             93 64 D3 21
 
-7277B CENTRAL HEADER #16    0x02014B50 [33639248]
-7277F Created Zip Spec      0x3F [63] '6.3'
-72780 Created OS            0x03 [3] 'Unix'
-72781 Extract Zip Spec      0x14 [20] '2.0'
-72782 Extract OS            0x00 [0] 'MS-DOS'
-72783 General Purpose Flag  0x080A [2058]
+7277B CENTRAL HEADER #16    02014B50 [33639248]
+7277F Created Zip Spec      3F [63] '6.3'
+72780 Created OS            03 [3] 'Unix'
+72781 Extract Zip Spec      14 [20] '2.0'
+72782 Extract OS            00 [0] 'MS-DOS'
+72783 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-72785 Compression Method    0x0008 [8] 'Deflated'
-72787 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7278B CRC                   0x13178F24 [320311076]
-7278F Compressed Length     0x000000D5 [213]
-72793 Uncompressed Length   0x0000011F [287]
-72797 Filename Length       0x0034 [52]
-72799 Extra Length          0x06D0 [1744]
-7279B Comment Length        0x0000 [0]
-7279D Disk Start            0x0000 [0]
-7279F Int File Attributes   0x0000 [0]
+72785 Compression Method    0008 [8] 'Deflated'
+72787 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7278B CRC                   13178F24 [320311076]
+7278F Compressed Length     000000D5 [213]
+72793 Uncompressed Length   0000011F [287]
+72797 Filename Length       0034 [52]
+72799 Extra Length          06D0 [1744]
+7279B Comment Length        0000 [0]
+7279D Disk Start            0000 [0]
+7279F Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-727A1 Ext File Attributes   0x81B40080 [2176057472]
+727A1 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-727A5 Local Header Offset   0x0003AEE2 [241378]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+727A5 Local Header Offset   0003AEE2 [241378]
 727A9 Filename              'unzip_fuzzer_seed_corpus/unsupported_permissions.zip'
-727DD Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-727DF   Length              0x0024 [36]
-727E1   Algorithm           0x0017 [23] 'SHA256'
-727E3   Digest Size         0x0020 [32]
+727DD Extra ID #1           1A51 [6737] 'Minizip Hash'
+727DF   Length              0024 [36]
+727E1   Algorithm           0017 [23] 'SHA256'
+727E3   Digest Size         0020 [32]
 727E5   Digest              3A A2 88 80 0B 11 0E B0 A7 B8 C2 A8 EA C8 40 10
                             75 09 5E A1 57 D0 BC 5C 03 32 1F 8B A8 C3 B6 1D
-72805 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-72807   Length              0x06A4 [1700]
+72805 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+72807   Length              06A4 [1700]
 72809   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5743,40 +5743,40 @@
                             73 AB 4A CB 23 36 D2 3A 64 1B 26 49 88 80 69 D1
                             28 F2 45 41
 
-72EAD CENTRAL HEADER #17    0x02014B50 [33639248]
-72EB1 Created Zip Spec      0x3F [63] '6.3'
-72EB2 Created OS            0x03 [3] 'Unix'
-72EB3 Extract Zip Spec      0x14 [20] '2.0'
-72EB4 Extract OS            0x00 [0] 'MS-DOS'
-72EB5 General Purpose Flag  0x080A [2058]
+72EAD CENTRAL HEADER #17    02014B50 [33639248]
+72EB1 Created Zip Spec      3F [63] '6.3'
+72EB2 Created OS            03 [3] 'Unix'
+72EB3 Extract Zip Spec      14 [20] '2.0'
+72EB4 Extract OS            00 [0] 'MS-DOS'
+72EB5 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-72EB7 Compression Method    0x0008 [8] 'Deflated'
-72EB9 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-72EBD CRC                   0xCDF7477A [3455534970]
-72EC1 Compressed Length     0x00000093 [147]
-72EC5 Uncompressed Length   0x000000DC [220]
-72EC9 Filename Length       0x0025 [37]
-72ECB Extra Length          0x06D0 [1744]
-72ECD Comment Length        0x0000 [0]
-72ECF Disk Start            0x0000 [0]
-72ED1 Int File Attributes   0x0000 [0]
+72EB7 Compression Method    0008 [8] 'Deflated'
+72EB9 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+72EBD CRC                   CDF7477A [3455534970]
+72EC1 Compressed Length     00000093 [147]
+72EC5 Uncompressed Length   000000DC [220]
+72EC9 Filename Length       0025 [37]
+72ECB Extra Length          06D0 [1744]
+72ECD Comment Length        0000 [0]
+72ECF Disk Start            0000 [0]
+72ED1 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-72ED3 Ext File Attributes   0x81B40080 [2176057472]
+72ED3 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-72ED7 Local Header Offset   0x0003B6E9 [243433]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+72ED7 Local Header Offset   0003B6E9 [243433]
 72EDB Filename              'unzip_fuzzer_seed_corpus/comments.zip'
-72F00 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-72F02   Length              0x0024 [36]
-72F04   Algorithm           0x0017 [23] 'SHA256'
-72F06   Digest Size         0x0020 [32]
+72F00 Extra ID #1           1A51 [6737] 'Minizip Hash'
+72F02   Length              0024 [36]
+72F04   Algorithm           0017 [23] 'SHA256'
+72F06   Digest Size         0020 [32]
 72F08   Digest              6B 34 69 66 32 D5 16 BA 29 23 4C 1D DD F7 96 BE
                             75 84 21 F7 4A 25 FB 58 5D 92 26 13 C8 07 9C BA
-72F28 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-72F2A   Length              0x06A4 [1700]
+72F28 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+72F2A   Length              06A4 [1700]
 72F2C   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -5885,40 +5885,40 @@
                             5F AC 45 F3 76 FB BE BE 31 DA F9 C0 75 07 82 2E
                             E9 25 82 3B
 
-735D0 CENTRAL HEADER #18    0x02014B50 [33639248]
-735D4 Created Zip Spec      0x3F [63] '6.3'
-735D5 Created OS            0x03 [3] 'Unix'
-735D6 Extract Zip Spec      0x14 [20] '2.0'
-735D7 Extract OS            0x00 [0] 'MS-DOS'
-735D8 General Purpose Flag  0x080A [2058]
+735D0 CENTRAL HEADER #18    02014B50 [33639248]
+735D4 Created Zip Spec      3F [63] '6.3'
+735D5 Created OS            03 [3] 'Unix'
+735D6 Extract Zip Spec      14 [20] '2.0'
+735D7 Extract OS            00 [0] 'MS-DOS'
+735D8 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-735DA Compression Method    0x0008 [8] 'Deflated'
-735DC Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-735E0 CRC                   0x71548DF8 [1901366776]
-735E4 Compressed Length     0x0000006B [107]
-735E8 Uncompressed Length   0x000000D7 [215]
-735EC Filename Length       0x0022 [34]
-735EE Extra Length          0x06D0 [1744]
-735F0 Comment Length        0x0000 [0]
-735F2 Disk Start            0x0000 [0]
-735F4 Int File Attributes   0x0000 [0]
+735DA Compression Method    0008 [8] 'Deflated'
+735DC Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+735E0 CRC                   71548DF8 [1901366776]
+735E4 Compressed Length     0000006B [107]
+735E8 Uncompressed Length   000000D7 [215]
+735EC Filename Length       0022 [34]
+735EE Extra Length          06D0 [1744]
+735F0 Comment Length        0000 [0]
+735F2 Disk Start            0000 [0]
+735F4 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-735F6 Ext File Attributes   0x81B40080 [2176057472]
+735F6 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-735FA Local Header Offset   0x0003BE9F [245407]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+735FA Local Header Offset   0003BE9F [245407]
 735FE Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
-73620 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-73622   Length              0x0024 [36]
-73624   Algorithm           0x0017 [23] 'SHA256'
-73626   Digest Size         0x0020 [32]
+73620 Extra ID #1           1A51 [6737] 'Minizip Hash'
+73622   Length              0024 [36]
+73624   Algorithm           0017 [23] 'SHA256'
+73626   Digest Size         0020 [32]
 73628   Digest              02 AD 3B E3 66 7C 81 26 64 5D 75 7A 15 C6 2D 9A
                             93 3B 40 69 B7 FD 08 FC DF DF 9E 04 C5 74 B1 57
-73648 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-7364A   Length              0x06A4 [1700]
+73648 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+7364A   Length              06A4 [1700]
 7364C   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6027,40 +6027,40 @@
                             14 8E 17 6E 5B 37 94 5E E3 C9 23 F8 28 57 9A A6
                             5A 85 DD 9E
 
-73CF0 CENTRAL HEADER #19    0x02014B50 [33639248]
-73CF4 Created Zip Spec      0x3F [63] '6.3'
-73CF5 Created OS            0x03 [3] 'Unix'
-73CF6 Extract Zip Spec      0x14 [20] '2.0'
-73CF7 Extract OS            0x00 [0] 'MS-DOS'
-73CF8 General Purpose Flag  0x080A [2058]
+73CF0 CENTRAL HEADER #19    02014B50 [33639248]
+73CF4 Created Zip Spec      3F [63] '6.3'
+73CF5 Created OS            03 [3] 'Unix'
+73CF6 Extract Zip Spec      14 [20] '2.0'
+73CF7 Extract OS            00 [0] 'MS-DOS'
+73CF8 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-73CFA Compression Method    0x0008 [8] 'Deflated'
-73CFC Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-73D00 CRC                   0xA88ECD9D [2827931037]
-73D04 Compressed Length     0x00000093 [147]
-73D08 Uncompressed Length   0x000000CC [204]
-73D0C Filename Length       0x002C [44]
-73D0E Extra Length          0x06D0 [1744]
-73D10 Comment Length        0x0000 [0]
-73D12 Disk Start            0x0000 [0]
-73D14 Int File Attributes   0x0000 [0]
+73CFA Compression Method    0008 [8] 'Deflated'
+73CFC Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+73D00 CRC                   A88ECD9D [2827931037]
+73D04 Compressed Length     00000093 [147]
+73D08 Uncompressed Length   000000CC [204]
+73D0C Filename Length       002C [44]
+73D0E Extra Length          06D0 [1744]
+73D10 Comment Length        0000 [0]
+73D12 Disk Start            0000 [0]
+73D14 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-73D16 Ext File Attributes   0x81B40080 [2176057472]
+73D16 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-73D1A Local Header Offset   0x0003C62A [247338]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+73D1A Local Header Offset   0003C62A [247338]
 73D1E Filename              'unzip_fuzzer_seed_corpus/encrypted_wzaes.zip'
-73D4A Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-73D4C   Length              0x0024 [36]
-73D4E   Algorithm           0x0017 [23] 'SHA256'
-73D50   Digest Size         0x0020 [32]
+73D4A Extra ID #1           1A51 [6737] 'Minizip Hash'
+73D4C   Length              0024 [36]
+73D4E   Algorithm           0017 [23] 'SHA256'
+73D50   Digest Size         0020 [32]
 73D52   Digest              04 90 1B 2C A8 0B BA C1 45 95 B9 35 FB 3F C3 E7
                             9A A7 03 2F 6A 05 83 53 C2 2F 15 7E 6F CE 47 C9
-73D72 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-73D74   Length              0x06A4 [1700]
+73D72 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+73D74   Length              06A4 [1700]
 73D76   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6169,40 +6169,40 @@
                             5D 99 ED 32 E3 B9 9F CB B4 18 9C AC D6 36 61 1A
                             AD 67 68 18
 
-7441A CENTRAL HEADER #20    0x02014B50 [33639248]
-7441E Created Zip Spec      0x3F [63] '6.3'
-7441F Created OS            0x03 [3] 'Unix'
-74420 Extract Zip Spec      0x14 [20] '2.0'
-74421 Extract OS            0x00 [0] 'MS-DOS'
-74422 General Purpose Flag  0x080A [2058]
+7441A CENTRAL HEADER #20    02014B50 [33639248]
+7441E Created Zip Spec      3F [63] '6.3'
+7441F Created OS            03 [3] 'Unix'
+74420 Extract Zip Spec      14 [20] '2.0'
+74421 Extract OS            00 [0] 'MS-DOS'
+74422 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-74424 Compression Method    0x0008 [8] 'Deflated'
-74426 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7442A CRC                   0x36E86346 [921199430]
-7442E Compressed Length     0x000000E7 [231]
-74432 Uncompressed Length   0x0000027A [634]
-74436 Filename Length       0x0028 [40]
-74438 Extra Length          0x06D0 [1744]
-7443A Comment Length        0x0000 [0]
-7443C Disk Start            0x0000 [0]
-7443E Int File Attributes   0x0000 [0]
+74424 Compression Method    0008 [8] 'Deflated'
+74426 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7442A CRC                   36E86346 [921199430]
+7442E Compressed Length     000000E7 [231]
+74432 Uncompressed Length   0000027A [634]
+74436 Filename Length       0028 [40]
+74438 Extra Length          06D0 [1744]
+7443A Comment Length        0000 [0]
+7443C Disk Start            0000 [0]
+7443E Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-74440 Ext File Attributes   0x81B40080 [2176057472]
+74440 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-74444 Local Header Offset   0x0003CDE7 [249319]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+74444 Local Header Offset   0003CDE7 [249319]
 74448 Filename              'unzip_fuzzer_seed_corpus/permissions.zip'
-74470 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-74472   Length              0x0024 [36]
-74474   Algorithm           0x0017 [23] 'SHA256'
-74476   Digest Size         0x0020 [32]
+74470 Extra ID #1           1A51 [6737] 'Minizip Hash'
+74472   Length              0024 [36]
+74474   Algorithm           0017 [23] 'SHA256'
+74476   Digest Size         0020 [32]
 74478   Digest              AA 02 27 C2 98 F5 5A BA 60 54 3A A1 74 EA 8A 26
                             89 04 35 2F E9 2F 38 57 68 22 A2 F8 3A A8 F3 08
-74498 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-7449A   Length              0x06A4 [1700]
+74498 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+7449A   Length              06A4 [1700]
 7449C   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6311,40 +6311,40 @@
                             BB 31 FB CE 04 21 93 85 6F 52 72 58 A3 86 31 BC
                             E8 39 9F 9D
 
-74B40 CENTRAL HEADER #21    0x02014B50 [33639248]
-74B44 Created Zip Spec      0x3F [63] '6.3'
-74B45 Created OS            0x03 [3] 'Unix'
-74B46 Extract Zip Spec      0x14 [20] '2.0'
-74B47 Extract OS            0x00 [0] 'MS-DOS'
-74B48 General Purpose Flag  0x080A [2058]
+74B40 CENTRAL HEADER #21    02014B50 [33639248]
+74B44 Created Zip Spec      3F [63] '6.3'
+74B45 Created OS            03 [3] 'Unix'
+74B46 Extract Zip Spec      14 [20] '2.0'
+74B47 Extract OS            00 [0] 'MS-DOS'
+74B48 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-74B4A Compression Method    0x0008 [8] 'Deflated'
-74B4C Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-74B50 CRC                   0x38E24104 [954351876]
-74B54 Compressed Length     0x00000101 [257]
-74B58 Uncompressed Length   0x000100F9 [65785]
-74B5C Filename Length       0x002D [45]
-74B5E Extra Length          0x06D0 [1744]
-74B60 Comment Length        0x0000 [0]
-74B62 Disk Start            0x0000 [0]
-74B64 Int File Attributes   0x0000 [0]
+74B4A Compression Method    0008 [8] 'Deflated'
+74B4C Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+74B50 CRC                   38E24104 [954351876]
+74B54 Compressed Length     00000101 [257]
+74B58 Uncompressed Length   000100F9 [65785]
+74B5C Filename Length       002D [45]
+74B5E Extra Length          06D0 [1744]
+74B60 Comment Length        0000 [0]
+74B62 Disk Start            0000 [0]
+74B64 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-74B66 Ext File Attributes   0x81B40080 [2176057472]
+74B66 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-74B6A Local Header Offset   0x0003D5F4 [251380]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+74B6A Local Header Offset   0003D5F4 [251380]
 74B6E Filename              'unzip_fuzzer_seed_corpus/large_cd_comment.zip'
-74B9B Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-74B9D   Length              0x0024 [36]
-74B9F   Algorithm           0x0017 [23] 'SHA256'
-74BA1   Digest Size         0x0020 [32]
+74B9B Extra ID #1           1A51 [6737] 'Minizip Hash'
+74B9D   Length              0024 [36]
+74B9F   Algorithm           0017 [23] 'SHA256'
+74BA1   Digest Size         0020 [32]
 74BA3   Digest              81 5D 49 7A 09 B0 EE C8 61 40 B8 4E A7 88 AA 73
                             49 9E 6E 90 82 76 7F 13 5F 8F 3D 75 0D 2B E2 6F
-74BC3 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-74BC5   Length              0x06A4 [1700]
+74BC3 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+74BC5   Length              06A4 [1700]
 74BC7   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6453,40 +6453,40 @@
                             BB 7D 8D 3A AE 0C E3 32 C1 70 92 44 B5 17 D6 86
                             6B 9A E1 7B
 
-7526B CENTRAL HEADER #22    0x02014B50 [33639248]
-7526F Created Zip Spec      0x3F [63] '6.3'
-75270 Created OS            0x03 [3] 'Unix'
-75271 Extract Zip Spec      0x14 [20] '2.0'
-75272 Extract OS            0x00 [0] 'MS-DOS'
-75273 General Purpose Flag  0x080A [2058]
+7526B CENTRAL HEADER #22    02014B50 [33639248]
+7526F Created Zip Spec      3F [63] '6.3'
+75270 Created OS            03 [3] 'Unix'
+75271 Extract Zip Spec      14 [20] '2.0'
+75272 Extract OS            00 [0] 'MS-DOS'
+75273 General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-75275 Compression Method    0x0008 [8] 'Deflated'
-75277 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-7527B CRC                   0x9690AAFE [2526063358]
-7527F Compressed Length     0x00000083 [131]
-75283 Uncompressed Length   0x000000C6 [198]
-75287 Filename Length       0x002E [46]
-75289 Extra Length          0x06D0 [1744]
-7528B Comment Length        0x0000 [0]
-7528D Disk Start            0x0000 [0]
-7528F Int File Attributes   0x0000 [0]
+75275 Compression Method    0008 [8] 'Deflated'
+75277 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+7527B CRC                   9690AAFE [2526063358]
+7527F Compressed Length     00000083 [131]
+75283 Uncompressed Length   000000C6 [198]
+75287 Filename Length       002E [46]
+75289 Extra Length          06D0 [1744]
+7528B Comment Length        0000 [0]
+7528D Disk Start            0000 [0]
+7528F Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-75291 Ext File Attributes   0x81B40080 [2176057472]
+75291 Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-75295 Local Header Offset   0x0003DE20 [253472]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+75295 Local Header Offset   0003DE20 [253472]
 75299 Filename              'unzip_fuzzer_seed_corpus/encrypted_pkcrypt.zip'
-752C7 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-752C9   Length              0x0024 [36]
-752CB   Algorithm           0x0017 [23] 'SHA256'
-752CD   Digest Size         0x0020 [32]
+752C7 Extra ID #1           1A51 [6737] 'Minizip Hash'
+752C9   Length              0024 [36]
+752CB   Algorithm           0017 [23] 'SHA256'
+752CD   Digest Size         0020 [32]
 752CF   Digest              23 78 03 25 46 F3 4F F7 81 22 C2 2B D5 09 0A 88
                             C7 68 EB 68 5A D4 AE 51 4B 66 A3 91 7B F8 D3 3D
-752EF Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-752F1   Length              0x06A4 [1700]
+752EF Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+752F1   Length              06A4 [1700]
 752F3   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6595,40 +6595,40 @@
                             90 9F 4E 83 86 B8 8C F2 A1 F2 DC 00 5F D2 4F 1A
                             B3 59 3A 28
 
-75997 CENTRAL HEADER #23    0x02014B50 [33639248]
-7599B Created Zip Spec      0x3F [63] '6.3'
-7599C Created OS            0x03 [3] 'Unix'
-7599D Extract Zip Spec      0x14 [20] '2.0'
-7599E Extract OS            0x00 [0] 'MS-DOS'
-7599F General Purpose Flag  0x080A [2058]
+75997 CENTRAL HEADER #23    02014B50 [33639248]
+7599B Created Zip Spec      3F [63] '6.3'
+7599C Created OS            03 [3] 'Unix'
+7599D Extract Zip Spec      14 [20] '2.0'
+7599E Extract OS            00 [0] 'MS-DOS'
+7599F General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-759A1 Compression Method    0x0008 [8] 'Deflated'
-759A3 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-759A7 CRC                   0x51D69FF3 [1373020147]
-759AB Compressed Length     0x00000075 [117]
-759AF Uncompressed Length   0x000000E9 [233]
-759B3 Filename Length       0x001F [31]
-759B5 Extra Length          0x06D0 [1744]
-759B7 Comment Length        0x0000 [0]
-759B9 Disk Start            0x0000 [0]
-759BB Int File Attributes   0x0000 [0]
+759A1 Compression Method    0008 [8] 'Deflated'
+759A3 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+759A7 CRC                   51D69FF3 [1373020147]
+759AB Compressed Length     00000075 [117]
+759AF Uncompressed Length   000000E9 [233]
+759B3 Filename Length       001F [31]
+759B5 Extra Length          06D0 [1744]
+759B7 Comment Length        0000 [0]
+759B9 Disk Start            0000 [0]
+759BB Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-759BD Ext File Attributes   0x81B40080 [2176057472]
+759BD Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-759C1 Local Header Offset   0x0003E5CF [255439]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+759C1 Local Header Offset   0003E5CF [255439]
 759C5 Filename              'unzip_fuzzer_seed_corpus/as.zip'
-759E4 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-759E6   Length              0x0024 [36]
-759E8   Algorithm           0x0017 [23] 'SHA256'
-759EA   Digest Size         0x0020 [32]
+759E4 Extra ID #1           1A51 [6737] 'Minizip Hash'
+759E6   Length              0024 [36]
+759E8   Algorithm           0017 [23] 'SHA256'
+759EA   Digest Size         0020 [32]
 759EC   Digest              09 BB 83 D8 24 07 80 0F C7 A5 FA 57 64 CD B6 09
                             86 74 C9 E9 40 88 85 2B C4 D7 3A 03 65 71 BE 29
-75A0C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-75A0E   Length              0x06A4 [1700]
+75A0C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+75A0E   Length              06A4 [1700]
 75A10   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6737,40 +6737,40 @@
                             86 B3 32 AF E2 C4 37 E3 B9 46 4C 94 20 B5 93 72
                             68 4A AC D5
 
-760B4 CENTRAL HEADER #24    0x02014B50 [33639248]
-760B8 Created Zip Spec      0x3F [63] '6.3'
-760B9 Created OS            0x03 [3] 'Unix'
-760BA Extract Zip Spec      0x14 [20] '2.0'
-760BB Extract OS            0x00 [0] 'MS-DOS'
-760BC General Purpose Flag  0x080A [2058]
+760B4 CENTRAL HEADER #24    02014B50 [33639248]
+760B8 Created Zip Spec      3F [63] '6.3'
+760B9 Created OS            03 [3] 'Unix'
+760BA Extract Zip Spec      14 [20] '2.0'
+760BB Extract OS            00 [0] 'MS-DOS'
+760BC General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-760BE Compression Method    0x0008 [8] 'Deflated'
-760C0 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-760C4 CRC                   0xA55A8615 [2774173205]
-760C8 Compressed Length     0x00028073 [163955]
-760CC Uncompressed Length   0x00028065 [163941]
-760D0 Filename Length       0x0022 [34]
-760D2 Extra Length          0x06D0 [1744]
-760D4 Comment Length        0x0000 [0]
-760D6 Disk Start            0x0000 [0]
-760D8 Int File Attributes   0x0000 [0]
+760BE Compression Method    0008 [8] 'Deflated'
+760C0 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+760C4 CRC                   A55A8615 [2774173205]
+760C8 Compressed Length     00028073 [163955]
+760CC Uncompressed Length   00028065 [163941]
+760D0 Filename Length       0022 [34]
+760D2 Extra Length          06D0 [1744]
+760D4 Comment Length        0000 [0]
+760D6 Disk Start            0000 [0]
+760D8 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-760DA Ext File Attributes   0x81B40080 [2176057472]
+760DA Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-760DE Local Header Offset   0x0003ED61 [257377]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+760DE Local Header Offset   0003ED61 [257377]
 760E2 Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
-76104 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-76106   Length              0x0024 [36]
-76108   Algorithm           0x0017 [23] 'SHA256'
-7610A   Digest Size         0x0020 [32]
+76104 Extra ID #1           1A51 [6737] 'Minizip Hash'
+76106   Length              0024 [36]
+76108   Algorithm           0017 [23] 'SHA256'
+7610A   Digest Size         0020 [32]
 7610C   Digest              2B DF FC 27 7D 36 71 60 B8 B2 12 F8 90 8B B7 66
                             6A 39 85 EF 88 21 2B 86 F3 76 A1 34 C9 B3 E7 D5
-7612C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-7612E   Length              0x06A4 [1700]
+7612C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+7612E   Length              06A4 [1700]
 76130   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -6879,40 +6879,40 @@
                             A7 AD AC A1 4E 39 77 2D 3A F9 DD DA 06 97 AC 71
                             36 F2 53 BD
 
-767D4 CENTRAL HEADER #25    0x02014B50 [33639248]
-767D8 Created Zip Spec      0x3F [63] '6.3'
-767D9 Created OS            0x03 [3] 'Unix'
-767DA Extract Zip Spec      0x14 [20] '2.0'
-767DB Extract OS            0x00 [0] 'MS-DOS'
-767DC General Purpose Flag  0x080A [2058]
+767D4 CENTRAL HEADER #25    02014B50 [33639248]
+767D8 Created Zip Spec      3F [63] '6.3'
+767D9 Created OS            03 [3] 'Unix'
+767DA Extract Zip Spec      14 [20] '2.0'
+767DB Extract OS            00 [0] 'MS-DOS'
+767DC General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-767DE Compression Method    0x0008 [8] 'Deflated'
-767E0 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-767E4 CRC                   0xCE376013 [3459735571]
-767E8 Compressed Length     0x00003905 [14597]
-767EC Uncompressed Length   0x00008D1A [36122]
-767F0 Filename Length       0x0023 [35]
-767F2 Extra Length          0x06D0 [1744]
-767F4 Comment Length        0x0000 [0]
-767F6 Disk Start            0x0000 [0]
-767F8 Int File Attributes   0x0000 [0]
+767DE Compression Method    0008 [8] 'Deflated'
+767E0 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+767E4 CRC                   CE376013 [3459735571]
+767E8 Compressed Length     00003905 [14597]
+767EC Uncompressed Length   00008D1A [36122]
+767F0 Filename Length       0023 [35]
+767F2 Extra Length          06D0 [1744]
+767F4 Comment Length        0000 [0]
+767F6 Disk Start            0000 [0]
+767F8 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-767FA Ext File Attributes   0x81B40080 [2176057472]
+767FA Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-767FE Local Header Offset   0x000674F4 [423156]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+767FE Local Header Offset   000674F4 [423156]
 76802 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
-76825 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-76827   Length              0x0024 [36]
-76829   Algorithm           0x0017 [23] 'SHA256'
-7682B   Digest Size         0x0020 [32]
+76825 Extra ID #1           1A51 [6737] 'Minizip Hash'
+76827   Length              0024 [36]
+76829   Algorithm           0017 [23] 'SHA256'
+7682B   Digest Size         0020 [32]
 7682D   Digest              80 8D A6 94 63 F7 C8 94 37 0A F9 89 48 BB 2D 65
                             F6 4E A2 7F 30 50 35 AE B4 40 FB 1C 78 E7 D3 96
-7684D Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-7684F   Length              0x06A4 [1700]
+7684D Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+7684F   Length              06A4 [1700]
 76851   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -7021,40 +7021,40 @@
                             11 1E 32 B2 4C 46 30 B6 CD 34 81 53 D5 BE 11 AC
                             58 A2 17 AC
 
-76EF5 CENTRAL HEADER #26    0x02014B50 [33639248]
-76EF9 Created Zip Spec      0x3F [63] '6.3'
-76EFA Created OS            0x03 [3] 'Unix'
-76EFB Extract Zip Spec      0x14 [20] '2.0'
-76EFC Extract OS            0x00 [0] 'MS-DOS'
-76EFD General Purpose Flag  0x080A [2058]
+76EF5 CENTRAL HEADER #26    02014B50 [33639248]
+76EF9 Created Zip Spec      3F [63] '6.3'
+76EFA Created OS            03 [3] 'Unix'
+76EFB Extract Zip Spec      14 [20] '2.0'
+76EFC Extract OS            00 [0] 'MS-DOS'
+76EFD General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-76EFF Compression Method    0x0008 [8] 'Deflated'
-76F01 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-76F05 CRC                   0x1CA3704F [480473167]
-76F09 Compressed Length     0x000000B9 [185]
-76F0D Uncompressed Length   0x0000011E [286]
-76F11 Filename Length       0x0011 [17]
-76F13 Extra Length          0x06D0 [1744]
-76F15 Comment Length        0x0000 [0]
-76F17 Disk Start            0x0000 [0]
-76F19 Int File Attributes   0x0000 [0]
+76EFF Compression Method    0008 [8] 'Deflated'
+76F01 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+76F05 CRC                   1CA3704F [480473167]
+76F09 Compressed Length     000000B9 [185]
+76F0D Uncompressed Length   0000011E [286]
+76F11 Filename Length       0011 [17]
+76F13 Extra Length          06D0 [1744]
+76F15 Comment Length        0000 [0]
+76F17 Disk Start            0000 [0]
+76F19 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-76F1B Ext File Attributes   0x81B40080 [2176057472]
+76F1B Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-76F1F Local Header Offset   0x0006B51A [439578]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+76F1F Local Header Offset   0006B51A [439578]
 76F23 Filename              'unzip_fuzzer.dict'
-76F34 Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-76F36   Length              0x0024 [36]
-76F38   Algorithm           0x0017 [23] 'SHA256'
-76F3A   Digest Size         0x0020 [32]
+76F34 Extra ID #1           1A51 [6737] 'Minizip Hash'
+76F36   Length              0024 [36]
+76F38   Algorithm           0017 [23] 'SHA256'
+76F3A   Digest Size         0020 [32]
 76F3C   Digest              51 D4 89 27 FD 91 6B 51 63 3F C2 52 BF 33 30 69
                             CA 56 B8 DC DC 7F E6 F6 35 33 6F E2 F9 6F 24 81
-76F5C Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-76F5E   Length              0x06A4 [1700]
+76F5C Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+76F5E   Length              06A4 [1700]
 76F60   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -7163,40 +7163,40 @@
                             CC 61 1B 06 DB AA 50 01 EA F9 99 86 A6 CB D7 C7
                             F9 FA A4 0A
 
-77604 CENTRAL HEADER #27    0x02014B50 [33639248]
-77608 Created Zip Spec      0x3F [63] '6.3'
-77609 Created OS            0x03 [3] 'Unix'
-7760A Extract Zip Spec      0x14 [20] '2.0'
-7760B Extract OS            0x00 [0] 'MS-DOS'
-7760C General Purpose Flag  0x080A [2058]
+77604 CENTRAL HEADER #27    02014B50 [33639248]
+77608 Created Zip Spec      3F [63] '6.3'
+77609 Created OS            03 [3] 'Unix'
+7760A Extract Zip Spec      14 [20] '2.0'
+7760B Extract OS            00 [0] 'MS-DOS'
+7760C General Purpose Flag  080A [2058]
       [Bits 1-2]            1 'Maximum Compression'
       [Bit  3]              1 'Streamed'
       [Bit 11]              1 'Language Encoding'
-7760E Compression Method    0x0008 [8] 'Deflated'
-77610 Last Mod Time         0x56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
-77614 CRC                   0x83DCEFB7 [2212294583]
-77618 Compressed Length     0x00000003 [3]
-7761C Uncompressed Length   0x00000001 [1]
-77620 Filename Length       0x000A [10]
-77622 Extra Length          0x06D0 [1744]
-77624 Comment Length        0x0000 [0]
-77626 Disk Start            0x0000 [0]
-77628 Int File Attributes   0x0000 [0]
+7760E Compression Method    0008 [8] 'Deflated'
+77610 Last Mod Time         56216F52 [1445031762] 'Sun Jan  1 13:58:36 2023'
+77614 CRC                   83DCEFB7 [2212294583]
+77618 Compressed Length     00000003 [3]
+7761C Uncompressed Length   00000001 [1]
+77620 Filename Length       000A [10]
+77622 Extra Length          06D0 [1744]
+77624 Comment Length        0000 [0]
+77626 Disk Start            0000 [0]
+77628 Int File Attributes   0000 [0]
       [Bit 0]               0 'Binary Data'
-7762A Ext File Attributes   0x81B40080 [2176057472]
+7762A Ext File Attributes   81B40080 [2176057472]
       [Bit 7]               Normal
-      [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
-      [Bits 28-31]          0x08 [8] 'Regular File'
-7762E Local Header Offset   0x0006BCE2 [441570]
+      [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
+      [Bits 28-31]          08 [8] 'Regular File'
+7762E Local Header Offset   0006BCE2 [441570]
 77632 Filename              'single.txt'
-7763C Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-7763E   Length              0x0024 [36]
-77640   Algorithm           0x0017 [23] 'SHA256'
-77642   Digest Size         0x0020 [32]
+7763C Extra ID #1           1A51 [6737] 'Minizip Hash'
+7763E   Length              0024 [36]
+77640   Algorithm           0017 [23] 'SHA256'
+77642   Digest Size         0020 [32]
 77644   Digest              6B 86 B2 73 FF 34 FC E1 9D 6B 80 4E FF 5A 3F 57
                             47 AD A4 EA A2 2F 1D 49 C0 1E 52 DD B7 87 5B 4B
-77664 Extra ID #2           0x10C5 [4293] 'Minizip CMS Signature'
-77666   Length              0x06A4 [1700]
+77664 Extra ID #2           10C5 [4293] 'Minizip CMS Signature'
+77666   Length              06A4 [1700]
 77668   Signature           30 82 06 A0 06 09 2A 86 48 86 F7 0D 01 07 02 A0
                             82 06 91 30 82 06 8D 02 01 01 31 0D 30 0B 06 09
                             60 86 48 01 65 03 04 02 01 30 2F 06 09 2A 86 48
@@ -7305,13 +7305,13 @@
                             F4 B7 46 FD 14 38 28 E2 B8 4E EE D8 A1 22 12 BC
                             AE 9C 9B 6E
 
-77D0C END CENTRAL HEADER    0x06054B50 [101010256]
-77D10 Number of this disk   0x0000 [0]
-77D12 Central Dir Disk no   0x0000 [0]
-77D14 Entries in this disk  0x001B [27]
-77D16 Total Entries         0x001B [27]
-77D18 Size of Central Dir   0x0000B91F [47391]
-77D1C Offset to Central Dir 0x0006C3ED [443373]
-77D20 Comment Length        0x0000 [0]
+77D0C END CENTRAL HEADER    06054B50 [101010256]
+77D10 Number of this disk   0000 [0]
+77D12 Central Dir Disk no   0000 [0]
+77D14 Entries in this disk  001B [27]
+77D16 Total Entries         001B [27]
+77D18 Size of Central Dir   0000B91F [47391]
+77D1C Offset to Central Dir 0006C3ED [443373]
+77D20 Comment Length        0000 [0]
 #
 # Done

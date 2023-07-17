@@ -1,78 +1,78 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0006 0007 0002 08 28       General Purpose Flag  0x2808 [10248]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
+0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
+0006 0007 0002 08 28       General Purpose Flag  2808 [10248]
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
-0008 0009 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-000A 000D 0004 00 00 00 00 Last Mod Time         0x00000000 [0] 'No Date/Time'
-000E 0011 0004 00 00 00 00 CRC                   0x00000000 [0]
-0012 0015 0004 00 00 00 00 Compressed Length     0x00000000 [0]
-0016 0019 0004 00 00 00 00 Uncompressed Length   0x00000000 [0]
-001A 001B 0002 03 00       Filename Length       0x0003 [3]
-001C 001D 0002 00 00       Extra Length          0x0000 [0]
+0008 0009 0002 00 00       Compression Method    0000 [0] 'Stored'
+000A 000D 0004 00 00 00 00 Last Mod Time         00000000 [0] 'No Date/Time'
+000E 0011 0004 00 00 00 00 CRC                   00000000 [0]
+0012 0015 0004 00 00 00 00 Compressed Length     00000000 [0]
+0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 [0]
+001A 001B 0002 03 00       Filename Length       0003 [3]
+001C 001D 0002 00 00       Extra Length          0000 [0]
 001E 0020 0003 30 5F 30    Filename              '0_0'
 0021 01DE 01BE ...         PAYLOAD
 
-01DF 01E2 0004 50 4B 07 08 DATA DESCRIPTOR       0x08074B50 [134695760]
-01E3 01E6 0004 00 00 00 00 CRC                   0x00000000 [0]
-01E7 01EA 0004 BE 01 00 00 Compressed Length     0x000001BE [446]
-01EB 01EE 0004 00 00 00 00 Uncompressed Length   0x00000000 [0]
+01DF 01E2 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 [134695760]
+01E3 01E6 0004 00 00 00 00 CRC                   00000000 [0]
+01E7 01EA 0004 BE 01 00 00 Compressed Length     000001BE [446]
+01EB 01EE 0004 00 00 00 00 Uncompressed Length   00000000 [0]
 
-01EF 01F2 0004 50 4B 03 04 LOCAL HEADER #2       0x04034B50 [67324752]
-01F3 01F3 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-01F4 01F4 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-01F5 01F6 0002 08 08       General Purpose Flag  0x0808 [2056]
+01EF 01F2 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 [67324752]
+01F3 01F3 0001 14          Extract Zip Spec      14 [20] '2.0'
+01F4 01F4 0001 00          Extract OS            00 [0] 'MS-DOS'
+01F5 01F6 0002 08 08       General Purpose Flag  0808 [2056]
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-01F7 01F8 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-01F9 01FC 0004 2C BE 9D 55 Last Mod Time         0x559DBE2C [1436401196] 'Thu Dec 29 23:49:24 2022'
-01FD 0200 0004 00 00 00 00 CRC                   0x00000000 [0]
-0201 0204 0004 00 00 00 00 Compressed Length     0x00000000 [0]
-0205 0208 0004 5F 00 00 00 Uncompressed Length   0x0000005F [95]
-0209 020A 0002 08 00       Filename Length       0x0008 [8]
-020B 020C 0002 0C 00       Extra Length          0x000C [12]
+01F7 01F8 0002 00 00       Compression Method    0000 [0] 'Stored'
+01F9 01FC 0004 2C BE 9D 55 Last Mod Time         559DBE2C [1436401196] 'Thu Dec 29 23:49:24 2022'
+01FD 0200 0004 00 00 00 00 CRC                   00000000 [0]
+0201 0204 0004 00 00 00 00 Compressed Length     00000000 [0]
+0205 0208 0004 5F 00 00 00 Uncompressed Length   0000005F [95]
+0209 020A 0002 08 00       Filename Length       0008 [8]
+020B 020C 0002 0C 00       Extra Length          000C [12]
 020D 0214 0008 5F 5F 63 64 Filename              '__cdcd__'
                63 64 5F 5F
-0215 0216 0002 CD CD       Extra ID #1           0xCDCD [52685] 'Minizip Central Directory'
-0217 0218 0002 08 00         Length              0x0008 [8]
-0219 0220 0008 01 00 00 00   Entries             0x0000000000000001 [1]
+0215 0216 0002 CD CD       Extra ID #1           CDCD [52685] 'Minizip Central Directory'
+0217 0218 0002 08 00         Length              0008 [8]
+0219 0220 0008 01 00 00 00   Entries             0000000000000001 [1]
                00 00 00 00
 
-0221 0224 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
-0225 0225 0001 3F          Created Zip Spec      0x3F [63] '6.3'
-0226 0226 0001 03          Created OS            0x03 [3] 'Unix'
-0227 0227 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0228 0228 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0229 022A 0002 08 28       General Purpose Flag  0x2808 [10248]
+0221 0224 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
+0225 0225 0001 3F          Created Zip Spec      3F [63] '6.3'
+0226 0226 0001 03          Created OS            03 [3] 'Unix'
+0227 0227 0001 14          Extract Zip Spec      14 [20] '2.0'
+0228 0228 0001 00          Extract OS            00 [0] 'MS-DOS'
+0229 022A 0002 08 28       General Purpose Flag  2808 [10248]
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
-022B 022C 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-022D 0230 0004 15 8A 99 55 Last Mod Time         0x55998A15 [1436125717] 'Sun Dec 25 17:16:42 2022'
-0231 0234 0004 FF E7 0E F9 CRC                   0xF90EE7FF [4178503679]
-0235 0238 0004 BE 01 00 00 Compressed Length     0x000001BE [446]
-0239 023C 0004 BE 01 00 00 Uncompressed Length   0x000001BE [446]
-023D 023E 0002 09 00       Filename Length       0x0009 [9]
-023F 0240 0002 28 00       Extra Length          0x0028 [40]
-0241 0242 0002 00 00       Comment Length        0x0000 [0]
-0243 0244 0002 00 00       Disk Start            0x0000 [0]
-0245 0246 0002 00 00       Int File Attributes   0x0000 [0]
+022B 022C 0002 00 00       Compression Method    0000 [0] 'Stored'
+022D 0230 0004 15 8A 99 55 Last Mod Time         55998A15 [1436125717] 'Sun Dec 25 17:16:42 2022'
+0231 0234 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
+0235 0238 0004 BE 01 00 00 Compressed Length     000001BE [446]
+0239 023C 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
+023D 023E 0002 09 00       Filename Length       0009 [9]
+023F 0240 0002 28 00       Extra Length          0028 [40]
+0241 0242 0002 00 00       Comment Length        0000 [0]
+0243 0244 0002 00 00       Disk Start            0000 [0]
+0245 0246 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-0247 024A 0004 80 00 F8 81 Ext File Attributes   0x81F80080 [2180513920]
+0247 024A 0004 80 00 F8 81 Ext File Attributes   81F80080 [2180513920]
                            [Bit 7]               Normal
-                           [Bits 16-24]          0x01F8 [504] 'Unix attrib: rwxrwx---'
-                           [Bits 28-31]          0x08 [8] 'Regular File'
-024B 024E 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+                           [Bits 16-24]          01F8 [504] 'Unix attrib: rwxrwx---'
+                           [Bits 28-31]          08 [8] 'Regular File'
+024B 024E 0004 00 00 00 00 Local Header Offset   00000000 [0]
 024F 0257 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-0258 0259 0002 51 1A       Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-025A 025B 0002 24 00         Length              0x0024 [36]
-025C 025D 0002 17 00         Algorithm           0x0017 [23] 'SHA256'
-025E 025F 0002 20 00         Digest Size         0x0020 [32]
+0258 0259 0002 51 1A       Extra ID #1           1A51 [6737] 'Minizip Hash'
+025A 025B 0002 24 00         Length              0024 [36]
+025C 025D 0002 17 00         Algorithm           0017 [23] 'SHA256'
+025E 025F 0002 20 00         Digest Size         0020 [32]
 0260 027F 0020 90 F2 D6 A2   Digest              90 F2 D6 A2 48 21 C0 71 8E 63 2F 7B FA 70 90 75
                48 21 C0 71                       E7 E9 CC E0 09 DB 4A 14 1C 04 07 1B 13 CA FE AC
                8E 63 2F 7B
@@ -82,38 +82,38 @@
                1C 04 07 1B
                13 CA FE AC
 
-0280 0283 0004 50 4B 07 08 DATA DESCRIPTOR       0x08074B50 [134695760]
-0284 0287 0004 D7 B9 39 AA CRC                   0xAA39B9D7 [2855909847]
-0288 028B 0004 5F 00 00 00 Compressed Length     0x0000005F [95]
-028C 028F 0004 5F 00 00 00 Uncompressed Length   0x0000005F [95]
+0280 0283 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 [134695760]
+0284 0287 0004 D7 B9 39 AA CRC                   AA39B9D7 [2855909847]
+0288 028B 0004 5F 00 00 00 Compressed Length     0000005F [95]
+028C 028F 0004 5F 00 00 00 Uncompressed Length   0000005F [95]
 
-0290 0293 0004 50 4B 01 02 CENTRAL HEADER #2     0x02014B50 [33639248]
-0294 0294 0001 3F          Created Zip Spec      0x3F [63] '6.3'
-0295 0295 0001 03          Created OS            0x03 [3] 'Unix'
-0296 0296 0001 14          Extract Zip Spec      0x14 [20] '2.0'
-0297 0297 0001 00          Extract OS            0x00 [0] 'MS-DOS'
-0298 0299 0002 08 08       General Purpose Flag  0x0808 [2056]
+0290 0293 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 [33639248]
+0294 0294 0001 3F          Created Zip Spec      3F [63] '6.3'
+0295 0295 0001 03          Created OS            03 [3] 'Unix'
+0296 0296 0001 14          Extract Zip Spec      14 [20] '2.0'
+0297 0297 0001 00          Extract OS            00 [0] 'MS-DOS'
+0298 0299 0002 08 08       General Purpose Flag  0808 [2056]
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-029A 029B 0002 00 00       Compression Method    0x0000 [0] 'Stored'
-029C 029F 0004 2C BE 9D 55 Last Mod Time         0x559DBE2C [1436401196] 'Thu Dec 29 23:49:24 2022'
-02A0 02A3 0004 D7 B9 39 AA CRC                   0xAA39B9D7 [2855909847]
-02A4 02A7 0004 5F 00 00 00 Compressed Length     0x0000005F [95]
-02A8 02AB 0004 5F 00 00 00 Uncompressed Length   0x0000005F [95]
-02AC 02AD 0002 08 00       Filename Length       0x0008 [8]
-02AE 02AF 0002 34 00       Extra Length          0x0034 [52]
-02B0 02B1 0002 00 00       Comment Length        0x0000 [0]
-02B2 02B3 0002 00 00       Disk Start            0x0000 [0]
-02B4 02B5 0002 00 00       Int File Attributes   0x0000 [0]
+029A 029B 0002 00 00       Compression Method    0000 [0] 'Stored'
+029C 029F 0004 2C BE 9D 55 Last Mod Time         559DBE2C [1436401196] 'Thu Dec 29 23:49:24 2022'
+02A0 02A3 0004 D7 B9 39 AA CRC                   AA39B9D7 [2855909847]
+02A4 02A7 0004 5F 00 00 00 Compressed Length     0000005F [95]
+02A8 02AB 0004 5F 00 00 00 Uncompressed Length   0000005F [95]
+02AC 02AD 0002 08 00       Filename Length       0008 [8]
+02AE 02AF 0002 34 00       Extra Length          0034 [52]
+02B0 02B1 0002 00 00       Comment Length        0000 [0]
+02B2 02B3 0002 00 00       Disk Start            0000 [0]
+02B4 02B5 0002 00 00       Int File Attributes   0000 [0]
                            [Bit 0]               0 'Binary Data'
-02B6 02B9 0004 00 00 00 00 Ext File Attributes   0x00000000 [0]
-02BA 02BD 0004 EF 01 00 00 Local Header Offset   0x000001EF [495]
+02B6 02B9 0004 00 00 00 00 Ext File Attributes   00000000 [0]
+02BA 02BD 0004 EF 01 00 00 Local Header Offset   000001EF [495]
 02BE 02C5 0008 5F 5F 63 64 Filename              '__cdcd__'
                63 64 5F 5F
-02C6 02C7 0002 51 1A       Extra ID #1           0x1A51 [6737] 'Minizip Hash'
-02C8 02C9 0002 24 00         Length              0x0024 [36]
-02CA 02CB 0002 17 00         Algorithm           0x0017 [23] 'SHA256'
-02CC 02CD 0002 20 00         Digest Size         0x0020 [32]
+02C6 02C7 0002 51 1A       Extra ID #1           1A51 [6737] 'Minizip Hash'
+02C8 02C9 0002 24 00         Length              0024 [36]
+02CA 02CB 0002 17 00         Algorithm           0017 [23] 'SHA256'
+02CC 02CD 0002 20 00         Digest Size         0020 [32]
 02CE 02ED 0020 73 CF 6B B9   Digest              73 CF 6B B9 A9 C0 21 AC F7 56 50 92 5A 7F 72 C0
                A9 C0 21 AC                       BF 76 5C 68 9D D0 7E 60 1B B6 53 39 B0 4F F3 13
                F7 56 50 92
@@ -122,19 +122,19 @@
                9D D0 7E 60
                1B B6 53 39
                B0 4F F3 13
-02EE 02EF 0002 CD CD       Extra ID #2           0xCDCD [52685] 'Minizip Central Directory'
-02F0 02F1 0002 08 00         Length              0x0008 [8]
-02F2 02F9 0008 01 00 00 00   Entries             0x0000000000000001 [1]
+02EE 02EF 0002 CD CD       Extra ID #2           CDCD [52685] 'Minizip Central Directory'
+02F0 02F1 0002 08 00         Length              0008 [8]
+02F2 02F9 0008 01 00 00 00   Entries             0000000000000001 [1]
                00 00 00 00
 
-02FA 02FD 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
-02FE 02FF 0002 00 00       Number of this disk   0x0000 [0]
-0300 0301 0002 00 00       Central Dir Disk no   0x0000 [0]
-0302 0303 0002 02 00       Entries in this disk  0x0002 [2]
-0304 0305 0002 02 00       Total Entries         0x0002 [2]
-0306 0309 0004 6A 00 00 00 Size of Central Dir   0x0000006A [106]
-030A 030D 0004 90 02 00 00 Offset to Central Dir 0x00000290 [656]
-030E 030F 0002 00 00       Comment Length        0x0000 [0]
+02FA 02FD 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
+02FE 02FF 0002 00 00       Number of this disk   0000 [0]
+0300 0301 0002 00 00       Central Dir Disk no   0000 [0]
+0302 0303 0002 02 00       Entries in this disk  0002 [2]
+0304 0305 0002 02 00       Total Entries         0002 [2]
+0306 0309 0004 6A 00 00 00 Size of Central Dir   0000006A [106]
+030A 030D 0004 90 02 00 00 Offset to Central Dir 00000290 [656]
+030E 030F 0002 00 00       Comment Length        0000 [0]
 #
 # ERROR: Offset 0x221: 'filename' mismatch: Central Header has 'lorem.txt', Local Directory has '0_0'
 #
