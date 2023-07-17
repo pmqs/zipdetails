@@ -112,6 +112,7 @@ my %ZIP_CompressionMethods =
          17 => 'Reserved by PKWARE',
          18 => 'IBM/TERSE or Xceed BWT', # APPNOTE has IBM/TERSE. Xceed reuses it unofficially
          19 => 'IBM LZ77 z Architecture (PFS)',
+         20 => 'Ipaq8', # see https://encode.su/threads/1048-info-zip-lpaq8
          92 => 'Reference', # Winzip Only from version 25
          93 => 'Zstandard',
          94 => 'MP3',

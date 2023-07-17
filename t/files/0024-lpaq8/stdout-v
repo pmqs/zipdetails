@@ -1,0 +1,65 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       0x04034B50 [67324752]
+0004 0004 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+0005 0005 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0x0000 [0]
+0008 0009 0002 14 00       Compression Method    0x0014 [20] 'Ipaq8'
+000A 000D 0004 AD 54 75 56 Last Mod Time         0x567554AD [1450529965] 'Tue Mar 21 10:37:26 2023'
+000E 0011 0004 17 89 94 F8 CRC                   0xF8948917 [4170483991]
+0012 0015 0004 F9 08 00 00 Compressed Length     0x000008F9 [2297]
+0016 0019 0004 EC C8 00 00 Uncompressed Length   0x0000C8EC [51436]
+001A 001B 0002 08 00       Filename Length       0x0008 [8]
+001C 001D 0002 15 00       Extra Length          0x0015 [21]
+001E 0025 0008 4D 41 4E 49 Filename              'MANIFEST'
+               46 45 53 54
+0026 0027 0002 55 54       Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
+0028 0029 0002 09 00         Length              0x0009 [9]
+002A 002A 0001 03            Flags               0x03 [3] 'mod access'
+002B 002E 0004 E6 88 19 64   Mod Time            0x641988E6 [1679395046] 'Tue Mar 21 10:37:26 2023'
+002F 0032 0004 13 65 B5 64   Access Time         0x64B56513 [1689609491] 'Mon Jul 17 15:58:11 2023'
+0033 0034 0002 55 78       Extra ID #2           0x7855 [30805] 'Unix Extra type 2 [Ux]'
+0035 0036 0002 04 00         Length              0x0004 [4]
+0037 0038 0002 E8 03         UID                 0x03E8 [1000]
+0039 003A 0002 E8 03         GID                 0x03E8 [1000]
+003B 0933 08F9 ...         PAYLOAD
+
+0934 0937 0004 50 4B 01 02 CENTRAL HEADER #1     0x02014B50 [33639248]
+0938 0938 0001 1E          Created Zip Spec      0x1E [30] '3.0'
+0939 0939 0001 03          Created OS            0x03 [3] 'Unix'
+093A 093A 0001 14          Extract Zip Spec      0x14 [20] '2.0'
+093B 093B 0001 00          Extract OS            0x00 [0] 'MS-DOS'
+093C 093D 0002 00 00       General Purpose Flag  0x0000 [0]
+093E 093F 0002 14 00       Compression Method    0x0014 [20] 'Ipaq8'
+0940 0943 0004 AD 54 75 56 Last Mod Time         0x567554AD [1450529965] 'Tue Mar 21 10:37:26 2023'
+0944 0947 0004 17 89 94 F8 CRC                   0xF8948917 [4170483991]
+0948 094B 0004 F9 08 00 00 Compressed Length     0x000008F9 [2297]
+094C 094F 0004 EC C8 00 00 Uncompressed Length   0x0000C8EC [51436]
+0950 0951 0002 08 00       Filename Length       0x0008 [8]
+0952 0953 0002 0D 00       Extra Length          0x000D [13]
+0954 0955 0002 00 00       Comment Length        0x0000 [0]
+0956 0957 0002 00 00       Disk Start            0x0000 [0]
+0958 0959 0002 00 00       Int File Attributes   0x0000 [0]
+                           [Bit 0]               0 'Binary Data'
+095A 095D 0004 00 00 B4 81 Ext File Attributes   0x81B40000 [2176057344]
+                           [Bits 16-24]          0x01B4 [436] 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          0x08 [8] 'Regular File'
+095E 0961 0004 00 00 00 00 Local Header Offset   0x00000000 [0]
+0962 0969 0008 4D 41 4E 49 Filename              'MANIFEST'
+               46 45 53 54
+096A 096B 0002 55 54       Extra ID #1           0x5455 [21589] 'Extended Timestamp [UT]'
+096C 096D 0002 05 00         Length              0x0005 [5]
+096E 096E 0001 03            Flags               0x03 [3] 'mod access'
+096F 0972 0004 E6 88 19 64   Mod Time            0x641988E6 [1679395046] 'Tue Mar 21 10:37:26 2023'
+0973 0974 0002 55 78       Extra ID #2           0x7855 [30805] 'Unix Extra type 2 [Ux]'
+0975 0976 0002 00 00         Length              0x0000 [0]
+
+0977 097A 0004 50 4B 05 06 END CENTRAL HEADER    0x06054B50 [101010256]
+097B 097C 0002 00 00       Number of this disk   0x0000 [0]
+097D 097E 0002 00 00       Central Dir Disk no   0x0000 [0]
+097F 0980 0002 01 00       Entries in this disk  0x0001 [1]
+0981 0982 0002 01 00       Total Entries         0x0001 [1]
+0983 0986 0004 43 00 00 00 Size of Central Dir   0x00000043 [67]
+0987 098A 0004 34 09 00 00 Offset to Central Dir 0x00000934 [2356]
+098B 098C 0002 00 00       Comment Length        0x0000 [0]
+#
+# Done
