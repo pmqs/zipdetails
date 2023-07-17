@@ -311,7 +311,7 @@ my %Extras = (
       0x6542,  ['BeOS [Be]',                                                undef], # TODO
       0x6854,  ['Theos [Th]',                                               undef],
       0x7075,  ['Unicode Path [up]',                                        \&decode_up,                    5, undef,   5, undef],
-      0x756e,  ['ASi Unix [un]',                                            undef], # TODO
+      0x756e,  ['ASi Unix [un]',                                            \&decode_ASi_Unix], # TODO
       0x7441,  ['AtheOS [At]',                                              undef],
       0x7855,  ['Unix Extra type 2 [Ux]',                                   \&decode_Ux,                    4,4,   0, 0 ],
       0x7875,  ['Unix Extra type 3 [ux]',                                   \&decode_ux,                    3, undef,   3, undef],
@@ -1026,10 +1026,10 @@ GetOptions("h|help"     => \$opt_help,
 Usage()
     if $opt_help;
 
-die("No zipfile")
+die("No zipfile\n")
     unless @ARGV == 1;
 
-die("Cannot specify both '--walk' and '--scan'")
+die("Cannot specify both '--walk' and '--scan'\n")
     if $opt_walk && $opt_scan ;
 
 my $filename = shift @ARGV;
@@ -4694,6 +4694,75 @@ sub decode_up
     }
 }
 
+sub decode_ASi_Unix
+{
+    my $extraID = shift ;
+    my $len = shift;
+    my $entry = shift;
+
+    # https://stackoverflow.com/questions/76581811/why-does-unzip-ignore-my-zip64-end-of-central-directory-record
+
+    out_V "  CRC";
+    my $native_attrib = out_v "  Mode";
+
+    # TODO - move to separate sub & tidy
+    if (1) # Unix
+    {
+
+        state $mask = {
+                0   => '---',
+                1   => '--x',
+                2   => '-w-',
+                3   => '-wx',
+                4   => 'r--',
+                5   => 'r-x',
+                6   => 'rw-',
+                7   => 'rwx',
+            } ;
+
+        my $rwx = ($native_attrib  &  0777);
+
+        if ($rwx)
+        {
+            my $output  = '';
+            $output .= $mask->{ ($rwx >> 6) & 07 } ;
+            $output .= $mask->{ ($rwx >> 3) & 07 } ;
+            $output .= $mask->{ ($rwx >> 0) & 07 } ;
+
+            out1 "  [Bits 0-8]",  Value_v($rwx)  . " 'Unix attrib: $output'" ;
+            out1 "  [Bit 9]",  "1 'Sticky'"
+                if $rwx & 0x200 ;
+            out1 "  [Bit 10]",  "1 'Set GID'"
+                if $rwx & 0x400 ;
+            out1 "  [Bit 11]",  "1 'Set UID'"
+                if $rwx & 0x800 ;
+
+            my $not_rwx = (($native_attrib  >> 12) & 0xF);
+            if ($not_rwx)
+            {
+                state $masks = {
+                    0x0C =>  'Socket',           # 0x0C  0b1100
+                    0x0A =>  'Symbolic Link',    # 0x0A  0b1010
+                    0x08 =>  'Regular File',     # 0x08  0b1000
+                    0x06 =>  'Block Device',     # 0x06  0b0110
+                    0x04 =>  'Directory',        # 0x04  0b0100
+                    0x02 =>  'Character Device', # 0x02  0b0010
+                    0x01 =>  'FIFO',             # 0x01  0b0001
+                };
+
+                my $got = $masks->{$not_rwx} // 'Unknown Unix attrib' ;
+                out1 "  [Bits 12-15]",  Value_C($not_rwx) . " '$got'"
+            }
+        }
+    }
+
+
+    my $s = out_V "  SizDev";
+    out_v "  UID";
+    out_v "  GID";
+
+}
+
 sub decode_uc
 {
     # APPNOTE 6.3.10, sec 4.6.8
@@ -6451,7 +6520,7 @@ sub displayFileInfo
         }
         else
         {
-            die "Unknown option $opt_name"
+            die "Unknown option $opt_name\n"
         }
     }
 
