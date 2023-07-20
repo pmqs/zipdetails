@@ -40,6 +40,7 @@ sub internalFatal;
 sub need ;
 sub decimalHex;
 
+use constant MAX64 => 0xFFFFFFFFFFFFFFFF ;
 use constant MAX32 => 0xFFFFFFFF ;
 use constant MAX16 => 0xFFFF ;
 
@@ -3181,7 +3182,7 @@ sub testPossiblePrefixNoPREFIX_DELTA
     my $expectedSignature = shift ;
 
     return 0
-        if $offset > $FILELEN || ! $POSSIBLE_PREFIX_DELTA || $PREFIX_DELTA;
+        if $offset + 4 > $FILELEN || ! $POSSIBLE_PREFIX_DELTA || $PREFIX_DELTA;
 
     my $currentOFFSET = $OFFSET;
     my $gotSig = readSignatureFromOffset($offset);
@@ -5032,9 +5033,12 @@ sub readFromOffset
 
 sub readSignatureFromOffset
 {
-    # TODO -- change to not bomb out on error??
-
     my $offset = shift ;
+
+    # catch use case where attempting to read past EOF
+    # sub is expecting to return a 32-bit value so return 54-bit out-of-bound value
+    return MAX64
+        if $offset + 4 > $FILELEN ;
 
     my $here = $FH->tell();
     my $buffer = readFromOffset($offset, 4);
