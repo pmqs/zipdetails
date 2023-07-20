@@ -3181,10 +3181,21 @@ sub testPossiblePrefixNoPREFIX_DELTA
     my $expectedSignature = shift ;
 
     return 0
-        if ! $POSSIBLE_PREFIX_DELTA || $PREFIX_DELTA;
+        if $offset > $FILELEN || ! $POSSIBLE_PREFIX_DELTA || $PREFIX_DELTA;
 
     my $currentOFFSET = $OFFSET;
-    my $gotSig = readSignatureFromOffset($offset + $POSSIBLE_PREFIX_DELTA);
+    my $gotSig = readSignatureFromOffset($offset);
+
+    if ($gotSig == $expectedSignature)
+    {
+        # do have possible prefix data, but the offset is correct
+        $POSSIBLE_PREFIX_DELTA = $PREFIX_DELTA = 0;
+        $OFFSET = $currentOFFSET;
+
+        return 0;
+    }
+
+    $gotSig = readSignatureFromOffset($offset + $POSSIBLE_PREFIX_DELTA);
 
     $OFFSET = $currentOFFSET;
 
@@ -5021,6 +5032,8 @@ sub readFromOffset
 
 sub readSignatureFromOffset
 {
+    # TODO -- change to not bomb out on error??
+
     my $offset = shift ;
 
     my $here = $FH->tell();

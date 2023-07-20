@@ -30,7 +30,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 175 * $tests_per_zip_full ;
+plan tests => 177 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -53,6 +53,7 @@ my @exts = qw(
     crx
     dwf
     epub
+    exe
     fmu
     ipa
     ja
@@ -192,7 +193,7 @@ for my $dir (sort keys %dirs)
                     $ok &= compareWithGolden  $golden_stdout_file, $stdout, $golden_stdout, "Expected stdout[$golden_stdout_name] for '$test'";
                     $ok &= compareWithGolden  $golden_stderr_file, $stderr, $golden_stderr, "Expected stderr[$golden_stderr_name] for '$test'";
 
-                    $ok &= compareBytesWithZipFile($opt1, $zipfile, $stdout);
+                    $ok &= compareBytesWithZipFile($opt1, $opt2, $opt3, $zipfile, $stdout);
 
                     push @failed, "$dir $opt1 $opt2"
                         unless $ok;
@@ -540,6 +541,8 @@ sub refresh
 sub compareBytesWithZipFile
 {
     my $opt1 = shift ;
+    my $opt2 = shift ;
+    my $opt3 = shift ;
     my $filename = shift ;
     my $stdout = shift;
 
@@ -616,7 +619,7 @@ sub compareBytesWithZipFile
             read($fh, my $data, $len) == $len
                 or die "Error reading $len bytes @ offset $offset: $!\n";
             $data eq $binaryValue
-                or die sprintf "Binary mismatch in $filename \@ 0x%X : Got[%s] Want[$valuesString]",
+                or die sprintf "Binary mismatch in $filename, opt '$opt1 $opt2 $opt3' \@ 0x%X : Got[%s] Want[$valuesString]",
                         $offset,
                         unpack("H*", $data);
 

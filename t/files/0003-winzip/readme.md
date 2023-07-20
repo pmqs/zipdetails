@@ -1,6 +1,8 @@
 # WinZip
 
- -
+Executable lives at "C:\Program Files\WinZip\wzzip.exe"
+
+
 ## Reference
 
 New feature in WinZip 25 that detects duplicate file and stores a reference entry.
