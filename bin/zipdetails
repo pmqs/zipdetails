@@ -593,6 +593,11 @@ sub decimalHex
     sprintf("%0*X [%u]", $_[1] // 0, $_[0], $_[0])
 }
 
+sub decimalHex0x
+{
+    sprintf("0x%0*X [%u]", $_[1] // 0, $_[0], $_[0])
+}
+
 sub out
 {
     my $data = shift;
@@ -1152,7 +1157,7 @@ if ($opt_scan || $opt_walk)
                 reportPrefixData($delta)
                     if $lastEndsAt == 0 ;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info  $FH->tell() - $delta, decimalHex($delta) . " Unexpected Padding bytes"
+                info  $FH->tell() - $delta, decimalHex0x($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $POSSIBLE_PREFIX_DELTA = $delta
                     if $lastEndsAt ==  0;
@@ -1231,7 +1236,7 @@ else
         if ($here >= $TRAILING) {
             my $delta = $FILELEN - $TRAILING;
             outSomeDataParagraph($delta, "TRAILING DATA");
-            info  $FH->tell(), "Unexpected Trailing Data: " . decimalHex($delta) . " bytes";
+            info  $FH->tell(), "Unexpected Trailing Data: " . decimalHex0x($delta) . " bytes";
 
             last;
         }
@@ -1330,7 +1335,7 @@ else
                 reportPrefixData($delta)
                     if $here == 0;
                 outSomeDataParagraph($delta, "UNEXPECTED PADDING");
-                info  $FH->tell() - $delta, decimalHex($delta) . " Unexpected Padding bytes"
+                info  $FH->tell() - $delta, decimalHex0x($delta) . " Unexpected Padding bytes"
                     if $FH->tell() - $delta ;
                 $HeaderOffsetIndex->rewindIndex();
                 next;
@@ -1387,7 +1392,7 @@ else
             # }
             # else
             {
-                fatal $here, sprintf "Unexpected Zip Signature '%s' at offset %s", Value_V($signature), decimalHex($here) ;
+                fatal $here, sprintf "Unexpected Zip Signature '%s' at offset %s", Value_V($signature), decimalHex0x($here) ;
                 last;
             }
         }
@@ -1538,11 +1543,11 @@ sub dislayMessages
                     my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
                     if ($localEntry)
                     {
-                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex($offset);
+                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex0x($offset);
                     }
                     else
                     {
-                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . decimalHex($offset);
+                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . decimalHex0x($offset);
                     }
 
                     my $ow = max length("Offset"),
@@ -1604,12 +1609,12 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $nested{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex($loc) .  "  has $count nested Local Headers";
+                    say "Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex0x($loc) .  "  has $count nested Local Headers";
                     for my $n ( @{ $nested{$loc} } )
                     {
                         my $innerEntry = $LocalDirectory->getByLocalOffset($n);
 
-                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . decimalHex($n)  ;
+                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . decimalHex0x($n)  ;
                     }
                 }
             }
@@ -1625,7 +1630,7 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "# Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex($loc) .  "  has $count nested Local Headers";
+                    say "# Local Header for filename '" . $outerEntry->filename . "' at offset " . decimalHex0x($loc) .  "  has $count nested Local Headers";
 
                     my $ow = max length("Offset"),
                             map { length hexValue $_ }
@@ -1951,7 +1956,7 @@ sub LocalHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2358,7 +2363,7 @@ sub CentralHeader
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
+    info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
     out_V "Last Mod Time", sub { LastModTime($_[0]) };
@@ -2643,7 +2648,7 @@ sub Zip64EndCentralHeader
 
         my ($bcm, $compressedMethod) = read_v();
         out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
-        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex($compressedMethod, 2)
+        info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
             if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
         out_Q "Compressed Length";
         out_Q "Uncompressed Length";
@@ -2812,7 +2817,7 @@ sub EndCentralHeader
         {
             error $here,
                   "file truncated while reading 'Comment' field in '" . Signatures::name($signature) . "'",
-                  "Expected " . decimalHex($comment_length) . " bytes, but only " . decimalHex($available) . " available" ;
+                  "Expected " . decimalHex0x($comment_length) . " bytes, but only " . decimalHex0x($available) . " available" ;
             $comment_length = $available;
         }
 
@@ -3219,10 +3224,10 @@ sub offsetIsValid
     $offset += $PREFIX_DELTA
         if $PREFIX_DELTA ;
 
-    return sprintf("value %s is %s bytes past EOF", decimalHex($offset), decimalHex($delta))
+    return sprintf("value %s is %s bytes past EOF", decimalHex0x($offset), decimalHex0x($delta))
         if $delta > 0 ;
 
-    return sprintf "value %s must be less that %s", decimalHex($offset), decimalHex($headerStart)
+    return sprintf "value %s must be less that %s", decimalHex0x($offset), decimalHex0x($headerStart)
         if $must_point_back && $offset >= $headerStart;
 
     if ($dereferencePointer)
@@ -3458,7 +3463,7 @@ sub reportPrefixData
     state $reported = 0;
     return if $reported || $delta == 0;
 
-    info 0, "found " . decimalHex($delta) . " bytes before beginning of zipfile" ;
+    info 0, "found " . decimalHex0x($delta) . " bytes before beginning of zipfile" ;
     $reported = 1;
 }
 
@@ -3531,7 +3536,7 @@ sub walkExtra
             {
                 # All nulls
                 out $payload, "Null Padding in Extra";
-                info $FH->tell() - length($payload), decimalHex(length $payload) . " Null Padding Bytes in Extra Field" ;
+                info $FH->tell() - length($payload), decimalHex0x(length $payload) . " Null Padding Bytes in Extra Field" ;
             }
             else
             {
@@ -3555,7 +3560,7 @@ sub walkExtra
             {
                 my $len = length ($id . $rest) ;
                 out $id . $rest, "Null Padding in Extra";
-                info $FH->tell() - $len, decimalHex($len) . " Null Padding Bytes in Extra Field";
+                info $FH->tell() - $len, decimalHex0x($len) . " Null Padding Bytes in Extra Field";
                 return undef;
             }
 
@@ -3582,7 +3587,7 @@ sub walkExtra
         {
             error $FH->tell() -2,
                   extraFieldIdentifier($lookID) . ": 'Length' field invalid",
-                  sprintf("value %s > %s bytes remaining", decimalHex($subLen), decimalHex($remaining));
+                  sprintf("value %s > %s bytes remaining", decimalHex0x($subLen), decimalHex0x($remaining));
             outSomeData $remaining, "  Extra Payload";
             return undef;
         }
@@ -3613,14 +3618,14 @@ sub walkExtra
                 {
                     # gone too far, so need to bomb out now
                     internalFatal $here, "Overflow processing " . extraFieldIdentifier($lookID) . ".",
-                                  sprintf("Should be at offset %s, actually at %s", decimalHex($endExtraOffset),  decimalHex($here));
+                                  sprintf("Should be at offset %s, actually at %s", decimalHex0x($endExtraOffset),  decimalHex0x($here));
                 }
                 elsif ($here < $endExtraOffset)
                 {
                     # not gone far enough, can recover
                     error $here,
-                            sprintf("Expected to be at offset %s after processing %s, actually at %s", decimalHex($endExtraOffset),  extraFieldIdentifier($lookID), decimalHex($here)),
-                            "Skipping " . decimalHex($endExtraOffset - $here) . " bytes";
+                            sprintf("Expected to be at offset %s after processing %s, actually at %s", decimalHex0x($endExtraOffset),  extraFieldIdentifier($lookID), decimalHex0x($here)),
+                            "Skipping " . decimalHex0x($endExtraOffset - $here) . " bytes";
                     outSomeData $endExtraOffset - $here, "  Extra Data";
                 }
             }
@@ -3654,7 +3659,7 @@ sub testExtraLimits
         {
             if ($size != $min)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s", extraFieldIdentifier($lookID), decimalHex($min),  decimalHex($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: expected %s, got %s", extraFieldIdentifier($lookID), decimalHex0x($min),  decimalHex0x($size);
                 outSomeData $size, "  Extra Payload" if $size;
                 return 0;
             }
@@ -3663,7 +3668,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), decimalHex($min), decimalHex($max), decimalHex($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), decimalHex0x($min), decimalHex0x($max), decimalHex0x($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
@@ -3674,7 +3679,7 @@ sub testExtraLimits
     {
         if ($size < $min)
         {
-            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s", extraFieldIdentifier($lookID), decimalHex($min),  decimalHex($size);
+            error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be at least %s, got %s", extraFieldIdentifier($lookID), decimalHex0x($min),  decimalHex0x($size);
             outSomeData $size, "  Extra Payload" if $size;
             return 0;
         }
@@ -3739,7 +3744,7 @@ sub walk_Zip64_in_LD
         # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Uncompressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Uncompressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3756,7 +3761,7 @@ sub walk_Zip64_in_LD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Compressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Compressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3798,7 +3803,7 @@ sub walk_Zip64_in_LD
         if ($display)
         {
             out2 $zip64Extended, "Unexpected Data", hexDump16 $zip64Extended ;
-            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex(length $zip64Extended) . " bytes";
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex0x(length $zip64Extended) . " bytes";
         }
     }
 
@@ -3829,7 +3834,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Uncompressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Uncompressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3846,7 +3851,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Compressed Size': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Compressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3864,7 +3869,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(8) . " bytes for 'Offset to Local Dir': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Offset to Local Dir': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3886,7 +3891,7 @@ sub walk_Zip64_in_CD
     {
         if (length $zip64Extended < 4)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex(4) . " bytes for 'Disk Number': only " . decimalHex(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(4) . " bytes for 'Disk Number': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -3907,7 +3912,7 @@ sub walk_Zip64_in_CD
         if ($display)
         {
             out2 $zip64Extended, "Unexpected Data", hexDump16 $zip64Extended ;
-            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex(length $zip64Extended) . " bytes";
+            info $fieldOffset, extraFieldIdentifier($extraID) .  ": Unexpected Data: " . decimalHex0x(length $zip64Extended) . " bytes";
         }
     }
 }
@@ -4165,7 +4170,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
-        warning $FH->tell(), "'Last Mod Time' value " . decimalHex($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
+        warning $FH->tell(), "'Last Mod Time' value " . decimalHex0x($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 
@@ -4229,7 +4234,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) .  ": Truncated reading 'Mod Time'",
-                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
+                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
                 return;
             }
 
@@ -4259,7 +4264,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Access Time'" ,
-                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
+                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
 
                 return;
             }
@@ -4288,7 +4293,7 @@ sub decode_UT
 
                 error  $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Change Time'" ,
-                    "Expected " . decimalHex(4) . " bytes, got " .  decimalHex($remaining) . " bytes";
+                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
 
                 return;
             }
@@ -4370,7 +4375,7 @@ sub decode_Minizip_Hash
         # error $fieldOffset, $message;
         # out2 $zip64Extended, $message;
 
-        error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . decimalHex($digestSize) . " >  " . decimalHex($remaining) . " bytes remaining in extra field" ;
+        error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . decimalHex0x($digestSize) . " >  " . decimalHex0x($remaining) . " bytes remaining in extra field" ;
         $digestSize = $remaining ;
     }
 
@@ -4381,7 +4386,7 @@ sub decode_Minizip_Hash
     if ($remaining)
     {
         outHexdump($remaining, "  Unexpected Data");
-        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . decimalHex($remaining) . " unexpected trailing bytes" ;
+        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . decimalHex0x($remaining) . " unexpected trailing bytes" ;
     }
 }
 
@@ -4451,7 +4456,7 @@ sub decode_AES
     if (! defined $ZIP_CompressionMethods{$method})
     {
         $validAES = 0;
-        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . decimalHex($method, 2)
+        warning $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Unknown 'Compression Method' ID " . decimalHex0x($method, 2)
     }
 
     $entry->aesStrength = $strength ;
@@ -4619,7 +4624,7 @@ sub decode_ux
     return if $len == 0 ;
 
     my $version = out_C "  Version" ;
-    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be " . decimalHex(1) . ", got " . decimalHex($version, 1)
+    info  $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'Version' should be " . decimalHex0x(1) . ", got " . decimalHex0x($version, 1)
         if $version != 1 ;
 
     my $available = $len - 1 ;
@@ -4634,7 +4639,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                 extraFieldIdentifier($extraID) . ": truncated reading 'UID'",
-                "Expected " . decimalHex($uidSize) . " bytes, got " .  decimalHex($available) . " bytes";
+                "Expected " . decimalHex0x($uidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
             return;
         }
 
@@ -4647,7 +4652,7 @@ sub decode_ux
     {
         error $FH->tell(),
                     extraFieldIdentifier($extraID) . ": truncated reading 'GID Size'",
-                    "Expected " . decimalHex($uidSize) . " bytes, got " .  decimalHex($available) . " bytes";
+                    "Expected " . decimalHex0x($uidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
         return ;
     }
 
@@ -4660,7 +4665,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                         extraFieldIdentifier($extraID) . ": truncated reading 'GID'",
-                        "Expected " . decimalHex($gidSize) . " bytes, got " .  decimalHex($available) . " bytes";
+                        "Expected " . decimalHex0x($gidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
             return;
         }
 
@@ -5981,8 +5986,8 @@ sub nibbles
             {
                 ::error $CentralDirectoryOffset,
                         "Duplicate Central Directory entries for filename '$filename'",
-                        "New Central Directory entry is at offset " . ::decimalHex($CentralDirectoryOffset),
-                        "Existing Central Directory entry is at offset " . ::decimalHex($self->{byName}{$filename}{centralHeaderOffset});
+                        "New Central Directory entry is at offset " . ::decimalHex0x($CentralDirectoryOffset),
+                        "Existing Central Directory entry is at offset " . ::decimalHex0x($self->{byName}{$filename}{centralHeaderOffset});
             }
 
             # not strictly illegal to have duplicate filename, so save this one
@@ -6303,8 +6308,8 @@ sub nibbles
         if ($existingEntry)
         {
             ::error $localEntry->localHeaderOffset(),
-                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::decimalHex($localEntry->localHeaderOffset) ,
-                    "Existing Local Directory entry is at offset " . ::decimalHex($existingEntry->localHeaderOffset)
+                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::decimalHex0x($localEntry->localHeaderOffset) ,
+                    "Existing Local Directory entry is at offset " . ::decimalHex0x($existingEntry->localHeaderOffset)
         }
 
         # keep nested local entries for zipbomb deteection
@@ -6439,7 +6444,7 @@ sub displayFileInfo
 
     info undef,
         "Filename       : '$filename'",
-        "Size           : " . (-s $filename) . " (" . decimalHex(-s $filename) . ")",
+        "Size           : " . (-s $filename) . " (" . decimalHex0x(-s $filename) . ")",
         # "Native Encoding: '" . TextEncoding::getNativeLocaleName() . "'",
 }
 

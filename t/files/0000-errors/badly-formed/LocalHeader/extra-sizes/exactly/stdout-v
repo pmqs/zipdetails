@@ -15,7 +15,7 @@
 0026 0027 0002 03 99       Extra ID #1           9903 [39171] 'Reference'
 0028 0029 0002 00 00         Length              0000 [0]
 #
-# ERROR: Offset 0x28: Extra Field 'Reference' (ID 0x9903): 'Length' field invalid: expected 14 [20], got 0 [0]
+# ERROR: Offset 0x28: Extra Field 'Reference' (ID 0x9903): 'Length' field invalid: expected 0x14 [20], got 0x0 [0]
 #
 002A 002E 0005 61 62 63 64 PAYLOAD               abcde
                65

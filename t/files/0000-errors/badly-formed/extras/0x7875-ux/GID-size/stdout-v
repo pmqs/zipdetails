@@ -19,7 +19,7 @@
 002C 002F 0004 61 62 63 64   UID                 64636261 [1684234849]
 #
 # ERROR: Offset 0x30: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 4 [4] bytes, got 0 [0] bytes
+#        Expected 0x4 [4] bytes, got 0x0 [0] bytes
 #
 0030 0034 0005 61 62 63 64 PAYLOAD               abcde
                65
@@ -54,7 +54,7 @@
 0071 0074 0004 61 62 63 64   UID                 64636261 [1684234849]
 #
 # ERROR: Offset 0x75: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 4 [4] bytes, got 0 [0] bytes
+#        Expected 0x4 [4] bytes, got 0x0 [0] bytes
 #
 
 0075 0078 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]

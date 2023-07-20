@@ -18,7 +18,7 @@
 002E   Digest              01 02
 0030   Unexpected Data     03
 #
-# ERROR: Offset 0x30: Extra Field 'Minizip Hash' (ID 0x1A51): 1 [1] unexpected trailing bytes
+# ERROR: Offset 0x30: Extra Field 'Minizip Hash' (ID 0x1A51): 0x1 [1] unexpected trailing bytes
 #
 0031 PAYLOAD               abc
 
@@ -51,7 +51,7 @@
 0072   Digest              01 02
 0074   Unexpected Data     03
 #
-# ERROR: Offset 0x74: Extra Field 'Minizip Hash' (ID 0x1A51): 1 [1] unexpected trailing bytes
+# ERROR: Offset 0x74: Extra Field 'Minizip Hash' (ID 0x1A51): 0x1 [1] unexpected trailing bytes
 #
 
 0075 END CENTRAL HEADER    06054B50 [101010256]

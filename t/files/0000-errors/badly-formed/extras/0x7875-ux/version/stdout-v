@@ -16,7 +16,7 @@
 0028 0029 0002 03 00         Length              0003 [3]
 002A 002A 0001 02            Version             02 [2]
 #
-# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 [1], got 2 [2]
+# INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x2 [2]
 #
 002B 002B 0001 00            UID Size            00 [0]
 002C 002C 0001 00            GID Size            00 [0]
@@ -50,7 +50,7 @@
 006A 006B 0002 03 00         Length              0003 [3]
 006C 006C 0001 03            Version             03 [3]
 #
-# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 1 [1], got 3 [3]
+# INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 [1], got 0x3 [3]
 #
 006D 006D 0001 00            UID Size            00 [0]
 006E 006E 0001 00            GID Size            00 [0]

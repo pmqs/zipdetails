@@ -102,7 +102,7 @@
 0208 020B 0004 01 00 00 00 Total no of Disks     00000001 [1]
 #
 # ERROR: Offset 0x200: 'Offset to Zip64 End of Central Directory Record' field in 'Zip64 End of Central Directory Locator' is invalid
-#        value 200 [512] must be less that 1F8 [504]
+#        value 0x200 [512] must be less that 0x1F8 [504]
 #
 
 020C 020F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]

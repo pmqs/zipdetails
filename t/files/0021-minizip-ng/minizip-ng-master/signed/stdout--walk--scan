@@ -1132,7 +1132,7 @@
 
 2B7E6 UNEXPECTED PADDING    L./q-.r(c#. '9.+.)(.2.$_a..y.y.-Jz....h..7].......%YP0A.._. .................D..QW.s.T.b...D..../.d!..w..D.?T..o.?
 #
-# INFO: Offset 0x2B7E6: 72 [114] Unexpected Padding bytes
+# INFO: Offset 0x2B7E6: 0x72 [114] Unexpected Padding bytes
 #
 
 2B858 DATA DESCRIPTOR       08074B50 [134695760]
@@ -1988,7 +1988,7 @@
 
 3AE2F UNEXPECTED PADDING    l....R..
 #
-# INFO: Offset 0x3AE2F: 8 [8] Unexpected Padding bytes
+# INFO: Offset 0x3AE2F: 0x8 [8] Unexpected Padding bytes
 #
 
 3AE37 CENTRAL HEADER #1     02014B50 [33639248]
@@ -2047,7 +2047,7 @@
 
 3AEDA UNEXPECTED PADDING    s...d...
 #
-# INFO: Offset 0x3AEDA: 8 [8] Unexpected Padding bytes
+# INFO: Offset 0x3AEDA: 0x8 [8] Unexpected Padding bytes
 #
 
 3AEE2 LOCAL HEADER #18      04034B50 [67324752]
@@ -7477,7 +7477,7 @@
 # ERROR: Offset 0x2E952: Filename 'unzip_fuzzer_seed_corpus/xz.zip': Missing 'Data Descriptor'
 #
 #
-# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for 'empty.txt' at offset 0 [0]
+# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for 'empty.txt' at offset 0x0 [0]
 #  Offset   Filename
 #  0x3AE37  'alice29.txt'
 #  0x67471  'vangogh.gif'

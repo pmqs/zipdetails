@@ -92,7 +92,7 @@
 00E0 00E3 0004 E6 00 00 00 Offset to Central Dir 000000E6 [230]
 #
 # ERROR: Offset 0xE0: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
-#        value E6 [230] is 1 [1] bytes past EOF
+#        value 0xE6 [230] is 0x1 [1] bytes past EOF
 #
 00E4 00E5 0002 00 00       Comment Length        0000 [0]
 #

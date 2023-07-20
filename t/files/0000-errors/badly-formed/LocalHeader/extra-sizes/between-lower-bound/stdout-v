@@ -15,7 +15,7 @@
 0026 0027 0002 55 54       Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
 0028 0029 0002 00 00         Length              0000 [0]
 #
-# ERROR: Offset 0x28: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): 'Length' field invalid: value must be betweem 1 [1] and D [13], got 0 [0]
+# ERROR: Offset 0x28: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): 'Length' field invalid: value must be betweem 0x1 [1] and 0xD [13], got 0x0 [0]
 #
 002A 002E 0005 61 62 63 64 PAYLOAD               abcde
                65

@@ -81,7 +81,7 @@
 00C1 00C4 0004 D0 00 00 00 Local Header Offset   000000D0 [208]
 #
 # ERROR: Offset 0xC1: 'Local Header Offset' field in 'Central Directory Header' is invalid
-#        value D0 [208] must be less that 97 [151]
+#        value 0xD0 [208] must be less that 0x97 [151]
 #
 00C5 00CF 000B 6E 75 6D 62 Filename              'numbers.txt'
                65 72 73 2E

@@ -15,7 +15,7 @@
 0026 0027 0002 55 58       Extra ID #1           5855 [22613] 'Unix Extra type 1 [UX]'
 0028 0029 0002 0E 00         Length              000E [14]
 #
-# ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected C [12], got E [14]
+# ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected 0xC [12], got 0xE [14]
 #
 002A 0037 000E 78 78 78 78   Extra Payload       xxxxxxxxxxxxxx
                78 78 78 78
