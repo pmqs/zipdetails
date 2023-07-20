@@ -1,1960 +1,1960 @@
 
-000000 LOCAL HEADER #1       04034B50 [67324752]
-000004 Extract Zip Spec      14 [20] '2.0'
-000005 Extract OS            00 [0] 'MS-DOS'
-000006 General Purpose Flag  0000 [0]
+000000 LOCAL HEADER #1       04034B50 (67324752)
+000004 Extract Zip Spec      14 (20) '2.0'
+000005 Extract OS            00 (0) 'MS-DOS'
+000006 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-000008 Compression Method    0008 [8] 'Deflated'
-00000A Last Mod Time         34F7AD20 [888646944] 'Sun Jul 23 21:41:00 2006'
-00000E CRC                   4B017531 [1258386737]
-000012 Compressed Length     00000150 [336]
-000016 Uncompressed Length   000001EE [494]
-00001A Filename Length       0017 [23]
-00001C Extra Length          0083 [131]
+000008 Compression Method    0008 (8) 'Deflated'
+00000A Last Mod Time         34F7AD20 (888646944) 'Sun Jul 23 21:41:00 2006'
+00000E CRC                   4B017531 (1258386737)
+000012 Compressed Length     00000150 (336)
+000016 Uncompressed Length   000001EE (494)
+00001A Filename Length       0017 (23)
+00001C Extra Length          0083 (131)
 00001E Filename              'zip/freeware_readme.txt'
-000035 Extra ID #1           000C [12] 'OpenVMS'
-000037   Length              007F [127]
-000039   CRC                 0417E744 [68675396]
-00003D   Tag #1              0004 [4] 'ATR$C_RECATTR'
-00003F     Size              0020 [32]
+000035 Extra ID #1           000C (12) 'OpenVMS'
+000037   Length              007F (127)
+000039   CRC                 0417E744 (68675396)
+00003D   Tag #1              0004 (4) 'ATR$C_RECATTR'
+00003F     Size              0020 (32)
 000041     Attribute         02 02 47 00 00 00 08 00 00 00 01 00 EE 01 00 00
                              00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-000061   Tag #2              0003 [3] 'ATR$C_UCHAR'
-000063     Size              0004 [4]
-000065     Attribute         00000000 [0]
-000069   Tag #3              0011 [17] 'ATR$C_CREDATE'
-00006B     Size              0008 [8]
-00006D     Attribute         00A5922926F0FC8F [46604076601900175] 'Sun Jul 23 21:40:59 2006 650017500ns'
-000075   Tag #4              0012 [18] 'ATR$C_REVDATE'
-000077     Size              0008 [8]
-000079     Attribute         00A59D9BCF1145E1 [46616663676765665] 'Mon Aug  7 11:19:27 2006 136566500ns'
-000081   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-000083     Size              0008 [8]
-000085     Attribute         0000000000000000 [0] 'No Date Time'
-00008D   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-00008F     Size              0008 [8]
-000091     Attribute         0000000000000000 [0] 'No Date Time'
-000099   Tag #7              000D [13] 'ATR$C_ASCDATES'
-00009B     Size              0002 [2]
-00009D     Attribute         000C [12]'Revision Count 000C [12]'
-00009F   Tag #8              0015 [21] 'ATR$C_UIC'
-0000A1     Size              0004 [4]
-0000A3     Attribute         00010004 [65540]
-0000A7   Tag #9              0016 [22] 'ATR$C_FPRO'
-0000A9     Size              0002 [2]
+000061   Tag #2              0003 (3) 'ATR$C_UCHAR'
+000063     Size              0004 (4)
+000065     Attribute         00000000 (0)
+000069   Tag #3              0011 (17) 'ATR$C_CREDATE'
+00006B     Size              0008 (8)
+00006D     Attribute         00A5922926F0FC8F (46604076601900175) 'Sun Jul 23 21:40:59 2006 650017500ns'
+000075   Tag #4              0012 (18) 'ATR$C_REVDATE'
+000077     Size              0008 (8)
+000079     Attribute         00A59D9BCF1145E1 (46616663676765665) 'Mon Aug  7 11:19:27 2006 136566500ns'
+000081   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+000083     Size              0008 (8)
+000085     Attribute         0000000000000000 (0) 'No Date Time'
+00008D   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+00008F     Size              0008 (8)
+000091     Attribute         0000000000000000 (0) 'No Date Time'
+000099   Tag #7              000D (13) 'ATR$C_ASCDATES'
+00009B     Size              0002 (2)
+00009D     Attribute         000C (12)'Revision Count 000C (12)'
+00009F   Tag #8              0015 (21) 'ATR$C_UIC'
+0000A1     Size              0004 (4)
+0000A3     Attribute         00010004 (65540)
+0000A7   Tag #9              0016 (22) 'ATR$C_FPRO'
+0000A9     Size              0002 (2)
 0000AB     Attribute         AA AA
-0000AD   Tag #10             0017 [23] 'ATR$C_RPRO'
-0000AF     Size              0002 [2]
-0000B1     Attribute         0000 [0]
-0000B3   Tag #11             001D [29] 'ATR$C_JOURNAL'
-0000B5     Size              0001 [1]
+0000AD   Tag #10             0017 (23) 'ATR$C_RPRO'
+0000AF     Size              0002 (2)
+0000B1     Attribute         0000 (0)
+0000B3   Tag #11             001D (29) 'ATR$C_JOURNAL'
+0000B5     Size              0001 (1)
 0000B7     Attribute         00
 0000B8 PAYLOAD
 
-000208 LOCAL HEADER #2       04034B50 [67324752]
-00020C Extract Zip Spec      14 [20] '2.0'
-00020D Extract OS            00 [0] 'MS-DOS'
-00020E General Purpose Flag  0000 [0]
+000208 LOCAL HEADER #2       04034B50 (67324752)
+00020C Extract Zip Spec      14 (20) '2.0'
+00020D Extract OS            00 (0) 'MS-DOS'
+00020E General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-000210 Compression Method    0008 [8] 'Deflated'
-000212 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-000216 CRC                   983B0247 [2554004039]
-00021A Compressed Length     0000EBA6 [60326]
-00021E Uncompressed Length   0001B800 [112640]
-000222 Filename Length       000F [15]
-000224 Extra Length          0083 [131]
+000210 Compression Method    0008 (8) 'Deflated'
+000212 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+000216 CRC                   983B0247 (2554004039)
+00021A Compressed Length     0000EBA6 (60326)
+00021E Uncompressed Length   0001B800 (112640)
+000222 Filename Length       000F (15)
+000224 Extra Length          0083 (131)
 000226 Filename              'zip/zip.axp_exe'
-000235 Extra ID #1           000C [12] 'OpenVMS'
-000237   Length              007F [127]
-000239   CRC                 785812DF [2019037919]
-00023D   Tag #1              0004 [4] 'ATR$C_RECATTR'
-00023F     Size              0020 [32]
+000235 Extra ID #1           000C (12) 'OpenVMS'
+000237   Length              007F (127)
+000239   CRC                 785812DF (2019037919)
+00023D   Tag #1              0004 (4) 'ATR$C_RECATTR'
+00023F     Size              0020 (32)
 000241     Attribute         01 00 00 02 00 00 E0 00 00 00 DD 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-000261   Tag #2              0003 [3] 'ATR$C_UCHAR'
-000263     Size              0004 [4]
-000265     Attribute         00000020 [32]
+000261   Tag #2              0003 (3) 'ATR$C_UCHAR'
+000263     Size              0004 (4)
+000265     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-000269   Tag #3              0011 [17] 'ATR$C_CREDATE'
-00026B     Size              0008 [8]
-00026D     Attribute         00A58DDA34552CC7 [46599339477642439] 'Tue Jul 18 10:05:47 2006 224243900ns'
-000275   Tag #4              0012 [18] 'ATR$C_REVDATE'
-000277     Size              0008 [8]
-000279     Attribute         00A59D9BCF1ED508 [46616663677654280] 'Mon Aug  7 11:19:27 2006 225428000ns'
-000281   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-000283     Size              0008 [8]
-000285     Attribute         0000000000000000 [0] 'No Date Time'
-00028D   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-00028F     Size              0008 [8]
-000291     Attribute         0000000000000000 [0] 'No Date Time'
-000299   Tag #7              000D [13] 'ATR$C_ASCDATES'
-00029B     Size              0002 [2]
-00029D     Attribute         000D [13]'Revision Count 000D [13]'
-00029F   Tag #8              0015 [21] 'ATR$C_UIC'
-0002A1     Size              0004 [4]
-0002A3     Attribute         00010004 [65540]
-0002A7   Tag #9              0016 [22] 'ATR$C_FPRO'
-0002A9     Size              0002 [2]
+000269   Tag #3              0011 (17) 'ATR$C_CREDATE'
+00026B     Size              0008 (8)
+00026D     Attribute         00A58DDA34552CC7 (46599339477642439) 'Tue Jul 18 10:05:47 2006 224243900ns'
+000275   Tag #4              0012 (18) 'ATR$C_REVDATE'
+000277     Size              0008 (8)
+000279     Attribute         00A59D9BCF1ED508 (46616663677654280) 'Mon Aug  7 11:19:27 2006 225428000ns'
+000281   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+000283     Size              0008 (8)
+000285     Attribute         0000000000000000 (0) 'No Date Time'
+00028D   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+00028F     Size              0008 (8)
+000291     Attribute         0000000000000000 (0) 'No Date Time'
+000299   Tag #7              000D (13) 'ATR$C_ASCDATES'
+00029B     Size              0002 (2)
+00029D     Attribute         000D (13)'Revision Count 000D (13)'
+00029F   Tag #8              0015 (21) 'ATR$C_UIC'
+0002A1     Size              0004 (4)
+0002A3     Attribute         00010004 (65540)
+0002A7   Tag #9              0016 (22) 'ATR$C_FPRO'
+0002A9     Size              0002 (2)
 0002AB     Attribute         AA AA
-0002AD   Tag #10             0017 [23] 'ATR$C_RPRO'
-0002AF     Size              0002 [2]
-0002B1     Attribute         0000 [0]
-0002B3   Tag #11             001D [29] 'ATR$C_JOURNAL'
-0002B5     Size              0001 [1]
+0002AD   Tag #10             0017 (23) 'ATR$C_RPRO'
+0002AF     Size              0002 (2)
+0002B1     Attribute         0000 (0)
+0002B3   Tag #11             001D (29) 'ATR$C_JOURNAL'
+0002B5     Size              0001 (1)
 0002B7     Attribute         00
 0002B8 PAYLOAD
 
-00EE5E LOCAL HEADER #3       04034B50 [67324752]
-00EE62 Extract Zip Spec      14 [20] '2.0'
-00EE63 Extract OS            00 [0] 'MS-DOS'
-00EE64 General Purpose Flag  0000 [0]
+00EE5E LOCAL HEADER #3       04034B50 (67324752)
+00EE62 Extract Zip Spec      14 (20) '2.0'
+00EE63 Extract OS            00 (0) 'MS-DOS'
+00EE64 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-00EE66 Compression Method    0008 [8] 'Deflated'
-00EE68 Last Mod Time         34F249BD [888293821] 'Tue Jul 18 09:13:58 2006'
-00EE6C CRC                   104BF870 [273414256]
-00EE70 Compressed Length     0001573B [87867]
-00EE74 Uncompressed Length   00043000 [274432]
-00EE78 Filename Length       000F [15]
-00EE7A Extra Length          0083 [131]
+00EE66 Compression Method    0008 (8) 'Deflated'
+00EE68 Last Mod Time         34F249BD (888293821) 'Tue Jul 18 09:13:58 2006'
+00EE6C CRC                   104BF870 (273414256)
+00EE70 Compressed Length     0001573B (87867)
+00EE74 Uncompressed Length   00043000 (274432)
+00EE78 Filename Length       000F (15)
+00EE7A Extra Length          0083 (131)
 00EE7C Filename              'zip/zip.i64_exe'
-00EE8B Extra ID #1           000C [12] 'OpenVMS'
-00EE8D   Length              007F [127]
-00EE8F   CRC                 FB37C778 [4214736760]
-00EE93   Tag #1              0004 [4] 'ATR$C_RECATTR'
-00EE95     Size              0020 [32]
+00EE8B Extra ID #1           000C (12) 'OpenVMS'
+00EE8D   Length              007F (127)
+00EE8F   CRC                 FB37C778 (4214736760)
+00EE93   Tag #1              0004 (4) 'ATR$C_RECATTR'
+00EE95     Size              0020 (32)
 00EE97     Attribute         01 00 00 02 00 00 20 02 00 00 19 02 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-00EEB7   Tag #2              0003 [3] 'ATR$C_UCHAR'
-00EEB9     Size              0004 [4]
-00EEBB     Attribute         00000020 [32]
+00EEB7   Tag #2              0003 (3) 'ATR$C_UCHAR'
+00EEB9     Size              0004 (4)
+00EEBB     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-00EEBF   Tag #3              0011 [17] 'ATR$C_CREDATE'
-00EEC1     Size              0008 [8]
-00EEC3     Attribute         00A58DD2F6D8CC30 [46599308381310000] 'Tue Jul 18 09:13:57 2006 591000000ns'
-00EECB   Tag #4              0012 [18] 'ATR$C_REVDATE'
-00EECD     Size              0008 [8]
-00EECF     Attribute         00A59D9BCF2BA576 [46616663678494070] 'Mon Aug  7 11:19:27 2006 309407000ns'
-00EED7   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-00EED9     Size              0008 [8]
-00EEDB     Attribute         0000000000000000 [0] 'No Date Time'
-00EEE3   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-00EEE5     Size              0008 [8]
-00EEE7     Attribute         0000000000000000 [0] 'No Date Time'
-00EEEF   Tag #7              000D [13] 'ATR$C_ASCDATES'
-00EEF1     Size              0002 [2]
-00EEF3     Attribute         000E [14]'Revision Count 000E [14]'
-00EEF5   Tag #8              0015 [21] 'ATR$C_UIC'
-00EEF7     Size              0004 [4]
-00EEF9     Attribute         00010004 [65540]
-00EEFD   Tag #9              0016 [22] 'ATR$C_FPRO'
-00EEFF     Size              0002 [2]
+00EEBF   Tag #3              0011 (17) 'ATR$C_CREDATE'
+00EEC1     Size              0008 (8)
+00EEC3     Attribute         00A58DD2F6D8CC30 (46599308381310000) 'Tue Jul 18 09:13:57 2006 591000000ns'
+00EECB   Tag #4              0012 (18) 'ATR$C_REVDATE'
+00EECD     Size              0008 (8)
+00EECF     Attribute         00A59D9BCF2BA576 (46616663678494070) 'Mon Aug  7 11:19:27 2006 309407000ns'
+00EED7   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+00EED9     Size              0008 (8)
+00EEDB     Attribute         0000000000000000 (0) 'No Date Time'
+00EEE3   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+00EEE5     Size              0008 (8)
+00EEE7     Attribute         0000000000000000 (0) 'No Date Time'
+00EEEF   Tag #7              000D (13) 'ATR$C_ASCDATES'
+00EEF1     Size              0002 (2)
+00EEF3     Attribute         000E (14)'Revision Count 000E (14)'
+00EEF5   Tag #8              0015 (21) 'ATR$C_UIC'
+00EEF7     Size              0004 (4)
+00EEF9     Attribute         00010004 (65540)
+00EEFD   Tag #9              0016 (22) 'ATR$C_FPRO'
+00EEFF     Size              0002 (2)
 00EF01     Attribute         AA AA
-00EF03   Tag #10             0017 [23] 'ATR$C_RPRO'
-00EF05     Size              0002 [2]
-00EF07     Attribute         0000 [0]
-00EF09   Tag #11             001D [29] 'ATR$C_JOURNAL'
-00EF0B     Size              0001 [1]
+00EF03   Tag #10             0017 (23) 'ATR$C_RPRO'
+00EF05     Size              0002 (2)
+00EF07     Attribute         0000 (0)
+00EF09   Tag #11             001D (29) 'ATR$C_JOURNAL'
+00EF0B     Size              0001 (1)
 00EF0D     Attribute         00
 00EF0E PAYLOAD
 
-024649 LOCAL HEADER #4       04034B50 [67324752]
-02464D Extract Zip Spec      14 [20] '2.0'
-02464E Extract OS            00 [0] 'MS-DOS'
-02464F General Purpose Flag  0000 [0]
+024649 LOCAL HEADER #4       04034B50 (67324752)
+02464D Extract Zip Spec      14 (20) '2.0'
+02464E Extract OS            00 (0) 'MS-DOS'
+02464F General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-024651 Compression Method    0008 [8] 'Deflated'
-024653 Last Mod Time         34F250D0 [888295632] 'Tue Jul 18 10:06:32 2006'
-024657 CRC                   23250884 [589629572]
-02465B Compressed Length     0000867E [34430]
-02465F Uncompressed Length   00011200 [70144]
-024663 Filename Length       0014 [20]
-024665 Extra Length          0083 [131]
+024651 Compression Method    0008 (8) 'Deflated'
+024653 Last Mod Time         34F250D0 (888295632) 'Tue Jul 18 10:06:32 2006'
+024657 CRC                   23250884 (589629572)
+02465B Compressed Length     0000867E (34430)
+02465F Uncompressed Length   00011200 (70144)
+024663 Filename Length       0014 (20)
+024665 Extra Length          0083 (131)
 024667 Filename              'zip/zip.vax_vaxc_exe'
-02467B Extra ID #1           000C [12] 'OpenVMS'
-02467D   Length              007F [127]
-02467F   CRC                 296691A4 [694587812]
-024683   Tag #1              0004 [4] 'ATR$C_RECATTR'
-024685     Size              0020 [32]
+02467B Extra ID #1           000C (12) 'OpenVMS'
+02467D   Length              007F (127)
+02467F   CRC                 296691A4 (694587812)
+024683   Tag #1              0004 (4) 'ATR$C_RECATTR'
+024685     Size              0020 (32)
 024687     Attribute         01 00 00 02 00 00 90 00 00 00 8A 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-0246A7   Tag #2              0003 [3] 'ATR$C_UCHAR'
-0246A9     Size              0004 [4]
-0246AB     Attribute         00000020 [32]
+0246A7   Tag #2              0003 (3) 'ATR$C_UCHAR'
+0246A9     Size              0004 (4)
+0246AB     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-0246AF   Tag #3              0011 [17] 'ATR$C_CREDATE'
-0246B1     Size              0008 [8]
-0246B3     Attribute         00A58DDA4E4B75F7 [46599339913213431] 'Tue Jul 18 10:06:30 2006 781343100ns'
-0246BB   Tag #4              0012 [18] 'ATR$C_REVDATE'
-0246BD     Size              0008 [8]
-0246BF     Attribute         00A59D9BCF371E97 [46616663679245975] 'Mon Aug  7 11:19:27 2006 384597500ns'
-0246C7   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-0246C9     Size              0008 [8]
-0246CB     Attribute         0000000000000000 [0] 'No Date Time'
-0246D3   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-0246D5     Size              0008 [8]
-0246D7     Attribute         0000000000000000 [0] 'No Date Time'
-0246DF   Tag #7              000D [13] 'ATR$C_ASCDATES'
-0246E1     Size              0002 [2]
-0246E3     Attribute         000D [13]'Revision Count 000D [13]'
-0246E5   Tag #8              0015 [21] 'ATR$C_UIC'
-0246E7     Size              0004 [4]
-0246E9     Attribute         00010004 [65540]
-0246ED   Tag #9              0016 [22] 'ATR$C_FPRO'
-0246EF     Size              0002 [2]
+0246AF   Tag #3              0011 (17) 'ATR$C_CREDATE'
+0246B1     Size              0008 (8)
+0246B3     Attribute         00A58DDA4E4B75F7 (46599339913213431) 'Tue Jul 18 10:06:30 2006 781343100ns'
+0246BB   Tag #4              0012 (18) 'ATR$C_REVDATE'
+0246BD     Size              0008 (8)
+0246BF     Attribute         00A59D9BCF371E97 (46616663679245975) 'Mon Aug  7 11:19:27 2006 384597500ns'
+0246C7   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+0246C9     Size              0008 (8)
+0246CB     Attribute         0000000000000000 (0) 'No Date Time'
+0246D3   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+0246D5     Size              0008 (8)
+0246D7     Attribute         0000000000000000 (0) 'No Date Time'
+0246DF   Tag #7              000D (13) 'ATR$C_ASCDATES'
+0246E1     Size              0002 (2)
+0246E3     Attribute         000D (13)'Revision Count 000D (13)'
+0246E5   Tag #8              0015 (21) 'ATR$C_UIC'
+0246E7     Size              0004 (4)
+0246E9     Attribute         00010004 (65540)
+0246ED   Tag #9              0016 (22) 'ATR$C_FPRO'
+0246EF     Size              0002 (2)
 0246F1     Attribute         AA AA
-0246F3   Tag #10             0017 [23] 'ATR$C_RPRO'
-0246F5     Size              0002 [2]
-0246F7     Attribute         0000 [0]
-0246F9   Tag #11             001D [29] 'ATR$C_JOURNAL'
-0246FB     Size              0001 [1]
+0246F3   Tag #10             0017 (23) 'ATR$C_RPRO'
+0246F5     Size              0002 (2)
+0246F7     Attribute         0000 (0)
+0246F9   Tag #11             001D (29) 'ATR$C_JOURNAL'
+0246FB     Size              0001 (1)
 0246FD     Attribute         00
 0246FE PAYLOAD
 
-02CD7C LOCAL HEADER #5       04034B50 [67324752]
-02CD80 Extract Zip Spec      0A [10] '1.0'
-02CD81 Extract OS            00 [0] 'MS-DOS'
-02CD82 General Purpose Flag  0000 [0]
-02CD84 Compression Method    0000 [0] 'Stored'
-02CD86 Last Mod Time         34EF70C3 [888107203] 'Sat Jul 15 14:06:06 2006'
-02CD8A CRC                   E2D85E79 [3805830777]
-02CD8E Compressed Length     001ECAA0 [2017952]
-02CD92 Uncompressed Length   001ECAA0 [2017952]
-02CD96 Filename Length       000B [11]
-02CD98 Extra Length          0083 [131]
+02CD7C LOCAL HEADER #5       04034B50 (67324752)
+02CD80 Extract Zip Spec      0A (10) '1.0'
+02CD81 Extract OS            00 (0) 'MS-DOS'
+02CD82 General Purpose Flag  0000 (0)
+02CD84 Compression Method    0000 (0) 'Stored'
+02CD86 Last Mod Time         34EF70C3 (888107203) 'Sat Jul 15 14:06:06 2006'
+02CD8A CRC                   E2D85E79 (3805830777)
+02CD8E Compressed Length     001ECAA0 (2017952)
+02CD92 Uncompressed Length   001ECAA0 (2017952)
+02CD96 Filename Length       000B (11)
+02CD98 Extra Length          0083 (131)
 02CD9A Filename              'zip/zip.zip'
-02CDA5 Extra ID #1           000C [12] 'OpenVMS'
-02CDA7   Length              007F [127]
-02CDA9   CRC                 99763277 [2574660215]
-02CDAD   Tag #1              0004 [4] 'ATR$C_RECATTR'
-02CDAF     Size              0020 [32]
+02CDA5 Extra ID #1           000C (12) 'OpenVMS'
+02CDA7   Length              007F (127)
+02CDA9   CRC                 99763277 (2574660215)
+02CDAD   Tag #1              0004 (4) 'ATR$C_RECATTR'
+02CDAF     Size              0020 (32)
 02CDB1     Attribute         05 02 00 00 00 00 70 0F 00 00 66 0F A0 00 00 00
                              00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-02CDD1   Tag #2              0003 [3] 'ATR$C_UCHAR'
-02CDD3     Size              0004 [4]
-02CDD5     Attribute         00000000 [0]
-02CDD9   Tag #3              0011 [17] 'ATR$C_CREDATE'
-02CDDB     Size              0008 [8]
-02CDDD     Attribute         00A58BA047081B00 [46596891660000000] 'Sat Jul 15 14:06:05 2006 460000000ns'
-02CDE5   Tag #4              0012 [18] 'ATR$C_REVDATE'
-02CDE7     Size              0008 [8]
-02CDE9     Attribute         00A59D9BCF43C8E0 [46616663680076000] 'Mon Aug  7 11:19:27 2006 467600000ns'
-02CDF1   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-02CDF3     Size              0008 [8]
-02CDF5     Attribute         0000000000000000 [0] 'No Date Time'
-02CDFD   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-02CDFF     Size              0008 [8]
-02CE01     Attribute         0000000000000000 [0] 'No Date Time'
-02CE09   Tag #7              000D [13] 'ATR$C_ASCDATES'
-02CE0B     Size              0002 [2]
-02CE0D     Attribute         000C [12]'Revision Count 000C [12]'
-02CE0F   Tag #8              0015 [21] 'ATR$C_UIC'
-02CE11     Size              0004 [4]
-02CE13     Attribute         00010004 [65540]
-02CE17   Tag #9              0016 [22] 'ATR$C_FPRO'
-02CE19     Size              0002 [2]
+02CDD1   Tag #2              0003 (3) 'ATR$C_UCHAR'
+02CDD3     Size              0004 (4)
+02CDD5     Attribute         00000000 (0)
+02CDD9   Tag #3              0011 (17) 'ATR$C_CREDATE'
+02CDDB     Size              0008 (8)
+02CDDD     Attribute         00A58BA047081B00 (46596891660000000) 'Sat Jul 15 14:06:05 2006 460000000ns'
+02CDE5   Tag #4              0012 (18) 'ATR$C_REVDATE'
+02CDE7     Size              0008 (8)
+02CDE9     Attribute         00A59D9BCF43C8E0 (46616663680076000) 'Mon Aug  7 11:19:27 2006 467600000ns'
+02CDF1   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+02CDF3     Size              0008 (8)
+02CDF5     Attribute         0000000000000000 (0) 'No Date Time'
+02CDFD   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+02CDFF     Size              0008 (8)
+02CE01     Attribute         0000000000000000 (0) 'No Date Time'
+02CE09   Tag #7              000D (13) 'ATR$C_ASCDATES'
+02CE0B     Size              0002 (2)
+02CE0D     Attribute         000C (12)'Revision Count 000C (12)'
+02CE0F   Tag #8              0015 (21) 'ATR$C_UIC'
+02CE11     Size              0004 (4)
+02CE13     Attribute         00010004 (65540)
+02CE17   Tag #9              0016 (22) 'ATR$C_FPRO'
+02CE19     Size              0002 (2)
 02CE1B     Attribute         AA AA
-02CE1D   Tag #10             0017 [23] 'ATR$C_RPRO'
-02CE1F     Size              0002 [2]
-02CE21     Attribute         0000 [0]
-02CE23   Tag #11             001D [29] 'ATR$C_JOURNAL'
-02CE25     Size              0001 [1]
+02CE1D   Tag #10             0017 (23) 'ATR$C_RPRO'
+02CE1F     Size              0002 (2)
+02CE21     Attribute         0000 (0)
+02CE23   Tag #11             001D (29) 'ATR$C_JOURNAL'
+02CE25     Size              0001 (1)
 02CE27     Attribute         00
 02CE28 PAYLOAD
 
-2198C8 LOCAL HEADER #6       04034B50 [67324752]
-2198CC Extract Zip Spec      14 [20] '2.0'
-2198CD Extract OS            00 [0] 'MS-DOS'
-2198CE General Purpose Flag  0000 [0]
+2198C8 LOCAL HEADER #6       04034B50 (67324752)
+2198CC Extract Zip Spec      14 (20) '2.0'
+2198CD Extract OS            00 (0) 'MS-DOS'
+2198CE General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-2198D0 Compression Method    0008 [8] 'Deflated'
-2198D2 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-2198D6 CRC                   336ECF7C [862900092]
-2198DA Compressed Length     00005530 [21808]
-2198DE Uncompressed Length   0000AA00 [43520]
-2198E2 Filename Length       0014 [20]
-2198E4 Extra Length          0083 [131]
+2198D0 Compression Method    0008 (8) 'Deflated'
+2198D2 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+2198D6 CRC                   336ECF7C (862900092)
+2198DA Compressed Length     00005530 (21808)
+2198DE Uncompressed Length   0000AA00 (43520)
+2198E2 Filename Length       0014 (20)
+2198E4 Extra Length          0083 (131)
 2198E6 Filename              'zip/zipcloak.axp_exe'
-2198FA Extra ID #1           000C [12] 'OpenVMS'
-2198FC   Length              007F [127]
-2198FE   CRC                 350776BB [889681595]
-219902   Tag #1              0004 [4] 'ATR$C_RECATTR'
-219904     Size              0020 [32]
+2198FA Extra ID #1           000C (12) 'OpenVMS'
+2198FC   Length              007F (127)
+2198FE   CRC                 350776BB (889681595)
+219902   Tag #1              0004 (4) 'ATR$C_RECATTR'
+219904     Size              0020 (32)
 219906     Attribute         01 00 00 02 00 00 60 00 00 00 56 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-219926   Tag #2              0003 [3] 'ATR$C_UCHAR'
-219928     Size              0004 [4]
-21992A     Attribute         00000020 [32]
+219926   Tag #2              0003 (3) 'ATR$C_UCHAR'
+219928     Size              0004 (4)
+21992A     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-21992E   Tag #3              0011 [17] 'ATR$C_CREDATE'
-219930     Size              0008 [8]
-219932     Attribute         00A58DDA34779B63 [46599339479898979] 'Tue Jul 18 10:05:47 2006 449897900ns'
-21993A   Tag #4              0012 [18] 'ATR$C_REVDATE'
-21993C     Size              0008 [8]
-21993E     Attribute         00A59D9BCF507329 [46616663680906025] 'Mon Aug  7 11:19:27 2006 550602500ns'
-219946   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-219948     Size              0008 [8]
-21994A     Attribute         0000000000000000 [0] 'No Date Time'
-219952   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-219954     Size              0008 [8]
-219956     Attribute         0000000000000000 [0] 'No Date Time'
-21995E   Tag #7              000D [13] 'ATR$C_ASCDATES'
-219960     Size              0002 [2]
-219962     Attribute         000D [13]'Revision Count 000D [13]'
-219964   Tag #8              0015 [21] 'ATR$C_UIC'
-219966     Size              0004 [4]
-219968     Attribute         00010004 [65540]
-21996C   Tag #9              0016 [22] 'ATR$C_FPRO'
-21996E     Size              0002 [2]
+21992E   Tag #3              0011 (17) 'ATR$C_CREDATE'
+219930     Size              0008 (8)
+219932     Attribute         00A58DDA34779B63 (46599339479898979) 'Tue Jul 18 10:05:47 2006 449897900ns'
+21993A   Tag #4              0012 (18) 'ATR$C_REVDATE'
+21993C     Size              0008 (8)
+21993E     Attribute         00A59D9BCF507329 (46616663680906025) 'Mon Aug  7 11:19:27 2006 550602500ns'
+219946   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+219948     Size              0008 (8)
+21994A     Attribute         0000000000000000 (0) 'No Date Time'
+219952   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+219954     Size              0008 (8)
+219956     Attribute         0000000000000000 (0) 'No Date Time'
+21995E   Tag #7              000D (13) 'ATR$C_ASCDATES'
+219960     Size              0002 (2)
+219962     Attribute         000D (13)'Revision Count 000D (13)'
+219964   Tag #8              0015 (21) 'ATR$C_UIC'
+219966     Size              0004 (4)
+219968     Attribute         00010004 (65540)
+21996C   Tag #9              0016 (22) 'ATR$C_FPRO'
+21996E     Size              0002 (2)
 219970     Attribute         AA AA
-219972   Tag #10             0017 [23] 'ATR$C_RPRO'
-219974     Size              0002 [2]
-219976     Attribute         0000 [0]
-219978   Tag #11             001D [29] 'ATR$C_JOURNAL'
-21997A     Size              0001 [1]
+219972   Tag #10             0017 (23) 'ATR$C_RPRO'
+219974     Size              0002 (2)
+219976     Attribute         0000 (0)
+219978   Tag #11             001D (29) 'ATR$C_JOURNAL'
+21997A     Size              0001 (1)
 21997C     Attribute         00
 21997D PAYLOAD
 
-21EEAD LOCAL HEADER #7       04034B50 [67324752]
-21EEB1 Extract Zip Spec      14 [20] '2.0'
-21EEB2 Extract OS            00 [0] 'MS-DOS'
-21EEB3 General Purpose Flag  0000 [0]
+21EEAD LOCAL HEADER #7       04034B50 (67324752)
+21EEB1 Extract Zip Spec      14 (20) '2.0'
+21EEB2 Extract OS            00 (0) 'MS-DOS'
+21EEB3 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-21EEB5 Compression Method    0008 [8] 'Deflated'
-21EEB7 Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-21EEBB CRC                   18AE9DEA [414096874]
-21EEBF Compressed Length     000081E3 [33251]
-21EEC3 Uncompressed Length   0001B200 [111104]
-21EEC7 Filename Length       0014 [20]
-21EEC9 Extra Length          0083 [131]
+21EEB5 Compression Method    0008 (8) 'Deflated'
+21EEB7 Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+21EEBB CRC                   18AE9DEA (414096874)
+21EEBF Compressed Length     000081E3 (33251)
+21EEC3 Uncompressed Length   0001B200 (111104)
+21EEC7 Filename Length       0014 (20)
+21EEC9 Extra Length          0083 (131)
 21EECB Filename              'zip/zipcloak.i64_exe'
-21EEDF Extra ID #1           000C [12] 'OpenVMS'
-21EEE1   Length              007F [127]
-21EEE3   CRC                 42C0C96B [1119930731]
-21EEE7   Tag #1              0004 [4] 'ATR$C_RECATTR'
-21EEE9     Size              0020 [32]
+21EEDF Extra ID #1           000C (12) 'OpenVMS'
+21EEE1   Length              007F (127)
+21EEE3   CRC                 42C0C96B (1119930731)
+21EEE7   Tag #1              0004 (4) 'ATR$C_RECATTR'
+21EEE9     Size              0020 (32)
 21EEEB     Attribute         01 00 00 02 00 00 E0 00 00 00 DA 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-21EF0B   Tag #2              0003 [3] 'ATR$C_UCHAR'
-21EF0D     Size              0004 [4]
-21EF0F     Attribute         00000020 [32]
+21EF0B   Tag #2              0003 (3) 'ATR$C_UCHAR'
+21EF0D     Size              0004 (4)
+21EF0F     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-21EF13   Tag #3              0011 [17] 'ATR$C_CREDATE'
-21EF15     Size              0008 [8]
-21EF17     Attribute         00A58DD2F7FD9D20 [46599308400500000] 'Tue Jul 18 09:13:59 2006 510000000ns'
-21EF1F   Tag #4              0012 [18] 'ATR$C_REVDATE'
-21EF21     Size              0008 [8]
-21EF23     Attribute         00A59D9BCF5D4397 [46616663681745815] 'Mon Aug  7 11:19:27 2006 634581500ns'
-21EF2B   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-21EF2D     Size              0008 [8]
-21EF2F     Attribute         0000000000000000 [0] 'No Date Time'
-21EF37   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-21EF39     Size              0008 [8]
-21EF3B     Attribute         0000000000000000 [0] 'No Date Time'
-21EF43   Tag #7              000D [13] 'ATR$C_ASCDATES'
-21EF45     Size              0002 [2]
-21EF47     Attribute         000E [14]'Revision Count 000E [14]'
-21EF49   Tag #8              0015 [21] 'ATR$C_UIC'
-21EF4B     Size              0004 [4]
-21EF4D     Attribute         00010004 [65540]
-21EF51   Tag #9              0016 [22] 'ATR$C_FPRO'
-21EF53     Size              0002 [2]
+21EF13   Tag #3              0011 (17) 'ATR$C_CREDATE'
+21EF15     Size              0008 (8)
+21EF17     Attribute         00A58DD2F7FD9D20 (46599308400500000) 'Tue Jul 18 09:13:59 2006 510000000ns'
+21EF1F   Tag #4              0012 (18) 'ATR$C_REVDATE'
+21EF21     Size              0008 (8)
+21EF23     Attribute         00A59D9BCF5D4397 (46616663681745815) 'Mon Aug  7 11:19:27 2006 634581500ns'
+21EF2B   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+21EF2D     Size              0008 (8)
+21EF2F     Attribute         0000000000000000 (0) 'No Date Time'
+21EF37   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+21EF39     Size              0008 (8)
+21EF3B     Attribute         0000000000000000 (0) 'No Date Time'
+21EF43   Tag #7              000D (13) 'ATR$C_ASCDATES'
+21EF45     Size              0002 (2)
+21EF47     Attribute         000E (14)'Revision Count 000E (14)'
+21EF49   Tag #8              0015 (21) 'ATR$C_UIC'
+21EF4B     Size              0004 (4)
+21EF4D     Attribute         00010004 (65540)
+21EF51   Tag #9              0016 (22) 'ATR$C_FPRO'
+21EF53     Size              0002 (2)
 21EF55     Attribute         AA AA
-21EF57   Tag #10             0017 [23] 'ATR$C_RPRO'
-21EF59     Size              0002 [2]
-21EF5B     Attribute         0000 [0]
-21EF5D   Tag #11             001D [29] 'ATR$C_JOURNAL'
-21EF5F     Size              0001 [1]
+21EF57   Tag #10             0017 (23) 'ATR$C_RPRO'
+21EF59     Size              0002 (2)
+21EF5B     Attribute         0000 (0)
+21EF5D   Tag #11             001D (29) 'ATR$C_JOURNAL'
+21EF5F     Size              0001 (1)
 21EF61     Attribute         00
 21EF62 PAYLOAD
 
-227145 LOCAL HEADER #8       04034B50 [67324752]
-227149 Extract Zip Spec      14 [20] '2.0'
-22714A Extract OS            00 [0] 'MS-DOS'
-22714B General Purpose Flag  0000 [0]
+227145 LOCAL HEADER #8       04034B50 (67324752)
+227149 Extract Zip Spec      14 (20) '2.0'
+22714A Extract OS            00 (0) 'MS-DOS'
+22714B General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-22714D Compression Method    0008 [8] 'Deflated'
-22714F Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-227153 CRC                   468B34B9 [1183528121]
-227157 Compressed Length     0000308B [12427]
-22715B Uncompressed Length   00006800 [26624]
-22715F Filename Length       0019 [25]
-227161 Extra Length          0083 [131]
+22714D Compression Method    0008 (8) 'Deflated'
+22714F Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+227153 CRC                   468B34B9 (1183528121)
+227157 Compressed Length     0000308B (12427)
+22715B Uncompressed Length   00006800 (26624)
+22715F Filename Length       0019 (25)
+227161 Extra Length          0083 (131)
 227163 Filename              'zip/zipcloak.vax_vaxc_exe'
-22717C Extra ID #1           000C [12] 'OpenVMS'
-22717E   Length              007F [127]
-227180   CRC                 1C0CB87B [470595707]
-227184   Tag #1              0004 [4] 'ATR$C_RECATTR'
-227186     Size              0020 [32]
+22717C Extra ID #1           000C (12) 'OpenVMS'
+22717E   Length              007F (127)
+227180   CRC                 1C0CB87B (470595707)
+227184   Tag #1              0004 (4) 'ATR$C_RECATTR'
+227186     Size              0020 (32)
 227188     Attribute         01 00 00 02 00 00 38 00 00 00 35 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2271A8   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2271AA     Size              0004 [4]
-2271AC     Attribute         00000020 [32]
+2271A8   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2271AA     Size              0004 (4)
+2271AC     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2271B0   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2271B2     Size              0008 [8]
-2271B4     Attribute         00A58DDA4FF09A77 [46599339940813431] 'Tue Jul 18 10:06:33 2006 541343100ns'
-2271BC   Tag #4              0012 [18] 'ATR$C_REVDATE'
-2271BE     Size              0008 [8]
-2271C0     Attribute         00A59D9BCF68BCB8 [46616663682497720] 'Mon Aug  7 11:19:27 2006 709772000ns'
-2271C8   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-2271CA     Size              0008 [8]
-2271CC     Attribute         0000000000000000 [0] 'No Date Time'
-2271D4   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-2271D6     Size              0008 [8]
-2271D8     Attribute         0000000000000000 [0] 'No Date Time'
-2271E0   Tag #7              000D [13] 'ATR$C_ASCDATES'
-2271E2     Size              0002 [2]
-2271E4     Attribute         000D [13]'Revision Count 000D [13]'
-2271E6   Tag #8              0015 [21] 'ATR$C_UIC'
-2271E8     Size              0004 [4]
-2271EA     Attribute         00010004 [65540]
-2271EE   Tag #9              0016 [22] 'ATR$C_FPRO'
-2271F0     Size              0002 [2]
+2271B0   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2271B2     Size              0008 (8)
+2271B4     Attribute         00A58DDA4FF09A77 (46599339940813431) 'Tue Jul 18 10:06:33 2006 541343100ns'
+2271BC   Tag #4              0012 (18) 'ATR$C_REVDATE'
+2271BE     Size              0008 (8)
+2271C0     Attribute         00A59D9BCF68BCB8 (46616663682497720) 'Mon Aug  7 11:19:27 2006 709772000ns'
+2271C8   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+2271CA     Size              0008 (8)
+2271CC     Attribute         0000000000000000 (0) 'No Date Time'
+2271D4   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+2271D6     Size              0008 (8)
+2271D8     Attribute         0000000000000000 (0) 'No Date Time'
+2271E0   Tag #7              000D (13) 'ATR$C_ASCDATES'
+2271E2     Size              0002 (2)
+2271E4     Attribute         000D (13)'Revision Count 000D (13)'
+2271E6   Tag #8              0015 (21) 'ATR$C_UIC'
+2271E8     Size              0004 (4)
+2271EA     Attribute         00010004 (65540)
+2271EE   Tag #9              0016 (22) 'ATR$C_FPRO'
+2271F0     Size              0002 (2)
 2271F2     Attribute         AA AA
-2271F4   Tag #10             0017 [23] 'ATR$C_RPRO'
-2271F6     Size              0002 [2]
-2271F8     Attribute         0000 [0]
-2271FA   Tag #11             001D [29] 'ATR$C_JOURNAL'
-2271FC     Size              0001 [1]
+2271F4   Tag #10             0017 (23) 'ATR$C_RPRO'
+2271F6     Size              0002 (2)
+2271F8     Attribute         0000 (0)
+2271FA   Tag #11             001D (29) 'ATR$C_JOURNAL'
+2271FC     Size              0001 (1)
 2271FE     Attribute         00
 2271FF PAYLOAD
 
-22A28A LOCAL HEADER #9       04034B50 [67324752]
-22A28E Extract Zip Spec      14 [20] '2.0'
-22A28F Extract OS            00 [0] 'MS-DOS'
-22A290 General Purpose Flag  0000 [0]
+22A28A LOCAL HEADER #9       04034B50 (67324752)
+22A28E Extract Zip Spec      14 (20) '2.0'
+22A28F Extract OS            00 (0) 'MS-DOS'
+22A290 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-22A292 Compression Method    0008 [8] 'Deflated'
-22A294 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-22A298 CRC                   91042701 [2432968449]
-22A29C Compressed Length     0000499E [18846]
-22A2A0 Uncompressed Length   00009800 [38912]
-22A2A4 Filename Length       0013 [19]
-22A2A6 Extra Length          0083 [131]
+22A292 Compression Method    0008 (8) 'Deflated'
+22A294 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+22A298 CRC                   91042701 (2432968449)
+22A29C Compressed Length     0000499E (18846)
+22A2A0 Uncompressed Length   00009800 (38912)
+22A2A4 Filename Length       0013 (19)
+22A2A6 Extra Length          0083 (131)
 22A2A8 Filename              'zip/zipnote.axp_exe'
-22A2BB Extra ID #1           000C [12] 'OpenVMS'
-22A2BD   Length              007F [127]
-22A2BF   CRC                 1E69EFEA [510259178]
-22A2C3   Tag #1              0004 [4] 'ATR$C_RECATTR'
-22A2C5     Size              0020 [32]
+22A2BB Extra ID #1           000C (12) 'OpenVMS'
+22A2BD   Length              007F (127)
+22A2BF   CRC                 1E69EFEA (510259178)
+22A2C3   Tag #1              0004 (4) 'ATR$C_RECATTR'
+22A2C5     Size              0020 (32)
 22A2C7     Attribute         01 00 00 02 00 00 50 00 00 00 4D 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-22A2E7   Tag #2              0003 [3] 'ATR$C_UCHAR'
-22A2E9     Size              0004 [4]
-22A2EB     Attribute         00000020 [32]
+22A2E7   Tag #2              0003 (3) 'ATR$C_UCHAR'
+22A2E9     Size              0004 (4)
+22A2EB     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-22A2EF   Tag #3              0011 [17] 'ATR$C_CREDATE'
-22A2F1     Size              0008 [8]
-22A2F3     Attribute         00A58DDA34817792 [46599339480545170] 'Tue Jul 18 10:05:47 2006 514517000ns'
-22A2FB   Tag #4              0012 [18] 'ATR$C_REVDATE'
-22A2FD     Size              0008 [8]
-22A2FF     Attribute         00A59D9BCF7435D9 [46616663683249625] 'Mon Aug  7 11:19:27 2006 784962500ns'
-22A307   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-22A309     Size              0008 [8]
-22A30B     Attribute         0000000000000000 [0] 'No Date Time'
-22A313   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-22A315     Size              0008 [8]
-22A317     Attribute         0000000000000000 [0] 'No Date Time'
-22A31F   Tag #7              000D [13] 'ATR$C_ASCDATES'
-22A321     Size              0002 [2]
-22A323     Attribute         000D [13]'Revision Count 000D [13]'
-22A325   Tag #8              0015 [21] 'ATR$C_UIC'
-22A327     Size              0004 [4]
-22A329     Attribute         00010004 [65540]
-22A32D   Tag #9              0016 [22] 'ATR$C_FPRO'
-22A32F     Size              0002 [2]
+22A2EF   Tag #3              0011 (17) 'ATR$C_CREDATE'
+22A2F1     Size              0008 (8)
+22A2F3     Attribute         00A58DDA34817792 (46599339480545170) 'Tue Jul 18 10:05:47 2006 514517000ns'
+22A2FB   Tag #4              0012 (18) 'ATR$C_REVDATE'
+22A2FD     Size              0008 (8)
+22A2FF     Attribute         00A59D9BCF7435D9 (46616663683249625) 'Mon Aug  7 11:19:27 2006 784962500ns'
+22A307   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+22A309     Size              0008 (8)
+22A30B     Attribute         0000000000000000 (0) 'No Date Time'
+22A313   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+22A315     Size              0008 (8)
+22A317     Attribute         0000000000000000 (0) 'No Date Time'
+22A31F   Tag #7              000D (13) 'ATR$C_ASCDATES'
+22A321     Size              0002 (2)
+22A323     Attribute         000D (13)'Revision Count 000D (13)'
+22A325   Tag #8              0015 (21) 'ATR$C_UIC'
+22A327     Size              0004 (4)
+22A329     Attribute         00010004 (65540)
+22A32D   Tag #9              0016 (22) 'ATR$C_FPRO'
+22A32F     Size              0002 (2)
 22A331     Attribute         AA AA
-22A333   Tag #10             0017 [23] 'ATR$C_RPRO'
-22A335     Size              0002 [2]
-22A337     Attribute         0000 [0]
-22A339   Tag #11             001D [29] 'ATR$C_JOURNAL'
-22A33B     Size              0001 [1]
+22A333   Tag #10             0017 (23) 'ATR$C_RPRO'
+22A335     Size              0002 (2)
+22A337     Attribute         0000 (0)
+22A339   Tag #11             001D (29) 'ATR$C_JOURNAL'
+22A33B     Size              0001 (1)
 22A33D     Attribute         00
 22A33E PAYLOAD
 
-22ECDC LOCAL HEADER #10      04034B50 [67324752]
-22ECE0 Extract Zip Spec      14 [20] '2.0'
-22ECE1 Extract OS            00 [0] 'MS-DOS'
-22ECE2 General Purpose Flag  0000 [0]
+22ECDC LOCAL HEADER #10      04034B50 (67324752)
+22ECE0 Extract Zip Spec      14 (20) '2.0'
+22ECE1 Extract OS            00 (0) 'MS-DOS'
+22ECE2 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-22ECE4 Compression Method    0008 [8] 'Deflated'
-22ECE6 Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-22ECEA CRC                   24140EC8 [605294280]
-22ECEE Compressed Length     00006BE0 [27616]
-22ECF2 Uncompressed Length   00018400 [99328]
-22ECF6 Filename Length       0013 [19]
-22ECF8 Extra Length          0083 [131]
+22ECE4 Compression Method    0008 (8) 'Deflated'
+22ECE6 Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+22ECEA CRC                   24140EC8 (605294280)
+22ECEE Compressed Length     00006BE0 (27616)
+22ECF2 Uncompressed Length   00018400 (99328)
+22ECF6 Filename Length       0013 (19)
+22ECF8 Extra Length          0083 (131)
 22ECFA Filename              'zip/zipnote.i64_exe'
-22ED0D Extra ID #1           000C [12] 'OpenVMS'
-22ED0F   Length              007F [127]
-22ED11   CRC                 CD1B6A1F [3441125919]
-22ED15   Tag #1              0004 [4] 'ATR$C_RECATTR'
-22ED17     Size              0020 [32]
+22ED0D Extra ID #1           000C (12) 'OpenVMS'
+22ED0F   Length              007F (127)
+22ED11   CRC                 CD1B6A1F (3441125919)
+22ED15   Tag #1              0004 (4) 'ATR$C_RECATTR'
+22ED17     Size              0020 (32)
 22ED19     Attribute         01 00 00 02 00 00 C8 00 00 00 C3 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-22ED39   Tag #2              0003 [3] 'ATR$C_UCHAR'
-22ED3B     Size              0004 [4]
-22ED3D     Attribute         00000020 [32]
+22ED39   Tag #2              0003 (3) 'ATR$C_UCHAR'
+22ED3B     Size              0004 (4)
+22ED3D     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-22ED41   Tag #3              0011 [17] 'ATR$C_CREDATE'
-22ED43     Size              0008 [8]
-22ED45     Attribute         00A58DD2F8472940 [46599308405320000] 'Tue Jul 18 09:13:59 2006 992000000ns'
-22ED4D   Tag #4              0012 [18] 'ATR$C_REVDATE'
-22ED4F     Size              0008 [8]
-22ED51     Attribute         00A59D9BCF7FAEFA [46616663684001530] 'Mon Aug  7 11:19:27 2006 860153000ns'
-22ED59   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-22ED5B     Size              0008 [8]
-22ED5D     Attribute         0000000000000000 [0] 'No Date Time'
-22ED65   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-22ED67     Size              0008 [8]
-22ED69     Attribute         0000000000000000 [0] 'No Date Time'
-22ED71   Tag #7              000D [13] 'ATR$C_ASCDATES'
-22ED73     Size              0002 [2]
-22ED75     Attribute         000E [14]'Revision Count 000E [14]'
-22ED77   Tag #8              0015 [21] 'ATR$C_UIC'
-22ED79     Size              0004 [4]
-22ED7B     Attribute         00010004 [65540]
-22ED7F   Tag #9              0016 [22] 'ATR$C_FPRO'
-22ED81     Size              0002 [2]
+22ED41   Tag #3              0011 (17) 'ATR$C_CREDATE'
+22ED43     Size              0008 (8)
+22ED45     Attribute         00A58DD2F8472940 (46599308405320000) 'Tue Jul 18 09:13:59 2006 992000000ns'
+22ED4D   Tag #4              0012 (18) 'ATR$C_REVDATE'
+22ED4F     Size              0008 (8)
+22ED51     Attribute         00A59D9BCF7FAEFA (46616663684001530) 'Mon Aug  7 11:19:27 2006 860153000ns'
+22ED59   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+22ED5B     Size              0008 (8)
+22ED5D     Attribute         0000000000000000 (0) 'No Date Time'
+22ED65   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+22ED67     Size              0008 (8)
+22ED69     Attribute         0000000000000000 (0) 'No Date Time'
+22ED71   Tag #7              000D (13) 'ATR$C_ASCDATES'
+22ED73     Size              0002 (2)
+22ED75     Attribute         000E (14)'Revision Count 000E (14)'
+22ED77   Tag #8              0015 (21) 'ATR$C_UIC'
+22ED79     Size              0004 (4)
+22ED7B     Attribute         00010004 (65540)
+22ED7F   Tag #9              0016 (22) 'ATR$C_FPRO'
+22ED81     Size              0002 (2)
 22ED83     Attribute         AA AA
-22ED85   Tag #10             0017 [23] 'ATR$C_RPRO'
-22ED87     Size              0002 [2]
-22ED89     Attribute         0000 [0]
-22ED8B   Tag #11             001D [29] 'ATR$C_JOURNAL'
-22ED8D     Size              0001 [1]
+22ED85   Tag #10             0017 (23) 'ATR$C_RPRO'
+22ED87     Size              0002 (2)
+22ED89     Attribute         0000 (0)
+22ED8B   Tag #11             001D (29) 'ATR$C_JOURNAL'
+22ED8D     Size              0001 (1)
 22ED8F     Attribute         00
 22ED90 PAYLOAD
 
-235970 LOCAL HEADER #11      04034B50 [67324752]
-235974 Extract Zip Spec      14 [20] '2.0'
-235975 Extract OS            00 [0] 'MS-DOS'
-235976 General Purpose Flag  0000 [0]
+235970 LOCAL HEADER #11      04034B50 (67324752)
+235974 Extract Zip Spec      14 (20) '2.0'
+235975 Extract OS            00 (0) 'MS-DOS'
+235976 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-235978 Compression Method    0008 [8] 'Deflated'
-23597A Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-23597E CRC                   37B12C6C [934358124]
-235982 Compressed Length     00002A26 [10790]
-235986 Uncompressed Length   00006000 [24576]
-23598A Filename Length       0018 [24]
-23598C Extra Length          0083 [131]
+235978 Compression Method    0008 (8) 'Deflated'
+23597A Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+23597E CRC                   37B12C6C (934358124)
+235982 Compressed Length     00002A26 (10790)
+235986 Uncompressed Length   00006000 (24576)
+23598A Filename Length       0018 (24)
+23598C Extra Length          0083 (131)
 23598E Filename              'zip/zipnote.vax_vaxc_exe'
-2359A6 Extra ID #1           000C [12] 'OpenVMS'
-2359A8   Length              007F [127]
-2359AA   CRC                 89D83AAD [2312649389]
-2359AE   Tag #1              0004 [4] 'ATR$C_RECATTR'
-2359B0     Size              0020 [32]
+2359A6 Extra ID #1           000C (12) 'OpenVMS'
+2359A8   Length              007F (127)
+2359AA   CRC                 89D83AAD (2312649389)
+2359AE   Tag #1              0004 (4) 'ATR$C_RECATTR'
+2359B0     Size              0020 (32)
 2359B2     Attribute         01 00 00 02 00 00 30 00 00 00 31 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2359D2   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2359D4     Size              0004 [4]
-2359D6     Attribute         00000020 [32]
+2359D2   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2359D4     Size              0004 (4)
+2359D6     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2359DA   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2359DC     Size              0008 [8]
-2359DE     Attribute         00A58DDA506F4057 [46599339949113431] 'Tue Jul 18 10:06:34 2006 371343100ns'
-2359E6   Tag #4              0012 [18] 'ATR$C_REVDATE'
-2359E8     Size              0008 [8]
-2359EA     Attribute         00A59D9BCF874859 [46616663684499545] 'Mon Aug  7 11:19:27 2006 909954500ns'
-2359F2   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-2359F4     Size              0008 [8]
-2359F6     Attribute         0000000000000000 [0] 'No Date Time'
-2359FE   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-235A00     Size              0008 [8]
-235A02     Attribute         0000000000000000 [0] 'No Date Time'
-235A0A   Tag #7              000D [13] 'ATR$C_ASCDATES'
-235A0C     Size              0002 [2]
-235A0E     Attribute         000D [13]'Revision Count 000D [13]'
-235A10   Tag #8              0015 [21] 'ATR$C_UIC'
-235A12     Size              0004 [4]
-235A14     Attribute         00010004 [65540]
-235A18   Tag #9              0016 [22] 'ATR$C_FPRO'
-235A1A     Size              0002 [2]
+2359DA   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2359DC     Size              0008 (8)
+2359DE     Attribute         00A58DDA506F4057 (46599339949113431) 'Tue Jul 18 10:06:34 2006 371343100ns'
+2359E6   Tag #4              0012 (18) 'ATR$C_REVDATE'
+2359E8     Size              0008 (8)
+2359EA     Attribute         00A59D9BCF874859 (46616663684499545) 'Mon Aug  7 11:19:27 2006 909954500ns'
+2359F2   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+2359F4     Size              0008 (8)
+2359F6     Attribute         0000000000000000 (0) 'No Date Time'
+2359FE   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+235A00     Size              0008 (8)
+235A02     Attribute         0000000000000000 (0) 'No Date Time'
+235A0A   Tag #7              000D (13) 'ATR$C_ASCDATES'
+235A0C     Size              0002 (2)
+235A0E     Attribute         000D (13)'Revision Count 000D (13)'
+235A10   Tag #8              0015 (21) 'ATR$C_UIC'
+235A12     Size              0004 (4)
+235A14     Attribute         00010004 (65540)
+235A18   Tag #9              0016 (22) 'ATR$C_FPRO'
+235A1A     Size              0002 (2)
 235A1C     Attribute         AA AA
-235A1E   Tag #10             0017 [23] 'ATR$C_RPRO'
-235A20     Size              0002 [2]
-235A22     Attribute         0000 [0]
-235A24   Tag #11             001D [29] 'ATR$C_JOURNAL'
-235A26     Size              0001 [1]
+235A1E   Tag #10             0017 (23) 'ATR$C_RPRO'
+235A20     Size              0002 (2)
+235A22     Attribute         0000 (0)
+235A24   Tag #11             001D (29) 'ATR$C_JOURNAL'
+235A26     Size              0001 (1)
 235A28     Attribute         00
 235A29 PAYLOAD
 
-23844F LOCAL HEADER #12      04034B50 [67324752]
-238453 Extract Zip Spec      14 [20] '2.0'
-238454 Extract OS            00 [0] 'MS-DOS'
-238455 General Purpose Flag  0000 [0]
+23844F LOCAL HEADER #12      04034B50 (67324752)
+238453 Extract Zip Spec      14 (20) '2.0'
+238454 Extract OS            00 (0) 'MS-DOS'
+238455 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-238457 Compression Method    0008 [8] 'Deflated'
-238459 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-23845D CRC                   9BBEDB9F [2612976543]
-238461 Compressed Length     00004FD0 [20432]
-238465 Uncompressed Length   0000A200 [41472]
-238469 Filename Length       0014 [20]
-23846B Extra Length          0083 [131]
+238457 Compression Method    0008 (8) 'Deflated'
+238459 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+23845D CRC                   9BBEDB9F (2612976543)
+238461 Compressed Length     00004FD0 (20432)
+238465 Uncompressed Length   0000A200 (41472)
+238469 Filename Length       0014 (20)
+23846B Extra Length          0083 (131)
 23846D Filename              'zip/zipsplit.axp_exe'
-238481 Extra ID #1           000C [12] 'OpenVMS'
-238483   Length              007F [127]
-238485   CRC                 2E519571 [777098609]
-238489   Tag #1              0004 [4] 'ATR$C_RECATTR'
-23848B     Size              0020 [32]
+238481 Extra ID #1           000C (12) 'OpenVMS'
+238483   Length              007F (127)
+238485   CRC                 2E519571 (777098609)
+238489   Tag #1              0004 (4) 'ATR$C_RECATTR'
+23848B     Size              0020 (32)
 23848D     Attribute         01 00 00 02 00 00 58 00 00 00 52 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2384AD   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2384AF     Size              0004 [4]
-2384B1     Attribute         00000020 [32]
+2384AD   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2384AF     Size              0004 (4)
+2384B1     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2384B5   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2384B7     Size              0008 [8]
-2384B9     Attribute         00A58DDA348B2BB0 [46599339481181104] 'Tue Jul 18 10:05:47 2006 578110400ns'
-2384C1   Tag #4              0012 [18] 'ATR$C_REVDATE'
-2384C3     Size              0008 [8]
-2384C5     Attribute         00A59D9BCF9418C7 [46616663685339335] 'Mon Aug  7 11:19:27 2006 993933500ns'
-2384CD   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-2384CF     Size              0008 [8]
-2384D1     Attribute         0000000000000000 [0] 'No Date Time'
-2384D9   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-2384DB     Size              0008 [8]
-2384DD     Attribute         0000000000000000 [0] 'No Date Time'
-2384E5   Tag #7              000D [13] 'ATR$C_ASCDATES'
-2384E7     Size              0002 [2]
-2384E9     Attribute         000D [13]'Revision Count 000D [13]'
-2384EB   Tag #8              0015 [21] 'ATR$C_UIC'
-2384ED     Size              0004 [4]
-2384EF     Attribute         00010004 [65540]
-2384F3   Tag #9              0016 [22] 'ATR$C_FPRO'
-2384F5     Size              0002 [2]
+2384B5   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2384B7     Size              0008 (8)
+2384B9     Attribute         00A58DDA348B2BB0 (46599339481181104) 'Tue Jul 18 10:05:47 2006 578110400ns'
+2384C1   Tag #4              0012 (18) 'ATR$C_REVDATE'
+2384C3     Size              0008 (8)
+2384C5     Attribute         00A59D9BCF9418C7 (46616663685339335) 'Mon Aug  7 11:19:27 2006 993933500ns'
+2384CD   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+2384CF     Size              0008 (8)
+2384D1     Attribute         0000000000000000 (0) 'No Date Time'
+2384D9   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+2384DB     Size              0008 (8)
+2384DD     Attribute         0000000000000000 (0) 'No Date Time'
+2384E5   Tag #7              000D (13) 'ATR$C_ASCDATES'
+2384E7     Size              0002 (2)
+2384E9     Attribute         000D (13)'Revision Count 000D (13)'
+2384EB   Tag #8              0015 (21) 'ATR$C_UIC'
+2384ED     Size              0004 (4)
+2384EF     Attribute         00010004 (65540)
+2384F3   Tag #9              0016 (22) 'ATR$C_FPRO'
+2384F5     Size              0002 (2)
 2384F7     Attribute         AA AA
-2384F9   Tag #10             0017 [23] 'ATR$C_RPRO'
-2384FB     Size              0002 [2]
-2384FD     Attribute         0000 [0]
-2384FF   Tag #11             001D [29] 'ATR$C_JOURNAL'
-238501     Size              0001 [1]
+2384F9   Tag #10             0017 (23) 'ATR$C_RPRO'
+2384FB     Size              0002 (2)
+2384FD     Attribute         0000 (0)
+2384FF   Tag #11             001D (29) 'ATR$C_JOURNAL'
+238501     Size              0001 (1)
 238503     Attribute         00
 238504 PAYLOAD
 
-23D4D4 LOCAL HEADER #13      04034B50 [67324752]
-23D4D8 Extract Zip Spec      14 [20] '2.0'
-23D4D9 Extract OS            00 [0] 'MS-DOS'
-23D4DA General Purpose Flag  0000 [0]
+23D4D4 LOCAL HEADER #13      04034B50 (67324752)
+23D4D8 Extract Zip Spec      14 (20) '2.0'
+23D4D9 Extract OS            00 (0) 'MS-DOS'
+23D4DA General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-23D4DC Compression Method    0008 [8] 'Deflated'
-23D4DE Last Mod Time         34F249C1 [888293825] 'Tue Jul 18 09:14:02 2006'
-23D4E2 CRC                   A4276CF2 [2754047218]
-23D4E6 Compressed Length     00007B24 [31524]
-23D4EA Uncompressed Length   0001A800 [108544]
-23D4EE Filename Length       0014 [20]
-23D4F0 Extra Length          0083 [131]
+23D4DC Compression Method    0008 (8) 'Deflated'
+23D4DE Last Mod Time         34F249C1 (888293825) 'Tue Jul 18 09:14:02 2006'
+23D4E2 CRC                   A4276CF2 (2754047218)
+23D4E6 Compressed Length     00007B24 (31524)
+23D4EA Uncompressed Length   0001A800 (108544)
+23D4EE Filename Length       0014 (20)
+23D4F0 Extra Length          0083 (131)
 23D4F2 Filename              'zip/zipsplit.i64_exe'
-23D506 Extra ID #1           000C [12] 'OpenVMS'
-23D508   Length              007F [127]
-23D50A   CRC                 584A6061 [1481269345]
-23D50E   Tag #1              0004 [4] 'ATR$C_RECATTR'
-23D510     Size              0020 [32]
+23D506 Extra ID #1           000C (12) 'OpenVMS'
+23D508   Length              007F (127)
+23D50A   CRC                 584A6061 (1481269345)
+23D50E   Tag #1              0004 (4) 'ATR$C_RECATTR'
+23D510     Size              0020 (32)
 23D512     Attribute         01 00 00 02 00 00 D8 00 00 00 D5 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-23D532   Tag #2              0003 [3] 'ATR$C_UCHAR'
-23D534     Size              0004 [4]
-23D536     Attribute         00000020 [32]
+23D532   Tag #2              0003 (3) 'ATR$C_UCHAR'
+23D534     Size              0004 (4)
+23D536     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-23D53A   Tag #3              0011 [17] 'ATR$C_CREDATE'
-23D53C     Size              0008 [8]
-23D53E     Attribute         00A58DD2F88F07B0 [46599308410030000] 'Tue Jul 18 09:14:00 2006 463000000ns'
-23D546   Tag #4              0012 [18] 'ATR$C_REVDATE'
-23D548     Size              0008 [8]
-23D54A     Attribute         00A59D9BCFA0C310 [46616663686169360] 'Mon Aug  7 11:19:28 2006 76936000ns'
-23D552   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-23D554     Size              0008 [8]
-23D556     Attribute         0000000000000000 [0] 'No Date Time'
-23D55E   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-23D560     Size              0008 [8]
-23D562     Attribute         0000000000000000 [0] 'No Date Time'
-23D56A   Tag #7              000D [13] 'ATR$C_ASCDATES'
-23D56C     Size              0002 [2]
-23D56E     Attribute         000E [14]'Revision Count 000E [14]'
-23D570   Tag #8              0015 [21] 'ATR$C_UIC'
-23D572     Size              0004 [4]
-23D574     Attribute         00010004 [65540]
-23D578   Tag #9              0016 [22] 'ATR$C_FPRO'
-23D57A     Size              0002 [2]
+23D53A   Tag #3              0011 (17) 'ATR$C_CREDATE'
+23D53C     Size              0008 (8)
+23D53E     Attribute         00A58DD2F88F07B0 (46599308410030000) 'Tue Jul 18 09:14:00 2006 463000000ns'
+23D546   Tag #4              0012 (18) 'ATR$C_REVDATE'
+23D548     Size              0008 (8)
+23D54A     Attribute         00A59D9BCFA0C310 (46616663686169360) 'Mon Aug  7 11:19:28 2006 76936000ns'
+23D552   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+23D554     Size              0008 (8)
+23D556     Attribute         0000000000000000 (0) 'No Date Time'
+23D55E   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+23D560     Size              0008 (8)
+23D562     Attribute         0000000000000000 (0) 'No Date Time'
+23D56A   Tag #7              000D (13) 'ATR$C_ASCDATES'
+23D56C     Size              0002 (2)
+23D56E     Attribute         000E (14)'Revision Count 000E (14)'
+23D570   Tag #8              0015 (21) 'ATR$C_UIC'
+23D572     Size              0004 (4)
+23D574     Attribute         00010004 (65540)
+23D578   Tag #9              0016 (22) 'ATR$C_FPRO'
+23D57A     Size              0002 (2)
 23D57C     Attribute         AA AA
-23D57E   Tag #10             0017 [23] 'ATR$C_RPRO'
-23D580     Size              0002 [2]
-23D582     Attribute         0000 [0]
-23D584   Tag #11             001D [29] 'ATR$C_JOURNAL'
-23D586     Size              0001 [1]
+23D57E   Tag #10             0017 (23) 'ATR$C_RPRO'
+23D580     Size              0002 (2)
+23D582     Attribute         0000 (0)
+23D584   Tag #11             001D (29) 'ATR$C_JOURNAL'
+23D586     Size              0001 (1)
 23D588     Attribute         00
 23D589 PAYLOAD
 
-2450AD LOCAL HEADER #14      04034B50 [67324752]
-2450B1 Extract Zip Spec      14 [20] '2.0'
-2450B2 Extract OS            00 [0] 'MS-DOS'
-2450B3 General Purpose Flag  0000 [0]
+2450AD LOCAL HEADER #14      04034B50 (67324752)
+2450B1 Extract Zip Spec      14 (20) '2.0'
+2450B2 Extract OS            00 (0) 'MS-DOS'
+2450B3 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-2450B5 Compression Method    0008 [8] 'Deflated'
-2450B7 Last Mod Time         34F250D2 [888295634] 'Tue Jul 18 10:06:36 2006'
-2450BB CRC                   0EA0E356 [245424982]
-2450BF Compressed Length     00002EE9 [12009]
-2450C3 Uncompressed Length   00006600 [26112]
-2450C7 Filename Length       0019 [25]
-2450C9 Extra Length          0083 [131]
+2450B5 Compression Method    0008 (8) 'Deflated'
+2450B7 Last Mod Time         34F250D2 (888295634) 'Tue Jul 18 10:06:36 2006'
+2450BB CRC                   0EA0E356 (245424982)
+2450BF Compressed Length     00002EE9 (12009)
+2450C3 Uncompressed Length   00006600 (26112)
+2450C7 Filename Length       0019 (25)
+2450C9 Extra Length          0083 (131)
 2450CB Filename              'zip/zipsplit.vax_vaxc_exe'
-2450E4 Extra ID #1           000C [12] 'OpenVMS'
-2450E6   Length              007F [127]
-2450E8   CRC                 DCE4E9D6 [3705989590]
-2450EC   Tag #1              0004 [4] 'ATR$C_RECATTR'
-2450EE     Size              0020 [32]
+2450E4 Extra ID #1           000C (12) 'OpenVMS'
+2450E6   Length              007F (127)
+2450E8   CRC                 DCE4E9D6 (3705989590)
+2450EC   Tag #1              0004 (4) 'ATR$C_RECATTR'
+2450EE     Size              0020 (32)
 2450F0     Attribute         01 00 00 02 00 00 38 00 00 00 34 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-245110   Tag #2              0003 [3] 'ATR$C_UCHAR'
-245112     Size              0004 [4]
-245114     Attribute         00000020 [32]
+245110   Tag #2              0003 (3) 'ATR$C_UCHAR'
+245112     Size              0004 (4)
+245114     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-245118   Tag #3              0011 [17] 'ATR$C_CREDATE'
-24511A     Size              0008 [8]
-24511C     Attribute         00A58DDA50E7CBB7 [46599339957013431] 'Tue Jul 18 10:06:35 2006 161343100ns'
-245124   Tag #4              0012 [18] 'ATR$C_REVDATE'
-245126     Size              0008 [8]
-245128     Attribute         00A59D9BCFAD6D59 [46616663686999385] 'Mon Aug  7 11:19:28 2006 159938500ns'
-245130   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-245132     Size              0008 [8]
-245134     Attribute         0000000000000000 [0] 'No Date Time'
-24513C   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-24513E     Size              0008 [8]
-245140     Attribute         0000000000000000 [0] 'No Date Time'
-245148   Tag #7              000D [13] 'ATR$C_ASCDATES'
-24514A     Size              0002 [2]
-24514C     Attribute         000D [13]'Revision Count 000D [13]'
-24514E   Tag #8              0015 [21] 'ATR$C_UIC'
-245150     Size              0004 [4]
-245152     Attribute         00010004 [65540]
-245156   Tag #9              0016 [22] 'ATR$C_FPRO'
-245158     Size              0002 [2]
+245118   Tag #3              0011 (17) 'ATR$C_CREDATE'
+24511A     Size              0008 (8)
+24511C     Attribute         00A58DDA50E7CBB7 (46599339957013431) 'Tue Jul 18 10:06:35 2006 161343100ns'
+245124   Tag #4              0012 (18) 'ATR$C_REVDATE'
+245126     Size              0008 (8)
+245128     Attribute         00A59D9BCFAD6D59 (46616663686999385) 'Mon Aug  7 11:19:28 2006 159938500ns'
+245130   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+245132     Size              0008 (8)
+245134     Attribute         0000000000000000 (0) 'No Date Time'
+24513C   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+24513E     Size              0008 (8)
+245140     Attribute         0000000000000000 (0) 'No Date Time'
+245148   Tag #7              000D (13) 'ATR$C_ASCDATES'
+24514A     Size              0002 (2)
+24514C     Attribute         000D (13)'Revision Count 000D (13)'
+24514E   Tag #8              0015 (21) 'ATR$C_UIC'
+245150     Size              0004 (4)
+245152     Attribute         00010004 (65540)
+245156   Tag #9              0016 (22) 'ATR$C_FPRO'
+245158     Size              0002 (2)
 24515A     Attribute         AA AA
-24515C   Tag #10             0017 [23] 'ATR$C_RPRO'
-24515E     Size              0002 [2]
-245160     Attribute         0000 [0]
-245162   Tag #11             001D [29] 'ATR$C_JOURNAL'
-245164     Size              0001 [1]
+24515C   Tag #10             0017 (23) 'ATR$C_RPRO'
+24515E     Size              0002 (2)
+245160     Attribute         0000 (0)
+245162   Tag #11             001D (29) 'ATR$C_JOURNAL'
+245164     Size              0001 (1)
 245166     Attribute         00
 245167 PAYLOAD
 
-248050 LOCAL HEADER #15      04034B50 [67324752]
-248054 Extract Zip Spec      14 [20] '2.0'
-248055 Extract OS            00 [0] 'MS-DOS'
-248056 General Purpose Flag  0000 [0]
+248050 LOCAL HEADER #15      04034B50 (67324752)
+248054 Extract Zip Spec      14 (20) '2.0'
+248055 Extract OS            00 (0) 'MS-DOS'
+248056 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-248058 Compression Method    0008 [8] 'Deflated'
-24805A Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-24805E CRC                   1678159D [376968605]
-248062 Compressed Length     0001085E [67678]
-248066 Uncompressed Length   0001F600 [128512]
-24806A Filename Length       0013 [19]
-24806C Extra Length          0083 [131]
+248058 Compression Method    0008 (8) 'Deflated'
+24805A Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+24805E CRC                   1678159D (376968605)
+248062 Compressed Length     0001085E (67678)
+248066 Uncompressed Length   0001F600 (128512)
+24806A Filename Length       0013 (19)
+24806C Extra Length          0083 (131)
 24806E Filename              'zip/zip_cli.axp_exe'
-248081 Extra ID #1           000C [12] 'OpenVMS'
-248083   Length              007F [127]
-248085   CRC                 B52F57BF [3039778751]
-248089   Tag #1              0004 [4] 'ATR$C_RECATTR'
-24808B     Size              0020 [32]
+248081 Extra ID #1           000C (12) 'OpenVMS'
+248083   Length              007F (127)
+248085   CRC                 B52F57BF (3039778751)
+248089   Tag #1              0004 (4) 'ATR$C_RECATTR'
+24808B     Size              0020 (32)
 24808D     Attribute         01 00 00 02 00 00 00 01 00 00 FC 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2480AD   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2480AF     Size              0004 [4]
-2480B1     Attribute         00000020 [32]
+2480AD   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2480AF     Size              0004 (4)
+2480B1     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2480B5   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2480B7     Size              0008 [8]
-2480B9     Attribute         00A58DDA346BDE68 [46599339479129704] 'Tue Jul 18 10:05:47 2006 372970400ns'
-2480C1   Tag #4              0012 [18] 'ATR$C_REVDATE'
-2480C3     Size              0008 [8]
-2480C5     Attribute         00A59D9BCFBA3DC7 [46616663687839175] 'Mon Aug  7 11:19:28 2006 243917500ns'
-2480CD   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-2480CF     Size              0008 [8]
-2480D1     Attribute         0000000000000000 [0] 'No Date Time'
-2480D9   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-2480DB     Size              0008 [8]
-2480DD     Attribute         0000000000000000 [0] 'No Date Time'
-2480E5   Tag #7              000D [13] 'ATR$C_ASCDATES'
-2480E7     Size              0002 [2]
-2480E9     Attribute         000D [13]'Revision Count 000D [13]'
-2480EB   Tag #8              0015 [21] 'ATR$C_UIC'
-2480ED     Size              0004 [4]
-2480EF     Attribute         00010004 [65540]
-2480F3   Tag #9              0016 [22] 'ATR$C_FPRO'
-2480F5     Size              0002 [2]
+2480B5   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2480B7     Size              0008 (8)
+2480B9     Attribute         00A58DDA346BDE68 (46599339479129704) 'Tue Jul 18 10:05:47 2006 372970400ns'
+2480C1   Tag #4              0012 (18) 'ATR$C_REVDATE'
+2480C3     Size              0008 (8)
+2480C5     Attribute         00A59D9BCFBA3DC7 (46616663687839175) 'Mon Aug  7 11:19:28 2006 243917500ns'
+2480CD   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+2480CF     Size              0008 (8)
+2480D1     Attribute         0000000000000000 (0) 'No Date Time'
+2480D9   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+2480DB     Size              0008 (8)
+2480DD     Attribute         0000000000000000 (0) 'No Date Time'
+2480E5   Tag #7              000D (13) 'ATR$C_ASCDATES'
+2480E7     Size              0002 (2)
+2480E9     Attribute         000D (13)'Revision Count 000D (13)'
+2480EB   Tag #8              0015 (21) 'ATR$C_UIC'
+2480ED     Size              0004 (4)
+2480EF     Attribute         00010004 (65540)
+2480F3   Tag #9              0016 (22) 'ATR$C_FPRO'
+2480F5     Size              0002 (2)
 2480F7     Attribute         AA AA
-2480F9   Tag #10             0017 [23] 'ATR$C_RPRO'
-2480FB     Size              0002 [2]
-2480FD     Attribute         0000 [0]
-2480FF   Tag #11             001D [29] 'ATR$C_JOURNAL'
-248101     Size              0001 [1]
+2480F9   Tag #10             0017 (23) 'ATR$C_RPRO'
+2480FB     Size              0002 (2)
+2480FD     Attribute         0000 (0)
+2480FF   Tag #11             001D (29) 'ATR$C_JOURNAL'
+248101     Size              0001 (1)
 248103     Attribute         00
 248104 PAYLOAD
 
-258962 LOCAL HEADER #16      04034B50 [67324752]
-258966 Extract Zip Spec      14 [20] '2.0'
-258967 Extract OS            00 [0] 'MS-DOS'
-258968 General Purpose Flag  0000 [0]
+258962 LOCAL HEADER #16      04034B50 (67324752)
+258966 Extract Zip Spec      14 (20) '2.0'
+258967 Extract OS            00 (0) 'MS-DOS'
+258968 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-25896A Compression Method    0008 [8] 'Deflated'
-25896C Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-258970 CRC                   F081C98E [4035037582]
-258974 Compressed Length     00017C78 [97400]
-258978 Uncompressed Length   0004C600 [312832]
-25897C Filename Length       0013 [19]
-25897E Extra Length          0083 [131]
+25896A Compression Method    0008 (8) 'Deflated'
+25896C Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+258970 CRC                   F081C98E (4035037582)
+258974 Compressed Length     00017C78 (97400)
+258978 Uncompressed Length   0004C600 (312832)
+25897C Filename Length       0013 (19)
+25897E Extra Length          0083 (131)
 258980 Filename              'zip/zip_cli.i64_exe'
-258993 Extra ID #1           000C [12] 'OpenVMS'
-258995   Length              007F [127]
-258997   CRC                 0410ACD8 [68201688]
-25899B   Tag #1              0004 [4] 'ATR$C_RECATTR'
-25899D     Size              0020 [32]
+258993 Extra ID #1           000C (12) 'OpenVMS'
+258995   Length              007F (127)
+258997   CRC                 0410ACD8 (68201688)
+25899B   Tag #1              0004 (4) 'ATR$C_RECATTR'
+25899D     Size              0020 (32)
 25899F     Attribute         01 00 00 02 00 00 68 02 00 00 64 02 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2589BF   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2589C1     Size              0004 [4]
-2589C3     Attribute         00000020 [32]
+2589BF   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2589C1     Size              0004 (4)
+2589C3     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2589C7   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2589C9     Size              0008 [8]
-2589CB     Attribute         00A58DD2F77E5B00 [46599308392160000] 'Tue Jul 18 09:13:58 2006 676000000ns'
-2589D3   Tag #4              0012 [18] 'ATR$C_REVDATE'
-2589D5     Size              0008 [8]
-2589D7     Attribute         00A59D9BCFC5B6E8 [46616663688591080] 'Mon Aug  7 11:19:28 2006 319108000ns'
-2589DF   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-2589E1     Size              0008 [8]
-2589E3     Attribute         0000000000000000 [0] 'No Date Time'
-2589EB   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-2589ED     Size              0008 [8]
-2589EF     Attribute         0000000000000000 [0] 'No Date Time'
-2589F7   Tag #7              000D [13] 'ATR$C_ASCDATES'
-2589F9     Size              0002 [2]
-2589FB     Attribute         000E [14]'Revision Count 000E [14]'
-2589FD   Tag #8              0015 [21] 'ATR$C_UIC'
-2589FF     Size              0004 [4]
-258A01     Attribute         00010004 [65540]
-258A05   Tag #9              0016 [22] 'ATR$C_FPRO'
-258A07     Size              0002 [2]
+2589C7   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2589C9     Size              0008 (8)
+2589CB     Attribute         00A58DD2F77E5B00 (46599308392160000) 'Tue Jul 18 09:13:58 2006 676000000ns'
+2589D3   Tag #4              0012 (18) 'ATR$C_REVDATE'
+2589D5     Size              0008 (8)
+2589D7     Attribute         00A59D9BCFC5B6E8 (46616663688591080) 'Mon Aug  7 11:19:28 2006 319108000ns'
+2589DF   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+2589E1     Size              0008 (8)
+2589E3     Attribute         0000000000000000 (0) 'No Date Time'
+2589EB   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+2589ED     Size              0008 (8)
+2589EF     Attribute         0000000000000000 (0) 'No Date Time'
+2589F7   Tag #7              000D (13) 'ATR$C_ASCDATES'
+2589F9     Size              0002 (2)
+2589FB     Attribute         000E (14)'Revision Count 000E (14)'
+2589FD   Tag #8              0015 (21) 'ATR$C_UIC'
+2589FF     Size              0004 (4)
+258A01     Attribute         00010004 (65540)
+258A05   Tag #9              0016 (22) 'ATR$C_FPRO'
+258A07     Size              0002 (2)
 258A09     Attribute         AA AA
-258A0B   Tag #10             0017 [23] 'ATR$C_RPRO'
-258A0D     Size              0002 [2]
-258A0F     Attribute         0000 [0]
-258A11   Tag #11             001D [29] 'ATR$C_JOURNAL'
-258A13     Size              0001 [1]
+258A0B   Tag #10             0017 (23) 'ATR$C_RPRO'
+258A0D     Size              0002 (2)
+258A0F     Attribute         0000 (0)
+258A11   Tag #11             001D (29) 'ATR$C_JOURNAL'
+258A13     Size              0001 (1)
 258A15     Attribute         00
 258A16 PAYLOAD
 
-27068E LOCAL HEADER #17      04034B50 [67324752]
-270692 Extract Zip Spec      14 [20] '2.0'
-270693 Extract OS            00 [0] 'MS-DOS'
-270694 General Purpose Flag  0000 [0]
+27068E LOCAL HEADER #17      04034B50 (67324752)
+270692 Extract Zip Spec      14 (20) '2.0'
+270693 Extract OS            00 (0) 'MS-DOS'
+270694 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-270696 Compression Method    0008 [8] 'Deflated'
-270698 Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-27069C CRC                   0033EE3A [3403322]
-2706A0 Compressed Length     000096F6 [38646]
-2706A4 Uncompressed Length   00013600 [79360]
-2706A8 Filename Length       0018 [24]
-2706AA Extra Length          0083 [131]
+270696 Compression Method    0008 (8) 'Deflated'
+270698 Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+27069C CRC                   0033EE3A (3403322)
+2706A0 Compressed Length     000096F6 (38646)
+2706A4 Uncompressed Length   00013600 (79360)
+2706A8 Filename Length       0018 (24)
+2706AA Extra Length          0083 (131)
 2706AC Filename              'zip/zip_cli.vax_vaxc_exe'
-2706C4 Extra ID #1           000C [12] 'OpenVMS'
-2706C6   Length              007F [127]
-2706C8   CRC                 8F98ABDF [2409147359]
-2706CC   Tag #1              0004 [4] 'ATR$C_RECATTR'
-2706CE     Size              0020 [32]
+2706C4 Extra ID #1           000C (12) 'OpenVMS'
+2706C6   Length              007F (127)
+2706C8   CRC                 8F98ABDF (2409147359)
+2706CC   Tag #1              0004 (4) 'ATR$C_RECATTR'
+2706CE     Size              0020 (32)
 2706D0     Attribute         01 00 00 02 00 00 A0 00 00 00 9C 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-2706F0   Tag #2              0003 [3] 'ATR$C_UCHAR'
-2706F2     Size              0004 [4]
-2706F4     Attribute         00000020 [32]
+2706F0   Tag #2              0003 (3) 'ATR$C_UCHAR'
+2706F2     Size              0004 (4)
+2706F4     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-2706F8   Tag #3              0011 [17] 'ATR$C_CREDATE'
-2706FA     Size              0008 [8]
-2706FC     Attribute         00A58DDA4F6A5377 [46599339932013431] 'Tue Jul 18 10:06:32 2006 661343100ns'
-270704   Tag #4              0012 [18] 'ATR$C_REVDATE'
-270706     Size              0008 [8]
-270708     Attribute         00A59D9BCFD26131 [46616663689421105] 'Mon Aug  7 11:19:28 2006 402110500ns'
-270710   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-270712     Size              0008 [8]
-270714     Attribute         0000000000000000 [0] 'No Date Time'
-27071C   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27071E     Size              0008 [8]
-270720     Attribute         0000000000000000 [0] 'No Date Time'
-270728   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27072A     Size              0002 [2]
-27072C     Attribute         000D [13]'Revision Count 000D [13]'
-27072E   Tag #8              0015 [21] 'ATR$C_UIC'
-270730     Size              0004 [4]
-270732     Attribute         00010004 [65540]
-270736   Tag #9              0016 [22] 'ATR$C_FPRO'
-270738     Size              0002 [2]
+2706F8   Tag #3              0011 (17) 'ATR$C_CREDATE'
+2706FA     Size              0008 (8)
+2706FC     Attribute         00A58DDA4F6A5377 (46599339932013431) 'Tue Jul 18 10:06:32 2006 661343100ns'
+270704   Tag #4              0012 (18) 'ATR$C_REVDATE'
+270706     Size              0008 (8)
+270708     Attribute         00A59D9BCFD26131 (46616663689421105) 'Mon Aug  7 11:19:28 2006 402110500ns'
+270710   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+270712     Size              0008 (8)
+270714     Attribute         0000000000000000 (0) 'No Date Time'
+27071C   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27071E     Size              0008 (8)
+270720     Attribute         0000000000000000 (0) 'No Date Time'
+270728   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27072A     Size              0002 (2)
+27072C     Attribute         000D (13)'Revision Count 000D (13)'
+27072E   Tag #8              0015 (21) 'ATR$C_UIC'
+270730     Size              0004 (4)
+270732     Attribute         00010004 (65540)
+270736   Tag #9              0016 (22) 'ATR$C_FPRO'
+270738     Size              0002 (2)
 27073A     Attribute         AA AA
-27073C   Tag #10             0017 [23] 'ATR$C_RPRO'
-27073E     Size              0002 [2]
-270740     Attribute         0000 [0]
-270742   Tag #11             001D [29] 'ATR$C_JOURNAL'
-270744     Size              0001 [1]
+27073C   Tag #10             0017 (23) 'ATR$C_RPRO'
+27073E     Size              0002 (2)
+270740     Attribute         0000 (0)
+270742   Tag #11             001D (29) 'ATR$C_JOURNAL'
+270744     Size              0001 (1)
 270746     Attribute         00
 270747 PAYLOAD
 
-279E3D CENTRAL HEADER #1     02014B50 [33639248]
-279E41 Created Zip Spec      17 [23] '2.3'
-279E42 Created OS            02 [2] 'OpenVMS'
-279E43 Extract Zip Spec      14 [20] '2.0'
-279E44 Extract OS            00 [0] 'MS-DOS'
-279E45 General Purpose Flag  0000 [0]
+279E3D CENTRAL HEADER #1     02014B50 (33639248)
+279E41 Created Zip Spec      17 (23) '2.3'
+279E42 Created OS            02 (2) 'OpenVMS'
+279E43 Extract Zip Spec      14 (20) '2.0'
+279E44 Extract OS            00 (0) 'MS-DOS'
+279E45 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-279E47 Compression Method    0008 [8] 'Deflated'
-279E49 Last Mod Time         34F7AD20 [888646944] 'Sun Jul 23 21:41:00 2006'
-279E4D CRC                   4B017531 [1258386737]
-279E51 Compressed Length     00000150 [336]
-279E55 Uncompressed Length   000001EE [494]
-279E59 Filename Length       0017 [23]
-279E5B Extra Length          0083 [131]
-279E5D Comment Length        0000 [0]
-279E5F Disk Start            0000 [0]
-279E61 Int File Attributes   0000 [0]
+279E47 Compression Method    0008 (8) 'Deflated'
+279E49 Last Mod Time         34F7AD20 (888646944) 'Sun Jul 23 21:41:00 2006'
+279E4D CRC                   4B017531 (1258386737)
+279E51 Compressed Length     00000150 (336)
+279E55 Uncompressed Length   000001EE (494)
+279E59 Filename Length       0017 (23)
+279E5B Extra Length          0083 (131)
+279E5D Comment Length        0000 (0)
+279E5F Disk Start            0000 (0)
+279E61 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-279E63 Ext File Attributes   816D0001 [2171404289]
+279E63 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-279E67 Local Header Offset   00000000 [0]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+279E67 Local Header Offset   00000000 (0)
 279E6B Filename              'zip/freeware_readme.txt'
-279E82 Extra ID #1           000C [12] 'OpenVMS'
-279E84   Length              007F [127]
-279E86   CRC                 0417E744 [68675396]
-279E8A   Tag #1              0004 [4] 'ATR$C_RECATTR'
-279E8C     Size              0020 [32]
+279E82 Extra ID #1           000C (12) 'OpenVMS'
+279E84   Length              007F (127)
+279E86   CRC                 0417E744 (68675396)
+279E8A   Tag #1              0004 (4) 'ATR$C_RECATTR'
+279E8C     Size              0020 (32)
 279E8E     Attribute         02 02 47 00 00 00 08 00 00 00 01 00 EE 01 00 00
                              00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-279EAE   Tag #2              0003 [3] 'ATR$C_UCHAR'
-279EB0     Size              0004 [4]
-279EB2     Attribute         00000000 [0]
-279EB6   Tag #3              0011 [17] 'ATR$C_CREDATE'
-279EB8     Size              0008 [8]
-279EBA     Attribute         00A5922926F0FC8F [46604076601900175] 'Sun Jul 23 21:40:59 2006 650017500ns'
-279EC2   Tag #4              0012 [18] 'ATR$C_REVDATE'
-279EC4     Size              0008 [8]
-279EC6     Attribute         00A59D9BCF1145E1 [46616663676765665] 'Mon Aug  7 11:19:27 2006 136566500ns'
-279ECE   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-279ED0     Size              0008 [8]
-279ED2     Attribute         0000000000000000 [0] 'No Date Time'
-279EDA   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-279EDC     Size              0008 [8]
-279EDE     Attribute         0000000000000000 [0] 'No Date Time'
-279EE6   Tag #7              000D [13] 'ATR$C_ASCDATES'
-279EE8     Size              0002 [2]
-279EEA     Attribute         000C [12]'Revision Count 000C [12]'
-279EEC   Tag #8              0015 [21] 'ATR$C_UIC'
-279EEE     Size              0004 [4]
-279EF0     Attribute         00010004 [65540]
-279EF4   Tag #9              0016 [22] 'ATR$C_FPRO'
-279EF6     Size              0002 [2]
+279EAE   Tag #2              0003 (3) 'ATR$C_UCHAR'
+279EB0     Size              0004 (4)
+279EB2     Attribute         00000000 (0)
+279EB6   Tag #3              0011 (17) 'ATR$C_CREDATE'
+279EB8     Size              0008 (8)
+279EBA     Attribute         00A5922926F0FC8F (46604076601900175) 'Sun Jul 23 21:40:59 2006 650017500ns'
+279EC2   Tag #4              0012 (18) 'ATR$C_REVDATE'
+279EC4     Size              0008 (8)
+279EC6     Attribute         00A59D9BCF1145E1 (46616663676765665) 'Mon Aug  7 11:19:27 2006 136566500ns'
+279ECE   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+279ED0     Size              0008 (8)
+279ED2     Attribute         0000000000000000 (0) 'No Date Time'
+279EDA   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+279EDC     Size              0008 (8)
+279EDE     Attribute         0000000000000000 (0) 'No Date Time'
+279EE6   Tag #7              000D (13) 'ATR$C_ASCDATES'
+279EE8     Size              0002 (2)
+279EEA     Attribute         000C (12)'Revision Count 000C (12)'
+279EEC   Tag #8              0015 (21) 'ATR$C_UIC'
+279EEE     Size              0004 (4)
+279EF0     Attribute         00010004 (65540)
+279EF4   Tag #9              0016 (22) 'ATR$C_FPRO'
+279EF6     Size              0002 (2)
 279EF8     Attribute         AA AA
-279EFA   Tag #10             0017 [23] 'ATR$C_RPRO'
-279EFC     Size              0002 [2]
-279EFE     Attribute         0000 [0]
-279F00   Tag #11             001D [29] 'ATR$C_JOURNAL'
-279F02     Size              0001 [1]
+279EFA   Tag #10             0017 (23) 'ATR$C_RPRO'
+279EFC     Size              0002 (2)
+279EFE     Attribute         0000 (0)
+279F00   Tag #11             001D (29) 'ATR$C_JOURNAL'
+279F02     Size              0001 (1)
 279F04     Attribute         00
 
-279F05 CENTRAL HEADER #2     02014B50 [33639248]
-279F09 Created Zip Spec      17 [23] '2.3'
-279F0A Created OS            02 [2] 'OpenVMS'
-279F0B Extract Zip Spec      14 [20] '2.0'
-279F0C Extract OS            00 [0] 'MS-DOS'
-279F0D General Purpose Flag  0000 [0]
+279F05 CENTRAL HEADER #2     02014B50 (33639248)
+279F09 Created Zip Spec      17 (23) '2.3'
+279F0A Created OS            02 (2) 'OpenVMS'
+279F0B Extract Zip Spec      14 (20) '2.0'
+279F0C Extract OS            00 (0) 'MS-DOS'
+279F0D General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-279F0F Compression Method    0008 [8] 'Deflated'
-279F11 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-279F15 CRC                   983B0247 [2554004039]
-279F19 Compressed Length     0000EBA6 [60326]
-279F1D Uncompressed Length   0001B800 [112640]
-279F21 Filename Length       000F [15]
-279F23 Extra Length          0083 [131]
-279F25 Comment Length        0000 [0]
-279F27 Disk Start            0000 [0]
-279F29 Int File Attributes   0000 [0]
+279F0F Compression Method    0008 (8) 'Deflated'
+279F11 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+279F15 CRC                   983B0247 (2554004039)
+279F19 Compressed Length     0000EBA6 (60326)
+279F1D Uncompressed Length   0001B800 (112640)
+279F21 Filename Length       000F (15)
+279F23 Extra Length          0083 (131)
+279F25 Comment Length        0000 (0)
+279F27 Disk Start            0000 (0)
+279F29 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-279F2B Ext File Attributes   816D0001 [2171404289]
+279F2B Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-279F2F Local Header Offset   00000208 [520]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+279F2F Local Header Offset   00000208 (520)
 279F33 Filename              'zip/zip.axp_exe'
-279F42 Extra ID #1           000C [12] 'OpenVMS'
-279F44   Length              007F [127]
-279F46   CRC                 785812DF [2019037919]
-279F4A   Tag #1              0004 [4] 'ATR$C_RECATTR'
-279F4C     Size              0020 [32]
+279F42 Extra ID #1           000C (12) 'OpenVMS'
+279F44   Length              007F (127)
+279F46   CRC                 785812DF (2019037919)
+279F4A   Tag #1              0004 (4) 'ATR$C_RECATTR'
+279F4C     Size              0020 (32)
 279F4E     Attribute         01 00 00 02 00 00 E0 00 00 00 DD 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-279F6E   Tag #2              0003 [3] 'ATR$C_UCHAR'
-279F70     Size              0004 [4]
-279F72     Attribute         00000020 [32]
+279F6E   Tag #2              0003 (3) 'ATR$C_UCHAR'
+279F70     Size              0004 (4)
+279F72     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-279F76   Tag #3              0011 [17] 'ATR$C_CREDATE'
-279F78     Size              0008 [8]
-279F7A     Attribute         00A58DDA34552CC7 [46599339477642439] 'Tue Jul 18 10:05:47 2006 224243900ns'
-279F82   Tag #4              0012 [18] 'ATR$C_REVDATE'
-279F84     Size              0008 [8]
-279F86     Attribute         00A59D9BCF1ED508 [46616663677654280] 'Mon Aug  7 11:19:27 2006 225428000ns'
-279F8E   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-279F90     Size              0008 [8]
-279F92     Attribute         0000000000000000 [0] 'No Date Time'
-279F9A   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-279F9C     Size              0008 [8]
-279F9E     Attribute         0000000000000000 [0] 'No Date Time'
-279FA6   Tag #7              000D [13] 'ATR$C_ASCDATES'
-279FA8     Size              0002 [2]
-279FAA     Attribute         000D [13]'Revision Count 000D [13]'
-279FAC   Tag #8              0015 [21] 'ATR$C_UIC'
-279FAE     Size              0004 [4]
-279FB0     Attribute         00010004 [65540]
-279FB4   Tag #9              0016 [22] 'ATR$C_FPRO'
-279FB6     Size              0002 [2]
+279F76   Tag #3              0011 (17) 'ATR$C_CREDATE'
+279F78     Size              0008 (8)
+279F7A     Attribute         00A58DDA34552CC7 (46599339477642439) 'Tue Jul 18 10:05:47 2006 224243900ns'
+279F82   Tag #4              0012 (18) 'ATR$C_REVDATE'
+279F84     Size              0008 (8)
+279F86     Attribute         00A59D9BCF1ED508 (46616663677654280) 'Mon Aug  7 11:19:27 2006 225428000ns'
+279F8E   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+279F90     Size              0008 (8)
+279F92     Attribute         0000000000000000 (0) 'No Date Time'
+279F9A   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+279F9C     Size              0008 (8)
+279F9E     Attribute         0000000000000000 (0) 'No Date Time'
+279FA6   Tag #7              000D (13) 'ATR$C_ASCDATES'
+279FA8     Size              0002 (2)
+279FAA     Attribute         000D (13)'Revision Count 000D (13)'
+279FAC   Tag #8              0015 (21) 'ATR$C_UIC'
+279FAE     Size              0004 (4)
+279FB0     Attribute         00010004 (65540)
+279FB4   Tag #9              0016 (22) 'ATR$C_FPRO'
+279FB6     Size              0002 (2)
 279FB8     Attribute         AA AA
-279FBA   Tag #10             0017 [23] 'ATR$C_RPRO'
-279FBC     Size              0002 [2]
-279FBE     Attribute         0000 [0]
-279FC0   Tag #11             001D [29] 'ATR$C_JOURNAL'
-279FC2     Size              0001 [1]
+279FBA   Tag #10             0017 (23) 'ATR$C_RPRO'
+279FBC     Size              0002 (2)
+279FBE     Attribute         0000 (0)
+279FC0   Tag #11             001D (29) 'ATR$C_JOURNAL'
+279FC2     Size              0001 (1)
 279FC4     Attribute         00
 
-279FC5 CENTRAL HEADER #3     02014B50 [33639248]
-279FC9 Created Zip Spec      17 [23] '2.3'
-279FCA Created OS            02 [2] 'OpenVMS'
-279FCB Extract Zip Spec      14 [20] '2.0'
-279FCC Extract OS            00 [0] 'MS-DOS'
-279FCD General Purpose Flag  0000 [0]
+279FC5 CENTRAL HEADER #3     02014B50 (33639248)
+279FC9 Created Zip Spec      17 (23) '2.3'
+279FCA Created OS            02 (2) 'OpenVMS'
+279FCB Extract Zip Spec      14 (20) '2.0'
+279FCC Extract OS            00 (0) 'MS-DOS'
+279FCD General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-279FCF Compression Method    0008 [8] 'Deflated'
-279FD1 Last Mod Time         34F249BD [888293821] 'Tue Jul 18 09:13:58 2006'
-279FD5 CRC                   104BF870 [273414256]
-279FD9 Compressed Length     0001573B [87867]
-279FDD Uncompressed Length   00043000 [274432]
-279FE1 Filename Length       000F [15]
-279FE3 Extra Length          0083 [131]
-279FE5 Comment Length        0000 [0]
-279FE7 Disk Start            0000 [0]
-279FE9 Int File Attributes   0000 [0]
+279FCF Compression Method    0008 (8) 'Deflated'
+279FD1 Last Mod Time         34F249BD (888293821) 'Tue Jul 18 09:13:58 2006'
+279FD5 CRC                   104BF870 (273414256)
+279FD9 Compressed Length     0001573B (87867)
+279FDD Uncompressed Length   00043000 (274432)
+279FE1 Filename Length       000F (15)
+279FE3 Extra Length          0083 (131)
+279FE5 Comment Length        0000 (0)
+279FE7 Disk Start            0000 (0)
+279FE9 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-279FEB Ext File Attributes   816D0001 [2171404289]
+279FEB Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-279FEF Local Header Offset   0000EE5E [61022]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+279FEF Local Header Offset   0000EE5E (61022)
 279FF3 Filename              'zip/zip.i64_exe'
-27A002 Extra ID #1           000C [12] 'OpenVMS'
-27A004   Length              007F [127]
-27A006   CRC                 FB37C778 [4214736760]
-27A00A   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A00C     Size              0020 [32]
+27A002 Extra ID #1           000C (12) 'OpenVMS'
+27A004   Length              007F (127)
+27A006   CRC                 FB37C778 (4214736760)
+27A00A   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A00C     Size              0020 (32)
 27A00E     Attribute         01 00 00 02 00 00 20 02 00 00 19 02 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A02E   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A030     Size              0004 [4]
-27A032     Attribute         00000020 [32]
+27A02E   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A030     Size              0004 (4)
+27A032     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A036   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A038     Size              0008 [8]
-27A03A     Attribute         00A58DD2F6D8CC30 [46599308381310000] 'Tue Jul 18 09:13:57 2006 591000000ns'
-27A042   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A044     Size              0008 [8]
-27A046     Attribute         00A59D9BCF2BA576 [46616663678494070] 'Mon Aug  7 11:19:27 2006 309407000ns'
-27A04E   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A050     Size              0008 [8]
-27A052     Attribute         0000000000000000 [0] 'No Date Time'
-27A05A   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A05C     Size              0008 [8]
-27A05E     Attribute         0000000000000000 [0] 'No Date Time'
-27A066   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A068     Size              0002 [2]
-27A06A     Attribute         000E [14]'Revision Count 000E [14]'
-27A06C   Tag #8              0015 [21] 'ATR$C_UIC'
-27A06E     Size              0004 [4]
-27A070     Attribute         00010004 [65540]
-27A074   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A076     Size              0002 [2]
+27A036   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A038     Size              0008 (8)
+27A03A     Attribute         00A58DD2F6D8CC30 (46599308381310000) 'Tue Jul 18 09:13:57 2006 591000000ns'
+27A042   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A044     Size              0008 (8)
+27A046     Attribute         00A59D9BCF2BA576 (46616663678494070) 'Mon Aug  7 11:19:27 2006 309407000ns'
+27A04E   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A050     Size              0008 (8)
+27A052     Attribute         0000000000000000 (0) 'No Date Time'
+27A05A   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A05C     Size              0008 (8)
+27A05E     Attribute         0000000000000000 (0) 'No Date Time'
+27A066   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A068     Size              0002 (2)
+27A06A     Attribute         000E (14)'Revision Count 000E (14)'
+27A06C   Tag #8              0015 (21) 'ATR$C_UIC'
+27A06E     Size              0004 (4)
+27A070     Attribute         00010004 (65540)
+27A074   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A076     Size              0002 (2)
 27A078     Attribute         AA AA
-27A07A   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A07C     Size              0002 [2]
-27A07E     Attribute         0000 [0]
-27A080   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A082     Size              0001 [1]
+27A07A   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A07C     Size              0002 (2)
+27A07E     Attribute         0000 (0)
+27A080   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A082     Size              0001 (1)
 27A084     Attribute         00
 
-27A085 CENTRAL HEADER #4     02014B50 [33639248]
-27A089 Created Zip Spec      17 [23] '2.3'
-27A08A Created OS            02 [2] 'OpenVMS'
-27A08B Extract Zip Spec      14 [20] '2.0'
-27A08C Extract OS            00 [0] 'MS-DOS'
-27A08D General Purpose Flag  0000 [0]
+27A085 CENTRAL HEADER #4     02014B50 (33639248)
+27A089 Created Zip Spec      17 (23) '2.3'
+27A08A Created OS            02 (2) 'OpenVMS'
+27A08B Extract Zip Spec      14 (20) '2.0'
+27A08C Extract OS            00 (0) 'MS-DOS'
+27A08D General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A08F Compression Method    0008 [8] 'Deflated'
-27A091 Last Mod Time         34F250D0 [888295632] 'Tue Jul 18 10:06:32 2006'
-27A095 CRC                   23250884 [589629572]
-27A099 Compressed Length     0000867E [34430]
-27A09D Uncompressed Length   00011200 [70144]
-27A0A1 Filename Length       0014 [20]
-27A0A3 Extra Length          0083 [131]
-27A0A5 Comment Length        0000 [0]
-27A0A7 Disk Start            0000 [0]
-27A0A9 Int File Attributes   0000 [0]
+27A08F Compression Method    0008 (8) 'Deflated'
+27A091 Last Mod Time         34F250D0 (888295632) 'Tue Jul 18 10:06:32 2006'
+27A095 CRC                   23250884 (589629572)
+27A099 Compressed Length     0000867E (34430)
+27A09D Uncompressed Length   00011200 (70144)
+27A0A1 Filename Length       0014 (20)
+27A0A3 Extra Length          0083 (131)
+27A0A5 Comment Length        0000 (0)
+27A0A7 Disk Start            0000 (0)
+27A0A9 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A0AB Ext File Attributes   816D0001 [2171404289]
+27A0AB Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A0AF Local Header Offset   00024649 [149065]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A0AF Local Header Offset   00024649 (149065)
 27A0B3 Filename              'zip/zip.vax_vaxc_exe'
-27A0C7 Extra ID #1           000C [12] 'OpenVMS'
-27A0C9   Length              007F [127]
-27A0CB   CRC                 296691A4 [694587812]
-27A0CF   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A0D1     Size              0020 [32]
+27A0C7 Extra ID #1           000C (12) 'OpenVMS'
+27A0C9   Length              007F (127)
+27A0CB   CRC                 296691A4 (694587812)
+27A0CF   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A0D1     Size              0020 (32)
 27A0D3     Attribute         01 00 00 02 00 00 90 00 00 00 8A 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A0F3   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A0F5     Size              0004 [4]
-27A0F7     Attribute         00000020 [32]
+27A0F3   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A0F5     Size              0004 (4)
+27A0F7     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A0FB   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A0FD     Size              0008 [8]
-27A0FF     Attribute         00A58DDA4E4B75F7 [46599339913213431] 'Tue Jul 18 10:06:30 2006 781343100ns'
-27A107   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A109     Size              0008 [8]
-27A10B     Attribute         00A59D9BCF371E97 [46616663679245975] 'Mon Aug  7 11:19:27 2006 384597500ns'
-27A113   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A115     Size              0008 [8]
-27A117     Attribute         0000000000000000 [0] 'No Date Time'
-27A11F   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A121     Size              0008 [8]
-27A123     Attribute         0000000000000000 [0] 'No Date Time'
-27A12B   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A12D     Size              0002 [2]
-27A12F     Attribute         000D [13]'Revision Count 000D [13]'
-27A131   Tag #8              0015 [21] 'ATR$C_UIC'
-27A133     Size              0004 [4]
-27A135     Attribute         00010004 [65540]
-27A139   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A13B     Size              0002 [2]
+27A0FB   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A0FD     Size              0008 (8)
+27A0FF     Attribute         00A58DDA4E4B75F7 (46599339913213431) 'Tue Jul 18 10:06:30 2006 781343100ns'
+27A107   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A109     Size              0008 (8)
+27A10B     Attribute         00A59D9BCF371E97 (46616663679245975) 'Mon Aug  7 11:19:27 2006 384597500ns'
+27A113   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A115     Size              0008 (8)
+27A117     Attribute         0000000000000000 (0) 'No Date Time'
+27A11F   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A121     Size              0008 (8)
+27A123     Attribute         0000000000000000 (0) 'No Date Time'
+27A12B   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A12D     Size              0002 (2)
+27A12F     Attribute         000D (13)'Revision Count 000D (13)'
+27A131   Tag #8              0015 (21) 'ATR$C_UIC'
+27A133     Size              0004 (4)
+27A135     Attribute         00010004 (65540)
+27A139   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A13B     Size              0002 (2)
 27A13D     Attribute         AA AA
-27A13F   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A141     Size              0002 [2]
-27A143     Attribute         0000 [0]
-27A145   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A147     Size              0001 [1]
+27A13F   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A141     Size              0002 (2)
+27A143     Attribute         0000 (0)
+27A145   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A147     Size              0001 (1)
 27A149     Attribute         00
 
-27A14A CENTRAL HEADER #5     02014B50 [33639248]
-27A14E Created Zip Spec      17 [23] '2.3'
-27A14F Created OS            02 [2] 'OpenVMS'
-27A150 Extract Zip Spec      0A [10] '1.0'
-27A151 Extract OS            00 [0] 'MS-DOS'
-27A152 General Purpose Flag  0000 [0]
-27A154 Compression Method    0000 [0] 'Stored'
-27A156 Last Mod Time         34EF70C3 [888107203] 'Sat Jul 15 14:06:06 2006'
-27A15A CRC                   E2D85E79 [3805830777]
-27A15E Compressed Length     001ECAA0 [2017952]
-27A162 Uncompressed Length   001ECAA0 [2017952]
-27A166 Filename Length       000B [11]
-27A168 Extra Length          0083 [131]
-27A16A Comment Length        0000 [0]
-27A16C Disk Start            0000 [0]
-27A16E Int File Attributes   0000 [0]
+27A14A CENTRAL HEADER #5     02014B50 (33639248)
+27A14E Created Zip Spec      17 (23) '2.3'
+27A14F Created OS            02 (2) 'OpenVMS'
+27A150 Extract Zip Spec      0A (10) '1.0'
+27A151 Extract OS            00 (0) 'MS-DOS'
+27A152 General Purpose Flag  0000 (0)
+27A154 Compression Method    0000 (0) 'Stored'
+27A156 Last Mod Time         34EF70C3 (888107203) 'Sat Jul 15 14:06:06 2006'
+27A15A CRC                   E2D85E79 (3805830777)
+27A15E Compressed Length     001ECAA0 (2017952)
+27A162 Uncompressed Length   001ECAA0 (2017952)
+27A166 Filename Length       000B (11)
+27A168 Extra Length          0083 (131)
+27A16A Comment Length        0000 (0)
+27A16C Disk Start            0000 (0)
+27A16E Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A170 Ext File Attributes   816D0001 [2171404289]
+27A170 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A174 Local Header Offset   0002CD7C [183676]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A174 Local Header Offset   0002CD7C (183676)
 27A178 Filename              'zip/zip.zip'
-27A183 Extra ID #1           000C [12] 'OpenVMS'
-27A185   Length              007F [127]
-27A187   CRC                 99763277 [2574660215]
-27A18B   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A18D     Size              0020 [32]
+27A183 Extra ID #1           000C (12) 'OpenVMS'
+27A185   Length              007F (127)
+27A187   CRC                 99763277 (2574660215)
+27A18B   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A18D     Size              0020 (32)
 27A18F     Attribute         05 02 00 00 00 00 70 0F 00 00 66 0F A0 00 00 00
                              00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A1AF   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A1B1     Size              0004 [4]
-27A1B3     Attribute         00000000 [0]
-27A1B7   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A1B9     Size              0008 [8]
-27A1BB     Attribute         00A58BA047081B00 [46596891660000000] 'Sat Jul 15 14:06:05 2006 460000000ns'
-27A1C3   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A1C5     Size              0008 [8]
-27A1C7     Attribute         00A59D9BCF43C8E0 [46616663680076000] 'Mon Aug  7 11:19:27 2006 467600000ns'
-27A1CF   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A1D1     Size              0008 [8]
-27A1D3     Attribute         0000000000000000 [0] 'No Date Time'
-27A1DB   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A1DD     Size              0008 [8]
-27A1DF     Attribute         0000000000000000 [0] 'No Date Time'
-27A1E7   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A1E9     Size              0002 [2]
-27A1EB     Attribute         000C [12]'Revision Count 000C [12]'
-27A1ED   Tag #8              0015 [21] 'ATR$C_UIC'
-27A1EF     Size              0004 [4]
-27A1F1     Attribute         00010004 [65540]
-27A1F5   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A1F7     Size              0002 [2]
+27A1AF   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A1B1     Size              0004 (4)
+27A1B3     Attribute         00000000 (0)
+27A1B7   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A1B9     Size              0008 (8)
+27A1BB     Attribute         00A58BA047081B00 (46596891660000000) 'Sat Jul 15 14:06:05 2006 460000000ns'
+27A1C3   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A1C5     Size              0008 (8)
+27A1C7     Attribute         00A59D9BCF43C8E0 (46616663680076000) 'Mon Aug  7 11:19:27 2006 467600000ns'
+27A1CF   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A1D1     Size              0008 (8)
+27A1D3     Attribute         0000000000000000 (0) 'No Date Time'
+27A1DB   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A1DD     Size              0008 (8)
+27A1DF     Attribute         0000000000000000 (0) 'No Date Time'
+27A1E7   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A1E9     Size              0002 (2)
+27A1EB     Attribute         000C (12)'Revision Count 000C (12)'
+27A1ED   Tag #8              0015 (21) 'ATR$C_UIC'
+27A1EF     Size              0004 (4)
+27A1F1     Attribute         00010004 (65540)
+27A1F5   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A1F7     Size              0002 (2)
 27A1F9     Attribute         AA AA
-27A1FB   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A1FD     Size              0002 [2]
-27A1FF     Attribute         0000 [0]
-27A201   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A203     Size              0001 [1]
+27A1FB   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A1FD     Size              0002 (2)
+27A1FF     Attribute         0000 (0)
+27A201   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A203     Size              0001 (1)
 27A205     Attribute         00
 
-27A206 CENTRAL HEADER #6     02014B50 [33639248]
-27A20A Created Zip Spec      17 [23] '2.3'
-27A20B Created OS            02 [2] 'OpenVMS'
-27A20C Extract Zip Spec      14 [20] '2.0'
-27A20D Extract OS            00 [0] 'MS-DOS'
-27A20E General Purpose Flag  0000 [0]
+27A206 CENTRAL HEADER #6     02014B50 (33639248)
+27A20A Created Zip Spec      17 (23) '2.3'
+27A20B Created OS            02 (2) 'OpenVMS'
+27A20C Extract Zip Spec      14 (20) '2.0'
+27A20D Extract OS            00 (0) 'MS-DOS'
+27A20E General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A210 Compression Method    0008 [8] 'Deflated'
-27A212 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-27A216 CRC                   336ECF7C [862900092]
-27A21A Compressed Length     00005530 [21808]
-27A21E Uncompressed Length   0000AA00 [43520]
-27A222 Filename Length       0014 [20]
-27A224 Extra Length          0083 [131]
-27A226 Comment Length        0000 [0]
-27A228 Disk Start            0000 [0]
-27A22A Int File Attributes   0000 [0]
+27A210 Compression Method    0008 (8) 'Deflated'
+27A212 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+27A216 CRC                   336ECF7C (862900092)
+27A21A Compressed Length     00005530 (21808)
+27A21E Uncompressed Length   0000AA00 (43520)
+27A222 Filename Length       0014 (20)
+27A224 Extra Length          0083 (131)
+27A226 Comment Length        0000 (0)
+27A228 Disk Start            0000 (0)
+27A22A Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A22C Ext File Attributes   816D0001 [2171404289]
+27A22C Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A230 Local Header Offset   002198C8 [2201800]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A230 Local Header Offset   002198C8 (2201800)
 27A234 Filename              'zip/zipcloak.axp_exe'
-27A248 Extra ID #1           000C [12] 'OpenVMS'
-27A24A   Length              007F [127]
-27A24C   CRC                 350776BB [889681595]
-27A250   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A252     Size              0020 [32]
+27A248 Extra ID #1           000C (12) 'OpenVMS'
+27A24A   Length              007F (127)
+27A24C   CRC                 350776BB (889681595)
+27A250   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A252     Size              0020 (32)
 27A254     Attribute         01 00 00 02 00 00 60 00 00 00 56 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A274   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A276     Size              0004 [4]
-27A278     Attribute         00000020 [32]
+27A274   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A276     Size              0004 (4)
+27A278     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A27C   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A27E     Size              0008 [8]
-27A280     Attribute         00A58DDA34779B63 [46599339479898979] 'Tue Jul 18 10:05:47 2006 449897900ns'
-27A288   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A28A     Size              0008 [8]
-27A28C     Attribute         00A59D9BCF507329 [46616663680906025] 'Mon Aug  7 11:19:27 2006 550602500ns'
-27A294   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A296     Size              0008 [8]
-27A298     Attribute         0000000000000000 [0] 'No Date Time'
-27A2A0   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A2A2     Size              0008 [8]
-27A2A4     Attribute         0000000000000000 [0] 'No Date Time'
-27A2AC   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A2AE     Size              0002 [2]
-27A2B0     Attribute         000D [13]'Revision Count 000D [13]'
-27A2B2   Tag #8              0015 [21] 'ATR$C_UIC'
-27A2B4     Size              0004 [4]
-27A2B6     Attribute         00010004 [65540]
-27A2BA   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A2BC     Size              0002 [2]
+27A27C   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A27E     Size              0008 (8)
+27A280     Attribute         00A58DDA34779B63 (46599339479898979) 'Tue Jul 18 10:05:47 2006 449897900ns'
+27A288   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A28A     Size              0008 (8)
+27A28C     Attribute         00A59D9BCF507329 (46616663680906025) 'Mon Aug  7 11:19:27 2006 550602500ns'
+27A294   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A296     Size              0008 (8)
+27A298     Attribute         0000000000000000 (0) 'No Date Time'
+27A2A0   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A2A2     Size              0008 (8)
+27A2A4     Attribute         0000000000000000 (0) 'No Date Time'
+27A2AC   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A2AE     Size              0002 (2)
+27A2B0     Attribute         000D (13)'Revision Count 000D (13)'
+27A2B2   Tag #8              0015 (21) 'ATR$C_UIC'
+27A2B4     Size              0004 (4)
+27A2B6     Attribute         00010004 (65540)
+27A2BA   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A2BC     Size              0002 (2)
 27A2BE     Attribute         AA AA
-27A2C0   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A2C2     Size              0002 [2]
-27A2C4     Attribute         0000 [0]
-27A2C6   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A2C8     Size              0001 [1]
+27A2C0   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A2C2     Size              0002 (2)
+27A2C4     Attribute         0000 (0)
+27A2C6   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A2C8     Size              0001 (1)
 27A2CA     Attribute         00
 
-27A2CB CENTRAL HEADER #7     02014B50 [33639248]
-27A2CF Created Zip Spec      17 [23] '2.3'
-27A2D0 Created OS            02 [2] 'OpenVMS'
-27A2D1 Extract Zip Spec      14 [20] '2.0'
-27A2D2 Extract OS            00 [0] 'MS-DOS'
-27A2D3 General Purpose Flag  0000 [0]
+27A2CB CENTRAL HEADER #7     02014B50 (33639248)
+27A2CF Created Zip Spec      17 (23) '2.3'
+27A2D0 Created OS            02 (2) 'OpenVMS'
+27A2D1 Extract Zip Spec      14 (20) '2.0'
+27A2D2 Extract OS            00 (0) 'MS-DOS'
+27A2D3 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A2D5 Compression Method    0008 [8] 'Deflated'
-27A2D7 Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-27A2DB CRC                   18AE9DEA [414096874]
-27A2DF Compressed Length     000081E3 [33251]
-27A2E3 Uncompressed Length   0001B200 [111104]
-27A2E7 Filename Length       0014 [20]
-27A2E9 Extra Length          0083 [131]
-27A2EB Comment Length        0000 [0]
-27A2ED Disk Start            0000 [0]
-27A2EF Int File Attributes   0000 [0]
+27A2D5 Compression Method    0008 (8) 'Deflated'
+27A2D7 Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+27A2DB CRC                   18AE9DEA (414096874)
+27A2DF Compressed Length     000081E3 (33251)
+27A2E3 Uncompressed Length   0001B200 (111104)
+27A2E7 Filename Length       0014 (20)
+27A2E9 Extra Length          0083 (131)
+27A2EB Comment Length        0000 (0)
+27A2ED Disk Start            0000 (0)
+27A2EF Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A2F1 Ext File Attributes   816D0001 [2171404289]
+27A2F1 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A2F5 Local Header Offset   0021EEAD [2223789]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A2F5 Local Header Offset   0021EEAD (2223789)
 27A2F9 Filename              'zip/zipcloak.i64_exe'
-27A30D Extra ID #1           000C [12] 'OpenVMS'
-27A30F   Length              007F [127]
-27A311   CRC                 42C0C96B [1119930731]
-27A315   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A317     Size              0020 [32]
+27A30D Extra ID #1           000C (12) 'OpenVMS'
+27A30F   Length              007F (127)
+27A311   CRC                 42C0C96B (1119930731)
+27A315   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A317     Size              0020 (32)
 27A319     Attribute         01 00 00 02 00 00 E0 00 00 00 DA 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A339   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A33B     Size              0004 [4]
-27A33D     Attribute         00000020 [32]
+27A339   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A33B     Size              0004 (4)
+27A33D     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A341   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A343     Size              0008 [8]
-27A345     Attribute         00A58DD2F7FD9D20 [46599308400500000] 'Tue Jul 18 09:13:59 2006 510000000ns'
-27A34D   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A34F     Size              0008 [8]
-27A351     Attribute         00A59D9BCF5D4397 [46616663681745815] 'Mon Aug  7 11:19:27 2006 634581500ns'
-27A359   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A35B     Size              0008 [8]
-27A35D     Attribute         0000000000000000 [0] 'No Date Time'
-27A365   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A367     Size              0008 [8]
-27A369     Attribute         0000000000000000 [0] 'No Date Time'
-27A371   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A373     Size              0002 [2]
-27A375     Attribute         000E [14]'Revision Count 000E [14]'
-27A377   Tag #8              0015 [21] 'ATR$C_UIC'
-27A379     Size              0004 [4]
-27A37B     Attribute         00010004 [65540]
-27A37F   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A381     Size              0002 [2]
+27A341   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A343     Size              0008 (8)
+27A345     Attribute         00A58DD2F7FD9D20 (46599308400500000) 'Tue Jul 18 09:13:59 2006 510000000ns'
+27A34D   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A34F     Size              0008 (8)
+27A351     Attribute         00A59D9BCF5D4397 (46616663681745815) 'Mon Aug  7 11:19:27 2006 634581500ns'
+27A359   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A35B     Size              0008 (8)
+27A35D     Attribute         0000000000000000 (0) 'No Date Time'
+27A365   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A367     Size              0008 (8)
+27A369     Attribute         0000000000000000 (0) 'No Date Time'
+27A371   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A373     Size              0002 (2)
+27A375     Attribute         000E (14)'Revision Count 000E (14)'
+27A377   Tag #8              0015 (21) 'ATR$C_UIC'
+27A379     Size              0004 (4)
+27A37B     Attribute         00010004 (65540)
+27A37F   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A381     Size              0002 (2)
 27A383     Attribute         AA AA
-27A385   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A387     Size              0002 [2]
-27A389     Attribute         0000 [0]
-27A38B   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A38D     Size              0001 [1]
+27A385   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A387     Size              0002 (2)
+27A389     Attribute         0000 (0)
+27A38B   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A38D     Size              0001 (1)
 27A38F     Attribute         00
 
-27A390 CENTRAL HEADER #8     02014B50 [33639248]
-27A394 Created Zip Spec      17 [23] '2.3'
-27A395 Created OS            02 [2] 'OpenVMS'
-27A396 Extract Zip Spec      14 [20] '2.0'
-27A397 Extract OS            00 [0] 'MS-DOS'
-27A398 General Purpose Flag  0000 [0]
+27A390 CENTRAL HEADER #8     02014B50 (33639248)
+27A394 Created Zip Spec      17 (23) '2.3'
+27A395 Created OS            02 (2) 'OpenVMS'
+27A396 Extract Zip Spec      14 (20) '2.0'
+27A397 Extract OS            00 (0) 'MS-DOS'
+27A398 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A39A Compression Method    0008 [8] 'Deflated'
-27A39C Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-27A3A0 CRC                   468B34B9 [1183528121]
-27A3A4 Compressed Length     0000308B [12427]
-27A3A8 Uncompressed Length   00006800 [26624]
-27A3AC Filename Length       0019 [25]
-27A3AE Extra Length          0083 [131]
-27A3B0 Comment Length        0000 [0]
-27A3B2 Disk Start            0000 [0]
-27A3B4 Int File Attributes   0000 [0]
+27A39A Compression Method    0008 (8) 'Deflated'
+27A39C Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+27A3A0 CRC                   468B34B9 (1183528121)
+27A3A4 Compressed Length     0000308B (12427)
+27A3A8 Uncompressed Length   00006800 (26624)
+27A3AC Filename Length       0019 (25)
+27A3AE Extra Length          0083 (131)
+27A3B0 Comment Length        0000 (0)
+27A3B2 Disk Start            0000 (0)
+27A3B4 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A3B6 Ext File Attributes   816D0001 [2171404289]
+27A3B6 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A3BA Local Header Offset   00227145 [2257221]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A3BA Local Header Offset   00227145 (2257221)
 27A3BE Filename              'zip/zipcloak.vax_vaxc_exe'
-27A3D7 Extra ID #1           000C [12] 'OpenVMS'
-27A3D9   Length              007F [127]
-27A3DB   CRC                 1C0CB87B [470595707]
-27A3DF   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A3E1     Size              0020 [32]
+27A3D7 Extra ID #1           000C (12) 'OpenVMS'
+27A3D9   Length              007F (127)
+27A3DB   CRC                 1C0CB87B (470595707)
+27A3DF   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A3E1     Size              0020 (32)
 27A3E3     Attribute         01 00 00 02 00 00 38 00 00 00 35 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A403   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A405     Size              0004 [4]
-27A407     Attribute         00000020 [32]
+27A403   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A405     Size              0004 (4)
+27A407     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A40B   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A40D     Size              0008 [8]
-27A40F     Attribute         00A58DDA4FF09A77 [46599339940813431] 'Tue Jul 18 10:06:33 2006 541343100ns'
-27A417   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A419     Size              0008 [8]
-27A41B     Attribute         00A59D9BCF68BCB8 [46616663682497720] 'Mon Aug  7 11:19:27 2006 709772000ns'
-27A423   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A425     Size              0008 [8]
-27A427     Attribute         0000000000000000 [0] 'No Date Time'
-27A42F   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A431     Size              0008 [8]
-27A433     Attribute         0000000000000000 [0] 'No Date Time'
-27A43B   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A43D     Size              0002 [2]
-27A43F     Attribute         000D [13]'Revision Count 000D [13]'
-27A441   Tag #8              0015 [21] 'ATR$C_UIC'
-27A443     Size              0004 [4]
-27A445     Attribute         00010004 [65540]
-27A449   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A44B     Size              0002 [2]
+27A40B   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A40D     Size              0008 (8)
+27A40F     Attribute         00A58DDA4FF09A77 (46599339940813431) 'Tue Jul 18 10:06:33 2006 541343100ns'
+27A417   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A419     Size              0008 (8)
+27A41B     Attribute         00A59D9BCF68BCB8 (46616663682497720) 'Mon Aug  7 11:19:27 2006 709772000ns'
+27A423   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A425     Size              0008 (8)
+27A427     Attribute         0000000000000000 (0) 'No Date Time'
+27A42F   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A431     Size              0008 (8)
+27A433     Attribute         0000000000000000 (0) 'No Date Time'
+27A43B   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A43D     Size              0002 (2)
+27A43F     Attribute         000D (13)'Revision Count 000D (13)'
+27A441   Tag #8              0015 (21) 'ATR$C_UIC'
+27A443     Size              0004 (4)
+27A445     Attribute         00010004 (65540)
+27A449   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A44B     Size              0002 (2)
 27A44D     Attribute         AA AA
-27A44F   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A451     Size              0002 [2]
-27A453     Attribute         0000 [0]
-27A455   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A457     Size              0001 [1]
+27A44F   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A451     Size              0002 (2)
+27A453     Attribute         0000 (0)
+27A455   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A457     Size              0001 (1)
 27A459     Attribute         00
 
-27A45A CENTRAL HEADER #9     02014B50 [33639248]
-27A45E Created Zip Spec      17 [23] '2.3'
-27A45F Created OS            02 [2] 'OpenVMS'
-27A460 Extract Zip Spec      14 [20] '2.0'
-27A461 Extract OS            00 [0] 'MS-DOS'
-27A462 General Purpose Flag  0000 [0]
+27A45A CENTRAL HEADER #9     02014B50 (33639248)
+27A45E Created Zip Spec      17 (23) '2.3'
+27A45F Created OS            02 (2) 'OpenVMS'
+27A460 Extract Zip Spec      14 (20) '2.0'
+27A461 Extract OS            00 (0) 'MS-DOS'
+27A462 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A464 Compression Method    0008 [8] 'Deflated'
-27A466 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-27A46A CRC                   91042701 [2432968449]
-27A46E Compressed Length     0000499E [18846]
-27A472 Uncompressed Length   00009800 [38912]
-27A476 Filename Length       0013 [19]
-27A478 Extra Length          0083 [131]
-27A47A Comment Length        0000 [0]
-27A47C Disk Start            0000 [0]
-27A47E Int File Attributes   0000 [0]
+27A464 Compression Method    0008 (8) 'Deflated'
+27A466 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+27A46A CRC                   91042701 (2432968449)
+27A46E Compressed Length     0000499E (18846)
+27A472 Uncompressed Length   00009800 (38912)
+27A476 Filename Length       0013 (19)
+27A478 Extra Length          0083 (131)
+27A47A Comment Length        0000 (0)
+27A47C Disk Start            0000 (0)
+27A47E Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A480 Ext File Attributes   816D0001 [2171404289]
+27A480 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A484 Local Header Offset   0022A28A [2269834]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A484 Local Header Offset   0022A28A (2269834)
 27A488 Filename              'zip/zipnote.axp_exe'
-27A49B Extra ID #1           000C [12] 'OpenVMS'
-27A49D   Length              007F [127]
-27A49F   CRC                 1E69EFEA [510259178]
-27A4A3   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A4A5     Size              0020 [32]
+27A49B Extra ID #1           000C (12) 'OpenVMS'
+27A49D   Length              007F (127)
+27A49F   CRC                 1E69EFEA (510259178)
+27A4A3   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A4A5     Size              0020 (32)
 27A4A7     Attribute         01 00 00 02 00 00 50 00 00 00 4D 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A4C7   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A4C9     Size              0004 [4]
-27A4CB     Attribute         00000020 [32]
+27A4C7   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A4C9     Size              0004 (4)
+27A4CB     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A4CF   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A4D1     Size              0008 [8]
-27A4D3     Attribute         00A58DDA34817792 [46599339480545170] 'Tue Jul 18 10:05:47 2006 514517000ns'
-27A4DB   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A4DD     Size              0008 [8]
-27A4DF     Attribute         00A59D9BCF7435D9 [46616663683249625] 'Mon Aug  7 11:19:27 2006 784962500ns'
-27A4E7   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A4E9     Size              0008 [8]
-27A4EB     Attribute         0000000000000000 [0] 'No Date Time'
-27A4F3   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A4F5     Size              0008 [8]
-27A4F7     Attribute         0000000000000000 [0] 'No Date Time'
-27A4FF   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A501     Size              0002 [2]
-27A503     Attribute         000D [13]'Revision Count 000D [13]'
-27A505   Tag #8              0015 [21] 'ATR$C_UIC'
-27A507     Size              0004 [4]
-27A509     Attribute         00010004 [65540]
-27A50D   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A50F     Size              0002 [2]
+27A4CF   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A4D1     Size              0008 (8)
+27A4D3     Attribute         00A58DDA34817792 (46599339480545170) 'Tue Jul 18 10:05:47 2006 514517000ns'
+27A4DB   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A4DD     Size              0008 (8)
+27A4DF     Attribute         00A59D9BCF7435D9 (46616663683249625) 'Mon Aug  7 11:19:27 2006 784962500ns'
+27A4E7   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A4E9     Size              0008 (8)
+27A4EB     Attribute         0000000000000000 (0) 'No Date Time'
+27A4F3   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A4F5     Size              0008 (8)
+27A4F7     Attribute         0000000000000000 (0) 'No Date Time'
+27A4FF   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A501     Size              0002 (2)
+27A503     Attribute         000D (13)'Revision Count 000D (13)'
+27A505   Tag #8              0015 (21) 'ATR$C_UIC'
+27A507     Size              0004 (4)
+27A509     Attribute         00010004 (65540)
+27A50D   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A50F     Size              0002 (2)
 27A511     Attribute         AA AA
-27A513   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A515     Size              0002 [2]
-27A517     Attribute         0000 [0]
-27A519   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A51B     Size              0001 [1]
+27A513   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A515     Size              0002 (2)
+27A517     Attribute         0000 (0)
+27A519   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A51B     Size              0001 (1)
 27A51D     Attribute         00
 
-27A51E CENTRAL HEADER #10    02014B50 [33639248]
-27A522 Created Zip Spec      17 [23] '2.3'
-27A523 Created OS            02 [2] 'OpenVMS'
-27A524 Extract Zip Spec      14 [20] '2.0'
-27A525 Extract OS            00 [0] 'MS-DOS'
-27A526 General Purpose Flag  0000 [0]
+27A51E CENTRAL HEADER #10    02014B50 (33639248)
+27A522 Created Zip Spec      17 (23) '2.3'
+27A523 Created OS            02 (2) 'OpenVMS'
+27A524 Extract Zip Spec      14 (20) '2.0'
+27A525 Extract OS            00 (0) 'MS-DOS'
+27A526 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A528 Compression Method    0008 [8] 'Deflated'
-27A52A Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-27A52E CRC                   24140EC8 [605294280]
-27A532 Compressed Length     00006BE0 [27616]
-27A536 Uncompressed Length   00018400 [99328]
-27A53A Filename Length       0013 [19]
-27A53C Extra Length          0083 [131]
-27A53E Comment Length        0000 [0]
-27A540 Disk Start            0000 [0]
-27A542 Int File Attributes   0000 [0]
+27A528 Compression Method    0008 (8) 'Deflated'
+27A52A Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+27A52E CRC                   24140EC8 (605294280)
+27A532 Compressed Length     00006BE0 (27616)
+27A536 Uncompressed Length   00018400 (99328)
+27A53A Filename Length       0013 (19)
+27A53C Extra Length          0083 (131)
+27A53E Comment Length        0000 (0)
+27A540 Disk Start            0000 (0)
+27A542 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A544 Ext File Attributes   816D0001 [2171404289]
+27A544 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A548 Local Header Offset   0022ECDC [2288860]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A548 Local Header Offset   0022ECDC (2288860)
 27A54C Filename              'zip/zipnote.i64_exe'
-27A55F Extra ID #1           000C [12] 'OpenVMS'
-27A561   Length              007F [127]
-27A563   CRC                 CD1B6A1F [3441125919]
-27A567   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A569     Size              0020 [32]
+27A55F Extra ID #1           000C (12) 'OpenVMS'
+27A561   Length              007F (127)
+27A563   CRC                 CD1B6A1F (3441125919)
+27A567   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A569     Size              0020 (32)
 27A56B     Attribute         01 00 00 02 00 00 C8 00 00 00 C3 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A58B   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A58D     Size              0004 [4]
-27A58F     Attribute         00000020 [32]
+27A58B   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A58D     Size              0004 (4)
+27A58F     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A593   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A595     Size              0008 [8]
-27A597     Attribute         00A58DD2F8472940 [46599308405320000] 'Tue Jul 18 09:13:59 2006 992000000ns'
-27A59F   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A5A1     Size              0008 [8]
-27A5A3     Attribute         00A59D9BCF7FAEFA [46616663684001530] 'Mon Aug  7 11:19:27 2006 860153000ns'
-27A5AB   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A5AD     Size              0008 [8]
-27A5AF     Attribute         0000000000000000 [0] 'No Date Time'
-27A5B7   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A5B9     Size              0008 [8]
-27A5BB     Attribute         0000000000000000 [0] 'No Date Time'
-27A5C3   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A5C5     Size              0002 [2]
-27A5C7     Attribute         000E [14]'Revision Count 000E [14]'
-27A5C9   Tag #8              0015 [21] 'ATR$C_UIC'
-27A5CB     Size              0004 [4]
-27A5CD     Attribute         00010004 [65540]
-27A5D1   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A5D3     Size              0002 [2]
+27A593   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A595     Size              0008 (8)
+27A597     Attribute         00A58DD2F8472940 (46599308405320000) 'Tue Jul 18 09:13:59 2006 992000000ns'
+27A59F   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A5A1     Size              0008 (8)
+27A5A3     Attribute         00A59D9BCF7FAEFA (46616663684001530) 'Mon Aug  7 11:19:27 2006 860153000ns'
+27A5AB   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A5AD     Size              0008 (8)
+27A5AF     Attribute         0000000000000000 (0) 'No Date Time'
+27A5B7   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A5B9     Size              0008 (8)
+27A5BB     Attribute         0000000000000000 (0) 'No Date Time'
+27A5C3   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A5C5     Size              0002 (2)
+27A5C7     Attribute         000E (14)'Revision Count 000E (14)'
+27A5C9   Tag #8              0015 (21) 'ATR$C_UIC'
+27A5CB     Size              0004 (4)
+27A5CD     Attribute         00010004 (65540)
+27A5D1   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A5D3     Size              0002 (2)
 27A5D5     Attribute         AA AA
-27A5D7   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A5D9     Size              0002 [2]
-27A5DB     Attribute         0000 [0]
-27A5DD   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A5DF     Size              0001 [1]
+27A5D7   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A5D9     Size              0002 (2)
+27A5DB     Attribute         0000 (0)
+27A5DD   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A5DF     Size              0001 (1)
 27A5E1     Attribute         00
 
-27A5E2 CENTRAL HEADER #11    02014B50 [33639248]
-27A5E6 Created Zip Spec      17 [23] '2.3'
-27A5E7 Created OS            02 [2] 'OpenVMS'
-27A5E8 Extract Zip Spec      14 [20] '2.0'
-27A5E9 Extract OS            00 [0] 'MS-DOS'
-27A5EA General Purpose Flag  0000 [0]
+27A5E2 CENTRAL HEADER #11    02014B50 (33639248)
+27A5E6 Created Zip Spec      17 (23) '2.3'
+27A5E7 Created OS            02 (2) 'OpenVMS'
+27A5E8 Extract Zip Spec      14 (20) '2.0'
+27A5E9 Extract OS            00 (0) 'MS-DOS'
+27A5EA General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A5EC Compression Method    0008 [8] 'Deflated'
-27A5EE Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-27A5F2 CRC                   37B12C6C [934358124]
-27A5F6 Compressed Length     00002A26 [10790]
-27A5FA Uncompressed Length   00006000 [24576]
-27A5FE Filename Length       0018 [24]
-27A600 Extra Length          0083 [131]
-27A602 Comment Length        0000 [0]
-27A604 Disk Start            0000 [0]
-27A606 Int File Attributes   0000 [0]
+27A5EC Compression Method    0008 (8) 'Deflated'
+27A5EE Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+27A5F2 CRC                   37B12C6C (934358124)
+27A5F6 Compressed Length     00002A26 (10790)
+27A5FA Uncompressed Length   00006000 (24576)
+27A5FE Filename Length       0018 (24)
+27A600 Extra Length          0083 (131)
+27A602 Comment Length        0000 (0)
+27A604 Disk Start            0000 (0)
+27A606 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A608 Ext File Attributes   816D0001 [2171404289]
+27A608 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A60C Local Header Offset   00235970 [2316656]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A60C Local Header Offset   00235970 (2316656)
 27A610 Filename              'zip/zipnote.vax_vaxc_exe'
-27A628 Extra ID #1           000C [12] 'OpenVMS'
-27A62A   Length              007F [127]
-27A62C   CRC                 89D83AAD [2312649389]
-27A630   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A632     Size              0020 [32]
+27A628 Extra ID #1           000C (12) 'OpenVMS'
+27A62A   Length              007F (127)
+27A62C   CRC                 89D83AAD (2312649389)
+27A630   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A632     Size              0020 (32)
 27A634     Attribute         01 00 00 02 00 00 30 00 00 00 31 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A654   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A656     Size              0004 [4]
-27A658     Attribute         00000020 [32]
+27A654   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A656     Size              0004 (4)
+27A658     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A65C   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A65E     Size              0008 [8]
-27A660     Attribute         00A58DDA506F4057 [46599339949113431] 'Tue Jul 18 10:06:34 2006 371343100ns'
-27A668   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A66A     Size              0008 [8]
-27A66C     Attribute         00A59D9BCF874859 [46616663684499545] 'Mon Aug  7 11:19:27 2006 909954500ns'
-27A674   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A676     Size              0008 [8]
-27A678     Attribute         0000000000000000 [0] 'No Date Time'
-27A680   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A682     Size              0008 [8]
-27A684     Attribute         0000000000000000 [0] 'No Date Time'
-27A68C   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A68E     Size              0002 [2]
-27A690     Attribute         000D [13]'Revision Count 000D [13]'
-27A692   Tag #8              0015 [21] 'ATR$C_UIC'
-27A694     Size              0004 [4]
-27A696     Attribute         00010004 [65540]
-27A69A   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A69C     Size              0002 [2]
+27A65C   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A65E     Size              0008 (8)
+27A660     Attribute         00A58DDA506F4057 (46599339949113431) 'Tue Jul 18 10:06:34 2006 371343100ns'
+27A668   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A66A     Size              0008 (8)
+27A66C     Attribute         00A59D9BCF874859 (46616663684499545) 'Mon Aug  7 11:19:27 2006 909954500ns'
+27A674   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A676     Size              0008 (8)
+27A678     Attribute         0000000000000000 (0) 'No Date Time'
+27A680   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A682     Size              0008 (8)
+27A684     Attribute         0000000000000000 (0) 'No Date Time'
+27A68C   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A68E     Size              0002 (2)
+27A690     Attribute         000D (13)'Revision Count 000D (13)'
+27A692   Tag #8              0015 (21) 'ATR$C_UIC'
+27A694     Size              0004 (4)
+27A696     Attribute         00010004 (65540)
+27A69A   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A69C     Size              0002 (2)
 27A69E     Attribute         AA AA
-27A6A0   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A6A2     Size              0002 [2]
-27A6A4     Attribute         0000 [0]
-27A6A6   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A6A8     Size              0001 [1]
+27A6A0   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A6A2     Size              0002 (2)
+27A6A4     Attribute         0000 (0)
+27A6A6   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A6A8     Size              0001 (1)
 27A6AA     Attribute         00
 
-27A6AB CENTRAL HEADER #12    02014B50 [33639248]
-27A6AF Created Zip Spec      17 [23] '2.3'
-27A6B0 Created OS            02 [2] 'OpenVMS'
-27A6B1 Extract Zip Spec      14 [20] '2.0'
-27A6B2 Extract OS            00 [0] 'MS-DOS'
-27A6B3 General Purpose Flag  0000 [0]
+27A6AB CENTRAL HEADER #12    02014B50 (33639248)
+27A6AF Created Zip Spec      17 (23) '2.3'
+27A6B0 Created OS            02 (2) 'OpenVMS'
+27A6B1 Extract Zip Spec      14 (20) '2.0'
+27A6B2 Extract OS            00 (0) 'MS-DOS'
+27A6B3 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A6B5 Compression Method    0008 [8] 'Deflated'
-27A6B7 Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-27A6BB CRC                   9BBEDB9F [2612976543]
-27A6BF Compressed Length     00004FD0 [20432]
-27A6C3 Uncompressed Length   0000A200 [41472]
-27A6C7 Filename Length       0014 [20]
-27A6C9 Extra Length          0083 [131]
-27A6CB Comment Length        0000 [0]
-27A6CD Disk Start            0000 [0]
-27A6CF Int File Attributes   0000 [0]
+27A6B5 Compression Method    0008 (8) 'Deflated'
+27A6B7 Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+27A6BB CRC                   9BBEDB9F (2612976543)
+27A6BF Compressed Length     00004FD0 (20432)
+27A6C3 Uncompressed Length   0000A200 (41472)
+27A6C7 Filename Length       0014 (20)
+27A6C9 Extra Length          0083 (131)
+27A6CB Comment Length        0000 (0)
+27A6CD Disk Start            0000 (0)
+27A6CF Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A6D1 Ext File Attributes   816D0001 [2171404289]
+27A6D1 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A6D5 Local Header Offset   0023844F [2327631]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A6D5 Local Header Offset   0023844F (2327631)
 27A6D9 Filename              'zip/zipsplit.axp_exe'
-27A6ED Extra ID #1           000C [12] 'OpenVMS'
-27A6EF   Length              007F [127]
-27A6F1   CRC                 2E519571 [777098609]
-27A6F5   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A6F7     Size              0020 [32]
+27A6ED Extra ID #1           000C (12) 'OpenVMS'
+27A6EF   Length              007F (127)
+27A6F1   CRC                 2E519571 (777098609)
+27A6F5   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A6F7     Size              0020 (32)
 27A6F9     Attribute         01 00 00 02 00 00 58 00 00 00 52 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A719   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A71B     Size              0004 [4]
-27A71D     Attribute         00000020 [32]
+27A719   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A71B     Size              0004 (4)
+27A71D     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A721   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A723     Size              0008 [8]
-27A725     Attribute         00A58DDA348B2BB0 [46599339481181104] 'Tue Jul 18 10:05:47 2006 578110400ns'
-27A72D   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A72F     Size              0008 [8]
-27A731     Attribute         00A59D9BCF9418C7 [46616663685339335] 'Mon Aug  7 11:19:27 2006 993933500ns'
-27A739   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A73B     Size              0008 [8]
-27A73D     Attribute         0000000000000000 [0] 'No Date Time'
-27A745   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A747     Size              0008 [8]
-27A749     Attribute         0000000000000000 [0] 'No Date Time'
-27A751   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A753     Size              0002 [2]
-27A755     Attribute         000D [13]'Revision Count 000D [13]'
-27A757   Tag #8              0015 [21] 'ATR$C_UIC'
-27A759     Size              0004 [4]
-27A75B     Attribute         00010004 [65540]
-27A75F   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A761     Size              0002 [2]
+27A721   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A723     Size              0008 (8)
+27A725     Attribute         00A58DDA348B2BB0 (46599339481181104) 'Tue Jul 18 10:05:47 2006 578110400ns'
+27A72D   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A72F     Size              0008 (8)
+27A731     Attribute         00A59D9BCF9418C7 (46616663685339335) 'Mon Aug  7 11:19:27 2006 993933500ns'
+27A739   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A73B     Size              0008 (8)
+27A73D     Attribute         0000000000000000 (0) 'No Date Time'
+27A745   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A747     Size              0008 (8)
+27A749     Attribute         0000000000000000 (0) 'No Date Time'
+27A751   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A753     Size              0002 (2)
+27A755     Attribute         000D (13)'Revision Count 000D (13)'
+27A757   Tag #8              0015 (21) 'ATR$C_UIC'
+27A759     Size              0004 (4)
+27A75B     Attribute         00010004 (65540)
+27A75F   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A761     Size              0002 (2)
 27A763     Attribute         AA AA
-27A765   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A767     Size              0002 [2]
-27A769     Attribute         0000 [0]
-27A76B   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A76D     Size              0001 [1]
+27A765   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A767     Size              0002 (2)
+27A769     Attribute         0000 (0)
+27A76B   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A76D     Size              0001 (1)
 27A76F     Attribute         00
 
-27A770 CENTRAL HEADER #13    02014B50 [33639248]
-27A774 Created Zip Spec      17 [23] '2.3'
-27A775 Created OS            02 [2] 'OpenVMS'
-27A776 Extract Zip Spec      14 [20] '2.0'
-27A777 Extract OS            00 [0] 'MS-DOS'
-27A778 General Purpose Flag  0000 [0]
+27A770 CENTRAL HEADER #13    02014B50 (33639248)
+27A774 Created Zip Spec      17 (23) '2.3'
+27A775 Created OS            02 (2) 'OpenVMS'
+27A776 Extract Zip Spec      14 (20) '2.0'
+27A777 Extract OS            00 (0) 'MS-DOS'
+27A778 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A77A Compression Method    0008 [8] 'Deflated'
-27A77C Last Mod Time         34F249C1 [888293825] 'Tue Jul 18 09:14:02 2006'
-27A780 CRC                   A4276CF2 [2754047218]
-27A784 Compressed Length     00007B24 [31524]
-27A788 Uncompressed Length   0001A800 [108544]
-27A78C Filename Length       0014 [20]
-27A78E Extra Length          0083 [131]
-27A790 Comment Length        0000 [0]
-27A792 Disk Start            0000 [0]
-27A794 Int File Attributes   0000 [0]
+27A77A Compression Method    0008 (8) 'Deflated'
+27A77C Last Mod Time         34F249C1 (888293825) 'Tue Jul 18 09:14:02 2006'
+27A780 CRC                   A4276CF2 (2754047218)
+27A784 Compressed Length     00007B24 (31524)
+27A788 Uncompressed Length   0001A800 (108544)
+27A78C Filename Length       0014 (20)
+27A78E Extra Length          0083 (131)
+27A790 Comment Length        0000 (0)
+27A792 Disk Start            0000 (0)
+27A794 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A796 Ext File Attributes   816D0001 [2171404289]
+27A796 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A79A Local Header Offset   0023D4D4 [2348244]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A79A Local Header Offset   0023D4D4 (2348244)
 27A79E Filename              'zip/zipsplit.i64_exe'
-27A7B2 Extra ID #1           000C [12] 'OpenVMS'
-27A7B4   Length              007F [127]
-27A7B6   CRC                 584A6061 [1481269345]
-27A7BA   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A7BC     Size              0020 [32]
+27A7B2 Extra ID #1           000C (12) 'OpenVMS'
+27A7B4   Length              007F (127)
+27A7B6   CRC                 584A6061 (1481269345)
+27A7BA   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A7BC     Size              0020 (32)
 27A7BE     Attribute         01 00 00 02 00 00 D8 00 00 00 D5 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A7DE   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A7E0     Size              0004 [4]
-27A7E2     Attribute         00000020 [32]
+27A7DE   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A7E0     Size              0004 (4)
+27A7E2     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A7E6   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A7E8     Size              0008 [8]
-27A7EA     Attribute         00A58DD2F88F07B0 [46599308410030000] 'Tue Jul 18 09:14:00 2006 463000000ns'
-27A7F2   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A7F4     Size              0008 [8]
-27A7F6     Attribute         00A59D9BCFA0C310 [46616663686169360] 'Mon Aug  7 11:19:28 2006 76936000ns'
-27A7FE   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A800     Size              0008 [8]
-27A802     Attribute         0000000000000000 [0] 'No Date Time'
-27A80A   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A80C     Size              0008 [8]
-27A80E     Attribute         0000000000000000 [0] 'No Date Time'
-27A816   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A818     Size              0002 [2]
-27A81A     Attribute         000E [14]'Revision Count 000E [14]'
-27A81C   Tag #8              0015 [21] 'ATR$C_UIC'
-27A81E     Size              0004 [4]
-27A820     Attribute         00010004 [65540]
-27A824   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A826     Size              0002 [2]
+27A7E6   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A7E8     Size              0008 (8)
+27A7EA     Attribute         00A58DD2F88F07B0 (46599308410030000) 'Tue Jul 18 09:14:00 2006 463000000ns'
+27A7F2   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A7F4     Size              0008 (8)
+27A7F6     Attribute         00A59D9BCFA0C310 (46616663686169360) 'Mon Aug  7 11:19:28 2006 76936000ns'
+27A7FE   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A800     Size              0008 (8)
+27A802     Attribute         0000000000000000 (0) 'No Date Time'
+27A80A   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A80C     Size              0008 (8)
+27A80E     Attribute         0000000000000000 (0) 'No Date Time'
+27A816   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A818     Size              0002 (2)
+27A81A     Attribute         000E (14)'Revision Count 000E (14)'
+27A81C   Tag #8              0015 (21) 'ATR$C_UIC'
+27A81E     Size              0004 (4)
+27A820     Attribute         00010004 (65540)
+27A824   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A826     Size              0002 (2)
 27A828     Attribute         AA AA
-27A82A   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A82C     Size              0002 [2]
-27A82E     Attribute         0000 [0]
-27A830   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A832     Size              0001 [1]
+27A82A   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A82C     Size              0002 (2)
+27A82E     Attribute         0000 (0)
+27A830   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A832     Size              0001 (1)
 27A834     Attribute         00
 
-27A835 CENTRAL HEADER #14    02014B50 [33639248]
-27A839 Created Zip Spec      17 [23] '2.3'
-27A83A Created OS            02 [2] 'OpenVMS'
-27A83B Extract Zip Spec      14 [20] '2.0'
-27A83C Extract OS            00 [0] 'MS-DOS'
-27A83D General Purpose Flag  0000 [0]
+27A835 CENTRAL HEADER #14    02014B50 (33639248)
+27A839 Created Zip Spec      17 (23) '2.3'
+27A83A Created OS            02 (2) 'OpenVMS'
+27A83B Extract Zip Spec      14 (20) '2.0'
+27A83C Extract OS            00 (0) 'MS-DOS'
+27A83D General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A83F Compression Method    0008 [8] 'Deflated'
-27A841 Last Mod Time         34F250D2 [888295634] 'Tue Jul 18 10:06:36 2006'
-27A845 CRC                   0EA0E356 [245424982]
-27A849 Compressed Length     00002EE9 [12009]
-27A84D Uncompressed Length   00006600 [26112]
-27A851 Filename Length       0019 [25]
-27A853 Extra Length          0083 [131]
-27A855 Comment Length        0000 [0]
-27A857 Disk Start            0000 [0]
-27A859 Int File Attributes   0000 [0]
+27A83F Compression Method    0008 (8) 'Deflated'
+27A841 Last Mod Time         34F250D2 (888295634) 'Tue Jul 18 10:06:36 2006'
+27A845 CRC                   0EA0E356 (245424982)
+27A849 Compressed Length     00002EE9 (12009)
+27A84D Uncompressed Length   00006600 (26112)
+27A851 Filename Length       0019 (25)
+27A853 Extra Length          0083 (131)
+27A855 Comment Length        0000 (0)
+27A857 Disk Start            0000 (0)
+27A859 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A85B Ext File Attributes   816D0001 [2171404289]
+27A85B Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A85F Local Header Offset   002450AD [2379949]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A85F Local Header Offset   002450AD (2379949)
 27A863 Filename              'zip/zipsplit.vax_vaxc_exe'
-27A87C Extra ID #1           000C [12] 'OpenVMS'
-27A87E   Length              007F [127]
-27A880   CRC                 DCE4E9D6 [3705989590]
-27A884   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A886     Size              0020 [32]
+27A87C Extra ID #1           000C (12) 'OpenVMS'
+27A87E   Length              007F (127)
+27A880   CRC                 DCE4E9D6 (3705989590)
+27A884   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A886     Size              0020 (32)
 27A888     Attribute         01 00 00 02 00 00 38 00 00 00 34 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A8A8   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A8AA     Size              0004 [4]
-27A8AC     Attribute         00000020 [32]
+27A8A8   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A8AA     Size              0004 (4)
+27A8AC     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A8B0   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A8B2     Size              0008 [8]
-27A8B4     Attribute         00A58DDA50E7CBB7 [46599339957013431] 'Tue Jul 18 10:06:35 2006 161343100ns'
-27A8BC   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A8BE     Size              0008 [8]
-27A8C0     Attribute         00A59D9BCFAD6D59 [46616663686999385] 'Mon Aug  7 11:19:28 2006 159938500ns'
-27A8C8   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A8CA     Size              0008 [8]
-27A8CC     Attribute         0000000000000000 [0] 'No Date Time'
-27A8D4   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A8D6     Size              0008 [8]
-27A8D8     Attribute         0000000000000000 [0] 'No Date Time'
-27A8E0   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A8E2     Size              0002 [2]
-27A8E4     Attribute         000D [13]'Revision Count 000D [13]'
-27A8E6   Tag #8              0015 [21] 'ATR$C_UIC'
-27A8E8     Size              0004 [4]
-27A8EA     Attribute         00010004 [65540]
-27A8EE   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A8F0     Size              0002 [2]
+27A8B0   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A8B2     Size              0008 (8)
+27A8B4     Attribute         00A58DDA50E7CBB7 (46599339957013431) 'Tue Jul 18 10:06:35 2006 161343100ns'
+27A8BC   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A8BE     Size              0008 (8)
+27A8C0     Attribute         00A59D9BCFAD6D59 (46616663686999385) 'Mon Aug  7 11:19:28 2006 159938500ns'
+27A8C8   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A8CA     Size              0008 (8)
+27A8CC     Attribute         0000000000000000 (0) 'No Date Time'
+27A8D4   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A8D6     Size              0008 (8)
+27A8D8     Attribute         0000000000000000 (0) 'No Date Time'
+27A8E0   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A8E2     Size              0002 (2)
+27A8E4     Attribute         000D (13)'Revision Count 000D (13)'
+27A8E6   Tag #8              0015 (21) 'ATR$C_UIC'
+27A8E8     Size              0004 (4)
+27A8EA     Attribute         00010004 (65540)
+27A8EE   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A8F0     Size              0002 (2)
 27A8F2     Attribute         AA AA
-27A8F4   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A8F6     Size              0002 [2]
-27A8F8     Attribute         0000 [0]
-27A8FA   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A8FC     Size              0001 [1]
+27A8F4   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A8F6     Size              0002 (2)
+27A8F8     Attribute         0000 (0)
+27A8FA   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A8FC     Size              0001 (1)
 27A8FE     Attribute         00
 
-27A8FF CENTRAL HEADER #15    02014B50 [33639248]
-27A903 Created Zip Spec      17 [23] '2.3'
-27A904 Created OS            02 [2] 'OpenVMS'
-27A905 Extract Zip Spec      14 [20] '2.0'
-27A906 Extract OS            00 [0] 'MS-DOS'
-27A907 General Purpose Flag  0000 [0]
+27A8FF CENTRAL HEADER #15    02014B50 (33639248)
+27A903 Created Zip Spec      17 (23) '2.3'
+27A904 Created OS            02 (2) 'OpenVMS'
+27A905 Extract Zip Spec      14 (20) '2.0'
+27A906 Extract OS            00 (0) 'MS-DOS'
+27A907 General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A909 Compression Method    0008 [8] 'Deflated'
-27A90B Last Mod Time         34F250B8 [888295608] 'Tue Jul 18 10:05:48 2006'
-27A90F CRC                   1678159D [376968605]
-27A913 Compressed Length     0001085E [67678]
-27A917 Uncompressed Length   0001F600 [128512]
-27A91B Filename Length       0013 [19]
-27A91D Extra Length          0083 [131]
-27A91F Comment Length        0000 [0]
-27A921 Disk Start            0000 [0]
-27A923 Int File Attributes   0000 [0]
+27A909 Compression Method    0008 (8) 'Deflated'
+27A90B Last Mod Time         34F250B8 (888295608) 'Tue Jul 18 10:05:48 2006'
+27A90F CRC                   1678159D (376968605)
+27A913 Compressed Length     0001085E (67678)
+27A917 Uncompressed Length   0001F600 (128512)
+27A91B Filename Length       0013 (19)
+27A91D Extra Length          0083 (131)
+27A91F Comment Length        0000 (0)
+27A921 Disk Start            0000 (0)
+27A923 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A925 Ext File Attributes   816D0001 [2171404289]
+27A925 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A929 Local Header Offset   00248050 [2392144]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A929 Local Header Offset   00248050 (2392144)
 27A92D Filename              'zip/zip_cli.axp_exe'
-27A940 Extra ID #1           000C [12] 'OpenVMS'
-27A942   Length              007F [127]
-27A944   CRC                 B52F57BF [3039778751]
-27A948   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27A94A     Size              0020 [32]
+27A940 Extra ID #1           000C (12) 'OpenVMS'
+27A942   Length              007F (127)
+27A944   CRC                 B52F57BF (3039778751)
+27A948   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27A94A     Size              0020 (32)
 27A94C     Attribute         01 00 00 02 00 00 00 01 00 00 FC 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27A96C   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27A96E     Size              0004 [4]
-27A970     Attribute         00000020 [32]
+27A96C   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27A96E     Size              0004 (4)
+27A970     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27A974   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27A976     Size              0008 [8]
-27A978     Attribute         00A58DDA346BDE68 [46599339479129704] 'Tue Jul 18 10:05:47 2006 372970400ns'
-27A980   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27A982     Size              0008 [8]
-27A984     Attribute         00A59D9BCFBA3DC7 [46616663687839175] 'Mon Aug  7 11:19:28 2006 243917500ns'
-27A98C   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27A98E     Size              0008 [8]
-27A990     Attribute         0000000000000000 [0] 'No Date Time'
-27A998   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27A99A     Size              0008 [8]
-27A99C     Attribute         0000000000000000 [0] 'No Date Time'
-27A9A4   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27A9A6     Size              0002 [2]
-27A9A8     Attribute         000D [13]'Revision Count 000D [13]'
-27A9AA   Tag #8              0015 [21] 'ATR$C_UIC'
-27A9AC     Size              0004 [4]
-27A9AE     Attribute         00010004 [65540]
-27A9B2   Tag #9              0016 [22] 'ATR$C_FPRO'
-27A9B4     Size              0002 [2]
+27A974   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27A976     Size              0008 (8)
+27A978     Attribute         00A58DDA346BDE68 (46599339479129704) 'Tue Jul 18 10:05:47 2006 372970400ns'
+27A980   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27A982     Size              0008 (8)
+27A984     Attribute         00A59D9BCFBA3DC7 (46616663687839175) 'Mon Aug  7 11:19:28 2006 243917500ns'
+27A98C   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27A98E     Size              0008 (8)
+27A990     Attribute         0000000000000000 (0) 'No Date Time'
+27A998   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27A99A     Size              0008 (8)
+27A99C     Attribute         0000000000000000 (0) 'No Date Time'
+27A9A4   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27A9A6     Size              0002 (2)
+27A9A8     Attribute         000D (13)'Revision Count 000D (13)'
+27A9AA   Tag #8              0015 (21) 'ATR$C_UIC'
+27A9AC     Size              0004 (4)
+27A9AE     Attribute         00010004 (65540)
+27A9B2   Tag #9              0016 (22) 'ATR$C_FPRO'
+27A9B4     Size              0002 (2)
 27A9B6     Attribute         AA AA
-27A9B8   Tag #10             0017 [23] 'ATR$C_RPRO'
-27A9BA     Size              0002 [2]
-27A9BC     Attribute         0000 [0]
-27A9BE   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27A9C0     Size              0001 [1]
+27A9B8   Tag #10             0017 (23) 'ATR$C_RPRO'
+27A9BA     Size              0002 (2)
+27A9BC     Attribute         0000 (0)
+27A9BE   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27A9C0     Size              0001 (1)
 27A9C2     Attribute         00
 
-27A9C3 CENTRAL HEADER #16    02014B50 [33639248]
-27A9C7 Created Zip Spec      17 [23] '2.3'
-27A9C8 Created OS            02 [2] 'OpenVMS'
-27A9C9 Extract Zip Spec      14 [20] '2.0'
-27A9CA Extract OS            00 [0] 'MS-DOS'
-27A9CB General Purpose Flag  0000 [0]
+27A9C3 CENTRAL HEADER #16    02014B50 (33639248)
+27A9C7 Created Zip Spec      17 (23) '2.3'
+27A9C8 Created OS            02 (2) 'OpenVMS'
+27A9C9 Extract Zip Spec      14 (20) '2.0'
+27A9CA Extract OS            00 (0) 'MS-DOS'
+27A9CB General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27A9CD Compression Method    0008 [8] 'Deflated'
-27A9CF Last Mod Time         34F249C0 [888293824] 'Tue Jul 18 09:14:00 2006'
-27A9D3 CRC                   F081C98E [4035037582]
-27A9D7 Compressed Length     00017C78 [97400]
-27A9DB Uncompressed Length   0004C600 [312832]
-27A9DF Filename Length       0013 [19]
-27A9E1 Extra Length          0083 [131]
-27A9E3 Comment Length        0000 [0]
-27A9E5 Disk Start            0000 [0]
-27A9E7 Int File Attributes   0000 [0]
+27A9CD Compression Method    0008 (8) 'Deflated'
+27A9CF Last Mod Time         34F249C0 (888293824) 'Tue Jul 18 09:14:00 2006'
+27A9D3 CRC                   F081C98E (4035037582)
+27A9D7 Compressed Length     00017C78 (97400)
+27A9DB Uncompressed Length   0004C600 (312832)
+27A9DF Filename Length       0013 (19)
+27A9E1 Extra Length          0083 (131)
+27A9E3 Comment Length        0000 (0)
+27A9E5 Disk Start            0000 (0)
+27A9E7 Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27A9E9 Ext File Attributes   816D0001 [2171404289]
+27A9E9 Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27A9ED Local Header Offset   00258962 [2460002]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27A9ED Local Header Offset   00258962 (2460002)
 27A9F1 Filename              'zip/zip_cli.i64_exe'
-27AA04 Extra ID #1           000C [12] 'OpenVMS'
-27AA06   Length              007F [127]
-27AA08   CRC                 0410ACD8 [68201688]
-27AA0C   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27AA0E     Size              0020 [32]
+27AA04 Extra ID #1           000C (12) 'OpenVMS'
+27AA06   Length              007F (127)
+27AA08   CRC                 0410ACD8 (68201688)
+27AA0C   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27AA0E     Size              0020 (32)
 27AA10     Attribute         01 00 00 02 00 00 68 02 00 00 64 02 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27AA30   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27AA32     Size              0004 [4]
-27AA34     Attribute         00000020 [32]
+27AA30   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27AA32     Size              0004 (4)
+27AA34     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27AA38   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27AA3A     Size              0008 [8]
-27AA3C     Attribute         00A58DD2F77E5B00 [46599308392160000] 'Tue Jul 18 09:13:58 2006 676000000ns'
-27AA44   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27AA46     Size              0008 [8]
-27AA48     Attribute         00A59D9BCFC5B6E8 [46616663688591080] 'Mon Aug  7 11:19:28 2006 319108000ns'
-27AA50   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27AA52     Size              0008 [8]
-27AA54     Attribute         0000000000000000 [0] 'No Date Time'
-27AA5C   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27AA5E     Size              0008 [8]
-27AA60     Attribute         0000000000000000 [0] 'No Date Time'
-27AA68   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27AA6A     Size              0002 [2]
-27AA6C     Attribute         000E [14]'Revision Count 000E [14]'
-27AA6E   Tag #8              0015 [21] 'ATR$C_UIC'
-27AA70     Size              0004 [4]
-27AA72     Attribute         00010004 [65540]
-27AA76   Tag #9              0016 [22] 'ATR$C_FPRO'
-27AA78     Size              0002 [2]
+27AA38   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27AA3A     Size              0008 (8)
+27AA3C     Attribute         00A58DD2F77E5B00 (46599308392160000) 'Tue Jul 18 09:13:58 2006 676000000ns'
+27AA44   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27AA46     Size              0008 (8)
+27AA48     Attribute         00A59D9BCFC5B6E8 (46616663688591080) 'Mon Aug  7 11:19:28 2006 319108000ns'
+27AA50   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27AA52     Size              0008 (8)
+27AA54     Attribute         0000000000000000 (0) 'No Date Time'
+27AA5C   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27AA5E     Size              0008 (8)
+27AA60     Attribute         0000000000000000 (0) 'No Date Time'
+27AA68   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27AA6A     Size              0002 (2)
+27AA6C     Attribute         000E (14)'Revision Count 000E (14)'
+27AA6E   Tag #8              0015 (21) 'ATR$C_UIC'
+27AA70     Size              0004 (4)
+27AA72     Attribute         00010004 (65540)
+27AA76   Tag #9              0016 (22) 'ATR$C_FPRO'
+27AA78     Size              0002 (2)
 27AA7A     Attribute         AA AA
-27AA7C   Tag #10             0017 [23] 'ATR$C_RPRO'
-27AA7E     Size              0002 [2]
-27AA80     Attribute         0000 [0]
-27AA82   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27AA84     Size              0001 [1]
+27AA7C   Tag #10             0017 (23) 'ATR$C_RPRO'
+27AA7E     Size              0002 (2)
+27AA80     Attribute         0000 (0)
+27AA82   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27AA84     Size              0001 (1)
 27AA86     Attribute         00
 
-27AA87 CENTRAL HEADER #17    02014B50 [33639248]
-27AA8B Created Zip Spec      17 [23] '2.3'
-27AA8C Created OS            02 [2] 'OpenVMS'
-27AA8D Extract Zip Spec      14 [20] '2.0'
-27AA8E Extract OS            00 [0] 'MS-DOS'
-27AA8F General Purpose Flag  0000 [0]
+27AA87 CENTRAL HEADER #17    02014B50 (33639248)
+27AA8B Created Zip Spec      17 (23) '2.3'
+27AA8C Created OS            02 (2) 'OpenVMS'
+27AA8D Extract Zip Spec      14 (20) '2.0'
+27AA8E Extract OS            00 (0) 'MS-DOS'
+27AA8F General Purpose Flag  0000 (0)
        [Bits 1-2]            0 'Normal Compression'
-27AA91 Compression Method    0008 [8] 'Deflated'
-27AA93 Last Mod Time         34F250D1 [888295633] 'Tue Jul 18 10:06:34 2006'
-27AA97 CRC                   0033EE3A [3403322]
-27AA9B Compressed Length     000096F6 [38646]
-27AA9F Uncompressed Length   00013600 [79360]
-27AAA3 Filename Length       0018 [24]
-27AAA5 Extra Length          0083 [131]
-27AAA7 Comment Length        0000 [0]
-27AAA9 Disk Start            0000 [0]
-27AAAB Int File Attributes   0000 [0]
+27AA91 Compression Method    0008 (8) 'Deflated'
+27AA93 Last Mod Time         34F250D1 (888295633) 'Tue Jul 18 10:06:34 2006'
+27AA97 CRC                   0033EE3A (3403322)
+27AA9B Compressed Length     000096F6 (38646)
+27AA9F Uncompressed Length   00013600 (79360)
+27AAA3 Filename Length       0018 (24)
+27AAA5 Extra Length          0083 (131)
+27AAA7 Comment Length        0000 (0)
+27AAA9 Disk Start            0000 (0)
+27AAAB Int File Attributes   0000 (0)
        [Bit 0]               0 'Binary Data'
-27AAAD Ext File Attributes   816D0001 [2171404289]
+27AAAD Ext File Attributes   816D0001 (2171404289)
        [Bit 0]               Read-Only
-       [Bits 24-31]          816D [33133] 'Unknown attributes for OS ID 2'
-27AAB1 Local Header Offset   0027068E [2557582]
+       [Bits 24-31]          816D (33133) 'Unknown attributes for OS ID 2'
+27AAB1 Local Header Offset   0027068E (2557582)
 27AAB5 Filename              'zip/zip_cli.vax_vaxc_exe'
-27AACD Extra ID #1           000C [12] 'OpenVMS'
-27AACF   Length              007F [127]
-27AAD1   CRC                 8F98ABDF [2409147359]
-27AAD5   Tag #1              0004 [4] 'ATR$C_RECATTR'
-27AAD7     Size              0020 [32]
+27AACD Extra ID #1           000C (12) 'OpenVMS'
+27AACF   Length              007F (127)
+27AAD1   CRC                 8F98ABDF (2409147359)
+27AAD5   Tag #1              0004 (4) 'ATR$C_RECATTR'
+27AAD7     Size              0020 (32)
 27AAD9     Attribute         01 00 00 02 00 00 A0 00 00 00 9C 00 00 00 00 00
                              00 02 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-27AAF9   Tag #2              0003 [3] 'ATR$C_UCHAR'
-27AAFB     Size              0004 [4]
-27AAFD     Attribute         00000020 [32]
+27AAF9   Tag #2              0003 (3) 'ATR$C_UCHAR'
+27AAFB     Size              0004 (4)
+27AAFD     Attribute         00000020 (32)
              [Bit 5]         FCH$M_CONTIGB
-27AB01   Tag #3              0011 [17] 'ATR$C_CREDATE'
-27AB03     Size              0008 [8]
-27AB05     Attribute         00A58DDA4F6A5377 [46599339932013431] 'Tue Jul 18 10:06:32 2006 661343100ns'
-27AB0D   Tag #4              0012 [18] 'ATR$C_REVDATE'
-27AB0F     Size              0008 [8]
-27AB11     Attribute         00A59D9BCFD26131 [46616663689421105] 'Mon Aug  7 11:19:28 2006 402110500ns'
-27AB19   Tag #5              0013 [19] 'ATR$C_EXPDATE'
-27AB1B     Size              0008 [8]
-27AB1D     Attribute         0000000000000000 [0] 'No Date Time'
-27AB25   Tag #6              0014 [20] 'ATR$C_BAKDATE'
-27AB27     Size              0008 [8]
-27AB29     Attribute         0000000000000000 [0] 'No Date Time'
-27AB31   Tag #7              000D [13] 'ATR$C_ASCDATES'
-27AB33     Size              0002 [2]
-27AB35     Attribute         000D [13]'Revision Count 000D [13]'
-27AB37   Tag #8              0015 [21] 'ATR$C_UIC'
-27AB39     Size              0004 [4]
-27AB3B     Attribute         00010004 [65540]
-27AB3F   Tag #9              0016 [22] 'ATR$C_FPRO'
-27AB41     Size              0002 [2]
+27AB01   Tag #3              0011 (17) 'ATR$C_CREDATE'
+27AB03     Size              0008 (8)
+27AB05     Attribute         00A58DDA4F6A5377 (46599339932013431) 'Tue Jul 18 10:06:32 2006 661343100ns'
+27AB0D   Tag #4              0012 (18) 'ATR$C_REVDATE'
+27AB0F     Size              0008 (8)
+27AB11     Attribute         00A59D9BCFD26131 (46616663689421105) 'Mon Aug  7 11:19:28 2006 402110500ns'
+27AB19   Tag #5              0013 (19) 'ATR$C_EXPDATE'
+27AB1B     Size              0008 (8)
+27AB1D     Attribute         0000000000000000 (0) 'No Date Time'
+27AB25   Tag #6              0014 (20) 'ATR$C_BAKDATE'
+27AB27     Size              0008 (8)
+27AB29     Attribute         0000000000000000 (0) 'No Date Time'
+27AB31   Tag #7              000D (13) 'ATR$C_ASCDATES'
+27AB33     Size              0002 (2)
+27AB35     Attribute         000D (13)'Revision Count 000D (13)'
+27AB37   Tag #8              0015 (21) 'ATR$C_UIC'
+27AB39     Size              0004 (4)
+27AB3B     Attribute         00010004 (65540)
+27AB3F   Tag #9              0016 (22) 'ATR$C_FPRO'
+27AB41     Size              0002 (2)
 27AB43     Attribute         AA AA
-27AB45   Tag #10             0017 [23] 'ATR$C_RPRO'
-27AB47     Size              0002 [2]
-27AB49     Attribute         0000 [0]
-27AB4B   Tag #11             001D [29] 'ATR$C_JOURNAL'
-27AB4D     Size              0001 [1]
+27AB45   Tag #10             0017 (23) 'ATR$C_RPRO'
+27AB47     Size              0002 (2)
+27AB49     Attribute         0000 (0)
+27AB4B   Tag #11             001D (29) 'ATR$C_JOURNAL'
+27AB4D     Size              0001 (1)
 27AB4F     Attribute         00
 
-27AB50 END CENTRAL HEADER    06054B50 [101010256]
-27AB54 Number of this disk   0000 [0]
-27AB56 Central Dir Disk no   0000 [0]
-27AB58 Entries in this disk  0011 [17]
-27AB5A Total Entries         0011 [17]
-27AB5C Size of Central Dir   00000D13 [3347]
-27AB60 Offset to Central Dir 00279E3D [2596413]
-27AB64 Comment Length        0000 [0]
+27AB50 END CENTRAL HEADER    06054B50 (101010256)
+27AB54 Number of this disk   0000 (0)
+27AB56 Central Dir Disk no   0000 (0)
+27AB58 Entries in this disk  0011 (17)
+27AB5A Total Entries         0011 (17)
+27AB5C Size of Central Dir   00000D13 (3347)
+27AB60 Offset to Central Dir 00279E3D (2596413)
+27AB64 Comment Length        0000 (0)
 #
 # Done

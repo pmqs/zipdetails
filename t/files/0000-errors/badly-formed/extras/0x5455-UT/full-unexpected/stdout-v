@@ -1,86 +1,86 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0000 [0]
-0008 0009 0002 00 00       Compression Method    0000 [0] 'Stored'
-000A 000D 0004 1D 6B 6C 55 Last Mod Time         556C6B1D [1433168669] 'Sat Nov 12 13:24:58 2022'
-000E 0011 0004 65 D8 87 85 CRC                   8587D865 [2240272485]
-0012 0015 0004 05 00 00 00 Compressed Length     00000005 [5]
-0016 0019 0004 05 00 00 00 Uncompressed Length   00000005 [5]
-001A 001B 0002 08 00       Filename Length       0008 [8]
-001C 001D 0002 11 00       Extra Length          0011 [17]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 1D 6B 6C 55 Last Mod Time         556C6B1D (1433168669) 'Sat Nov 12 13:24:58 2022'
+000E 0011 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
+0012 0015 0004 05 00 00 00 Compressed Length     00000005 (5)
+0016 0019 0004 05 00 00 00 Uncompressed Length   00000005 (5)
+001A 001B 0002 08 00       Filename Length       0008 (8)
+001C 001D 0002 11 00       Extra Length          0011 (17)
 001E 0025 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0026 0027 0002 55 54       Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0028 0029 0002 0D 00         Length              000D [13]
-002A 002A 0001 08            Flags               08 [8]
+0026 0027 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0028 0029 0002 0D 00         Length              000D (13)
+002A 002A 0001 08            Flags               08 (8)
 #
 # INFO: Offset 0x2A: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
 #
 # INFO: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Mod Time' present
 #
-002B 002E 0004 61 62 63 64   Mod Time            64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+002B 002E 0004 61 62 63 64   Mod Time            64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x2F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
 #
-002F 0032 0004 61 62 63 64   Access Time         64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+002F 0032 0004 61 62 63 64   Access Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x33: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
 #
-0033 0036 0004 61 62 63 64   Change Time         64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+0033 0036 0004 61 62 63 64   Change Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 0037 003B 0005 61 62 63 64 PAYLOAD               abcde
                65
 
-003C 003F 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-0040 0040 0001 14          Created Zip Spec      14 [20] '2.0'
-0041 0041 0001 03          Created OS            03 [3] 'Unix'
-0042 0042 0001 14          Extract Zip Spec      14 [20] '2.0'
-0043 0043 0001 00          Extract OS            00 [0] 'MS-DOS'
-0044 0045 0002 00 00       General Purpose Flag  0000 [0]
-0046 0047 0002 00 00       Compression Method    0000 [0] 'Stored'
-0048 004B 0004 1D 6B 6C 55 Last Mod Time         556C6B1D [1433168669] 'Sat Nov 12 13:24:58 2022'
-004C 004F 0004 65 D8 87 85 CRC                   8587D865 [2240272485]
-0050 0053 0004 05 00 00 00 Compressed Length     00000005 [5]
-0054 0057 0004 05 00 00 00 Uncompressed Length   00000005 [5]
-0058 0059 0002 08 00       Filename Length       0008 [8]
-005A 005B 0002 11 00       Extra Length          0011 [17]
-005C 005D 0002 00 00       Comment Length        0000 [0]
-005E 005F 0002 00 00       Disk Start            0000 [0]
-0060 0061 0002 00 00       Int File Attributes   0000 [0]
+003C 003F 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0040 0040 0001 14          Created Zip Spec      14 (20) '2.0'
+0041 0041 0001 03          Created OS            03 (3) 'Unix'
+0042 0042 0001 14          Extract Zip Spec      14 (20) '2.0'
+0043 0043 0001 00          Extract OS            00 (0) 'MS-DOS'
+0044 0045 0002 00 00       General Purpose Flag  0000 (0)
+0046 0047 0002 00 00       Compression Method    0000 (0) 'Stored'
+0048 004B 0004 1D 6B 6C 55 Last Mod Time         556C6B1D (1433168669) 'Sat Nov 12 13:24:58 2022'
+004C 004F 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
+0050 0053 0004 05 00 00 00 Compressed Length     00000005 (5)
+0054 0057 0004 05 00 00 00 Uncompressed Length   00000005 (5)
+0058 0059 0002 08 00       Filename Length       0008 (8)
+005A 005B 0002 11 00       Extra Length          0011 (17)
+005C 005D 0002 00 00       Comment Length        0000 (0)
+005E 005F 0002 00 00       Disk Start            0000 (0)
+0060 0061 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-0062 0065 0004 00 00 A4 81 Ext File Attributes   81A40000 [2175008768]
-                           [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
-                           [Bits 28-31]          08 [8] 'Regular File'
-0066 0069 0004 00 00 00 00 Local Header Offset   00000000 [0]
+0062 0065 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0066 0069 0004 00 00 00 00 Local Header Offset   00000000 (0)
 006A 0071 0008 66 69 6C 65 Filename              'filename'
                6E 61 6D 65
-0072 0073 0002 55 54       Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0074 0075 0002 0D 00         Length              000D [13]
-0076 0076 0001 08            Flags               08 [8]
+0072 0073 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0074 0075 0002 0D 00         Length              000D (13)
+0076 0076 0001 08            Flags               08 (8)
 #
 # INFO: Offset 0x76: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
 #
 # INFO: Offset 0x77: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Mod Time' present
 #
-0077 007A 0004 61 62 63 64   Mod Time            64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+0077 007A 0004 61 62 63 64   Mod Time            64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x7B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
 #
-007B 007E 0004 61 62 63 64   Access Time         64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+007B 007E 0004 61 62 63 64   Access Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x7F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
 #
-007F 0082 0004 61 62 63 64   Change Time         64636261 [1684234849] 'Tue May 16 11:00:49 2023'
+007F 0082 0004 61 62 63 64   Change Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 
-0083 0086 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-0087 0088 0002 00 00       Number of this disk   0000 [0]
-0089 008A 0002 00 00       Central Dir Disk no   0000 [0]
-008B 008C 0002 01 00       Entries in this disk  0001 [1]
-008D 008E 0002 01 00       Total Entries         0001 [1]
-008F 0092 0004 47 00 00 00 Size of Central Dir   00000047 [71]
-0093 0096 0004 3C 00 00 00 Offset to Central Dir 0000003C [60]
-0097 0098 0002 00 00       Comment Length        0000 [0]
+0083 0086 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0087 0088 0002 00 00       Number of this disk   0000 (0)
+0089 008A 0002 00 00       Central Dir Disk no   0000 (0)
+008B 008C 0002 01 00       Entries in this disk  0001 (1)
+008D 008E 0002 01 00       Total Entries         0001 (1)
+008F 0092 0004 47 00 00 00 Size of Central Dir   00000047 (71)
+0093 0096 0004 3C 00 00 00 Offset to Central Dir 0000003C (60)
+0097 0098 0002 00 00       Comment Length        0000 (0)
 #
 # Info Count: 8
 #

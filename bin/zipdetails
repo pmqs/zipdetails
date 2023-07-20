@@ -590,12 +590,12 @@ sub outHexdump
 
 sub decimalHex
 {
-    sprintf("%0*X [%u]", $_[1] // 0, $_[0], $_[0])
+    sprintf("%0*X (%u)", $_[1] // 0, $_[0], $_[0])
 }
 
 sub decimalHex0x
 {
-    sprintf("0x%0*X [%u]", $_[1] // 0, $_[0], $_[0])
+    sprintf("0x%0*X (%u)", $_[1] // 0, $_[0], $_[0])
 }
 
 sub out
@@ -6986,7 +6986,7 @@ type of data:
 =item * Numeric Values
 
 If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
-be displayed in both hex and decimal -- for example "C<002A [42]>".
+be displayed in both hex and decimal -- for example "C<002A (42)>".
 
 Note that Zip files store most numeric values in I<little-endian> encoding.
 (there area few rare instances where I<big-endian> is used). The value read from

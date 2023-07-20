@@ -1,70 +1,70 @@
 #
-# INFO: Offset 0x0: found 0x3021A [197146] bytes before beginning of zipfile
+# INFO: Offset 0x0: found 0x3021A (197146) bytes before beginning of zipfile
 #
 
 00000 30219 3021A ...         UNEXPECTED PADDING
 
-3021A 3021D 00004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-3021E 3021E 00001 14          Extract Zip Spec      14 [20] '2.0'
-3021F 3021F 00001 00          Extract OS            00 [0] 'MS-DOS'
-30220 30221 00002 02 00       General Purpose Flag  0002 [2]
+3021A 3021D 00004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+3021E 3021E 00001 14          Extract Zip Spec      14 (20) '2.0'
+3021F 3021F 00001 00          Extract OS            00 (0) 'MS-DOS'
+30220 30221 00002 02 00       General Purpose Flag  0002 (2)
                               [Bits 1-2]            1 'Maximum Compression'
-30222 30223 00002 08 00       Compression Method    0008 [8] 'Deflated'
-30224 30227 00004 19 0F F3 56 Last Mod Time         56F30F19 [1458769689] 'Wed Jul 19 01:56:50 2023'
-30228 3022B 00004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-3022C 3022F 00004 09 01 00 00 Compressed Length     00000109 [265]
-30230 30233 00004 BE 01 00 00 Uncompressed Length   000001BE [446]
-30234 30235 00002 09 00       Filename Length       0009 [9]
-30236 30237 00002 00 00       Extra Length          0000 [0]
+30222 30223 00002 08 00       Compression Method    0008 (8) 'Deflated'
+30224 30227 00004 19 0F F3 56 Last Mod Time         56F30F19 (1458769689) 'Wed Jul 19 01:56:50 2023'
+30228 3022B 00004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+3022C 3022F 00004 09 01 00 00 Compressed Length     00000109 (265)
+30230 30233 00004 BE 01 00 00 Uncompressed Length   000001BE (446)
+30234 30235 00002 09 00       Filename Length       0009 (9)
+30236 30237 00002 00 00       Extra Length          0000 (0)
 30238 30240 00009 6C 6F 72 65 Filename              'lorem.txt'
                   6D 2E 74 78
                   74
 30241 30349 00109 ...         PAYLOAD
 
-3034A 3034D 00004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-3034E 3034E 00001 14          Created Zip Spec      14 [20] '2.0'
-3034F 3034F 00001 0B          Created OS            0B [11] 'MVS or NTFS'
-30350 30350 00001 14          Extract Zip Spec      14 [20] '2.0'
-30351 30351 00001 00          Extract OS            00 [0] 'MS-DOS'
-30352 30353 00002 02 00       General Purpose Flag  0002 [2]
+3034A 3034D 00004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+3034E 3034E 00001 14          Created Zip Spec      14 (20) '2.0'
+3034F 3034F 00001 0B          Created OS            0B (11) 'MVS or NTFS'
+30350 30350 00001 14          Extract Zip Spec      14 (20) '2.0'
+30351 30351 00001 00          Extract OS            00 (0) 'MS-DOS'
+30352 30353 00002 02 00       General Purpose Flag  0002 (2)
                               [Bits 1-2]            1 'Maximum Compression'
-30354 30355 00002 08 00       Compression Method    0008 [8] 'Deflated'
-30356 30359 00004 19 0F F3 56 Last Mod Time         56F30F19 [1458769689] 'Wed Jul 19 01:56:50 2023'
-3035A 3035D 00004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-3035E 30361 00004 09 01 00 00 Compressed Length     00000109 [265]
-30362 30365 00004 BE 01 00 00 Uncompressed Length   000001BE [446]
-30366 30367 00002 09 00       Filename Length       0009 [9]
-30368 30369 00002 24 00       Extra Length          0024 [36]
-3036A 3036B 00002 00 00       Comment Length        0000 [0]
-3036C 3036D 00002 00 00       Disk Start            0000 [0]
-3036E 3036F 00002 01 00       Int File Attributes   0001 [1]
+30354 30355 00002 08 00       Compression Method    0008 (8) 'Deflated'
+30356 30359 00004 19 0F F3 56 Last Mod Time         56F30F19 (1458769689) 'Wed Jul 19 01:56:50 2023'
+3035A 3035D 00004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+3035E 30361 00004 09 01 00 00 Compressed Length     00000109 (265)
+30362 30365 00004 BE 01 00 00 Uncompressed Length   000001BE (446)
+30366 30367 00002 09 00       Filename Length       0009 (9)
+30368 30369 00002 24 00       Extra Length          0024 (36)
+3036A 3036B 00002 00 00       Comment Length        0000 (0)
+3036C 3036D 00002 00 00       Disk Start            0000 (0)
+3036E 3036F 00002 01 00       Int File Attributes   0001 (1)
                               [Bit 0]               1 'Text Data'
-30370 30373 00004 20 00 00 00 Ext File Attributes   00000020 [32]
+30370 30373 00004 20 00 00 00 Ext File Attributes   00000020 (32)
                               [Bit 5]               Archive
-30374 30377 00004 1A 02 03 00 Local Header Offset   0003021A [197146]
+30374 30377 00004 1A 02 03 00 Local Header Offset   0003021A (197146)
 30378 30380 00009 6C 6F 72 65 Filename              'lorem.txt'
                   6D 2E 74 78
                   74
-30381 30382 00002 0A 00       Extra ID #1           000A [10] 'NTFS FileTimes'
-30383 30384 00002 20 00         Length              0020 [32]
-30385 30388 00004 00 00 00 00   Reserved            00000000 [0]
-30389 3038A 00002 01 00         Tag1                0001 [1]
-3038B 3038C 00002 18 00         Size1               0018 [24]
-3038D 30394 00008 40 8C 6C F4   Mtime               01D9BA1EF46C8C40 [133342306096680000] 'Wed Jul 19 08:56:49 2023 668000000ns'
+30381 30382 00002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+30383 30384 00002 20 00         Length              0020 (32)
+30385 30388 00004 00 00 00 00   Reserved            00000000 (0)
+30389 3038A 00002 01 00         Tag1                0001 (1)
+3038B 3038C 00002 18 00         Size1               0018 (24)
+3038D 30394 00008 40 8C 6C F4   Mtime               01D9BA1EF46C8C40 (133342306096680000) 'Wed Jul 19 08:56:49 2023 668000000ns'
                   1E BA D9 01
-30395 3039C 00008 40 8C 6C F4   Atime               01D9BA1EF46C8C40 [133342306096680000] 'Wed Jul 19 08:56:49 2023 668000000ns'
+30395 3039C 00008 40 8C 6C F4   Atime               01D9BA1EF46C8C40 (133342306096680000) 'Wed Jul 19 08:56:49 2023 668000000ns'
                   1E BA D9 01
-3039D 303A4 00008 10 17 6C F4   Ctime               01D9BA1EF46C1710 [133342306096650000] 'Wed Jul 19 08:56:49 2023 665000000ns'
+3039D 303A4 00008 10 17 6C F4   Ctime               01D9BA1EF46C1710 (133342306096650000) 'Wed Jul 19 08:56:49 2023 665000000ns'
                   1E BA D9 01
 
-303A5 303A8 00004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-303A9 303AA 00002 00 00       Number of this disk   0000 [0]
-303AB 303AC 00002 00 00       Central Dir Disk no   0000 [0]
-303AD 303AE 00002 01 00       Entries in this disk  0001 [1]
-303AF 303B0 00002 01 00       Total Entries         0001 [1]
-303B1 303B4 00004 5B 00 00 00 Size of Central Dir   0000005B [91]
-303B5 303B8 00004 4A 03 03 00 Offset to Central Dir 0003034A [197450]
-303B9 303BA 00002 00 00       Comment Length        0000 [0]
+303A5 303A8 00004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+303A9 303AA 00002 00 00       Number of this disk   0000 (0)
+303AB 303AC 00002 00 00       Central Dir Disk no   0000 (0)
+303AD 303AE 00002 01 00       Entries in this disk  0001 (1)
+303AF 303B0 00002 01 00       Total Entries         0001 (1)
+303B1 303B4 00004 5B 00 00 00 Size of Central Dir   0000005B (91)
+303B5 303B8 00004 4A 03 03 00 Offset to Central Dir 0003034A (197450)
+303B9 303BA 00002 00 00       Comment Length        0000 (0)
 #
 # Info Count: 1
 #

@@ -1,63 +1,63 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      14 [20] '2.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0014 [20] 'Ipaq8'
-000A Last Mod Time         567554AD [1450529965] 'Tue Mar 21 10:37:26 2023'
-000E CRC                   F8948917 [4170483991]
-0012 Compressed Length     000008F9 [2297]
-0016 Uncompressed Length   0000C8EC [51436]
-001A Filename Length       0008 [8]
-001C Extra Length          0015 [21]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0014 (20) 'Ipaq8'
+000A Last Mod Time         567554AD (1450529965) 'Tue Mar 21 10:37:26 2023'
+000E CRC                   F8948917 (4170483991)
+0012 Compressed Length     000008F9 (2297)
+0016 Uncompressed Length   0000C8EC (51436)
+001A Filename Length       0008 (8)
+001C Extra Length          0015 (21)
 001E Filename              'MANIFEST'
-0026 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0028   Length              0009 [9]
-002A   Flags               03 [3] 'mod access'
-002B   Mod Time            641988E6 [1679395046] 'Tue Mar 21 10:37:26 2023'
-002F   Access Time         64B56513 [1689609491] 'Mon Jul 17 15:58:11 2023'
-0033 Extra ID #2           7855 [30805] 'Unix Extra type 2 [Ux]'
-0035   Length              0004 [4]
-0037   UID                 03E8 [1000]
-0039   GID                 03E8 [1000]
+0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0028   Length              0009 (9)
+002A   Flags               03 (3) 'mod access'
+002B   Mod Time            641988E6 (1679395046) 'Tue Mar 21 10:37:26 2023'
+002F   Access Time         64B56513 (1689609491) 'Mon Jul 17 15:58:11 2023'
+0033 Extra ID #2           7855 (30805) 'Unix Extra type 2 [Ux]'
+0035   Length              0004 (4)
+0037   UID                 03E8 (1000)
+0039   GID                 03E8 (1000)
 003B PAYLOAD
 
-0934 CENTRAL HEADER #1     02014B50 [33639248]
-0938 Created Zip Spec      1E [30] '3.0'
-0939 Created OS            03 [3] 'Unix'
-093A Extract Zip Spec      14 [20] '2.0'
-093B Extract OS            00 [0] 'MS-DOS'
-093C General Purpose Flag  0000 [0]
-093E Compression Method    0014 [20] 'Ipaq8'
-0940 Last Mod Time         567554AD [1450529965] 'Tue Mar 21 10:37:26 2023'
-0944 CRC                   F8948917 [4170483991]
-0948 Compressed Length     000008F9 [2297]
-094C Uncompressed Length   0000C8EC [51436]
-0950 Filename Length       0008 [8]
-0952 Extra Length          000D [13]
-0954 Comment Length        0000 [0]
-0956 Disk Start            0000 [0]
-0958 Int File Attributes   0000 [0]
+0934 CENTRAL HEADER #1     02014B50 (33639248)
+0938 Created Zip Spec      1E (30) '3.0'
+0939 Created OS            03 (3) 'Unix'
+093A Extract Zip Spec      14 (20) '2.0'
+093B Extract OS            00 (0) 'MS-DOS'
+093C General Purpose Flag  0000 (0)
+093E Compression Method    0014 (20) 'Ipaq8'
+0940 Last Mod Time         567554AD (1450529965) 'Tue Mar 21 10:37:26 2023'
+0944 CRC                   F8948917 (4170483991)
+0948 Compressed Length     000008F9 (2297)
+094C Uncompressed Length   0000C8EC (51436)
+0950 Filename Length       0008 (8)
+0952 Extra Length          000D (13)
+0954 Comment Length        0000 (0)
+0956 Disk Start            0000 (0)
+0958 Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-095A Ext File Attributes   81B40000 [2176057344]
-     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-095E Local Header Offset   00000000 [0]
+095A Ext File Attributes   81B40000 (2176057344)
+     [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+095E Local Header Offset   00000000 (0)
 0962 Filename              'MANIFEST'
-096A Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-096C   Length              0005 [5]
-096E   Flags               03 [3] 'mod access'
-096F   Mod Time            641988E6 [1679395046] 'Tue Mar 21 10:37:26 2023'
-0973 Extra ID #2           7855 [30805] 'Unix Extra type 2 [Ux]'
-0975   Length              0000 [0]
+096A Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+096C   Length              0005 (5)
+096E   Flags               03 (3) 'mod access'
+096F   Mod Time            641988E6 (1679395046) 'Tue Mar 21 10:37:26 2023'
+0973 Extra ID #2           7855 (30805) 'Unix Extra type 2 [Ux]'
+0975   Length              0000 (0)
 
-0977 END CENTRAL HEADER    06054B50 [101010256]
-097B Number of this disk   0000 [0]
-097D Central Dir Disk no   0000 [0]
-097F Entries in this disk  0001 [1]
-0981 Total Entries         0001 [1]
-0983 Size of Central Dir   00000043 [67]
-0987 Offset to Central Dir 00000934 [2356]
-098B Comment Length        0000 [0]
+0977 END CENTRAL HEADER    06054B50 (101010256)
+097B Number of this disk   0000 (0)
+097D Central Dir Disk no   0000 (0)
+097F Entries in this disk  0001 (1)
+0981 Total Entries         0001 (1)
+0983 Size of Central Dir   00000043 (67)
+0987 Offset to Central Dir 00000934 (2356)
+098B Comment Length        0000 (0)
 #
 # Done

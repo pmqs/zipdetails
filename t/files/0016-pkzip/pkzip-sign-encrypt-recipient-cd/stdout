@@ -1,47 +1,47 @@
 #
-# INFO: Offset 0x0: found 0x27AF [10159] bytes before beginning of zipfile
+# INFO: Offset 0x0: found 0x27AF (10159) bytes before beginning of zipfile
 #
 
 0000 UNEXPECTED PADDING
 
-27AF ZIP64 END CENTRAL DIR 06064B50 [101075792]
+27AF ZIP64 END CENTRAL DIR 06064B50 (101075792)
      RECORD
-27B3 Size of record        000000000000005C [92]
-27BB Created Zip Spec      41 [65] '6.5'
-27BC Created OS            00 [0] 'MS-DOS'
-27BD Extract Zip Spec      3E [62] '6.2'
-27BE Extract OS            00 [0] 'MS-DOS'
-27BF Number of this disk   00000000 [0]
-27C3 Central Dir Disk no   00000000 [0]
-27C7 Entries in this disk  0000000000000000 [0]
-27CF Total Entries         0000000000000002 [2]
-27D7 Size of Central Dir   0000000000001A55 [6741]
-27DF Offset to Central dir 0000000000000D5A [3418]
-27E7 Compression Method    0008 [8] 'Deflated'
-27E9 Compressed Length     0000000000001816 [6166]
-27F1 Uncompressed Length   0000000000001502 [5378]
-27F9 AlgId                 6610 [26128] 'AES 256'
-27FB BitLen                0100 [256]
-27FD Flags                 4102 [16642] 'reserved for certificate processing'
-27FF HashID                8004 [32772] 'SHA1'
-2801 Hash Length           0014 [20]
+27B3 Size of record        000000000000005C (92)
+27BB Created Zip Spec      41 (65) '6.5'
+27BC Created OS            00 (0) 'MS-DOS'
+27BD Extract Zip Spec      3E (62) '6.2'
+27BE Extract OS            00 (0) 'MS-DOS'
+27BF Number of this disk   00000000 (0)
+27C3 Central Dir Disk no   00000000 (0)
+27C7 Entries in this disk  0000000000000000 (0)
+27CF Total Entries         0000000000000002 (2)
+27D7 Size of Central Dir   0000000000001A55 (6741)
+27DF Offset to Central dir 0000000000000D5A (3418)
+27E7 Compression Method    0008 (8) 'Deflated'
+27E9 Compressed Length     0000000000001816 (6166)
+27F1 Uncompressed Length   0000000000001502 (5378)
+27F9 AlgId                 6610 (26128) 'AES 256'
+27FB BitLen                0100 (256)
+27FD Flags                 4102 (16642) 'reserved for certificate processing'
+27FF HashID                8004 (32772) 'SHA1'
+2801 Hash Length           0014 (20)
 2803 Hash Data             3B ED 67 C6 EE 06 6A 63 4B C0 22 62 7B 5D AA 15
                            6E C4 A3 A3
 
-2817 ZIP64 END CENTRAL DIR 07064B50 [117853008]
+2817 ZIP64 END CENTRAL DIR 07064B50 (117853008)
      LOCATOR
-281B Central Dir Disk no   00000000 [0]
-281F Offset to Zip64 EOCD  00000000000027AF [10159]
-2827 Total no of Disks     00000001 [1]
+281B Central Dir Disk no   00000000 (0)
+281F Offset to Zip64 EOCD  00000000000027AF (10159)
+2827 Total no of Disks     00000001 (1)
 
-282B END CENTRAL HEADER    06054B50 [101010256]
-282F Number of this disk   0000 [0]
-2831 Central Dir Disk no   0000 [0]
-2833 Entries in this disk  0000 [0]
-2835 Total Entries         FFFF [65535]
-2837 Size of Central Dir   00001A55 [6741]
-283B Offset to Central Dir 00000D5A [3418]
-283F Comment Length        0000 [0]
+282B END CENTRAL HEADER    06054B50 (101010256)
+282F Number of this disk   0000 (0)
+2831 Central Dir Disk no   0000 (0)
+2833 Entries in this disk  0000 (0)
+2835 Total Entries         FFFF (65535)
+2837 Size of Central Dir   00001A55 (6741)
+283B Offset to Central Dir 00000D5A (3418)
+283F Comment Length        0000 (0)
 #
 # Info Count: 1
 #

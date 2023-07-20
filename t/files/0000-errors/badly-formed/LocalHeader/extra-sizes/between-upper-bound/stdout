@@ -1,55 +1,55 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      14 [20] '2.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0000 [0] 'Stored'
-000A Last Mod Time         555C5BED [1432116205] 'Fri Oct 28 11:31:26 2022'
-000E CRC                   8587D865 [2240272485]
-0012 Compressed Length     00000005 [5]
-0016 Uncompressed Length   00000005 [5]
-001A Filename Length       0008 [8]
-001C Extra Length          0012 [18]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Time         555C5BED (1432116205) 'Fri Oct 28 11:31:26 2022'
+000E CRC                   8587D865 (2240272485)
+0012 Compressed Length     00000005 (5)
+0016 Uncompressed Length   00000005 (5)
+001A Filename Length       0008 (8)
+001C Extra Length          0012 (18)
 001E Filename              'filename'
-0026 Extra ID #1           5855 [22613] 'Unix Extra type 1 [UX]'
-0028   Length              000E [14]
+0026 Extra ID #1           5855 (22613) 'Unix Extra type 1 [UX]'
+0028   Length              000E (14)
 #
-# ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected 0xC [12], got 0xE [14]
+# ERROR: Offset 0x28: Extra Field 'Unix Extra type 1 [UX]' (ID 0x5855): 'Length' field invalid: expected 0xC (12), got 0xE (14)
 #
 002A   Extra Payload       xxxxxxxxxxxxxx
 0038 PAYLOAD               abcde
 
-003D CENTRAL HEADER #1     02014B50 [33639248]
-0041 Created Zip Spec      14 [20] '2.0'
-0042 Created OS            03 [3] 'Unix'
-0043 Extract Zip Spec      14 [20] '2.0'
-0044 Extract OS            00 [0] 'MS-DOS'
-0045 General Purpose Flag  0000 [0]
-0047 Compression Method    0000 [0] 'Stored'
-0049 Last Mod Time         555C5BED [1432116205] 'Fri Oct 28 11:31:26 2022'
-004D CRC                   8587D865 [2240272485]
-0051 Compressed Length     00000005 [5]
-0055 Uncompressed Length   00000005 [5]
-0059 Filename Length       0008 [8]
-005B Extra Length          0000 [0]
-005D Comment Length        0000 [0]
-005F Disk Start            0000 [0]
-0061 Int File Attributes   0000 [0]
+003D CENTRAL HEADER #1     02014B50 (33639248)
+0041 Created Zip Spec      14 (20) '2.0'
+0042 Created OS            03 (3) 'Unix'
+0043 Extract Zip Spec      14 (20) '2.0'
+0044 Extract OS            00 (0) 'MS-DOS'
+0045 General Purpose Flag  0000 (0)
+0047 Compression Method    0000 (0) 'Stored'
+0049 Last Mod Time         555C5BED (1432116205) 'Fri Oct 28 11:31:26 2022'
+004D CRC                   8587D865 (2240272485)
+0051 Compressed Length     00000005 (5)
+0055 Uncompressed Length   00000005 (5)
+0059 Filename Length       0008 (8)
+005B Extra Length          0000 (0)
+005D Comment Length        0000 (0)
+005F Disk Start            0000 (0)
+0061 Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-0063 Ext File Attributes   81A40000 [2175008768]
-     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-0067 Local Header Offset   00000000 [0]
+0063 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0067 Local Header Offset   00000000 (0)
 006B Filename              'filename'
 
-0073 END CENTRAL HEADER    06054B50 [101010256]
-0077 Number of this disk   0000 [0]
-0079 Central Dir Disk no   0000 [0]
-007B Entries in this disk  0001 [1]
-007D Total Entries         0001 [1]
-007F Size of Central Dir   00000036 [54]
-0083 Offset to Central Dir 0000003D [61]
-0087 Comment Length        0000 [0]
+0073 END CENTRAL HEADER    06054B50 (101010256)
+0077 Number of this disk   0000 (0)
+0079 Central Dir Disk no   0000 (0)
+007B Entries in this disk  0001 (1)
+007D Total Entries         0001 (1)
+007F Size of Central Dir   00000036 (54)
+0083 Offset to Central Dir 0000003D (61)
+0087 Comment Length        0000 (0)
 #
 # Error Count: 1
 #

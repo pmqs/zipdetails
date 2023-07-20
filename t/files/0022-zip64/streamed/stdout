@@ -1,89 +1,89 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      2D [45] '4.5'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0808 [2056]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      2D (45) '4.5'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0808 (2056)
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0008 Compression Method    0000 [0] 'Stored'
-000A Last Mod Time         56385E3D [1446534717] 'Tue Jan 24 11:49:58 2023'
-000E CRC                   00000000 [0]
-0012 Compressed Length     00000000 [0]
-0016 Uncompressed Length   00000000 [0]
-001A Filename Length       000B [11]
-001C Extra Length          0020 [32]
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Time         56385E3D (1446534717) 'Tue Jan 24 11:49:58 2023'
+000E CRC                   00000000 (0)
+0012 Compressed Length     00000000 (0)
+0016 Uncompressed Length   00000000 (0)
+001A Filename Length       000B (11)
+001C Extra Length          0020 (32)
 001E Filename              'test/10.txt'
-0029 Extra ID #1           0001 [1] 'ZIP64'
-002B   Length              001C [28]
-002D   Uncompressed Size   0000000000000000 [0]
-0035   Compressed Size     0000000000000000 [0]
-003D   Offset to Local Dir 0000000000000000 [0]
-0045   Disk Number         00000000 [0]
+0029 Extra ID #1           0001 (1) 'ZIP64'
+002B   Length              001C (28)
+002D   Uncompressed Size   0000000000000000 (0)
+0035   Compressed Size     0000000000000000 (0)
+003D   Offset to Local Dir 0000000000000000 (0)
+0045   Disk Number         00000000 (0)
 0049 PAYLOAD               123456789.
 
-0053 DATA DESCRIPTOR       08074B50 [134695760]
-0057 CRC                   E0117757 [3759241047]
-005B Compressed Length     000000000000000A [10]
-0063 Uncompressed Length   000000000000000A [10]
+0053 DATA DESCRIPTOR       08074B50 (134695760)
+0057 CRC                   E0117757 (3759241047)
+005B Compressed Length     000000000000000A (10)
+0063 Uncompressed Length   000000000000000A (10)
 
-006B CENTRAL HEADER #1     02014B50 [33639248]
-006F Created Zip Spec      34 [52] '5.2'
-0070 Created OS            00 [0] 'MS-DOS'
-0071 Extract Zip Spec      2D [45] '4.5'
-0072 Extract OS            00 [0] 'MS-DOS'
-0073 General Purpose Flag  0808 [2056]
+006B CENTRAL HEADER #1     02014B50 (33639248)
+006F Created Zip Spec      34 (52) '5.2'
+0070 Created OS            00 (0) 'MS-DOS'
+0071 Extract Zip Spec      2D (45) '4.5'
+0072 Extract OS            00 (0) 'MS-DOS'
+0073 General Purpose Flag  0808 (2056)
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
-0075 Compression Method    0000 [0] 'Stored'
-0077 Last Mod Time         56385E3D [1446534717] 'Tue Jan 24 11:49:58 2023'
-007B CRC                   E0117757 [3759241047]
-007F Compressed Length     FFFFFFFF [4294967295]
-0083 Uncompressed Length   FFFFFFFF [4294967295]
-0087 Filename Length       000B [11]
-0089 Extra Length          0020 [32]
-008B Comment Length        0000 [0]
-008D Disk Start            FFFF [65535]
-008F Int File Attributes   0000 [0]
+0075 Compression Method    0000 (0) 'Stored'
+0077 Last Mod Time         56385E3D (1446534717) 'Tue Jan 24 11:49:58 2023'
+007B CRC                   E0117757 (3759241047)
+007F Compressed Length     FFFFFFFF (4294967295)
+0083 Uncompressed Length   FFFFFFFF (4294967295)
+0087 Filename Length       000B (11)
+0089 Extra Length          0020 (32)
+008B Comment Length        0000 (0)
+008D Disk Start            FFFF (65535)
+008F Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-0091 Ext File Attributes   81A40000 [2175008768]
-     [Bits 24-31]          81A4 [33188] 'Unknown attributes for OS ID 0'
-0095 Local Header Offset   FFFFFFFF [4294967295]
+0091 Ext File Attributes   81A40000 (2175008768)
+     [Bits 24-31]          81A4 (33188) 'Unknown attributes for OS ID 0'
+0095 Local Header Offset   FFFFFFFF (4294967295)
 0099 Filename              'test/10.txt'
-00A4 Extra ID #1           0001 [1] 'ZIP64'
-00A6   Length              001C [28]
-00A8   Uncompressed Size   000000000000000A [10]
-00B0   Compressed Size     000000000000000A [10]
-00B8   Offset to Local Dir 0000000000000000 [0]
-00C0   Disk Number         00000000 [0]
+00A4 Extra ID #1           0001 (1) 'ZIP64'
+00A6   Length              001C (28)
+00A8   Uncompressed Size   000000000000000A (10)
+00B0   Compressed Size     000000000000000A (10)
+00B8   Offset to Local Dir 0000000000000000 (0)
+00C0   Disk Number         00000000 (0)
 
-00C4 ZIP64 END CENTRAL DIR 06064B50 [101075792]
+00C4 ZIP64 END CENTRAL DIR 06064B50 (101075792)
      RECORD
-00C8 Size of record        000000000000002C [44]
-00D0 Created Zip Spec      34 [52] '5.2'
-00D1 Created OS            00 [0] 'MS-DOS'
-00D2 Extract Zip Spec      2D [45] '4.5'
-00D3 Extract OS            00 [0] 'MS-DOS'
-00D4 Number of this disk   00000000 [0]
-00D8 Central Dir Disk no   00000000 [0]
-00DC Entries in this disk  0000000000000001 [1]
-00E4 Total Entries         0000000000000001 [1]
-00EC Size of Central Dir   0000000000000059 [89]
-00F4 Offset to Central dir 000000000000006B [107]
+00C8 Size of record        000000000000002C (44)
+00D0 Created Zip Spec      34 (52) '5.2'
+00D1 Created OS            00 (0) 'MS-DOS'
+00D2 Extract Zip Spec      2D (45) '4.5'
+00D3 Extract OS            00 (0) 'MS-DOS'
+00D4 Number of this disk   00000000 (0)
+00D8 Central Dir Disk no   00000000 (0)
+00DC Entries in this disk  0000000000000001 (1)
+00E4 Total Entries         0000000000000001 (1)
+00EC Size of Central Dir   0000000000000059 (89)
+00F4 Offset to Central dir 000000000000006B (107)
 
-00FC ZIP64 END CENTRAL DIR 07064B50 [117853008]
+00FC ZIP64 END CENTRAL DIR 07064B50 (117853008)
      LOCATOR
-0100 Central Dir Disk no   00000000 [0]
-0104 Offset to Zip64 EOCD  00000000000000C4 [196]
-010C Total no of Disks     00000001 [1]
+0100 Central Dir Disk no   00000000 (0)
+0104 Offset to Zip64 EOCD  00000000000000C4 (196)
+010C Total no of Disks     00000001 (1)
 
-0110 END CENTRAL HEADER    06054B50 [101010256]
-0114 Number of this disk   FFFF [65535]
-0116 Central Dir Disk no   FFFF [65535]
-0118 Entries in this disk  FFFF [65535]
-011A Total Entries         FFFF [65535]
-011C Size of Central Dir   FFFFFFFF [4294967295]
-0120 Offset to Central Dir FFFFFFFF [4294967295]
-0124 Comment Length        0012 [18]
+0110 END CENTRAL HEADER    06054B50 (101010256)
+0114 Number of this disk   FFFF (65535)
+0116 Central Dir Disk no   FFFF (65535)
+0118 Entries in this disk  FFFF (65535)
+011A Total Entries         FFFF (65535)
+011C Size of Central Dir   FFFFFFFF (4294967295)
+0120 Offset to Central Dir FFFFFFFF (4294967295)
+0124 Comment Length        0012 (18)
 0126 Comment               'Created by Zstream'
 #
 # Done

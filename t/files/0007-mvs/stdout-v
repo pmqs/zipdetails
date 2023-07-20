@@ -1,16 +1,16 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 06 00       General Purpose Flag  0006 [6]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 06 00       General Purpose Flag  0006 (6)
                            [Bits 1-2]            3 'Super Fast Compression'
-0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
-000A 000D 0004 46 64 59 4E Last Mod Time         4E596446 [1314481222] 'Mon Feb 25 12:34:12 2019'
-000E 0011 0004 34 D7 7B 54 CRC                   547BD734 [1417402164]
-0012 0015 0004 9D 00 00 00 Compressed Length     0000009D [157]
-0016 0019 0004 49 01 00 00 Uncompressed Length   00000149 [329]
-001A 001B 0002 2B 00       Filename Length       002B [43]
-001C 001D 0002 00 00       Extra Length          0000 [0]
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 46 64 59 4E Last Mod Time         4E596446 (1314481222) 'Mon Feb 25 12:34:12 2019'
+000E 0011 0004 34 D7 7B 54 CRC                   547BD734 (1417402164)
+0012 0015 0004 9D 00 00 00 Compressed Length     0000009D (157)
+0016 0019 0004 49 01 00 00 Uncompressed Length   00000149 (329)
+001A 001B 0002 2B 00       Filename Length       002B (43)
+001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0048 002B 53 59 53 31 Filename              'SYS19056/T123412/RA000/MNE#ZIPL/TESTING/H0D'
                39 30 35 36
                2F 54 31 32
@@ -63,26 +63,26 @@
                0E 69 FA FA
                07
 
-00E6 00E9 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-00EA 00EA 0001 96          Created Zip Spec      96 [150] '15.0'
-00EB 00EB 0001 0B          Created OS            0B [11] 'MVS or NTFS'
-00EC 00EC 0001 14          Extract Zip Spec      14 [20] '2.0'
-00ED 00ED 0001 00          Extract OS            00 [0] 'MS-DOS'
-00EE 00EF 0002 06 00       General Purpose Flag  0006 [6]
+00E6 00E9 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+00EA 00EA 0001 96          Created Zip Spec      96 (150) '15.0'
+00EB 00EB 0001 0B          Created OS            0B (11) 'MVS or NTFS'
+00EC 00EC 0001 14          Extract Zip Spec      14 (20) '2.0'
+00ED 00ED 0001 00          Extract OS            00 (0) 'MS-DOS'
+00EE 00EF 0002 06 00       General Purpose Flag  0006 (6)
                            [Bits 1-2]            3 'Super Fast Compression'
-00F0 00F1 0002 08 00       Compression Method    0008 [8] 'Deflated'
-00F2 00F5 0004 46 64 59 4E Last Mod Time         4E596446 [1314481222] 'Mon Feb 25 12:34:12 2019'
-00F6 00F9 0004 34 D7 7B 54 CRC                   547BD734 [1417402164]
-00FA 00FD 0004 9D 00 00 00 Compressed Length     0000009D [157]
-00FE 0101 0004 49 01 00 00 Uncompressed Length   00000149 [329]
-0102 0103 0002 2B 00       Filename Length       002B [43]
-0104 0105 0002 64 00       Extra Length          0064 [100]
-0106 0107 0002 00 00       Comment Length        0000 [0]
-0108 0109 0002 00 00       Disk Start            0000 [0]
-010A 010B 0002 01 00       Int File Attributes   0001 [1]
+00F0 00F1 0002 08 00       Compression Method    0008 (8) 'Deflated'
+00F2 00F5 0004 46 64 59 4E Last Mod Time         4E596446 (1314481222) 'Mon Feb 25 12:34:12 2019'
+00F6 00F9 0004 34 D7 7B 54 CRC                   547BD734 (1417402164)
+00FA 00FD 0004 9D 00 00 00 Compressed Length     0000009D (157)
+00FE 0101 0004 49 01 00 00 Uncompressed Length   00000149 (329)
+0102 0103 0002 2B 00       Filename Length       002B (43)
+0104 0105 0002 64 00       Extra Length          0064 (100)
+0106 0107 0002 00 00       Comment Length        0000 (0)
+0108 0109 0002 00 00       Disk Start            0000 (0)
+010A 010B 0002 01 00       Int File Attributes   0001 (1)
                            [Bit 0]               1 'Text Data'
-010C 010F 0004 00 00 00 00 Ext File Attributes   00000000 [0]
-0110 0113 0004 00 00 00 00 Local Header Offset   00000000 [0]
+010C 010F 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+0110 0113 0004 00 00 00 00 Local Header Offset   00000000 (0)
 0114 013E 002B 53 59 53 31 Filename              'SYS19056/T123412/RA000/MNE#ZIPL/TESTING/H0D'
                39 30 35 36
                2F 54 31 32
@@ -94,8 +94,8 @@
                54 45 53 54
                49 4E 47 2F
                48 30 44
-013F 0140 0002 65 00       Extra ID #1           0065 [101] 'IBM S/390 attributes - uncompressed'
-0141 0142 0002 60 00         Length              0060 [96]
+013F 0140 0002 65 00       Extra ID #1           0065 (101) 'IBM S/390 attributes - uncompressed'
+0141 0142 0002 60 00         Length              0060 (96)
 0143 0146 0004 E9 F3 F9 F0   ID                  'Z390'
 0147 01A2 005C 00 06 00 01   Extra Payload       00 06 00 01 40 00 00 05 00 02 90 00 06 00 04 6D
                40 00 00 05                       10 00 06 00 5C 00 50 00 07 00 05 00 00 01 00 07
@@ -121,14 +121,14 @@
                00 01 00 06
                00 9D 40 00
 
-01A3 01A6 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-01A7 01A8 0002 00 00       Number of this disk   0000 [0]
-01A9 01AA 0002 00 00       Central Dir Disk no   0000 [0]
-01AB 01AC 0002 01 00       Entries in this disk  0001 [1]
-01AD 01AE 0002 01 00       Total Entries         0001 [1]
-01AF 01B2 0004 BD 00 00 00 Size of Central Dir   000000BD [189]
-01B3 01B6 0004 E6 00 00 00 Offset to Central Dir 000000E6 [230]
-01B7 01B8 0002 18 00       Comment Length        0018 [24]
+01A3 01A6 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01A7 01A8 0002 00 00       Number of this disk   0000 (0)
+01A9 01AA 0002 00 00       Central Dir Disk no   0000 (0)
+01AB 01AC 0002 01 00       Entries in this disk  0001 (1)
+01AD 01AE 0002 01 00       Total Entries         0001 (1)
+01AF 01B2 0004 BD 00 00 00 Size of Central Dir   000000BD (189)
+01B3 01B6 0004 E6 00 00 00 Offset to Central Dir 000000E6 (230)
+01B7 01B8 0002 18 00       Comment Length        0018 (24)
 01B9 01D0 0018 50 4B 5A 49 Comment               'PKZIP for z/OS by PKWARE'
                50 20 66 6F
                72 20 7A 2F
@@ -138,7 +138,7 @@
 
 01D1 5B13 5943 ...         TRAILING DATA
 #
-# INFO: Offset 0x5B14: Unexpected Trailing Data: 0x5943 [22851] bytes
+# INFO: Offset 0x5B14: Unexpected Trailing Data: 0x5943 (22851) bytes
 #
 # Info Count: 1
 #

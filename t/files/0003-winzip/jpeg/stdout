@@ -1,55 +1,55 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      14 [20] '2.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0060 [96] 'WinZip JPEG Compression'
-000A Last Mod Time         4F2E7818 [1328445464] 'Sat Sep 14 15:00:48 2019'
-000E CRC                   D30F1F39 [3540983609]
-0012 Compressed Length     0000B847 [47175]
-0016 Uncompressed Length   0000DF11 [57105]
-001A Filename Length       0009 [9]
-001C Extra Length          0000 [0]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0060 (96) 'WinZip JPEG Compression'
+000A Last Mod Time         4F2E7818 (1328445464) 'Sat Sep 14 15:00:48 2019'
+000E CRC                   D30F1F39 (3540983609)
+0012 Compressed Length     0000B847 (47175)
+0016 Uncompressed Length   0000DF11 (57105)
+001A Filename Length       0009 (9)
+001C Extra Length          0000 (0)
 001E Filename              'train.jpg'
 0027 PAYLOAD
 
-B86E CENTRAL HEADER #1     02014B50 [33639248]
-B872 Created Zip Spec      14 [20] '2.0'
-B873 Created OS            00 [0] 'MS-DOS'
-B874 Extract Zip Spec      14 [20] '2.0'
-B875 Extract OS            00 [0] 'MS-DOS'
-B876 General Purpose Flag  0000 [0]
-B878 Compression Method    0060 [96] 'WinZip JPEG Compression'
-B87A Last Mod Time         4F2E7818 [1328445464] 'Sat Sep 14 15:00:48 2019'
-B87E CRC                   D30F1F39 [3540983609]
-B882 Compressed Length     0000B847 [47175]
-B886 Uncompressed Length   0000DF11 [57105]
-B88A Filename Length       0009 [9]
-B88C Extra Length          0024 [36]
-B88E Comment Length        0000 [0]
-B890 Disk Start            0000 [0]
-B892 Int File Attributes   0000 [0]
+B86E CENTRAL HEADER #1     02014B50 (33639248)
+B872 Created Zip Spec      14 (20) '2.0'
+B873 Created OS            00 (0) 'MS-DOS'
+B874 Extract Zip Spec      14 (20) '2.0'
+B875 Extract OS            00 (0) 'MS-DOS'
+B876 General Purpose Flag  0000 (0)
+B878 Compression Method    0060 (96) 'WinZip JPEG Compression'
+B87A Last Mod Time         4F2E7818 (1328445464) 'Sat Sep 14 15:00:48 2019'
+B87E CRC                   D30F1F39 (3540983609)
+B882 Compressed Length     0000B847 (47175)
+B886 Uncompressed Length   0000DF11 (57105)
+B88A Filename Length       0009 (9)
+B88C Extra Length          0024 (36)
+B88E Comment Length        0000 (0)
+B890 Disk Start            0000 (0)
+B892 Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-B894 Ext File Attributes   00000020 [32]
+B894 Ext File Attributes   00000020 (32)
      [Bit 5]               Archive
-B898 Local Header Offset   00000000 [0]
+B898 Local Header Offset   00000000 (0)
 B89C Filename              'train.jpg'
-B8A5 Extra ID #1           000A [10] 'NTFS FileTimes'
-B8A7   Length              0020 [32]
-B8A9   Reserved            00000000 [0]
-B8AD   Tag1                0001 [1]
-B8AF   Size1               0018 [24]
-B8B1   Mtime               01D56B04CF582800 [132129432480000000] 'Sat Sep 14 14:00:48 2019 0ns'
-B8B9   Atime               01D65F661EB01F10 [132398131260170000] 'Tue Jul 21 13:52:06 2020 17000000ns'
-B8C1   Ctime               01D57D57E3A3FEA0 [132149580512100000] 'Mon Oct  7 21:40:51 2019 210000000ns'
+B8A5 Extra ID #1           000A (10) 'NTFS FileTimes'
+B8A7   Length              0020 (32)
+B8A9   Reserved            00000000 (0)
+B8AD   Tag1                0001 (1)
+B8AF   Size1               0018 (24)
+B8B1   Mtime               01D56B04CF582800 (132129432480000000) 'Sat Sep 14 14:00:48 2019 0ns'
+B8B9   Atime               01D65F661EB01F10 (132398131260170000) 'Tue Jul 21 13:52:06 2020 17000000ns'
+B8C1   Ctime               01D57D57E3A3FEA0 (132149580512100000) 'Mon Oct  7 21:40:51 2019 210000000ns'
 
-B8C9 END CENTRAL HEADER    06054B50 [101010256]
-B8CD Number of this disk   0000 [0]
-B8CF Central Dir Disk no   0000 [0]
-B8D1 Entries in this disk  0001 [1]
-B8D3 Total Entries         0001 [1]
-B8D5 Size of Central Dir   0000005B [91]
-B8D9 Offset to Central Dir 0000B86E [47214]
-B8DD Comment Length        0000 [0]
+B8C9 END CENTRAL HEADER    06054B50 (101010256)
+B8CD Number of this disk   0000 (0)
+B8CF Central Dir Disk no   0000 (0)
+B8D1 Entries in this disk  0001 (1)
+B8D3 Total Entries         0001 (1)
+B8D5 Size of Central Dir   0000005B (91)
+B8D9 Offset to Central Dir 0000B86E (47214)
+B8DD Comment Length        0000 (0)
 #
 # Done

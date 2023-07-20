@@ -1,32 +1,32 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      32 [50] '5.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  2841 [10305]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      32 (50) '5.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  2841 (10305)
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
      [Bit 13]              1 'Encrypted Central Dir'
-0008 Compression Method    0008 [8] 'Deflated'
-000A Last Mod Time         00000000 [0] 'No Date/Time'
-000E CRC                   00000000 [0]
-0012 Compressed Length     0000023E [574]
-0016 Uncompressed Length   00000000 [0]
-001A Filename Length       0001 [1]
-001C Extra Length          0000 [0]
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Time         00000000 (0) 'No Date/Time'
+000E CRC                   00000000 (0)
+0012 Compressed Length     0000023E (574)
+0016 Uncompressed Length   00000000 (0)
+001A Filename Length       0001 (1)
+001C Extra Length          0000 (0)
 001E Filename              '1'
 
 001F DECRYPTION HEADER
      RECORD
-001F IVSize                0010 [16]
+001F IVSize                0010 (16)
 0021 IVData                1B 55 20 25 26 D9 D5 BC CE 33 5A 4D DB A7 27 9A
-0031 Size                  00000118 [280]
-0035 Format                0003 [3]
-0037 AlgId                 6603 [26115] '3DES 168'
-0039 BitLen                00A8 [168]
-003B Flags                 0001 [1] 'Password required to decrypt'
-003D ErdSize               0088 [136]
+0031 Size                  00000118 (280)
+0035 Format                0003 (3)
+0037 AlgId                 6603 (26115) '3DES 168'
+0039 BitLen                00A8 (168)
+003B Flags                 0001 (1) 'Password required to decrypt'
+003D ErdSize               0088 (136)
 003F ErdData               B6 58 A4 04 24 29 3E F4 A4 5E 45 CB 6D DA 8F 2F
                            77 5B C7 42 37 B2 DA 5E 8F 0E 84 C8 4C 5D 10 14
                            65 65 4D 29 0F 15 0F D0 96 A7 78 DD 66 18 1E 80
@@ -36,8 +36,8 @@
                            2A 6F 2B 8C 2A A1 02 4F 38 E7 51 CE E2 45 B2 61
                            79 06 64 2C C9 6D 74 E0 06 40 84 21 13 6A 1B 00
                            BE EF 0F 60 63 80 07 76
-00C7 RCount                00000000 [0]
-00CB VSize                 0080 [128]
+00C7 RCount                00000000 (0)
+00CB VSize                 0080 (128)
 00CD VData                 AC 13 33 05 99 2D 38 1F 68 EA 4A A8 73 7F D9 E1
                            9D 7C 79 20 8C A3 2C 3D 00 B7 30 11 D2 EF 1B C6
                            55 F3 57 62 1D 68 56 E9 F7 95 00 BD 0A 70 FA 8E
@@ -46,37 +46,37 @@
                            5C 5C F1 5C 85 65 1A 27 B0 39 39 1A 7D 48 AA D9
                            E3 74 D9 E2 3F 79 8C B4 F5 BE C5 2D 52 23 8F B4
                            E2 94 18 98 FA FA F6 34 2F D7 2E EC
-0149 VCRC32                90334BA7 [2419280807]
+0149 VCRC32                90334BA7 (2419280807)
 014D PAYLOAD
 
-025D LOCAL HEADER #2       04034B50 [67324752]
-0261 Extract Zip Spec      32 [50] '5.0'
-0262 Extract OS            00 [0] 'MS-DOS'
-0263 General Purpose Flag  2841 [10305]
+025D LOCAL HEADER #2       04034B50 (67324752)
+0261 Extract Zip Spec      32 (50) '5.0'
+0262 Extract OS            00 (0) 'MS-DOS'
+0263 General Purpose Flag  2841 (10305)
      [Bit  0]              1 'Encryption'
      [Bits 1-2]            0 'Normal Compression'
      [Bit  6]              1 'Strong Encryption'
      [Bit 11]              1 'Language Encoding'
      [Bit 13]              1 'Encrypted Central Dir'
-0265 Compression Method    0008 [8] 'Deflated'
-0267 Last Mod Time         00000000 [0] 'No Date/Time'
-026B CRC                   00000000 [0]
-026F Compressed Length     00000246 [582]
-0273 Uncompressed Length   00000000 [0]
-0277 Filename Length       0001 [1]
-0279 Extra Length          0000 [0]
+0265 Compression Method    0008 (8) 'Deflated'
+0267 Last Mod Time         00000000 (0) 'No Date/Time'
+026B CRC                   00000000 (0)
+026F Compressed Length     00000246 (582)
+0273 Uncompressed Length   00000000 (0)
+0277 Filename Length       0001 (1)
+0279 Extra Length          0000 (0)
 027B Filename              '2'
 
 027C DECRYPTION HEADER
      RECORD
-027C IVSize                0010 [16]
+027C IVSize                0010 (16)
 027E IVData                9A A0 6D 94 47 78 3D F7 32 14 89 BE D0 20 23 F6
-028E Size                  00000118 [280]
-0292 Format                0003 [3]
-0294 AlgId                 6603 [26115] '3DES 168'
-0296 BitLen                00A8 [168]
-0298 Flags                 0001 [1] 'Password required to decrypt'
-029A ErdSize               0088 [136]
+028E Size                  00000118 (280)
+0292 Format                0003 (3)
+0294 AlgId                 6603 (26115) '3DES 168'
+0296 BitLen                00A8 (168)
+0298 Flags                 0001 (1) 'Password required to decrypt'
+029A ErdSize               0088 (136)
 029C ErdData               B6 58 A4 04 24 29 3E F4 A4 5E 45 CB 6D DA 8F 2F
                            77 5B C7 42 37 B2 DA 5E 8F 0E 84 C8 4C 5D 10 14
                            65 65 4D 29 0F 15 0F D0 96 A7 78 DD 66 18 1E 80
@@ -86,8 +86,8 @@
                            2A 6F 2B 8C 2A A1 02 4F 38 E7 51 CE E2 45 B2 61
                            79 06 64 2C C9 6D 74 E0 06 40 84 21 13 6A 1B 00
                            BE EF 0F 60 63 80 07 76
-0324 RCount                00000000 [0]
-0328 VSize                 0080 [128]
+0324 RCount                00000000 (0)
+0328 VSize                 0080 (128)
 032A VData                 83 86 AB F9 70 84 49 66 AC 58 97 32 8E C7 09 E7
                            B6 1F DD E7 B9 A2 24 FE 3A F4 98 8A DE EE 3E 00
                            42 84 D6 40 46 23 29 A1 BC FB 2E A1 15 66 92 FD
@@ -96,19 +96,19 @@
                            03 D1 4D A8 F9 A8 E5 18 4C E1 CA 06 AB 43 AC 7D
                            B7 65 51 68 BD 3B 1C E0 F3 1A 1B 85 B0 92 53 50
                            89 BE 2B 40 A5 11 C4 F9 CD 51 BE DC
-03A6 VCRC32                0C78274E [209200974]
+03A6 VCRC32                0C78274E (209200974)
 03AA PAYLOAD
 
 04C2 CENTRAL HEADER
      DECRYPTION RECORD
-04C2 IVSize                0010 [16]
+04C2 IVSize                0010 (16)
 04C4 IVData                F4 67 E2 32 C6 4A F1 63 F2 DF 30 85 67 52 72 14
-04D4 Size                  00000118 [280]
-04D8 Format                0003 [3]
-04DA AlgId                 6603 [26115] '3DES 168'
-04DC BitLen                00A8 [168]
-04DE Flags                 0001 [1] 'Password required to decrypt'
-04E0 ErdSize               0088 [136]
+04D4 Size                  00000118 (280)
+04D8 Format                0003 (3)
+04DA AlgId                 6603 (26115) '3DES 168'
+04DC BitLen                00A8 (168)
+04DE Flags                 0001 (1) 'Password required to decrypt'
+04E0 ErdSize               0088 (136)
 04E2 ErdData               B6 58 A4 04 24 29 3E F4 A4 5E 45 CB 6D DA 8F 2F
                            77 5B C7 42 37 B2 DA 5E 8F 0E 84 C8 4C 5D 10 14
                            65 65 4D 29 0F 15 0F D0 96 A7 78 DD 66 18 1E 80
@@ -118,8 +118,8 @@
                            2A 6F 2B 8C 2A A1 02 4F 38 E7 51 CE E2 45 B2 61
                            79 06 64 2C C9 6D 74 E0 06 40 84 21 13 6A 1B 00
                            BE EF 0F 60 63 80 07 76
-056A RCount                00000000 [0]
-056E VSize                 0080 [128]
+056A RCount                00000000 (0)
+056E VSize                 0080 (128)
 0570 VData                 6F D1 2E BF 02 DF E2 F3 F5 14 2E DC 8C 1A 13 F5
                            9F 07 16 E3 E6 8E CF B8 7F 4E 44 96 D1 67 FF 4A
                            47 57 63 81 FA EB 71 52 92 5E 5E 07 9F CE EC CC
@@ -128,48 +128,48 @@
                            EC 69 24 1C 86 A5 D9 C5 6C 7B 17 2B AC C9 55 04
                            1B E4 09 6E 79 94 1B EC D7 2A 54 82 DA 2E 20 C7
                            5A B8 5C 97 1C 78 F3 24 86 66 4B A4
-05EC VCRC32                7E087D40 [2114485568]
+05EC VCRC32                7E087D40 (2114485568)
 
 05F0 ENCRYPTED CENTRAL     ..O.......d$3k;..s...E.........w..*....0........=..H75.pp.k..a.........{........=.$...Kx..&.5
      DIRECTORY             .........V.\.8-Zl.l....h.@.......t....t...C.t"(9K.
 
-0680 ZIP64 END CENTRAL DIR 06064B50 [101075792]
+0680 ZIP64 END CENTRAL DIR 06064B50 (101075792)
      RECORD
-0684 Size of record        000000000000004C [76]
-068C Created Zip Spec      41 [65] '6.5'
-068D Created OS            00 [0] 'MS-DOS'
-068E Extract Zip Spec      3E [62] '6.2'
-068F Extract OS            00 [0] 'MS-DOS'
-0690 Number of this disk   00000000 [0]
-0694 Central Dir Disk no   00000000 [0]
-0698 Entries in this disk  0000000000000000 [0]
-06A0 Total Entries         0000000000000002 [2]
-06A8 Size of Central Dir   00000000000001BE [446]
-06B0 Offset to Central dir 00000000000004C2 [1218]
-06B8 Compression Method    0008 [8] 'Deflated'
-06BA Compressed Length     00000000000001BE [446]
-06C2 Uncompressed Length   00000000000000D7 [215]
-06CA AlgId                 6603 [26115] '3DES 168'
-06CC BitLen                00A8 [168]
-06CE Flags                 0001 [1] 'Password required to decrypt'
-06D0 HashID                0001 [1] 'CRC32'
-06D2 Hash Length           0004 [4]
+0684 Size of record        000000000000004C (76)
+068C Created Zip Spec      41 (65) '6.5'
+068D Created OS            00 (0) 'MS-DOS'
+068E Extract Zip Spec      3E (62) '6.2'
+068F Extract OS            00 (0) 'MS-DOS'
+0690 Number of this disk   00000000 (0)
+0694 Central Dir Disk no   00000000 (0)
+0698 Entries in this disk  0000000000000000 (0)
+06A0 Total Entries         0000000000000002 (2)
+06A8 Size of Central Dir   00000000000001BE (446)
+06B0 Offset to Central dir 00000000000004C2 (1218)
+06B8 Compression Method    0008 (8) 'Deflated'
+06BA Compressed Length     00000000000001BE (446)
+06C2 Uncompressed Length   00000000000000D7 (215)
+06CA AlgId                 6603 (26115) '3DES 168'
+06CC BitLen                00A8 (168)
+06CE Flags                 0001 (1) 'Password required to decrypt'
+06D0 HashID                0001 (1) 'CRC32'
+06D2 Hash Length           0004 (4)
 06D4 Hash Data             40 A2 01 AB
 
-06D8 ZIP64 END CENTRAL DIR 07064B50 [117853008]
+06D8 ZIP64 END CENTRAL DIR 07064B50 (117853008)
      LOCATOR
-06DC Central Dir Disk no   00000000 [0]
-06E0 Offset to Zip64 EOCD  0000000000000680 [1664]
-06E8 Total no of Disks     00000001 [1]
+06DC Central Dir Disk no   00000000 (0)
+06E0 Offset to Zip64 EOCD  0000000000000680 (1664)
+06E8 Total no of Disks     00000001 (1)
 
-06EC END CENTRAL HEADER    06054B50 [101010256]
-06F0 Number of this disk   0000 [0]
-06F2 Central Dir Disk no   0000 [0]
-06F4 Entries in this disk  0000 [0]
-06F6 Total Entries         FFFF [65535]
-06F8 Size of Central Dir   000001BE [446]
-06FC Offset to Central Dir 000004C2 [1218]
-0700 Comment Length        0000 [0]
+06EC END CENTRAL HEADER    06054B50 (101010256)
+06F0 Number of this disk   0000 (0)
+06F2 Central Dir Disk no   0000 (0)
+06F4 Entries in this disk  0000 (0)
+06F6 Total Entries         FFFF (65535)
+06F8 Size of Central Dir   000001BE (446)
+06FC Offset to Central Dir 000004C2 (1218)
+0700 Comment Length        0000 (0)
 #
 # WARNING: Local Directory exists, but Central Directory is encrypted
 #

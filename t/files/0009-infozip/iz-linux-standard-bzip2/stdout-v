@@ -1,75 +1,75 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 2E          Extract Zip Spec      2E [46] '4.6'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0000 [0]
-0008 0009 0002 0C 00       Compression Method    000C [12] 'BZIP2'
-000A 000D 0004 71 85 98 52 Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-0012 0015 0004 35 01 00 00 Compressed Length     00000135 [309]
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
-001A 001B 0002 09 00       Filename Length       0009 [9]
-001C 001D 0002 1C 00       Extra Length          001C [28]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 2E          Extract Zip Spec      2E (46) '4.6'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 0C 00       Compression Method    000C (12) 'BZIP2'
+000A 000D 0004 71 85 98 52 Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0012 0015 0004 35 01 00 00 Compressed Length     00000135 (309)
+0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+001A 001B 0002 09 00       Filename Length       0009 (9)
+001C 001D 0002 1C 00       Extra Length          001C (28)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-0027 0028 0002 55 54       Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0029 002A 0002 09 00         Length              0009 [9]
-002B 002B 0001 03            Flags               03 [3] 'mod access'
-002C 002F 0004 A6 3C 84 60   Mod Time            60843CA6 [1619279014] 'Sat Apr 24 15:43:34 2021'
-0030 0033 0004 E7 3D 84 60   Access Time         60843DE7 [1619279335] 'Sat Apr 24 15:48:55 2021'
-0034 0035 0002 75 78       Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-0036 0037 0002 0B 00         Length              000B [11]
-0038 0038 0001 01            Version             01 [1]
-0039 0039 0001 04            UID Size            04 [4]
-003A 003D 0004 E8 03 00 00   UID                 000003E8 [1000]
-003E 003E 0001 04            GID Size            04 [4]
-003F 0042 0004 E8 03 00 00   GID                 000003E8 [1000]
+0027 0028 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0029 002A 0002 09 00         Length              0009 (9)
+002B 002B 0001 03            Flags               03 (3) 'mod access'
+002C 002F 0004 A6 3C 84 60   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+0030 0033 0004 E7 3D 84 60   Access Time         60843DE7 (1619279335) 'Sat Apr 24 15:48:55 2021'
+0034 0035 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0036 0037 0002 0B 00         Length              000B (11)
+0038 0038 0001 01            Version             01 (1)
+0039 0039 0001 04            UID Size            04 (4)
+003A 003D 0004 E8 03 00 00   UID                 000003E8 (1000)
+003E 003E 0001 04            GID Size            04 (4)
+003F 0042 0004 E8 03 00 00   GID                 000003E8 (1000)
 0043 0177 0135 ...         PAYLOAD
 
-0178 017B 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-017C 017C 0001 1E          Created Zip Spec      1E [30] '3.0'
-017D 017D 0001 03          Created OS            03 [3] 'Unix'
-017E 017E 0001 2E          Extract Zip Spec      2E [46] '4.6'
-017F 017F 0001 00          Extract OS            00 [0] 'MS-DOS'
-0180 0181 0002 00 00       General Purpose Flag  0000 [0]
-0182 0183 0002 0C 00       Compression Method    000C [12] 'BZIP2'
-0184 0187 0004 71 85 98 52 Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-0188 018B 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-018C 018F 0004 35 01 00 00 Compressed Length     00000135 [309]
-0190 0193 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
-0194 0195 0002 09 00       Filename Length       0009 [9]
-0196 0197 0002 18 00       Extra Length          0018 [24]
-0198 0199 0002 00 00       Comment Length        0000 [0]
-019A 019B 0002 00 00       Disk Start            0000 [0]
-019C 019D 0002 00 00       Int File Attributes   0000 [0]
+0178 017B 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+017C 017C 0001 1E          Created Zip Spec      1E (30) '3.0'
+017D 017D 0001 03          Created OS            03 (3) 'Unix'
+017E 017E 0001 2E          Extract Zip Spec      2E (46) '4.6'
+017F 017F 0001 00          Extract OS            00 (0) 'MS-DOS'
+0180 0181 0002 00 00       General Purpose Flag  0000 (0)
+0182 0183 0002 0C 00       Compression Method    000C (12) 'BZIP2'
+0184 0187 0004 71 85 98 52 Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+0188 018B 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+018C 018F 0004 35 01 00 00 Compressed Length     00000135 (309)
+0190 0193 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0194 0195 0002 09 00       Filename Length       0009 (9)
+0196 0197 0002 18 00       Extra Length          0018 (24)
+0198 0199 0002 00 00       Comment Length        0000 (0)
+019A 019B 0002 00 00       Disk Start            0000 (0)
+019C 019D 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-019E 01A1 0004 00 00 ED 81 Ext File Attributes   81ED0000 [2179792896]
-                           [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-                           [Bits 28-31]          08 [8] 'Regular File'
-01A2 01A5 0004 00 00 00 00 Local Header Offset   00000000 [0]
+019E 01A1 0004 00 00 ED 81 Ext File Attributes   81ED0000 (2179792896)
+                           [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 (8) 'Regular File'
+01A2 01A5 0004 00 00 00 00 Local Header Offset   00000000 (0)
 01A6 01AE 0009 6C 6F 72 65 Filename              'lorem.txt'
                6D 2E 74 78
                74
-01AF 01B0 0002 55 54       Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-01B1 01B2 0002 05 00         Length              0005 [5]
-01B3 01B3 0001 03            Flags               03 [3] 'mod access'
-01B4 01B7 0004 A6 3C 84 60   Mod Time            60843CA6 [1619279014] 'Sat Apr 24 15:43:34 2021'
-01B8 01B9 0002 75 78       Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-01BA 01BB 0002 0B 00         Length              000B [11]
-01BC 01BC 0001 01            Version             01 [1]
-01BD 01BD 0001 04            UID Size            04 [4]
-01BE 01C1 0004 E8 03 00 00   UID                 000003E8 [1000]
-01C2 01C2 0001 04            GID Size            04 [4]
-01C3 01C6 0004 E8 03 00 00   GID                 000003E8 [1000]
+01AF 01B0 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+01B1 01B2 0002 05 00         Length              0005 (5)
+01B3 01B3 0001 03            Flags               03 (3) 'mod access'
+01B4 01B7 0004 A6 3C 84 60   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+01B8 01B9 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+01BA 01BB 0002 0B 00         Length              000B (11)
+01BC 01BC 0001 01            Version             01 (1)
+01BD 01BD 0001 04            UID Size            04 (4)
+01BE 01C1 0004 E8 03 00 00   UID                 000003E8 (1000)
+01C2 01C2 0001 04            GID Size            04 (4)
+01C3 01C6 0004 E8 03 00 00   GID                 000003E8 (1000)
 
-01C7 01CA 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-01CB 01CC 0002 00 00       Number of this disk   0000 [0]
-01CD 01CE 0002 00 00       Central Dir Disk no   0000 [0]
-01CF 01D0 0002 01 00       Entries in this disk  0001 [1]
-01D1 01D2 0002 01 00       Total Entries         0001 [1]
-01D3 01D6 0004 4F 00 00 00 Size of Central Dir   0000004F [79]
-01D7 01DA 0004 78 01 00 00 Offset to Central Dir 00000178 [376]
-01DB 01DC 0002 00 00       Comment Length        0000 [0]
+01C7 01CA 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01CB 01CC 0002 00 00       Number of this disk   0000 (0)
+01CD 01CE 0002 00 00       Central Dir Disk no   0000 (0)
+01CF 01D0 0002 01 00       Entries in this disk  0001 (1)
+01D1 01D2 0002 01 00       Total Entries         0001 (1)
+01D3 01D6 0004 4F 00 00 00 Size of Central Dir   0000004F (79)
+01D7 01DA 0004 78 01 00 00 Offset to Central Dir 00000178 (376)
+01DB 01DC 0002 00 00       Comment Length        0000 (0)
 #
 # Done

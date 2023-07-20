@@ -1,155 +1,155 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 08 08       General Purpose Flag  0808 [2056]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 08 08       General Purpose Flag  0808 (2056)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
-000A 000D 0004 E1 85 5C 4C Last Mod Time         4C5C85E1 [1281132001] 'Wed Feb 28 16:47:02 2018'
-000E 0011 0004 00 00 00 00 CRC                   00000000 [0]
-0012 0015 0004 00 00 00 00 Compressed Length     00000000 [0]
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 [0]
-001A 001B 0002 10 00       Filename Length       0010 [16]
-001C 001D 0002 12 00       Extra Length          0012 [18]
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 E1 85 5C 4C Last Mod Time         4C5C85E1 (1281132001) 'Wed Feb 28 16:47:02 2018'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Length     00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+001A 001B 0002 10 00       Filename Length       0010 (16)
+001C 001D 0002 12 00       Extra Length          0012 (18)
 001E 002D 0010 E8 AF 81 E6 Filename              '证明及协议/'
                98 8E E5 8F
                8A E5 8D 8F
                E8 AE AE 2F
-002E 002F 0002 6E 75       Extra ID #1           756E [30062] 'ASi Unix [un]'
-0030 0031 0002 0E 00         Length              000E [14]
-0032 0035 0004 EC 83 31 37   CRC                 373183EC [925991916]
-0036 0037 0002 F6 41         Mode                41F6 [16886]
-                             [Bits 0-8]          01F6 [502] 'Unix attrib: rwxrw-rw-'
-                             [Bits 12-15]        04 [4] 'Directory'
-0038 003B 0004 00 00 00 00   SizDev              00000000 [0]
-003C 003D 0002 00 00         UID                 0000 [0]
-003E 003F 0002 00 00         GID                 0000 [0]
+002E 002F 0002 6E 75       Extra ID #1           756E (30062) 'ASi Unix [un]'
+0030 0031 0002 0E 00         Length              000E (14)
+0032 0035 0004 EC 83 31 37   CRC                 373183EC (925991916)
+0036 0037 0002 F6 41         Mode                41F6 (16886)
+                             [Bits 0-8]          01F6 (502) 'Unix attrib: rwxrw-rw-'
+                             [Bits 12-15]        04 (4) 'Directory'
+0038 003B 0004 00 00 00 00   SizDev              00000000 (0)
+003C 003D 0002 00 00         UID                 0000 (0)
+003E 003F 0002 00 00         GID                 0000 (0)
 0040 0041 0002 03 00       PAYLOAD               ..
 
-0042 0045 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 [134695760]
-0046 0049 0004 00 00 00 00 CRC                   00000000 [0]
-004A 004D 0004 02 00 00 00 Compressed Length     00000002 [2]
-004E 0051 0004 00 00 00 00 Uncompressed Length   00000000 [0]
+0042 0045 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
+0046 0049 0004 00 00 00 00 CRC                   00000000 (0)
+004A 004D 0004 02 00 00 00 Compressed Length     00000002 (2)
+004E 0051 0004 00 00 00 00 Uncompressed Length   00000000 (0)
 
-0052 0055 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 [67324752]
-0056 0056 0001 14          Extract Zip Spec      14 [20] '2.0'
-0057 0057 0001 00          Extract OS            00 [0] 'MS-DOS'
-0058 0059 0002 08 08       General Purpose Flag  0808 [2056]
+0052 0055 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+0056 0056 0001 14          Extract Zip Spec      14 (20) '2.0'
+0057 0057 0001 00          Extract OS            00 (0) 'MS-DOS'
+0058 0059 0002 08 08       General Purpose Flag  0808 (2056)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-005A 005B 0002 08 00       Compression Method    0008 [8] 'Deflated'
-005C 005F 0004 5B 84 5C 4C Last Mod Time         4C5C845B [1281131611] 'Wed Feb 28 16:34:54 2018'
-0060 0063 0004 00 00 00 00 CRC                   00000000 [0]
-0064 0067 0004 00 00 00 00 Compressed Length     00000000 [0]
-0068 006B 0004 00 00 00 00 Uncompressed Length   00000000 [0]
-006C 006D 0002 18 00       Filename Length       0018 [24]
-006E 006F 0002 12 00       Extra Length          0012 [18]
+005A 005B 0002 08 00       Compression Method    0008 (8) 'Deflated'
+005C 005F 0004 5B 84 5C 4C Last Mod Time         4C5C845B (1281131611) 'Wed Feb 28 16:34:54 2018'
+0060 0063 0004 00 00 00 00 CRC                   00000000 (0)
+0064 0067 0004 00 00 00 00 Compressed Length     00000000 (0)
+0068 006B 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+006C 006D 0002 18 00       Filename Length       0018 (24)
+006E 006F 0002 12 00       Extra Length          0012 (18)
 0070 0087 0018 E8 AF 81 E6 Filename              '证明及协议/file.jpg'
                98 8E E5 8F
                8A E5 8D 8F
                E8 AE AE 2F
                66 69 6C 65
                2E 6A 70 67
-0088 0089 0002 6E 75       Extra ID #1           756E [30062] 'ASi Unix [un]'
-008A 008B 0002 0E 00         Length              000E [14]
-008C 008F 0004 71 D1 AD AC   CRC                 ACADD171 [2897072497]
-0090 0091 0002 E4 81         Mode                81E4 [33252]
-                             [Bits 0-8]          01E4 [484] 'Unix attrib: rwxr--r--'
-                             [Bits 12-15]        08 [8] 'Regular File'
-0092 0095 0004 00 00 00 00   SizDev              00000000 [0]
-0096 0097 0002 00 00         UID                 0000 [0]
-0098 0099 0002 00 00         GID                 0000 [0]
+0088 0089 0002 6E 75       Extra ID #1           756E (30062) 'ASi Unix [un]'
+008A 008B 0002 0E 00         Length              000E (14)
+008C 008F 0004 71 D1 AD AC   CRC                 ACADD171 (2897072497)
+0090 0091 0002 E4 81         Mode                81E4 (33252)
+                             [Bits 0-8]          01E4 (484) 'Unix attrib: rwxr--r--'
+                             [Bits 12-15]        08 (8) 'Regular File'
+0092 0095 0004 00 00 00 00   SizDev              00000000 (0)
+0096 0097 0002 00 00         UID                 0000 (0)
+0098 0099 0002 00 00         GID                 0000 (0)
 009A 009B 0002 03 00       PAYLOAD               ..
 
-009C 009F 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 [134695760]
-00A0 00A3 0004 00 00 00 00 CRC                   00000000 [0]
-00A4 00A7 0004 02 00 00 00 Compressed Length     00000002 [2]
-00A8 00AB 0004 00 00 00 00 Uncompressed Length   00000000 [0]
+009C 009F 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
+00A0 00A3 0004 00 00 00 00 CRC                   00000000 (0)
+00A4 00A7 0004 02 00 00 00 Compressed Length     00000002 (2)
+00A8 00AB 0004 00 00 00 00 Uncompressed Length   00000000 (0)
 
-00AC 00AF 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-00B0 00B0 0001 14          Created Zip Spec      14 [20] '2.0'
-00B1 00B1 0001 00          Created OS            00 [0] 'MS-DOS'
-00B2 00B2 0001 14          Extract Zip Spec      14 [20] '2.0'
-00B3 00B3 0001 00          Extract OS            00 [0] 'MS-DOS'
-00B4 00B5 0002 08 08       General Purpose Flag  0808 [2056]
+00AC 00AF 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+00B0 00B0 0001 14          Created Zip Spec      14 (20) '2.0'
+00B1 00B1 0001 00          Created OS            00 (0) 'MS-DOS'
+00B2 00B2 0001 14          Extract Zip Spec      14 (20) '2.0'
+00B3 00B3 0001 00          Extract OS            00 (0) 'MS-DOS'
+00B4 00B5 0002 08 08       General Purpose Flag  0808 (2056)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-00B6 00B7 0002 08 00       Compression Method    0008 [8] 'Deflated'
-00B8 00BB 0004 E1 85 5C 4C Last Mod Time         4C5C85E1 [1281132001] 'Wed Feb 28 16:47:02 2018'
-00BC 00BF 0004 00 00 00 00 CRC                   00000000 [0]
-00C0 00C3 0004 02 00 00 00 Compressed Length     00000002 [2]
-00C4 00C7 0004 00 00 00 00 Uncompressed Length   00000000 [0]
-00C8 00C9 0002 10 00       Filename Length       0010 [16]
-00CA 00CB 0002 12 00       Extra Length          0012 [18]
-00CC 00CD 0002 00 00       Comment Length        0000 [0]
-00CE 00CF 0002 00 00       Disk Start            0000 [0]
-00D0 00D1 0002 00 00       Int File Attributes   0000 [0]
+00B6 00B7 0002 08 00       Compression Method    0008 (8) 'Deflated'
+00B8 00BB 0004 E1 85 5C 4C Last Mod Time         4C5C85E1 (1281132001) 'Wed Feb 28 16:47:02 2018'
+00BC 00BF 0004 00 00 00 00 CRC                   00000000 (0)
+00C0 00C3 0004 02 00 00 00 Compressed Length     00000002 (2)
+00C4 00C7 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+00C8 00C9 0002 10 00       Filename Length       0010 (16)
+00CA 00CB 0002 12 00       Extra Length          0012 (18)
+00CC 00CD 0002 00 00       Comment Length        0000 (0)
+00CE 00CF 0002 00 00       Disk Start            0000 (0)
+00D0 00D1 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-00D2 00D5 0004 00 00 00 00 Ext File Attributes   00000000 [0]
-00D6 00D9 0004 00 00 00 00 Local Header Offset   00000000 [0]
+00D2 00D5 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+00D6 00D9 0004 00 00 00 00 Local Header Offset   00000000 (0)
 00DA 00E9 0010 E8 AF 81 E6 Filename              '证明及协议/'
                98 8E E5 8F
                8A E5 8D 8F
                E8 AE AE 2F
-00EA 00EB 0002 6E 75       Extra ID #1           756E [30062] 'ASi Unix [un]'
-00EC 00ED 0002 0E 00         Length              000E [14]
-00EE 00F1 0004 EC 83 31 37   CRC                 373183EC [925991916]
-00F2 00F3 0002 F6 41         Mode                41F6 [16886]
-                             [Bits 0-8]          01F6 [502] 'Unix attrib: rwxrw-rw-'
-                             [Bits 12-15]        04 [4] 'Directory'
-00F4 00F7 0004 00 00 00 00   SizDev              00000000 [0]
-00F8 00F9 0002 00 00         UID                 0000 [0]
-00FA 00FB 0002 00 00         GID                 0000 [0]
+00EA 00EB 0002 6E 75       Extra ID #1           756E (30062) 'ASi Unix [un]'
+00EC 00ED 0002 0E 00         Length              000E (14)
+00EE 00F1 0004 EC 83 31 37   CRC                 373183EC (925991916)
+00F2 00F3 0002 F6 41         Mode                41F6 (16886)
+                             [Bits 0-8]          01F6 (502) 'Unix attrib: rwxrw-rw-'
+                             [Bits 12-15]        04 (4) 'Directory'
+00F4 00F7 0004 00 00 00 00   SizDev              00000000 (0)
+00F8 00F9 0002 00 00         UID                 0000 (0)
+00FA 00FB 0002 00 00         GID                 0000 (0)
 
-00FC 00FF 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 [33639248]
-0100 0100 0001 14          Created Zip Spec      14 [20] '2.0'
-0101 0101 0001 00          Created OS            00 [0] 'MS-DOS'
-0102 0102 0001 14          Extract Zip Spec      14 [20] '2.0'
-0103 0103 0001 00          Extract OS            00 [0] 'MS-DOS'
-0104 0105 0002 08 08       General Purpose Flag  0808 [2056]
+00FC 00FF 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+0100 0100 0001 14          Created Zip Spec      14 (20) '2.0'
+0101 0101 0001 00          Created OS            00 (0) 'MS-DOS'
+0102 0102 0001 14          Extract Zip Spec      14 (20) '2.0'
+0103 0103 0001 00          Extract OS            00 (0) 'MS-DOS'
+0104 0105 0002 08 08       General Purpose Flag  0808 (2056)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
-0106 0107 0002 08 00       Compression Method    0008 [8] 'Deflated'
-0108 010B 0004 5B 84 5C 4C Last Mod Time         4C5C845B [1281131611] 'Wed Feb 28 16:34:54 2018'
-010C 010F 0004 00 00 00 00 CRC                   00000000 [0]
-0110 0113 0004 02 00 00 00 Compressed Length     00000002 [2]
-0114 0117 0004 00 00 00 00 Uncompressed Length   00000000 [0]
-0118 0119 0002 18 00       Filename Length       0018 [24]
-011A 011B 0002 12 00       Extra Length          0012 [18]
-011C 011D 0002 00 00       Comment Length        0000 [0]
-011E 011F 0002 00 00       Disk Start            0000 [0]
-0120 0121 0002 00 00       Int File Attributes   0000 [0]
+0106 0107 0002 08 00       Compression Method    0008 (8) 'Deflated'
+0108 010B 0004 5B 84 5C 4C Last Mod Time         4C5C845B (1281131611) 'Wed Feb 28 16:34:54 2018'
+010C 010F 0004 00 00 00 00 CRC                   00000000 (0)
+0110 0113 0004 02 00 00 00 Compressed Length     00000002 (2)
+0114 0117 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0118 0119 0002 18 00       Filename Length       0018 (24)
+011A 011B 0002 12 00       Extra Length          0012 (18)
+011C 011D 0002 00 00       Comment Length        0000 (0)
+011E 011F 0002 00 00       Disk Start            0000 (0)
+0120 0121 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-0122 0125 0004 00 00 00 00 Ext File Attributes   00000000 [0]
-0126 0129 0004 52 00 00 00 Local Header Offset   00000052 [82]
+0122 0125 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+0126 0129 0004 52 00 00 00 Local Header Offset   00000052 (82)
 012A 0141 0018 E8 AF 81 E6 Filename              '证明及协议/file.jpg'
                98 8E E5 8F
                8A E5 8D 8F
                E8 AE AE 2F
                66 69 6C 65
                2E 6A 70 67
-0142 0143 0002 6E 75       Extra ID #1           756E [30062] 'ASi Unix [un]'
-0144 0145 0002 0E 00         Length              000E [14]
-0146 0149 0004 71 D1 AD AC   CRC                 ACADD171 [2897072497]
-014A 014B 0002 E4 81         Mode                81E4 [33252]
-                             [Bits 0-8]          01E4 [484] 'Unix attrib: rwxr--r--'
-                             [Bits 12-15]        08 [8] 'Regular File'
-014C 014F 0004 00 00 00 00   SizDev              00000000 [0]
-0150 0151 0002 00 00         UID                 0000 [0]
-0152 0153 0002 00 00         GID                 0000 [0]
+0142 0143 0002 6E 75       Extra ID #1           756E (30062) 'ASi Unix [un]'
+0144 0145 0002 0E 00         Length              000E (14)
+0146 0149 0004 71 D1 AD AC   CRC                 ACADD171 (2897072497)
+014A 014B 0002 E4 81         Mode                81E4 (33252)
+                             [Bits 0-8]          01E4 (484) 'Unix attrib: rwxr--r--'
+                             [Bits 12-15]        08 (8) 'Regular File'
+014C 014F 0004 00 00 00 00   SizDev              00000000 (0)
+0150 0151 0002 00 00         UID                 0000 (0)
+0152 0153 0002 00 00         GID                 0000 (0)
 
-0154 0157 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-0158 0159 0002 00 00       Number of this disk   0000 [0]
-015A 015B 0002 00 00       Central Dir Disk no   0000 [0]
-015C 015D 0002 02 00       Entries in this disk  0002 [2]
-015E 015F 0002 02 00       Total Entries         0002 [2]
-0160 0163 0004 A8 00 00 00 Size of Central Dir   000000A8 [168]
-0164 0167 0004 AC 00 00 00 Offset to Central Dir 000000AC [172]
-0168 0169 0002 00 00       Comment Length        0000 [0]
+0154 0157 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0158 0159 0002 00 00       Number of this disk   0000 (0)
+015A 015B 0002 00 00       Central Dir Disk no   0000 (0)
+015C 015D 0002 02 00       Entries in this disk  0002 (2)
+015E 015F 0002 02 00       Total Entries         0002 (2)
+0160 0163 0004 A8 00 00 00 Size of Central Dir   000000A8 (168)
+0164 0167 0004 AC 00 00 00 Offset to Central Dir 000000AC (172)
+0168 0169 0002 00 00       Comment Length        0000 (0)
 #
 # Done

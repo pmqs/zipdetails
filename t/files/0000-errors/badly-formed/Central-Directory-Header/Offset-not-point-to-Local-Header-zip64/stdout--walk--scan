@@ -1,82 +1,82 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      2D [45] '4.5'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      2D (45) '4.5'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 [8] 'Deflated'
-000A Last Mod Time         55818B40 [1434553152] 'Thu Dec  1 17:26:00 2022'
-000E CRC                   F90EE7FF [4178503679]
-0012 Compressed Length     FFFFFFFF [4294967295]
-0016 Uncompressed Length   FFFFFFFF [4294967295]
-001A Filename Length       0009 [9]
-001C Extra Length          0014 [20]
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Time         55818B40 (1434553152) 'Thu Dec  1 17:26:00 2022'
+000E CRC                   F90EE7FF (4178503679)
+0012 Compressed Length     FFFFFFFF (4294967295)
+0016 Uncompressed Length   FFFFFFFF (4294967295)
+001A Filename Length       0009 (9)
+001C Extra Length          0014 (20)
 001E Filename              'lorem.txt'
-0027 Extra ID #1           0001 [1] 'ZIP64'
-0029   Length              0010 [16]
-002B   Uncompressed Size   00000000000001BE [446]
-0033   Compressed Size     000000000000010E [270]
+0027 Extra ID #1           0001 (1) 'ZIP64'
+0029   Length              0010 (16)
+002B   Uncompressed Size   00000000000001BE (446)
+0033   Compressed Size     000000000000010E (270)
 003B PAYLOAD
 
-0149 CENTRAL HEADER #1     02014B50 [33639248]
-014D Created Zip Spec      1E [30] '3.0'
-014E Created OS            03 [3] 'Unix'
-014F Extract Zip Spec      2D [45] '4.5'
-0150 Extract OS            00 [0] 'MS-DOS'
-0151 General Purpose Flag  0000 [0]
+0149 CENTRAL HEADER #1     02014B50 (33639248)
+014D Created Zip Spec      1E (30) '3.0'
+014E Created OS            03 (3) 'Unix'
+014F Extract Zip Spec      2D (45) '4.5'
+0150 Extract OS            00 (0) 'MS-DOS'
+0151 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-0153 Compression Method    0008 [8] 'Deflated'
-0155 Last Mod Time         55818B40 [1434553152] 'Thu Dec  1 17:26:00 2022'
-0159 CRC                   F90EE7FF [4178503679]
-015D Compressed Length     0000010E [270]
-0161 Uncompressed Length   000001BE [446]
-0165 Filename Length       0009 [9]
-0167 Extra Length          000C [12]
-0169 Comment Length        0000 [0]
-016B Disk Start            0000 [0]
-016D Int File Attributes   0001 [1]
+0153 Compression Method    0008 (8) 'Deflated'
+0155 Last Mod Time         55818B40 (1434553152) 'Thu Dec  1 17:26:00 2022'
+0159 CRC                   F90EE7FF (4178503679)
+015D Compressed Length     0000010E (270)
+0161 Uncompressed Length   000001BE (446)
+0165 Filename Length       0009 (9)
+0167 Extra Length          000C (12)
+0169 Comment Length        0000 (0)
+016B Disk Start            0000 (0)
+016D Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-016F Ext File Attributes   81ED0000 [2179792896]
-     [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 [8] 'Regular File'
-0173 Local Header Offset   FFFFFFFF [4294967295]
+016F Ext File Attributes   81ED0000 (2179792896)
+     [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 (8) 'Regular File'
+0173 Local Header Offset   FFFFFFFF (4294967295)
 0177 Filename              'lorem.txt'
-0180 Extra ID #1           0001 [1] 'ZIP64'
-0182   Length              0008 [8]
-0184   Offset to Local Dir 0000000000000001 [1]
+0180 Extra ID #1           0001 (1) 'ZIP64'
+0182   Length              0008 (8)
+0184   Offset to Local Dir 0000000000000001 (1)
 #
 # ERROR: Offset 0x184: 'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid
 #        value @ 0x1 should decode to signature for 'Local File Header' (0x04034B50). Got 0x2D04034B
 #
 
-018C ZIP64 END CENTRAL DIR 06064B50 [101075792]
+018C ZIP64 END CENTRAL DIR 06064B50 (101075792)
      RECORD
-0190 Size of record        000000000000002C [44]
-0198 Created Zip Spec      1E [30] '3.0'
-0199 Created OS            03 [3] 'Unix'
-019A Extract Zip Spec      2D [45] '4.5'
-019B Extract OS            00 [0] 'MS-DOS'
-019C Number of this disk   00000000 [0]
-01A0 Central Dir Disk no   00000000 [0]
-01A4 Entries in this disk  0000000000000001 [1]
-01AC Total Entries         0000000000000001 [1]
-01B4 Size of Central Dir   0000000000000043 [67]
-01BC Offset to Central dir 0000000000000149 [329]
+0190 Size of record        000000000000002C (44)
+0198 Created Zip Spec      1E (30) '3.0'
+0199 Created OS            03 (3) 'Unix'
+019A Extract Zip Spec      2D (45) '4.5'
+019B Extract OS            00 (0) 'MS-DOS'
+019C Number of this disk   00000000 (0)
+01A0 Central Dir Disk no   00000000 (0)
+01A4 Entries in this disk  0000000000000001 (1)
+01AC Total Entries         0000000000000001 (1)
+01B4 Size of Central Dir   0000000000000043 (67)
+01BC Offset to Central dir 0000000000000149 (329)
 
-01C4 ZIP64 END CENTRAL DIR 07064B50 [117853008]
+01C4 ZIP64 END CENTRAL DIR 07064B50 (117853008)
      LOCATOR
-01C8 Central Dir Disk no   00000000 [0]
-01CC Offset to Zip64 EOCD  000000000000018C [396]
-01D4 Total no of Disks     00000001 [1]
+01C8 Central Dir Disk no   00000000 (0)
+01CC Offset to Zip64 EOCD  000000000000018C (396)
+01D4 Total no of Disks     00000001 (1)
 
-01D8 END CENTRAL HEADER    06054B50 [101010256]
-01DC Number of this disk   0000 [0]
-01DE Central Dir Disk no   0000 [0]
-01E0 Entries in this disk  0001 [1]
-01E2 Total Entries         0001 [1]
-01E4 Size of Central Dir   00000043 [67]
-01E8 Offset to Central Dir FFFFFFFF [4294967295]
-01EC Comment Length        0000 [0]
+01D8 END CENTRAL HEADER    06054B50 (101010256)
+01DC Number of this disk   0000 (0)
+01DE Central Dir Disk no   0000 (0)
+01E0 Entries in this disk  0001 (1)
+01E2 Total Entries         0001 (1)
+01E4 Size of Central Dir   00000043 (67)
+01E8 Offset to Central Dir FFFFFFFF (4294967295)
+01EC Comment Length        0000 (0)
 #
 # ERROR: Orphan Local Headers found: 1
 #  Offset  Filename

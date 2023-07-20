@@ -1,85 +1,85 @@
 
-000000000 LOCAL HEADER #1       04034B50 [67324752]
-000000004 Extract Zip Spec      2D [45] '4.5'
-000000005 Extract OS            00 [0] 'MS-DOS'
-000000006 General Purpose Flag  0800 [2048]
+000000000 LOCAL HEADER #1       04034B50 (67324752)
+000000004 Extract Zip Spec      2D (45) '4.5'
+000000005 Extract OS            00 (0) 'MS-DOS'
+000000006 General Purpose Flag  0800 (2048)
           [Bit 11]              1 'Language Encoding'
-000000008 Compression Method    0000 [0] 'Stored'
-00000000A Last Mod Time         55076F51 [1426550609] 'Sun Aug  7 13:58:34 2022'
-00000000E CRC                   B7B2364B [3081909835]
-000000012 Compressed Length     FFFFFFFF [4294967295]
-000000016 Uncompressed Length   FFFFFFFF [4294967295]
-00000001A Filename Length       0003 [3]
-00000001C Extra Length          0014 [20]
+000000008 Compression Method    0000 (0) 'Stored'
+00000000A Last Mod Time         55076F51 (1426550609) 'Sun Aug  7 13:58:34 2022'
+00000000E CRC                   B7B2364B (3081909835)
+000000012 Compressed Length     FFFFFFFF (4294967295)
+000000016 Uncompressed Length   FFFFFFFF (4294967295)
+00000001A Filename Length       0003 (3)
+00000001C Extra Length          0014 (20)
 00000001E Filename              'xxx'
-000000021 Extra ID #1           0001 [1] 'ZIP64'
-000000023   Length              0010 [16]
-000000025   Uncompressed Size   0000000100000000 [4294967296]
-00000002D   Compressed Size     0000000100000000 [4294967296]
+000000021 Extra ID #1           0001 (1) 'ZIP64'
+000000023   Length              0010 (16)
+000000025   Uncompressed Size   0000000100000000 (4294967296)
+00000002D   Compressed Size     0000000100000000 (4294967296)
 000000035 PAYLOAD
 
-100000035 CENTRAL HEADER #1     02014B50 [33639248]
-100000039 Created Zip Spec      41 [65] '6.5'
-10000003A Created OS            00 [0] 'MS-DOS'
-10000003B Extract Zip Spec      2D [45] '4.5'
-10000003C Extract OS            00 [0] 'MS-DOS'
-10000003D General Purpose Flag  0800 [2048]
+100000035 CENTRAL HEADER #1     02014B50 (33639248)
+100000039 Created Zip Spec      41 (65) '6.5'
+10000003A Created OS            00 (0) 'MS-DOS'
+10000003B Extract Zip Spec      2D (45) '4.5'
+10000003C Extract OS            00 (0) 'MS-DOS'
+10000003D General Purpose Flag  0800 (2048)
           [Bit 11]              1 'Language Encoding'
-10000003F Compression Method    0000 [0] 'Stored'
-100000041 Last Mod Time         55076F51 [1426550609] 'Sun Aug  7 13:58:34 2022'
-100000045 CRC                   B7B2364B [3081909835]
-100000049 Compressed Length     FFFFFFFF [4294967295]
-10000004D Uncompressed Length   FFFFFFFF [4294967295]
-100000051 Filename Length       0003 [3]
-100000053 Extra Length          0038 [56]
-100000055 Comment Length        0000 [0]
-100000057 Disk Start            0000 [0]
-100000059 Int File Attributes   0000 [0]
+10000003F Compression Method    0000 (0) 'Stored'
+100000041 Last Mod Time         55076F51 (1426550609) 'Sun Aug  7 13:58:34 2022'
+100000045 CRC                   B7B2364B (3081909835)
+100000049 Compressed Length     FFFFFFFF (4294967295)
+10000004D Uncompressed Length   FFFFFFFF (4294967295)
+100000051 Filename Length       0003 (3)
+100000053 Extra Length          0038 (56)
+100000055 Comment Length        0000 (0)
+100000057 Disk Start            0000 (0)
+100000059 Int File Attributes   0000 (0)
           [Bit 0]               0 'Binary Data'
-10000005B Ext File Attributes   00000020 [32]
+10000005B Ext File Attributes   00000020 (32)
           [Bit 5]               Archive
-10000005F Local Header Offset   00000000 [0]
+10000005F Local Header Offset   00000000 (0)
 100000063 Filename              'xxx'
-100000066 Extra ID #1           0001 [1] 'ZIP64'
-100000068   Length              0010 [16]
-10000006A   Uncompressed Size   0000000100000000 [4294967296]
-100000072   Compressed Size     0000000100000000 [4294967296]
-10000007A Extra ID #2           000A [10] 'NTFS FileTimes'
-10000007C   Length              0020 [32]
-10000007E   Reserved            00000000 [0]
-100000082   Tag1                0001 [1]
-100000084   Size1               0018 [24]
-100000086   Mtime               01D8AA5D6699660E [133043507137439246] 'Sun Aug  7 12:58:33 2022 743924600ns'
-10000008E   Atime               01D8AA5D6699660E [133043507137439246] 'Sun Aug  7 12:58:33 2022 743924600ns'
-100000096   Ctime               01D8AA5D3145EAD3 [133043506242775763] 'Sun Aug  7 12:57:04 2022 277576300ns'
+100000066 Extra ID #1           0001 (1) 'ZIP64'
+100000068   Length              0010 (16)
+10000006A   Uncompressed Size   0000000100000000 (4294967296)
+100000072   Compressed Size     0000000100000000 (4294967296)
+10000007A Extra ID #2           000A (10) 'NTFS FileTimes'
+10000007C   Length              0020 (32)
+10000007E   Reserved            00000000 (0)
+100000082   Tag1                0001 (1)
+100000084   Size1               0018 (24)
+100000086   Mtime               01D8AA5D6699660E (133043507137439246) 'Sun Aug  7 12:58:33 2022 743924600ns'
+10000008E   Atime               01D8AA5D6699660E (133043507137439246) 'Sun Aug  7 12:58:33 2022 743924600ns'
+100000096   Ctime               01D8AA5D3145EAD3 (133043506242775763) 'Sun Aug  7 12:57:04 2022 277576300ns'
 
-10000009E ZIP64 END CENTRAL DIR 06064B50 [101075792]
+10000009E ZIP64 END CENTRAL DIR 06064B50 (101075792)
           RECORD
-1000000A2 Size of record        000000000000002C [44]
-1000000AA Created Zip Spec      41 [65] '6.5'
-1000000AB Created OS            00 [0] 'MS-DOS'
-1000000AC Extract Zip Spec      2D [45] '4.5'
-1000000AD Extract OS            00 [0] 'MS-DOS'
-1000000AE Number of this disk   00000000 [0]
-1000000B2 Central Dir Disk no   00000000 [0]
-1000000B6 Entries in this disk  0000000000000001 [1]
-1000000BE Total Entries         0000000000000001 [1]
-1000000C6 Size of Central Dir   0000000000000069 [105]
-1000000CE Offset to Central dir 0000000100000035 [4294967349]
+1000000A2 Size of record        000000000000002C (44)
+1000000AA Created Zip Spec      41 (65) '6.5'
+1000000AB Created OS            00 (0) 'MS-DOS'
+1000000AC Extract Zip Spec      2D (45) '4.5'
+1000000AD Extract OS            00 (0) 'MS-DOS'
+1000000AE Number of this disk   00000000 (0)
+1000000B2 Central Dir Disk no   00000000 (0)
+1000000B6 Entries in this disk  0000000000000001 (1)
+1000000BE Total Entries         0000000000000001 (1)
+1000000C6 Size of Central Dir   0000000000000069 (105)
+1000000CE Offset to Central dir 0000000100000035 (4294967349)
 
-1000000D6 ZIP64 END CENTRAL DIR 07064B50 [117853008]
+1000000D6 ZIP64 END CENTRAL DIR 07064B50 (117853008)
           LOCATOR
-1000000DA Central Dir Disk no   00000000 [0]
-1000000DE Offset to Zip64 EOCD  000000010000009E [4294967454]
-1000000E6 Total no of Disks     00000001 [1]
+1000000DA Central Dir Disk no   00000000 (0)
+1000000DE Offset to Zip64 EOCD  000000010000009E (4294967454)
+1000000E6 Total no of Disks     00000001 (1)
 
-1000000EA END CENTRAL HEADER    06054B50 [101010256]
-1000000EE Number of this disk   0000 [0]
-1000000F0 Central Dir Disk no   0000 [0]
-1000000F2 Entries in this disk  0001 [1]
-1000000F4 Total Entries         0001 [1]
-1000000F6 Size of Central Dir   00000069 [105]
-1000000FA Offset to Central Dir FFFFFFFF [4294967295]
-1000000FE Comment Length        0000 [0]
+1000000EA END CENTRAL HEADER    06054B50 (101010256)
+1000000EE Number of this disk   0000 (0)
+1000000F0 Central Dir Disk no   0000 (0)
+1000000F2 Entries in this disk  0001 (1)
+1000000F4 Total Entries         0001 (1)
+1000000F6 Size of Central Dir   00000069 (105)
+1000000FA Offset to Central Dir FFFFFFFF (4294967295)
+1000000FE Comment Length        0000 (0)
 #
 # Done

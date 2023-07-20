@@ -1,141 +1,141 @@
 #
-# INFO: Offset 0x0: found 0x4 [4] bytes before beginning of zipfile
+# INFO: Offset 0x0: found 0x4 (4) bytes before beginning of zipfile
 #
 
 0000 UNEXPECTED PADDING    abcd
 
-0004 LOCAL HEADER #1       04034B50 [67324752]
-0008 Extract Zip Spec      14 [20] '2.0'
-0009 Extract OS            00 [0] 'MS-DOS'
-000A General Purpose Flag  0000 [0]
+0004 LOCAL HEADER #1       04034B50 (67324752)
+0008 Extract Zip Spec      14 (20) '2.0'
+0009 Extract OS            00 (0) 'MS-DOS'
+000A General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-000C Compression Method    0008 [8] 'Deflated'
-000E Last Mod Time         556254A5 [1432507557] 'Wed Nov  2 10:37:10 2022'
-0012 CRC                   BB60C636 [3143681590]
-0016 Compressed Length     00000110 [272]
-001A Uncompressed Length   000001BF [447]
-001E Filename Length       000A [10]
-0020 Extra Length          001C [28]
+000C Compression Method    0008 (8) 'Deflated'
+000E Last Mod Time         556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
+0012 CRC                   BB60C636 (3143681590)
+0016 Compressed Length     00000110 (272)
+001A Uncompressed Length   000001BF (447)
+001E Filename Length       000A (10)
+0020 Extra Length          001C (28)
 0022 Filename              'lorem1.txt'
-002C Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-002E   Length              0009 [9]
-0030   Flags               03 [3] 'mod access'
-0031   Mod Time            63624855 [1667385429] 'Wed Nov  2 10:37:09 2022'
-0035   Access Time         63624855 [1667385429] 'Wed Nov  2 10:37:09 2022'
-0039 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-003B   Length              000B [11]
-003D   Version             01 [1]
-003E   UID Size            04 [4]
-003F   UID                 000003E8 [1000]
-0043   GID Size            04 [4]
-0044   GID                 000003E8 [1000]
+002C Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+002E   Length              0009 (9)
+0030   Flags               03 (3) 'mod access'
+0031   Mod Time            63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
+0035   Access Time         63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
+0039 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+003B   Length              000B (11)
+003D   Version             01 (1)
+003E   UID Size            04 (4)
+003F   UID                 000003E8 (1000)
+0043   GID Size            04 (4)
+0044   GID                 000003E8 (1000)
 0048 PAYLOAD
 
-0158 LOCAL HEADER #2       04034B50 [67324752]
-015C Extract Zip Spec      14 [20] '2.0'
-015D Extract OS            00 [0] 'MS-DOS'
-015E General Purpose Flag  0000 [0]
+0158 LOCAL HEADER #2       04034B50 (67324752)
+015C Extract Zip Spec      14 (20) '2.0'
+015D Extract OS            00 (0) 'MS-DOS'
+015E General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-0160 Compression Method    0008 [8] 'Deflated'
-0162 Last Mod Time         5562548C [1432507532] 'Wed Nov  2 10:36:24 2022'
-0166 CRC                   F90EE7FF [4178503679]
-016A Compressed Length     0000010E [270]
-016E Uncompressed Length   000001BE [446]
-0172 Filename Length       0009 [9]
-0174 Extra Length          001C [28]
+0160 Compression Method    0008 (8) 'Deflated'
+0162 Last Mod Time         5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
+0166 CRC                   F90EE7FF (4178503679)
+016A Compressed Length     0000010E (270)
+016E Uncompressed Length   000001BE (446)
+0172 Filename Length       0009 (9)
+0174 Extra Length          001C (28)
 0176 Filename              'lorem.txt'
-017F Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0181   Length              0009 [9]
-0183   Flags               03 [3] 'mod access'
-0184   Mod Time            63624828 [1667385384] 'Wed Nov  2 10:36:24 2022'
-0188   Access Time         63624828 [1667385384] 'Wed Nov  2 10:36:24 2022'
-018C Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-018E   Length              000B [11]
-0190   Version             01 [1]
-0191   UID Size            04 [4]
-0192   UID                 000003E8 [1000]
-0196   GID Size            04 [4]
-0197   GID                 000003E8 [1000]
+017F Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0181   Length              0009 (9)
+0183   Flags               03 (3) 'mod access'
+0184   Mod Time            63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
+0188   Access Time         63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
+018C Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+018E   Length              000B (11)
+0190   Version             01 (1)
+0191   UID Size            04 (4)
+0192   UID                 000003E8 (1000)
+0196   GID Size            04 (4)
+0197   GID                 000003E8 (1000)
 019B PAYLOAD
 
-02A9 CENTRAL HEADER #1     02014B50 [33639248]
-02AD Created Zip Spec      1E [30] '3.0'
-02AE Created OS            03 [3] 'Unix'
-02AF Extract Zip Spec      14 [20] '2.0'
-02B0 Extract OS            00 [0] 'MS-DOS'
-02B1 General Purpose Flag  0000 [0]
+02A9 CENTRAL HEADER #1     02014B50 (33639248)
+02AD Created Zip Spec      1E (30) '3.0'
+02AE Created OS            03 (3) 'Unix'
+02AF Extract Zip Spec      14 (20) '2.0'
+02B0 Extract OS            00 (0) 'MS-DOS'
+02B1 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-02B3 Compression Method    0008 [8] 'Deflated'
-02B5 Last Mod Time         556254A5 [1432507557] 'Wed Nov  2 10:37:10 2022'
-02B9 CRC                   BB60C636 [3143681590]
-02BD Compressed Length     00000110 [272]
-02C1 Uncompressed Length   000001BF [447]
-02C5 Filename Length       000A [10]
-02C7 Extra Length          0018 [24]
-02C9 Comment Length        0000 [0]
-02CB Disk Start            0000 [0]
-02CD Int File Attributes   0001 [1]
+02B3 Compression Method    0008 (8) 'Deflated'
+02B5 Last Mod Time         556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
+02B9 CRC                   BB60C636 (3143681590)
+02BD Compressed Length     00000110 (272)
+02C1 Uncompressed Length   000001BF (447)
+02C5 Filename Length       000A (10)
+02C7 Extra Length          0018 (24)
+02C9 Comment Length        0000 (0)
+02CB Disk Start            0000 (0)
+02CD Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-02CF Ext File Attributes   81ED0000 [2179792896]
-     [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 [8] 'Regular File'
-02D3 Local Header Offset   00000000 [0] [Actual Offset is 00000004 [4]]
+02CF Ext File Attributes   81ED0000 (2179792896)
+     [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 (8) 'Regular File'
+02D3 Local Header Offset   00000000 (0) [Actual Offset is 00000004 (4)]
 02D7 Filename              'lorem1.txt'
-02E1 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-02E3   Length              0005 [5]
-02E5   Flags               03 [3] 'mod access'
-02E6   Mod Time            63624855 [1667385429] 'Wed Nov  2 10:37:09 2022'
-02EA Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-02EC   Length              000B [11]
-02EE   Version             01 [1]
-02EF   UID Size            04 [4]
-02F0   UID                 000003E8 [1000]
-02F4   GID Size            04 [4]
-02F5   GID                 000003E8 [1000]
+02E1 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+02E3   Length              0005 (5)
+02E5   Flags               03 (3) 'mod access'
+02E6   Mod Time            63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
+02EA Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+02EC   Length              000B (11)
+02EE   Version             01 (1)
+02EF   UID Size            04 (4)
+02F0   UID                 000003E8 (1000)
+02F4   GID Size            04 (4)
+02F5   GID                 000003E8 (1000)
 
-02F9 CENTRAL HEADER #2     02014B50 [33639248]
-02FD Created Zip Spec      1E [30] '3.0'
-02FE Created OS            03 [3] 'Unix'
-02FF Extract Zip Spec      14 [20] '2.0'
-0300 Extract OS            00 [0] 'MS-DOS'
-0301 General Purpose Flag  0000 [0]
+02F9 CENTRAL HEADER #2     02014B50 (33639248)
+02FD Created Zip Spec      1E (30) '3.0'
+02FE Created OS            03 (3) 'Unix'
+02FF Extract Zip Spec      14 (20) '2.0'
+0300 Extract OS            00 (0) 'MS-DOS'
+0301 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-0303 Compression Method    0008 [8] 'Deflated'
-0305 Last Mod Time         5562548C [1432507532] 'Wed Nov  2 10:36:24 2022'
-0309 CRC                   F90EE7FF [4178503679]
-030D Compressed Length     0000010E [270]
-0311 Uncompressed Length   000001BE [446]
-0315 Filename Length       0009 [9]
-0317 Extra Length          0018 [24]
-0319 Comment Length        0000 [0]
-031B Disk Start            0000 [0]
-031D Int File Attributes   0001 [1]
+0303 Compression Method    0008 (8) 'Deflated'
+0305 Last Mod Time         5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
+0309 CRC                   F90EE7FF (4178503679)
+030D Compressed Length     0000010E (270)
+0311 Uncompressed Length   000001BE (446)
+0315 Filename Length       0009 (9)
+0317 Extra Length          0018 (24)
+0319 Comment Length        0000 (0)
+031B Disk Start            0000 (0)
+031D Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-031F Ext File Attributes   81ED0000 [2179792896]
-     [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 [8] 'Regular File'
-0323 Local Header Offset   00000154 [340] [Actual Offset is 00000158 [344]]
+031F Ext File Attributes   81ED0000 (2179792896)
+     [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 (8) 'Regular File'
+0323 Local Header Offset   00000154 (340) [Actual Offset is 00000158 (344)]
 0327 Filename              'lorem.txt'
-0330 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0332   Length              0005 [5]
-0334   Flags               03 [3] 'mod access'
-0335   Mod Time            63624828 [1667385384] 'Wed Nov  2 10:36:24 2022'
-0339 Extra ID #2           7875 [30837] 'Unix Extra type 3 [ux]'
-033B   Length              000B [11]
-033D   Version             01 [1]
-033E   UID Size            04 [4]
-033F   UID                 000003E8 [1000]
-0343   GID Size            04 [4]
-0344   GID                 000003E8 [1000]
+0330 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0332   Length              0005 (5)
+0334   Flags               03 (3) 'mod access'
+0335   Mod Time            63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
+0339 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+033B   Length              000B (11)
+033D   Version             01 (1)
+033E   UID Size            04 (4)
+033F   UID                 000003E8 (1000)
+0343   GID Size            04 (4)
+0344   GID                 000003E8 (1000)
 
-0348 END CENTRAL HEADER    06054B50 [101010256]
-034C Number of this disk   0000 [0]
-034E Central Dir Disk no   0000 [0]
-0350 Entries in this disk  0002 [2]
-0352 Total Entries         0002 [2]
-0354 Size of Central Dir   0000009F [159]
-0358 Offset to Central Dir 000002A5 [677] [Actual Offset is 000002A9 [681]]
-035C Comment Length        0000 [0]
+0348 END CENTRAL HEADER    06054B50 (101010256)
+034C Number of this disk   0000 (0)
+034E Central Dir Disk no   0000 (0)
+0350 Entries in this disk  0002 (2)
+0352 Total Entries         0002 (2)
+0354 Size of Central Dir   0000009F (159)
+0358 Offset to Central Dir 000002A5 (677) [Actual Offset is 000002A9 (681)]
+035C Comment Length        0000 (0)
 #
 # Info Count: 1
 #

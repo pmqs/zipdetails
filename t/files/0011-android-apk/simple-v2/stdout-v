@@ -1,16 +1,16 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 02 00       General Purpose Flag  0002 [2]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 02 00       General Purpose Flag  0002 (2)
                            [Bits 1-2]            1 'Maximum Compression'
-0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
-000A 000D 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 [1263233896] 'Wed Oct 11 13:27:16 2017'
-000E 0011 0004 D5 50 2C 6B CRC                   6B2C50D5 [1798066389]
-0012 0015 0004 52 00 00 00 Compressed Length     00000052 [82]
-0016 0019 0004 98 00 00 00 Uncompressed Length   00000098 [152]
-001A 001B 0002 13 00       Filename Length       0013 [19]
-001C 001D 0002 00 00       Extra Length          0000 [0]
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 (1263233896) 'Wed Oct 11 13:27:16 2017'
+000E 0011 0004 D5 50 2C 6B CRC                   6B2C50D5 (1798066389)
+0012 0015 0004 52 00 00 00 Compressed Length     00000052 (82)
+0016 0019 0004 98 00 00 00 Uncompressed Length   00000098 (152)
+001A 001B 0002 13 00       Filename Length       0013 (19)
+001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0030 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
                6F 69 64 4D
                61 6E 69 66
@@ -39,54 +39,54 @@
                6C 2D
 
 0083 0082 0000             APK SIGNING BLOCK
-0083 008A 0008 C4 01 00 00 Block Length Copy #1  00000000000001C4 [452]
+0083 008A 0008 C4 01 00 00 Block Length Copy #1  00000000000001C4 (452)
                00 00 00 00
-008B 0092 0008 A4 01 00 00 ID/Value Length #1    00000000000001A4 [420]
+008B 0092 0008 A4 01 00 00 ID/Value Length #1    00000000000001A4 (420)
                00 00 00 00
-0093 0096 0004 1A 87 09 71   ID                  7109871A [1896449818] 'APK Signature v2'
+0093 0096 0004 1A 87 09 71   ID                  7109871A (1896449818) 'APK Signature v2'
 0097 0236 01A0 ...           Value
-0237 023E 0008 C4 01 00 00 Block Length Copy #2  00000000000001C4 [452]
+0237 023E 0008 C4 01 00 00 Block Length Copy #2  00000000000001C4 (452)
                00 00 00 00
 023F 024E 0010 41 50 4B 20 Magic                 'APK Sig Block 42'
                53 69 67 20
                42 6C 6F 63
                6B 20 34 32
 
-024F 0252 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-0253 0253 0001 1E          Created Zip Spec      1E [30] '3.0'
-0254 0254 0001 03          Created OS            03 [3] 'Unix'
-0255 0255 0001 14          Extract Zip Spec      14 [20] '2.0'
-0256 0256 0001 00          Extract OS            00 [0] 'MS-DOS'
-0257 0258 0002 02 00       General Purpose Flag  0002 [2]
+024F 0252 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0253 0253 0001 1E          Created Zip Spec      1E (30) '3.0'
+0254 0254 0001 03          Created OS            03 (3) 'Unix'
+0255 0255 0001 14          Extract Zip Spec      14 (20) '2.0'
+0256 0256 0001 00          Extract OS            00 (0) 'MS-DOS'
+0257 0258 0002 02 00       General Purpose Flag  0002 (2)
                            [Bits 1-2]            1 'Maximum Compression'
-0259 025A 0002 08 00       Compression Method    0008 [8] 'Deflated'
-025B 025E 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 [1263233896] 'Wed Oct 11 13:27:16 2017'
-025F 0262 0004 D5 50 2C 6B CRC                   6B2C50D5 [1798066389]
-0263 0266 0004 52 00 00 00 Compressed Length     00000052 [82]
-0267 026A 0004 98 00 00 00 Uncompressed Length   00000098 [152]
-026B 026C 0002 13 00       Filename Length       0013 [19]
-026D 026E 0002 00 00       Extra Length          0000 [0]
-026F 0270 0002 00 00       Comment Length        0000 [0]
-0271 0272 0002 00 00       Disk Start            0000 [0]
-0273 0274 0002 00 00       Int File Attributes   0000 [0]
+0259 025A 0002 08 00       Compression Method    0008 (8) 'Deflated'
+025B 025E 0004 68 6B 4B 4B Last Mod Time         4B4B6B68 (1263233896) 'Wed Oct 11 13:27:16 2017'
+025F 0262 0004 D5 50 2C 6B CRC                   6B2C50D5 (1798066389)
+0263 0266 0004 52 00 00 00 Compressed Length     00000052 (82)
+0267 026A 0004 98 00 00 00 Uncompressed Length   00000098 (152)
+026B 026C 0002 13 00       Filename Length       0013 (19)
+026D 026E 0002 00 00       Extra Length          0000 (0)
+026F 0270 0002 00 00       Comment Length        0000 (0)
+0271 0272 0002 00 00       Disk Start            0000 (0)
+0273 0274 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-0275 0278 0004 00 00 A0 81 Ext File Attributes   81A00000 [2174746624]
-                           [Bits 16-24]          01A0 [416] 'Unix attrib: rw-r-----'
-                           [Bits 28-31]          08 [8] 'Regular File'
-0279 027C 0004 00 00 00 00 Local Header Offset   00000000 [0]
+0275 0278 0004 00 00 A0 81 Ext File Attributes   81A00000 (2174746624)
+                           [Bits 16-24]          01A0 (416) 'Unix attrib: rw-r-----'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0279 027C 0004 00 00 00 00 Local Header Offset   00000000 (0)
 027D 028F 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
                6F 69 64 4D
                61 6E 69 66
                65 73 74 2E
                78 6D 6C
 
-0290 0293 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-0294 0295 0002 00 00       Number of this disk   0000 [0]
-0296 0297 0002 00 00       Central Dir Disk no   0000 [0]
-0298 0299 0002 01 00       Entries in this disk  0001 [1]
-029A 029B 0002 01 00       Total Entries         0001 [1]
-029C 029F 0004 41 00 00 00 Size of Central Dir   00000041 [65]
-02A0 02A3 0004 4F 02 00 00 Offset to Central Dir 0000024F [591]
-02A4 02A5 0002 00 00       Comment Length        0000 [0]
+0290 0293 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0294 0295 0002 00 00       Number of this disk   0000 (0)
+0296 0297 0002 00 00       Central Dir Disk no   0000 (0)
+0298 0299 0002 01 00       Entries in this disk  0001 (1)
+029A 029B 0002 01 00       Total Entries         0001 (1)
+029C 029F 0004 41 00 00 00 Size of Central Dir   00000041 (65)
+02A0 02A3 0004 4F 02 00 00 Offset to Central Dir 0000024F (591)
+02A4 02A5 0002 00 00       Comment Length        0000 (0)
 #
 # Done

@@ -1,52 +1,52 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      0A [10] '1.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0000 [0] 'Stored'
-000A Last Mod Time         567553DC [1450529756] 'Tue Mar 21 10:30:56 2023'
-000E CRC                   588AA4AC [1485481132]
-0012 Compressed Length     00000005 [5]
-0016 Uncompressed Length   00000005 [5]
-001A Filename Length       0004 [4]
-001C Extra Length          0000 [0]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      0A (10) '1.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Time         567553DC (1450529756) 'Tue Mar 21 10:30:56 2023'
+000E CRC                   588AA4AC (1485481132)
+0012 Compressed Length     00000005 (5)
+0016 Uncompressed Length   00000005 (5)
+001A Filename Length       0004 (4)
+001C Extra Length          0000 (0)
 001E Filename              'abcd'
 0022 PAYLOAD               abcd.
 
-0027 CENTRAL HEADER #1     02014B50 [33639248]
-002B Created Zip Spec      1E [30] '3.0'
-002C Created OS            03 [3] 'Unix'
-002D Extract Zip Spec      0A [10] '1.0'
-002E Extract OS            00 [0] 'MS-DOS'
-002F General Purpose Flag  0000 [0]
-0031 Compression Method    0000 [0] 'Stored'
-0033 Last Mod Time         567553DC [1450529756] 'Tue Mar 21 10:30:56 2023'
-0037 CRC                   588AA4AC [1485481132]
-003B Compressed Length     00000005 [5]
-003F Uncompressed Length   00000005 [5]
-0043 Filename Length       0004 [4]
-0045 Extra Length          0000 [0]
-0047 Comment Length        0000 [0]
-0049 Disk Start            0000 [0]
-004B Int File Attributes   0001 [1]
+0027 CENTRAL HEADER #1     02014B50 (33639248)
+002B Created Zip Spec      1E (30) '3.0'
+002C Created OS            03 (3) 'Unix'
+002D Extract Zip Spec      0A (10) '1.0'
+002E Extract OS            00 (0) 'MS-DOS'
+002F General Purpose Flag  0000 (0)
+0031 Compression Method    0000 (0) 'Stored'
+0033 Last Mod Time         567553DC (1450529756) 'Tue Mar 21 10:30:56 2023'
+0037 CRC                   588AA4AC (1485481132)
+003B Compressed Length     00000005 (5)
+003F Uncompressed Length   00000005 (5)
+0043 Filename Length       0004 (4)
+0045 Extra Length          0000 (0)
+0047 Comment Length        0000 (0)
+0049 Disk Start            0000 (0)
+004B Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-004D Ext File Attributes   81B40000 [2176057344]
-     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-0051 Local Header Offset   00000000 [0]
+004D Ext File Attributes   81B40000 (2176057344)
+     [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0051 Local Header Offset   00000000 (0)
 0055 Filename              'abcd'
 
-0059 END CENTRAL HEADER    06054B50 [101010256]
-005D Number of this disk   0000 [0]
-005F Central Dir Disk no   0000 [0]
-0061 Entries in this disk  0001 [1]
-0063 Total Entries         0001 [1]
-0065 Size of Central Dir   00000032 [50]
-0069 Offset to Central Dir 00000027 [39]
-006D Comment Length        0013 [19]
+0059 END CENTRAL HEADER    06054B50 (101010256)
+005D Number of this disk   0000 (0)
+005F Central Dir Disk no   0000 (0)
+0061 Entries in this disk  0001 (1)
+0063 Total Entries         0001 (1)
+0065 Size of Central Dir   00000032 (50)
+0069 Offset to Central Dir 00000027 (39)
+006D Comment Length        0013 (19)
 #
 # ERROR: Offset 0x6F: file truncated while reading 'Comment' field in 'End Central Directory Record'
-#        Expected 0x13 [19] bytes, but only 0x0 [0] available
+#        Expected 0x13 (19) bytes, but only 0x0 (0) available
 #
 # Error Count: 1
 #

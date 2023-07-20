@@ -1,61 +1,61 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      14 [20] '2.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0000 [0] 'Stored'
-000A Last Mod Time         557269E0 [1433561568] 'Fri Nov 18 13:15:00 2022'
-000E CRC                   8587D865 [2240272485]
-0012 Compressed Length     00000005 [5]
-0016 Uncompressed Length   00000005 [5]
-001A Filename Length       0008 [8]
-001C Extra Length          0005 [5]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Time         557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
+000E CRC                   8587D865 (2240272485)
+0012 Compressed Length     00000005 (5)
+0016 Uncompressed Length   00000005 (5)
+001A Filename Length       0008 (8)
+001C Extra Length          0005 (5)
 001E Filename              'filename'
-0026 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0028   Length              0001 [1]
-002A   Flags               01 [1] 'mod'
+0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0028   Length              0001 (1)
+002A   Flags               01 (1) 'mod'
 #
 # ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
 #
 002B PAYLOAD               abcde
 
-0030 CENTRAL HEADER #1     02014B50 [33639248]
-0034 Created Zip Spec      14 [20] '2.0'
-0035 Created OS            03 [3] 'Unix'
-0036 Extract Zip Spec      14 [20] '2.0'
-0037 Extract OS            00 [0] 'MS-DOS'
-0038 General Purpose Flag  0000 [0]
-003A Compression Method    0000 [0] 'Stored'
-003C Last Mod Time         557269E0 [1433561568] 'Fri Nov 18 13:15:00 2022'
-0040 CRC                   8587D865 [2240272485]
-0044 Compressed Length     00000005 [5]
-0048 Uncompressed Length   00000005 [5]
-004C Filename Length       0008 [8]
-004E Extra Length          0005 [5]
-0050 Comment Length        0000 [0]
-0052 Disk Start            0000 [0]
-0054 Int File Attributes   0000 [0]
+0030 CENTRAL HEADER #1     02014B50 (33639248)
+0034 Created Zip Spec      14 (20) '2.0'
+0035 Created OS            03 (3) 'Unix'
+0036 Extract Zip Spec      14 (20) '2.0'
+0037 Extract OS            00 (0) 'MS-DOS'
+0038 General Purpose Flag  0000 (0)
+003A Compression Method    0000 (0) 'Stored'
+003C Last Mod Time         557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
+0040 CRC                   8587D865 (2240272485)
+0044 Compressed Length     00000005 (5)
+0048 Uncompressed Length   00000005 (5)
+004C Filename Length       0008 (8)
+004E Extra Length          0005 (5)
+0050 Comment Length        0000 (0)
+0052 Disk Start            0000 (0)
+0054 Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-0056 Ext File Attributes   81A40000 [2175008768]
-     [Bits 16-24]          01A4 [420] 'Unix attrib: rw-r--r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-005A Local Header Offset   00000000 [0]
+0056 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+005A Local Header Offset   00000000 (0)
 005E Filename              'filename'
-0066 Extra ID #1           5455 [21589] 'Extended Timestamp [UT]'
-0068   Length              0001 [1]
-006A   Flags               01 [1] 'mod'
+0066 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0068   Length              0001 (1)
+006A   Flags               01 (1) 'mod'
 #
 # ERROR: Offset 0x6B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
 #
 
-006B END CENTRAL HEADER    06054B50 [101010256]
-006F Number of this disk   0000 [0]
-0071 Central Dir Disk no   0000 [0]
-0073 Entries in this disk  0001 [1]
-0075 Total Entries         0001 [1]
-0077 Size of Central Dir   0000003B [59]
-007B Offset to Central Dir 00000030 [48]
-007F Comment Length        0000 [0]
+006B END CENTRAL HEADER    06054B50 (101010256)
+006F Number of this disk   0000 (0)
+0071 Central Dir Disk no   0000 (0)
+0073 Entries in this disk  0001 (1)
+0075 Total Entries         0001 (1)
+0077 Size of Central Dir   0000003B (59)
+007B Offset to Central Dir 00000030 (48)
+007F Comment Length        0000 (0)
 #
 # Error Count: 2
 #

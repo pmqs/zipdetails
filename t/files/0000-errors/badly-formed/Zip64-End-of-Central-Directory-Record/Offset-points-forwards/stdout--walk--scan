@@ -1,82 +1,82 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      2D [45] '4.5'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      2D (45) '4.5'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-0008 Compression Method    0008 [8] 'Deflated'
-000A Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-000E CRC                   F90EE7FF [4178503679]
-0012 Compressed Length     FFFFFFFF [4294967295]
-0016 Uncompressed Length   FFFFFFFF [4294967295]
-001A Filename Length       0001 [1]
-001C Extra Length          0014 [20]
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+000E CRC                   F90EE7FF (4178503679)
+0012 Compressed Length     FFFFFFFF (4294967295)
+0016 Uncompressed Length   FFFFFFFF (4294967295)
+001A Filename Length       0001 (1)
+001C Extra Length          0014 (20)
 001E Filename              '-'
-001F Extra ID #1           0001 [1] 'ZIP64'
-0021   Length              0010 [16]
-0023   Uncompressed Size   00000000000001BE [446]
-002B   Compressed Size     000000000000010E [270]
+001F Extra ID #1           0001 (1) 'ZIP64'
+0021   Length              0010 (16)
+0023   Uncompressed Size   00000000000001BE (446)
+002B   Compressed Size     000000000000010E (270)
 0033 PAYLOAD
 
-0141 CENTRAL HEADER #1     02014B50 [33639248]
-0145 Created Zip Spec      1E [30] '3.0'
-0146 Created OS            03 [3] 'Unix'
-0147 Extract Zip Spec      2D [45] '4.5'
-0148 Extract OS            00 [0] 'MS-DOS'
-0149 General Purpose Flag  0000 [0]
+0141 CENTRAL HEADER #1     02014B50 (33639248)
+0145 Created Zip Spec      1E (30) '3.0'
+0146 Created OS            03 (3) 'Unix'
+0147 Extract Zip Spec      2D (45) '4.5'
+0148 Extract OS            00 (0) 'MS-DOS'
+0149 General Purpose Flag  0000 (0)
      [Bits 1-2]            0 'Normal Compression'
-014B Compression Method    0008 [8] 'Deflated'
-014D Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-0151 CRC                   F90EE7FF [4178503679]
-0155 Compressed Length     0000010E [270]
-0159 Uncompressed Length   FFFFFFFF [4294967295]
-015D Filename Length       0001 [1]
-015F Extra Length          000C [12]
-0161 Comment Length        0000 [0]
-0163 Disk Start            0000 [0]
-0165 Int File Attributes   0001 [1]
+014B Compression Method    0008 (8) 'Deflated'
+014D Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+0151 CRC                   F90EE7FF (4178503679)
+0155 Compressed Length     0000010E (270)
+0159 Uncompressed Length   FFFFFFFF (4294967295)
+015D Filename Length       0001 (1)
+015F Extra Length          000C (12)
+0161 Comment Length        0000 (0)
+0163 Disk Start            0000 (0)
+0165 Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-0167 Ext File Attributes   81ED0000 [2179792896]
-     [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-     [Bits 28-31]          08 [8] 'Regular File'
-016B Local Header Offset   00000000 [0]
+0167 Ext File Attributes   81ED0000 (2179792896)
+     [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 (8) 'Regular File'
+016B Local Header Offset   00000000 (0)
 016F Filename              '-'
-0170 Extra ID #1           0001 [1] 'ZIP64'
-0172   Length              0008 [8]
-0174   Uncompressed Size   00000000000001BE [446]
+0170 Extra ID #1           0001 (1) 'ZIP64'
+0172   Length              0008 (8)
+0174   Uncompressed Size   00000000000001BE (446)
 
-017C ZIP64 END CENTRAL DIR 06064B50 [101075792]
+017C ZIP64 END CENTRAL DIR 06064B50 (101075792)
      RECORD
-0180 Size of record        000000000000002C [44]
-0188 Created Zip Spec      1E [30] '3.0'
-0189 Created OS            03 [3] 'Unix'
-018A Extract Zip Spec      2D [45] '4.5'
-018B Extract OS            00 [0] 'MS-DOS'
-018C Number of this disk   00000000 [0]
-0190 Central Dir Disk no   00000000 [0]
-0194 Entries in this disk  0000000000000001 [1]
-019C Total Entries         0000000000000001 [1]
-01A4 Size of Central Dir   000000000000003B [59]
-01AC Offset to Central dir 00000000000001B4 [436]
+0180 Size of record        000000000000002C (44)
+0188 Created Zip Spec      1E (30) '3.0'
+0189 Created OS            03 (3) 'Unix'
+018A Extract Zip Spec      2D (45) '4.5'
+018B Extract OS            00 (0) 'MS-DOS'
+018C Number of this disk   00000000 (0)
+0190 Central Dir Disk no   00000000 (0)
+0194 Entries in this disk  0000000000000001 (1)
+019C Total Entries         0000000000000001 (1)
+01A4 Size of Central Dir   000000000000003B (59)
+01AC Offset to Central dir 00000000000001B4 (436)
 #
 # ERROR: Offset 0x1AC: 'Offset to Central Directory' field in 'Zip64 End of Central Directory Record' is invalid
-#        value 0x1B4 [436] must be less that 0x17C [380]
+#        value 0x1B4 (436) must be less that 0x17C (380)
 #
 
-01B4 ZIP64 END CENTRAL DIR 07064B50 [117853008]
+01B4 ZIP64 END CENTRAL DIR 07064B50 (117853008)
      LOCATOR
-01B8 Central Dir Disk no   00000000 [0]
-01BC Offset to Zip64 EOCD  000000000000017C [380]
-01C4 Total no of Disks     00000001 [1]
+01B8 Central Dir Disk no   00000000 (0)
+01BC Offset to Zip64 EOCD  000000000000017C (380)
+01C4 Total no of Disks     00000001 (1)
 
-01C8 END CENTRAL HEADER    06054B50 [101010256]
-01CC Number of this disk   0000 [0]
-01CE Central Dir Disk no   0000 [0]
-01D0 Entries in this disk  0001 [1]
-01D2 Total Entries         0001 [1]
-01D4 Size of Central Dir   0000003B [59]
-01D8 Offset to Central Dir FFFFFFFF [4294967295]
-01DC Comment Length        0000 [0]
+01C8 END CENTRAL HEADER    06054B50 (101010256)
+01CC Number of this disk   0000 (0)
+01CE Central Dir Disk no   0000 (0)
+01D0 Entries in this disk  0001 (1)
+01D2 Total Entries         0001 (1)
+01D4 Size of Central Dir   0000003B (59)
+01D8 Offset to Central Dir FFFFFFFF (4294967295)
+01DC Comment Length        0000 (0)
 #
 # Error Count: 1
 #

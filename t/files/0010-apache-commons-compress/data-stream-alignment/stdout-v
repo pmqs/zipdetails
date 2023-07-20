@@ -1,29 +1,29 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 00 08       General Purpose Flag  0800 [2048]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 08       General Purpose Flag  0800 (2048)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit 11]              1 'Language Encoding'
-0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
-000A 000D 0004 A0 6B 99 52 Last Mod Time         52996BA0 [1385786272] 'Sun Apr 25 13:29:00 2021'
-000E 0011 0004 31 1B CD 8C CRC                   8CCD1B31 [2362252081]
-0012 0015 0004 11 00 00 00 Compressed Length     00000011 [17]
-0016 0019 0004 0F 00 00 00 Uncompressed Length   0000000F [15]
-001A 001B 0002 0C 00       Filename Length       000C [12]
-001C 001D 0002 56 00       Extra Length          0056 [86]
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 A0 6B 99 52 Last Mod Time         52996BA0 (1385786272) 'Sun Apr 25 13:29:00 2021'
+000E 0011 0004 31 1B CD 8C CRC                   8CCD1B31 (2362252081)
+0012 0015 0004 11 00 00 00 Compressed Length     00000011 (17)
+0016 0019 0004 0F 00 00 00 Uncompressed Length   0000000F (15)
+001A 001B 0002 0C 00       Filename Length       000C (12)
+001C 001D 0002 56 00       Extra Length          0056 (86)
 001E 0029 000C 69 6E 66 6C Filename              'inflated.txt'
                61 74 65 64
                2E 74 78 74
-002A 002B 0002 01 00       Extra ID #1           0001 [1] 'ZIP64'
-002C 002D 0002 10 00         Length              0010 [16]
-002E 0035 0008 0F 00 00 00   Uncompressed Size   000000000000000F [15]
+002A 002B 0002 01 00       Extra ID #1           0001 (1) 'ZIP64'
+002C 002D 0002 10 00         Length              0010 (16)
+002E 0035 0008 0F 00 00 00   Uncompressed Size   000000000000000F (15)
                00 00 00 00
-0036 003D 0008 11 00 00 00   Compressed Size     0000000000000011 [17]
+0036 003D 0008 11 00 00 00   Compressed Size     0000000000000011 (17)
                00 00 00 00
-003E 003F 0002 1E A1       Extra ID #2           A11E [41246] 'Data Stream Alignment'
-0040 0041 0002 3E 00         Length              003E [62]
-0042 0043 0002 40 00         Alignment           0040 [64]
+003E 003F 0002 1E A1       Extra ID #2           A11E (41246) 'Data Stream Alignment'
+0040 0041 0002 3E 00         Length              003E (62)
+0042 0043 0002 40 00         Alignment           0040 (64)
                              [Bit   15]          0    'Recompress False'
                              [Bits 0-14]         40 'Minimal Alignment 64'
 0044 007F 003C 00 00 00 00   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -47,30 +47,30 @@
                49 4D E1 02
                00
 
-0091 0094 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 [67324752]
-0095 0095 0001 0A          Extract Zip Spec      0A [10] '1.0'
-0096 0096 0001 00          Extract OS            00 [0] 'MS-DOS'
-0097 0098 0002 00 08       General Purpose Flag  0800 [2048]
+0091 0094 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+0095 0095 0001 0A          Extract Zip Spec      0A (10) '1.0'
+0096 0096 0001 00          Extract OS            00 (0) 'MS-DOS'
+0097 0098 0002 00 08       General Purpose Flag  0800 (2048)
                            [Bit 11]              1 'Language Encoding'
-0099 009A 0002 00 00       Compression Method    0000 [0] 'Stored'
-009B 009E 0004 A0 6B 99 52 Last Mod Time         52996BA0 [1385786272] 'Sun Apr 25 13:29:00 2021'
-009F 00A2 0004 7E A9 30 44 CRC                   4430A97E [1144039806]
-00A3 00A6 0004 0D 00 00 00 Compressed Length     0000000D [13]
-00A7 00AA 0004 0D 00 00 00 Uncompressed Length   0000000D [13]
-00AB 00AC 0002 0A 00       Filename Length       000A [10]
-00AD 00AE 0002 27 00       Extra Length          0027 [39]
+0099 009A 0002 00 00       Compression Method    0000 (0) 'Stored'
+009B 009E 0004 A0 6B 99 52 Last Mod Time         52996BA0 (1385786272) 'Sun Apr 25 13:29:00 2021'
+009F 00A2 0004 7E A9 30 44 CRC                   4430A97E (1144039806)
+00A3 00A6 0004 0D 00 00 00 Compressed Length     0000000D (13)
+00A7 00AA 0004 0D 00 00 00 Uncompressed Length   0000000D (13)
+00AB 00AC 0002 0A 00       Filename Length       000A (10)
+00AD 00AE 0002 27 00       Extra Length          0027 (39)
 00AF 00B8 000A 73 74 6F 72 Filename              'stored.txt'
                65 64 2E 74
                78 74
-00B9 00BA 0002 01 00       Extra ID #1           0001 [1] 'ZIP64'
-00BB 00BC 0002 10 00         Length              0010 [16]
-00BD 00C4 0008 0D 00 00 00   Uncompressed Size   000000000000000D [13]
+00B9 00BA 0002 01 00       Extra ID #1           0001 (1) 'ZIP64'
+00BB 00BC 0002 10 00         Length              0010 (16)
+00BD 00C4 0008 0D 00 00 00   Uncompressed Size   000000000000000D (13)
                00 00 00 00
-00C5 00CC 0008 0D 00 00 00   Compressed Size     000000000000000D [13]
+00C5 00CC 0008 0D 00 00 00   Compressed Size     000000000000000D (13)
                00 00 00 00
-00CD 00CE 0002 1E A1       Extra ID #2           A11E [41246] 'Data Stream Alignment'
-00CF 00D0 0002 0F 00         Length              000F [15]
-00D1 00D2 0002 20 80         Alignment           8020 [32800]
+00CD 00CE 0002 1E A1       Extra ID #2           A11E (41246) 'Data Stream Alignment'
+00CF 00D0 0002 0F 00         Length              000F (15)
+00D1 00D2 0002 20 80         Alignment           8020 (32800)
                              [Bit   15]          1    'Recompress True'
                              [Bits 0-14]         20 'Minimal Alignment 32'
 00D3 00DF 000D 00 00 00 00   Padding             00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -82,72 +82,72 @@
                6F 72 65 64
                0A
 
-00ED 00F0 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-00F1 00F1 0001 14          Created Zip Spec      14 [20] '2.0'
-00F2 00F2 0001 00          Created OS            00 [0] 'MS-DOS'
-00F3 00F3 0001 14          Extract Zip Spec      14 [20] '2.0'
-00F4 00F4 0001 00          Extract OS            00 [0] 'MS-DOS'
-00F5 00F6 0002 00 08       General Purpose Flag  0800 [2048]
+00ED 00F0 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+00F1 00F1 0001 14          Created Zip Spec      14 (20) '2.0'
+00F2 00F2 0001 00          Created OS            00 (0) 'MS-DOS'
+00F3 00F3 0001 14          Extract Zip Spec      14 (20) '2.0'
+00F4 00F4 0001 00          Extract OS            00 (0) 'MS-DOS'
+00F5 00F6 0002 00 08       General Purpose Flag  0800 (2048)
                            [Bits 1-2]            0 'Normal Compression'
                            [Bit 11]              1 'Language Encoding'
-00F7 00F8 0002 08 00       Compression Method    0008 [8] 'Deflated'
-00F9 00FC 0004 A0 6B 99 52 Last Mod Time         52996BA0 [1385786272] 'Sun Apr 25 13:29:00 2021'
-00FD 0100 0004 31 1B CD 8C CRC                   8CCD1B31 [2362252081]
-0101 0104 0004 11 00 00 00 Compressed Length     00000011 [17]
-0105 0108 0004 0F 00 00 00 Uncompressed Length   0000000F [15]
-0109 010A 0002 0C 00       Filename Length       000C [12]
-010B 010C 0002 06 00       Extra Length          0006 [6]
-010D 010E 0002 00 00       Comment Length        0000 [0]
-010F 0110 0002 00 00       Disk Start            0000 [0]
-0111 0112 0002 00 00       Int File Attributes   0000 [0]
+00F7 00F8 0002 08 00       Compression Method    0008 (8) 'Deflated'
+00F9 00FC 0004 A0 6B 99 52 Last Mod Time         52996BA0 (1385786272) 'Sun Apr 25 13:29:00 2021'
+00FD 0100 0004 31 1B CD 8C CRC                   8CCD1B31 (2362252081)
+0101 0104 0004 11 00 00 00 Compressed Length     00000011 (17)
+0105 0108 0004 0F 00 00 00 Uncompressed Length   0000000F (15)
+0109 010A 0002 0C 00       Filename Length       000C (12)
+010B 010C 0002 06 00       Extra Length          0006 (6)
+010D 010E 0002 00 00       Comment Length        0000 (0)
+010F 0110 0002 00 00       Disk Start            0000 (0)
+0111 0112 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-0113 0116 0004 00 00 00 00 Ext File Attributes   00000000 [0]
-0117 011A 0004 00 00 00 00 Local Header Offset   00000000 [0]
+0113 0116 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+0117 011A 0004 00 00 00 00 Local Header Offset   00000000 (0)
 011B 0126 000C 69 6E 66 6C Filename              'inflated.txt'
                61 74 65 64
                2E 74 78 74
-0127 0128 0002 1E A1       Extra ID #1           A11E [41246] 'Data Stream Alignment'
-0129 012A 0002 02 00         Length              0002 [2]
-012B 012C 0002 40 00         Alignment           0040 [64]
+0127 0128 0002 1E A1       Extra ID #1           A11E (41246) 'Data Stream Alignment'
+0129 012A 0002 02 00         Length              0002 (2)
+012B 012C 0002 40 00         Alignment           0040 (64)
                              [Bit   15]          0    'Recompress False'
                              [Bits 0-14]         40 'Minimal Alignment 64'
 
-012D 0130 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 [33639248]
-0131 0131 0001 14          Created Zip Spec      14 [20] '2.0'
-0132 0132 0001 00          Created OS            00 [0] 'MS-DOS'
-0133 0133 0001 0A          Extract Zip Spec      0A [10] '1.0'
-0134 0134 0001 00          Extract OS            00 [0] 'MS-DOS'
-0135 0136 0002 00 08       General Purpose Flag  0800 [2048]
+012D 0130 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+0131 0131 0001 14          Created Zip Spec      14 (20) '2.0'
+0132 0132 0001 00          Created OS            00 (0) 'MS-DOS'
+0133 0133 0001 0A          Extract Zip Spec      0A (10) '1.0'
+0134 0134 0001 00          Extract OS            00 (0) 'MS-DOS'
+0135 0136 0002 00 08       General Purpose Flag  0800 (2048)
                            [Bit 11]              1 'Language Encoding'
-0137 0138 0002 00 00       Compression Method    0000 [0] 'Stored'
-0139 013C 0004 A0 6B 99 52 Last Mod Time         52996BA0 [1385786272] 'Sun Apr 25 13:29:00 2021'
-013D 0140 0004 7E A9 30 44 CRC                   4430A97E [1144039806]
-0141 0144 0004 0D 00 00 00 Compressed Length     0000000D [13]
-0145 0148 0004 0D 00 00 00 Uncompressed Length   0000000D [13]
-0149 014A 0002 0A 00       Filename Length       000A [10]
-014B 014C 0002 06 00       Extra Length          0006 [6]
-014D 014E 0002 00 00       Comment Length        0000 [0]
-014F 0150 0002 00 00       Disk Start            0000 [0]
-0151 0152 0002 00 00       Int File Attributes   0000 [0]
+0137 0138 0002 00 00       Compression Method    0000 (0) 'Stored'
+0139 013C 0004 A0 6B 99 52 Last Mod Time         52996BA0 (1385786272) 'Sun Apr 25 13:29:00 2021'
+013D 0140 0004 7E A9 30 44 CRC                   4430A97E (1144039806)
+0141 0144 0004 0D 00 00 00 Compressed Length     0000000D (13)
+0145 0148 0004 0D 00 00 00 Uncompressed Length   0000000D (13)
+0149 014A 0002 0A 00       Filename Length       000A (10)
+014B 014C 0002 06 00       Extra Length          0006 (6)
+014D 014E 0002 00 00       Comment Length        0000 (0)
+014F 0150 0002 00 00       Disk Start            0000 (0)
+0151 0152 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
-0153 0156 0004 00 00 00 00 Ext File Attributes   00000000 [0]
-0157 015A 0004 91 00 00 00 Local Header Offset   00000091 [145]
+0153 0156 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+0157 015A 0004 91 00 00 00 Local Header Offset   00000091 (145)
 015B 0164 000A 73 74 6F 72 Filename              'stored.txt'
                65 64 2E 74
                78 74
-0165 0166 0002 1E A1       Extra ID #1           A11E [41246] 'Data Stream Alignment'
-0167 0168 0002 02 00         Length              0002 [2]
-0169 016A 0002 20 80         Alignment           8020 [32800]
+0165 0166 0002 1E A1       Extra ID #1           A11E (41246) 'Data Stream Alignment'
+0167 0168 0002 02 00         Length              0002 (2)
+0169 016A 0002 20 80         Alignment           8020 (32800)
                              [Bit   15]          1    'Recompress True'
                              [Bits 0-14]         20 'Minimal Alignment 32'
 
-016B 016E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-016F 0170 0002 00 00       Number of this disk   0000 [0]
-0171 0172 0002 00 00       Central Dir Disk no   0000 [0]
-0173 0174 0002 02 00       Entries in this disk  0002 [2]
-0175 0176 0002 02 00       Total Entries         0002 [2]
-0177 017A 0004 7E 00 00 00 Size of Central Dir   0000007E [126]
-017B 017E 0004 ED 00 00 00 Offset to Central Dir 000000ED [237]
-017F 0180 0002 00 00       Comment Length        0000 [0]
+016B 016E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+016F 0170 0002 00 00       Number of this disk   0000 (0)
+0171 0172 0002 00 00       Central Dir Disk no   0000 (0)
+0173 0174 0002 02 00       Entries in this disk  0002 (2)
+0175 0176 0002 02 00       Total Entries         0002 (2)
+0177 017A 0004 7E 00 00 00 Size of Central Dir   0000007E (126)
+017B 017E 0004 ED 00 00 00 Offset to Central Dir 000000ED (237)
+017F 0180 0002 00 00       Comment Length        0000 (0)
 #
 # Done

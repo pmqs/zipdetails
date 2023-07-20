@@ -1,90 +1,90 @@
 
-0000 LOCAL HEADER #1       04034B50 [67324752]
-0004 Extract Zip Spec      0A [10] '1.0'
-0005 Extract OS            00 [0] 'MS-DOS'
-0006 General Purpose Flag  0000 [0]
-0008 Compression Method    0000 [0] 'Stored'
-000A Last Mod Time         5277983D [1383569469] 'Tue Mar 23 19:01:58 2021'
-000E CRC                   0F8A149C [260707484]
-0012 Compressed Length     00000006 [6]
-0016 Uncompressed Length   00000006 [6]
-001A Filename Length       000B [11]
-001C Extra Length          0000 [0]
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      0A (10) '1.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+000E CRC                   0F8A149C (260707484)
+0012 Compressed Length     00000006 (6)
+0016 Uncompressed Length   00000006 (6)
+001A Filename Length       000B (11)
+001C Extra Length          0000 (0)
 001E Filename              'letters.txt'
 0029 PAYLOAD               abcde.
 
-002F LOCAL HEADER #2       04034B50 [67324752]
-0033 Extract Zip Spec      0A [10] '1.0'
-0034 Extract OS            00 [0] 'MS-DOS'
-0035 General Purpose Flag  0000 [0]
-0037 Compression Method    0000 [0] 'Stored'
-0039 Last Mod Time         5277983D [1383569469] 'Tue Mar 23 19:01:58 2021'
-003D CRC                   261DAFE6 [639479782]
-0041 Compressed Length     00000006 [6]
-0045 Uncompressed Length   00000006 [6]
-0049 Filename Length       000B [11]
-004B Extra Length          0000 [0]
+002F LOCAL HEADER #2       04034B50 (67324752)
+0033 Extract Zip Spec      0A (10) '1.0'
+0034 Extract OS            00 (0) 'MS-DOS'
+0035 General Purpose Flag  0000 (0)
+0037 Compression Method    0000 (0) 'Stored'
+0039 Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+003D CRC                   261DAFE6 (639479782)
+0041 Compressed Length     00000006 (6)
+0045 Uncompressed Length   00000006 (6)
+0049 Filename Length       000B (11)
+004B Extra Length          0000 (0)
 004D Filename              'numbers.txt'
 0058 PAYLOAD               12345.
 
-005E CENTRAL HEADER #1     02014B50 [33639248]
-0062 Created Zip Spec      1E [30] '3.0'
-0063 Created OS            03 [3] 'Unix'
-0064 Extract Zip Spec      0A [10] '1.0'
-0065 Extract OS            00 [0] 'MS-DOS'
-0066 General Purpose Flag  0000 [0]
-0068 Compression Method    0000 [0] 'Stored'
-006A Last Mod Time         5277983D [1383569469] 'Tue Mar 23 19:01:58 2021'
-006E CRC                   0F8A149C [260707484]
-0072 Compressed Length     00000006 [6]
-0076 Uncompressed Length   00000006 [6]
-007A Filename Length       000B [11]
-007C Extra Length          0000 [0]
-007E Comment Length        0000 [0]
-0080 Disk Start            0000 [0]
-0082 Int File Attributes   0001 [1]
+005E CENTRAL HEADER #1     02014B50 (33639248)
+0062 Created Zip Spec      1E (30) '3.0'
+0063 Created OS            03 (3) 'Unix'
+0064 Extract Zip Spec      0A (10) '1.0'
+0065 Extract OS            00 (0) 'MS-DOS'
+0066 General Purpose Flag  0000 (0)
+0068 Compression Method    0000 (0) 'Stored'
+006A Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+006E CRC                   0F8A149C (260707484)
+0072 Compressed Length     00000006 (6)
+0076 Uncompressed Length   00000006 (6)
+007A Filename Length       000B (11)
+007C Extra Length          0000 (0)
+007E Comment Length        0000 (0)
+0080 Disk Start            0000 (0)
+0082 Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-0084 Ext File Attributes   81B40000 [2176057344]
-     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-0088 Local Header Offset   00000000 [0]
+0084 Ext File Attributes   81B40000 (2176057344)
+     [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0088 Local Header Offset   00000000 (0)
 008C Filename              'letters.txt'
 
-0097 CENTRAL HEADER #2     02014B50 [33639248]
-009B Created Zip Spec      1E [30] '3.0'
-009C Created OS            03 [3] 'Unix'
-009D Extract Zip Spec      0A [10] '1.0'
-009E Extract OS            00 [0] 'MS-DOS'
-009F General Purpose Flag  0000 [0]
-00A1 Compression Method    0000 [0] 'Stored'
-00A3 Last Mod Time         5277983D [1383569469] 'Tue Mar 23 19:01:58 2021'
-00A7 CRC                   261DAFE6 [639479782]
-00AB Compressed Length     00000006 [6]
-00AF Uncompressed Length   00000006 [6]
-00B3 Filename Length       000B [11]
-00B5 Extra Length          0000 [0]
-00B7 Comment Length        0000 [0]
-00B9 Disk Start            0000 [0]
-00BB Int File Attributes   0001 [1]
+0097 CENTRAL HEADER #2     02014B50 (33639248)
+009B Created Zip Spec      1E (30) '3.0'
+009C Created OS            03 (3) 'Unix'
+009D Extract Zip Spec      0A (10) '1.0'
+009E Extract OS            00 (0) 'MS-DOS'
+009F General Purpose Flag  0000 (0)
+00A1 Compression Method    0000 (0) 'Stored'
+00A3 Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+00A7 CRC                   261DAFE6 (639479782)
+00AB Compressed Length     00000006 (6)
+00AF Uncompressed Length   00000006 (6)
+00B3 Filename Length       000B (11)
+00B5 Extra Length          0000 (0)
+00B7 Comment Length        0000 (0)
+00B9 Disk Start            0000 (0)
+00BB Int File Attributes   0001 (1)
      [Bit 0]               1 'Text Data'
-00BD Ext File Attributes   81B40000 [2176057344]
-     [Bits 16-24]          01B4 [436] 'Unix attrib: rw-rw-r--'
-     [Bits 28-31]          08 [8] 'Regular File'
-00C1 Local Header Offset   0000002F [47]
+00BD Ext File Attributes   81B40000 (2176057344)
+     [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+00C1 Local Header Offset   0000002F (47)
 00C5 Filename              'numbers.txt'
 
-00D0 END CENTRAL HEADER    06054B50 [101010256]
-00D4 Number of this disk   0000 [0]
-00D6 Central Dir Disk no   0000 [0]
-00D8 Entries in this disk  0002 [2]
-00DA Total Entries         0002 [2]
-00DC Size of Central Dir   00000072 [114]
-00E0 Offset to Central Dir 000000E6 [230]
+00D0 END CENTRAL HEADER    06054B50 (101010256)
+00D4 Number of this disk   0000 (0)
+00D6 Central Dir Disk no   0000 (0)
+00D8 Entries in this disk  0002 (2)
+00DA Total Entries         0002 (2)
+00DC Size of Central Dir   00000072 (114)
+00E0 Offset to Central Dir 000000E6 (230)
 #
 # ERROR: Offset 0xE0: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
-#        value 0xE6 [230] is 0x1 [1] bytes past EOF
+#        value 0xE6 (230) is 0x1 (1) bytes past EOF
 #
-00E4 Comment Length        0000 [0]
+00E4 Comment Length        0000 (0)
 #
 # Error Count: 1
 #

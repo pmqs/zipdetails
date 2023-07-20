@@ -1,50 +1,50 @@
 
-0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 [67324752]
-0004 0004 0001 14          Extract Zip Spec      14 [20] '2.0'
-0005 0005 0001 00          Extract OS            00 [0] 'MS-DOS'
-0006 0007 0002 00 00       General Purpose Flag  0000 [0]
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
-0008 0009 0002 08 00       Compression Method    0008 [8] 'Deflated'
-000A 000D 0004 71 85 98 52 Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-0012 0015 0004 0E 01 00 00 Compressed Length     0000010E [270]
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
-001A 001B 0002 01 00       Filename Length       0001 [1]
-001C 001D 0002 00 00       Extra Length          0000 [0]
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 71 85 98 52 Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0012 0015 0004 0E 01 00 00 Compressed Length     0000010E (270)
+0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+001A 001B 0002 01 00       Filename Length       0001 (1)
+001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 001E 0001 2D          Filename              '-'
 001F 012C 010E ...         PAYLOAD
 
-012D 0130 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 [33639248]
-0131 0131 0001 1E          Created Zip Spec      1E [30] '3.0'
-0132 0132 0001 03          Created OS            03 [3] 'Unix'
-0133 0133 0001 14          Extract Zip Spec      14 [20] '2.0'
-0134 0134 0001 00          Extract OS            00 [0] 'MS-DOS'
-0135 0136 0002 00 00       General Purpose Flag  0000 [0]
+012D 0130 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0131 0131 0001 1E          Created Zip Spec      1E (30) '3.0'
+0132 0132 0001 03          Created OS            03 (3) 'Unix'
+0133 0133 0001 14          Extract Zip Spec      14 (20) '2.0'
+0134 0134 0001 00          Extract OS            00 (0) 'MS-DOS'
+0135 0136 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
-0137 0138 0002 08 00       Compression Method    0008 [8] 'Deflated'
-0139 013C 0004 71 85 98 52 Last Mod Time         52988571 [1385727345] 'Sat Apr 24 16:43:34 2021'
-013D 0140 0004 FF E7 0E F9 CRC                   F90EE7FF [4178503679]
-0141 0144 0004 0E 01 00 00 Compressed Length     0000010E [270]
-0145 0148 0004 BE 01 00 00 Uncompressed Length   000001BE [446]
-0149 014A 0002 01 00       Filename Length       0001 [1]
-014B 014C 0002 00 00       Extra Length          0000 [0]
-014D 014E 0002 00 00       Comment Length        0000 [0]
-014F 0150 0002 00 00       Disk Start            0000 [0]
-0151 0152 0002 01 00       Int File Attributes   0001 [1]
+0137 0138 0002 08 00       Compression Method    0008 (8) 'Deflated'
+0139 013C 0004 71 85 98 52 Last Mod Time         52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+013D 0140 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0141 0144 0004 0E 01 00 00 Compressed Length     0000010E (270)
+0145 0148 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0149 014A 0002 01 00       Filename Length       0001 (1)
+014B 014C 0002 00 00       Extra Length          0000 (0)
+014D 014E 0002 00 00       Comment Length        0000 (0)
+014F 0150 0002 00 00       Disk Start            0000 (0)
+0151 0152 0002 01 00       Int File Attributes   0001 (1)
                            [Bit 0]               1 'Text Data'
-0153 0156 0004 00 00 ED 81 Ext File Attributes   81ED0000 [2179792896]
-                           [Bits 16-24]          01ED [493] 'Unix attrib: rwxr-xr-x'
-                           [Bits 28-31]          08 [8] 'Regular File'
-0157 015A 0004 00 00 00 00 Local Header Offset   00000000 [0]
+0153 0156 0004 00 00 ED 81 Ext File Attributes   81ED0000 (2179792896)
+                           [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0157 015A 0004 00 00 00 00 Local Header Offset   00000000 (0)
 015B 015B 0001 2D          Filename              '-'
 
-015C 015F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 [101010256]
-0160 0161 0002 00 00       Number of this disk   0000 [0]
-0162 0163 0002 00 00       Central Dir Disk no   0000 [0]
-0164 0165 0002 01 00       Entries in this disk  0001 [1]
-0166 0167 0002 01 00       Total Entries         0001 [1]
-0168 016B 0004 2F 00 00 00 Size of Central Dir   0000002F [47]
-016C 016F 0004 2D 01 00 00 Offset to Central Dir 0000012D [301]
-0170 0171 0002 00 00       Comment Length        0000 [0]
+015C 015F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0160 0161 0002 00 00       Number of this disk   0000 (0)
+0162 0163 0002 00 00       Central Dir Disk no   0000 (0)
+0164 0165 0002 01 00       Entries in this disk  0001 (1)
+0166 0167 0002 01 00       Total Entries         0001 (1)
+0168 016B 0004 2F 00 00 00 Size of Central Dir   0000002F (47)
+016C 016F 0004 2D 01 00 00 Offset to Central Dir 0000012D (301)
+0170 0171 0002 00 00       Comment Length        0000 (0)
 #
 # Done
