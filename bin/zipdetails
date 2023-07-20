@@ -5476,10 +5476,9 @@ sub findCentralDirectoryOffset
     {
         # use-case is where a 64-bit zip file doesn't use the 64-bit
         # extensions.
-        print "EOCD not 64-bit $centralDirOffset ($here)\n" ;
+        # print "EOCD not 64-bit $centralDirOffset ($here)\n" ;
 
-        push @Messages,
-            sprintf "Zip file > 4Gig. Expected 'Offset to Central Dir' to be 0xFFFFFFFF, got 0x%X\n", $centralDirOffset;
+        fatal_tryWalk $here, "Zip file > 4Gig. Expected 'Offset to Central Dir' to be 0xFFFFFFFF, got " . hexValue($centralDirOffset);
 
         $centralDirOffset += $over64bit;
         $is64In32 = 1;
