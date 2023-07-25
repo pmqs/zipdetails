@@ -3569,8 +3569,9 @@ sub walkExtra
 
         my ($who, $decoder, $local_min, $local_max, $central_min, $central_max) =  @{ $Extras{$lookID} // ['', undef, undef,  undef,  undef, undef ] };
 
-        $who = "'$who'" if $who ;
-        my $idString =  Value_v($lookID) . " $who" ;
+        my $idString =  Value_v($lookID) ;
+        $idString .=  " '$who'"
+            if $who;
 
         out $id, "Extra ID #$count", $idString ;
         info $FH->tell() - 2, "Unknown Extra ID $idString"
