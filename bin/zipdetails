@@ -4588,30 +4588,26 @@ sub decodeLitteEndian
 {
     my $value = shift ;
 
-    if (length $value == 4)
+    if (length $value == 8)
     {
-        return Value_V unpack ("V", $value)
+        return unpackValueQ ($value)
+    }
+    elsif (length $value == 4)
+    {
+        return unpackValue_V ($value)
+    }
+    elsif (length $value == 2)
+    {
+        return unpackValue_v ($value)
+    }
+    elsif (length $value == 1)
+    {
+        return unpackValue_C ($value)
     }
     else {
         # TODO - fix this
-        internalFatal undef, "unsupported";
+        internalFatal undef, "unsupported decodeLitteEndian length '" . length ($value) . "'";
     }
-
-    my $got = 0 ;
-    my $shift = 0;
-
-    #hexDump
-    #reverse
-    #my @a =unpack "C*", $value;
-    #@a = reverse @a;
-    #hexDump(@a);
-
-    for (reverse unpack "C*", $value)
-    {
-        $got = ($got << 8) + $_ ;
-    }
-
-    return $got ;
 }
 
 sub decode_ux
