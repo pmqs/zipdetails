@@ -215,7 +215,7 @@ type of data:
     - Numeric Values
 
         If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
-        be displayed in both decimal and hex -- for example "`42 (0x2A)`".
+        be displayed in both hex and decimal -- for example "`002A (42)`".
 
         Note that Zip files store most numeric values in _little-endian_ encoding.
         (there area few rare instances where _big-endian_ is used). The value read from
