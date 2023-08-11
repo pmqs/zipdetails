@@ -8,7 +8,7 @@
 # ZIPDETAILS_COVERAGE           run Devel::NYTProf profiler
 
 #
-#  nytprofmerge --out nytprof.out `find -name nytprof.out`
+#  nytprofmerge --out nytprof.out `find -name \*nytprof.out`
 #  nytprofhtml --open
 #
 
