@@ -521,28 +521,15 @@ sub xDump
 
 sub hexDump
 {
-    my $input = shift;
-
-    my $out = unpack('H*', $input) ;
-    $out =~ s#(..)# $1#g ;
-    $out =~ s/^ //;
-    $out = uc $out;
-
-    return $out;
+    return uc join ' ', unpack('(H2)*', $_[0]);
 }
 
 sub hexDump16
 {
-    my $input = shift;
-
-    my $out = unpack('H*', $input) ;
-    $out =~ s#(.{32})#$1\n#g ;
-    $out =~ s#(..)# $1#g ;
-    $out =~ s/^ //mg;
-    $out =~ s/\n/\r/g;
-    $out = uc $out;
-
-    return $out;
+    return uc
+           join "\r",
+           map { join ' ', unpack('(H2)*', $_ ) }
+           unpack('(a16)*', $_[0]) ;
 }
 
 sub charDump
@@ -4506,9 +4493,8 @@ sub decode_GrowthHint
 
     my $padding;
     myRead($padding, $len - 4);
-    my $data = hexDump16($padding);
 
-    out2 $padding, "Padding", $data;
+    out2 $padding, "Padding", hexDump16($padding);
 
     if ($padding !~ /^\x00+$/)
     {
