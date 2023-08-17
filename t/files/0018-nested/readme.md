@@ -1,6 +1,6 @@
 # Nested Zip files
 
-If a zip file is `stored` (i.e. uncompressed) in anothert zip file, the `--scan` option will find the nested entries
+If a zip file is `stored` (i.e. uncompressed) in another zip file, the `--scan` option will find the nested entries
 
 ## Create depth-1
 
