@@ -15,7 +15,6 @@ if (!eval { pack "Q", 1 }) {
 
 my %WriteMakefileArgs = (
 
-
     NAME            => 'App::zipdetails',
     VERSION_FROM    => 'lib/App/zipdetails.pm',
 
@@ -84,8 +83,7 @@ sub MY::postamble
 {
     my $postamble = '';
 
-    if (-e '.github')
-    {
+    if (-e '.github') {
         $postamble .= <<EOM;
 
 READMEmd: README.md
