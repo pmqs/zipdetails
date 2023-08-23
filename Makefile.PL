@@ -31,6 +31,7 @@ my %WriteMakefileArgs = (
                            'File::Temp'     => 0,
                            'File::Basename' => 0,
                            'Data::Dumper'   => 0,
+                           'Pod::Markdown'  => 0
                         },
 
     ABSTRACT        => 'Display details about the internal structure of Zip files',
@@ -64,7 +65,7 @@ my %WriteMakefileArgs = (
 
 
     clean     => { FILES => "t/files/*.got t/files/*/*.got t/files/*/*/*.got" },
-
+    depend    => { 'manifypods' => 'READMEmd' },
 ) ;
 
 delete $WriteMakefileArgs{LICENSE}
@@ -77,5 +78,36 @@ delete $WriteMakefileArgs{BUILD_REQUIRES}
     unless eval { ExtUtils::MakeMaker->VERSION(6.55_03) } ;
 
 WriteMakefile(%WriteMakefileArgs);
+
+
+sub MY::postamble
+{
+    my $postamble = '';
+
+    if (-e '.github')
+    {
+        $postamble .= <<EOM;
+
+READMEmd: README.md
+
+README.md: bin/zipdetails .github/badges
+	\@echo Creating README.md from bin/zipdetails
+	\$(NOECHO) \$(RM_F) README.md
+	\$(NOECHO) \$(TOUCH) README.md
+	\$(NOECHO) \$(CP_NONEMPTY) .github/badges README.md \$(PERM_RW)
+	\$(NOECHO) pod2markdown bin/zipdetails >>README.md
+
+EOM
+    }
+    else {
+        $postamble .= <<EOM;
+
+READMEmd:
+
+EOM
+    }
+
+    return $postamble;
+}
 
 # end of file Makefile.PL

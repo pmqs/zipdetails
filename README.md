@@ -1,3 +1,8 @@
+[![Linux build](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml)
+[![Macos build](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml)
+[![Windows build](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml)
+[![Linux Docker build](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml)
+
 # NAME
 
 zipdetails - display the internal structure of zip files

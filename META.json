@@ -24,7 +24,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "ExtUtils::MakeMaker" : "0",
+            "Pod::Markdown": "0"
          }
       },
       "configure" : {
