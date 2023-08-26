@@ -39,9 +39,9 @@ jobs:
       with:
         perl-version: ${{ matrix.perl }}
 
-    - name: touch
+    - name: Force regeneration of README.md
       run: |
-        sleep 4
+        sleep 2
         touch .github/badges
 
     - name: Perl version
@@ -53,11 +53,14 @@ jobs:
     - name: Help output
       run: perl bin/zipdetails --help
 
-    - name: Build
-      run: perl Makefile.PL && make
+    - name: Configure
+      run: perl Makefile.PL
 
     - name: cat Makefile
       run: cat Makefile
+
+    - name: Build
+      run: make
 
     - name: Test
       run: make test TEST_VERBOSE=1
