@@ -90,7 +90,7 @@ READMEmd: README.md
 
 README.md: bin/zipdetails .github/badges
 	\@echo Creating README.md from bin/zipdetails
-	\$(NOECHO) \$(CHMOD) \$(PERM_RW).github/badges README.md
+	\$(NOECHO) \$(CHMOD) \$(PERM_RW) .github/badges README.md
 	\$(NOECHO) \$(CP_NONEMPTY) .github/badges README.md \$(PERM_RW)
 	\$(NOECHO) pod2markdown bin/zipdetails >>README.md
 
