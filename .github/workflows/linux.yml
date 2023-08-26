@@ -39,8 +39,10 @@ jobs:
       with:
         perl-version: ${{ matrix.perl }}
 
-    - name: ls
-      run: ls -l . .github
+    - name: touch
+      run: |
+        sleep 4
+        touch .github/badges
 
     - name: Perl version
       run: perl -V
@@ -54,7 +56,7 @@ jobs:
     - name: Build
       run: perl Makefile.PL && make
 
-    - name: Build
+    - name: cat Makefile
       run: cat Makefile
 
     - name: Test
