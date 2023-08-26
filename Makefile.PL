@@ -64,7 +64,7 @@ my %WriteMakefileArgs = (
 
 
     clean     => { FILES => "t/files/*.got t/files/*/*.got t/files/*/*/*.got" },
-    depend    => { 'manifypods' => 'READMEmd' },
+    depend    => { manifypods => 'READMEmd' },
 ) ;
 
 delete $WriteMakefileArgs{LICENSE}
@@ -84,7 +84,7 @@ sub MY::postamble
     my $postamble = '';
 
     if (-e '.github') {
-        $postamble .= <<EOM;
+        $postamble = <<EOM;
 
 READMEmd: README.md
 
