@@ -54,5 +54,8 @@ jobs:
     - name: Build
       run: perl Makefile.PL && make
 
+    - name: Build
+      run: cat Makefile
+
     - name: Test
       run: make test TEST_VERBOSE=1
