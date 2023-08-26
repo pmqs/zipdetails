@@ -28,23 +28,31 @@ jobs:
           - '5.14'
           - '5.12'
           - '5.10'
-          # - '5.8'
-          # - '5.6'
 
     name: Perl ${{ matrix.perl }}
     steps:
+
     - uses: actions/checkout@v3
+
     - name: Setup perl
       uses: shogo82148/actions-setup-perl@v1
       with:
         perl-version: ${{ matrix.perl }}
+
+    - name: ls
+      run: ls -l . .github
+
     - name: Perl version
       run: perl -V
+
     - name: Install dependencies
       run: cpanm --quiet --installdeps --notest .
+
     - name: Help output
       run: perl bin/zipdetails --help
+
     - name: Build
       run: perl Makefile.PL && make
+
     - name: Test
       run: make test TEST_VERBOSE=1
