@@ -136,7 +136,7 @@ for my $dir (sort keys %dirs)
             $zipfile = $tempdir . '/' . $z;
             $zipfile =~ s/\.zst$//;
 
-            system("$ZSTD -d -o $zipfile $HERE/$dir/$z") == 0
+            system("$ZSTD -d -q -o $zipfile $HERE/$dir/$z") == 0
                 or die "cannot unzstd: $!\n";
 
             chdir $HERE
