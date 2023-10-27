@@ -1417,13 +1417,6 @@ sub dislayMessages
 
         if ($NESTING_DEBUG)
         {
-            # if (keys %{ Nesting::encapsulations })
-            if(0)
-            {
-                no warnings;
-                say "==== $Nesting::count ";
-            }
-
             if (Nesting::encapsulationCount())
             {
                 say "# ENCAPSULATIONS";
@@ -5813,7 +5806,7 @@ sub nibbles
                         'compressedMethod'      => 0,
 
                         # inferred data
-                        'InCentralDir'          => 0,
+                        # 'InCentralDir'          => 0,
                         # 'zip64'                 => 0,
 
                         'zip64ExtraPresent'     => 0,
