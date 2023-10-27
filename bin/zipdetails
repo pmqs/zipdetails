@@ -5947,16 +5947,7 @@ sub nibbles
         return
             if $self->{byCentralOffset}{$CentralDirectoryOffset} ;
 
-        if ($entry->encapsulated)
-        {
-            my $enclosingEntry = Nesting::getOuterEncapsulation($entry);
-        }
-
-        if ($entry->encapsulated )
-        {
-            push @{ $self->{encapsulatedEntries} }, $entry;
-        }
-        else
+        if (! $entry->encapsulated )
         {
             if (exists $self->{byName}{$filename} )
             {
@@ -5973,7 +5964,6 @@ sub nibbles
             $self->{byLocalOffset}{$localHeaderOffset} = $entry;
             $self->{byCentralOffset}{$CentralDirectoryOffset} = $entry;
             $self->{byName}{ $filename } = $entry;
-            $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
             $self->{offset2Index} = $self->{count} ++;
         }
 
@@ -5983,7 +5973,6 @@ sub nibbles
     {
         my $self = shift ;
 
-        # return $self->{count} ;
         return scalar @{ $self->{entries} };
     }
 
@@ -6563,12 +6552,6 @@ sub displayFileInfo
         push @nestingStack, $entry;
         $index2entry{ $entry->index } = $entry;
         $offset2entry{ $entry->offsetStart } = $entry;
-    }
-
-    sub isNested
-    {
-        my $entry = shift;
-        return $entry->encapsulated;
     }
 
     sub getEnclosingEntry
