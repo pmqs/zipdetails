@@ -1413,9 +1413,7 @@ sub dislayMessages
         # Nesting::dump();
 
         $LocalDirectory->sortByLocalOffset();
-        $LocalDirectory->findEnclosingEntries();
         my %cleanCentralEntries = %{ $CentralDirectory->{byCentralOffset} };
-        my %benignNested ;
 
         if ($NESTING_DEBUG)
         {
@@ -1475,8 +1473,8 @@ sub dislayMessages
             # check for Central Directory orphans
             # probably only an issue with --walk & a zipbomb
 
-           my %orphans = map  {   $_->centralHeaderOffset => $_         }
-                         grep { $_->entryType == ZIP_CENTRAL_HDR_SIG # Want Central Headers
+           my %orphans = map  {      $_->centralHeaderOffset => $_         }
+                         grep {      $_->entryType == ZIP_CENTRAL_HDR_SIG # Want Central Headers
                                 && ! $_->ldEntry                     # Filter out orphans
                                 && ! $_->encapsulated                # Not encapsulated
                          }
@@ -1493,11 +1491,12 @@ sub dislayMessages
                            keys %orphans ;
 
                 say sprintf "#  %-${ow}s  Filename", "Offset" ;
-                say sprintf("#  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_))
-                    for sort { $a <=> $b } keys %orphans ;
 
-                delete $cleanCentralEntries{ $_ }
-                    for keys %orphans ;
+                for (sort { $a <=> $b } keys %orphans)
+                {
+                    say sprintf("#  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_)) ;
+                    delete $cleanCentralEntries{ $_ };
+                }
             }
         }
 
@@ -1535,6 +1534,7 @@ sub dislayMessages
             }
         }
 
+        if ($LocalDirectory->anyStreamedEntries)
         {
             # Check for a missing Data Descriptors
 
@@ -1556,13 +1556,13 @@ sub dislayMessages
         {
             # compare local & central for duplicate entries (CD entries point to same local header)
 
-           my %ByLocalOffset = map  {   $_->localHeaderOffset => $_ }
-                         grep {
-                                   $_->entryType == ZIP_LOCAL_HDR_SIG
-                                && ! $_->encapsulated             #       Not encapsulated
-                                && @{ $_->getCdEntries } > 1
-                           } # Want Local Headers
-                         values %{ Nesting::getEntriesByOffset() };
+           my %ByLocalOffset = map  {      $_->localHeaderOffset => $_ }
+                               grep {
+                                           $_->entryType == ZIP_LOCAL_HDR_SIG # Want Local Headers
+                                      && ! $_->encapsulated                   # Not encapsulated
+                                      && @{ $_->getCdEntries } > 1
+                                    }
+                               values %{ Nesting::getEntriesByOffset() };
 
             for my $offset (sort keys %ByLocalOffset)
             {
@@ -1603,13 +1603,13 @@ sub dislayMessages
 
             # get the local offsets referenced in the CD
             # this deliberately ignores any valid nested local entries
-            # my %localOffsets = map {  $_ => 1 } keys %{ $CentralDirectory->{byLocalOffset} };
             my @localOffsets = sort { $a <=> $b } keys %{ $CentralDirectory->{byLocalOffset} };
 
             # now check for nesting
 
             my %nested ;
             my %bomb;
+
             for my $offset (@localOffsets)
             {
                 my $innerEntry = $LocalDirectory->{byLocalOffset}{$offset};
@@ -1636,7 +1636,7 @@ sub dislayMessages
                 ++ $WarningCount;
 
                 # The real central directory at eof does not know about these.
-                # likely to be a zip file srored in another zip file
+                # likely to be a zip file stored in another zip file
                 say "#\n# WARNING: Nested Local Entries found\n#";
                 for my $loc (sort keys %nested)
                 {
@@ -5922,9 +5922,6 @@ sub nibbles
                         'zip64'         => 0,
                         'encryptedCD'   => 0,
                         'minizip_secure' => 0,
-
-                        'enclosingEntries' => [],
-                        'enclosing2localEntry' => {}
                      ) ;
 
         bless \%object, $class;
@@ -5960,13 +5957,6 @@ sub nibbles
         if ($entry->encapsulated)
         {
             my $enclosingEntry = Nesting::getOuterEncapsulation($entry);
-            # if ($enclosingEntry)
-            {
-                push @{ $self->{enclosingEntries} }, $enclosingEntry
-                    if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
-                $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
-            }
-
         }
 
         if ($entry->encapsulated )
@@ -6072,12 +6062,6 @@ sub nibbles
         my $self = shift ;
         return $self->{encryptedCD} && ! $self->{minizip_secure};
     }
-
-    sub nonEncapsulatedEntries
-    {
-        my $self = shift ;
-        return grep { ! $_->encapsulated } @{ $self->{entries} }
-    }
 }
 
 {
@@ -6092,8 +6076,6 @@ sub nibbles
         my $self = $class->SUPER::new();
 
         my %fields = (
-                        'payloadOffset'         => 0,
-                        'surfaceArea'           => [],
                         'streamedMatch'         => 0,
                         'readDataDescriptor'    => 0,
                         'cdEntryIndex'          => {},
@@ -6148,7 +6130,6 @@ sub nibbles
 
         my %object = (
                         'entries'       => [],
-                        'nestedEntries' => [],
                         'count'         => 0,
                         'byLocalOffset' => {},
                         'byName'        => {},
@@ -6157,8 +6138,7 @@ sub nibbles
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
                         'encryptedCD'   => 0,
-                        'enclosingEntries' => [],
-                        'enclosing2localEntry' => {}
+                        'streamedPresent' => 0,
                      ) ;
 
         bless \%object, $class;
@@ -6190,11 +6170,8 @@ sub nibbles
 
             if ($outerEntry->index != $index)
             {
-                # say sprintf "  $i: %X, %X", $from, $to;
-
                 if ($startSA >= $from && $endSA <= $to)
                 {
-                    # say "  NESTED";
                     return $outerEntry ;
                 }
 
@@ -6205,31 +6182,6 @@ sub nibbles
 
         return undef;
     }
-
-
-    sub findEnclosingEntries
-    {
-        my $self = shift ;
-
-        for my $localEntry ( @{ $self->{entries} } )
-        {
-            # check if entry is part of payload of another entry
-            # particular issue with nested zip files
-
-            my $localHeaderOffset = $localEntry->localHeaderOffset;
-
-            my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
-            if ($enclosingEntry)
-            {
-                $localEntry->encapsulated(1) ;
-                push @{ $self->{enclosingEntries} }, $enclosingEntry
-                    if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
-
-                $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
-            }
-        }
-    }
-
 
     sub addEntry
     {
@@ -6253,10 +6205,12 @@ sub nibbles
 
         # keep nested local entries for zipbomb deteection
         push @{ $self->{entries} }, $localEntry;
-        push @{ $self->{surfaceArea} }, [ $localHeaderOffset, $endSurfaceArea, $localEntry ] ;
 
         $self->{byLocalOffset}{$localHeaderOffset} = $localEntry;
         $self->{byName}{ $filename } = $localEntry;
+
+        $self->{streamedPresent} ++
+            if $localEntry->streamed;
 
         Nesting::add($localEntry);
     }
@@ -6346,11 +6300,10 @@ sub nibbles
         return $self->{encryptedCD} ;
     }
 
-    sub nonEncapsulatedEntries
+    sub anyStreamedEntries
     {
         my $self = shift ;
-        return grep { ! $_->encapsulated }
-               @{ $self->{entries} }
+        return $self->{streamedPresent} ;
     }
 }
 
