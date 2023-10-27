@@ -1581,11 +1581,11 @@ sub dislayMessages
                             @entries ;
 
                     say sprintf "#  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("#  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset))
-                        for sort { $a->centralHeaderOffset <=> $b->centralHeaderOffset } @entries;
-
-                    delete $cleanCentralEntries{ $_ }
-                        for map { $_->centralHeaderOffset() } @entries ;
+                    for (sort { $a->centralHeaderOffset <=> $b->centralHeaderOffset } @entries)
+                    {
+                        say sprintf("#  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset)) ;
+                        delete $cleanCentralEntries{ $_->centralHeaderOffset }
+                    }
                 }
             }
         }
