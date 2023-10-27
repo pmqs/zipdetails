@@ -121,9 +121,11 @@
 #
 # ERROR: Possible zipbomb -- Nested Local Entries found
 #
-# Local Header for filename '0' at offset 0x0 (0)  has 2 nested Local Headers
+# Local Header for '0' at offset 0x0 (0) has 1 nested Local Headers
 #  Offset  Filename
 #    0x24  '1'
+# Local Header for '1' at offset 0x24 (36) has 1 nested Local Headers
+#  Offset  Filename
 #    0x48  '2'
 #
 # Error Count: 1
