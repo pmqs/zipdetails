@@ -1439,10 +1439,10 @@ sub dislayMessages
             # check for Local Directory orphans
 
            my %orphans = map  {   $_->localHeaderOffset => $_->filename }
-                         grep {   $_->entryType == ZIP_LOCAL_HDR_SIG &&
+                         grep {   $_->entryType == ZIP_LOCAL_HDR_SIG && # Want Local Headers
                                 ! $_->encapsulated   &&
                                   @{ $_->getCdEntries } == 0
-                           } # Want Local Headers
+                           }
                          values %{ Nesting::getEntriesByOffset() };
 
 
