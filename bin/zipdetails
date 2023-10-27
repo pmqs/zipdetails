@@ -1447,10 +1447,6 @@ sub dislayMessages
         {
             # check for Local Directory orphans
 
-            # my %orphans = map  { $_->localHeaderOffset() => $_->filename()                              }
-            #               grep { ! defined $CentralDirectory->localOffset( $_->localHeaderOffset() )    }
-            #               $LocalDirectory->nonEncapsulatedEntries();
-
            my %orphans = map  {   $_->localHeaderOffset => $_->filename }
                          grep {   $_->entryType == ZIP_LOCAL_HDR_SIG &&
                                 ! $_->encapsulated   &&
@@ -1458,12 +1454,6 @@ sub dislayMessages
                            } # Want Local Headers
                          values %{ Nesting::getEntriesByOffset() };
 
-# use Data::Dumper;
-# say "### " . Dumper(Nesting::getEntriesByOffset());
-# say "### ORPHANS " . scalar keys %orphans;
-# say "### $_" for keys %orphans;
-# say "###-- $_" for values %{ Nesting::getEntriesByOffset() };
-# exit;
 
             if (keys %orphans)
             {
@@ -1485,14 +1475,10 @@ sub dislayMessages
             # check for Central Directory orphans
             # probably only an issue with --walk & a zipbomb
 
-            # my %orphans = map  { $_->centralHeaderOffset() => $_                                   }
-            #               grep { ! defined $LocalDirectory->localOffset( $_->localHeaderOffset() ) }
-            #               $CentralDirectory->nonEncapsulatedEntries();
-
            my %orphans = map  {   $_->centralHeaderOffset => $_         }
-                         grep { $_->entryType == ZIP_CENTRAL_HDR_SIG # } # Want Central Headers
-                                && ! $_->ldEntry     #                      } # Filter out orphans
-                                && ! $_->encapsulated    #                  } # Not encapsulated
+                         grep { $_->entryType == ZIP_CENTRAL_HDR_SIG # Want Central Headers
+                                && ! $_->ldEntry                     # Filter out orphans
+                                && ! $_->encapsulated                # Not encapsulated
                          }
                          values %{ Nesting::getEntriesByOffset() };
 
@@ -1523,30 +1509,13 @@ sub dislayMessages
 
             # Note: this is only active when scan is used
 
-            # local *anyinCD =  sub {
-            #     my $offsets = shift ;
-            #     return 1
-            #         if ! defined $offsets;
-            #     return grep { defined $_ && $_->localHeaderOffset() }
-            #            map { $CentralDirectory->getByLocalOffset($_) }
-            #            keys %$offsets;
-            # };
-
-            # my %outerEntries = map { $_->localHeaderOffset => $_->filename }
-            #                    grep { ! anyinCD( $CentralDirectory->{'enclosing2localEntry'}{ $_->localHeaderOffset() } ) } # don't want entries that are referenced from the CD
-            #                    @{ $CentralDirectory->{enclosingEntries} },
-            #                    @{ $LocalDirectory->{enclosingEntries}   } ;
-
-
            my %outerEntries = map  { $_->localHeaderOffset => $_->filename }
                               grep {
                                       $_->entryType == ZIP_CENTRAL_HDR_SIG &&
                                     ! $_->encapsulated && # not encapsulated
-                                      $_->ldEntry &&
-                                     $_->ldEntry->childrenCount &&
+                                      $_->ldEntry && # central header has a local sibling
+                                      $_->ldEntry->childrenCount && # local entry has embedded entries
                                     ! Nesting::childrenInCentralDir($_->ldEntry)
-                                    # ! Nesting::getFirstEncapsulation($_->ldEntry)
-                                     #&& @{ $_->getCdEntries }  #
                                    }
                               values %{ Nesting::getEntriesByOffset() };
 
@@ -1569,13 +1538,8 @@ sub dislayMessages
         {
             # Check for a missing Data Descriptors
 
-            # my %missingDataDescriptor = map  { $_->localHeaderOffset() => $_->filename()  }
-            #                             grep { $_->streamed && ! $_->readDataDescriptor   }
-            #                             $LocalDirectory->nonEncapsulatedEntries();
-
            my %missingDataDescriptor = map  {   $_->localHeaderOffset => $_->filename }
                                        grep {   $_->entryType == ZIP_LOCAL_HDR_SIG &&
-                                            #   ! $_->encapsulated &&
                                                 $_->streamed &&
                                               ! $_->readDataDescriptor
                                             }
@@ -1600,22 +1564,9 @@ sub dislayMessages
                            } # Want Local Headers
                          values %{ Nesting::getEntriesByOffset() };
 
-            # my %ByLocalOffset ;
-            # for my $entry ( @{ $CentralDirectory->{entries} } )
-            # {
-            #     # say "### CD " . $entry->offsetStart . " -> LD " . $entry->localHeaderOffset  ;
-            #     push @{ $ByLocalOffset{$entry->localHeaderOffset} }, $entry;
-            # }
-
             for my $offset (sort keys %ByLocalOffset)
             {
-                # say "";
-                # say "### " . $offset;
-                # say "### " . $ByLocalOffset{$offset} ;
-                # say "### " . @{ $ByLocalOffset{$offset} };
-
                 my @entries =  @{ $ByLocalOffset{$offset}->getCdEntries };
-                # my @entries = @{ $ByLocalOffset{$offset} };
                 if (@entries > 1)
                 {
                     ++ $ErrorCount;
@@ -1646,25 +1597,6 @@ sub dislayMessages
             }
         }
 
-        # {
-        #     if (Nesting::encapsulationCount())
-        #     {
-        #         say "# ENCAPSULATIONS";
-
-        #         for my $index (sort { $a <=> $b } keys %{ Nesting::encapsulations() })
-        #         {
-        #             my $outer = Nesting::entryByIndex($index) ;
-
-        #             say "# Nesting " . $outer->filename . " " . $outer->offsetStart . " " . $outer->offsetEnd ;
-
-        #             for my $inner (sort { $a <=> $b } @{  Nesting::encapsulations()->{$index} } )
-        #             {
-        #                 say "#  " . $inner->filename . " " . $inner->offsetStart . " " . $inner->offsetEnd ;;
-        #             }
-        #         }
-        #     }
-        # }
-
         if (Nesting::encapsulationCount())
         {
             # compare local & central for nested entries
@@ -1678,18 +1610,15 @@ sub dislayMessages
 
             my %nested ;
             my %bomb;
-            # for my $offset (sort { $a <=> $b } keys %localOffsets)
             for my $offset (@localOffsets)
             {
                 my $innerEntry = $LocalDirectory->{byLocalOffset}{$offset};
                 if ($innerEntry)
                 {
-                    # my $outerLocalEntry = $LocalDirectory->isLocalEntryNested($innerEntry);
                     my $outerLocalEntry = Nesting::getOuterEncapsulation($innerEntry);
                     if (defined $outerLocalEntry)
                     {
                         my $outerOffset = $outerLocalEntry->localHeaderOffset();
-                        # say sprintf "### 0x%X nested in 0x%X", $offset, $outerOffset ;
                         if ($CentralDirectory->{byLocalOffset}{ $offset })
                         {
                             push @{ $bomb{ $outerOffset } }, $offset ;
@@ -2036,7 +1965,6 @@ sub LocalHeader
 
         $cdZip64 = $cdEntry->zip64ExtraPresent;
         $zip64Sizes = $cdEntry->zip64SizesPresent;
-        # $cdIndex = $cdEntry->index;
         $cdEntryOffset = $cdEntry->centralHeaderOffset ;
         $localEntry->addCdEntry($cdEntry) ;
 
@@ -2044,9 +1972,6 @@ sub LocalHeader
         {
             # fatal undef, "$cdIndex != $LocalHeaderCount"
         }
-
-        # my $cdi = sprintf("%X", $cdIndex) ;
-        # out1 "CENTRAL HEADER #$cdi", sprintf "Offset %s\n", Value_Q($cdEntryOffset);
     }
 
     my $extractVer = out_C  "Extract Zip Spec", \&decodeZipVer;
@@ -2086,7 +2011,6 @@ sub LocalHeader
     }
 
 
-    # $localEntry->index($LocalHeaderCount);
     $localEntry->localHeaderOffset($locHeaderOffset) ;
     $localEntry->offsetStart($locHeaderOffset) ;
     $localEntry->compressedLength($compressedLength) ;
@@ -2103,8 +2027,6 @@ sub LocalHeader
     $localEntry->std_compressedLength($compressedLength) ;
     $localEntry->std_uncompressedLength($uncompressedLength) ;
     $localEntry->std_diskNumber(0) ;
-
-    # $LocalDirectory->addEntry($localEntry);
 
     if ($extraLength)
     {
@@ -2155,9 +2077,6 @@ sub LocalHeader
     my $cdl = defined $cdEntry
                 ? $cdEntry->compressedLength()
                 : undef;
-    # my $cdl = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset}
-    #             ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{compressedLength}
-    #             : undef ;
 
     $CDcompressedLength = $localEntry->compressedLength ;
     $CDcompressedLength = $cdl
@@ -2271,9 +2190,6 @@ sub displayEncryptedCD
 
     # Check for digital signature record in the CD
     # It needs to be the very last thing in the CD
-
-    # my $sigSize = findDigitalSignature($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize);
-    # outSomeData($CentralDirectory->{CentralDirectorySize} - $decryptHeaderSize - $sigSize, "ENCRYPTED CENTRAL DIRECTORY") ;
 
     my $delta = deltaToNextSignature();
     print "\n";
@@ -2427,11 +2343,6 @@ sub outputFilename
 
     if (! $opt_Redact && TextEncoding::debugEncoding() && $raw_filename ne $filename)
     {
-        # use Devel::Peek;
-        # Dump $raw_filename ;
-        # Dump $decoded_filename;
-        # Dump $filename ;
-
         info $FH->tell() - length($raw_filename),
                     "$message Encoding Change",
                     "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump($raw_filename) . "]",
@@ -2594,12 +2505,10 @@ sub CentralHeader
         testPossiblePrefix($locHeaderOffset, ZIP_LOCAL_HDR_SIG);
         if ($PREFIX_DELTA)
         {
-            # $locHeaderOffset += $PREFIX_DELTA;
             $out .= " [Actual Offset is " . Value_V($locHeaderOffset + $PREFIX_DELTA) . "]"
         }
     }
 
-    # my $locHeaderOffset     = out_V "Local Header Offset";
     out $d, "Local Header Offset", $out;
 
     if ($locHeaderOffset != MAX32)
@@ -2619,7 +2528,6 @@ sub CentralHeader
 
     my $cdEntry = CentralDirectoryEntry->new($cdEntryOffset);
 
-    # $cdEntry->index($CentralHeaderCount);
     $cdEntry->centralHeaderOffset($cdEntryOffset) ;
     $cdEntry->localHeaderOffset($locHeaderOffset) ;
     $cdEntry->compressedLength($compressedLength) ;
@@ -2659,7 +2567,6 @@ sub CentralHeader
     $cdEntry->offsetStart($cdEntryOffset) ;
     $cdEntry->offsetEnd($FH->tell() - 1) ;
 
-    # $CentralDirectory->replaceEntry($cdEntry);
     $CentralDirectory->addEntry($cdEntry);
 
     return { 'encapsulated' => $cdEntry ? $cdEntry->encapsulated() : 0};
@@ -2672,7 +2579,6 @@ sub decodeZipVer
     my $sHi = int($ver /10) ;
     my $sLo = $ver % 10 ;
 
-    #out1 "Zip Spec", "$sHi.$sLo";
     "$sHi.$sLo";
 }
 
@@ -2813,7 +2719,6 @@ sub Zip64EndCentralLocator
 
     # TODO - check values for traces of multi-part + crazy offsets
     out_V  "Central Dir Disk no";
-    # my $zip64EndCentralDirOffset = out_Q  "Offset to Zip64 EOCD";
 
     my ($d, $zip64EndCentralDirOffset) = read_Q();
     my $out = Value_Q($zip64EndCentralDirOffset);
@@ -3511,7 +3416,6 @@ sub warning
     }
 
 
-    # say "# WARNING: $message";
     say "#          $_" for @_ ;
     say "#";
     ++ $WarningCount ;
@@ -4459,9 +4363,6 @@ sub decode_Minizip_Hash
 
     $CentralDirectory->setMiniZipEncrypted();
 
-    # outHexdump($len, "Signature");
-    # my $remaining = $len;
-
     my ($data, $alg) = read_v();
     my $algorithm = $Algorithm->{$alg} // "Unknown";
 
@@ -4482,10 +4383,6 @@ sub decode_Minizip_Hash
     }
     elsif ($digestSize > $remaining)
     {
-        # my $message = extraFieldIdentifier($extraID) .  ": Expected 0x8 bytes for 'Digest': only " . hexValue(length $zip64Extended)  . " bytes present";
-        # error $fieldOffset, $message;
-        # out2 $zip64Extended, $message;
-
         error $FH->tell() - 2, extraFieldIdentifier($extraID) . ": Digest Size " . decimalHex0x($digestSize) . " >  " . decimalHex0x($remaining) . " bytes remaining in extra field" ;
         $digestSize = $remaining ;
     }
@@ -5117,7 +5014,6 @@ sub peekAtOffset
     myRead($buffer, $len);
     seekTo($here);
 
-    # $fh->read($buffer, $len) == $len
     length $buffer == $len
         or return '';
 
@@ -5135,7 +5031,6 @@ sub readFromOffset
     my $buffer;
     myRead($buffer, $len);
 
-    # $fh->read($buffer, $len) == $len
     length $buffer == $len
         or return '';
 
@@ -5331,14 +5226,11 @@ sub scanCentralDirectory
             checkOffsetValue($locHeaderOffset, $startHeader, 0, $commonMessage, $startHeader + 42, ZIP_LOCAL_HDR_SIG, 1) ;
         }
 
-        # skip($fh, $filename_length ) ;
         $fh->read(my $filename, $filename_length) ;
 
         my $cdEntry = CentralDirectoryEntry->new();
 
-        # $cdEntry->index($cdIndex);
         $cdEntry->centralHeaderOffset($startHeader) ;
-        # $cdEntry->endCentralHeaderOffset($FH->tell() - 1);
         $cdEntry->localHeaderOffset($locHeaderOffset) ;
         $cdEntry->compressedLength($compressedLength) ;
         $cdEntry->uncompressedLength($uncompressedLength) ;
@@ -5357,7 +5249,6 @@ sub scanCentralDirectory
         if ($extra_length)
         {
             $fh->read(my $extraField, $extra_length) ;
-            # $self->smartReadExact(\$extraField, $extra_length);
 
             # Check for Zip64
             my $zip64Extended = findID(0x0001, $extraField);
@@ -5430,7 +5321,6 @@ sub offsetFromZip64
 
     if ($totalDisks > 0)
     {
-        # my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field @ " . hexValue($here + 8) . " in 'Zip64 End Central Locator' is invalid";
         my $commonMessage = "'Offset to Zip64 End of Central Directory Record' field in '" . Signatures::name(ZIP64_END_CENTRAL_LOC_HDR_SIG) . "' is invalid";
         $cd64 = checkOffsetValue($cd64, $here, 0, $commonMessage, $here + 8, ZIP64_END_CENTRAL_REC_HDR_SIG, 1) ;
     }
@@ -5581,9 +5471,6 @@ sub findCentralDirectoryOffset
     # Empty zip file can just contain an EOCD record
     return (0, 0)
         if ZIP_EOCD_MIN_SIZE + $commentLength + $trailingBytes  == $FILELEN ;
-
-    # return (0, 0)
-    #     if  $totalEntries == 0 && $entriesOnThisDisk == 0;
 
     if (needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize) &&
         ! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize))
@@ -5765,7 +5652,6 @@ sub nibbles
         my $signature = shift ;
 
         my $name = Signatures::name($signature);
-        # printf "### HeaderOffsetIndex::addOffset(%X, [$name]\n", $offset;
 
         if (! defined $self->{offset2Signature}{$offset})
         {
@@ -5864,8 +5750,6 @@ sub nibbles
             $object->{$name} = $value ;
 
         }
-
-        # say Dumper($object);
     }
 }
 
@@ -5998,8 +5882,6 @@ sub nibbles
         my $class = shift ;
         my $offset = shift;
 
-        # say "### CentralDirectoryEntry->new $CentralDirectory->{byCentralOffset}{$offset}";
-
         # check for existing entry
         return $CentralDirectory->{byCentralOffset}{$offset}
             if defined $offset && defined $CentralDirectory->{byCentralOffset}{$offset} ;
@@ -6008,21 +5890,8 @@ sub nibbles
 
         my %fields = (
                         'diskNumber'                => 0,
-                        # 'endCentralHeaderOffset'    => 0,
                         'comment'                   => "",
                         'ldEntry'                   => undef,
-                        # 'index'                 => 0,
-
-                        # 'centralHeaderOffset'     => 0,
-
-                        # 'compressedLength'      => 0,
-                        # 'uncompressedLength'    => 0,
-                        # 'filename'              => '',
-                        # 'crc32'                 => 0,
-                        # 'zip64ExtraPresent'     => 0,
-                        # 'zip64SizesPresent'     => 0,
-                        # 'encapsulated'          => 0,
-                        # 'payloadOffset'         => 0,
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
@@ -6048,7 +5917,6 @@ sub nibbles
                         'byCentralOffset' => {},
                         'byName'        => {},
                         'offset2Index' => {},
-                        # 'matchedWithLocalHeader' => {},
                         'CentralDirectoryOffset'      => 0,
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
@@ -6070,8 +5938,6 @@ sub nibbles
         my $localHeaderOffset = $entry->localHeaderOffset  ;
         my $CentralDirectoryOffset = $entry->centralHeaderOffset ;
         my $filename = $entry->filename ;
-        # my $existingEntry = $self->{byLocalOffset}{$localHeaderOffset} ;
-        # my $secondTime = $self->{byCentralOffset}{$CentralDirectoryOffset};
 
         Nesting::add($entry);
 
@@ -6091,11 +5957,8 @@ sub nibbles
         return
             if $self->{byCentralOffset}{$CentralDirectoryOffset} ;
 
-        # my $enclosingEntry = $LocalDirectory->isCdEntryNested($entry) ;
-        # if ($enclosingEntry)
         if ($entry->encapsulated)
         {
-            # my $enclosingEntry = Nesting::getFirstEncapsulation($entry);
             my $enclosingEntry = Nesting::getOuterEncapsulation($entry);
             # if ($enclosingEntry)
             {
@@ -6106,14 +5969,6 @@ sub nibbles
 
         }
 
-        # if ($existingEntry )
-        # {
-        #     ::error $CentralDirectoryOffset,
-        #             "Duplicate Central Directory entries reference Local header at offset " . ::hexValue($localHeaderOffset),
-        #             "New Central Directory entry is at offset " . ::hexValue($CentralDirectoryOffset),
-        #             "Existing Central Directory entry is at offset " . ::hexValue($existingEntry->{centralHeaderOffset});
-        # }
-        # else
         if ($entry->encapsulated )
         {
             push @{ $self->{encapsulatedEntries} }, $entry;
@@ -6141,22 +5996,6 @@ sub nibbles
 
     }
 
-    # sub replaceEntry
-    # {
-    #     my $self = shift;
-    #     my $entry = shift;
-
-    #     @{ $self->{encapsulatedEntries} } = grep { $entry->centralHeaderOffset != $_->centralHeaderOffset }
-    #                                         @{ $self->{encapsulatedEntries} };
-
-    #     @{ $self->{entries} } = grep { $entry->centralHeaderOffset != $_->centralHeaderOffset }
-    #                                         @{ $self->{entries} };
-
-    #     delete $self->{byName}{$entry->filename} ;
-
-    #     $self->addEntry($entry);
-    # }
-
     sub exists
     {
         my $self = shift ;
@@ -6180,7 +6019,6 @@ sub nibbles
 
         # TODO - what happens if none exists?
         my $entry = $self->{byLocalOffset}{$offset} ;
-        # delete $self->{matchedWithLocalHeader} ;
         return $entry ;
     }
 
@@ -6254,18 +6092,8 @@ sub nibbles
         my $self = $class->SUPER::new();
 
         my %fields = (
-                        # 'index'                 => 0,
-                        # 'localHeaderOffset'     => 0,
                         'payloadOffset'         => 0,
                         'surfaceArea'           => [],
-                        # 'uncompressedLength'    => 0,
-                        # 'compressedLength'      => 0,
-                        # 'crc32'                 => 0,
-                        # 'filename'              => '',
-                        # 'zip64ExtraPresent'     => 0,
-                        # 'zip64SizesPresent'     => 0,
-                        # 'encapsulated'          => 0,
-                        # 'streamed'              => 0,
                         'streamedMatch'         => 0,
                         'readDataDescriptor'    => 0,
                         'cdEntryIndex'          => {},
@@ -6284,8 +6112,6 @@ sub nibbles
     {
         my $self = shift ;
         my $entry = shift;
-
-        # say "### addCdEntry " . $entry->index ." " . $entry->filename;
 
         # don't want encapsulated entries
         # and protect against duplicates
@@ -6322,14 +6148,11 @@ sub nibbles
 
         my %object = (
                         'entries'       => [],
-                        # 'surfaceArea'   => [],
                         'nestedEntries' => [],
                         'count'         => 0,
                         'byLocalOffset' => {},
-                        # 'byPayloadOffset' => {},
                         'byName'        => {},
                         'offset2Index' => {},
-                        # 'matchedWithLocalHeader' => {},
                         'CentralDirectoryOffset'      => 0,
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
@@ -6341,29 +6164,11 @@ sub nibbles
         bless \%object, $class;
     }
 
-    # sub isCdEntryNested
-    # {
-    #     my $self = shift;
-    #     my $cdEntry = shift ;
-
-    #     # my $startSA = $cdEntry->centralHeaderOffset();
-    #     # my $endSA = $cdEntry->endCentralHeaderOffset()  ;
-
-    #     # return $self->isNested(-1, $cdEntry->centralHeaderOffset, $cdEntry->endCentralHeaderOffset ) ;
-    #     # return Nesting::getEnclosingEntry($cdEntry) ;
-    #     return Nesting::getFirstEncapsulation($cdEntry);
-    # }
-
     sub isLocalEntryNested
     {
         my $self = shift ;
         my $localEntry = shift;
 
-        # my $startSA = $localEntry->localHeaderOffset;
-        # my $endSA = ($localEntry->payloadOffset // 0) +  ($localEntry->compressedLength  // 0);
-
-        # return $self->isNested($localEntry->index, $startSA, $endSA) ;
-        # return Nesting::getEnclosingEntry($localEntry) ;
         return Nesting::getFirstEncapsulation($localEntry);
 
     }
@@ -6374,9 +6179,6 @@ sub nibbles
         my $index = shift;
         my $startSA = shift;
         my $endSA = shift;
-
-        # my $startSA = $localEntry->localHeaderOffset();
-        # my $endSA = $localEntry->payloadOffset() +  $localEntry->compressedLength() ;
 
         return undef
             unless  @{ $self->{entries} } ;
@@ -6402,32 +6204,6 @@ sub nibbles
         }
 
         return undef;
-
-        # # Walk the list backwards to find the best fit
-
-        # my $i = @{ $self->{surfaceArea} } - 1;
-
-        # # say sprintf "$i: isNested(%X, %X)", $startSA, $endSA;
-
-        # while ($i >= 0) {
-        #     my $entry = ${ $self->{surfaceArea} }[$i] ;
-        #     my ($from, $to, $outerEntry) = @{ $entry };
-
-        #     if ($outerEntry->{index} != $localEntry->{index})
-        #     {
-        #         # say sprintf "  $i: %X, %X", $from, $to;
-
-        #         if ($startSA >= $from && $endSA <= $to)
-        #         {
-        #             # say "  NESTED";
-        #             return $outerEntry ;
-        #         }
-        #     }
-
-        #     $i--;
-        # }
-
-        # return undef;
     }
 
 
@@ -6446,7 +6222,6 @@ sub nibbles
             if ($enclosingEntry)
             {
                 $localEntry->encapsulated(1) ;
-                # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
                 push @{ $self->{enclosingEntries} }, $enclosingEntry
                     if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
 
@@ -6469,20 +6244,6 @@ sub nibbles
 
         my $endSurfaceArea = $payloadOffset + ($localEntry->compressedLength //0)  ;
 
-        # # check if entry is part of payload of another entry
-        # # particular issue with nested zip files
-
-        # my $enclosingEntry = $self->isLocalEntryNested($localEntry) ;
-        # if ($enclosingEntry)
-        # {
-        #     $localEntry->{encapsulated} = 1;
-        #     # ::warning $localHeaderOffset, "Nested Local Header found in '$enclosingEntry->{filename}'.";
-        #     push @{ $self->{enclosingEntries} }, $enclosingEntry
-        #          if ! $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() } ;
-
-        #     $self->{enclosing2localEntry}{ $enclosingEntry->localHeaderOffset() }{$localHeaderOffset} ++;
-        # }
-
         if ($existingEntry)
         {
             ::error $localEntry->localHeaderOffset(),
@@ -6496,9 +6257,6 @@ sub nibbles
 
         $self->{byLocalOffset}{$localHeaderOffset} = $localEntry;
         $self->{byName}{ $filename } = $localEntry;
-        # $self->{byPayloadOffset}{ $payloadOffset } = $localEntry;
-        # $self->{matchedWithLocalHeader}{$localHeaderOffset} = 1;
-        # $self->{offset2Index} = $self->{count} ++;
 
         Nesting::add($localEntry);
     }
@@ -6507,7 +6265,6 @@ sub nibbles
     {
         my $self = shift ;
 
-        # return $self->{count} ;
         return scalar @{ $self->{entries} };
     }
 
@@ -6534,7 +6291,6 @@ sub nibbles
 
         # TODO - what happens if none exists?
         my $entry = $self->{byLocalOffset}{$offset} ;
-        # delete $self->{matchedWithLocalHeader} ;
         return $entry ;
     }
 
@@ -6607,8 +6363,6 @@ sub nibbles
 
         my %object = (
                         'zip64'       => 0,
-
-
                      ) ;
 
         bless \%object, $class;
@@ -6827,7 +6581,6 @@ sub displayFileInfo
     my @nestingStack = ();
     my %encapsulations;
     my %inner2outer;
-    # my @non_encapsulations;
     my $encapsulationCount  = 0;
     my %index2entry ;
     my %offset2entry ;
@@ -6839,7 +6592,6 @@ sub displayFileInfo
         @nestingStack = ();
         %encapsulations = ();
         %inner2outer = ();
-        # @non_encapsulations = ();
         %index2entry = ();
         %offset2entry = ();
         $encapsulationCount = 0;
@@ -6865,16 +6617,12 @@ sub displayFileInfo
         push @nestingStack, $entry;
         $index2entry{ $entry->index } = $entry;
         $offset2entry{ $entry->offsetStart } = $entry;
-
-        # push @non_encapsulations, $entry
-        #     unless $match;
     }
 
     sub isNested
     {
         my $entry = shift;
         return $entry->encapsulated;
-        # return defined getEnclosingEntry($entry) ;
     }
 
     sub getEnclosingEntry
@@ -6898,7 +6646,6 @@ sub displayFileInfo
             push @{ $encapsulations{ $match->index } }, $entry;
             $inner2outer{ $entry->index} = $match->index;
             ++ $encapsulationCount;
-            # $index2entry{ $match->index } = $match;
 
             $entry->encapsulated(1) ;
             $match->increment_childrenCount();
@@ -6911,8 +6658,6 @@ sub displayFileInfo
                     $match->filename . '" [' . $match->offsetStart . "->" . $match->offsetEnd . "]" ;
             }
         }
-
-        # push @nestingStack, $entry;
 
         return $match;
     }
