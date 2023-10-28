@@ -2801,20 +2801,6 @@ sub EndCentralHeader
         if $PREFIX_DELTA  && $centralDirOffset != MAX32 ;
     out $d, "Offset to Central Dir", $out;
 
-    if ($LocalDirectory->isNested(-1, $startRecordOffset, $startRecordOffset + 22))
-    {
-        # nested entry - do nothing
-    }
-    else
-    {
-        if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
-            ! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
-        {
-            my $commonMessage = "'Offset to Central Directory' field in '"  . Signatures::name($signature) .  "' is invalid";
-            $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, $startRecordOffset + 16, ZIP_CENTRAL_HDR_SIG) ;
-        }
-    }
-
     my $comment_length = out_v "Comment Length";
 
     if ($comment_length)
@@ -2836,6 +2822,18 @@ sub EndCentralHeader
             outputFilename $comment, 0, "Comment";
         }
     }
+
+    if ( ! Nesting::isNested($startRecordOffset, $FH->tell()  -1))
+    {
+        # Not nested
+        if (! needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset) &&
+            ! emptyArchive($startRecordOffset, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries,  $centralDirSize, $centralDirOffset))
+        {
+            my $commonMessage = "'Offset to Central Directory' field in '"  . Signatures::name($signature) .  "' is invalid";
+            $centralDirOffset = checkOffsetValue($centralDirOffset, $startRecordOffset, $centralDirSize, $commonMessage, $startRecordOffset + 16, ZIP_CENTRAL_HDR_SIG) ;
+        }
+    }
+    # else do nothing
 
     return {};
 }
@@ -2884,9 +2882,8 @@ sub DataDescriptor
 
     need  24, Signatures::name($signature);
 
-    # Ignore header payload if nested
-    my $nested = $LocalDirectory->isNested(-1, $here - 4, $here - 4 + 24);
-    if ($nested)
+    # Ignore header payload if nested (assume 64-bit descriptor)
+    if (Nesting::isNested( $here - 4, $here - 4 + 24 - 1))
     {
         out "",  "Skipping nested payload";
         return {};
@@ -6135,36 +6132,6 @@ sub nibbles
 
     }
 
-    sub isNested
-    {
-        my $self = shift ;
-        my $index = shift;
-        my $startSA = shift;
-        my $endSA = shift;
-
-        return undef
-            unless  @{ $self->{entries} } ;
-
-        for my $outerEntry ( @{ $self->{entries} } )
-        {
-            my $from = $outerEntry->localHeaderOffset ;
-            my $to   = ($outerEntry->payloadOffset // 0) + ($outerEntry->compressedLength // 0);
-
-            if ($outerEntry->index != $index)
-            {
-                if ($startSA >= $from && $endSA <= $to)
-                {
-                    return $outerEntry ;
-                }
-
-                last
-                    if $from > $endSA;
-            }
-        }
-
-        return undef;
-    }
-
     sub addEntry
     {
         my $self = shift ;
@@ -6589,6 +6556,33 @@ sub displayFileInfo
         }
 
         return $match;
+    }
+
+    sub isNested
+    {
+        my $offsetStart = shift;
+        my $offsetEnd = shift;
+
+        if ($NESTING_DEBUG)
+        {
+            say "### Want: offsetStart " . ::decimalHex0x($offsetStart) . " offsetEnd " . ::decimalHex0x($offsetEnd);
+            for my $entry (@nestingStack)
+            {
+                say "### Have: offsetStart " . ::decimalHex0x($entry->offsetStart) . " offsetEnd " . ::decimalHex0x($entry->offsetEnd);
+            }
+        }
+
+        return 0
+            unless @nestingStack ;
+
+        my @copy = @nestingStack ;
+
+        pop @copy
+            while @copy && $offsetStart > $copy[-1]->offsetEnd ;
+
+        return @copy &&
+               $offsetStart >= $copy[-1]->offsetStart &&
+               $offsetEnd   <= $copy[-1]->offsetEnd ;
     }
 
     sub getOuterEncapsulation

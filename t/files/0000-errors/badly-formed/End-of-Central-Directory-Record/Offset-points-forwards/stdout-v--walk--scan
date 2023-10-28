@@ -90,11 +90,10 @@
 00DA 00DB 0002 02 00       Total Entries         0002 (2)
 00DC 00DF 0004 72 00 00 00 Size of Central Dir   00000072 (114)
 00E0 00E3 0004 D1 00 00 00 Offset to Central Dir 000000D1 (209)
+00E4 00E5 0002 00 00       Comment Length        0000 (0)
 #
 # ERROR: Offset 0xE0: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
 #        value 0xD1 (209) must be less that 0xD0 (208)
-#
-00E4 00E5 0002 00 00       Comment Length        0000 (0)
 #
 # Error Count: 1
 #

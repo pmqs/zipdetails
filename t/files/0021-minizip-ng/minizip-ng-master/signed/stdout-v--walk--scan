@@ -6803,11 +6803,11 @@
 3AEC6 3AEC7 00002 01 00       Total Entries         0001 (1)
 3AEC8 3AECB 00004 85 00 00 00 Size of Central Dir   00000085 (133)
 3AECC 3AECF 00004 C9 BD 00 00 Offset to Central Dir 0000BDC9 (48585)
+3AED0 3AED1 00002 00 00       Comment Length        0000 (0)
 #
 # ERROR: Offset 0x3AECC: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
 #        value @ 0xBDC9 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0xD0B9C709
 #
-3AED0 3AED1 00002 00 00       Comment Length        0000 (0)
 
 3AED2 3AED5 00004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 3AED6 3AED9 00004 0C 25 CB 74 CRC                   74CB250C (1959470348)
@@ -11358,11 +11358,11 @@
 674D8 674D9 00002 01 00       Total Entries         0001 (1)
 674DA 674DD 00004 5D 00 00 00 Size of Central Dir   0000005D (93)
 674DE 674E1 00004 F2 7F 02 00 Offset to Central Dir 00027FF2 (163826)
+674E2 674E3 00002 00 00       Comment Length        0000 (0)
 #
 # ERROR: Offset 0x674DE: 'Offset to Central Directory' field in 'End Central Directory Record' is invalid
 #        value @ 0x27FF2 should decode to signature for 'Central Directory Header' (0x02014B50). Got 0x267DAF18
 #
-674E2 674E3 00002 00 00       Comment Length        0000 (0)
 
 674E4 674E7 00004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 674E8 674EB 00004 15 86 5A A5 CRC                   A55A8615 (2774173205)
