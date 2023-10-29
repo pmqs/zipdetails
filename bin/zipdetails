@@ -1692,7 +1692,7 @@ sub dislayMessages
                 }
 
                 # TODO - add method etc
-                for my $field (qw(uncompressedLength compressedLength crc32) )
+                for my $field (qw(uncompressedLength compressedLength crc32 compressedMethod) )
                 {
                     # if the local header usaes streaming and we are running a scan/walk, the compressed/uncompressed sizes will not be known
                     my $localValue = $localEntry->{$field} // "Unknown Value";
@@ -2529,6 +2529,7 @@ sub CentralHeader
     $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
     $cdEntry->filename($filename) ;
     $cdEntry->languageEncodingFlag($LanguageEncodingFlag) ;
+    $cdEntry->compressedMethod($compressedMethod) ;
     $cdEntry->crc32($crc) ;
     $cdEntry->inCentralDir(1) ;
 
