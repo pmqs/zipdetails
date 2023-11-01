@@ -1405,7 +1405,14 @@ sub dislayMessages
 {
 
     # Compare Central & LOcal for discrepencies
-    if ($CentralDirectory->exists() && $LocalDirectory->exists())
+
+    if ($CentralDirectory->isMiniZipEncrypted)
+    {
+        # don't compare local & central entries when minizip-ng encryption is in play
+        info undef, "Zip file uses minizip-ng central directory encryption"
+    }
+
+    elsif ($CentralDirectory->exists() && $LocalDirectory->exists())
     {
         # TODO check number of entries matches eocd
         # TODO check header length matches reality
@@ -1676,6 +1683,9 @@ sub dislayMessages
 
         # Check if contents of local headers match with central headers
         #
+        # When central header encryption is used the local header values are masked (see APPNOTE 6.3.10, sec 4)
+        # In this usecase the central header will appear to be absent
+        #
         # key fields
         #    filename, compressed/uncompessed lengths, crc, compression method
         {
@@ -1692,7 +1702,7 @@ sub dislayMessages
                 }
 
                 # TODO - add method etc
-                for my $field (qw(uncompressedLength compressedLength crc32 compressedMethod) )
+                for my $field (qw(extractVersion generalPurposeFlags compressedMethod lastModDateTime crc32 compressedLength uncompressedLength) )
                 {
                     # if the local header usaes streaming and we are running a scan/walk, the compressed/uncompressed sizes will not be known
                     my $localValue = $localEntry->{$field} // "Unknown Value";
@@ -1981,7 +1991,7 @@ sub LocalHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    out_V "Last Mod Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -2008,6 +2018,9 @@ sub LocalHeader
     $localEntry->offsetStart($locHeaderOffset) ;
     $localEntry->compressedLength($compressedLength) ;
     $localEntry->uncompressedLength($uncompressedLength) ;
+    $localEntry->extractVersion($extractVer);
+    $localEntry->generalPurposeFlags($gpFlag);
+    $localEntry->lastModDateTime($lastMod);
     $localEntry->crc32($crc) ;
     $localEntry->zip64ExtraPresent($cdZip64) ;
     $localEntry->zip64SizesPresent($zip64Sizes) ;
@@ -2362,7 +2375,7 @@ sub CentralHeader
 
     out_C "Created Zip Spec", \&decodeZipVer;
     my $made_by = out_C "Created OS", \&decodeOS;
-    out_C "Extract Zip Spec", \&decodeZipVer;
+    my $extractVer = out_C "Extract Zip Spec", \&decodeZipVer;
     out_C "Extract OS", \&decodeOS;
 
     my ($bgp, $gpFlag) = read_v();
@@ -2376,7 +2389,7 @@ sub CentralHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    out_V "Last Mod Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Last Mod Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -2529,7 +2542,10 @@ sub CentralHeader
     $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
     $cdEntry->filename($filename) ;
     $cdEntry->languageEncodingFlag($LanguageEncodingFlag) ;
+    $cdEntry->extractVersion($extractVer);
+    $cdEntry->generalPurposeFlags($gpFlag);
     $cdEntry->compressedMethod($compressedMethod) ;
+    $cdEntry->lastModDateTime($lastMod);
     $cdEntry->crc32($crc) ;
     $cdEntry->inCentralDir(1) ;
 
@@ -5193,7 +5209,9 @@ sub scanCentralDirectory
 
         ++ $cdIndex ;
 
+        my $extractVer         = unpack("v", substr($buffer,  6, 1));
         my $gpFlag             = unpack("v", substr($buffer,  8, 2));
+        my $lastMod            = unpack("V", substr($buffer, 10, 4));
         my $crc                = unpack("V", substr($buffer, 16, 4));
         my $compressedLength   = unpack("V", substr($buffer, 20, 4));
         my $uncompressedLength = unpack("V", substr($buffer, 24, 4));
@@ -5225,7 +5243,10 @@ sub scanCentralDirectory
         $cdEntry->localHeaderOffset($locHeaderOffset) ;
         $cdEntry->compressedLength($compressedLength) ;
         $cdEntry->uncompressedLength($uncompressedLength) ;
+        $cdEntry->extractVersion($extractVer);
+        $cdEntry->generalPurposeFlags($gpFlag);
         $cdEntry->filename($filename) ;
+        $cdEntry->lastModDateTime($lastMod);
         $cdEntry->languageEncodingFlag($gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING) ;
         $cdEntry->diskNumber($diskNumber) ;
         $cdEntry->crc32($crc) ;
@@ -5797,11 +5818,14 @@ sub nibbles
                         'centralHeaderOffset'   => 0,
                         'localHeaderOffset'     => 0,
 
+                        'extractVersion'        => 0,
+                        'generalPurposeFlags'   => 0,
+                        'compressedMethod'      => 0,
+                        'lastModDateTime'       => 0,
+                        'crc32'                 => 0,
                         'compressedLength'      => 0,
                         'uncompressedLength'    => 0,
                         'filename'              => '',
-                        'crc32'                 => 0,
-                        'compressedMethod'      => 0,
 
                         # inferred data
                         # 'InCentralDir'          => 0,
@@ -6035,6 +6059,12 @@ sub nibbles
         my $self = shift ;
 
         $self->{minizip_secure} = 1 ;
+    }
+
+    sub isMiniZipEncrypted
+    {
+        my $self = shift ;
+        return $self->{minizip_secure};
     }
 
     sub isEncryptedCD

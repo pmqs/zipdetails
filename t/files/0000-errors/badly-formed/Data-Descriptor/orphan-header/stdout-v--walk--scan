@@ -70,11 +70,11 @@
 018C 018F 0004 45 01 00 00 Offset to Central Dir 00000145 (325)
 0190 0191 0002 00 00       Comment Length        0000 (0)
 #
-# WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
+# WARNING: Offset 0x145: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
 #
 # WARNING: Offset 0x145: Filename 'lorem.txt': 'compressedLength' field mismatch': Central Header has '270', Local Directory has '0'
 #
-# WARNING: Offset 0x145: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+# WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
 #
 # Error Count: 1
 # Warning Count: 3

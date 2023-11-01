@@ -25148,25 +25148,9 @@
 77D1C 77D1F 00004 ED C3 06 00 Offset to Central Dir 0006C3ED (443373)
 77D20 77D21 00002 00 00       Comment Length        0000 (0)
 #
-# ERROR: Orphan Local Headers found: 2
-#  Offset   Filename
-#  0x24797  'lenna.jpg'
-#  0x2F064  'alice29.txt'
+# INFO: Zip file uses minizip-ng central directory encryption
 #
-# ERROR: Offset 0x2E952: Filename 'unzip_fuzzer_seed_corpus/xz.zip': Missing 'Data Descriptor'
-#
-#
-# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for 'empty.txt' at offset 0x0 (0)
-#  Offset   Filename
-#  0x3AE37  'alice29.txt'
-#  0x67471  'vangogh.gif'
-#  0x6C3ED  'empty.txt'
-# WARNING: Offset 0x7205E: Filename 'unzip_fuzzer_seed_corpus/xz.zip': 'compressedLength' field mismatch': Central Header has '48755', Local Directory has '0'
-#
-# WARNING: Offset 0x7205E: Filename 'unzip_fuzzer_seed_corpus/xz.zip': 'crc32' field mismatch': Central Header has '1959470348', Local Directory has '0'
-#
-# Error Count: 5
-# Warning Count: 2
-# Info Count: 3
+# Error Count: 2
+# Info Count: 4
 #
 # Done
