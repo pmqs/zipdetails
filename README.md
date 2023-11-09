@@ -210,7 +210,7 @@ files.
 
 ## Default Output
 
-By default `zipdetails` will output the details of each field in the zip file
+By default `zipdetails` will output each metadata field from the zip file
 in three columns.
 
 1. The offset, in hex, to the start of the field relative to the beginning of the
@@ -306,7 +306,7 @@ Running `zipdetails` will gives this output
 
 ## Verbose Output
 
-If the `-v` option is present, the data output is split into the following
+If the `-v` option is present, the metadata output is split into the following
 columns:
 
 1. The offset, in hex, to the start of the field relative to the beginning of the

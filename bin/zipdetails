@@ -7147,7 +7147,7 @@ Bitmask values are: 1 for info, 2 for warning and 4 for error.
 
 =head2 Default Output
 
-By default C<zipdetails> will output the details of each field in the zip file
+By default C<zipdetails> will output each metadata field from the zip file
 in three columns.
 
 =over 5
@@ -7261,7 +7261,7 @@ Running C<zipdetails> will gives this output
 
 =head2 Verbose Output
 
-If the C<-v> option is present, the data output is split into the following
+If the C<-v> option is present, the metadata output is split into the following
 columns:
 
 =over 5
