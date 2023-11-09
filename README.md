@@ -258,12 +258,12 @@ Running `zipdetails` will gives this output
     0004 Extract Zip Spec      14 (20) '2.0'
     0005 Extract OS            00 (0) 'MS-DOS'
     0006 General Purpose Flag  0000 (0)
-        [Bits 1-2]            0 'Normal Compression'
+         [Bits 1-2]            0 'Normal Compression'
     0008 Compression Method    0008 (8) 'Deflated'
-    000A Last Mod Time         5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E CRC                   F90EE7FF (4178503679)
-    0012 Compressed Length     0000010E (270)
-    0016 Uncompressed Length   000001BE (446)
+    0012 Compressed Size       0000010E (270)
+    0016 Uncompressed Size     000001BE (446)
     001A Filename Length       0009 (9)
     001C Extra Length          0000 (0)
     001E Filename              'lorem.txt'
@@ -275,21 +275,21 @@ Running `zipdetails` will gives this output
     013B Extract Zip Spec      14 (20) '2.0'
     013C Extract OS            00 (0) 'MS-DOS'
     013D General Purpose Flag  0000 (0)
-        [Bits 1-2]            0 'Normal Compression'
+         [Bits 1-2]            0 'Normal Compression'
     013F Compression Method    0008 (8) 'Deflated'
-    0141 Last Mod Time         5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 CRC                   F90EE7FF (4178503679)
-    0149 Compressed Length     0000010E (270)
-    014D Uncompressed Length   000001BE (446)
+    0149 Compressed Size       0000010E (270)
+    014D Uncompressed Size     000001BE (446)
     0151 Filename Length       0009 (9)
     0153 Extra Length          0000 (0)
     0155 Comment Length        0000 (0)
     0157 Disk Start            0000 (0)
     0159 Int File Attributes   0001 (1)
-        [Bit 0]               1 'Text Data'
+         [Bit 0]               1 'Text Data'
     015B Ext File Attributes   81ED0000 (2179792896)
-        [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
-        [Bits 28-31]          08 (8) 'Regular File'
+         [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+         [Bits 28-31]          08 (8) 'Regular File'
     015F Local Header Offset   00000000 (0)
     0163 Filename              'lorem.txt'
 
@@ -328,17 +328,17 @@ option:
     0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
     0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
     0006 0007 0002 00 00       General Purpose Flag  0000 (0)
-                            [Bits 1-2]            0 'Normal Compression'
+                               [Bits 1-2]            0 'Normal Compression'
     0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    000A 000D 0004 72 A0 76 56 Last Mod Time         5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A 000D 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-    0012 0015 0004 0E 01 00 00 Compressed Length     0000010E (270)
-    0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+    0012 0015 0004 0E 01 00 00 Compressed Size       0000010E (270)
+    0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
     001A 001B 0002 09 00       Filename Length       0009 (9)
     001C 001D 0002 00 00       Extra Length          0000 (0)
     001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
-                6D 2E 74 78
-                74
+                   6D 2E 74 78
+                   74
     0027 0134 010E ...         PAYLOAD
 
     0135 0138 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
@@ -347,25 +347,25 @@ option:
     013B 013B 0001 14          Extract Zip Spec      14 (20) '2.0'
     013C 013C 0001 00          Extract OS            00 (0) 'MS-DOS'
     013D 013E 0002 00 00       General Purpose Flag  0000 (0)
-                            [Bits 1-2]            0 'Normal Compression'
+                               [Bits 1-2]            0 'Normal Compression'
     013F 0140 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    0141 0144 0004 72 A0 76 56 Last Mod Time         5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 0144 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 0148 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-    0149 014C 0004 0E 01 00 00 Compressed Length     0000010E (270)
-    014D 0150 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+    0149 014C 0004 0E 01 00 00 Compressed Size       0000010E (270)
+    014D 0150 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
     0151 0152 0002 09 00       Filename Length       0009 (9)
     0153 0154 0002 00 00       Extra Length          0000 (0)
     0155 0156 0002 00 00       Comment Length        0000 (0)
     0157 0158 0002 00 00       Disk Start            0000 (0)
     0159 015A 0002 01 00       Int File Attributes   0001 (1)
-                            [Bit 0]               1 'Text Data'
+                               [Bit 0]               1 'Text Data'
     015B 015E 0004 00 00 ED 81 Ext File Attributes   81ED0000 (2179792896)
-                            [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
-                            [Bits 28-31]          08 (8) 'Regular File'
+                               [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+                               [Bits 28-31]          08 (8) 'Regular File'
     015F 0162 0004 00 00 00 00 Local Header Offset   00000000 (0)
     0163 016B 0009 6C 6F 72 65 Filename              'lorem.txt'
-                6D 2E 74 78
-                74
+                   6D 2E 74 78
+                   74
 
     016C 016F 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
     0170 0171 0002 00 00       Number of this disk   0000 (0)
