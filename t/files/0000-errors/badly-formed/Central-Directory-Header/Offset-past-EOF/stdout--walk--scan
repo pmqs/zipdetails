@@ -87,12 +87,20 @@
 00E4 Comment Length        0000 (0)
 #
 # ERROR: Orphan Local Headers found: 1
-#  Offset  Filename
-#    0x2F  'numbers.txt'
 #
-# ERROR: possible zipbomb -- Orphan Central Headers found: 1
-#  Offset  Filename
-#    0x97  'numbers.txt'
+#  ---------------------------
+#  | Offset    | Filename    | 
+#  ---------------------------
+#  | 0x2F (47) | numbers.txt | 
+#  ---------------------------
+#
+# ERROR: Possible zipbomb -- Orphan Central Headers found: 1
+#
+#  ----------------------------
+#  | Offset     | Filename    | 
+#  ----------------------------
+#  | 0x97 (151) | numbers.txt | 
+#  ----------------------------
 #
 # Error Count: 3
 #

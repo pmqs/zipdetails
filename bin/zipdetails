@@ -1455,17 +1455,14 @@ sub dislayMessages
 
             if (keys %orphans)
             {
-                ++ $ErrorCount;
+                error undef, "Orphan Local Headers found: " . scalar(keys %orphans) ;
 
-                say "#\n# ERROR: Orphan Local Headers found: " . scalar(keys %orphans) ;
-
-                my $ow = max length("Offset"),
-                           map { length hexValue $_ }
-                           keys %orphans ;
-
-                say sprintf "#  %-${ow}s  Filename", "Offset" ;
-                say sprintf("#  %+${ow}s  '" . $orphans{$_} . "'", hexValue($_))
+                my $table = new SimpleTable;
+                $table->addHeaderRow('Offset', 'Filename');
+                $table->addDataRow(decimalHex0x($_), $orphans{$_})
                     for sort { $a <=> $b } keys %orphans ;
+
+                $table->display();
             }
         }
 
@@ -1482,21 +1479,17 @@ sub dislayMessages
 
             if (keys %orphans)
             {
-                ++ $ErrorCount;
+                error undef, "Possible zipbomb -- Orphan Central Headers found: " . scalar(keys %orphans) ;
 
-                say "#\n# ERROR: possible zipbomb -- Orphan Central Headers found: " . scalar(keys %orphans) ;
-
-                my $ow = max length("Offset"),
-                           map { length hexValue $_ }
-                           keys %orphans ;
-
-                say sprintf "#  %-${ow}s  Filename", "Offset" ;
-
-                for (sort { $a <=> $b } keys %orphans)
+                my $table = new SimpleTable;
+                $table->addHeaderRow('Offset', 'Filename');
+                for (sort { $a <=> $b } keys %orphans )
                 {
-                    say sprintf("#  %+${ow}s  '" . $orphans{$_}{filename} . "'", hexValue($_)) ;
+                    $table->addDataRow(decimalHex0x($_), $orphans{$_}{filename});
                     delete $cleanCentralEntries{ $_ };
                 }
+
+                $table->display();
             }
         }
 
@@ -1520,17 +1513,15 @@ sub dislayMessages
 
             if (keys %outerEntries)
             {
-                ++ $InfoCount;
                 my $count = scalar keys %outerEntries;
-                say "#\n# INFO: Nested Zip files found: $count";
+                info  undef, "Nested Zip files found: $count";
 
-                my $ow = max length("Offset"),
-                           map { length hexValue $_ }
-                           keys %outerEntries ;
+                my $table = new SimpleTable;
+                $table->addHeaderRow('Offset', 'Filename');
+                $table->addDataRow(decimalHex0x($_), $outerEntries{$_})
+                    for sort { $a <=> $b } keys %outerEntries ;
 
-                say sprintf "#  %-${ow}s  Filename", "Offset" ;
-                say sprintf("#  %+${ow}s  '" . $outerEntries{$_} . "'", hexValue($_))
-                    for sort keys %outerEntries;
+                $table->display();
             }
         }
 
@@ -1569,30 +1560,26 @@ sub dislayMessages
                 my @entries =  @{ $ByLocalOffset{$offset}->getCdEntries };
                 if (@entries > 1)
                 {
-                    ++ $ErrorCount;
-
                     # found duplicates
                     my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
                     if ($localEntry)
                     {
-                        say "#\n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex0x($offset);
+                        error undef, "Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex0x($offset);
                     }
                     else
                     {
-                        say "# \n# ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . decimalHex0x($offset);
+                        error undef, "Possible zipbomb -- Duplicate Central Headers referring to one Local header at offset " . decimalHex0x($offset);
                     }
 
-                    my $ow = max length("Offset"),
-                            map { length hexValue $_        }
-                            map { $_->centralHeaderOffset() }
-                            @entries ;
-
-                    say sprintf "#  %-${ow}s  Filename", "Offset" ;
+                    my $table = new SimpleTable;
+                    $table->addHeaderRow('Offset', 'Filename');
                     for (sort { $a->centralHeaderOffset <=> $b->centralHeaderOffset } @entries)
                     {
-                        say sprintf("#  %+${ow}s  '" . $_->filename . "'", hexValue($_->centralHeaderOffset)) ;
-                        delete $cleanCentralEntries{ $_->centralHeaderOffset }
+                        $table->addDataRow(decimalHex0x($_->centralHeaderOffset), $_->filename);
+                        delete $cleanCentralEntries{ $_->centralHeaderOffset };
                     }
+
+                    $table->display();
                 }
             }
         }
@@ -1633,11 +1620,9 @@ sub dislayMessages
 
             if (keys %nested)
             {
-                ++ $WarningCount;
-
                 # The real central directory at eof does not know about these.
                 # likely to be a zip file stored in another zip file
-                say "#\n# WARNING: Nested Local Entries found\n#";
+                warning  undef, "Nested Local Entries found";
                 for my $loc (sort keys %nested)
                 {
                     my $count = scalar @{ $nested{$loc} };
@@ -1656,22 +1641,19 @@ sub dislayMessages
             {
                 # Central Directory knows about these, so this is a zipbomb
 
-                ++ $ErrorCount ;
-
-                say "#\n# ERROR: Possible zipbomb -- Nested Local Entries found\n#";
+                error undef, "Possible zipbomb -- Nested Local Entries found";
                 for my $loc (sort keys %bomb)
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
                     say "# Local Header for '" . $outerEntry->filename . "' at offset " . decimalHex0x($loc) .  " has $count nested Local Headers";
 
-                    my $ow = max length("Offset"),
-                            map { length hexValue $_ }
-                            @{ $bomb{$loc} } ;
+                    my $table = new SimpleTable;
+                    $table->addHeaderRow('Offset', 'Filename');
+                    $table->addDataRow(decimalHex0x($_), $LocalDirectory->getByLocalOffset($_)->filename)
+                        for sort @{ $bomb{$loc} } ;
 
-                    say sprintf "#  %-${ow}s  Filename", "Offset" ;
-                    say sprintf("#  %+${ow}s  '" . $LocalDirectory->getByLocalOffset($_)->filename . "'", hexValue($_))
-                        for sort @{ $bomb{$loc} };
+                    $table->display();
 
                     delete $cleanCentralEntries{ $_ }
                         for grep { defined $_ }

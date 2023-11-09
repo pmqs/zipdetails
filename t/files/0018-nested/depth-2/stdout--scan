@@ -140,8 +140,12 @@
 026C Comment Length        0000 (0)
 #
 # INFO: Nested Zip files found: 1
-#  Offset  Filename
-#     0x0  'inner2.zip'
+#
+#  ------------------------
+#  | Offset  | Filename   | 
+#  ------------------------
+#  | 0x0 (0) | inner2.zip | 
+#  ------------------------
 #
 # Info Count: 1
 #

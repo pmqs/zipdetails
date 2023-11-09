@@ -90,10 +90,14 @@
 08C0 Comment Length        0000 (0)
 #
 # ERROR: Possible zipbomb -- Duplicate Central Headers referring to one Local header for '0' at offset 0x0 (0)
-#  Offset  Filename
-#   0x81F  '0'
-#   0x84E  '1'
-#   0x87D  '2'
+#
+#  ---------------------------
+#  | Offset       | Filename | 
+#  ---------------------------
+#  | 0x81F (2079) | 0        | 
+#  | 0x84E (2126) | 1        | 
+#  | 0x87D (2173) | 2        | 
+#  ---------------------------
 #
 # Error Count: 1
 #

@@ -176,8 +176,12 @@
 028C 028D 0002 00 00       Comment Length        0000 (0)
 #
 # INFO: Nested Zip files found: 1
-#  Offset  Filename
-#     0x0  'inner2.zip'
+#
+#  ------------------------
+#  | Offset  | Filename   | 
+#  ------------------------
+#  | 0x0 (0) | inner2.zip | 
+#  ------------------------
 #
 # ERROR: Offset 0x0: Filename 'inner2.zip': Missing 'Data Descriptor'
 #

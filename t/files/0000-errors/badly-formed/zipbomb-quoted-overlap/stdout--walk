@@ -89,10 +89,14 @@
 0904 Offset to Central Dir 00000867 (2151)
 0908 Comment Length        0000 (0)
 #
-# ERROR: possible zipbomb -- Orphan Central Headers found: 2
-#  Offset  Filename
-#   0x896  '1'
-#   0x8C5  '2'
+# ERROR: Possible zipbomb -- Orphan Central Headers found: 2
+#
+#  ---------------------------
+#  | Offset       | Filename | 
+#  ---------------------------
+#  | 0x896 (2198) | 1        | 
+#  | 0x8C5 (2245) | 2        | 
+#  ---------------------------
 #
 # Error Count: 1
 #

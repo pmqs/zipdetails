@@ -111,9 +111,13 @@
 011C Comment Length        0000 (0)
 #
 # ERROR: Orphan Local Headers found: 2
-#  Offset  Filename
-#    0x29  'beta'
-#    0x79  'delta'
+#
+#  -------------------------
+#  | Offset     | Filename | 
+#  -------------------------
+#  | 0x29 (41)  | beta     | 
+#  | 0x79 (121) | delta    | 
+#  -------------------------
 #
 # Error Count: 1
 #

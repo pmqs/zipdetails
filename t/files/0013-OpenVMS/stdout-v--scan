@@ -30463,8 +30463,12 @@
 27AB64 27AB65 000002 00 00       Comment Length        0000 (0)
 #
 # INFO: Nested Zip files found: 1
-#  Offset   Filename
-#  0x2CD7C  'zip/zip.zip'
+#
+#  ----------------------------------
+#  | Offset           | Filename    | 
+#  ----------------------------------
+#  | 0x2CD7C (183676) | zip/zip.zip | 
+#  ----------------------------------
 #
 # Error Count: 398
 # Info Count: 1
