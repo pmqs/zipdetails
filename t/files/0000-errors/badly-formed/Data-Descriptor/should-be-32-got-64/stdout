@@ -8,8 +8,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    559782A2 (1435992738) 'Fri Dec 23 16:21:04 2022'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0009 (9)
 001C Extra Length          0000 (0)
 001E Filename              'lorem.txt'
@@ -20,8 +20,8 @@
 #
 # ERROR: Offset 0x139: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
 #
-013D Compressed Length     000000000000010E (270)
-0145 Uncompressed Length   00000000000001BE (446)
+013D Compressed Size       000000000000010E (270)
+0145 Uncompressed Size     00000000000001BE (446)
 
 014D CENTRAL HEADER #1     02014B50 (33639248)
 0151 Created Zip Spec      14 (20) '2.0'
@@ -34,8 +34,8 @@
 0157 Compression Method    0008 (8) 'Deflated'
 0159 Last Mod Date/Time    559782A2 (1435992738) 'Fri Dec 23 16:21:04 2022'
 015D CRC                   F90EE7FF (4178503679)
-0161 Compressed Length     0000010E (270)
-0165 Uncompressed Length   000001BE (446)
+0161 Compressed Size       0000010E (270)
+0165 Uncompressed Size     000001BE (446)
 0169 Filename Length       0009 (9)
 016B Extra Length          0000 (0)
 016D Comment Length        0000 (0)

@@ -7,8 +7,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 08 02 00 00 Compressed Length     00000208 (520)
-0016 0019 0004 08 02 00 00 Uncompressed Length   00000208 (520)
+0012 0015 0004 08 02 00 00 Compressed Size       00000208 (520)
+0016 0019 0004 08 02 00 00 Uncompressed Size     00000208 (520)
 001A 001B 0002 0A 00       Filename Length       000A (10)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0027 000A 69 6E 6E 65 Filename              'inner2.zip'
@@ -18,8 +18,8 @@
 
 0230 0233 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 0234 0237 0004 39 61 23 B0 CRC                   B0236139 (2955108665)
-0238 023B 0004 08 02 00 00 Compressed Length     00000208 (520)
-023C 023F 0004 08 02 00 00 Uncompressed Length   00000208 (520)
+0238 023B 0004 08 02 00 00 Compressed Size       00000208 (520)
+023C 023F 0004 08 02 00 00 Uncompressed Size     00000208 (520)
 
 0240 0243 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 0244 0244 0001 1E          Created Zip Spec      1E (30) '3.0'
@@ -31,8 +31,8 @@
 024A 024B 0002 00 00       Compression Method    0000 (0) 'Stored'
 024C 024F 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 0250 0253 0004 39 61 23 B0 CRC                   B0236139 (2955108665)
-0254 0257 0004 08 02 00 00 Compressed Length     00000208 (520)
-0258 025B 0004 08 02 00 00 Uncompressed Length   00000208 (520)
+0254 0257 0004 08 02 00 00 Compressed Size       00000208 (520)
+0258 025B 0004 08 02 00 00 Uncompressed Size     00000208 (520)
 025C 025D 0002 0A 00       Filename Length       000A (10)
 025E 025F 0002 00 00       Extra Length          0000 (0)
 0260 0261 0002 00 00       Comment Length        0000 (0)

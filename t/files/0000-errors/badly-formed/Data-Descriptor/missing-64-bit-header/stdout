@@ -8,8 +8,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    55944C9B (1435782299) 'Tue Dec 20 09:36:54 2022'
 000E CRC                   00000000 (0)
-0012 Compressed Length     FFFFFFFF (4294967295)
-0016 Uncompressed Length   FFFFFFFF (4294967295)
+0012 Compressed Size       FFFFFFFF (4294967295)
+0016 Uncompressed Size     FFFFFFFF (4294967295)
 001A Filename Length       0009 (9)
 001C Extra Length          0014 (20)
 001E Filename              'lorem.txt'
@@ -30,8 +30,8 @@
 0153 Compression Method    0008 (8) 'Deflated'
 0155 Last Mod Date/Time    55944C9B (1435782299) 'Tue Dec 20 09:36:54 2022'
 0159 CRC                   F90EE7FF (4178503679)
-015D Compressed Length     0000010E (270)
-0161 Uncompressed Length   000001BE (446)
+015D Compressed Size       0000010E (270)
+0161 Uncompressed Size     000001BE (446)
 0165 Filename Length       0009 (9)
 0167 Extra Length          0000 (0)
 0169 Comment Length        0000 (0)
@@ -82,8 +82,8 @@
 #  | Name              | Offset      | Value                   | Offset    | Value   | 
 #  -----------------------------------------------------------------------------------
 #  | CRC32             | 0x159 (345) | 0xF90EE7FF (4178503679) | 0x10 (16) | 0x0 (0) | 
-#  | Compressed Length | 0x15D (349) | 0x10E (270)             | 0x14 (20) | 0x0 (0) | 
-#  | Compressed Length | 0x161 (353) | 0x1BE (446)             | 0x18 (24) | 0x0 (0) | 
+#  | Compressed Size   | 0x15D (349) | 0x10E (270)             | 0x14 (20) | 0x0 (0) | 
+#  | Uncompressed Size | 0x161 (353) | 0x1BE (446)             | 0x18 (24) | 0x0 (0) | 
 #  -----------------------------------------------------------------------------------
 #
 # Error Count: 2

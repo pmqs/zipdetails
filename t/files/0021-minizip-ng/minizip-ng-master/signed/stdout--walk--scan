@@ -9,8 +9,8 @@
 00008 Compression Method    0008 (8) 'Deflated'
 0000A Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 0000E CRC                   00000000 (0)
-00012 Compressed Length     FFFFFFFF (4294967295)
-00016 Uncompressed Length   FFFFFFFF (4294967295)
+00012 Compressed Size       FFFFFFFF (4294967295)
+00016 Uncompressed Size     FFFFFFFF (4294967295)
 0001A Filename Length       0009 (9)
 0001C Extra Length          06E4 (1764)
 0001E Filename              'empty.txt'
@@ -137,8 +137,8 @@
 
 0070D DATA DESCRIPTOR       08074B50 (134695760)
 00711 CRC                   00000000 (0)
-00715 Compressed Length     0000000000000002 (2)
-0071D Uncompressed Length   0000000000000000 (0)
+00715 Compressed Size       0000000000000002 (2)
+0071D Uncompressed Size     0000000000000000 (0)
 
 00725 LOCAL HEADER #2       04034B50 (67324752)
 00729 Extract Zip Spec      14 (20) '2.0'
@@ -150,8 +150,8 @@
 0072D Compression Method    0008 (8) 'Deflated'
 0072F Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 00733 CRC                   00000000 (0)
-00737 Compressed Length     00000000 (0)
-0073B Uncompressed Length   00020000 (131072)
+00737 Compressed Size       00000000 (0)
+0073B Uncompressed Size     00020000 (131072)
 0073F Filename Length       000A (10)
 00741 Extra Length          06D0 (1744)
 00743 Filename              'random.bin'
@@ -274,8 +274,8 @@
 
 20E45 DATA DESCRIPTOR       08074B50 (134695760)
 20E49 CRC                   A85D40DC (2824683740)
-20E4D Compressed Length     00020028 (131112)
-20E51 Uncompressed Length   00020000 (131072)
+20E4D Compressed Size       00020028 (131112)
+20E51 Uncompressed Size     00020000 (131072)
 
 20E55 LOCAL HEADER #3       04034B50 (67324752)
 20E59 Extract Zip Spec      14 (20) '2.0'
@@ -287,8 +287,8 @@
 20E5D Compression Method    0008 (8) 'Deflated'
 20E5F Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 20E63 CRC                   00000000 (0)
-20E67 Compressed Length     00000000 (0)
-20E6B Uncompressed Length   00018000 (98304)
+20E67 Compressed Size       00000000 (0)
+20E6B Uncompressed Size     00018000 (98304)
 20E6F Filename Length       000B (11)
 20E71 Extra Length          06D0 (1744)
 20E73 Filename              'uniform.bin'
@@ -411,8 +411,8 @@
 
 215BE DATA DESCRIPTOR       08074B50 (134695760)
 215C2 CRC                   0F79DE80 (259645056)
-215C6 Compressed Length     00000070 (112)
-215CA Uncompressed Length   00018000 (98304)
+215C6 Compressed Size       00000070 (112)
+215CA Uncompressed Size     00018000 (98304)
 
 215CE LOCAL HEADER #4       04034B50 (67324752)
 215D2 Extract Zip Spec      14 (20) '2.0'
@@ -424,8 +424,8 @@
 215D6 Compression Method    0008 (8) 'Deflated'
 215D8 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 215DC CRC                   00000000 (0)
-215E0 Compressed Length     00000000 (0)
-215E4 Uncompressed Length   000009E0 (2528)
+215E0 Compressed Size       00000000 (0)
+215E4 Uncompressed Size     000009E0 (2528)
 215E8 Filename Length       000C (12)
 215EA Extra Length          06D0 (1744)
 215EC Filename              'standalone.c'
@@ -548,8 +548,8 @@
 
 22055 DATA DESCRIPTOR       08074B50 (134695760)
 22059 CRC                   54F920F0 (1425613040)
-2205D Compressed Length     0000038D (909)
-22061 Uncompressed Length   000009E0 (2528)
+2205D Compressed Size       0000038D (909)
+22061 Uncompressed Size     000009E0 (2528)
 
 22065 LOCAL HEADER #5       04034B50 (67324752)
 22069 Extract Zip Spec      14 (20) '2.0'
@@ -561,8 +561,8 @@
 2206D Compression Method    0008 (8) 'Deflated'
 2206F Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 22073 CRC                   00000000 (0)
-22077 Compressed Length     00000000 (0)
-2207B Uncompressed Length   00000D4E (3406)
+22077 Compressed Size       00000000 (0)
+2207B Uncompressed Size     00000D4E (3406)
 2207F Filename Length       000C (12)
 22081 Extra Length          06D0 (1744)
 22083 Filename              'zip_fuzzer.c'
@@ -685,8 +685,8 @@
 
 22B46 DATA DESCRIPTOR       08074B50 (134695760)
 22B4A CRC                   C1588FFF (3243806719)
-22B4E Compressed Length     000003E7 (999)
-22B52 Uncompressed Length   00000D4E (3406)
+22B4E Compressed Size       000003E7 (999)
+22B52 Uncompressed Size     00000D4E (3406)
 
 22B56 LOCAL HEADER #6       04034B50 (67324752)
 22B5A Extract Zip Spec      14 (20) '2.0'
@@ -698,8 +698,8 @@
 22B5E Compression Method    0008 (8) 'Deflated'
 22B60 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 22B64 CRC                   00000000 (0)
-22B68 Compressed Length     00000000 (0)
-22B6C Uncompressed Length   00000D07 (3335)
+22B68 Compressed Size       00000000 (0)
+22B6C Uncompressed Size     00000D07 (3335)
 22B70 Filename Length       000E (14)
 22B72 Extra Length          06D0 (1744)
 22B74 Filename              'unzip_fuzzer.c'
@@ -822,8 +822,8 @@
 
 23674 DATA DESCRIPTOR       08074B50 (134695760)
 23678 CRC                   9062EB2C (2422401836)
-2367C Compressed Length     00000422 (1058)
-23680 Uncompressed Length   00000D07 (3335)
+2367C Compressed Size       00000422 (1058)
+23680 Uncompressed Size     00000D07 (3335)
 
 23684 LOCAL HEADER #7       04034B50 (67324752)
 23688 Extract Zip Spec      14 (20) '2.0'
@@ -833,8 +833,8 @@
 2368C Compression Method    0000 (0) 'Stored'
 2368E Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 23692 CRC                   00000000 (0)
-23696 Compressed Length     00000000 (0)
-2369A Uncompressed Length   00000000 (0)
+23696 Compressed Size       00000000 (0)
+2369A Uncompressed Size     00000000 (0)
 2369E Filename Length       0019 (25)
 236A0 Extra Length          0000 (0)
 236A2 Filename              'unzip_fuzzer_seed_corpus/'
@@ -849,8 +849,8 @@
 236C3 Compression Method    0008 (8) 'Deflated'
 236C5 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 236C9 CRC                   00000000 (0)
-236CD Compressed Length     00000000 (0)
-236D1 Uncompressed Length   000002DE (734)
+236CD Compressed Size       00000000 (0)
+236D1 Uncompressed Size     000002DE (734)
 236D5 Filename Length       0029 (41)
 236D7 Extra Length          06D0 (1744)
 236D9 Filename              'unzip_fuzzer_seed_corpus/license_zstd.zip'
@@ -973,8 +973,8 @@
 
 24073 DATA DESCRIPTOR       08074B50 (134695760)
 24077 CRC                   0DFE0B22 (234752802)
-2407B Compressed Length     000002A1 (673)
-2407F Uncompressed Length   000002DE (734)
+2407B Compressed Size       000002A1 (673)
+2407F Uncompressed Size     000002DE (734)
 
 24083 LOCAL HEADER #9       04034B50 (67324752)
 24087 Extract Zip Spec      14 (20) '2.0'
@@ -986,8 +986,8 @@
 2408B Compression Method    0008 (8) 'Deflated'
 2408D Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 24091 CRC                   00000000 (0)
-24095 Compressed Length     00000000 (0)
-24099 Uncompressed Length   000070C0 (28864)
+24095 Compressed Size       00000000 (0)
+24099 Uncompressed Size     000070C0 (28864)
 2409D Filename Length       0021 (33)
 2409F Extra Length          06D0 (1744)
 240A1 Filename              'unzip_fuzzer_seed_corpus/lzma.zip'
@@ -1116,8 +1116,8 @@
 2479F Compression Method    000E (14) 'LZMA'
 247A1 Last Mod Date/Time    4D6BBAB5 (1298905781) 'Sun Nov 11 23:21:42 2018'
 247A5 CRC                   F9A6BFF4 (4188454900)
-247A9 Compressed Length     00007028 (28712)
-247AD Uncompressed Length   00007291 (29329)
+247A9 Compressed Size       00007028 (28712)
+247AD Uncompressed Size     00007291 (29329)
 247B1 Filename Length       0009 (9)
 247B3 Extra Length          0000 (0)
 247B5 Filename              'lenna.jpg'
@@ -1137,8 +1137,8 @@
 
 2B858 DATA DESCRIPTOR       08074B50 (134695760)
 2B85C CRC                   7FF0384D (2146449485)
-2B860 Compressed Length     000070C6 (28870)
-2B864 Uncompressed Length   000070C0 (28864)
+2B860 Compressed Size       000070C6 (28870)
+2B864 Uncompressed Size     000070C0 (28864)
 
 2B868 LOCAL HEADER #11      04034B50 (67324752)
 2B86C Extract Zip Spec      14 (20) '2.0'
@@ -1150,8 +1150,8 @@
 2B870 Compression Method    0008 (8) 'Deflated'
 2B872 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2B876 CRC                   00000000 (0)
-2B87A Compressed Length     00000000 (0)
-2B87E Uncompressed Length   000000F6 (246)
+2B87A Compressed Size       00000000 (0)
+2B87E Uncompressed Size     000000F6 (246)
 2B882 Filename Length       001F (31)
 2B884 Extra Length          06D0 (1744)
 2B886 Filename              'unzip_fuzzer_seed_corpus/gh.zip'
@@ -1274,8 +1274,8 @@
 
 2BFD8 DATA DESCRIPTOR       08074B50 (134695760)
 2BFDC CRC                   32453FDC (843399132)
-2BFE0 Compressed Length     00000063 (99)
-2BFE4 Uncompressed Length   000000F6 (246)
+2BFE0 Compressed Size       00000063 (99)
+2BFE4 Uncompressed Size     000000F6 (246)
 
 2BFE8 LOCAL HEADER #12      04034B50 (67324752)
 2BFEC Extract Zip Spec      14 (20) '2.0'
@@ -1287,8 +1287,8 @@
 2BFF0 Compression Method    0008 (8) 'Deflated'
 2BFF2 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2BFF6 CRC                   00000000 (0)
-2BFFA Compressed Length     00000000 (0)
-2BFFE Uncompressed Length   00000016 (22)
+2BFFA Compressed Size       00000000 (0)
+2BFFE Uncompressed Size     00000016 (22)
 2C002 Filename Length       0021 (33)
 2C004 Extra Length          06D0 (1744)
 2C006 Filename              'unzip_fuzzer_seed_corpus/tiny.zip'
@@ -1411,8 +1411,8 @@
 
 2C6FF DATA DESCRIPTOR       08074B50 (134695760)
 2C703 CRC                   D7CBC50E (3620455694)
-2C707 Compressed Length     00000008 (8)
-2C70B Uncompressed Length   00000016 (22)
+2C707 Compressed Size       00000008 (8)
+2C70B Uncompressed Size     00000016 (22)
 
 2C70F LOCAL HEADER #13      04034B50 (67324752)
 2C713 Extract Zip Spec      14 (20) '2.0'
@@ -1424,8 +1424,8 @@
 2C717 Compression Method    0008 (8) 'Deflated'
 2C719 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2C71D CRC                   00000000 (0)
-2C721 Compressed Length     00000000 (0)
-2C725 Uncompressed Length   00011714 (71444)
+2C721 Compressed Size       00000000 (0)
+2C725 Uncompressed Size     00011714 (71444)
 2C729 Filename Length       0023 (35)
 2C72B Extra Length          06D0 (1744)
 2C72D Filename              'unzip_fuzzer_seed_corpus/corpus.zip'
@@ -1548,8 +1548,8 @@
 
 2D59F DATA DESCRIPTOR       08074B50 (134695760)
 2D5A3 CRC                   BF8FDF10 (3213877008)
-2D5A7 Compressed Length     0000077F (1919)
-2D5AB Uncompressed Length   00011714 (71444)
+2D5A7 Compressed Size       0000077F (1919)
+2D5AB Uncompressed Size     00011714 (71444)
 
 2D5AF LOCAL HEADER #14      04034B50 (67324752)
 2D5B3 Extract Zip Spec      14 (20) '2.0'
@@ -1561,8 +1561,8 @@
 2D5B7 Compression Method    0008 (8) 'Deflated'
 2D5B9 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2D5BD CRC                   00000000 (0)
-2D5C1 Compressed Length     00000000 (0)
-2D5C5 Uncompressed Length   00000148 (328)
+2D5C1 Compressed Size       00000000 (0)
+2D5C5 Uncompressed Size     00000148 (328)
 2D5C9 Filename Length       002D (45)
 2D5CB Extra Length          06D0 (1744)
 2D5CD Filename              'unzip_fuzzer_seed_corpus/infozip_symlinks.zip'
@@ -1687,8 +1687,8 @@
 
 2DD70 DATA DESCRIPTOR       08074B50 (134695760)
 2DD74 CRC                   EC62549D (3965867165)
-2DD78 Compressed Length     000000A6 (166)
-2DD7C Uncompressed Length   00000148 (328)
+2DD78 Compressed Size       000000A6 (166)
+2DD7C Uncompressed Size     00000148 (328)
 
 2DD80 LOCAL HEADER #15      04034B50 (67324752)
 2DD84 Extract Zip Spec      14 (20) '2.0'
@@ -1700,8 +1700,8 @@
 2DD88 Compression Method    0008 (8) 'Deflated'
 2DD8A Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2DD8E CRC                   00000000 (0)
-2DD92 Compressed Length     00000000 (0)
-2DD96 Uncompressed Length   00010B15 (68373)
+2DD92 Compressed Size       00000000 (0)
+2DD96 Uncompressed Size     00010B15 (68373)
 2DD9A Filename Length       0026 (38)
 2DD9C Extra Length          06D0 (1744)
 2DD9E Filename              'unzip_fuzzer_seed_corpus/storeonly.zip'
@@ -1824,8 +1824,8 @@
 
 2E942 DATA DESCRIPTOR       08074B50 (134695760)
 2E946 CRC                   A0D9E167 (2698633575)
-2E94A Compressed Length     000004AE (1198)
-2E94E Uncompressed Length   00010B15 (68373)
+2E94A Compressed Size       000004AE (1198)
+2E94E Uncompressed Size     00010B15 (68373)
 
 2E952 LOCAL HEADER #16      04034B50 (67324752)
 2E956 Extract Zip Spec      14 (20) '2.0'
@@ -1837,8 +1837,8 @@
 2E95A Compression Method    0008 (8) 'Deflated'
 2E95C Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 2E960 CRC                   00000000 (0)
-2E964 Compressed Length     00000000 (0)
-2E968 Uncompressed Length   0000BE64 (48740)
+2E964 Compressed Size       00000000 (0)
+2E968 Uncompressed Size     0000BE64 (48740)
 2E96C Filename Length       001F (31)
 2E96E Extra Length          06D0 (1744)
 2E970 Filename              'unzip_fuzzer_seed_corpus/xz.zip'
@@ -1968,8 +1968,8 @@
 2F06C Compression Method    005F (95) 'XZ'
 2F06E Last Mod Date/Time    213A8670 (557483632) 'Thu Sep 26 16:51:32 1996'
 2F072 CRC                   00000000 (0)
-2F076 Compressed Length     00000000 (0)
-2F07A Uncompressed Length   00025219 (152089)
+2F076 Compressed Size       00000000 (0)
+2F07A Uncompressed Size     00025219 (152089)
 2F07E Filename Length       000B (11)
 2F080 Extra Length          0024 (36)
 2F082 Filename              'alice29.txt'
@@ -2002,8 +2002,8 @@
 3AE41 Compression Method    005F (95) 'XZ'
 3AE43 Last Mod Date/Time    213A8670 (557483632) 'Thu Sep 26 16:51:32 1996'
 3AE47 CRC                   66007DBA (1711308218)
-3AE4B Compressed Length     0000BD6C (48492)
-3AE4F Uncompressed Length   00025219 (152089)
+3AE4B Compressed Size       0000BD6C (48492)
+3AE4F Uncompressed Size     00025219 (152089)
 3AE53 Filename Length       000B (11)
 3AE55 Extra Length          004C (76)
 3AE57 Comment Length        0000 (0)
@@ -2060,8 +2060,8 @@
 3AEEA Compression Method    0008 (8) 'Deflated'
 3AEEC Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3AEF0 CRC                   00000000 (0)
-3AEF4 Compressed Length     00000000 (0)
-3AEF8 Uncompressed Length   0000011F (287)
+3AEF4 Compressed Size       00000000 (0)
+3AEF8 Uncompressed Size     0000011F (287)
 3AEFC Filename Length       0034 (52)
 3AEFE Extra Length          06D0 (1744)
 3AF00 Filename              'unzip_fuzzer_seed_corpus/unsupported_permissions.zip'
@@ -2186,8 +2186,8 @@
 
 3B6D9 DATA DESCRIPTOR       08074B50 (134695760)
 3B6DD CRC                   13178F24 (320311076)
-3B6E1 Compressed Length     000000D5 (213)
-3B6E5 Uncompressed Length   0000011F (287)
+3B6E1 Compressed Size       000000D5 (213)
+3B6E5 Uncompressed Size     0000011F (287)
 
 3B6E9 LOCAL HEADER #19      04034B50 (67324752)
 3B6ED Extract Zip Spec      14 (20) '2.0'
@@ -2199,8 +2199,8 @@
 3B6F1 Compression Method    0008 (8) 'Deflated'
 3B6F3 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3B6F7 CRC                   00000000 (0)
-3B6FB Compressed Length     00000000 (0)
-3B6FF Uncompressed Length   000000DC (220)
+3B6FB Compressed Size       00000000 (0)
+3B6FF Uncompressed Size     000000DC (220)
 3B703 Filename Length       0025 (37)
 3B705 Extra Length          06D0 (1744)
 3B707 Filename              'unzip_fuzzer_seed_corpus/comments.zip'
@@ -2324,8 +2324,8 @@
 
 3BE8F DATA DESCRIPTOR       08074B50 (134695760)
 3BE93 CRC                   CDF7477A (3455534970)
-3BE97 Compressed Length     00000093 (147)
-3BE9B Uncompressed Length   000000DC (220)
+3BE97 Compressed Size       00000093 (147)
+3BE9B Uncompressed Size     000000DC (220)
 
 3BE9F LOCAL HEADER #20      04034B50 (67324752)
 3BEA3 Extract Zip Spec      14 (20) '2.0'
@@ -2337,8 +2337,8 @@
 3BEA7 Compression Method    0008 (8) 'Deflated'
 3BEA9 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3BEAD CRC                   00000000 (0)
-3BEB1 Compressed Length     00000000 (0)
-3BEB5 Uncompressed Length   000000D7 (215)
+3BEB1 Compressed Size       00000000 (0)
+3BEB5 Uncompressed Size     000000D7 (215)
 3BEB9 Filename Length       0022 (34)
 3BEBB Extra Length          06D0 (1744)
 3BEBD Filename              'unzip_fuzzer_seed_corpus/zip64.zip'
@@ -2461,8 +2461,8 @@
 
 3C61A DATA DESCRIPTOR       08074B50 (134695760)
 3C61E CRC                   71548DF8 (1901366776)
-3C622 Compressed Length     0000006B (107)
-3C626 Uncompressed Length   000000D7 (215)
+3C622 Compressed Size       0000006B (107)
+3C626 Uncompressed Size     000000D7 (215)
 
 3C62A LOCAL HEADER #21      04034B50 (67324752)
 3C62E Extract Zip Spec      14 (20) '2.0'
@@ -2474,8 +2474,8 @@
 3C632 Compression Method    0008 (8) 'Deflated'
 3C634 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3C638 CRC                   00000000 (0)
-3C63C Compressed Length     00000000 (0)
-3C640 Uncompressed Length   000000CC (204)
+3C63C Compressed Size       00000000 (0)
+3C640 Uncompressed Size     000000CC (204)
 3C644 Filename Length       002C (44)
 3C646 Extra Length          06D0 (1744)
 3C648 Filename              'unzip_fuzzer_seed_corpus/encrypted_wzaes.zip'
@@ -2599,8 +2599,8 @@
 
 3CDD7 DATA DESCRIPTOR       08074B50 (134695760)
 3CDDB CRC                   A88ECD9D (2827931037)
-3CDDF Compressed Length     00000093 (147)
-3CDE3 Uncompressed Length   000000CC (204)
+3CDDF Compressed Size       00000093 (147)
+3CDE3 Uncompressed Size     000000CC (204)
 
 3CDE7 LOCAL HEADER #22      04034B50 (67324752)
 3CDEB Extract Zip Spec      14 (20) '2.0'
@@ -2612,8 +2612,8 @@
 3CDEF Compression Method    0008 (8) 'Deflated'
 3CDF1 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3CDF5 CRC                   00000000 (0)
-3CDF9 Compressed Length     00000000 (0)
-3CDFD Uncompressed Length   0000027A (634)
+3CDF9 Compressed Size       00000000 (0)
+3CDFD Uncompressed Size     0000027A (634)
 3CE01 Filename Length       0028 (40)
 3CE03 Extra Length          06D0 (1744)
 3CE05 Filename              'unzip_fuzzer_seed_corpus/permissions.zip'
@@ -2738,8 +2738,8 @@
 
 3D5E4 DATA DESCRIPTOR       08074B50 (134695760)
 3D5E8 CRC                   36E86346 (921199430)
-3D5EC Compressed Length     000000E7 (231)
-3D5F0 Uncompressed Length   0000027A (634)
+3D5EC Compressed Size       000000E7 (231)
+3D5F0 Uncompressed Size     0000027A (634)
 
 3D5F4 LOCAL HEADER #23      04034B50 (67324752)
 3D5F8 Extract Zip Spec      14 (20) '2.0'
@@ -2751,8 +2751,8 @@
 3D5FC Compression Method    0008 (8) 'Deflated'
 3D5FE Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3D602 CRC                   00000000 (0)
-3D606 Compressed Length     00000000 (0)
-3D60A Uncompressed Length   000100F9 (65785)
+3D606 Compressed Size       00000000 (0)
+3D60A Uncompressed Size     000100F9 (65785)
 3D60E Filename Length       002D (45)
 3D610 Extra Length          06D0 (1744)
 3D612 Filename              'unzip_fuzzer_seed_corpus/large_cd_comment.zip'
@@ -2875,8 +2875,8 @@
 
 3DE10 DATA DESCRIPTOR       08074B50 (134695760)
 3DE14 CRC                   38E24104 (954351876)
-3DE18 Compressed Length     00000101 (257)
-3DE1C Uncompressed Length   000100F9 (65785)
+3DE18 Compressed Size       00000101 (257)
+3DE1C Uncompressed Size     000100F9 (65785)
 
 3DE20 LOCAL HEADER #24      04034B50 (67324752)
 3DE24 Extract Zip Spec      14 (20) '2.0'
@@ -2888,8 +2888,8 @@
 3DE28 Compression Method    0008 (8) 'Deflated'
 3DE2A Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3DE2E CRC                   00000000 (0)
-3DE32 Compressed Length     00000000 (0)
-3DE36 Uncompressed Length   000000C6 (198)
+3DE32 Compressed Size       00000000 (0)
+3DE36 Uncompressed Size     000000C6 (198)
 3DE3A Filename Length       002E (46)
 3DE3C Extra Length          06D0 (1744)
 3DE3E Filename              'unzip_fuzzer_seed_corpus/encrypted_pkcrypt.zip'
@@ -3012,8 +3012,8 @@
 
 3E5BF DATA DESCRIPTOR       08074B50 (134695760)
 3E5C3 CRC                   9690AAFE (2526063358)
-3E5C7 Compressed Length     00000083 (131)
-3E5CB Uncompressed Length   000000C6 (198)
+3E5C7 Compressed Size       00000083 (131)
+3E5CB Uncompressed Size     000000C6 (198)
 
 3E5CF LOCAL HEADER #25      04034B50 (67324752)
 3E5D3 Extract Zip Spec      14 (20) '2.0'
@@ -3025,8 +3025,8 @@
 3E5D7 Compression Method    0008 (8) 'Deflated'
 3E5D9 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3E5DD CRC                   00000000 (0)
-3E5E1 Compressed Length     00000000 (0)
-3E5E5 Uncompressed Length   000000E9 (233)
+3E5E1 Compressed Size       00000000 (0)
+3E5E5 Uncompressed Size     000000E9 (233)
 3E5E9 Filename Length       001F (31)
 3E5EB Extra Length          06D0 (1744)
 3E5ED Filename              'unzip_fuzzer_seed_corpus/as.zip'
@@ -3149,8 +3149,8 @@
 
 3ED51 DATA DESCRIPTOR       08074B50 (134695760)
 3ED55 CRC                   51D69FF3 (1373020147)
-3ED59 Compressed Length     00000075 (117)
-3ED5D Uncompressed Length   000000E9 (233)
+3ED59 Compressed Size       00000075 (117)
+3ED5D Uncompressed Size     000000E9 (233)
 
 3ED61 LOCAL HEADER #26      04034B50 (67324752)
 3ED65 Extract Zip Spec      14 (20) '2.0'
@@ -3162,8 +3162,8 @@
 3ED69 Compression Method    0008 (8) 'Deflated'
 3ED6B Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 3ED6F CRC                   00000000 (0)
-3ED73 Compressed Length     00000000 (0)
-3ED77 Uncompressed Length   00028065 (163941)
+3ED73 Compressed Size       00000000 (0)
+3ED77 Uncompressed Size     00028065 (163941)
 3ED7B Filename Length       0022 (34)
 3ED7D Extra Length          06D0 (1744)
 3ED7F Filename              'unzip_fuzzer_seed_corpus/bzip2.zip'
@@ -3293,8 +3293,8 @@
 6747B Compression Method    000C (12) 'BZIP2'
 6747D Last Mod Date/Time    4D788B11 (1299745553) 'Sat Nov 24 17:24:34 2018'
 67481 CRC                   218C13C3 (562828227)
-67485 Compressed Length     00027FC9 (163785)
-67489 Uncompressed Length   00027FF1 (163825)
+67485 Compressed Size       00027FC9 (163785)
+67489 Uncompressed Size     00027FF1 (163825)
 6748D Filename Length       000B (11)
 6748F Extra Length          0024 (36)
 67491 Comment Length        0000 (0)
@@ -3329,8 +3329,8 @@
 
 674E4 DATA DESCRIPTOR       08074B50 (134695760)
 674E8 CRC                   A55A8615 (2774173205)
-674EC Compressed Length     00028073 (163955)
-674F0 Uncompressed Length   00028065 (163941)
+674EC Compressed Size       00028073 (163955)
+674F0 Uncompressed Size     00028065 (163941)
 
 674F4 LOCAL HEADER #27      04034B50 (67324752)
 674F8 Extract Zip Spec      14 (20) '2.0'
@@ -3342,8 +3342,8 @@
 674FC Compression Method    0008 (8) 'Deflated'
 674FE Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 67502 CRC                   00000000 (0)
-67506 Compressed Length     00000000 (0)
-6750A Uncompressed Length   00008D1A (36122)
+67506 Compressed Size       00000000 (0)
+6750A Uncompressed Size     00008D1A (36122)
 6750E Filename Length       0023 (35)
 67510 Extra Length          06D0 (1744)
 67512 Filename              'unzip_fuzzer_seed_corpus/signed.zip'
@@ -3466,8 +3466,8 @@
 
 6B50A DATA DESCRIPTOR       08074B50 (134695760)
 6B50E CRC                   CE376013 (3459735571)
-6B512 Compressed Length     00003905 (14597)
-6B516 Uncompressed Length   00008D1A (36122)
+6B512 Compressed Size       00003905 (14597)
+6B516 Uncompressed Size     00008D1A (36122)
 
 6B51A LOCAL HEADER #28      04034B50 (67324752)
 6B51E Extract Zip Spec      14 (20) '2.0'
@@ -3479,8 +3479,8 @@
 6B522 Compression Method    0008 (8) 'Deflated'
 6B524 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6B528 CRC                   00000000 (0)
-6B52C Compressed Length     00000000 (0)
-6B530 Uncompressed Length   0000011E (286)
+6B52C Compressed Size       00000000 (0)
+6B530 Uncompressed Size     0000011E (286)
 6B534 Filename Length       0011 (17)
 6B536 Extra Length          06D0 (1744)
 6B538 Filename              'unzip_fuzzer.dict'
@@ -3604,8 +3604,8 @@
 
 6BCD2 DATA DESCRIPTOR       08074B50 (134695760)
 6BCD6 CRC                   1CA3704F (480473167)
-6BCDA Compressed Length     000000B9 (185)
-6BCDE Uncompressed Length   0000011E (286)
+6BCDA Compressed Size       000000B9 (185)
+6BCDE Uncompressed Size     0000011E (286)
 
 6BCE2 LOCAL HEADER #29      04034B50 (67324752)
 6BCE6 Extract Zip Spec      14 (20) '2.0'
@@ -3617,8 +3617,8 @@
 6BCEA Compression Method    0008 (8) 'Deflated'
 6BCEC Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6BCF0 CRC                   00000000 (0)
-6BCF4 Compressed Length     00000000 (0)
-6BCF8 Uncompressed Length   00000001 (1)
+6BCF4 Compressed Size       00000000 (0)
+6BCF8 Uncompressed Size     00000001 (1)
 6BCFC Filename Length       000A (10)
 6BCFE Extra Length          06D0 (1744)
 6BD00 Filename              'single.txt'
@@ -3741,8 +3741,8 @@
 
 6C3DD DATA DESCRIPTOR       08074B50 (134695760)
 6C3E1 CRC                   83DCEFB7 (2212294583)
-6C3E5 Compressed Length     00000003 (3)
-6C3E9 Uncompressed Length   00000001 (1)
+6C3E5 Compressed Size       00000003 (3)
+6C3E9 Uncompressed Size     00000001 (1)
 
 6C3ED CENTRAL HEADER #3     02014B50 (33639248)
 6C3F1 Created Zip Spec      3F (63) '6.3'
@@ -3756,8 +3756,8 @@
 6C3F7 Compression Method    0008 (8) 'Deflated'
 6C3F9 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6C3FD CRC                   00000000 (0)
-6C401 Compressed Length     00000002 (2)
-6C405 Uncompressed Length   00000000 (0)
+6C401 Compressed Size       00000002 (2)
+6C405 Uncompressed Size     00000000 (0)
 6C409 Filename Length       0009 (9)
 6C40B Extra Length          06D0 (1744)
 6C40D Comment Length        0000 (0)
@@ -3898,8 +3898,8 @@
 6CAFE Compression Method    0008 (8) 'Deflated'
 6CB00 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6CB04 CRC                   A85D40DC (2824683740)
-6CB08 Compressed Length     00020028 (131112)
-6CB0C Uncompressed Length   00020000 (131072)
+6CB08 Compressed Size       00020028 (131112)
+6CB0C Uncompressed Size     00020000 (131072)
 6CB10 Filename Length       000A (10)
 6CB12 Extra Length          06D0 (1744)
 6CB14 Comment Length        0000 (0)
@@ -4040,8 +4040,8 @@
 6D206 Compression Method    0008 (8) 'Deflated'
 6D208 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6D20C CRC                   0F79DE80 (259645056)
-6D210 Compressed Length     00000070 (112)
-6D214 Uncompressed Length   00018000 (98304)
+6D210 Compressed Size       00000070 (112)
+6D214 Uncompressed Size     00018000 (98304)
 6D218 Filename Length       000B (11)
 6D21A Extra Length          06D0 (1744)
 6D21C Comment Length        0000 (0)
@@ -4182,8 +4182,8 @@
 6D90F Compression Method    0008 (8) 'Deflated'
 6D911 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6D915 CRC                   54F920F0 (1425613040)
-6D919 Compressed Length     0000038D (909)
-6D91D Uncompressed Length   000009E0 (2528)
+6D919 Compressed Size       0000038D (909)
+6D91D Uncompressed Size     000009E0 (2528)
 6D921 Filename Length       000C (12)
 6D923 Extra Length          06D0 (1744)
 6D925 Comment Length        0000 (0)
@@ -4324,8 +4324,8 @@
 6E019 Compression Method    0008 (8) 'Deflated'
 6E01B Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6E01F CRC                   C1588FFF (3243806719)
-6E023 Compressed Length     000003E7 (999)
-6E027 Uncompressed Length   00000D4E (3406)
+6E023 Compressed Size       000003E7 (999)
+6E027 Uncompressed Size     00000D4E (3406)
 6E02B Filename Length       000C (12)
 6E02D Extra Length          06D0 (1744)
 6E02F Comment Length        0000 (0)
@@ -4466,8 +4466,8 @@
 6E723 Compression Method    0008 (8) 'Deflated'
 6E725 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6E729 CRC                   9062EB2C (2422401836)
-6E72D Compressed Length     00000422 (1058)
-6E731 Uncompressed Length   00000D07 (3335)
+6E72D Compressed Size       00000422 (1058)
+6E731 Uncompressed Size     00000D07 (3335)
 6E735 Filename Length       000E (14)
 6E737 Extra Length          06D0 (1744)
 6E739 Comment Length        0000 (0)
@@ -4606,8 +4606,8 @@
 6EE2F Compression Method    0000 (0) 'Stored'
 6EE31 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6EE35 CRC                   00000000 (0)
-6EE39 Compressed Length     00000000 (0)
-6EE3D Uncompressed Length   00000000 (0)
+6EE39 Compressed Size       00000000 (0)
+6EE3D Uncompressed Size     00000000 (0)
 6EE41 Filename Length       0019 (25)
 6EE43 Extra Length          0000 (0)
 6EE45 Comment Length        0000 (0)
@@ -4633,8 +4633,8 @@
 6EE76 Compression Method    0008 (8) 'Deflated'
 6EE78 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6EE7C CRC                   0DFE0B22 (234752802)
-6EE80 Compressed Length     000002A1 (673)
-6EE84 Uncompressed Length   000002DE (734)
+6EE80 Compressed Size       000002A1 (673)
+6EE84 Uncompressed Size     000002DE (734)
 6EE88 Filename Length       0029 (41)
 6EE8A Extra Length          06D0 (1744)
 6EE8C Comment Length        0000 (0)
@@ -4775,8 +4775,8 @@
 6F59D Compression Method    0008 (8) 'Deflated'
 6F59F Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6F5A3 CRC                   7FF0384D (2146449485)
-6F5A7 Compressed Length     000070C6 (28870)
-6F5AB Uncompressed Length   000070C0 (28864)
+6F5A7 Compressed Size       000070C6 (28870)
+6F5AB Uncompressed Size     000070C0 (28864)
 6F5AF Filename Length       0021 (33)
 6F5B1 Extra Length          06D0 (1744)
 6F5B3 Comment Length        0000 (0)
@@ -4917,8 +4917,8 @@
 6FCBC Compression Method    0008 (8) 'Deflated'
 6FCBE Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 6FCC2 CRC                   32453FDC (843399132)
-6FCC6 Compressed Length     00000063 (99)
-6FCCA Uncompressed Length   000000F6 (246)
+6FCC6 Compressed Size       00000063 (99)
+6FCCA Uncompressed Size     000000F6 (246)
 6FCCE Filename Length       001F (31)
 6FCD0 Extra Length          06D0 (1744)
 6FCD2 Comment Length        0000 (0)
@@ -5059,8 +5059,8 @@
 703D9 Compression Method    0008 (8) 'Deflated'
 703DB Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 703DF CRC                   D7CBC50E (3620455694)
-703E3 Compressed Length     00000008 (8)
-703E7 Uncompressed Length   00000016 (22)
+703E3 Compressed Size       00000008 (8)
+703E7 Uncompressed Size     00000016 (22)
 703EB Filename Length       0021 (33)
 703ED Extra Length          06D0 (1744)
 703EF Comment Length        0000 (0)
@@ -5201,8 +5201,8 @@
 70AF8 Compression Method    0008 (8) 'Deflated'
 70AFA Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 70AFE CRC                   BF8FDF10 (3213877008)
-70B02 Compressed Length     0000077F (1919)
-70B06 Uncompressed Length   00011714 (71444)
+70B02 Compressed Size       0000077F (1919)
+70B06 Uncompressed Size     00011714 (71444)
 70B0A Filename Length       0023 (35)
 70B0C Extra Length          06D0 (1744)
 70B0E Comment Length        0000 (0)
@@ -5343,8 +5343,8 @@
 71219 Compression Method    0008 (8) 'Deflated'
 7121B Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7121F CRC                   EC62549D (3965867165)
-71223 Compressed Length     000000A6 (166)
-71227 Uncompressed Length   00000148 (328)
+71223 Compressed Size       000000A6 (166)
+71227 Uncompressed Size     00000148 (328)
 7122B Filename Length       002D (45)
 7122D Extra Length          06D0 (1744)
 7122F Comment Length        0000 (0)
@@ -5485,8 +5485,8 @@
 71944 Compression Method    0008 (8) 'Deflated'
 71946 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7194A CRC                   A0D9E167 (2698633575)
-7194E Compressed Length     000004AE (1198)
-71952 Uncompressed Length   00010B15 (68373)
+7194E Compressed Size       000004AE (1198)
+71952 Uncompressed Size     00010B15 (68373)
 71956 Filename Length       0026 (38)
 71958 Extra Length          06D0 (1744)
 7195A Comment Length        0000 (0)
@@ -5627,8 +5627,8 @@
 72068 Compression Method    0008 (8) 'Deflated'
 7206A Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7206E CRC                   74CB250C (1959470348)
-72072 Compressed Length     0000BE73 (48755)
-72076 Uncompressed Length   0000BE64 (48740)
+72072 Compressed Size       0000BE73 (48755)
+72076 Uncompressed Size     0000BE64 (48740)
 7207A Filename Length       001F (31)
 7207C Extra Length          06D0 (1744)
 7207E Comment Length        0000 (0)
@@ -5769,8 +5769,8 @@
 72785 Compression Method    0008 (8) 'Deflated'
 72787 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7278B CRC                   13178F24 (320311076)
-7278F Compressed Length     000000D5 (213)
-72793 Uncompressed Length   0000011F (287)
+7278F Compressed Size       000000D5 (213)
+72793 Uncompressed Size     0000011F (287)
 72797 Filename Length       0034 (52)
 72799 Extra Length          06D0 (1744)
 7279B Comment Length        0000 (0)
@@ -5911,8 +5911,8 @@
 72EB7 Compression Method    0008 (8) 'Deflated'
 72EB9 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 72EBD CRC                   CDF7477A (3455534970)
-72EC1 Compressed Length     00000093 (147)
-72EC5 Uncompressed Length   000000DC (220)
+72EC1 Compressed Size       00000093 (147)
+72EC5 Uncompressed Size     000000DC (220)
 72EC9 Filename Length       0025 (37)
 72ECB Extra Length          06D0 (1744)
 72ECD Comment Length        0000 (0)
@@ -6053,8 +6053,8 @@
 735DA Compression Method    0008 (8) 'Deflated'
 735DC Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 735E0 CRC                   71548DF8 (1901366776)
-735E4 Compressed Length     0000006B (107)
-735E8 Uncompressed Length   000000D7 (215)
+735E4 Compressed Size       0000006B (107)
+735E8 Uncompressed Size     000000D7 (215)
 735EC Filename Length       0022 (34)
 735EE Extra Length          06D0 (1744)
 735F0 Comment Length        0000 (0)
@@ -6195,8 +6195,8 @@
 73CFA Compression Method    0008 (8) 'Deflated'
 73CFC Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 73D00 CRC                   A88ECD9D (2827931037)
-73D04 Compressed Length     00000093 (147)
-73D08 Uncompressed Length   000000CC (204)
+73D04 Compressed Size       00000093 (147)
+73D08 Uncompressed Size     000000CC (204)
 73D0C Filename Length       002C (44)
 73D0E Extra Length          06D0 (1744)
 73D10 Comment Length        0000 (0)
@@ -6337,8 +6337,8 @@
 74424 Compression Method    0008 (8) 'Deflated'
 74426 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7442A CRC                   36E86346 (921199430)
-7442E Compressed Length     000000E7 (231)
-74432 Uncompressed Length   0000027A (634)
+7442E Compressed Size       000000E7 (231)
+74432 Uncompressed Size     0000027A (634)
 74436 Filename Length       0028 (40)
 74438 Extra Length          06D0 (1744)
 7443A Comment Length        0000 (0)
@@ -6479,8 +6479,8 @@
 74B4A Compression Method    0008 (8) 'Deflated'
 74B4C Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 74B50 CRC                   38E24104 (954351876)
-74B54 Compressed Length     00000101 (257)
-74B58 Uncompressed Length   000100F9 (65785)
+74B54 Compressed Size       00000101 (257)
+74B58 Uncompressed Size     000100F9 (65785)
 74B5C Filename Length       002D (45)
 74B5E Extra Length          06D0 (1744)
 74B60 Comment Length        0000 (0)
@@ -6621,8 +6621,8 @@
 75275 Compression Method    0008 (8) 'Deflated'
 75277 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 7527B CRC                   9690AAFE (2526063358)
-7527F Compressed Length     00000083 (131)
-75283 Uncompressed Length   000000C6 (198)
+7527F Compressed Size       00000083 (131)
+75283 Uncompressed Size     000000C6 (198)
 75287 Filename Length       002E (46)
 75289 Extra Length          06D0 (1744)
 7528B Comment Length        0000 (0)
@@ -6763,8 +6763,8 @@
 759A1 Compression Method    0008 (8) 'Deflated'
 759A3 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 759A7 CRC                   51D69FF3 (1373020147)
-759AB Compressed Length     00000075 (117)
-759AF Uncompressed Length   000000E9 (233)
+759AB Compressed Size       00000075 (117)
+759AF Uncompressed Size     000000E9 (233)
 759B3 Filename Length       001F (31)
 759B5 Extra Length          06D0 (1744)
 759B7 Comment Length        0000 (0)
@@ -6905,8 +6905,8 @@
 760BE Compression Method    0008 (8) 'Deflated'
 760C0 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 760C4 CRC                   A55A8615 (2774173205)
-760C8 Compressed Length     00028073 (163955)
-760CC Uncompressed Length   00028065 (163941)
+760C8 Compressed Size       00028073 (163955)
+760CC Uncompressed Size     00028065 (163941)
 760D0 Filename Length       0022 (34)
 760D2 Extra Length          06D0 (1744)
 760D4 Comment Length        0000 (0)
@@ -7047,8 +7047,8 @@
 767DE Compression Method    0008 (8) 'Deflated'
 767E0 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 767E4 CRC                   CE376013 (3459735571)
-767E8 Compressed Length     00003905 (14597)
-767EC Uncompressed Length   00008D1A (36122)
+767E8 Compressed Size       00003905 (14597)
+767EC Uncompressed Size     00008D1A (36122)
 767F0 Filename Length       0023 (35)
 767F2 Extra Length          06D0 (1744)
 767F4 Comment Length        0000 (0)
@@ -7189,8 +7189,8 @@
 76EFF Compression Method    0008 (8) 'Deflated'
 76F01 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 76F05 CRC                   1CA3704F (480473167)
-76F09 Compressed Length     000000B9 (185)
-76F0D Uncompressed Length   0000011E (286)
+76F09 Compressed Size       000000B9 (185)
+76F0D Uncompressed Size     0000011E (286)
 76F11 Filename Length       0011 (17)
 76F13 Extra Length          06D0 (1744)
 76F15 Comment Length        0000 (0)
@@ -7331,8 +7331,8 @@
 7760E Compression Method    0008 (8) 'Deflated'
 77610 Last Mod Date/Time    56216F52 (1445031762) 'Sun Jan  1 13:58:36 2023'
 77614 CRC                   83DCEFB7 (2212294583)
-77618 Compressed Length     00000003 (3)
-7761C Uncompressed Length   00000001 (1)
+77618 Compressed Size       00000003 (3)
+7761C Uncompressed Size     00000001 (1)
 77620 Filename Length       000A (10)
 77622 Extra Length          06D0 (1744)
 77624 Comment Length        0000 (0)

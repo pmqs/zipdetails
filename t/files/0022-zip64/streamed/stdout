@@ -8,8 +8,8 @@
 0008 Compression Method    0000 (0) 'Stored'
 000A Last Mod Date/Time    56385E3D (1446534717) 'Tue Jan 24 11:49:58 2023'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       000B (11)
 001C Extra Length          0020 (32)
 001E Filename              'test/10.txt'
@@ -23,8 +23,8 @@
 
 0053 DATA DESCRIPTOR       08074B50 (134695760)
 0057 CRC                   E0117757 (3759241047)
-005B Compressed Length     000000000000000A (10)
-0063 Uncompressed Length   000000000000000A (10)
+005B Compressed Size       000000000000000A (10)
+0063 Uncompressed Size     000000000000000A (10)
 
 006B CENTRAL HEADER #1     02014B50 (33639248)
 006F Created Zip Spec      34 (52) '5.2'
@@ -37,8 +37,8 @@
 0075 Compression Method    0000 (0) 'Stored'
 0077 Last Mod Date/Time    56385E3D (1446534717) 'Tue Jan 24 11:49:58 2023'
 007B CRC                   E0117757 (3759241047)
-007F Compressed Length     FFFFFFFF (4294967295)
-0083 Uncompressed Length   FFFFFFFF (4294967295)
+007F Compressed Size       FFFFFFFF (4294967295)
+0083 Uncompressed Size     FFFFFFFF (4294967295)
 0087 Filename Length       000B (11)
 0089 Extra Length          0020 (32)
 008B Comment Length        0000 (0)

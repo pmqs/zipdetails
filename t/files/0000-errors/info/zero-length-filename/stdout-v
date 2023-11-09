@@ -7,8 +7,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 6F 08 67 56 Last Mod Date/Time    5667086F (1449592943) 'Tue Mar  7 01:03:30 2023'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 00 00 00 00 Compressed Length     00000000 (0)
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 001A 001B 0002 00 00       Filename Length       0000 (0)
 #
 # INFO: Offset 0x1A: Zero Length filename
@@ -18,8 +18,8 @@
 
 0022 0025 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 0026 0029 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
-002A 002D 0004 04 00 00 00 Compressed Length     00000004 (4)
-002E 0031 0004 04 00 00 00 Uncompressed Length   00000004 (4)
+002A 002D 0004 04 00 00 00 Compressed Size       00000004 (4)
+002E 0031 0004 04 00 00 00 Uncompressed Size     00000004 (4)
 
 0032 0035 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 0036 0036 0001 14          Created Zip Spec      14 (20) '2.0'
@@ -31,8 +31,8 @@
 003C 003D 0002 00 00       Compression Method    0000 (0) 'Stored'
 003E 0041 0004 6F 08 67 56 Last Mod Date/Time    5667086F (1449592943) 'Tue Mar  7 01:03:30 2023'
 0042 0045 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
-0046 0049 0004 04 00 00 00 Compressed Length     00000004 (4)
-004A 004D 0004 04 00 00 00 Uncompressed Length   00000004 (4)
+0046 0049 0004 04 00 00 00 Compressed Size       00000004 (4)
+004A 004D 0004 04 00 00 00 Uncompressed Size     00000004 (4)
 004E 004F 0002 00 00       Filename Length       0000 (0)
 #
 # INFO: Offset 0x4E: Zero Length filename

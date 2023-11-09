@@ -6,8 +6,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 000E 0011 0004 EC 6E 60 9F CRC                   9F606EEC (2673897196)
-0012 0015 0004 06 00 00 00 Compressed Length     00000006 (6)
-0016 0019 0004 06 00 00 00 Uncompressed Length   00000006 (6)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 06 00 00 00 Uncompressed Size     00000006 (6)
 001A 001B 0002 05 00       Filename Length       0005 (5)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0022 0005 61 6C 70 68 Filename              'alpha'
@@ -22,8 +22,8 @@
 0031 0032 0002 00 00       Compression Method    0000 (0) 'Stored'
 0033 0036 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 0037 003A 0004 75 A7 E3 E6 CRC                   E6E3A775 (3873679221)
-003B 003E 0004 05 00 00 00 Compressed Length     00000005 (5)
-003F 0042 0004 05 00 00 00 Uncompressed Length   00000005 (5)
+003B 003E 0004 05 00 00 00 Compressed Size       00000005 (5)
+003F 0042 0004 05 00 00 00 Uncompressed Size     00000005 (5)
 0043 0044 0002 04 00       Filename Length       0004 (4)
 0045 0046 0002 00 00       Extra Length          0000 (0)
 0047 004A 0004 62 65 74 61 Filename              'beta'
@@ -37,8 +37,8 @@
 0058 0059 0002 00 00       Compression Method    0000 (0) 'Stored'
 005A 005D 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 005E 0061 0004 E9 04 11 15 CRC                   151104E9 (353436905)
-0062 0065 0004 06 00 00 00 Compressed Length     00000006 (6)
-0066 0069 0004 06 00 00 00 Uncompressed Length   00000006 (6)
+0062 0065 0004 06 00 00 00 Compressed Size       00000006 (6)
+0066 0069 0004 06 00 00 00 Uncompressed Size     00000006 (6)
 006A 006B 0002 05 00       Filename Length       0005 (5)
 006C 006D 0002 00 00       Extra Length          0000 (0)
 006E 0072 0005 67 61 6D 6D Filename              'gamma'
@@ -53,8 +53,8 @@
 0081 0082 0002 00 00       Compression Method    0000 (0) 'Stored'
 0083 0086 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 0087 008A 0004 1D 2F 4E CD CRC                   CD4E2F1D (3444453149)
-008B 008E 0004 06 00 00 00 Compressed Length     00000006 (6)
-008F 0092 0004 06 00 00 00 Uncompressed Length   00000006 (6)
+008B 008E 0004 06 00 00 00 Compressed Size       00000006 (6)
+008F 0092 0004 06 00 00 00 Uncompressed Size     00000006 (6)
 0093 0094 0002 05 00       Filename Length       0005 (5)
 0095 0096 0002 00 00       Extra Length          0000 (0)
 0097 009B 0005 64 65 6C 74 Filename              'delta'
@@ -71,8 +71,8 @@
 00AC 00AD 0002 00 00       Compression Method    0000 (0) 'Stored'
 00AE 00B1 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 00B2 00B5 0004 EC 6E 60 9F CRC                   9F606EEC (2673897196)
-00B6 00B9 0004 06 00 00 00 Compressed Length     00000006 (6)
-00BA 00BD 0004 06 00 00 00 Uncompressed Length   00000006 (6)
+00B6 00B9 0004 06 00 00 00 Compressed Size       00000006 (6)
+00BA 00BD 0004 06 00 00 00 Uncompressed Size     00000006 (6)
 00BE 00BF 0002 05 00       Filename Length       0005 (5)
 00C0 00C1 0002 00 00       Extra Length          0000 (0)
 00C2 00C3 0002 00 00       Comment Length        0000 (0)
@@ -95,8 +95,8 @@
 00DF 00E0 0002 00 00       Compression Method    0000 (0) 'Stored'
 00E1 00E4 0004 C0 5D 7D 55 Last Mod Date/Time    557D5DC0 (1434279360) 'Tue Nov 29 11:46:00 2022'
 00E5 00E8 0004 E9 04 11 15 CRC                   151104E9 (353436905)
-00E9 00EC 0004 06 00 00 00 Compressed Length     00000006 (6)
-00ED 00F0 0004 06 00 00 00 Uncompressed Length   00000006 (6)
+00E9 00EC 0004 06 00 00 00 Compressed Size       00000006 (6)
+00ED 00F0 0004 06 00 00 00 Uncompressed Size     00000006 (6)
 00F1 00F2 0002 05 00       Filename Length       0005 (5)
 00F3 00F4 0002 00 00       Extra Length          0000 (0)
 00F5 00F6 0002 00 00       Comment Length        0000 (0)

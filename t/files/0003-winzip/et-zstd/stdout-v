@@ -6,8 +6,8 @@
 0008 0009 0002 5D 00       Compression Method    005D (93) 'Zstandard'
 000A 000D 0004 E1 B2 F5 50 Last Mod Date/Time    50F5B2E1 (1358279393) 'Tue Jul 21 22:23:02 2020'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 1E 01 00 00 Compressed Length     0000011E (286)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 1E 01 00 00 Compressed Size       0000011E (286)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -24,8 +24,8 @@
 014F 0150 0002 5D 00       Compression Method    005D (93) 'Zstandard'
 0151 0154 0004 E1 B2 F5 50 Last Mod Date/Time    50F5B2E1 (1358279393) 'Tue Jul 21 22:23:02 2020'
 0155 0158 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0159 015C 0004 1E 01 00 00 Compressed Length     0000011E (286)
-015D 0160 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0159 015C 0004 1E 01 00 00 Compressed Size       0000011E (286)
+015D 0160 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0161 0162 0002 09 00       Filename Length       0009 (9)
 0163 0164 0002 00 00       Extra Length          0000 (0)
 0165 0166 0002 00 00       Comment Length        0000 (0)

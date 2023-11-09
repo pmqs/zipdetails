@@ -6,8 +6,8 @@
 0008 0009 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 000A 000D 0004 15 9E 89 52 Last Mod Date/Time    52899E15 (1384750613) 'Fri Apr  9 19:48:42 2021'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 34 01 00 00 Compressed Length     00000134 (308)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 34 01 00 00 Compressed Size       00000134 (308)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -24,8 +24,8 @@
 0165 0166 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 0167 016A 0004 15 9E 89 52 Last Mod Date/Time    52899E15 (1384750613) 'Fri Apr  9 19:48:42 2021'
 016B 016E 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-016F 0172 0004 34 01 00 00 Compressed Length     00000134 (308)
-0173 0176 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+016F 0172 0004 34 01 00 00 Compressed Size       00000134 (308)
+0173 0176 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0177 0178 0002 09 00       Filename Length       0009 (9)
 0179 017A 0002 24 00       Extra Length          0024 (36)
 017B 017C 0002 00 00       Comment Length        0000 (0)

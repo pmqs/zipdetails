@@ -7,8 +7,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 68 6B 4B 4B Last Mod Date/Time    4B4B6B68 (1263233896) 'Wed Oct 11 13:27:16 2017'
 000E 0011 0004 D5 50 2C 6B CRC                   6B2C50D5 (1798066389)
-0012 0015 0004 52 00 00 00 Compressed Length     00000052 (82)
-0016 0019 0004 98 00 00 00 Uncompressed Length   00000098 (152)
+0012 0015 0004 52 00 00 00 Compressed Size       00000052 (82)
+0016 0019 0004 98 00 00 00 Uncompressed Size     00000098 (152)
 001A 001B 0002 13 00       Filename Length       0013 (19)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0030 0013 41 6E 64 72 Filename              'AndroidManifest.xml'
@@ -62,8 +62,8 @@
 0259 025A 0002 08 00       Compression Method    0008 (8) 'Deflated'
 025B 025E 0004 68 6B 4B 4B Last Mod Date/Time    4B4B6B68 (1263233896) 'Wed Oct 11 13:27:16 2017'
 025F 0262 0004 D5 50 2C 6B CRC                   6B2C50D5 (1798066389)
-0263 0266 0004 52 00 00 00 Compressed Length     00000052 (82)
-0267 026A 0004 98 00 00 00 Uncompressed Length   00000098 (152)
+0263 0266 0004 52 00 00 00 Compressed Size       00000052 (82)
+0267 026A 0004 98 00 00 00 Uncompressed Size     00000098 (152)
 026B 026C 0002 13 00       Filename Length       0013 (19)
 026D 026E 0002 00 00       Extra Length          0000 (0)
 026F 0270 0002 00 00       Comment Length        0000 (0)

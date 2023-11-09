@@ -7,8 +7,8 @@
 0008 0009 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 000A 000D 0004 D3 78 F6 54 Last Mod Date/Time    54F678D3 (1425438931) 'Fri Jul 22 15:06:38 2022'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 35 01 00 00 Compressed Length     00000135 (309)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 35 01 00 00 Compressed Size       00000135 (309)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -24,8 +24,8 @@
 0164 0165 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 0166 0169 0004 A5 6E FD 54 Last Mod Date/Time    54FD6EA5 (1425895077) 'Fri Jul 29 13:53:10 2022'
 016A 016D 0004 3C C8 F5 41 CRC                   41F5C83C (1106626620)
-016E 0171 0004 38 01 00 00 Compressed Length     00000138 (312)
-0172 0175 0004 BF 01 00 00 Uncompressed Length   000001BF (447)
+016E 0171 0004 38 01 00 00 Compressed Size       00000138 (312)
+0172 0175 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
 0176 0177 0002 0A 00       Filename Length       000A (10)
 0178 0179 0002 00 00       Extra Length          0000 (0)
 017A 0183 000A 6C 6F 72 65 Filename              'lorem2.txt'
@@ -43,8 +43,8 @@
 02C6 02C7 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 02C8 02CB 0004 D3 78 F6 54 Last Mod Date/Time    54F678D3 (1425438931) 'Fri Jul 22 15:06:38 2022'
 02CC 02CF 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-02D0 02D3 0004 35 01 00 00 Compressed Length     00000135 (309)
-02D4 02D7 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+02D0 02D3 0004 35 01 00 00 Compressed Size       00000135 (309)
+02D4 02D7 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 02D8 02D9 0002 09 00       Filename Length       0009 (9)
 02DA 02DB 0002 24 00       Extra Length          0024 (36)
 02DC 02DD 0002 00 00       Comment Length        0000 (0)
@@ -79,8 +79,8 @@
 0321 0322 0002 0C 00       Compression Method    000C (12) 'BZIP2'
 0323 0326 0004 A5 6E FD 54 Last Mod Date/Time    54FD6EA5 (1425895077) 'Fri Jul 29 13:53:10 2022'
 0327 032A 0004 3C C8 F5 41 CRC                   41F5C83C (1106626620)
-032B 032E 0004 38 01 00 00 Compressed Length     00000138 (312)
-032F 0332 0004 BF 01 00 00 Uncompressed Length   000001BF (447)
+032B 032E 0004 38 01 00 00 Compressed Size       00000138 (312)
+032F 0332 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
 0333 0334 0002 0A 00       Filename Length       000A (10)
 0335 0336 0002 24 00       Extra Length          0024 (36)
 0337 0338 0002 00 00       Comment Length        0000 (0)

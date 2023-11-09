@@ -9,8 +9,8 @@
 000C 000D 0002 00 00       Compression Method    0000 (0) 'Stored'
 000E 0011 0004 5C 58 6A 55 Last Mod Date/Time    556A585C (1433032796) 'Thu Nov 10 11:02:56 2022'
 0012 0015 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0016 0019 0004 BE 01 00 00 Compressed Length     000001BE (446)
-001A 001D 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0016 0019 0004 BE 01 00 00 Compressed Size       000001BE (446)
+001A 001D 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001E 001F 0002 19 00       Filename Length       0019 (25)
 0020 0021 0002 1C 00       Extra Length          001C (28)
 0022 003A 0019 68 6F 6D 65 Filename              'home/paul/share/lorem.txt'
@@ -43,8 +43,8 @@
 021F 0220 0002 00 00       Compression Method    0000 (0) 'Stored'
 0221 0224 0004 5C 58 6A 55 Last Mod Date/Time    556A585C (1433032796) 'Thu Nov 10 11:02:56 2022'
 0225 0228 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0229 022C 0004 BE 01 00 00 Compressed Length     000001BE (446)
-022D 0230 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0229 022C 0004 BE 01 00 00 Compressed Size       000001BE (446)
+022D 0230 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0231 0232 0002 19 00       Filename Length       0019 (25)
 0233 0234 0002 18 00       Extra Length          0018 (24)
 0235 0236 0002 00 00       Comment Length        0000 (0)

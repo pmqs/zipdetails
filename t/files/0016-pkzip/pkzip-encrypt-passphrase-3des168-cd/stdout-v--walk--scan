@@ -11,8 +11,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 3E 02 00 00 Compressed Length     0000023E (574)
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0012 0015 0004 3E 02 00 00 Compressed Size       0000023E (574)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 001A 001B 0002 01 00       Filename Length       0001 (1)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 001E 0001 31          Filename              '1'
@@ -112,8 +112,8 @@
 0265 0266 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0267 026A 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 026B 026E 0004 00 00 00 00 CRC                   00000000 (0)
-026F 0272 0004 46 02 00 00 Compressed Length     00000246 (582)
-0273 0276 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+026F 0272 0004 46 02 00 00 Compressed Size       00000246 (582)
+0273 0276 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 0277 0278 0002 01 00       Filename Length       0001 (1)
 0279 027A 0002 00 00       Extra Length          0000 (0)
 027B 027B 0001 32          Filename              '2'
@@ -339,9 +339,9 @@
 06B0 06B7 0008 C2 04 00 00 Offset to Central dir 00000000000004C2 (1218)
                00 00 00 00
 06B8 06B9 0002 08 00       Compression Method    0008 (8) 'Deflated'
-06BA 06C1 0008 BE 01 00 00 Compressed Length     00000000000001BE (446)
+06BA 06C1 0008 BE 01 00 00 Compressed Size       00000000000001BE (446)
                00 00 00 00
-06C2 06C9 0008 D7 00 00 00 Uncompressed Length   00000000000000D7 (215)
+06C2 06C9 0008 D7 00 00 00 Uncompressed Size     00000000000000D7 (215)
                00 00 00 00
 06CA 06CB 0002 03 66       AlgId                 6603 (26115) '3DES 168'
 06CC 06CD 0002 A8 00       BitLen                00A8 (168)

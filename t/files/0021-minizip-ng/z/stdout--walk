@@ -9,8 +9,8 @@
 0008 Compression Method    0000 (0) 'Stored'
 000A Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0003 (3)
 001C Extra Length          0000 (0)
 001E Filename              '0_0'
@@ -18,8 +18,8 @@
 
 01DF DATA DESCRIPTOR       08074B50 (134695760)
 01E3 CRC                   00000000 (0)
-01E7 Compressed Length     000001BE (446)
-01EB Uncompressed Length   00000000 (0)
+01E7 Compressed Size       000001BE (446)
+01EB Uncompressed Size     00000000 (0)
 
 01EF LOCAL HEADER #2       04034B50 (67324752)
 01F3 Extract Zip Spec      14 (20) '2.0'
@@ -30,8 +30,8 @@
 01F7 Compression Method    0000 (0) 'Stored'
 01F9 Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 01FD CRC                   00000000 (0)
-0201 Compressed Length     00000000 (0)
-0205 Uncompressed Length   0000005F (95)
+0201 Compressed Size       00000000 (0)
+0205 Uncompressed Size     0000005F (95)
 0209 Filename Length       0008 (8)
 020B Extra Length          000C (12)
 020D Filename              '__cdcd__'
@@ -51,8 +51,8 @@
 022B Compression Method    0000 (0) 'Stored'
 022D Last Mod Date/Time    55998A15 (1436125717) 'Sun Dec 25 17:16:42 2022'
 0231 CRC                   F90EE7FF (4178503679)
-0235 Compressed Length     000001BE (446)
-0239 Uncompressed Length   000001BE (446)
+0235 Compressed Size       000001BE (446)
+0239 Uncompressed Size     000001BE (446)
 023D Filename Length       0009 (9)
 023F Extra Length          0028 (40)
 0241 Comment Length        0000 (0)
@@ -74,8 +74,8 @@
 
 0280 DATA DESCRIPTOR       08074B50 (134695760)
 0284 CRC                   AA39B9D7 (2855909847)
-0288 Compressed Length     0000005F (95)
-028C Uncompressed Length   0000005F (95)
+0288 Compressed Size       0000005F (95)
+028C Uncompressed Size     0000005F (95)
 
 0290 CENTRAL HEADER #2     02014B50 (33639248)
 0294 Created Zip Spec      3F (63) '6.3'
@@ -88,8 +88,8 @@
 029A Compression Method    0000 (0) 'Stored'
 029C Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 02A0 CRC                   AA39B9D7 (2855909847)
-02A4 Compressed Length     0000005F (95)
-02A8 Uncompressed Length   0000005F (95)
+02A4 Compressed Size       0000005F (95)
+02A8 Uncompressed Size     0000005F (95)
 02AC Filename Length       0008 (8)
 02AE Extra Length          0034 (52)
 02B0 Comment Length        0000 (0)

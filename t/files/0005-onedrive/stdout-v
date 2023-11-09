@@ -6,8 +6,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 61 88 C1 50 Last Mod Date/Time    50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
 000E 0011 0004 12 13 05 72 CRC                   72051312 (1912935186)
-0012 0015 0004 FF FF FF FF Compressed Length     FFFFFFFF (4294967295)
-0016 0019 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
+0012 0015 0004 FF FF FF FF Compressed Size       FFFFFFFF (4294967295)
+0016 0019 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
 001A 001B 0002 08 00       Filename Length       0008 (8)
 001C 001D 0002 30 00       Extra Length          0030 (48)
 001E 0025 0008 64 61 74 61 Filename              'data.txt'
@@ -44,8 +44,8 @@
 006F 0070 0002 00 00       Compression Method    0000 (0) 'Stored'
 0071 0074 0004 61 88 C1 50 Last Mod Date/Time    50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
 0075 0078 0004 12 13 05 72 CRC                   72051312 (1912935186)
-0079 007C 0004 0F 00 00 00 Compressed Length     0000000F (15)
-007D 0080 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
+0079 007C 0004 0F 00 00 00 Compressed Size       0000000F (15)
+007D 0080 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
 0081 0082 0002 08 00       Filename Length       0008 (8)
 0083 0084 0002 24 00       Extra Length          0024 (36)
 0085 0086 0002 00 00       Comment Length        0000 (0)

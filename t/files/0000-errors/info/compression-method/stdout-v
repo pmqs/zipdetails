@@ -9,8 +9,8 @@
 #
 000A 000D 0004 71 85 98 52 Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 1C 00       Extra Length          001C (28)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -42,8 +42,8 @@
 #
 015D 0160 0004 71 85 98 52 Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 0161 0164 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0165 0168 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0169 016C 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0165 0168 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0169 016C 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 016D 016E 0002 09 00       Filename Length       0009 (9)
 016F 0170 0002 18 00       Extra Length          0018 (24)
 0171 0172 0002 00 00       Comment Length        0000 (0)

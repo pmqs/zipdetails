@@ -8,8 +8,8 @@
 0008 0009 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 000A 000D 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 000E 0011 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
-0012 0015 0004 54 1B 00 00 Compressed Length     00001B54 (6996)
-0016 0019 0004 0B 5A 00 00 Uncompressed Length   00005A0B (23051)
+0012 0015 0004 54 1B 00 00 Compressed Size       00001B54 (6996)
+0016 0019 0004 0B 5A 00 00 Uncompressed Size     00005A0B (23051)
 001A 001B 0002 0A 00       Filename Length       000A (10)
 001C 001D 0002 14 00       Extra Length          0014 (20)
 001E 0027 000A 7A 69 70 63 Filename              'zipcloak.c'
@@ -35,8 +35,8 @@
 
 1B90 1B93 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 1B94 1B97 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
-1B98 1B9B 0004 54 1B 00 00 Compressed Length     00001B54 (6996)
-1B9C 1B9F 0004 0B 5A 00 00 Uncompressed Length   00005A0B (23051)
+1B98 1B9B 0004 54 1B 00 00 Compressed Size       00001B54 (6996)
+1B9C 1B9F 0004 0B 5A 00 00 Uncompressed Size     00005A0B (23051)
 
 1BA0 1BA3 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
 1BA4 1BA4 0001 14          Extract Zip Spec      14 (20) '2.0'
@@ -46,8 +46,8 @@
 1BA8 1BA9 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 1BAA 1BAD 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 1BAE 1BB1 0004 D7 FA 7D E8 CRC                   E87DFAD7 (3900570327)
-1BB2 1BB5 0004 F3 21 00 00 Compressed Length     000021F3 (8691)
-1BB6 1BB9 0004 79 6A 00 00 Uncompressed Length   00006A79 (27257)
+1BB2 1BB5 0004 F3 21 00 00 Compressed Size       000021F3 (8691)
+1BB6 1BB9 0004 79 6A 00 00 Uncompressed Size     00006A79 (27257)
 1BBA 1BBB 0002 0A 00       Filename Length       000A (10)
 1BBC 1BBD 0002 8E 00       Extra Length          008E (142)
 1BBE 1BC7 000A 7A 69 70 73 Filename              'zipsplit.c'
@@ -127,8 +127,8 @@
 3E53 3E54 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 3E55 3E58 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 3E59 3E5C 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
-3E5D 3E60 0004 54 1B 00 00 Compressed Length     00001B54 (6996)
-3E61 3E64 0004 0B 5A 00 00 Uncompressed Length   00005A0B (23051)
+3E5D 3E60 0004 54 1B 00 00 Compressed Size       00001B54 (6996)
+3E61 3E64 0004 0B 5A 00 00 Uncompressed Size     00005A0B (23051)
 3E65 3E66 0002 0A 00       Filename Length       000A (10)
 3E67 3E68 0002 14 00       Extra Length          0014 (20)
 3E69 3E6A 0002 00 00       Comment Length        0000 (0)
@@ -162,8 +162,8 @@
 3E9F 3EA0 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 3EA1 3EA4 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 3EA5 3EA8 0004 D7 FA 7D E8 CRC                   E87DFAD7 (3900570327)
-3EA9 3EAC 0004 F3 21 00 00 Compressed Length     000021F3 (8691)
-3EAD 3EB0 0004 79 6A 00 00 Uncompressed Length   00006A79 (27257)
+3EA9 3EAC 0004 F3 21 00 00 Compressed Size       000021F3 (8691)
+3EAD 3EB0 0004 79 6A 00 00 Uncompressed Size     00006A79 (27257)
 3EB1 3EB2 0002 0A 00       Filename Length       000A (10)
 3EB3 3EB4 0002 8E 00       Extra Length          008E (142)
 3EB5 3EB6 0002 00 00       Comment Length        0000 (0)

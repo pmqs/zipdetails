@@ -11,8 +11,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000686 (1670)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000686 (1670)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0001 (1)
 001C Extra Length          0000 (0)
 001E Filename              '1'
@@ -135,8 +135,8 @@
 06AD Compression Method    0008 (8) 'Deflated'
 06AF Last Mod Date/Time    00000000 (0) 'No Date/Time'
 06B3 CRC                   00000000 (0)
-06B7 Compressed Length     00000696 (1686)
-06BB Uncompressed Length   00000000 (0)
+06B7 Compressed Size       00000696 (1686)
+06BB Uncompressed Size     00000000 (0)
 06BF Filename Length       0001 (1)
 06C1 Extra Length          0000 (0)
 06C3 Filename              '2'
@@ -369,8 +369,8 @@
 1CF8 Size of Central Dir   0000000000000F76 (3958)
 1D00 Offset to Central dir 0000000000000D5A (3418)
 1D08 Compression Method    0008 (8) 'Deflated'
-1D0A Compressed Length     0000000000000F76 (3958)
-1D12 Uncompressed Length   0000000000000B2A (2858)
+1D0A Compressed Size       0000000000000F76 (3958)
+1D12 Uncompressed Size     0000000000000B2A (2858)
 1D1A AlgId                 6610 (26128) 'AES 256'
 1D1C BitLen                0100 (256)
 1D1E Flags                 4102 (16642) 'reserved for certificate processing'

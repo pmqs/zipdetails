@@ -8,8 +8,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    559453CF (1435784143) 'Tue Dec 20 10:30:30 2022'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0009 (9)
 001C Extra Length          0000 (0)
 001E Filename              'lorem.txt'
@@ -21,8 +21,8 @@
 # ERROR: Offset 0x135: Missimg DATA DESCRIPTOR Signature
 #
 0135 CRC                   F90EE7FF (4178503679)
-0139 Compressed Length     0000010E (270)
-013D Uncompressed Length   000001BE (446)
+0139 Compressed Size       0000010E (270)
+013D Uncompressed Size     000001BE (446)
 
 0141 CENTRAL HEADER #1     02014B50 (33639248)
 0145 Created Zip Spec      14 (20) '2.0'
@@ -35,8 +35,8 @@
 014B Compression Method    0008 (8) 'Deflated'
 014D Last Mod Date/Time    559453CF (1435784143) 'Tue Dec 20 10:30:30 2022'
 0151 CRC                   F90EE7FF (4178503679)
-0155 Compressed Length     0000010E (270)
-0159 Uncompressed Length   000001BE (446)
+0155 Compressed Size       0000010E (270)
+0159 Uncompressed Size     000001BE (446)
 015D Filename Length       0009 (9)
 015F Extra Length          0000 (0)
 0161 Comment Length        0000 (0)

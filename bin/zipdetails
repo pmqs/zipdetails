@@ -1687,8 +1687,8 @@ sub dislayMessages
                     ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0x($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
                     ['lastModDateTime',     12, 'Last Mod Date/Time',   sub { decimalHex0x($_[0]) . " " . LastModTime($_[0]) }, ],
                     ['crc32',               16, 'CRC32',                \&decimalHex0x, ],
-                    ['compressedLength',    20, 'Compressed Length',    \&decimalHex0x, ],
-                    ['uncompressedLength',  24, 'Compressed Length',    \&decimalHex0x, ],
+                    ['compressedSize',      20, 'Compressed Size',      \&decimalHex0x, ],
+                    ['uncompressedSize',    24, 'Uncompressed Size',    \&decimalHex0x, ],
 
                 ] ;
 
@@ -1826,7 +1826,7 @@ sub BadlyFormedDataDescriptor
     my $here = $FH->tell();
 
     my $localEntry = $lastHeader->{entry};
-    my $compressedLength = $lastHeader->{payloadLength} ;
+    my $compressedSize = $lastHeader->{payloadLength} ;
 
     my $sigName = Signatures::titleName(ZIP_DATA_HDR_SIG);
 
@@ -1845,8 +1845,8 @@ sub BadlyFormedDataDescriptor
 
             error $FH->tell(), "Missimg $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
-            $localEntry->compressedLength(   out_V "Compressed Length");
-            $localEntry->uncompressedLength( out_V "Uncompressed Length");
+            $localEntry->compressedSize(   out_V "Compressed Size");
+            $localEntry->uncompressedSize( out_V "Uncompressed Size");
 
             if ($localEntry->zip64)
             {
@@ -1867,8 +1867,8 @@ sub BadlyFormedDataDescriptor
 
             error $FH->tell(), "Missimg $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
-            $localEntry->compressedLength(   out_Q "Compressed Length");
-            $localEntry->uncompressedLength( out_Q "Uncompressed Length");
+            $localEntry->compressedSize(   out_Q "Compressed Size");
+            $localEntry->uncompressedSize( out_Q "Uncompressed Size");
 
             if (! $localEntry->zip64)
             {
@@ -1891,15 +1891,15 @@ sub BadlyFormedDataDescriptor
         $FH->seek($lastHeader->{payloadOffset} + $lastHeader->{payloadLength}, SEEK_SET) ;
 
         my $cl = unpack "V", peekAtOffset($FH->tell() + 4, 4);
-        if ($cl == $compressedLength)
+        if ($cl == $compressedSize)
         {
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
             error $FH->tell(), "Missimg $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
-            $localEntry->compressedLength(   out_V "Compressed Length");
-            $localEntry->uncompressedLength( out_V "Uncompressed Length");
+            $localEntry->compressedSize(   out_V "Compressed Size");
+            $localEntry->uncompressedSize( out_V "Uncompressed Size");
 
             if ($localEntry->zip64)
             {
@@ -1916,15 +1916,15 @@ sub BadlyFormedDataDescriptor
 
         my $cl = unpack "Q<", peekAtOffset($FH->tell() + 4, 8);
 
-        if ($cl == $compressedLength)
+        if ($cl == $compressedSize)
         {
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
             error $FH->tell(), "Missimg $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
-            $localEntry->compressedLength(   out_Q "Compressed Length");
-            $localEntry->uncompressedLength( out_Q "Uncompressed Length");
+            $localEntry->compressedSize(   out_Q "Compressed Size");
+            $localEntry->uncompressedSize( out_Q "Uncompressed Size");
 
             if (! $localEntry->zip64 && ( $cdEntry && ! $cdEntry->zip64))
             {
@@ -1970,7 +1970,7 @@ sub LocalHeader
     my $buffer;
     my $orphan = 0;
 
-    my ($loc, $CDcompressedLength, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
+    my ($loc, $CDcompressedSize, $cdZip64, $zip64Sizes, $cdIndex, $cdEntryOffset) ;
     my $CentralEntryExists = $CentralDirectory->localOffset($startRecordOffset);
     my $localEntry = LocalDirectoryEntry->new();
 
@@ -2014,8 +2014,8 @@ sub LocalHeader
     my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
-    my $compressedLength   = out_V "Compressed Length";
-    my $uncompressedLength = out_V "Uncompressed Length";
+    my $compressedSize   = out_V "Compressed Size";
+    my $uncompressedSize = out_V "Uncompressed Size";
     my $filenameLength     = out_v "Filename Length";
     if ($filenameLength == 0)
     {
@@ -2036,8 +2036,8 @@ sub LocalHeader
 
     $localEntry->localHeaderOffset($locHeaderOffset) ;
     $localEntry->offsetStart($locHeaderOffset) ;
-    $localEntry->compressedLength($compressedLength) ;
-    $localEntry->uncompressedLength($uncompressedLength) ;
+    $localEntry->compressedSize($compressedSize) ;
+    $localEntry->uncompressedSize($uncompressedSize) ;
     $localEntry->extractVersion($extractVer);
     $localEntry->generalPurposeFlags($gpFlag);
     $localEntry->lastModDateTime($lastMod);
@@ -2050,8 +2050,8 @@ sub LocalHeader
     $localEntry->streamed($gpFlag & ZIP_GP_FLAG_STREAMING_MASK) ;
 
     $localEntry->std_localHeaderOffset($locHeaderOffset + $PREFIX_DELTA) ;
-    $localEntry->std_compressedLength($compressedLength) ;
-    $localEntry->std_uncompressedLength($uncompressedLength) ;
+    $localEntry->std_compressedSize($compressedSize) ;
+    $localEntry->std_uncompressedSize($uncompressedSize) ;
     $localEntry->std_diskNumber(0) ;
 
     if ($extraLength)
@@ -2098,36 +2098,36 @@ sub LocalHeader
 
     my $size = 0;
 
-    # If no CD scanned, get compressed length from local header.
+    # If no CD scanned, get compressed Size from local header.
     # Zip64 extra field takes priority
     my $cdl = defined $cdEntry
-                ? $cdEntry->compressedLength()
+                ? $cdEntry->compressedSize()
                 : undef;
 
-    $CDcompressedLength = $localEntry->compressedLength ;
-    $CDcompressedLength = $cdl
+    $CDcompressedSize = $localEntry->compressedSize ;
+    $CDcompressedSize = $cdl
         if defined $cdl && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
     my $cdu = defined $CentralDirectory->{byLocalOffset}{$locHeaderOffset}
-                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedLength}
+                ? $CentralDirectory->{byLocalOffset}{$locHeaderOffset}{uncompressedSize}
                 : undef;
-    my $CDuncompressedLength = $localEntry->uncompressedLength ;
+    my $CDuncompressedSize = $localEntry->uncompressedSize ;
 
-    $CDuncompressedLength = $cdu
+    $CDuncompressedSize = $cdu
         if defined $cdu && $gpFlag & ZIP_GP_FLAG_STREAMING_MASK;
 
-    my $fullCompressedLength = $CDcompressedLength;
+    my $fullCompressedSize = $CDcompressedSize;
 
     my $payloadOffset = $FH->tell();
     $localEntry->payloadOffset($payloadOffset) ;
-    $localEntry->offsetEnd($payloadOffset + $fullCompressedLength -1) ;
+    $localEntry->offsetEnd($payloadOffset + $fullCompressedSize -1) ;
 
-    need $CDcompressedLength, 'PAYLOAD'
-        if $CDcompressedLength ;
+    need $CDcompressedSize, 'PAYLOAD'
+        if $CDcompressedSize ;
 
     if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
     {
-        $CDcompressedLength -= printAes($localEntry)
+        $CDcompressedSize -= printAes($localEntry)
     }
     elsif (($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == 0)
     {
@@ -2137,28 +2137,28 @@ sub LocalHeader
             $size = printLzmaProperties()
         }
 
-        $CDcompressedLength -= $size;
+        $CDcompressedSize -= $size;
     }
     elsif ($pk_encrypted)
     {
-        $CDcompressedLength -= DecryptionHeader();
+        $CDcompressedSize -= DecryptionHeader();
     }
 
-    if ($CDcompressedLength) {
+    if ($CDcompressedSize) {
 
-        if ($compressedMethod == 92 && $CDcompressedLength == 20) {
+        if ($compressedMethod == 92 && $CDcompressedSize == 20) {
             # Payload for a Reference is the SHA-1 hash of the uncompressed content
             myRead(my $sha1, 20);
             out $sha1, "PAYLOAD",  "SHA-1 Hash: " . hexDump($sha1);
         }
         elsif ($compressedMethod == 99 && $localEntry->aesValid ) {
-            outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
+            outSomeData($CDcompressedSize, "PAYLOAD", $opt_Redact) ;
             my $auth ;
             myRead($auth, 10);
             out $auth, "AES Auth",  hexDump16($auth);
         }
         else {
-            outSomeData($CDcompressedLength, "PAYLOAD", $opt_Redact) ;
+            outSomeData($CDcompressedSize, "PAYLOAD", $opt_Redact) ;
         }
     }
 
@@ -2174,7 +2174,7 @@ sub LocalHeader
                 'streamed'      => $gpFlag & ZIP_GP_FLAG_STREAMING_MASK,
                 'offset'        => $startRecordOffset,
                 'length'        => $FH->tell() - $startRecordOffset,
-                'payloadLength' => $fullCompressedLength,
+                'payloadLength' => $fullCompressedSize,
                 'payloadOffset' => $payloadOffset,
                 'entry'         => $localEntry,
         } ;
@@ -2412,10 +2412,10 @@ sub CentralHeader
     my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
-    my $compressedLength   = out_V "Compressed Length";
-    my $std_compressedLength   = $compressedLength;
-    my $uncompressedLength = out_V "Uncompressed Length";
-    my $std_uncompressedLength = $uncompressedLength;
+    my $compressedSize   = out_V "Compressed Size";
+    my $std_compressedSize   = $compressedSize;
+    my $uncompressedSize = out_V "Uncompressed Size";
+    my $std_uncompressedSize = $uncompressedSize;
     my $filenameLength     = out_v "Filename Length";
     if ($filenameLength == 0)
     {
@@ -2556,8 +2556,8 @@ sub CentralHeader
 
     $cdEntry->centralHeaderOffset($cdEntryOffset) ;
     $cdEntry->localHeaderOffset($locHeaderOffset) ;
-    $cdEntry->compressedLength($compressedLength) ;
-    $cdEntry->uncompressedLength($uncompressedLength) ;
+    $cdEntry->compressedSize($compressedSize) ;
+    $cdEntry->uncompressedSize($uncompressedSize) ;
     $cdEntry->zip64ExtraPresent(undef) ; #$cdZip64; ### FIX ME
     $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
     $cdEntry->filename($filename) ;
@@ -2570,8 +2570,8 @@ sub CentralHeader
     $cdEntry->inCentralDir(1) ;
 
     $cdEntry->std_localHeaderOffset($std_localHeaderOffset) ;
-    $cdEntry->std_compressedLength($std_compressedLength) ;
-    $cdEntry->std_uncompressedLength($std_uncompressedLength) ;
+    $cdEntry->std_compressedSize($std_compressedSize) ;
+    $cdEntry->std_uncompressedSize($std_uncompressedSize) ;
     $cdEntry->std_diskNumber($std_disk_start) ;
 
     if ($extraLength)
@@ -2696,8 +2696,8 @@ sub Zip64EndCentralHeader
         out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
         info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
             if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
-        out_Q "Compressed Length";
-        out_Q "Uncompressed Length";
+        out_Q "Compressed Size";
+        out_Q "Uncompressed Size";
         out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
         out_v "BitLen";
         out_v "Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
@@ -2926,8 +2926,8 @@ sub DataDescriptor
         return {};
     }
 
-    my $compressedLength;
-    my $uncompressedLength;
+    my $compressedSize;
+    my $uncompressedSize;
 
     my $localEntry = $LocalDirectory->lastStreamedEntryAdded();
     my $centralEntry =  $localEntry && $localEntry->getCdEntry ;
@@ -2957,8 +2957,8 @@ sub DataDescriptor
             error $here, "'$sigName': expected 64-bit values, got 32-bit";
         }
 
-        $compressedLength   = out_V "Compressed Length" ;
-        $uncompressedLength = out_V "Uncompressed Length" ;
+        $compressedSize   = out_V "Compressed Size" ;
+        $uncompressedSize = out_V "Uncompressed Size" ;
     }
     elsif ($deltaToNext == 16 && $cl64 == $payloadLength)
     {
@@ -2967,8 +2967,8 @@ sub DataDescriptor
             error $here, "'$sigName': expected 32-bit values, got 64-bit";
         }
 
-        $compressedLength   = out_Q "Compressed Length" ;
-        $uncompressedLength = out_Q "Uncompressed Length" ;
+        $compressedSize   = out_Q "Compressed Size" ;
+        $uncompressedSize = out_Q "Uncompressed Size" ;
     }
 
     # don't know delta to next header, so use payload lengths
@@ -2979,8 +2979,8 @@ sub DataDescriptor
             error $here, "'$sigName': expected 64-bit values, got 32-bit";
         }
 
-        $compressedLength   = out_V "Compressed Length" ;
-        $uncompressedLength = out_V "Uncompressed Length" ;
+        $compressedSize   = out_V "Compressed Size" ;
+        $uncompressedSize = out_V "Uncompressed Size" ;
     }
     elsif ($cl64 == $payloadLength)
     {
@@ -2989,22 +2989,22 @@ sub DataDescriptor
             error $here, "'$sigName': expected 32-bit values, got 64-bit";
         }
 
-        $compressedLength   = out_Q "Compressed Length" ;
-        $uncompressedLength = out_Q "Uncompressed Length" ;
+        $compressedSize   = out_Q "Compressed Size" ;
+        $uncompressedSize = out_Q "Uncompressed Size" ;
     }
 
     if ($localEntry)
     {
         $localEntry->readDataDescriptor(1) ;
         $localEntry->crc32($crc) ;
-        $localEntry->compressedLength($compressedLength) ;
-        $localEntry->uncompressedLength($uncompressedLength) ;
+        $localEntry->compressedSize($compressedSize) ;
+        $localEntry->uncompressedSize($uncompressedSize) ;
     }
 
     return {
         crc => $crc,
-        compressedLength => $compressedLength,
-        uncompressedLength => $uncompressedLength,
+        compressedSize => $compressedSize,
+        uncompressedSize => $uncompressedSize,
     };
 }
 
@@ -3781,9 +3781,9 @@ sub walk_Zip64_in_LD
     my $assumeLengthsPresent   = (length($zip64Extended) == 16) ;
     my $assumeAllFieldsPresent = (length($zip64Extended) == 28) ;
 
-    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_uncompressedLength )
+    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_uncompressedSize )
     {
-        # TODO defer a warning if in local header & central/local don't have std_uncompressedLengthset to 0xffffffff
+        # TODO defer a warning if in local header & central/local don't have std_uncompressedSizeset to 0xffffffff
         if (length $zip64Extended < 8)
         {
             my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Uncompressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
@@ -3794,12 +3794,12 @@ sub walk_Zip64_in_LD
 
         $fieldOffset += 8;
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->uncompressedLength(unpack "Q<", $data);
-        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedLength)
+        $entry->uncompressedSize(unpack "Q<", $data);
+        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
             if $display;
     }
 
-    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_compressedLength)
+    if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_compressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -3812,8 +3812,8 @@ sub walk_Zip64_in_LD
         $fieldOffset += 8;
 
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->compressedLength( unpack "Q<", $data);
-        out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
+        $entry->compressedSize( unpack "Q<", $data);
+        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
             if $display;
     }
 
@@ -3872,7 +3872,7 @@ sub walk_Zip64_in_CD
 
     my $assumeAllFieldsPresent = (length($zip64Extended) == 28) ;
 
-    if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedLength )
+    if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedSize )
     {
         if (length $zip64Extended < 8)
         {
@@ -3884,12 +3884,12 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->uncompressedLength(unpack "Q<", $data);
-        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedLength)
+        $entry->uncompressedSize(unpack "Q<", $data);
+        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
             if $display;
     }
 
-    if ($assumeAllFieldsPresent || full32 $entry->std_compressedLength)
+    if ($assumeAllFieldsPresent || full32 $entry->std_compressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -3902,8 +3902,8 @@ sub walk_Zip64_in_CD
         $fieldOffset += 8;
 
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->compressedLength(unpack "Q<", $data);
-        out2 $data, "Compressed Size", Value_Q($entry->compressedLength)
+        $entry->compressedSize(unpack "Q<", $data);
+        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
             if $display;
     }
 
@@ -5233,8 +5233,8 @@ sub scanCentralDirectory
         my $gpFlag             = unpack("v", substr($buffer,  8, 2));
         my $lastMod            = unpack("V", substr($buffer, 10, 4));
         my $crc                = unpack("V", substr($buffer, 16, 4));
-        my $compressedLength   = unpack("V", substr($buffer, 20, 4));
-        my $uncompressedLength = unpack("V", substr($buffer, 24, 4));
+        my $compressedSize   = unpack("V", substr($buffer, 20, 4));
+        my $uncompressedSize = unpack("V", substr($buffer, 24, 4));
         my $filename_length    = unpack("v", substr($buffer, 28, 2));
         my $extra_length       = unpack("v", substr($buffer, 30, 2));
         my $comment_length     = unpack("v", substr($buffer, 32, 2));
@@ -5261,8 +5261,8 @@ sub scanCentralDirectory
 
         $cdEntry->centralHeaderOffset($startHeader) ;
         $cdEntry->localHeaderOffset($locHeaderOffset) ;
-        $cdEntry->compressedLength($compressedLength) ;
-        $cdEntry->uncompressedLength($uncompressedLength) ;
+        $cdEntry->compressedSize($compressedSize) ;
+        $cdEntry->uncompressedSize($uncompressedSize) ;
         $cdEntry->extractVersion($extractVer);
         $cdEntry->generalPurposeFlags($gpFlag);
         $cdEntry->filename($filename) ;
@@ -5273,8 +5273,8 @@ sub scanCentralDirectory
         $cdEntry->zip64ExtraPresent($cdZip64) ;
 
         $cdEntry->std_localHeaderOffset($locHeaderOffset) ;
-        $cdEntry->std_compressedLength($compressedLength) ;
-        $cdEntry->std_uncompressedLength($uncompressedLength) ;
+        $cdEntry->std_compressedSize($compressedSize) ;
+        $cdEntry->std_uncompressedSize($uncompressedSize) ;
         $cdEntry->std_diskNumber($diskNumber) ;
 
 
@@ -5843,8 +5843,8 @@ sub nibbles
                         'compressedMethod'      => 0,
                         'lastModDateTime'       => 0,
                         'crc32'                 => 0,
-                        'compressedLength'      => 0,
-                        'uncompressedLength'    => 0,
+                        'compressedSize'      => 0,
+                        'uncompressedSize'    => 0,
                         'filename'              => '',
 
                         # inferred data
@@ -5856,15 +5856,15 @@ sub nibbles
                         'payloadOffset'         => 0,
 
                         # zip64 extra
-                        'zip64_compressedLength'    => undef,
-                        'zip64_uncompressedLength'  => undef,
+                        'zip64_compressedSize'    => undef,
+                        'zip64_uncompressedSize'  => undef,
                         'zip64_localHeaderOffset'   => undef,
                         'zip64_diskNumber'          => undef,
                         'zip64_diskNumberPresent'   => 0,
 
                         # Values direct from the header before merging any Zip64 values
-                        'std_compressedLength'    => undef,
-                        'std_uncompressedLength'  => undef,
+                        'std_compressedSize'    => undef,
+                        'std_uncompressedSize'  => undef,
                         'std_localHeaderOffset'   => undef,
                         'std_diskNumber'          => undef,
 
@@ -6194,7 +6194,7 @@ sub nibbles
 
         my $existingEntry = $self->{byName}{$filename} ;
 
-        my $endSurfaceArea = $payloadOffset + ($localEntry->compressedLength //0)  ;
+        my $endSurfaceArea = $payloadOffset + ($localEntry->compressedSize //0)  ;
 
         if ($existingEntry)
         {

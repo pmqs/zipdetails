@@ -9,8 +9,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 34 71 21 56 Last Mod Date/Time    56217134 (1445032244) 'Sun Jan  1 14:09:40 2023'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 00 00 00 00 Compressed Length     00000000 (0)
-0016 0019 0004 72 07 00 00 Uncompressed Length   00000772 (1906)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 72 07 00 00 Uncompressed Size     00000772 (1906)
 001A 001B 0002 08 00       Filename Length       0008 (8)
 001C 001D 0002 DC 06       Extra Length          06DC (1756)
 001E 0025 0008 5F 5F 63 64 Filename              '__cdcd__'
@@ -462,8 +462,8 @@
 
 0C85 0C88 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 0C89 0C8C 0004 9E CE DF 9F CRC                   9FDFCE9E (2682244766)
-0C8D 0C90 0004 83 05 00 00 Compressed Length     00000583 (1411)
-0C91 0C94 0004 72 07 00 00 Uncompressed Length   00000772 (1906)
+0C8D 0C90 0004 83 05 00 00 Compressed Size       00000583 (1411)
+0C91 0C94 0004 72 07 00 00 Uncompressed Size     00000772 (1906)
 
 0C95 0C98 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 0C99 0C99 0001 3F          Created Zip Spec      3F (63) '6.3'
@@ -477,8 +477,8 @@
 0C9F 0CA0 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0CA1 0CA4 0004 34 71 21 56 Last Mod Date/Time    56217134 (1445032244) 'Sun Jan  1 14:09:40 2023'
 0CA5 0CA8 0004 9E CE DF 9F CRC                   9FDFCE9E (2682244766)
-0CA9 0CAC 0004 83 05 00 00 Compressed Length     00000583 (1411)
-0CAD 0CB0 0004 72 07 00 00 Uncompressed Length   00000772 (1906)
+0CA9 0CAC 0004 83 05 00 00 Compressed Size       00000583 (1411)
+0CAD 0CB0 0004 72 07 00 00 Uncompressed Size     00000772 (1906)
 0CB1 0CB2 0002 08 00       Filename Length       0008 (8)
 0CB3 0CB4 0002 DC 06       Extra Length          06DC (1756)
 0CB5 0CB6 0002 00 00       Comment Length        0000 (0)

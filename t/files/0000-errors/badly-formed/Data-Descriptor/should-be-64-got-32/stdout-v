@@ -8,8 +8,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 A4 82 97 55 Last Mod Date/Time    559782A4 (1435992740) 'Fri Dec 23 16:21:08 2022'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 FF FF FF FF Compressed Length     FFFFFFFF (4294967295)
-0016 0019 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
+0012 0015 0004 FF FF FF FF Compressed Size       FFFFFFFF (4294967295)
+0016 0019 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 14 00       Extra Length          0014 (20)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -28,8 +28,8 @@
 #
 # ERROR: Offset 0x14D: 'DATA DESCRIPTOR': expected 64-bit values, got 32-bit
 #
-0151 0154 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0155 0158 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0151 0154 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0155 0158 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 
 0159 015C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 015D 015D 0001 2D          Created Zip Spec      2D (45) '4.5'
@@ -42,8 +42,8 @@
 0163 0164 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0165 0168 0004 A4 82 97 55 Last Mod Date/Time    559782A4 (1435992740) 'Fri Dec 23 16:21:08 2022'
 0169 016C 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-016D 0170 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0171 0174 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+016D 0170 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0171 0174 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0175 0176 0002 09 00       Filename Length       0009 (9)
 0177 0178 0002 00 00       Extra Length          0000 (0)
 0179 017A 0002 00 00       Comment Length        0000 (0)

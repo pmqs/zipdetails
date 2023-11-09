@@ -10,8 +10,8 @@
 0008 Compression Method    0063 (99) 'AES Encryption'
 000A Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0003 (3)
 001C Extra Length          000B (11)
 001E Filename              '0_0'
@@ -28,8 +28,8 @@
 
 0206 DATA DESCRIPTOR       08074B50 (134695760)
 020A CRC                   00000000 (0)
-020E Compressed Length     000001DA (474)
-0212 Uncompressed Length   00000000 (0)
+020E Compressed Size       000001DA (474)
+0212 Uncompressed Size     00000000 (0)
 
 0216 LOCAL HEADER #2       04034B50 (67324752)
 021A Extract Zip Spec      14 (20) '2.0'
@@ -41,8 +41,8 @@
 021E Compression Method    0000 (0) 'Stored'
 0220 Last Mod Date/Time    559DBE2F (1436401199) 'Thu Dec 29 23:49:30 2022'
 0224 CRC                   00000000 (0)
-0228 Compressed Length     00000000 (0)
-022C Uncompressed Length   0000006A (106)
+0228 Compressed Size       00000000 (0)
+022C Uncompressed Size     0000006A (106)
 0230 Filename Length       0008 (8)
 0232 Extra Length          000C (12)
 0234 Filename              '__cdcd__'
@@ -53,8 +53,8 @@
 
 02BE DATA DESCRIPTOR       08074B50 (134695760)
 02C2 CRC                   9DE114AE (2648773806)
-02C6 Compressed Length     00000076 (118)
-02CA Uncompressed Length   0000006A (106)
+02C6 Compressed Size       00000076 (118)
+02CA Uncompressed Size     0000006A (106)
 
 02CE CENTRAL HEADER #1     02014B50 (33639248)
 02D2 Created Zip Spec      3F (63) '6.3'
@@ -68,8 +68,8 @@
 02D8 Compression Method    0000 (0) 'Stored'
 02DA Last Mod Date/Time    559DBE2F (1436401199) 'Thu Dec 29 23:49:30 2022'
 02DE CRC                   9DE114AE (2648773806)
-02E2 Compressed Length     00000076 (118)
-02E6 Uncompressed Length   0000006A (106)
+02E2 Compressed Size       00000076 (118)
+02E6 Uncompressed Size     0000006A (106)
 02EA Filename Length       0008 (8)
 02EC Extra Length          0034 (52)
 02EE Comment Length        0000 (0)

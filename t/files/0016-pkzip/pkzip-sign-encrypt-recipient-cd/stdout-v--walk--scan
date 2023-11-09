@@ -11,8 +11,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 86 06 00 00 Compressed Length     00000686 (1670)
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0012 0015 0004 86 06 00 00 Compressed Size       00000686 (1670)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 001A 001B 0002 01 00       Filename Length       0001 (1)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 001E 0001 31          Filename              '1'
@@ -388,8 +388,8 @@
 06AD 06AE 0002 08 00       Compression Method    0008 (8) 'Deflated'
 06AF 06B2 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 06B3 06B6 0004 00 00 00 00 CRC                   00000000 (0)
-06B7 06BA 0004 96 06 00 00 Compressed Length     00000696 (1686)
-06BB 06BE 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+06B7 06BA 0004 96 06 00 00 Compressed Size       00000696 (1686)
+06BB 06BE 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 06BF 06C0 0002 01 00       Filename Length       0001 (1)
 06C1 06C2 0002 00 00       Extra Length          0000 (0)
 06C3 06C3 0001 32          Filename              '2'
@@ -1280,9 +1280,9 @@
 27DF 27E6 0008 5A 0D 00 00 Offset to Central dir 0000000000000D5A (3418)
                00 00 00 00
 27E7 27E8 0002 08 00       Compression Method    0008 (8) 'Deflated'
-27E9 27F0 0008 16 18 00 00 Compressed Length     0000000000001816 (6166)
+27E9 27F0 0008 16 18 00 00 Compressed Size       0000000000001816 (6166)
                00 00 00 00
-27F1 27F8 0008 02 15 00 00 Uncompressed Length   0000000000001502 (5378)
+27F1 27F8 0008 02 15 00 00 Uncompressed Size     0000000000001502 (5378)
                00 00 00 00
 27F9 27FA 0002 10 66       AlgId                 6610 (26128) 'AES 256'
 27FB 27FC 0002 00 01       BitLen                0100 (256)

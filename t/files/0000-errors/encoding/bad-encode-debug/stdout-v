@@ -13,8 +13,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 61 59 67 56 Last Mod Date/Time    56675961 (1449613665) 'Tue Mar  7 11:11:02 2023'
 000E 0011 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
-0012 0015 0004 06 00 00 00 Compressed Length     00000006 (6)
-0016 0019 0004 04 00 00 00 Uncompressed Length   00000004 (4)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 04 00 00 00 Uncompressed Size     00000004 (4)
 001A 001B 0002 02 00       Filename Length       0002 (2)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 #
@@ -40,8 +40,8 @@
 0030 0031 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0032 0035 0004 61 59 67 56 Last Mod Date/Time    56675961 (1449613665) 'Tue Mar  7 11:11:02 2023'
 0036 0039 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
-003A 003D 0004 06 00 00 00 Compressed Length     00000006 (6)
-003E 0041 0004 04 00 00 00 Uncompressed Length   00000004 (4)
+003A 003D 0004 06 00 00 00 Compressed Size       00000006 (6)
+003E 0041 0004 04 00 00 00 Uncompressed Size     00000004 (4)
 0042 0043 0002 02 00       Filename Length       0002 (2)
 0044 0045 0002 00 00       Extra Length          0000 (0)
 0046 0047 0002 00 00       Comment Length        0000 (0)

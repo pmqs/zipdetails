@@ -8,8 +8,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    559453CF (1435784143) 'Tue Dec 20 10:30:30 2022'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000000 (0)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0009 (9)
 001C Extra Length          0000 (0)
 001E Filename              'lorem.txt'
@@ -21,8 +21,8 @@
 # ERROR: Offset 0x135: Missimg DATA DESCRIPTOR Signature
 #
 0135 CRC                   F90EE7FF (4178503679)
-0139 Compressed Length     000000000000010E (270)
-0141 Uncompressed Length   00000000000001BE (446)
+0139 Compressed Size       000000000000010E (270)
+0141 Uncompressed Size     00000000000001BE (446)
 #
 # ERROR: Offset 0x135: 'DATA DESCRIPTOR': expected 32-bit values, got 64-bit
 #
@@ -38,8 +38,8 @@
 0153 Compression Method    0008 (8) 'Deflated'
 0155 Last Mod Date/Time    559453CF (1435784143) 'Tue Dec 20 10:30:30 2022'
 0159 CRC                   F90EE7FF (4178503679)
-015D Compressed Length     0000010E (270)
-0161 Uncompressed Length   000001BE (446)
+015D Compressed Size       0000010E (270)
+0161 Uncompressed Size     000001BE (446)
 0165 Filename Length       0009 (9)
 0167 Extra Length          0000 (0)
 0169 Comment Length        0000 (0)

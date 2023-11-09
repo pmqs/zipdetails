@@ -7,8 +7,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 08 02 00 00 Compressed Length     00000208 (520)
-0016 0019 0004 08 02 00 00 Uncompressed Length   00000208 (520)
+0012 0015 0004 08 02 00 00 Compressed Size       00000208 (520)
+0016 0019 0004 08 02 00 00 Uncompressed Size     00000208 (520)
 001A 001B 0002 0A 00       Filename Length       000A (10)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0027 000A 69 6E 6E 65 Filename              'inner2.zip'
@@ -24,8 +24,8 @@
 0030 0031 0002 00 00       Compression Method    0000 (0) 'Stored'
 0032 0035 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 0036 0039 0004 00 00 00 00 CRC                   00000000 (0)
-003A 003D 0004 82 01 00 00 Compressed Length     00000182 (386)
-003E 0041 0004 82 01 00 00 Uncompressed Length   00000182 (386)
+003A 003D 0004 82 01 00 00 Compressed Size       00000182 (386)
+003E 0041 0004 82 01 00 00 Uncompressed Size     00000182 (386)
 0042 0043 0002 0A 00       Filename Length       000A (10)
 0044 0045 0002 00 00       Extra Length          0000 (0)
 0046 004F 000A 69 6E 6E 65 Filename              'inner1.zip'
@@ -41,8 +41,8 @@
 0058 0059 0002 08 00       Compression Method    0008 (8) 'Deflated'
 005A 005D 0004 22 79 89 55 Last Mod Date/Time    55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
 005E 0061 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0062 0065 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0066 0069 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0062 0065 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0066 0069 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 006A 006B 0002 09 00       Filename Length       0009 (9)
 006C 006D 0002 00 00       Extra Length          0000 (0)
 006E 0076 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -60,8 +60,8 @@
 018F 0190 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0191 0194 0004 22 79 89 55 Last Mod Date/Time    55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
 0195 0198 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0199 019C 0004 0E 01 00 00 Compressed Length     0000010E (270)
-019D 01A0 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0199 019C 0004 0E 01 00 00 Compressed Size       0000010E (270)
+019D 01A0 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 01A1 01A2 0002 09 00       Filename Length       0009 (9)
 01A3 01A4 0002 00 00       Extra Length          0000 (0)
 01A5 01A6 0002 00 00       Comment Length        0000 (0)
@@ -106,8 +106,8 @@
 01EC 01ED 0002 00 00       Compression Method    0000 (0) 'Stored'
 01EE 01F1 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 01F2 01F5 0004 D6 65 51 91 CRC                   915165D6 (2438030806)
-01F6 01F9 0004 82 01 00 00 Compressed Length     00000182 (386)
-01FA 01FD 0004 82 01 00 00 Uncompressed Length   00000182 (386)
+01F6 01F9 0004 82 01 00 00 Compressed Size       00000182 (386)
+01FA 01FD 0004 82 01 00 00 Uncompressed Size     00000182 (386)
 01FE 01FF 0002 0A 00       Filename Length       000A (10)
 0200 0201 0002 00 00       Extra Length          0000 (0)
 0202 0203 0002 00 00       Comment Length        0000 (0)
@@ -150,8 +150,8 @@
 024A 024B 0002 00 00       Compression Method    0000 (0) 'Stored'
 024C 024F 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 0250 0253 0004 39 61 23 B0 CRC                   B0236139 (2955108665)
-0254 0257 0004 08 02 00 00 Compressed Length     00000208 (520)
-0258 025B 0004 08 02 00 00 Uncompressed Length   00000208 (520)
+0254 0257 0004 08 02 00 00 Compressed Size       00000208 (520)
+0258 025B 0004 08 02 00 00 Uncompressed Size     00000208 (520)
 025C 025D 0002 0A 00       Filename Length       000A (10)
 025E 025F 0002 00 00       Extra Length          0000 (0)
 0260 0261 0002 00 00       Comment Length        0000 (0)

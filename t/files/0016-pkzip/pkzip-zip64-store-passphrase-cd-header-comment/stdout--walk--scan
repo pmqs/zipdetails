@@ -11,8 +11,8 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000246 (582)
-0016 Uncompressed Length   00000000 (0)
+0012 Compressed Size       00000246 (582)
+0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0001 (1)
 001C Extra Length          0000 (0)
 001E Filename              '1'
@@ -61,8 +61,8 @@
 026D Compression Method    0008 (8) 'Deflated'
 026F Last Mod Date/Time    00000000 (0) 'No Date/Time'
 0273 CRC                   00000000 (0)
-0277 Compressed Length     00000256 (598)
-027B Uncompressed Length   00000000 (0)
+0277 Compressed Size       00000256 (598)
+027B Uncompressed Size     00000000 (0)
 027F Filename Length       0001 (1)
 0281 Extra Length          0000 (0)
 0283 Filename              '2'
@@ -147,8 +147,8 @@
 06D8 Size of Central Dir   00000000000001D6 (470)
 06E0 Offset to Central dir 00000000000004DA (1242)
 06E8 Compression Method    0008 (8) 'Deflated'
-06EA Compressed Length     00000000000001D6 (470)
-06F2 Uncompressed Length   00000000000000D7 (215)
+06EA Compressed Size       00000000000001D6 (470)
+06F2 Uncompressed Size     00000000000000D7 (215)
 06FA AlgId                 6610 (26128) 'AES 256'
 06FC BitLen                0100 (256)
 06FE Flags                 0001 (1) 'Password required to decrypt'

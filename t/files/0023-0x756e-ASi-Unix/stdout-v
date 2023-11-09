@@ -9,8 +9,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 E1 85 5C 4C Last Mod Date/Time    4C5C85E1 (1281132001) 'Wed Feb 28 16:47:02 2018'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 00 00 00 00 Compressed Length     00000000 (0)
-0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 001A 001B 0002 10 00       Filename Length       0010 (16)
 001C 001D 0002 12 00       Extra Length          0012 (18)
 001E 002D 0010 E8 AF 81 E6 Filename              '证明及协议/'
@@ -30,8 +30,8 @@
 
 0042 0045 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 0046 0049 0004 00 00 00 00 CRC                   00000000 (0)
-004A 004D 0004 02 00 00 00 Compressed Length     00000002 (2)
-004E 0051 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+004A 004D 0004 02 00 00 00 Compressed Size       00000002 (2)
+004E 0051 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 
 0052 0055 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
 0056 0056 0001 14          Extract Zip Spec      14 (20) '2.0'
@@ -43,8 +43,8 @@
 005A 005B 0002 08 00       Compression Method    0008 (8) 'Deflated'
 005C 005F 0004 5B 84 5C 4C Last Mod Date/Time    4C5C845B (1281131611) 'Wed Feb 28 16:34:54 2018'
 0060 0063 0004 00 00 00 00 CRC                   00000000 (0)
-0064 0067 0004 00 00 00 00 Compressed Length     00000000 (0)
-0068 006B 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0064 0067 0004 00 00 00 00 Compressed Size       00000000 (0)
+0068 006B 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 006C 006D 0002 18 00       Filename Length       0018 (24)
 006E 006F 0002 12 00       Extra Length          0012 (18)
 0070 0087 0018 E8 AF 81 E6 Filename              '证明及协议/file.jpg'
@@ -66,8 +66,8 @@
 
 009C 009F 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 00A0 00A3 0004 00 00 00 00 CRC                   00000000 (0)
-00A4 00A7 0004 02 00 00 00 Compressed Length     00000002 (2)
-00A8 00AB 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+00A4 00A7 0004 02 00 00 00 Compressed Size       00000002 (2)
+00A8 00AB 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 
 00AC 00AF 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 00B0 00B0 0001 14          Created Zip Spec      14 (20) '2.0'
@@ -81,8 +81,8 @@
 00B6 00B7 0002 08 00       Compression Method    0008 (8) 'Deflated'
 00B8 00BB 0004 E1 85 5C 4C Last Mod Date/Time    4C5C85E1 (1281132001) 'Wed Feb 28 16:47:02 2018'
 00BC 00BF 0004 00 00 00 00 CRC                   00000000 (0)
-00C0 00C3 0004 02 00 00 00 Compressed Length     00000002 (2)
-00C4 00C7 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+00C0 00C3 0004 02 00 00 00 Compressed Size       00000002 (2)
+00C4 00C7 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 00C8 00C9 0002 10 00       Filename Length       0010 (16)
 00CA 00CB 0002 12 00       Extra Length          0012 (18)
 00CC 00CD 0002 00 00       Comment Length        0000 (0)
@@ -117,8 +117,8 @@
 0106 0107 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0108 010B 0004 5B 84 5C 4C Last Mod Date/Time    4C5C845B (1281131611) 'Wed Feb 28 16:34:54 2018'
 010C 010F 0004 00 00 00 00 CRC                   00000000 (0)
-0110 0113 0004 02 00 00 00 Compressed Length     00000002 (2)
-0114 0117 0004 00 00 00 00 Uncompressed Length   00000000 (0)
+0110 0113 0004 02 00 00 00 Compressed Size       00000002 (2)
+0114 0117 0004 00 00 00 00 Uncompressed Size     00000000 (0)
 0118 0119 0002 18 00       Filename Length       0018 (24)
 011A 011B 0002 12 00       Extra Length          0012 (18)
 011C 011D 0002 00 00       Comment Length        0000 (0)

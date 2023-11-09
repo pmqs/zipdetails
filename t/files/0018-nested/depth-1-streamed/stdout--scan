@@ -7,8 +7,8 @@
 0008 Compression Method    0000 (0) 'Stored'
 000A Last Mod Date/Time    5588B810 (1435023376) 'Thu Dec  8 23:00:32 2022'
 000E CRC                   00000000 (0)
-0012 Compressed Length     00000182 (386)
-0016 Uncompressed Length   00000182 (386)
+0012 Compressed Size       00000182 (386)
+0016 Uncompressed Size     00000182 (386)
 001A Filename Length       0009 (9)
 001C Extra Length          0000 (0)
 001E Filename              'inner.zip'
@@ -22,8 +22,8 @@
 002F Compression Method    0008 (8) 'Deflated'
 0031 Last Mod Date/Time    5588B75B (1435023195) 'Thu Dec  8 22:58:54 2022'
 0035 CRC                   F90EE7FF (4178503679)
-0039 Compressed Length     0000010E (270)
-003D Uncompressed Length   000001BE (446)
+0039 Compressed Size       0000010E (270)
+003D Uncompressed Size     000001BE (446)
 0041 Filename Length       0009 (9)
 0043 Extra Length          0000 (0)
 0045 Filename              'lorem.txt'
@@ -39,8 +39,8 @@
 0166 Compression Method    0008 (8) 'Deflated'
 0168 Last Mod Date/Time    5588B75B (1435023195) 'Thu Dec  8 22:58:54 2022'
 016C CRC                   F90EE7FF (4178503679)
-0170 Compressed Length     0000010E (270)
-0174 Uncompressed Length   000001BE (446)
+0170 Compressed Size       0000010E (270)
+0174 Uncompressed Size     000001BE (446)
 0178 Filename Length       0009 (9)
 017A Extra Length          0000 (0)
 017C Comment Length        0000 (0)
@@ -64,8 +64,8 @@
 
 01A9 DATA DESCRIPTOR       08074B50 (134695760)
 01AD CRC                   B66D985D (3060635741)
-01B1 Compressed Length     00000182 (386)
-01B5 Uncompressed Length   00000182 (386)
+01B1 Compressed Size       00000182 (386)
+01B5 Uncompressed Size     00000182 (386)
 
 01B9 CENTRAL HEADER #2     02014B50 (33639248)
 01BD Created Zip Spec      1E (30) '3.0'
@@ -77,8 +77,8 @@
 01C3 Compression Method    0000 (0) 'Stored'
 01C5 Last Mod Date/Time    5588B810 (1435023376) 'Thu Dec  8 23:00:32 2022'
 01C9 CRC                   B66D985D (3060635741)
-01CD Compressed Length     00000182 (386)
-01D1 Uncompressed Length   00000182 (386)
+01CD Compressed Size       00000182 (386)
+01D1 Uncompressed Size     00000182 (386)
 01D5 Filename Length       0009 (9)
 01D7 Extra Length          0000 (0)
 01D9 Comment Length        0000 (0)

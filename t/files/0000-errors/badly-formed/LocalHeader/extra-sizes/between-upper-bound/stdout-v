@@ -6,8 +6,8 @@
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 000A 000D 0004 ED 5B 5C 55 Last Mod Date/Time    555C5BED (1432116205) 'Fri Oct 28 11:31:26 2022'
 000E 0011 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
-0012 0015 0004 05 00 00 00 Compressed Length     00000005 (5)
-0016 0019 0004 05 00 00 00 Uncompressed Length   00000005 (5)
+0012 0015 0004 05 00 00 00 Compressed Size       00000005 (5)
+0016 0019 0004 05 00 00 00 Uncompressed Size     00000005 (5)
 001A 001B 0002 08 00       Filename Length       0008 (8)
 001C 001D 0002 12 00       Extra Length          0012 (18)
 001E 0025 0008 66 69 6C 65 Filename              'filename'
@@ -33,8 +33,8 @@
 0047 0048 0002 00 00       Compression Method    0000 (0) 'Stored'
 0049 004C 0004 ED 5B 5C 55 Last Mod Date/Time    555C5BED (1432116205) 'Fri Oct 28 11:31:26 2022'
 004D 0050 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
-0051 0054 0004 05 00 00 00 Compressed Length     00000005 (5)
-0055 0058 0004 05 00 00 00 Uncompressed Length   00000005 (5)
+0051 0054 0004 05 00 00 00 Compressed Size       00000005 (5)
+0055 0058 0004 05 00 00 00 Uncompressed Size     00000005 (5)
 0059 005A 0002 08 00       Filename Length       0008 (8)
 005B 005C 0002 00 00       Extra Length          0000 (0)
 005D 005E 0002 00 00       Comment Length        0000 (0)

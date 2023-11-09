@@ -10,8 +10,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 D3 78 F6 54 Last Mod Date/Time    54F678D3 (1425438931) 'Fri Jul 22 15:06:38 2022'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 86 06 00 00 Compressed Length     00000686 (1670)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 86 06 00 00 Compressed Size       00000686 (1670)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -388,8 +388,8 @@
 06B5 06B6 0002 08 00       Compression Method    0008 (8) 'Deflated'
 06B7 06BA 0004 A5 6E FD 54 Last Mod Date/Time    54FD6EA5 (1425895077) 'Fri Jul 29 13:53:10 2022'
 06BB 06BE 0004 3C C8 F5 41 CRC                   41F5C83C (1106626620)
-06BF 06C2 0004 96 06 00 00 Compressed Length     00000696 (1686)
-06C3 06C6 0004 BF 01 00 00 Uncompressed Length   000001BF (447)
+06BF 06C2 0004 96 06 00 00 Compressed Size       00000696 (1686)
+06C3 06C6 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
 06C7 06C8 0002 0A 00       Filename Length       000A (10)
 06C9 06CA 0002 00 00       Extra Length          0000 (0)
 06CB 06D4 000A 6C 6F 72 65 Filename              'lorem2.txt'
@@ -768,8 +768,8 @@
 0D75 0D76 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0D77 0D7A 0004 D3 78 F6 54 Last Mod Date/Time    54F678D3 (1425438931) 'Fri Jul 22 15:06:38 2022'
 0D7B 0D7E 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0D7F 0D82 0004 86 06 00 00 Compressed Length     00000686 (1670)
-0D83 0D86 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0D7F 0D82 0004 86 06 00 00 Compressed Size       00000686 (1670)
+0D83 0D86 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0D87 0D88 0002 09 00       Filename Length       0009 (9)
 0D89 0D8A 0002 60 00       Extra Length          0060 (96)
 0D8B 0D8C 0002 00 00       Comment Length        0000 (0)
@@ -826,8 +826,8 @@
 0E0C 0E0D 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0E0E 0E11 0004 A5 6E FD 54 Last Mod Date/Time    54FD6EA5 (1425895077) 'Fri Jul 29 13:53:10 2022'
 0E12 0E15 0004 3C C8 F5 41 CRC                   41F5C83C (1106626620)
-0E16 0E19 0004 96 06 00 00 Compressed Length     00000696 (1686)
-0E1A 0E1D 0004 BF 01 00 00 Uncompressed Length   000001BF (447)
+0E16 0E19 0004 96 06 00 00 Compressed Size       00000696 (1686)
+0E1A 0E1D 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
 0E1E 0E1F 0002 0A 00       Filename Length       000A (10)
 0E20 0E21 0002 60 00       Extra Length          0060 (96)
 0E22 0E23 0002 00 00       Comment Length        0000 (0)

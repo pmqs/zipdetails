@@ -7,8 +7,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 F5 54 28 55 Last Mod Date/Time    552854F5 (1428706549) 'Thu Sep  8 10:39:42 2022'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 0A 01 00 00 Compressed Length     0000010A (266)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 0A 01 00 00 Compressed Size       0000010A (266)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 08 00       Filename Length       0008 (8)
 001C 001D 0002 12 00       Extra Length          0012 (18)
 001E 0025 0008 43 61 66 82 Filename              'Café.txt'
@@ -32,8 +32,8 @@
 014C 014D 0002 08 00       Compression Method    0008 (8) 'Deflated'
 014E 0151 0004 F5 54 28 55 Last Mod Date/Time    552854F5 (1428706549) 'Thu Sep  8 10:39:42 2022'
 0152 0155 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0156 0159 0004 0A 01 00 00 Compressed Length     0000010A (266)
-015A 015D 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0156 0159 0004 0A 01 00 00 Compressed Size       0000010A (266)
+015A 015D 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 015E 015F 0002 08 00       Filename Length       0008 (8)
 0160 0161 0002 20 00       Extra Length          0020 (32)
 0162 0163 0002 04 00       Comment Length        0004 (4)

@@ -7,8 +7,8 @@
 0008 0009 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 000A 000D 0004 15 9E 89 52 Last Mod Date/Time    52899E15 (1384750613) 'Fri Apr  9 19:48:42 2021'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
-0012 0015 0004 26 01 00 00 Compressed Length     00000126 (294)
-0016 0019 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+0012 0015 0004 26 01 00 00 Compressed Size       00000126 (294)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 0B 00       Extra Length          000B (11)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -40,8 +40,8 @@
 0162 0163 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 0164 0167 0004 15 9E 89 52 Last Mod Date/Time    52899E15 (1384750613) 'Fri Apr  9 19:48:42 2021'
 0168 016B 0004 00 00 00 00 CRC                   00000000 (0)
-016C 016F 0004 26 01 00 00 Compressed Length     00000126 (294)
-0170 0173 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+016C 016F 0004 26 01 00 00 Compressed Size       00000126 (294)
+0170 0173 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0174 0175 0002 09 00       Filename Length       0009 (9)
 0176 0177 0002 2F 00       Extra Length          002F (47)
 0178 0179 0002 00 00       Comment Length        0000 (0)

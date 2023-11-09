@@ -7,8 +7,8 @@
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
 000A 000D 0004 40 8B 81 55 Last Mod Date/Time    55818B40 (1434553152) 'Thu Dec  1 17:26:00 2022'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-0012 0015 0004 FF FF FF FF Compressed Length     FFFFFFFF (4294967295)
-0016 0019 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
+0012 0015 0004 FF FF FF FF Compressed Size       FFFFFFFF (4294967295)
+0016 0019 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
 001A 001B 0002 09 00       Filename Length       0009 (9)
 001C 001D 0002 14 00       Extra Length          0014 (20)
 001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
@@ -32,8 +32,8 @@
 0153 0154 0002 08 00       Compression Method    0008 (8) 'Deflated'
 0155 0158 0004 40 8B 81 55 Last Mod Date/Time    55818B40 (1434553152) 'Thu Dec  1 17:26:00 2022'
 0159 015C 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
-015D 0160 0004 0E 01 00 00 Compressed Length     0000010E (270)
-0161 0164 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
+015D 0160 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0161 0164 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
 0165 0166 0002 09 00       Filename Length       0009 (9)
 0167 0168 0002 0C 00       Extra Length          000C (12)
 0169 016A 0002 00 00       Comment Length        0000 (0)
