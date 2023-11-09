@@ -1691,25 +1691,57 @@ sub dislayMessages
         {
             for my $centralEntry ( sort { $a->centralHeaderOffset() <=> $b->centralHeaderOffset() } values %cleanCentralEntries )
             {
-                my $localEntry = $LocalDirectory->getByLocalOffset($centralEntry->localHeaderOffset);
+                my $localOffset = $centralEntry->localHeaderOffset;
+                my $localEntry = $LocalDirectory->getByLocalOffset($localOffset);
 
                 next
                     unless $localEntry;
 
-                if ($localEntry->filename ne $centralEntry->filename)
+                state $fields = [
+                    # field name         offset    display name         stringify
+                    ['filename',            46, 'Filename',             undef, ],
+                    ['extractVersion',       7, 'Extract Zip Spec',     sub { decimalHex0x($_[0]) . " " . decodeZipVer($_[0]) }, ],
+                    ['generalPurposeFlags',  8, 'General Purpose Flag', \&decimalHex0x, ],
+                    ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0x($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
+                    ['lastModDateTime',     12, 'Last Mod Date/Time',   sub { decimalHex0x($_[0]) . " " . LastModTime($_[0]) }, ],
+                    ['crc32',               16, 'CRC32',                \&decimalHex0x, ],
+                    ['compressedLength',    20, 'Compressed Length',    \&decimalHex0x, ],
+                    ['uncompressedLength',  24, 'Compressed Length',    \&decimalHex0x, ],
+
+                ] ;
+
+                my $table = new SimpleTable;
+                $table->addHeaderRow('Field ', 'Central', 'Central', 'Local', 'Local');
+                $table->addHeaderRow('Name', 'Offset', 'Value', 'Offset', 'Value');
+
+                for my $data (@$fields)
                 {
-                    error $centralEntry->centralHeaderOffset(), "'filename' mismatch: Central Header has '" . $centralEntry->filename . "', Local Directory has '" . $localEntry->filename . "'"
+                    my ($field, $offset, $name, $stringify) = @$data;
+                    # if the local header uses streaming and we are running a scan/walk, the compressed/uncompressed sizes will not be known
+                    my $localValue = $localEntry->{$field} ;
+                    my $centralValue = $centralEntry->{$field};
+
+                    if ($localValue ne $centralValue)
+                    {
+                        if ($stringify)
+                        {
+                            $localValue = $stringify->($localValue);
+                            $centralValue = $stringify->($centralValue);
+                        }
+
+                        $table->addDataRow($name,
+                                            decimalHex0x($centralEntry->centralHeaderOffset() + $offset),
+                                            $centralValue,
+                                            decimalHex0x($localOffset+$offset),
+                                            $localValue);
+                    }
                 }
 
-                # TODO - add method etc
-                for my $field (qw(extractVersion generalPurposeFlags compressedMethod lastModDateTime crc32 compressedLength uncompressedLength) )
+                my $badFields = $table->hasData;
+                if ($badFields)
                 {
-                    # if the local header usaes streaming and we are running a scan/walk, the compressed/uncompressed sizes will not be known
-                    my $localValue = $localEntry->{$field} // "Unknown Value";
-                    if ($localValue ne $centralEntry->{$field})
-                    {
-                        warning $centralEntry->centralHeaderOffset(), "Filename '" . $centralEntry->filename . "': '$field' field mismatch': Central Header has '$centralEntry->{$field}', Local Directory has '$localValue'"
-                    }
+                    error undef, "Found $badFields Field Mismatch for Filename '". $centralEntry->filename . "'";
+                    $table->display();
                 }
             }
         }
@@ -1927,10 +1959,16 @@ sub BadlyFormedDataDescriptor
     return 0;
 }
 
+sub getcompressionMethodName
+{
+    my $id = shift ;
+    " '" . ($ZIP_CompressionMethods{$id} || "Unknown Method") . "'" ;
+}
+
 sub compressionMethod
 {
     my $id = shift ;
-    Value_v($id) . " '" . ($ZIP_CompressionMethods{$id} || "Unknown Method") . "'" ;
+    Value_v($id) . getcompressionMethodName($id);
 }
 
 sub LocalHeader
@@ -6698,6 +6736,108 @@ sub displayFileInfo
     sub getEntriesByOffset
     {
         return \%offset2entry ;
+    }
+}
+
+{
+    package SimpleTable ;
+
+    use List::Util qw(max sum);
+
+    sub new
+    {
+        my $class = shift;
+
+        my %object = (
+            header => [],
+            data   => [],
+            columns   => 0,
+            prefix => '#  ',
+        );
+        bless \%object, $class;
+    }
+
+    sub addHeaderRow
+    {
+        my $self = shift;
+        push @{ $self->{header} }, [ @_ ] ;
+        $self->{columns} = max($self->{columns}, scalar @_ ) ;
+    }
+
+    sub addDataRow
+    {
+        my $self = shift;
+
+        push @{ $self->{data} }, [ @_ ] ;
+        $self->{columns} = max($self->{columns}, scalar @_ ) ;
+    }
+
+    sub hasData
+    {
+        my $self = shift;
+
+        return scalar @{ $self->{data} } ;
+    }
+
+    sub display
+    {
+        my $self = shift;
+
+        # work out the column widths
+        my @colW = (0) x $self->{columns} ;
+        for my $row (@{ $self->{data} }, @{ $self->{header} })
+        {
+            my @r = @$row;
+            for my $ix (0 .. $self->{columns} -1)
+            {
+                $colW[$ix] = max($colW[$ix],
+                                3 + length( $r[$ix] )
+                                );
+            }
+        }
+
+        my $width = sum(@colW) ; #+ @colW ;
+        my @template ;
+        for my $w (@colW)
+        {
+            push @template, ' ' x ($w - 3);
+        }
+
+        print $self->{prefix} . '-' x ($width + 1) . "\n";
+
+        for my $row (@{ $self->{header} })
+        {
+            my @outputRow = @template;
+
+            print $self->{prefix} . '| ';
+            for my $ix (0 .. $self->{columns} -1)
+            {
+                my $field = $template[$ix] ;
+                substr($field, 0, length($row->[$ix]), $row->[$ix]);
+                print $field . ' | ';
+            }
+            print "\n";
+
+        }
+
+        print $self->{prefix} . '-' x ($width + 1) . "\n";
+
+        for my $row (@{ $self->{data} })
+        {
+            my @outputRow = @template;
+
+            print $self->{prefix} . '| ';
+            for my $ix (0 .. $self->{columns} -1)
+            {
+                my $field = $template[$ix] ;
+                substr($field, 0, length($row->[$ix]), $row->[$ix]);
+                print $field . ' | ';
+            }
+            print "\n";
+        }
+
+        print $self->{prefix} . '-' x ($width + 1) . "\n";
+        print "#\n";
     }
 }
 

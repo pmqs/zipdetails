@@ -92,7 +92,14 @@
 00E0 00E3 0004 5E 00 00 00 Offset to Central Dir 0000005E (94)
 00E4 00E5 0002 00 00       Comment Length        0000 (0)
 #
-# ERROR: Offset 0x5E: 'filename' mismatch: Central Header has 'letters.txt', Local Directory has 'ladders.txt'
+# ERROR: Found 1 Field Mismatch for Filename 'letters.txt'
+#
+#  -----------------------------------------------------------------
+#  | Field    | Central    | Central     | Local     | Local       | 
+#  | Name     | Offset     | Value       | Offset    | Value       | 
+#  -----------------------------------------------------------------
+#  | Filename | 0x8C (140) | letters.txt | 0x2E (46) | ladders.txt | 
+#  -----------------------------------------------------------------
 #
 # Error Count: 1
 #

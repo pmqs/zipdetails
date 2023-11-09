@@ -51,13 +51,18 @@
 018C Offset to Central Dir 00000145 (325)
 0190 Comment Length        0000 (0)
 #
-# WARNING: Offset 0x145: Filename 'lorem.txt': 'crc32' field mismatch': Central Header has '4178503679', Local Directory has '0'
+# ERROR: Found 3 Field Mismatch for Filename 'lorem.txt'
 #
-# WARNING: Offset 0x145: Filename 'lorem.txt': 'compressedLength' field mismatch': Central Header has '270', Local Directory has '0'
+#  -----------------------------------------------------------------------------------
+#  | Field             | Central     | Central                 | Local     | Local   | 
+#  | Name              | Offset      | Value                   | Offset    | Value   | 
+#  -----------------------------------------------------------------------------------
+#  | CRC32             | 0x155 (341) | 0xF90EE7FF (4178503679) | 0x10 (16) | 0x0 (0) | 
+#  | Compressed Length | 0x159 (345) | 0x10E (270)             | 0x14 (20) | 0x0 (0) | 
+#  | Compressed Length | 0x15D (349) | 0x1BE (446)             | 0x18 (24) | 0x0 (0) | 
+#  -----------------------------------------------------------------------------------
 #
-# WARNING: Offset 0x145: Filename 'lorem.txt': 'uncompressedLength' field mismatch': Central Header has '446', Local Directory has '0'
-#
-# Warning Count: 3
+# Error Count: 1
 # Info Count: 1
 #
 # Done

@@ -98,8 +98,20 @@
 00E0 00E3 0004 5E 00 00 00 Offset to Central Dir 0000005E (94)
 00E4 00E5 0002 00 00       Comment Length        0000 (0)
 #
-# WARNING: Offset 0x5E: Filename 'letters.txt': 'lastModDateTime' field mismatch': Central Header has '4', Local Directory has '5'
+# WARNING: Offset 0xE6: 'Last Mod Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
 #
-# Warning Count: 3
+# WARNING: Offset 0xE6: 'Last Mod Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+#
+# ERROR: Found 1 Field Mismatch for Filename 'letters.txt'
+#
+#  ----------------------------------------------------------------------------------------------------------------
+#  | Field              | Central    | Central                        | Local    | Local                          | 
+#  | Name               | Offset     | Value                          | Offset   | Value                          | 
+#  ----------------------------------------------------------------------------------------------------------------
+#  | Last Mod Date/Time | 0x6A (106) | 0x4 (4) 'Invalid Date or Time' | 0xC (12) | 0x5 (5) 'Invalid Date or Time' | 
+#  ----------------------------------------------------------------------------------------------------------------
+#
+# Error Count: 1
+# Warning Count: 4
 #
 # Done

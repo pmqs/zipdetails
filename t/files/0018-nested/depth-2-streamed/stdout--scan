@@ -166,10 +166,16 @@
 #
 # ERROR: Offset 0x0: Filename 'inner2.zip': Missing 'Data Descriptor'
 #
-# WARNING: Offset 0x240: Filename 'inner2.zip': 'crc32' field mismatch': Central Header has '2955108665', Local Directory has '0'
+# ERROR: Found 1 Field Mismatch for Filename 'inner2.zip'
 #
-# Error Count: 1
-# Warning Count: 1
+#  ------------------------------------------------------------------------
+#  | Field  | Central     | Central                 | Local     | Local   | 
+#  | Name   | Offset      | Value                   | Offset    | Value   | 
+#  ------------------------------------------------------------------------
+#  | CRC32  | 0x250 (592) | 0xB0236139 (2955108665) | 0x10 (16) | 0x0 (0) | 
+#  ------------------------------------------------------------------------
+#
+# Error Count: 2
 # Info Count: 3
 #
 # Done
