@@ -10,7 +10,7 @@
 000A 000B 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 000C 000D 0002 08 00       Compression Method    0008 (8) 'Deflated'
-000E 0011 0004 11 55 62 55 Last Mod Time         55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
+000E 0011 0004 11 55 62 55 Last Mod Date/Time    55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
 0012 0015 0004 36 C6 60 BB CRC                   BB60C636 (3143681590)
 0016 0019 0004 FF FF FF FF Compressed Length     FFFFFFFF (4294967295)
 001A 001D 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
@@ -45,7 +45,7 @@
 0172 0173 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 0174 0175 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0176 0179 0004 11 55 62 55 Last Mod Time         55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
+0176 0179 0004 11 55 62 55 Last Mod Date/Time    55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
 017A 017D 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 017E 0181 0004 FF FF FF FF Compressed Length     FFFFFFFF (4294967295)
 0182 0185 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
@@ -82,7 +82,7 @@
 02D9 02DA 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 02DB 02DC 0002 08 00       Compression Method    0008 (8) 'Deflated'
-02DD 02E0 0004 11 55 62 55 Last Mod Time         55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
+02DD 02E0 0004 11 55 62 55 Last Mod Date/Time    55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
 02E1 02E4 0004 36 C6 60 BB CRC                   BB60C636 (3143681590)
 02E5 02E8 0004 10 01 00 00 Compressed Length     00000110 (272)
 02E9 02EC 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)
@@ -123,7 +123,7 @@
 0335 0336 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 0337 0338 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0339 033C 0004 11 55 62 55 Last Mod Time         55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
+0339 033C 0004 11 55 62 55 Last Mod Date/Time    55625511 (1432507665) 'Wed Nov  2 10:40:34 2022'
 033D 0340 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 0341 0344 0004 0E 01 00 00 Compressed Length     0000010E (270)
 0345 0348 0004 FF FF FF FF Uncompressed Length   FFFFFFFF (4294967295)

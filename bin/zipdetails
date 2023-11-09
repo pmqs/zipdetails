@@ -2011,7 +2011,7 @@ sub LocalHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    my $lastMod = out_V "Last Mod Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -2409,7 +2409,7 @@ sub CentralHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    my $lastMod = out_V "Last Mod Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedLength   = out_V "Compressed Length";
@@ -4212,7 +4212,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
-        warning $FH->tell(), "'Last Mod Time' value " . decimalHex0x($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
+        warning $FH->tell(), "'Last Mod Date/Time' value " . decimalHex0x($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 

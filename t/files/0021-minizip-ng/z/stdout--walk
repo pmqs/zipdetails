@@ -7,7 +7,7 @@
      [Bit 11]              1 'Language Encoding'
      [Bit 13]              1 'Encrypted Central Dir'
 0008 Compression Method    0000 (0) 'Stored'
-000A Last Mod Time         00000000 (0) 'No Date/Time'
+000A Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E CRC                   00000000 (0)
 0012 Compressed Length     00000000 (0)
 0016 Uncompressed Length   00000000 (0)
@@ -28,7 +28,7 @@
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
 01F7 Compression Method    0000 (0) 'Stored'
-01F9 Last Mod Time         559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
+01F9 Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 01FD CRC                   00000000 (0)
 0201 Compressed Length     00000000 (0)
 0205 Uncompressed Length   0000005F (95)
@@ -49,7 +49,7 @@
      [Bit 11]              1 'Language Encoding'
      [Bit 13]              1 'Encrypted Central Dir'
 022B Compression Method    0000 (0) 'Stored'
-022D Last Mod Time         55998A15 (1436125717) 'Sun Dec 25 17:16:42 2022'
+022D Last Mod Date/Time    55998A15 (1436125717) 'Sun Dec 25 17:16:42 2022'
 0231 CRC                   F90EE7FF (4178503679)
 0235 Compressed Length     000001BE (446)
 0239 Uncompressed Length   000001BE (446)
@@ -86,7 +86,7 @@
      [Bit  3]              1 'Streamed'
      [Bit 11]              1 'Language Encoding'
 029A Compression Method    0000 (0) 'Stored'
-029C Last Mod Time         559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
+029C Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 02A0 CRC                   AA39B9D7 (2855909847)
 02A4 Compressed Length     0000005F (95)
 02A8 Uncompressed Length   0000005F (95)

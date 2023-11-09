@@ -5,9 +5,9 @@
 0006 General Purpose Flag  0000 (0)
 0008 Compression Method    0000 (0) 'Stored'
 #
-# WARNING: Offset 0xE: 'Last Mod Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
+# WARNING: Offset 0xE: 'Last Mod Date/Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
 #
-000A Last Mod Time         00000005 (5) 'Invalid Date or Time'
+000A Last Mod Date/Time    00000005 (5) 'Invalid Date or Time'
 000E CRC                   0F8A149C (260707484)
 0012 Compressed Length     00000006 (6)
 0016 Uncompressed Length   00000006 (6)
@@ -21,7 +21,7 @@
 0034 Extract OS            00 (0) 'MS-DOS'
 0035 General Purpose Flag  0000 (0)
 0037 Compression Method    0000 (0) 'Stored'
-0039 Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+0039 Last Mod Date/Time    5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
 003D CRC                   261DAFE6 (639479782)
 0041 Compressed Length     00000006 (6)
 0045 Uncompressed Length   00000006 (6)
@@ -38,9 +38,9 @@
 0066 General Purpose Flag  0000 (0)
 0068 Compression Method    0000 (0) 'Stored'
 #
-# WARNING: Offset 0x6E: 'Last Mod Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+# WARNING: Offset 0x6E: 'Last Mod Date/Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
 #
-006A Last Mod Time         00000004 (4) 'Invalid Date or Time'
+006A Last Mod Date/Time    00000004 (4) 'Invalid Date or Time'
 006E CRC                   0F8A149C (260707484)
 0072 Compressed Length     00000006 (6)
 0076 Uncompressed Length   00000006 (6)
@@ -63,7 +63,7 @@
 009E Extract OS            00 (0) 'MS-DOS'
 009F General Purpose Flag  0000 (0)
 00A1 Compression Method    0000 (0) 'Stored'
-00A3 Last Mod Time         5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+00A3 Last Mod Date/Time    5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
 00A7 CRC                   261DAFE6 (639479782)
 00AB Compressed Length     00000006 (6)
 00AF Uncompressed Length   00000006 (6)
@@ -88,9 +88,9 @@
 00E0 Offset to Central Dir 0000005E (94)
 00E4 Comment Length        0000 (0)
 #
-# WARNING: Offset 0xE6: 'Last Mod Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
+# WARNING: Offset 0xE6: 'Last Mod Date/Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
 #
-# WARNING: Offset 0xE6: 'Last Mod Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+# WARNING: Offset 0xE6: 'Last Mod Date/Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
 #
 # ERROR: Found 1 Field Mismatch for Filename 'letters.txt'
 #

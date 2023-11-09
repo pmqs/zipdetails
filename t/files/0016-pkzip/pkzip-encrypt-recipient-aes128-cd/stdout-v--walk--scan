@@ -9,7 +9,7 @@
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
-000A 000D 0004 00 00 00 00 Last Mod Time         00000000 (0) 'No Date/Time'
+000A 000D 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
 0012 0015 0004 86 06 00 00 Compressed Length     00000686 (1670)
 0016 0019 0004 00 00 00 00 Uncompressed Length   00000000 (0)
@@ -386,7 +386,7 @@
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
 06AD 06AE 0002 08 00       Compression Method    0008 (8) 'Deflated'
-06AF 06B2 0004 00 00 00 00 Last Mod Time         00000000 (0) 'No Date/Time'
+06AF 06B2 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
 06B3 06B6 0004 00 00 00 00 CRC                   00000000 (0)
 06B7 06BA 0004 96 06 00 00 Compressed Length     00000696 (1686)
 06BB 06BE 0004 00 00 00 00 Uncompressed Length   00000000 (0)

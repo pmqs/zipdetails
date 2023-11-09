@@ -5,7 +5,7 @@
 0006 0007 0002 08 00       General Purpose Flag  0008 (8)
                            [Bit  3]              1 'Streamed'
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
-000A 000D 0004 78 79 89 55 Last Mod Time         55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
+000A 000D 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
 0012 0015 0004 08 02 00 00 Compressed Length     00000208 (520)
 0016 0019 0004 08 02 00 00 Uncompressed Length   00000208 (520)
@@ -22,7 +22,7 @@
 002E 002F 0002 08 00       General Purpose Flag  0008 (8)
                            [Bit  3]              1 'Streamed'
 0030 0031 0002 00 00       Compression Method    0000 (0) 'Stored'
-0032 0035 0004 78 79 89 55 Last Mod Time         55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
+0032 0035 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 0036 0039 0004 00 00 00 00 CRC                   00000000 (0)
 003A 003D 0004 82 01 00 00 Compressed Length     00000182 (386)
 003E 0041 0004 82 01 00 00 Uncompressed Length   00000182 (386)
@@ -39,7 +39,7 @@
 0056 0057 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 0058 0059 0002 08 00       Compression Method    0008 (8) 'Deflated'
-005A 005D 0004 22 79 89 55 Last Mod Time         55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
+005A 005D 0004 22 79 89 55 Last Mod Date/Time    55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
 005E 0061 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 0062 0065 0004 0E 01 00 00 Compressed Length     0000010E (270)
 0066 0069 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
@@ -58,7 +58,7 @@
 018D 018E 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 018F 0190 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0191 0194 0004 22 79 89 55 Last Mod Time         55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
+0191 0194 0004 22 79 89 55 Last Mod Date/Time    55897922 (1435072802) 'Fri Dec  9 15:09:04 2022'
 0195 0198 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 0199 019C 0004 0E 01 00 00 Compressed Length     0000010E (270)
 019D 01A0 0004 BE 01 00 00 Uncompressed Length   000001BE (446)
@@ -104,7 +104,7 @@
 01EA 01EB 0002 08 00       General Purpose Flag  0008 (8)
                            [Bit  3]              1 'Streamed'
 01EC 01ED 0002 00 00       Compression Method    0000 (0) 'Stored'
-01EE 01F1 0004 78 79 89 55 Last Mod Time         55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
+01EE 01F1 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 01F2 01F5 0004 D6 65 51 91 CRC                   915165D6 (2438030806)
 01F6 01F9 0004 82 01 00 00 Compressed Length     00000182 (386)
 01FA 01FD 0004 82 01 00 00 Uncompressed Length   00000182 (386)
@@ -148,7 +148,7 @@
 0248 0249 0002 08 00       General Purpose Flag  0008 (8)
                            [Bit  3]              1 'Streamed'
 024A 024B 0002 00 00       Compression Method    0000 (0) 'Stored'
-024C 024F 0004 78 79 89 55 Last Mod Time         55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
+024C 024F 0004 78 79 89 55 Last Mod Date/Time    55897978 (1435072888) 'Fri Dec  9 15:11:48 2022'
 0250 0253 0004 39 61 23 B0 CRC                   B0236139 (2955108665)
 0254 0257 0004 08 02 00 00 Compressed Length     00000208 (520)
 0258 025B 0004 08 02 00 00 Uncompressed Length   00000208 (520)
