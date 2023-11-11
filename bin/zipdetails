@@ -1432,11 +1432,11 @@ sub dislayMessages
                 {
                     my $outer = Nesting::entryByIndex($index) ;
 
-                    say "# Nesting " . $outer->filename . " " . $outer->offsetStart . " " . $outer->offsetEnd ;
+                    say "# Nesting " . $outer->outputFilename . " " . $outer->offsetStart . " " . $outer->offsetEnd ;
 
                     for my $inner (sort { $a <=> $b } @{  Nesting::encapsulations()->{$index} } )
                     {
-                        say "#  " . $inner->filename . " " . $inner->offsetStart . " " . $inner->offsetEnd ;;
+                        say "#  " . $inner->outputFilename . " " . $inner->offsetStart . " " . $inner->offsetEnd ;;
                     }
                 }
             }
@@ -1445,7 +1445,7 @@ sub dislayMessages
         {
             # check for Local Directory orphans
 
-           my %orphans = map  {   $_->localHeaderOffset => $_->filename }
+           my %orphans = map  {   $_->localHeaderOffset => $_->outputFilename }
                          grep {   $_->entryType == ZIP_LOCAL_HDR_SIG && # Want Local Headers
                                 ! $_->encapsulated   &&
                                   @{ $_->getCdEntries } == 0
@@ -1501,7 +1501,7 @@ sub dislayMessages
 
             # Note: this is only active when scan is used
 
-           my %outerEntries = map  { $_->localHeaderOffset => $_->filename }
+           my %outerEntries = map  { $_->localHeaderOffset => $_->outputFilename }
                               grep {
                                       $_->entryType == ZIP_CENTRAL_HDR_SIG &&
                                     ! $_->encapsulated && # not encapsulated
@@ -1529,7 +1529,7 @@ sub dislayMessages
         {
             # Check for a missing Data Descriptors
 
-           my %missingDataDescriptor = map  {   $_->localHeaderOffset => $_->filename }
+           my %missingDataDescriptor = map  {   $_->localHeaderOffset => $_->outputFilename }
                                        grep {   $_->entryType == ZIP_LOCAL_HDR_SIG &&
                                                 $_->streamed &&
                                               ! $_->readDataDescriptor
@@ -1564,7 +1564,7 @@ sub dislayMessages
                     my $localEntry =  $LocalDirectory->getByLocalOffset($offset) ;
                     if ($localEntry)
                     {
-                        error undef, "Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->filename . "' at offset " . decimalHex0x($offset);
+                        error undef, "Possible zipbomb -- Duplicate Central Headers referring to one Local header for '" . $localEntry->outputFilename . "' at offset " . decimalHex0x($offset);
                     }
                     else
                     {
@@ -1575,7 +1575,7 @@ sub dislayMessages
                     $table->addHeaderRow('Offset', 'Filename');
                     for (sort { $a->centralHeaderOffset <=> $b->centralHeaderOffset } @entries)
                     {
-                        $table->addDataRow(decimalHex0x($_->centralHeaderOffset), $_->filename);
+                        $table->addDataRow(decimalHex0x($_->centralHeaderOffset), $_->outputFilename);
                         delete $cleanCentralEntries{ $_->centralHeaderOffset };
                     }
 
@@ -1627,12 +1627,12 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $nested{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "Local Header for '" . $outerEntry->filename . "' at offset " . decimalHex0x($loc) .  " has $count nested Local Headers";
+                    say "Local Header for '" . $outerEntry->outputFilename . "' at offset " . decimalHex0x($loc) .  " has $count nested Local Headers";
                     for my $n ( @{ $nested{$loc} } )
                     {
                         my $innerEntry = $LocalDirectory->getByLocalOffset($n);
 
-                        say "#  Nested Local Header for filename '" . $innerEntry->filename . "' is at Offset " . decimalHex0x($n)  ;
+                        say "#  Nested Local Header for filename '" . $innerEntry->outputFilename . "' is at Offset " . decimalHex0x($n)  ;
                     }
                 }
             }
@@ -1646,11 +1646,11 @@ sub dislayMessages
                 {
                     my $count = scalar @{ $bomb{$loc} };
                     my $outerEntry = $LocalDirectory->getByLocalOffset($loc);
-                    say "# Local Header for '" . $outerEntry->filename . "' at offset " . decimalHex0x($loc) .  " has $count nested Local Headers";
+                    say "# Local Header for '" . $outerEntry->outputFilename . "' at offset " . decimalHex0x($loc) .  " has $count nested Local Headers";
 
                     my $table = new SimpleTable;
                     $table->addHeaderRow('Offset', 'Filename');
-                    $table->addDataRow(decimalHex0x($_), $LocalDirectory->getByLocalOffset($_)->filename)
+                    $table->addDataRow(decimalHex0x($_), $LocalDirectory->getByLocalOffset($_)->outputFilename)
                         for sort @{ $bomb{$loc} } ;
 
                     $table->display();
@@ -1722,7 +1722,7 @@ sub dislayMessages
                 my $badFields = $table->hasData;
                 if ($badFields)
                 {
-                    error undef, "Found $badFields Field Mismatch for Filename '". $centralEntry->filename . "'";
+                    error undef, "Found $badFields Field Mismatch for Filename '". $centralEntry->outputFilename . "'";
                     $table->display();
                 }
             }
@@ -2006,6 +2006,7 @@ sub LocalHeader
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
+    $localEntry->languageEncodingFlag($LanguageEncodingFlag) ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
@@ -2013,10 +2014,11 @@ sub LocalHeader
 
     my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
-    my $crc                = out_V "CRC";
+    my $crc              = out_V "CRC";
     my $compressedSize   = out_V "Compressed Size";
     my $uncompressedSize = out_V "Uncompressed Size";
-    my $filenameLength     = out_v "Filename Length";
+    my $filenameLength   = out_v "Filename Length";
+
     if ($filenameLength == 0)
     {
         info $FH->tell()- 2, "Zero Length filename";
@@ -2030,9 +2032,10 @@ sub LocalHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename, $LanguageEncodingFlag);
+        $localEntry->filename($filename) ;
+        $filename = outputFilename($filename, $LanguageEncodingFlag);
+        $localEntry->outputFilename($filename);
     }
-
 
     $localEntry->localHeaderOffset($locHeaderOffset) ;
     $localEntry->offsetStart($locHeaderOffset) ;
@@ -2044,8 +2047,7 @@ sub LocalHeader
     $localEntry->crc32($crc) ;
     $localEntry->zip64ExtraPresent($cdZip64) ;
     $localEntry->zip64SizesPresent($zip64Sizes) ;
-    $localEntry->filename($filename) ;
-    $localEntry->languageEncodingFlag($LanguageEncodingFlag) ;
+
     $localEntry->compressedMethod($compressedMethod) ;
     $localEntry->streamed($gpFlag & ZIP_GP_FLAG_STREAMING_MASK) ;
 
@@ -2334,7 +2336,7 @@ sub redactFilename
     return $filename;
 }
 
-sub outputFilename
+sub getOutputFilename
 {
     my $raw_filename = shift;
     my $LanguageEncodingFlag = shift;
@@ -2345,11 +2347,11 @@ sub outputFilename
 
     if ($raw_filename eq '')
     {
-        $filename = '';
+        return '', '', 0;
     }
     elsif ($opt_Redact)
     {
-        $filename = redactFilename($raw_filename) ;
+        return redactFilename($raw_filename), '', 0 ;
     }
     else
     {
@@ -2357,17 +2359,45 @@ sub outputFilename
         $filename = TextEncoding::encode($decoded_filename, $message, $LanguageEncodingFlag) ;
     }
 
-    # if (length $filename > 256)
+    return $filename, $decoded_filename, $filename ne $raw_filename ;
+}
+
+sub outputFilename
+{
+    my $raw_filename = shift;
+    my $LanguageEncodingFlag = shift;
+    my $message = shift // "Filename";
+
+    my ($filename, $decoded_filename, $modified) = getOutputFilename($raw_filename, $LanguageEncodingFlag);
+
+    # my $decoded_filename;
+
+    # if ($raw_filename eq '')
     # {
-    #     my $f = substr($filename, 0, 256) ;
-    #     out $f, $message,  "'". $f . "' ...";
+    #     $filename = '';
+    # }
+    # elsif ($opt_Redact)
+    # {
+    #     $filename = redactFilename($raw_filename) ;
     # }
     # else
+    # {
+    #     $decoded_filename = TextEncoding::decode($raw_filename, $message, $LanguageEncodingFlag) ;
+    #     $filename = TextEncoding::encode($decoded_filename, $message, $LanguageEncodingFlag) ;
+    # }
+
+    # # if (length $filename > 256)
+    # # {
+    # #     my $f = substr($filename, 0, 256) ;
+    # #     out $f, $message,  "'". $f . "' ...";
+    # # }
+    # # else
+
     {
         out $raw_filename, $message,  "'". $filename . "'";
     }
 
-    if (! $opt_Redact && TextEncoding::debugEncoding() && $raw_filename ne $filename)
+    if (! $opt_Redact && TextEncoding::debugEncoding() && $modified)
     {
         info $FH->tell() - length($raw_filename),
                     "$message Encoding Change",
@@ -2375,6 +2405,8 @@ sub outputFilename
                     "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
                     "Octets Written         [$filename][" . length($filename). "] [" . charDump($filename) . "]";
     }
+
+    return $filename;
 }
 
 sub CentralHeader
@@ -2401,9 +2433,12 @@ sub CentralHeader
     my ($bgp, $gpFlag) = read_v();
     my ($bcm, $compressedMethod) = read_v();
 
+    my $cdEntry = CentralDirectoryEntry->new($cdEntryOffset);
+
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
+    $cdEntry->languageEncodingFlag($LanguageEncodingFlag) ;
 
     out $bcm, "Compression Method", compressionMethod($compressedMethod) ;
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
@@ -2549,10 +2584,10 @@ sub CentralHeader
         need $filenameLength, Signatures::name($signature), 'Filename';
 
         myRead($filename, $filenameLength);
-        outputFilename($filename, $LanguageEncodingFlag);
+        $cdEntry->filename($filename) ;
+        $filename = outputFilename($filename, $LanguageEncodingFlag);
+        $cdEntry->outputFilename($filename);
     }
-
-    my $cdEntry = CentralDirectoryEntry->new($cdEntryOffset);
 
     $cdEntry->centralHeaderOffset($cdEntryOffset) ;
     $cdEntry->localHeaderOffset($locHeaderOffset) ;
@@ -2560,8 +2595,6 @@ sub CentralHeader
     $cdEntry->uncompressedSize($uncompressedSize) ;
     $cdEntry->zip64ExtraPresent(undef) ; #$cdZip64; ### FIX ME
     $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
-    $cdEntry->filename($filename) ;
-    $cdEntry->languageEncodingFlag($LanguageEncodingFlag) ;
     $cdEntry->extractVersion($extractVer);
     $cdEntry->generalPurposeFlags($gpFlag);
     $cdEntry->compressedMethod($compressedMethod) ;
@@ -5843,10 +5876,10 @@ sub nibbles
                         'compressedMethod'      => 0,
                         'lastModDateTime'       => 0,
                         'crc32'                 => 0,
-                        'compressedSize'      => 0,
-                        'uncompressedSize'    => 0,
+                        'compressedSize'        => 0,
+                        'uncompressedSize'      => 0,
                         'filename'              => '',
-
+                        'outputFilename'        => '',
                         # inferred data
                         # 'InCentralDir'          => 0,
                         # 'zip64'                 => 0,
@@ -5858,15 +5891,15 @@ sub nibbles
                         # zip64 extra
                         'zip64_compressedSize'    => undef,
                         'zip64_uncompressedSize'  => undef,
-                        'zip64_localHeaderOffset'   => undef,
-                        'zip64_diskNumber'          => undef,
-                        'zip64_diskNumberPresent'   => 0,
+                        'zip64_localHeaderOffset' => undef,
+                        'zip64_diskNumber'        => undef,
+                        'zip64_diskNumberPresent' => 0,
 
                         # Values direct from the header before merging any Zip64 values
                         'std_compressedSize'    => undef,
                         'std_uncompressedSize'  => undef,
-                        'std_localHeaderOffset'   => undef,
-                        'std_diskNumber'          => undef,
+                        'std_localHeaderOffset' => undef,
+                        'std_diskNumber'        => undef,
 
                         # AES
                         'aesStrength'             => 0,
@@ -5881,6 +5914,22 @@ sub nibbles
 
         return $self;
     }
+
+    # sub setFilename
+    # {
+    #     my $self = shift;
+    #     my $filename = shift ;
+    #     $self->filename($filename);
+    #     my ($outFilename, undef, $modified) = ::getOutputFilename($filename, $self->languageEncodingFlag);
+    #     $self->outputFilename($outFilename);
+    # }
+
+    # sub setoutputFilename
+    # {
+    #     my $self = shift;
+    #     my ($outFilename, undef, $modified) = ::getOutputFilename($self->filename, $self->languageEncodingFlag);
+    #     $self->outputFilename($outFilename);
+    # }
 
 }
 
@@ -6600,9 +6649,9 @@ sub displayFileInfo
             if ($NESTING_DEBUG)
             {
                 say "#### nesting " . (caller(1))[3] . " index #" . $entry->index . ' "' .
-                    $entry->filename . '" [' . $entry->offsetStart . "->" . $entry->offsetEnd . "]" .
+                    $entry->outputFilename . '" [' . $entry->offsetStart . "->" . $entry->offsetEnd . "]" .
                     " in #" . $match->index . ' "' .
-                    $match->filename . '" [' . $match->offsetStart . "->" . $match->offsetEnd . "]" ;
+                    $match->outputFilename . '" [' . $match->offsetStart . "->" . $match->offsetEnd . "]" ;
             }
         }
 
