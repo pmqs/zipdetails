@@ -998,9 +998,6 @@ GetOptions("h|help"     => \$opt_help,
 
            # Message control
            "exit-bitmask!"      => \$opt_want_message_exit_status,
-           "info-messages!"     => \$opt_want_info_mesages,
-           "warning-messages!"  => \$opt_want_warning_mesages,
-           "error-messages!"    => \$opt_want_error_mesages,
            "messages!"          => sub {
                                             my ($opt_name, $opt_value) = @_;
                                             $opt_want_info_mesages =
@@ -1397,7 +1394,8 @@ else
 }
 
 
-dislayMessages();
+dislayMessages()
+    if $opt_want_error_mesages ;
 
 exit $exit_status_code ;
 
@@ -6923,16 +6921,10 @@ OPTIONS
 
   Message Control
      --messages, --no-messages
-            Enable/disable all info/warning/error messages. Default enabled
-     --info-messages, --no-info-messages
-            Enable/disable all 'info' messages.  Default enabled
-     --warning-messages, --no-warning-messages
-            Enable/disable all 'warning' messages.  Default enabled
-     --error-messages, --no-error-messages
-            Enable/disable all 'error' messages.  Default enabled
+            Enable/disable all info/warning/error messages. Default enabled.
      --exit-bitmask, --no-exit-bitmask
             Enable/disable exit status bitmask for messages. Default disabled.
-            Status values are
+            Bitmask values are
                 Info    1
                 Warning 2
                 Error   4
@@ -7124,20 +7116,12 @@ Display extra debugging info when a filename/comment encoding has changed.
 
 =item C<--messages>, C<--no-messages>
 
-Enable/disable the output of all info/warning/error messages. Default is
-enabled.
+Enable/disable the output of all info/warning/error messages.
 
-=item C<--info-messages>, C<--no-info-messages>
+Disabling messages mnans that no
+checks are carried out to check that the zip file is well-formed.
 
-Enable/disable the output of all info messages. Default is enabled.
-
-=item C<--warning-messages>, C<--no-warning-messages>
-
-Enable/disable the output of all warning messages. Default is enabled.
-
-=item C<--error-messages>, C<--no-error-messages>
-
-Enable/disable the output of all error messages. Default is enabled.
+Default is enabled.
 
 =item C<--exit-bitmask>, C<--no-exit-bitmask>
 
