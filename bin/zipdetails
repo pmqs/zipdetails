@@ -2368,32 +2368,7 @@ sub outputFilename
 
     my ($filename, $decoded_filename, $modified) = getOutputFilename($raw_filename, $LanguageEncodingFlag);
 
-    # my $decoded_filename;
-
-    # if ($raw_filename eq '')
-    # {
-    #     $filename = '';
-    # }
-    # elsif ($opt_Redact)
-    # {
-    #     $filename = redactFilename($raw_filename) ;
-    # }
-    # else
-    # {
-    #     $decoded_filename = TextEncoding::decode($raw_filename, $message, $LanguageEncodingFlag) ;
-    #     $filename = TextEncoding::encode($decoded_filename, $message, $LanguageEncodingFlag) ;
-    # }
-
-    # # if (length $filename > 256)
-    # # {
-    # #     my $f = substr($filename, 0, 256) ;
-    # #     out $f, $message,  "'". $f . "' ...";
-    # # }
-    # # else
-
-    {
-        out $raw_filename, $message,  "'". $filename . "'";
-    }
+    out $raw_filename, $message,  "'". $filename . "'";
 
     if (! $opt_Redact && TextEncoding::debugEncoding() && $modified)
     {
