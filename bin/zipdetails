@@ -990,10 +990,10 @@ GetOptions("h|help"     => \$opt_help,
            "version"    => sub { print "$VERSION\n"; exit },
 
            # Filename/comment encoding
-           "encoding!"         => \&TextEncoding::Encoding,
-           "debug-encoding"    => \&TextEncoding::debugEncoding,
-           "input-encoding=s"  => \&TextEncoding::parseEncodingOption,
-           "output-encoding=s" => \&TextEncoding::parseEncodingOption,
+           "encoding=s"          => \&TextEncoding::parseEncodingOption,
+           "no-encoding"         => \&TextEncoding::NoEncoding,
+           "debug-encoding"      => \&TextEncoding::debugEncoding,
+           "output-encoding=s"   => \&TextEncoding::parseEncodingOption,
            "language-encoding!"  => \&TextEncoding::LanguageEncodingFlag,
 
            # Message control
@@ -6458,7 +6458,7 @@ sub displayFileInfo
         die "Encoding '$opt_value' not found for option '$opt_name'\n"
             unless ref $enc;
 
-        if ($opt_name eq 'input-encoding')
+        if ($opt_name eq 'encoding')
         {
             $opt_EncodingFrom = $enc;
         }
@@ -6472,12 +6472,12 @@ sub displayFileInfo
         }
     }
 
-    sub Encoding
+    sub NoEncoding
     {
         my $opt_name = shift;
         my $opt_value = shift;
 
-        $opt_Encoding_Enabled = $opt_value ;
+        $opt_Encoding_Enabled = 0 ;
     }
 
     sub LanguageEncodingFlag
@@ -6905,12 +6905,11 @@ OPTIONS
             Expect false-positives.
 
   Filename/Comment Encoding
-    --encoding, --no-encoding
-            Enable/disable filename & comment encoding. Default enabled.
-            When enabled, use system encoding ('$enc') by default
-    --input-encoding e
+    --encoding e
             Use encoding "e" when reading filename/comments from the zip file
             Uses system encoding ('$enc') by default
+    --no-encoding
+            Disable filename & comment encoding. Default disabled.
     --output-encoding e
             Use encoding "e" when writing filename/comments to the display
             Uses system encoding ('$enc') by default
@@ -7013,8 +7012,11 @@ C<--utc> option to display these fields in Coordinated Universal Time (UTC).
 
 =head3 Filenames & Comments
 
-Filenames and comments are decoded/encoded using the default system encoding
-(when available) of the host running C<zipdetails>.  The exceptions are
+Filenames and comments are decoded/encoded using the default system
+encoding of the host running C<zipdetails>. When the sytem encoding cannot
+be determined C<cp437> will be used.
+
+The exceptions are
 
 =over 5
 
@@ -7029,52 +7031,8 @@ the definition for the metadata field implies UTF-8 charset encoding
 
 =back
 
-See L<Filename & Comment Encoding Options> for ways to control the encoding of
-filename/comment fields.
-
-=head2 Advanced Analysis
-
-If you have a corrupt or non-standard zip file, particulatly one where the
-central directory metadata at the end of the file is absent/incomplete, you can
-use either the C<--walk> option or the C<--scan> option to search for any zip
-metadata that is still present in the file.
-
-When either of these options is enabled, this program will bypass the initial
-step of reading the central directory at the end of the file and simply scan the
-zip file sequentially from the start of the file looking for zip metedata
-records. Although this can be error prone, for the most part it will find any
-zip file metadata that is still present in the file.
-
-The difference between the two options is how aggressive the sequential scan is:
-C<--walk> is optimistic, while C<--scan> is pessimistic.
-
-To understand the difference in more detail you need to know a bit about how zip
-file metadata is structured. Under the hood, a zip file uses a series of 4-byte
-signatures to flag the start of a each of the metadata records it uses. When the
-C<--walk> or the C<--scan> option is enabled both work identically by scanning
-the file from the beginning looking for any the of these valid 4-byte metadata
-signatures. When a 4-byte signature is found both options will blindly assume
-that it has found a vald metadata record and display it.
-
-=head3 C<--walk>
-
-The C<--walk> option optimistically assumes that it has found
-a real zip metatada record and so starts the scan for the next record directly
-after the record it has just output.
-
-=head3 C<--scan>
-
-The C<--scan> option is pessimistic and assumes the 4-byte signature sequence
-may have been a false-positive, so before starting the scan for the next resord,
-it will rewind to the location in the file directly after the 4-byte sequecce it
-just processed. This means it will rescan data that has already been processed.
-For very lage zip files the C<--scan> option can be really realy slow, so
-trying the C<--walk> option first.
-
-B<Important Note>: If the zip file being processed contains one or more nested
-zip files, and the outer zip file uses the C<STORE> compression method, the
-C<--scan> option will display the zip metadata for both the outer & inner zip
-files.
+See L<"Filename Encoding Issues"> and L<Filename & Comment Encoding
+Options> for ways to control the encoding of filename/comment fields.
 
 =head2 OPTIONS
 
@@ -7119,50 +7077,44 @@ See L<"Advanced Analysis Options">
 
 =head3 Filename & Comment Encoding Options
 
+See L<"Filename Encoding Issues">
+
 =over 5
 
-=item C<--encoding>,C< --no-encoding>
+=item C<--encoding name>
 
-Enable/disable filename & comment encoding.
+Use encoding "name" when reading filenames/comments from the zip file.
 
-When enabled, use system encoding by default (or C<cp437> if the program cannot
-determine the system emcoding) when reading filenames/comments from a zip file
-and when displaying the filename/comment to the display. Override using the
-C<--input-encoding name> and C<--output-encoding name> options.
+When this option is not specified the default the system encoding is used.
 
-When disabled, read/write filenames/comments as a byte stream.
+=item C< --no-encoding>
 
-Default enabled.
+Disable all filename & comment encoding/decoding. Filenames/comments are processed as byte streams.
 
-=item C<--input-encoding name>
-
-Use encoding "name" when reading filename/comments from the zip file.
-Uses system encoding by default
+This option is not enabled by default.
 
 =item C<--output-encoding name>
 
-Use encoding "name" when writing filename/comments to the display
-Uses system encoding by default.
+Use encoding "name" when writing filename/comments to the display.
+By default the system encoding will be used.
 
 =item C<--language-encoding>, C<--no-language-encoding>
 
-This option enables/disables the
-
 Modern zip files set a metadata entry in zip files, called the "Language
-encoding flag", when they need to write filenames/comments in UTF-8.
+encoding flag", when they write filenames/comments encoded in UTF-8.
 
 Occasionally some applications set the "Language encoding flag" but write
-non-UTF-8 data in the filename/comment fields in the zip file. This will
+data that is not UTF-8 in the filename/comment fields of the zip file. This will
 usually result in garbled text being output for the filenames/comments.
 
 To deal with this use-case, set the C<--no-language-encoding> option and, if
-needed, set the C<--input-encoding name> option to encoding actually used.
+needed, set the C<--encoding name> option to encoding actually used.
 
 Default is C<--language-encoding>.
 
 =item C<--debug-encoding>
 
-Display eatra info when a filename/comment encoding has changed.
+Display extra debugging info when a filename/comment encoding has changed.
 
 =back
 
@@ -7193,6 +7145,7 @@ Enable/disable exit status bitmask for messages. Default disabled.
 Bitmask values are: 1 for info, 2 for warning and 4 for error.
 
 =back
+
 
 =head2 Default Output
 
@@ -7403,6 +7356,99 @@ option:
     #
     # Done
 
+=head2 Advanced Analysis
+
+If you have a corrupt or non-standard zip file, particulatly one where the
+central directory metadata at the end of the file is absent/incomplete, you
+can use either the C<--walk> option or the C<--scan> option to search for
+any zip metadata that is still present in the file.
+
+When either of these options is enabled, this program will bypass the
+initial step of reading the central directory at the end of the file and
+simply scan the zip file sequentially from the start of the file looking
+for zip metedata records. Although this can be error prone, for the most
+part it will find any zip file metadata that is still present in the file.
+
+The difference between the two options is how aggressive the sequential
+scan is: C<--walk> is optimistic, while C<--scan> is pessimistic.
+
+To understand the difference in more detail you need to know a bit about
+how zip file metadata is structured. Under the hood, a zip file uses a
+series of 4-byte signatures to flag the start of a each of the metadata
+records it uses. When the C<--walk> or the C<--scan> option is enabled both
+work identically by scanning the file from the beginning looking for any
+the of these valid 4-byte metadata signatures. When a 4-byte signature is
+found both options will blindly assume that it has found a vald metadata
+record and display it.
+
+=head3 C<--walk>
+
+The C<--walk> option optimistically assumes that it has found a real zip
+metatada record and so starts the scan for the next record directly after
+the record it has just output.
+
+=head3 C<--scan>
+
+The C<--scan> option is pessimistic and assumes the 4-byte signature
+sequence may have been a false-positive, so before starting the scan for
+the next resord, it will rewind to the location in the file directly after
+the 4-byte sequecce it just processed. This means it will rescan data that
+has already been processed.  For very lage zip files the C<--scan> option
+can be really realy slow, so trying the C<--walk> option first.
+
+B<Important Note>: If the zip file being processed contains one or more
+nested zip files, and the outer zip file uses the C<STORE> compression
+method, the C<--scan> option will display the zip metadata for both the
+outer & inner zip files.
+
+=head2 Filename Encoding Issues
+
+Sometimes when displaying the contents of a zip file the filenames (or
+comments) appear to be garbled. This section walks through the reasons and
+mitigations that can be applied to work around these issues.
+
+=head3 Background
+
+When zip files were first created in the 1980's, there was no Unicode or
+UTF-8. Issues around character set encoding interoperability were not a
+major concern.
+
+Initially, the only official encoding supported in zip files was IBM Code
+Page 437 (AKA C<CP437>). As time went on users in locales where C<CP437>
+wasn't appropriate stored filenames in the encoding native to their locale.
+If you were running a system that matched the locale of the zip file, all
+was well. If not, you had to post-process the filenames after unzipping the
+zip file.
+
+Fast forward to the introduction of Unicode and UTF-8 encoding. The
+approach now used by all major zip implementations is to set the "Language
+encoding flag" (also known as "EFS") in the zip file metadata to signal
+that a filename/comment is encoded in UTF-8.
+
+To ensure maximum interoperability when sharing zip files store 7-bit
+filenames as-is in the zip file. For anything else the "EFS" bit needs to
+be set and the filename gets stored in UTF-8. Although this rule is kept to
+for the most part, there are exceptions out in the wild.
+
+=head3 Dealing with Encoding Errors
+
+The most common filename encoding issue is where the EFS bit is not set and
+the filename is stored in a character set that doesnt't match the system
+encoding. This mostly impacts legacy zip files that predate the
+introduction of Unicode.
+
+To deal with this issue you first need to know what encoding was used in the zip file. For
+example, if the filename is encoded in C<ISO-8859-1> you can display the
+filenames using the C<--encoding> option
+
+    zipdetails --encoding ISO-8859-1 myfile.zip
+
+A less common variation of this is where the EFS bit is set, signalling
+that the filename will be encoded in UTF-8, but the filename is not encoded
+in UTF-8. To deal with this scenarion, use the C<--no-language-encoding>
+option along with the C<--encoding> option.
+
+
 =head1 LIMITATIONS
 
 The following zip file features are not supported by this program:
@@ -7425,10 +7471,10 @@ detected and some will only contain compressed payload data.
 
 Encrypted Central Directory
 
-When pkzip I<strong encryption> is enabled in a zip file this program can still
-parse most of the metadata in the zip file. The exception is when the Central
-Directory of a zip file is also encrypted. This program cannot parse any
-metadata from an encrypted Central Directory.
+When pkzip I<strong encryption> is enabled in a zip file this program can
+still parse most of the metadata in the zip file. The exception is when the
+Central Directory of a zip file is also encrypted. This program cannot
+parse any metadata from an encrypted Central Directory.
 
 =item *
 

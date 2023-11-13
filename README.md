@@ -1,9 +1,3 @@
-[![Linux build](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml)
-[![Macos build](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml)
-[![Windows build](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml)
-[![Linux Docker build](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml)
-
-
 # NAME
 
 zipdetails - display the internal structure of zip files
@@ -48,59 +42,18 @@ Date/time fields found in zip files are displayed in local time. Use the
 
 ### Filenames & Comments
 
-Filenames and comments are decoded/encoded using the default system encoding
-(when available) of the host running `zipdetails`.  The exceptions are
+Filenames and comments are decoded/encoded using the default system
+encoding of the host running `zipdetails`. When the sytem encoding cannot
+be determined `cp437` will be used.
+
+The exceptions are
 
 - when the _Language Encoding flag_ is set in the zip file, the
 filename/comment fields are assumed to be encoded in UTF-8.
 - the definition for the metadata field implies UTF-8 charset encoding
 
-See ["Filename & Comment Encoding Options"](#filename-comment-encoding-options) for ways to control the encoding of
-filename/comment fields.
-
-## Advanced Analysis
-
-If you have a corrupt or non-standard zip file, particulatly one where the
-central directory metadata at the end of the file is absent/incomplete, you can
-use either the `--walk` option or the `--scan` option to search for any zip
-metadata that is still present in the file.
-
-When either of these options is enabled, this program will bypass the initial
-step of reading the central directory at the end of the file and simply scan the
-zip file sequentially from the start of the file looking for zip metedata
-records. Although this can be error prone, for the most part it will find any
-zip file metadata that is still present in the file.
-
-The difference between the two options is how aggressive the sequential scan is:
-`--walk` is optimistic, while `--scan` is pessimistic.
-
-To understand the difference in more detail you need to know a bit about how zip
-file metadata is structured. Under the hood, a zip file uses a series of 4-byte
-signatures to flag the start of a each of the metadata records it uses. When the
-`--walk` or the `--scan` option is enabled both work identically by scanning
-the file from the beginning looking for any the of these valid 4-byte metadata
-signatures. When a 4-byte signature is found both options will blindly assume
-that it has found a vald metadata record and display it.
-
-### `--walk`
-
-The `--walk` option optimistically assumes that it has found
-a real zip metatada record and so starts the scan for the next record directly
-after the record it has just output.
-
-### `--scan`
-
-The `--scan` option is pessimistic and assumes the 4-byte signature sequence
-may have been a false-positive, so before starting the scan for the next resord,
-it will rewind to the location in the file directly after the 4-byte sequecce it
-just processed. This means it will rescan data that has already been processed.
-For very lage zip files the `--scan` option can be really realy slow, so
-trying the `--walk` option first.
-
-**Important Note**: If the zip file being processed contains one or more nested
-zip files, and the outer zip file uses the `STORE` compression method, the
-`--scan` option will display the zip metadata for both the outer & inner zip
-files.
+See ["Filename Encoding Issues"](#filename-encoding-issues) and ["Filename & Comment Encoding
+Options"](#filename-comment-encoding-options) for ways to control the encoding of filename/comment fields.
 
 ## OPTIONS
 
@@ -141,48 +94,42 @@ files.
 
 ### Filename & Comment Encoding Options
 
-- `--encoding`,` --no-encoding`
+See ["Filename Encoding Issues"](#filename-encoding-issues)
 
-    Enable/disable filename & comment encoding.
+- `--encoding name`
 
-    When enabled, use system encoding by default (or `cp437` if the program cannot
-    determine the system emcoding) when reading filenames/comments from a zip file
-    and when displaying the filename/comment to the display. Override using the
-    `--input-encoding name` and `--output-encoding name` options.
+    Use encoding "name" when reading filenames/comments from the zip file.
 
-    When disabled, read/write filenames/comments as a byte stream.
+    When this option is not specified the default the system encoding is used.
 
-    Default enabled.
+- ` --no-encoding`
 
-- `--input-encoding name`
+    Disable all filename & comment encoding/decoding. Filenames/comments are processed as byte streams.
 
-    Use encoding "name" when reading filename/comments from the zip file.
-    Uses system encoding by default
+    This option is not enabled by default.
 
 - `--output-encoding name`
 
-    Use encoding "name" when writing filename/comments to the display
-    Uses system encoding by default.
+    Use encoding "name" when writing filename/comments to the display.
+    By default the system encoding will be used.
 
 - `--language-encoding`, `--no-language-encoding`
 
-    This option enables/disables the
-
     Modern zip files set a metadata entry in zip files, called the "Language
-    encoding flag", when they need to write filenames/comments in UTF-8.
+    encoding flag", when they write filenames/comments encoded in UTF-8.
 
     Occasionally some applications set the "Language encoding flag" but write
-    non-UTF-8 data in the filename/comment fields in the zip file. This will
+    data that is not UTF-8 in the filename/comment fields of the zip file. This will
     usually result in garbled text being output for the filenames/comments.
 
     To deal with this use-case, set the `--no-language-encoding` option and, if
-    needed, set the `--input-encoding name` option to encoding actually used.
+    needed, set the `--encoding name` option to encoding actually used.
 
     Default is `--language-encoding`.
 
 - `--debug-encoding`
 
-    Display eatra info when a filename/comment encoding has changed.
+    Display extra debugging info when a filename/comment encoding has changed.
 
 ### Message Control Options
 
@@ -378,6 +325,98 @@ option:
     #
     # Done
 
+## Advanced Analysis
+
+If you have a corrupt or non-standard zip file, particulatly one where the
+central directory metadata at the end of the file is absent/incomplete, you
+can use either the `--walk` option or the `--scan` option to search for
+any zip metadata that is still present in the file.
+
+When either of these options is enabled, this program will bypass the
+initial step of reading the central directory at the end of the file and
+simply scan the zip file sequentially from the start of the file looking
+for zip metedata records. Although this can be error prone, for the most
+part it will find any zip file metadata that is still present in the file.
+
+The difference between the two options is how aggressive the sequential
+scan is: `--walk` is optimistic, while `--scan` is pessimistic.
+
+To understand the difference in more detail you need to know a bit about
+how zip file metadata is structured. Under the hood, a zip file uses a
+series of 4-byte signatures to flag the start of a each of the metadata
+records it uses. When the `--walk` or the `--scan` option is enabled both
+work identically by scanning the file from the beginning looking for any
+the of these valid 4-byte metadata signatures. When a 4-byte signature is
+found both options will blindly assume that it has found a vald metadata
+record and display it.
+
+### `--walk`
+
+The `--walk` option optimistically assumes that it has found a real zip
+metatada record and so starts the scan for the next record directly after
+the record it has just output.
+
+### `--scan`
+
+The `--scan` option is pessimistic and assumes the 4-byte signature
+sequence may have been a false-positive, so before starting the scan for
+the next resord, it will rewind to the location in the file directly after
+the 4-byte sequecce it just processed. This means it will rescan data that
+has already been processed.  For very lage zip files the `--scan` option
+can be really realy slow, so trying the `--walk` option first.
+
+**Important Note**: If the zip file being processed contains one or more
+nested zip files, and the outer zip file uses the `STORE` compression
+method, the `--scan` option will display the zip metadata for both the
+outer & inner zip files.
+
+## Filename Encoding Issues
+
+Sometimes when displaying the contents of a zip file the filenames (or
+comments) appear to be garbled. This section walks through the reasons and
+mitigations that can be applied to work around these issues.
+
+### Background
+
+When zip files were first created in the 1980's, there was no Unicode or
+UTF-8. Issues around character set encoding interoperability were not a
+major concern.
+
+Initially, the only official encoding supported in zip files was IBM Code
+Page 437 (AKA `CP437`). As time went on users in locales where `CP437`
+wasn't appropriate stored filenames in the encoding native to their locale.
+If you were running a system that matched the locale of the zip file, all
+was well. If not, you had to post-process the filenames after unzipping the
+zip file.
+
+Fast forward to the introduction of Unicode and UTF-8 encoding. The
+approach now used by all major zip implementations is to set the "Language
+encoding flag" (also known as "EFS") in the zip file metadata to signal
+that a filename/comment is encoded in UTF-8.
+
+To ensure maximum interoperability when sharing zip files store 7-bit
+filenames as-is in the zip file. For anything else the "EFS" bit needs to
+be set and the filename gets stored in UTF-8. Although this rule is kept to
+for the most part, there are exceptions out in the wild.
+
+### Dealing with Encoding Errors
+
+The most common filename encoding issue is where the EFS bit is not set and
+the filename is stored in a character set that doesnt't match the system
+encoding. This mostly impacts legacy zip files that predate the
+introduction of Unicode.
+
+To deal with this issue you first need to know what encoding was used in the zip file. For
+example, if the filename is encoded in `ISO-8859-1` you can display the
+filenames using the `--encoding` option
+
+    zipdetails --encoding ISO-8859-1 myfile.zip
+
+A less common variation of this is where the EFS bit is set, signalling
+that the filename will be encoded in UTF-8, but the filename is not encoded
+in UTF-8. To deal with this scenarion, use the `--no-language-encoding`
+option along with the `--encoding` option.
+
 # LIMITATIONS
 
 The following zip file features are not supported by this program:
@@ -393,10 +432,10 @@ The following zip file features are not supported by this program:
 
 - Encrypted Central Directory
 
-    When pkzip _strong encryption_ is enabled in a zip file this program can still
-    parse most of the metadata in the zip file. The exception is when the Central
-    Directory of a zip file is also encrypted. This program cannot parse any
-    metadata from an encrypted Central Directory.
+    When pkzip _strong encryption_ is enabled in a zip file this program can
+    still parse most of the metadata in the zip file. The exception is when the
+    Central Directory of a zip file is also encrypted. This program cannot
+    parse any metadata from an encrypted Central Directory.
 
 - Corrupt Zip files
 

@@ -149,7 +149,7 @@ for my $dir (sort keys %dirs)
         my %controlData = parseControl($dir);
 
         # default options assume
-        my $options = '--input-encoding utf8 --output-encoding utf8';
+        my $options = '--encoding utf8 --output-encoding utf8';
 
         if (-e "$dir/options" )
         {
