@@ -24,9 +24,9 @@
 001E 0020 0003 61 E5 61    Filename              'aÃ¥a'
 #
 # INFO: Offset 0x1E: Filename Encoding Change
-#       Octets Read from File  [aåa][3] [0061.00E5.0061]
+#       Octets Read from File  [aåa][3] [61.E5.61]
 #       Via Unicode Codepoints [aåa][3] [0061.00E5.0061]
-#       Octets Written         [aÃ¥a][4] [0061.00C3.00A5.0061]
+#       Octets Written         [aÃ¥a][4] [61.C3.A5.61]
 #
 0021 0026 0006 4B 4C 4A 4E PAYLOAD               KLJN..
                01 00
@@ -60,9 +60,9 @@
 0055 0057 0003 61 E5 61    Filename              'aÃ¥a'
 #
 # INFO: Offset 0x55: Filename Encoding Change
-#       Octets Read from File  [aåa][3] [0061.00E5.0061]
+#       Octets Read from File  [aåa][3] [61.E5.61]
 #       Via Unicode Codepoints [aåa][3] [0061.00E5.0061]
-#       Octets Written         [aÃ¥a][4] [0061.00C3.00A5.0061]
+#       Octets Written         [aÃ¥a][4] [61.C3.A5.61]
 #
 
 0058 005B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)

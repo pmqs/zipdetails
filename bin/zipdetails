@@ -534,7 +534,12 @@ sub hexDump16
            unpack('(a16)*', $_[0]) ;
 }
 
-sub charDump
+sub charDump2
+{
+    sprintf "%v02X", $_[0];
+}
+
+sub charDump4
 {
     sprintf "%v04X", $_[0];
 }
@@ -2372,11 +2377,16 @@ sub outputFilename
 
     if (! $opt_Redact && TextEncoding::debugEncoding() && $modified)
     {
+        # use Devel::Peek;
+        # print "READ     " ; Dump($raw_filename);
+        # print "INTERNAL " ; Dump($decoded_filename);
+        # print "OUTPUT   " ; Dump($filename);
+
         info $FH->tell() - length($raw_filename),
                     "$message Encoding Change",
-                    "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump($raw_filename) . "]",
-                    "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
-                    "Octets Written         [$filename][" . length($filename). "] [" . charDump($filename) . "]";
+                    "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump2($raw_filename) . "]",
+                    "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump4($decoded_filename) . "]",
+                    "Octets Written         [$filename][" . length($filename). "] [" . charDump2($filename) . "]";
     }
 
     return $filename;

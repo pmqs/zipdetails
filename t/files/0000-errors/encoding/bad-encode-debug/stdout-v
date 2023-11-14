@@ -23,9 +23,9 @@
 001E 001F 0002 F0 F0       Filename              'ππ'
 #
 # INFO: Offset 0x1E: Filename Encoding Change
-#       Octets Read from File  [��][2] [00F0.00F0]
+#       Octets Read from File  [��][2] [F0.F0]
 #       Via Unicode Codepoints [ππ][2] [03C0.03C0]
-#       Octets Written         [ππ][2] [03C0.03C0]
+#       Octets Written         [ππ][2] [3C0.3C0]
 #
 0020 0025 0006 4B 4C 4A 4E PAYLOAD               KLJN..
                01 00
@@ -58,9 +58,9 @@
 0054 0055 0002 F0 F0       Filename              'ππ'
 #
 # INFO: Offset 0x54: Filename Encoding Change
-#       Octets Read from File  [��][2] [00F0.00F0]
+#       Octets Read from File  [��][2] [F0.F0]
 #       Via Unicode Codepoints [ππ][2] [03C0.03C0]
-#       Octets Written         [ππ][2] [03C0.03C0]
+#       Octets Written         [ππ][2] [3C0.3C0]
 #
 
 0056 0059 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
