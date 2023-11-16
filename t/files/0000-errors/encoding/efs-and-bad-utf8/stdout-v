@@ -1,8 +1,8 @@
 #
-# INFO: Debug Encoding Enabled
-#       System Default Encoding:                  'utf-8-strict'
-#       Encoding used when reading from zip file: 'iso-8859-1'
-#       Encoding used for display output:         'utf8'
+# DEBUG: Debug Encoding Enabled
+#        System Default Encoding:                  'utf-8-strict'
+#        Encoding used when reading from zip file: 'iso-8859-1'
+#        Encoding used for display output:         'utf8'
 #
 
 0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
@@ -23,10 +23,12 @@
 #
 001E 0020 0003 61 E5 61    Filename              'aÃ¥a'
 #
-# INFO: Offset 0x1E: Filename Encoding Change
-#       Octets Read from File  [aåa][3] [61.E5.61]
-#       Via Unicode Codepoints [aåa][3] [0061.00E5.0061]
-#       Octets Written         [aÃ¥a][4] [61.C3.A5.61]
+# DEBUG: Offset 0x1E: Filename Encoding Change
+#
+# DEBUG: Offset 0x1E: Encoding Debug for Filename
+#        Octets Read from File  [aåa][3] [61.E5.61]
+#        Via Unicode Codepoints [aåa][3] [61.E5.61]
+#        Octets Written         [aÃ¥a][4] [61.C3.A5.61]
 #
 0021 0026 0006 4B 4C 4A 4E PAYLOAD               KLJN..
                01 00
@@ -59,10 +61,12 @@
 #
 0055 0057 0003 61 E5 61    Filename              'aÃ¥a'
 #
-# INFO: Offset 0x55: Filename Encoding Change
-#       Octets Read from File  [aåa][3] [61.E5.61]
-#       Via Unicode Codepoints [aåa][3] [0061.00E5.0061]
-#       Octets Written         [aÃ¥a][4] [61.C3.A5.61]
+# DEBUG: Offset 0x55: Filename Encoding Change
+#
+# DEBUG: Offset 0x55: Encoding Debug for Filename
+#        Octets Read from File  [aåa][3] [61.E5.61]
+#        Via Unicode Codepoints [aåa][3] [61.E5.61]
+#        Octets Written         [aÃ¥a][4] [61.C3.A5.61]
 #
 
 0058 005B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
@@ -75,6 +79,5 @@
 006C 006D 0002 00 00       Comment Length        0000 (0)
 #
 # Warning Count: 2
-# Info Count: 3
 #
 # Done

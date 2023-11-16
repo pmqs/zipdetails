@@ -36,6 +36,7 @@ sub fatal_truncated ;
 sub info ;
 sub warning ;
 sub error ;
+sub debug ;
 sub fatal ;
 sub topLevelFatal ;
 sub internalFatal;
@@ -539,9 +540,9 @@ sub charDump2
     sprintf "%v02X", $_[0];
 }
 
-sub charDump4
+sub charDump
 {
-    sprintf "%v04X", $_[0];
+    sprintf "%vX", $_[0];
 }
 
 sub hexValue
@@ -2375,17 +2376,34 @@ sub outputFilename
 
     out $raw_filename, $message,  "'". $filename . "'";
 
-    if (! $opt_Redact && TextEncoding::debugEncoding() && $modified)
+    if (! $opt_Redact && TextEncoding::debugEncoding())
     {
         # use Devel::Peek;
         # print "READ     " ; Dump($raw_filename);
         # print "INTERNAL " ; Dump($decoded_filename);
         # print "OUTPUT   " ; Dump($filename);
 
-        info $FH->tell() - length($raw_filename),
-                    "$message Encoding Change",
+        debug $FH->tell() - length($raw_filename),
+                    "$message Encoding Change"
+            if $modified ;
+
+        # use Unicode::Normalize;
+        # my $NormaizedForm ;
+        # if (defined $decoded_filename)
+        # {
+        #     $NormaizedForm .= Unicode::Normalize::checkNFD  $decoded_filename ? 'NFD ' : '';
+        #     $NormaizedForm .= Unicode::Normalize::checkNFC  $decoded_filename ? 'NFC ' : '';
+        #     $NormaizedForm .= Unicode::Normalize::checkNFKD $decoded_filename ? 'NFKD ' : '';
+        #     $NormaizedForm .= Unicode::Normalize::checkNFKC $decoded_filename ? 'NFKC ' : '';
+        #     $NormaizedForm .= Unicode::Normalize::checkFCD  $decoded_filename ? 'FCD ' : '';
+        #     $NormaizedForm .= Unicode::Normalize::checkFCC  $decoded_filename ? 'FCC ' : '';
+        # }
+
+        debug $FH->tell() - length($raw_filename),
+                    "Encoding Debug for $message",
                     "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump2($raw_filename) . "]",
-                    "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump4($decoded_filename) . "]",
+                    "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
+                    # "Unicode Normalization  $NormaizedForm",
                     "Octets Written         [$filename][" . length($filename). "] [" . charDump2($filename) . "]";
     }
 
@@ -3497,6 +3515,30 @@ sub error
 
     $exit_status_code |= 4
         if $opt_want_message_exit_status ;
+}
+
+sub debug
+{
+    my $offset   = shift ;
+    my $message  = shift;
+
+    no warnings 'utf8';
+
+    say "#"
+        unless $lastWasMessage ++ ;
+
+    if (defined $offset)
+    {
+        say "# DEBUG: Offset " . hexValue($offset) . ": $message";
+    }
+    else
+    {
+        say "# DEBUG: $message";
+    }
+
+
+    say "#        $_" for @_ ;
+    say "#";
 }
 
 sub internalError
@@ -5897,23 +5939,6 @@ sub nibbles
 
         return $self;
     }
-
-    # sub setFilename
-    # {
-    #     my $self = shift;
-    #     my $filename = shift ;
-    #     $self->filename($filename);
-    #     my ($outFilename, undef, $modified) = ::getOutputFilename($filename, $self->languageEncodingFlag);
-    #     $self->outputFilename($outFilename);
-    # }
-
-    # sub setoutputFilename
-    # {
-    #     my $self = shift;
-    #     my ($outFilename, undef, $modified) = ::getOutputFilename($self->filename, $self->languageEncodingFlag);
-    #     $self->outputFilename($outFilename);
-    # }
-
 }
 
 {
@@ -6490,7 +6515,7 @@ sub displayFileInfo
         my $from = $opt_EncodingFrom->name();
         my $to   = $opt_EncodingTo->name();
 
-        ::info undef, "Debug Encoding Enabled",
+        ::debug undef, "Debug Encoding Enabled",
                       "System Default Encoding:                  '$enc'",
                       "Encoding used when reading from zip file: '$from'",
                       "Encoding used for display output:         '$to'";
