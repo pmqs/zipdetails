@@ -4887,34 +4887,46 @@ sub decode_Xceed_unicode
 
     my $data ;
 
-    # No public definition available, so guess the fields used for this one
-    # Data analysis based on output from Fiddler (https://www.telerik.com/fiddler),
-    # which uses this field
+    # No public definition available, so guess the fields used for this one.
 
-    # First 4 bytes appear to be "NUCX" all the time
+    # Initial  analysis based on output from Fiddler (https://www.telerik.com/fiddler),
+    # which uses this field
+    #
+    # See https://github.com/pmqs/zipdetails/issues/13 for C# source that populates
+    # this field
+
+    # Local Header only has filename
+    # Central has filename & comment
+
+    # First 4 bytes appear to be little-endian "XCUN" all the time
     out_V "  ID";
 
     # Next 2 bytes contains a count of the remaining bytes/2
-    # Probably the number of UTF-16 characters, including the
-    # optional NULL prefix
-    out_v "  Length";
+    # This is the number of UTF-16 characters
+    my $filenameLength = out_v "  Filename Length";
+    my $commentLength = 0;
 
-    # next is a UTF16 encode filename
-    # sometimes preceeded by a two Null bytes
-
-    myRead($data, $len - 6);
-
-    my $prefix = substr($data, 0, 2);
-    if ($prefix eq "\x00\x00")
+    if ($entry->inCentralDir)
     {
-        # Found the Null prefix
-        out $prefix, "  Null", '0000';
-        substr($data, 0, 2) = '';
+        $commentLength = out_v "  Comment Length";
     }
 
-    out redactData($data), "  UTF16LE Name", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
-}
 
+    # next is a UTF16 encode filename
+
+    myRead($data, $filenameLength * 2);
+
+    out redactData($data), "  UTF16LE Filename", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
+
+    # next is a UTF16 encode comment
+
+    if ($commentLength)
+    {
+        myRead($data, $commentLength * 2);
+
+        out redactData($data), "  UTF16LE Comment", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
+    }
+}
 
 sub decode_NT_security
 {
