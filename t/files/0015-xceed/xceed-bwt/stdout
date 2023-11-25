@@ -26,8 +26,8 @@
 0094 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0096   Length              0024 (36)
 0098   ID                  5843554E (1480807758)
-009C   Length              000F (15)
-009E   UTF16LE Name        'F1\TestFile.txt'
+009C   Filename Length     000F (15)
+009E   UTF16LE Filename    'F1\TestFile.txt'
 00BC PAYLOAD               51.....`....f.  ."....!.@.@..)z....~.
 
 00E1 LOCAL HEADER #2       04034B50 (67324752)
@@ -57,8 +57,8 @@
 0175 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0177   Length              0024 (36)
 0179   ID                  5843554E (1480807758)
-017D   Length              000F (15)
-017F   UTF16LE Name        'F2\TestFile.txt'
+017D   Filename Length     000F (15)
+017F   UTF16LE Filename    'F2\TestFile.txt'
 019D PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
 01C0 LOCAL HEADER #3       04034B50 (67324752)
@@ -88,8 +88,8 @@
 0254 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0256   Length              0024 (36)
 0258   ID                  5843554E (1480807758)
-025C   Length              000F (15)
-025E   UTF16LE Name        'F3\TestFile.txt'
+025C   Filename Length     000F (15)
+025E   UTF16LE Filename    'F3\TestFile.txt'
 027C PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
 029F LOCAL HEADER #4       04034B50 (67324752)
@@ -119,8 +119,8 @@
 0333 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0335   Length              0024 (36)
 0337   ID                  5843554E (1480807758)
-033B   Length              000F (15)
-033D   UTF16LE Name        'F4\TestFile.txt'
+033B   Filename Length     000F (15)
+033D   UTF16LE Filename    'F4\TestFile.txt'
 035B PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
 037E LOCAL HEADER #5       04034B50 (67324752)
@@ -150,8 +150,8 @@
 0412 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0414   Length              0024 (36)
 0416   ID                  5843554E (1480807758)
-041A   Length              000F (15)
-041C   UTF16LE Name        'F5\TestFile.txt'
+041A   Filename Length     000F (15)
+041C   UTF16LE Filename    'F5\TestFile.txt'
 043A PAYLOAD               51.....@....f.  ."....i....%.6.d...
 
 045D CENTRAL HEADER #1     02014B50 (33639248)
@@ -189,9 +189,9 @@
 04C6 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 04C8   Length              0026 (38)
 04CA   ID                  5843554E (1480807758)
-04CE   Length              000F (15)
-04D0   Null                0000
-04D2   UTF16LE Name        'F1\TestFile.txt'
+04CE   Filename Length     000F (15)
+04D0   Comment Length      0000 (0)
+04D2   UTF16LE Filename    'F1\TestFile.txt'
 
 04F0 CENTRAL HEADER #2     02014B50 (33639248)
 04F4 Created Zip Spec      15 (21) '2.1'
@@ -228,9 +228,9 @@
 0559 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 055B   Length              0026 (38)
 055D   ID                  5843554E (1480807758)
-0561   Length              000F (15)
-0563   Null                0000
-0565   UTF16LE Name        'F2\TestFile.txt'
+0561   Filename Length     000F (15)
+0563   Comment Length      0000 (0)
+0565   UTF16LE Filename    'F2\TestFile.txt'
 
 0583 CENTRAL HEADER #3     02014B50 (33639248)
 0587 Created Zip Spec      15 (21) '2.1'
@@ -267,9 +267,9 @@
 05EC Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 05EE   Length              0026 (38)
 05F0   ID                  5843554E (1480807758)
-05F4   Length              000F (15)
-05F6   Null                0000
-05F8   UTF16LE Name        'F3\TestFile.txt'
+05F4   Filename Length     000F (15)
+05F6   Comment Length      0000 (0)
+05F8   UTF16LE Filename    'F3\TestFile.txt'
 
 0616 CENTRAL HEADER #4     02014B50 (33639248)
 061A Created Zip Spec      15 (21) '2.1'
@@ -306,9 +306,9 @@
 067F Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0681   Length              0026 (38)
 0683   ID                  5843554E (1480807758)
-0687   Length              000F (15)
-0689   Null                0000
-068B   UTF16LE Name        'F4\TestFile.txt'
+0687   Filename Length     000F (15)
+0689   Comment Length      0000 (0)
+068B   UTF16LE Filename    'F4\TestFile.txt'
 
 06A9 CENTRAL HEADER #5     02014B50 (33639248)
 06AD Created Zip Spec      15 (21) '2.1'
@@ -345,9 +345,9 @@
 0712 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0714   Length              0026 (38)
 0716   ID                  5843554E (1480807758)
-071A   Length              000F (15)
-071C   Null                0000
-071E   UTF16LE Name        'F5\TestFile.txt'
+071A   Filename Length     000F (15)
+071C   Comment Length      0000 (0)
+071E   UTF16LE Filename    'F5\TestFile.txt'
 
 073C END CENTRAL HEADER    06054B50 (101010256)
 0740 Number of this disk   0000 (0)

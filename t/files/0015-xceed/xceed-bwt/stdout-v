@@ -45,8 +45,8 @@
 0094 0095 0002 4E 55       Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0096 0097 0002 24 00         Length              0024 (36)
 0098 009B 0004 4E 55 43 58   ID                  5843554E (1480807758)
-009C 009D 0002 0F 00         Length              000F (15)
-009E 00BB 001E 46 00 31 00   UTF16LE Name        'F1\TestFile.txt'
+009C 009D 0002 0F 00         Filename Length     000F (15)
+009E 00BB 001E 46 00 31 00   UTF16LE Filename    'F1\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -111,8 +111,8 @@
 0175 0176 0002 4E 55       Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0177 0178 0002 24 00         Length              0024 (36)
 0179 017C 0004 4E 55 43 58   ID                  5843554E (1480807758)
-017D 017E 0002 0F 00         Length              000F (15)
-017F 019C 001E 46 00 32 00   UTF16LE Name        'F2\TestFile.txt'
+017D 017E 0002 0F 00         Filename Length     000F (15)
+017F 019C 001E 46 00 32 00   UTF16LE Filename    'F2\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -176,8 +176,8 @@
 0254 0255 0002 4E 55       Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0256 0257 0002 24 00         Length              0024 (36)
 0258 025B 0004 4E 55 43 58   ID                  5843554E (1480807758)
-025C 025D 0002 0F 00         Length              000F (15)
-025E 027B 001E 46 00 33 00   UTF16LE Name        'F3\TestFile.txt'
+025C 025D 0002 0F 00         Filename Length     000F (15)
+025E 027B 001E 46 00 33 00   UTF16LE Filename    'F3\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -241,8 +241,8 @@
 0333 0334 0002 4E 55       Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0335 0336 0002 24 00         Length              0024 (36)
 0337 033A 0004 4E 55 43 58   ID                  5843554E (1480807758)
-033B 033C 0002 0F 00         Length              000F (15)
-033D 035A 001E 46 00 34 00   UTF16LE Name        'F4\TestFile.txt'
+033B 033C 0002 0F 00         Filename Length     000F (15)
+033D 035A 001E 46 00 34 00   UTF16LE Filename    'F4\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -306,8 +306,8 @@
 0412 0413 0002 4E 55       Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0414 0415 0002 24 00         Length              0024 (36)
 0416 0419 0004 4E 55 43 58   ID                  5843554E (1480807758)
-041A 041B 0002 0F 00         Length              000F (15)
-041C 0439 001E 46 00 35 00   UTF16LE Name        'F5\TestFile.txt'
+041A 041B 0002 0F 00         Filename Length     000F (15)
+041C 0439 001E 46 00 35 00   UTF16LE Filename    'F5\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -366,9 +366,9 @@
 04C6 04C7 0002 4E 55       Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 04C8 04C9 0002 26 00         Length              0026 (38)
 04CA 04CD 0004 4E 55 43 58   ID                  5843554E (1480807758)
-04CE 04CF 0002 0F 00         Length              000F (15)
-04D0 04D1 0002 00 00         Null                0000
-04D2 04EF 001E 46 00 31 00   UTF16LE Name        'F1\TestFile.txt'
+04CE 04CF 0002 0F 00         Filename Length     000F (15)
+04D0 04D1 0002 00 00         Comment Length      0000 (0)
+04D2 04EF 001E 46 00 31 00   UTF16LE Filename    'F1\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -418,9 +418,9 @@
 0559 055A 0002 4E 55       Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 055B 055C 0002 26 00         Length              0026 (38)
 055D 0560 0004 4E 55 43 58   ID                  5843554E (1480807758)
-0561 0562 0002 0F 00         Length              000F (15)
-0563 0564 0002 00 00         Null                0000
-0565 0582 001E 46 00 32 00   UTF16LE Name        'F2\TestFile.txt'
+0561 0562 0002 0F 00         Filename Length     000F (15)
+0563 0564 0002 00 00         Comment Length      0000 (0)
+0565 0582 001E 46 00 32 00   UTF16LE Filename    'F2\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -470,9 +470,9 @@
 05EC 05ED 0002 4E 55       Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 05EE 05EF 0002 26 00         Length              0026 (38)
 05F0 05F3 0004 4E 55 43 58   ID                  5843554E (1480807758)
-05F4 05F5 0002 0F 00         Length              000F (15)
-05F6 05F7 0002 00 00         Null                0000
-05F8 0615 001E 46 00 33 00   UTF16LE Name        'F3\TestFile.txt'
+05F4 05F5 0002 0F 00         Filename Length     000F (15)
+05F6 05F7 0002 00 00         Comment Length      0000 (0)
+05F8 0615 001E 46 00 33 00   UTF16LE Filename    'F3\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -522,9 +522,9 @@
 067F 0680 0002 4E 55       Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0681 0682 0002 26 00         Length              0026 (38)
 0683 0686 0004 4E 55 43 58   ID                  5843554E (1480807758)
-0687 0688 0002 0F 00         Length              000F (15)
-0689 068A 0002 00 00         Null                0000
-068B 06A8 001E 46 00 34 00   UTF16LE Name        'F4\TestFile.txt'
+0687 0688 0002 0F 00         Filename Length     000F (15)
+0689 068A 0002 00 00         Comment Length      0000 (0)
+068B 06A8 001E 46 00 34 00   UTF16LE Filename    'F4\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
@@ -574,9 +574,9 @@
 0712 0713 0002 4E 55       Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0714 0715 0002 26 00         Length              0026 (38)
 0716 0719 0004 4E 55 43 58   ID                  5843554E (1480807758)
-071A 071B 0002 0F 00         Length              000F (15)
-071C 071D 0002 00 00         Null                0000
-071E 073B 001E 46 00 35 00   UTF16LE Name        'F5\TestFile.txt'
+071A 071B 0002 0F 00         Filename Length     000F (15)
+071C 071D 0002 00 00         Comment Length      0000 (0)
+071E 073B 001E 46 00 35 00   UTF16LE Filename    'F5\TestFile.txt'
                5C 00 54 00
                65 00 73 00
                74 00 46 00
