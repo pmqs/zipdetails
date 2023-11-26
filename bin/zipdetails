@@ -308,7 +308,7 @@ my %Extras = (
       0x4f4c,  ['Xceed original location [LO]',                             undef],
       0x5356,  ['AOS/VS (binary ACL) [VS]',                                 undef],
       0x5455,  ['Extended Timestamp [UT]',                                  \&decode_UT,                    1, 13,  1, 13],
-      0x554e,  ['Xceed unicode extra field [UN]',                           \&decode_Xceed_unicode,         6,  undef,  6,  undef],
+      0x554e,  ['Xceed unicode extra field [UN]',                           \&decode_Xceed_unicode,         6,  undef,  8,  undef],
       0x5855,  ['Unix Extra type 1 [UX]',                                   \&decode_UX,                    12, 12,     8, 8],
       0x5a4c,  ['ZipArchive Unicode Filename [LZ]',                         undef],  # https://www.artpol-software.com/ZipArchive
       0x5a4d,  ['ZipArchive Offsets Array [MZ]',                            undef],  # https://www.artpol-software.com/ZipArchive
@@ -4881,50 +4881,110 @@ sub decode_uc
 
 sub decode_Xceed_unicode
 {
+    # 0x554e
+    
     my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
 
     my $data ;
+    my $remaining = $len;
 
-    # No public definition available, so guess the fields used for this one.
+    # No public definition available, so reverse engineer the content.
 
-    # Initial  analysis based on output from Fiddler (https://www.telerik.com/fiddler),
-    # which uses this field
-    #
     # See https://github.com/pmqs/zipdetails/issues/13 for C# source that populates
-    # this field
+    # this field.
 
-    # Local Header only has filename
-    # Central has filename & comment
+    # Fiddler https://www.telerik.com/fiddler) creates this field.
+
+    # Local Header only has UTF16LE filename
+    #
+    # Field definition
+    #    4 bytes Signature                      always XCUN
+    #    2 bytes Filename Length (divided by 2)
+    #      Filename
+
+    # Central has UTF16LE filename & comment
+    #
+    # Field definition
+    #    4 bytes Signature                      always XCUN
+    #    2 bytes Filename Length (divided by 2)
+    #    2 bytes Comment Length (divided by 2)
+    #      Filename
+    #      Comment
 
     # First 4 bytes appear to be little-endian "XCUN" all the time
-    out_V "  ID";
+    # Just double check
+    my ($idb, $id) = read_V();
+    $remaining -= 4;
 
-    # Next 2 bytes contains a count of the remaining bytes/2
-    # This is the number of UTF-16 characters
+    my $outid = decimalHex0x($id);
+    $outid .= " 'XCUN'"
+        if $idb eq 'NUCX';
+
+    out $idb, "  ID", $outid;
+
+    # Next 2 bytes contains a count of the filename length divided by 2
+    # Dividing by 2 gives the number of UTF-16 characters.
     my $filenameLength = out_v "  Filename Length";
+    $filenameLength *= 2; # Double to get number of bytes to read
+    $remaining -= 2;
+
     my $commentLength = 0;
 
     if ($entry->inCentralDir)
     {
+        # Comment length only in Central Directory
+        # Again stored divided by 2.
         $commentLength = out_v "  Comment Length";
+        $commentLength *= 2; # Double to get number of bytes to read
+        $remaining -= 2;
     }
 
+    # next is a UTF16 encoded filename
 
-    # next is a UTF16 encode filename
+    if ($filenameLength)
+    {
+        if ($filenameLength > $remaining )
+        {
+            myRead($data, $remaining);
+            out redactData($data), "  UTF16LE Filename", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
 
-    myRead($data, $filenameLength * 2);
+            error $FH->tell() - $remaining,
+                extraFieldIdentifier($extraID) .  ": Truncated reading 'UTF16LE Filename'",
+                "Expected " . decimalHex0x($filenameLength) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+            return undef;
+        }
 
-    out redactData($data), "  UTF16LE Filename", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
+        myRead($data, $filenameLength);
+        out redactData($data), "  UTF16LE Filename", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
+        $remaining -= $filenameLength;
+    }
 
-    # next is a UTF16 encode comment
+    # next is a UTF16 encoded comment
 
     if ($commentLength)
     {
-        myRead($data, $commentLength * 2);
+        if ($commentLength > $remaining )
+        {
+            myRead($data, $remaining);
+            out redactData($data), "  UTF16LE Comment", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
 
+            error $FH->tell() - $remaining,
+                extraFieldIdentifier($extraID) .  ": Truncated reading 'UTF16LE Comment'",
+                "Expected " . decimalHex0x($filenameLength) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+            return undef;
+        }
+
+        myRead($data, $commentLength);
         out redactData($data), "  UTF16LE Comment", "'" . redactFilename(decode("UTF16LE", $data)) . "'";
+        $remaining -= $commentLength;
+    }
+
+    if ($remaining)
+    {
+        outHexdump($remaining, "  Unexpected Data");
+        error $FH->tell() - $remaining, extraFieldIdentifier($extraID) . ": " . decimalHex0x($remaining) . " unexpected trailing bytes" ;
     }
 }
 

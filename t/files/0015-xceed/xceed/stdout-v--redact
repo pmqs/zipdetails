@@ -1,0 +1,325 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+000E 0011 0004 F9 DA D3 CC CRC                   CCD3DAF9 (3436436217)
+0012 0015 0004 5C 00 00 00 Compressed Size       0000005C (92)
+0016 0019 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+001A 001B 0002 0F 00       Filename Length       000F (15)
+001C 001D 0002 28 00       Extra Length          0028 (40)
+001E 002C 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 35
+               35 34 65 2E
+               74 78 74
+002D 002E 0002 4E 55       Extra ID #1           554E (21838) 'Xceed unicode extra field [UN]'
+002F 0030 0002 24 00         Length              0024 (36)
+0031 0034 0004 4E 55 43 58   ID                  0x5843554E (1480807758) 'XCUN'
+0035 0036 0002 0F 00         Filename Length     000F (15)
+0037 0054 001E 58 58 58 58   UTF16LE Filename    'XXXXXXXXXXXXXXX'
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58
+0055 00B0 005C 58 58 58 58 PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+
+00B1 00B4 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+00B5 00B5 0001 14          Extract Zip Spec      14 (20) '2.0'
+00B6 00B6 0001 00          Extract OS            00 (0) 'MS-DOS'
+00B7 00B8 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+00B9 00BA 0002 08 00       Compression Method    0008 (8) 'Deflated'
+00BB 00BE 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+00BF 00C2 0004 76 F2 9B B6 CRC                   B69BF276 (3063673462)
+00C3 00C6 0004 5C 00 00 00 Compressed Size       0000005C (92)
+00C7 00CA 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+00CB 00CC 0002 0F 00       Filename Length       000F (15)
+00CD 00CE 0002 11 00       Extra Length          0011 (17)
+00CF 00DD 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 35
+               34 35 35 2E
+               74 78 74
+00DE 00DF 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+00E0 00E1 0002 0D 00         Length              000D (13)
+00E2 00E2 0001 07            Flags               07 (7) 'mod access change'
+00E3 00E6 0004 5B FF 61 65   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00E7 00EA 0004 5B FF 61 65   Access Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00EB 00EE 0004 5B FF 61 65   Change Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00EF 014A 005C 58 58 58 58 PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+
+014B 014E 0004 50 4B 03 04 LOCAL HEADER #3       04034B50 (67324752)
+014F 014F 0001 14          Extract Zip Spec      14 (20) '2.0'
+0150 0150 0001 00          Extract OS            00 (0) 'MS-DOS'
+0151 0152 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+0153 0154 0002 08 00       Compression Method    0008 (8) 'Deflated'
+0155 0158 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+0159 015C 0004 5B 4C 03 57 CRC                   57034C5B (1459833947)
+015D 0160 0004 5C 00 00 00 Compressed Size       0000005C (92)
+0161 0164 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+0165 0166 0002 0F 00       Filename Length       000F (15)
+0167 0168 0002 00 00       Extra Length          0000 (0)
+0169 0177 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 30
+               30 30 61 2E
+               74 78 74
+0178 01D3 005C 58 58 58 58 PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+
+01D4 01D7 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+01D8 01D8 0001 2D          Created Zip Spec      2D (45) '4.5'
+01D9 01D9 0001 00          Created OS            00 (0) 'MS-DOS'
+01DA 01DA 0001 14          Extract Zip Spec      14 (20) '2.0'
+01DB 01DB 0001 00          Extract OS            00 (0) 'MS-DOS'
+01DC 01DD 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+01DE 01DF 0002 08 00       Compression Method    0008 (8) 'Deflated'
+01E0 01E3 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+01E4 01E7 0004 5B 4C 03 57 CRC                   57034C5B (1459833947)
+01E8 01EB 0004 5C 00 00 00 Compressed Size       0000005C (92)
+01EC 01EF 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+01F0 01F1 0002 0F 00       Filename Length       000F (15)
+01F2 01F3 0002 24 00       Extra Length          0024 (36)
+01F4 01F5 0002 2C 00       Comment Length        002C (44)
+01F6 01F7 0002 00 00       Disk Start            0000 (0)
+01F8 01F9 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+01FA 01FD 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+01FE 0201 0004 4B 01 00 00 Local Header Offset   0000014B (331)
+0202 0210 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 30
+               30 30 61 2E
+               74 78 74
+0211 0212 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+0213 0214 0002 20 00         Length              0020 (32)
+0215 0218 0004 00 00 00 00   Reserved            00000000 (0)
+0219 021A 0002 01 00         Tag1                0001 (1)
+021B 021C 0002 18 00         Size1               0018 (24)
+021D 0224 0008 E7 56 5B 90   Mtime               01DA1FA8905B56E7 (133453947797722855) 'Sat Nov 25 14:06:19 2023 772285500ns'
+               A8 1F DA 01
+0225 022C 0008 E7 56 5B 90   Atime               01DA1FA8905B56E7 (133453947797722855) 'Sat Nov 25 14:06:19 2023 772285500ns'
+               A8 1F DA 01
+022D 0234 0008 E7 56 5B 90   Ctime               01DA1FA8905B56E7 (133453947797722855) 'Sat Nov 25 14:06:19 2023 772285500ns'
+               A8 1F DA 01
+0235 0260 002C 54 68 69 73 Comment               'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+               20 69 73 20
+               63 6F 6D 6D
+               65 6E 74 20
+               66 6F 72 20
+               66 69 6C 65
+               20 27 5C 66
+               69 6C 65 5F
+               30 78 30 30
+               30 61 2E 74
+               78 74 27 2E
+
+0261 0264 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+0265 0265 0001 2D          Created Zip Spec      2D (45) '4.5'
+0266 0266 0001 00          Created OS            00 (0) 'MS-DOS'
+0267 0267 0001 14          Extract Zip Spec      14 (20) '2.0'
+0268 0268 0001 00          Extract OS            00 (0) 'MS-DOS'
+0269 026A 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+026B 026C 0002 08 00       Compression Method    0008 (8) 'Deflated'
+026D 0270 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+0271 0274 0004 76 F2 9B B6 CRC                   B69BF276 (3063673462)
+0275 0278 0004 5C 00 00 00 Compressed Size       0000005C (92)
+0279 027C 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+027D 027E 0002 0F 00       Filename Length       000F (15)
+027F 0280 0002 09 00       Extra Length          0009 (9)
+0281 0282 0002 2C 00       Comment Length        002C (44)
+0283 0284 0002 00 00       Disk Start            0000 (0)
+0285 0286 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0287 028A 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+028B 028E 0004 B1 00 00 00 Local Header Offset   000000B1 (177)
+028F 029D 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 35
+               34 35 35 2E
+               74 78 74
+029E 029F 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+02A0 02A1 0002 05 00         Length              0005 (5)
+02A2 02A2 0001 07            Flags               07 (7) 'mod access change'
+02A3 02A6 0004 5B FF 61 65   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+02A7 02D2 002C 54 68 69 73 Comment               'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+               20 69 73 20
+               63 6F 6D 6D
+               65 6E 74 20
+               66 6F 72 20
+               66 69 6C 65
+               20 27 5C 66
+               69 6C 65 5F
+               30 78 35 34
+               35 35 2E 74
+               78 74 27 2E
+
+02D3 02D6 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
+02D7 02D7 0001 2D          Created Zip Spec      2D (45) '4.5'
+02D8 02D8 0001 00          Created OS            00 (0) 'MS-DOS'
+02D9 02D9 0001 14          Extract Zip Spec      14 (20) '2.0'
+02DA 02DA 0001 00          Extract OS            00 (0) 'MS-DOS'
+02DB 02DC 0002 02 08       General Purpose Flag  0802 (2050)
+                           [Bits 1-2]            1 'Maximum Compression'
+                           [Bit 11]              1 'Language Encoding'
+02DD 02DE 0002 08 00       Compression Method    0008 (8) 'Deflated'
+02DF 02E2 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+02E3 02E6 0004 F9 DA D3 CC CRC                   CCD3DAF9 (3436436217)
+02E7 02EA 0004 5C 00 00 00 Compressed Size       0000005C (92)
+02EB 02EE 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
+02EF 02F0 0002 0F 00       Filename Length       000F (15)
+02F1 02F2 0002 82 00       Extra Length          0082 (130)
+02F3 02F4 0002 2C 00       Comment Length        002C (44)
+02F5 02F6 0002 00 00       Disk Start            0000 (0)
+02F7 02F8 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+02F9 02FC 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+02FD 0300 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0301 030F 000F 66 69 6C 65 Filename              'XXXXXXXXXXXXXXX'
+               5F 30 78 35
+               35 34 65 2E
+               74 78 74
+0310 0311 0002 4E 55       Extra ID #1           554E (21838) 'Xceed unicode extra field [UN]'
+0312 0313 0002 7E 00         Length              007E (126)
+0314 0317 0004 4E 55 43 58   ID                  0x5843554E (1480807758) 'XCUN'
+0318 0319 0002 0F 00         Filename Length     000F (15)
+031A 031B 0002 2C 00         Comment Length      002C (44)
+031C 0339 001E 58 58 58 58   UTF16LE Filename    'XXXXXXXXXXXXXXX'
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58
+033A 0391 0058 58 58 58 58   UTF16LE Comment     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+               58 58 58 58
+0392 03BD 002C 54 68 69 73 Comment               'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+               20 69 73 20
+               63 6F 6D 6D
+               65 6E 74 20
+               66 6F 72 20
+               66 69 6C 65
+               20 27 5C 66
+               69 6C 65 5F
+               30 78 35 35
+               34 65 2E 74
+               78 74 27 2E
+
+03BE 03C1 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+03C2 03C3 0002 00 00       Number of this disk   0000 (0)
+03C4 03C5 0002 00 00       Central Dir Disk no   0000 (0)
+03C6 03C7 0002 03 00       Entries in this disk  0003 (3)
+03C8 03C9 0002 03 00       Total Entries         0003 (3)
+03CA 03CD 0004 EA 01 00 00 Size of Central Dir   000001EA (490)
+03CE 03D1 0004 D4 01 00 00 Offset to Central Dir 000001D4 (468)
+03D2 03D3 0002 30 00       Comment Length        0030 (48)
+03D4 0403 0030 54 68 69 73 Comment               'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+               20 69 73 20
+               63 6F 6D 6D
+               65 6E 74 20
+               66 6F 72 20
+               7A 69 70 20
+               61 72 63 68
+               69 76 65 20
+               66 69 6C 65
+               20 27 74 65
+               73 74 2E 7A
+               69 70 27 2E
+#
+# Done

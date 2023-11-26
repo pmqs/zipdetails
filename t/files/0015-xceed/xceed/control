@@ -1,0 +1,19 @@
+default
+    exit-status 0
+    stdout      stdout
+    stderr      NULL
+
+-v
+    exit-status 0
+    stdout      stdout-v
+    stderr      NULL
+
+--redact
+    exit-status 0
+    stdout      stdout--redact
+    stderr      NULL
+
+-v --redact
+    exit-status 0
+    stdout      stdout-v--redact
+    stderr      NULL

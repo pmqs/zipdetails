@@ -1,0 +1,75 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 D6 62 7A 57 Last Mod Date/Time    577A62D6 (1467638486) 'Sun Nov 26 12:22:44 2023'
+000E 0011 0004 C2 41 24 35 CRC                   352441C2 (891568578)
+0012 0015 0004 03 00 00 00 Compressed Size       00000003 (3)
+0016 0019 0004 03 00 00 00 Uncompressed Size     00000003 (3)
+001A 001B 0002 08 00       Filename Length       0008 (8)
+001C 001D 0002 16 00       Extra Length          0016 (22)
+001E 0025 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
+0026 0027 0002 4E 55       Extra ID #1           554E (21838) 'Xceed unicode extra field [UN]'
+0028 0029 0002 12 00         Length              0012 (18)
+002A 002D 0004 4E 55 43 58   ID                  0x5843554E (1480807758) 'XCUN'
+002E 002F 0002 06 00         Filename Length     0006 (6)
+0030 003B 000C 66 00 72 00   UTF16LE Filename    'freddy'
+               65 00 64 00
+               64 00 79 00
+003C 003E 0003 61 62 63    PAYLOAD               abc
+
+003F 0042 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0043 0043 0001 14          Created Zip Spec      14 (20) '2.0'
+0044 0044 0001 03          Created OS            03 (3) 'Unix'
+0045 0045 0001 14          Extract Zip Spec      14 (20) '2.0'
+0046 0046 0001 00          Extract OS            00 (0) 'MS-DOS'
+0047 0048 0002 00 00       General Purpose Flag  0000 (0)
+0049 004A 0002 00 00       Compression Method    0000 (0) 'Stored'
+004B 004E 0004 D6 62 7A 57 Last Mod Date/Time    577A62D6 (1467638486) 'Sun Nov 26 12:22:44 2023'
+004F 0052 0004 C2 41 24 35 CRC                   352441C2 (891568578)
+0053 0056 0004 03 00 00 00 Compressed Size       00000003 (3)
+0057 005A 0004 03 00 00 00 Uncompressed Size     00000003 (3)
+005B 005C 0002 08 00       Filename Length       0008 (8)
+005D 005E 0002 26 00       Extra Length          0026 (38)
+005F 0060 0002 00 00       Comment Length        0000 (0)
+0061 0062 0002 00 00       Disk Start            0000 (0)
+0063 0064 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0065 0068 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0069 006C 0004 00 00 00 00 Local Header Offset   00000000 (0)
+006D 0074 0008 66 69 6C 65 Filename              'filename'
+               6E 61 6D 65
+0075 0076 0002 4E 55       Extra ID #1           554E (21838) 'Xceed unicode extra field [UN]'
+0077 0078 0002 22 00         Length              0022 (34)
+0079 007C 0004 4E 55 43 58   ID                  0x5843554E (1480807758) 'XCUN'
+007D 007E 0002 06 00         Filename Length     0006 (6)
+007F 0080 0002 08 00         Comment Length      0008 (8)
+0081 008C 000C 66 00 72 00   UTF16LE Filename    'freddy'
+               65 00 64 00
+               64 00 79 00
+008D 009A 000E 63 00 6F 00   UTF16LE Comment     'comment'
+               6D 00 6D 00
+               65 00 6E 00
+               74 00
+#
+# ERROR: Offset 0x8D: Extra Field 'Xceed unicode extra field [UN]' (ID 0x554E): Truncated reading 'UTF16LE Comment'
+#        Expected 0xC (12) bytes, got 0xE (14) bytes
+#
+
+009B 009E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+009F 00A0 0002 00 00       Number of this disk   0000 (0)
+00A1 00A2 0002 00 00       Central Dir Disk no   0000 (0)
+00A3 00A4 0002 01 00       Entries in this disk  0001 (1)
+00A5 00A6 0002 01 00       Total Entries         0001 (1)
+00A7 00AA 0004 5C 00 00 00 Size of Central Dir   0000005C (92)
+00AB 00AE 0004 3F 00 00 00 Offset to Central Dir 0000003F (63)
+00AF 00B0 0002 00 00       Comment Length        0000 (0)
+#
+# Error Count: 1
+#
+# Done

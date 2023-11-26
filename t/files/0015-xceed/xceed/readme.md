@@ -1,0 +1,1 @@
+test file sourced from https://github.com/pmqs/zipdetails/issues/13

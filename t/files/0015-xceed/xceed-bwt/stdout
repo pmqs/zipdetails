@@ -25,7 +25,7 @@
                            83 10 8A 7E 45 20 1B 00
 0094 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0096   Length              0024 (36)
-0098   ID                  5843554E (1480807758)
+0098   ID                  0x5843554E (1480807758) 'XCUN'
 009C   Filename Length     000F (15)
 009E   UTF16LE Filename    'F1\TestFile.txt'
 00BC PAYLOAD               51.....`....f.  ."....!.@.@..)z....~.
@@ -56,7 +56,7 @@
                            83 10 8A 7E 45 20 1B 00
 0175 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0177   Length              0024 (36)
-0179   ID                  5843554E (1480807758)
+0179   ID                  0x5843554E (1480807758) 'XCUN'
 017D   Filename Length     000F (15)
 017F   UTF16LE Filename    'F2\TestFile.txt'
 019D PAYLOAD               51.....@....f.  ."....i....%.6.d...
@@ -87,7 +87,7 @@
                            83 10 8A 7E 45 20 1B 00
 0254 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0256   Length              0024 (36)
-0258   ID                  5843554E (1480807758)
+0258   ID                  0x5843554E (1480807758) 'XCUN'
 025C   Filename Length     000F (15)
 025E   UTF16LE Filename    'F3\TestFile.txt'
 027C PAYLOAD               51.....@....f.  ."....i....%.6.d...
@@ -118,7 +118,7 @@
                            83 10 8A 7E 45 20 1B 00
 0333 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0335   Length              0024 (36)
-0337   ID                  5843554E (1480807758)
+0337   ID                  0x5843554E (1480807758) 'XCUN'
 033B   Filename Length     000F (15)
 033D   UTF16LE Filename    'F4\TestFile.txt'
 035B PAYLOAD               51.....@....f.  ."....i....%.6.d...
@@ -149,7 +149,7 @@
                            83 10 8A 7E 45 20 1B 00
 0412 Extra ID #2           554E (21838) 'Xceed unicode extra field [UN]'
 0414   Length              0024 (36)
-0416   ID                  5843554E (1480807758)
+0416   ID                  0x5843554E (1480807758) 'XCUN'
 041A   Filename Length     000F (15)
 041C   UTF16LE Filename    'F5\TestFile.txt'
 043A PAYLOAD               51.....@....f.  ."....i....%.6.d...
@@ -188,7 +188,7 @@
 04C2   Uncompressed Size   000000AC (172)
 04C6 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 04C8   Length              0026 (38)
-04CA   ID                  5843554E (1480807758)
+04CA   ID                  0x5843554E (1480807758) 'XCUN'
 04CE   Filename Length     000F (15)
 04D0   Comment Length      0000 (0)
 04D2   UTF16LE Filename    'F1\TestFile.txt'
@@ -227,7 +227,7 @@
 0555   Uncompressed Size   000000AC (172)
 0559 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 055B   Length              0026 (38)
-055D   ID                  5843554E (1480807758)
+055D   ID                  0x5843554E (1480807758) 'XCUN'
 0561   Filename Length     000F (15)
 0563   Comment Length      0000 (0)
 0565   UTF16LE Filename    'F2\TestFile.txt'
@@ -266,7 +266,7 @@
 05E8   Uncompressed Size   000000AC (172)
 05EC Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 05EE   Length              0026 (38)
-05F0   ID                  5843554E (1480807758)
+05F0   ID                  0x5843554E (1480807758) 'XCUN'
 05F4   Filename Length     000F (15)
 05F6   Comment Length      0000 (0)
 05F8   UTF16LE Filename    'F3\TestFile.txt'
@@ -305,7 +305,7 @@
 067B   Uncompressed Size   000000AC (172)
 067F Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0681   Length              0026 (38)
-0683   ID                  5843554E (1480807758)
+0683   ID                  0x5843554E (1480807758) 'XCUN'
 0687   Filename Length     000F (15)
 0689   Comment Length      0000 (0)
 068B   UTF16LE Filename    'F4\TestFile.txt'
@@ -344,7 +344,7 @@
 070E   Uncompressed Size   000000AC (172)
 0712 Extra ID #3           554E (21838) 'Xceed unicode extra field [UN]'
 0714   Length              0026 (38)
-0716   ID                  5843554E (1480807758)
+0716   ID                  0x5843554E (1480807758) 'XCUN'
 071A   Filename Length     000F (15)
 071C   Comment Length      0000 (0)
 071E   UTF16LE Filename    'F5\TestFile.txt'
