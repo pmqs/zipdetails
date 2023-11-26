@@ -124,7 +124,7 @@ my %ZIP_CompressionMethods =
          96 => 'WinZip JPEG Compression',
          97 => 'WavPack compressed data',
          98 => 'PPMd version I, Rev 1',
-         99 => 'AES Encryption',
+         99 => 'AES Encryption', # Apple also use this code for LZFSE compression in IPA files
      );
 
 my %OS_Lookup = (
