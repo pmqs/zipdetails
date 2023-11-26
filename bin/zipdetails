@@ -4882,7 +4882,7 @@ sub decode_uc
 sub decode_Xceed_unicode
 {
     # 0x554e
-    
+
     my $extraID = shift ;
     my $len = shift;
     my $entry = shift;
@@ -7200,7 +7200,7 @@ Display extra debugging info when a filename/comment encoding has changed.
 
 Enable/disable the output of all info/warning/error messages.
 
-Disabling messages mnans that no
+Disabling messages means that no
 checks are carried out to check that the zip file is well-formed.
 
 Default is enabled.

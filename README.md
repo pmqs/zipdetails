@@ -1,3 +1,9 @@
+[![Linux build](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux.yml)
+[![Macos build](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/macos.yml)
+[![Windows build](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/windows.yml)
+[![Linux Docker build](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml/badge.svg)](https://github.com/pmqs/zipdetails/actions/workflows/linux-docker.yml)
+
+
 # NAME
 
 zipdetails - display the internal structure of zip files
@@ -135,20 +141,12 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
 
 - `--messages`, `--no-messages`
 
-    Enable/disable the output of all info/warning/error messages. Default is
-    enabled.
+    Enable/disable the output of all info/warning/error messages.
 
-- `--info-messages`, `--no-info-messages`
+    Disabling messages means that no
+    checks are carried out to check that the zip file is well-formed.
 
-    Enable/disable the output of all info messages. Default is enabled.
-
-- `--warning-messages`, `--no-warning-messages`
-
-    Enable/disable the output of all warning messages. Default is enabled.
-
-- `--error-messages`, `--no-error-messages`
-
-    Enable/disable the output of all error messages. Default is enabled.
+    Default is enabled.
 
 - `--exit-bitmask`, `--no-exit-bitmask`
 
