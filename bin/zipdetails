@@ -2044,10 +2044,18 @@ sub LocalHeader
     {
         need $filenameLength, Signatures::name($signature), 'Filename';
 
-        myRead($filename, $filenameLength);
-        $localEntry->filename($filename) ;
-        $filename = outputFilename($filename, $LanguageEncodingFlag);
+        myRead(my $raw_filename, $filenameLength);
+        $localEntry->filename($raw_filename) ;
+        $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $localEntry->outputFilename($filename);
+        my $existing_filename = $LocalDirectory->normalize_filename($raw_filename);
+        if ($existing_filename)
+        {
+            my $offset = $LocalDirectory->{byName}{$existing_filename}->localHeaderOffset;
+            warning $FH->tell - $filenameLength,
+                    "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
+                    "Duplicate filename: '$existing_filename' at offset " . decimalHex0x($offset);
+        }
 
         # APPNOTE 6.3.10, sec 4.3.8
         warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
@@ -2363,8 +2371,6 @@ sub validateFilename
     # TODO
     # - check length of filename
     #   getconf NAME_MAX . and getconf PATH_MAX . on Linux
-    #
-    # - check that there aren't uuper & lower case version of the same file
 
     # Start with APPNOTE restrictions
 
@@ -2692,10 +2698,19 @@ sub CentralHeader
     {
         need $filenameLength, Signatures::name($signature), 'Filename';
 
-        myRead($filename, $filenameLength);
-        $cdEntry->filename($filename) ;
-        $filename = outputFilename($filename, $LanguageEncodingFlag);
+        myRead(my $raw_filename, $filenameLength);
+        $cdEntry->filename($raw_filename) ;
+        $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $cdEntry->outputFilename($filename);
+
+        my $existing_filename = $LocalDirectory->normalize_filename($raw_filename);
+        if ($existing_filename)
+        {
+            my $offset = $CentralDirectory->{byName}{$existing_filename}->centralHeaderOffset;
+            warning $FH->tell - $filenameLength,
+                    "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
+                    "Duplicate filename: '$existing_filename' at offset " . decimalHex0x($offset);
+        }
 
         # APPNOTE 6.3.10, sec 4.3.8
         warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
@@ -5999,6 +6014,7 @@ sub nibbles
         my $classname = shift;
         my $object = shift;
         my $fields = shift ;
+        my $no_handler = shift // {};
 
         state $done = {};
 
@@ -6006,6 +6022,12 @@ sub nibbles
         while (my ($name, $value) =  each %$fields)
         {
             my $method = "${classname}::$name";
+
+            $object->{$name} = $value;
+
+            # don't auto-create a handler
+            next
+                if $no_handler->{$name};
 
             no strict 'refs';
 
@@ -6026,7 +6048,6 @@ sub nibbles
 
             ++ $done->{$method};
 
-            $object->{$name} = $value ;
 
         }
     }
@@ -6198,6 +6219,7 @@ sub nibbles
                         'byCentralOffset' => {},
                         'byName'        => {},
                         'offset2Index' => {},
+                        'normalized_filenames' => {},
                         'CentralDirectoryOffset'      => 0,
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
@@ -6338,6 +6360,27 @@ sub nibbles
         my $self = shift ;
         return $self->{encryptedCD} && ! $self->{minizip_secure};
     }
+
+    sub normalize_filename
+    {
+        # check if there is a filename that already exists
+        # with the same name when normalized to lower case
+
+        my $self = shift ;
+        my $filename = shift;
+
+        my $nFilename = lc $filename;
+
+        my $lookup = $self->{normalized_filenames}{$nFilename};
+        if ($lookup && $lookup ne $filename)
+        {
+            return $self->{byName}{$lookup}{outputFilename}
+        }
+
+        $self->{normalized_filenames}{$nFilename} = $filename;
+
+        return undef;
+    }
 }
 
 {
@@ -6410,6 +6453,7 @@ sub nibbles
                         'byLocalOffset' => {},
                         'byName'        => {},
                         'offset2Index' => {},
+                        'normalized_filenames' => {},
                         'CentralDirectoryOffset'      => 0,
                         'CentralDirectorySize'      => 0,
                         'zip64'         => 0,
@@ -6550,6 +6594,27 @@ sub nibbles
     {
         my $self = shift ;
         return $self->{streamedPresent} ;
+    }
+
+    sub normalize_filename
+    {
+        # check if there is a filename that already exists
+        # with the same name when normalized to lower case
+
+        my $self = shift ;
+        my $filename = shift;
+
+        my $nFilename = lc $filename;
+
+        my $lookup = $self->{normalized_filenames}{$nFilename};
+        if ($lookup && $lookup ne $filename)
+        {
+            return $self->{byName}{$lookup}{outputFilename}
+        }
+
+        $self->{normalized_filenames}{$nFilename} = $filename;
+
+        return undef;
     }
 }
 

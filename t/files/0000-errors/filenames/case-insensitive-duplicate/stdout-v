@@ -1,0 +1,143 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 0A          Extract Zip Spec      0A (10) '1.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+001A 001B 0002 05 00       Filename Length       0005 (5)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0022 0005 61 62 63 64 Filename              'abcde'
+               65
+
+0023 0026 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+0027 0027 0001 0A          Extract Zip Spec      0A (10) '1.0'
+0028 0028 0001 00          Extract OS            00 (0) 'MS-DOS'
+0029 002A 0002 00 00       General Purpose Flag  0000 (0)
+002B 002C 0002 00 00       Compression Method    0000 (0) 'Stored'
+002D 0030 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+0031 0034 0004 00 00 00 00 CRC                   00000000 (0)
+0035 0038 0004 00 00 00 00 Compressed Size       00000000 (0)
+0039 003C 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+003D 003E 0002 05 00       Filename Length       0005 (5)
+003F 0040 0002 00 00       Extra Length          0000 (0)
+0041 0045 0005 41 42 43 44 Filename              'ABCDE'
+               45
+#
+# WARNING: Offset 0x41: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Duplicate filename: 'abcde' at offset 0x0 (0)
+#
+
+0046 0049 0004 50 4B 03 04 LOCAL HEADER #3       04034B50 (67324752)
+004A 004A 0001 0A          Extract Zip Spec      0A (10) '1.0'
+004B 004B 0001 00          Extract OS            00 (0) 'MS-DOS'
+004C 004D 0002 00 00       General Purpose Flag  0000 (0)
+004E 004F 0002 00 00       Compression Method    0000 (0) 'Stored'
+0050 0053 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+0054 0057 0004 00 00 00 00 CRC                   00000000 (0)
+0058 005B 0004 00 00 00 00 Compressed Size       00000000 (0)
+005C 005F 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+0060 0061 0002 05 00       Filename Length       0005 (5)
+0062 0063 0002 00 00       Extra Length          0000 (0)
+0064 0068 0005 41 62 43 64 Filename              'AbCdE'
+               45
+#
+# WARNING: Offset 0x64: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Duplicate filename: 'abcde' at offset 0x0 (0)
+#
+
+0069 006C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+006D 006D 0001 1E          Created Zip Spec      1E (30) '3.0'
+006E 006E 0001 03          Created OS            03 (3) 'Unix'
+006F 006F 0001 0A          Extract Zip Spec      0A (10) '1.0'
+0070 0070 0001 00          Extract OS            00 (0) 'MS-DOS'
+0071 0072 0002 00 00       General Purpose Flag  0000 (0)
+0073 0074 0002 00 00       Compression Method    0000 (0) 'Stored'
+0075 0078 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+0079 007C 0004 00 00 00 00 CRC                   00000000 (0)
+007D 0080 0004 00 00 00 00 Compressed Size       00000000 (0)
+0081 0084 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+0085 0086 0002 05 00       Filename Length       0005 (5)
+0087 0088 0002 00 00       Extra Length          0000 (0)
+0089 008A 0002 00 00       Comment Length        0000 (0)
+008B 008C 0002 00 00       Disk Start            0000 (0)
+008D 008E 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+008F 0092 0004 00 00 B4 81 Ext File Attributes   81B40000 (2176057344)
+                           [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0093 0096 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0097 009B 0005 61 62 63 64 Filename              'abcde'
+               65
+
+009C 009F 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+00A0 00A0 0001 1E          Created Zip Spec      1E (30) '3.0'
+00A1 00A1 0001 03          Created OS            03 (3) 'Unix'
+00A2 00A2 0001 0A          Extract Zip Spec      0A (10) '1.0'
+00A3 00A3 0001 00          Extract OS            00 (0) 'MS-DOS'
+00A4 00A5 0002 00 00       General Purpose Flag  0000 (0)
+00A6 00A7 0002 00 00       Compression Method    0000 (0) 'Stored'
+00A8 00AB 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+00AC 00AF 0004 00 00 00 00 CRC                   00000000 (0)
+00B0 00B3 0004 00 00 00 00 Compressed Size       00000000 (0)
+00B4 00B7 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+00B8 00B9 0002 05 00       Filename Length       0005 (5)
+00BA 00BB 0002 00 00       Extra Length          0000 (0)
+00BC 00BD 0002 00 00       Comment Length        0000 (0)
+00BE 00BF 0002 00 00       Disk Start            0000 (0)
+00C0 00C1 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+00C2 00C5 0004 00 00 B4 81 Ext File Attributes   81B40000 (2176057344)
+                           [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+00C6 00C9 0004 23 00 00 00 Local Header Offset   00000023 (35)
+00CA 00CE 0005 41 42 43 44 Filename              'ABCDE'
+               45
+#
+# WARNING: Offset 0xCA: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Duplicate filename: 'abcde' at offset 0x69 (105)
+#
+
+00CF 00D2 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
+00D3 00D3 0001 1E          Created Zip Spec      1E (30) '3.0'
+00D4 00D4 0001 03          Created OS            03 (3) 'Unix'
+00D5 00D5 0001 0A          Extract Zip Spec      0A (10) '1.0'
+00D6 00D6 0001 00          Extract OS            00 (0) 'MS-DOS'
+00D7 00D8 0002 00 00       General Purpose Flag  0000 (0)
+00D9 00DA 0002 00 00       Compression Method    0000 (0) 'Stored'
+00DB 00DE 0004 7D 88 9B 57 Last Mod Date/Time    579B887D (1469810813) 'Wed Dec 27 17:03:58 2023'
+00DF 00E2 0004 00 00 00 00 CRC                   00000000 (0)
+00E3 00E6 0004 00 00 00 00 Compressed Size       00000000 (0)
+00E7 00EA 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+00EB 00EC 0002 05 00       Filename Length       0005 (5)
+00ED 00EE 0002 00 00       Extra Length          0000 (0)
+00EF 00F0 0002 00 00       Comment Length        0000 (0)
+00F1 00F2 0002 00 00       Disk Start            0000 (0)
+00F3 00F4 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+00F5 00F8 0004 00 00 B4 81 Ext File Attributes   81B40000 (2176057344)
+                           [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+00F9 00FC 0004 46 00 00 00 Local Header Offset   00000046 (70)
+00FD 0101 0005 41 62 43 64 Filename              'AbCdE'
+               45
+#
+# WARNING: Offset 0xFD: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Duplicate filename: 'abcde' at offset 0x69 (105)
+#
+
+0102 0105 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0106 0107 0002 00 00       Number of this disk   0000 (0)
+0108 0109 0002 00 00       Central Dir Disk no   0000 (0)
+010A 010B 0002 03 00       Entries in this disk  0003 (3)
+010C 010D 0002 03 00       Total Entries         0003 (3)
+010E 0111 0004 99 00 00 00 Size of Central Dir   00000099 (153)
+0112 0115 0004 69 00 00 00 Offset to Central Dir 00000069 (105)
+0116 0117 0002 00 00       Comment Length        0000 (0)
+#
+# Warning Count: 4
+#
+# Done
