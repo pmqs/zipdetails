@@ -1,0 +1,60 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    577A8587 (1467647367) 'Sun Nov 26 16:44:14 2023'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0003 (3)
+001C Extra Length          0000 (0)
+001E Filename              'con'
+#
+# WARNING: Offset 0x1E: Filename 'con'
+#          Portability Issue: 'con' is a reserved Windows device name
+#
+0021 PAYLOAD               KLJN..
+
+0027 CENTRAL HEADER #1     02014B50 (33639248)
+002B Created Zip Spec      14 (20) '2.0'
+002C Created OS            03 (3) 'Unix'
+002D Extract Zip Spec      14 (20) '2.0'
+002E Extract OS            00 (0) 'MS-DOS'
+002F General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0031 Compression Method    0008 (8) 'Deflated'
+0033 Last Mod Date/Time    577A8587 (1467647367) 'Sun Nov 26 16:44:14 2023'
+0037 CRC                   ED82CD11 (3984772369)
+003B Compressed Size       00000006 (6)
+003F Uncompressed Size     00000004 (4)
+0043 Filename Length       0003 (3)
+0045 Extra Length          0000 (0)
+0047 Comment Length        0000 (0)
+0049 Disk Start            0000 (0)
+004B Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+004D Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0051 Local Header Offset   00000000 (0)
+0055 Filename              'con'
+#
+# WARNING: Offset 0x55: Filename 'con'
+#          Portability Issue: 'con' is a reserved Windows device name
+#
+
+0058 END CENTRAL HEADER    06054B50 (101010256)
+005C Number of this disk   0000 (0)
+005E Central Dir Disk no   0000 (0)
+0060 Entries in this disk  0001 (1)
+0062 Total Entries         0001 (1)
+0064 Size of Central Dir   00000031 (49)
+0068 Offset to Central Dir 00000027 (39)
+006C Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

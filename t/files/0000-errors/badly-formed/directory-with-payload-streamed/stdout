@@ -1,0 +1,65 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0008 (8)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    579B5B7C (1469799292) 'Wed Dec 27 11:27:56 2023'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
+001A Filename Length       0004 (4)
+001C Extra Length          0000 (0)
+001E Filename              'abc/'
+0022 PAYLOAD               KLJN..
+
+0028 DATA DESCRIPTOR       08074B50 (134695760)
+002C CRC                   ED82CD11 (3984772369)
+0030 Compressed Size       00000006 (6)
+0034 Uncompressed Size     00000004 (4)
+#
+# WARNING: Directory 'abc/' must not have a payload
+#
+
+0038 CENTRAL HEADER #1     02014B50 (33639248)
+003C Created Zip Spec      14 (20) '2.0'
+003D Created OS            03 (3) 'Unix'
+003E Extract Zip Spec      14 (20) '2.0'
+003F Extract OS            00 (0) 'MS-DOS'
+0040 General Purpose Flag  0008 (8)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0042 Compression Method    0008 (8) 'Deflated'
+0044 Last Mod Date/Time    579B5B7C (1469799292) 'Wed Dec 27 11:27:56 2023'
+0048 CRC                   ED82CD11 (3984772369)
+004C Compressed Size       00000006 (6)
+0050 Uncompressed Size     00000004 (4)
+0054 Filename Length       0004 (4)
+0056 Extra Length          0000 (0)
+0058 Comment Length        0000 (0)
+005A Disk Start            0000 (0)
+005C Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+005E Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0062 Local Header Offset   00000000 (0)
+0066 Filename              'abc/'
+#
+# WARNING: Offset 0x66: Directory 'abc/' must not have a payload
+#
+
+006A END CENTRAL HEADER    06054B50 (101010256)
+006E Number of this disk   0000 (0)
+0070 Central Dir Disk no   0000 (0)
+0072 Entries in this disk  0001 (1)
+0074 Total Entries         0001 (1)
+0076 Size of Central Dir   00000032 (50)
+007A Offset to Central Dir 00000038 (56)
+007E Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

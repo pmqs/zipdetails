@@ -2011,6 +2011,7 @@ sub LocalHeader
     out $bgp, "General Purpose Flag", Value_v($gpFlag) ;
     GeneralPurposeBits($compressedMethod, $gpFlag);
     my $LanguageEncodingFlag = $gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING ;
+    my $streaming = $gpFlag & ZIP_GP_FLAG_STREAMING_MASK ;
     $localEntry->languageEncodingFlag($LanguageEncodingFlag) ;
 
     out $bcm, "Compression Method",   compressionMethod($compressedMethod) ;
@@ -2020,8 +2021,15 @@ sub LocalHeader
     my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc              = out_V "CRC";
+    # warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
+    #     if $streaming && $crc != 0 ;
+
     my $compressedSize   = out_V "Compressed Size";
+    # warning $FH->tell(), "Compressed Size should be zero when streaming is enabled";
+
     my $uncompressedSize = out_V "Uncompressed Size";
+    # warning $FH->tell(), "Uncompressed Size should be zero when streaming is enabled";
+
     my $filenameLength   = out_v "Filename Length";
 
     if ($filenameLength == 0)
@@ -2040,6 +2048,10 @@ sub LocalHeader
         $localEntry->filename($filename) ;
         $filename = outputFilename($filename, $LanguageEncodingFlag);
         $localEntry->outputFilename($filename);
+
+        # APPNOTE 6.3.10, sec 4.3.8
+        warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
+            if ! $streaming && $filename =~ m#/$# && $uncompressedSize ;
     }
 
     $localEntry->localHeaderOffset($locHeaderOffset) ;
@@ -2341,6 +2353,75 @@ sub redactFilename
     return $filename;
 }
 
+sub validateFilename
+{
+    my $filename = shift ;
+
+    return "Zero length filename"
+        if $filename eq '' ;
+
+    # TODO
+    # - check length of filename
+    # - check that there aren't uuper & lower case version of the same file
+
+    # Start with APPNOTE restrictions
+
+    # APPNOTE 6.3.10, sec 4.4.17.1
+    #
+    # No absolute path
+    # No backslash delimeters
+    # No drive letters
+
+    return "Filename must not be an absolute path"
+        if $filename =~ m#^/#;
+
+    return ["Backslash detected in filename", "Possible Windows path."]
+        if $filename =~ m#\\#;
+
+    return "Windows Drive Letter '$1' not allowed in filename"
+        if $filename =~ /^([a-z]:)/i ;
+
+    # Slip Vulnerability with use of ".." in a relative path
+    # https://security.snyk.io/research/zip-slip-vulnerability
+    return ["Use of '..' in filename is a Zip Slip Vulnerability",
+            "See https://security.snyk.io/research/zip-slip-vulnerability" ]
+        if $filename =~ m#^\.\./# || $filename =~ m#/\.\./# || $filename =~ m#/\.\.# ;
+
+    # Cannot have "." or ".." as the full filename
+    return "Use of current-directory filename '.' may not unzip correctly"
+        if $filename eq '.' ;
+
+    return "Use of parent-directory filename '..' may not unzip correctly"
+        if $filename eq '..' ;
+
+    # Portability (mostly with Windows)
+
+    # see https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+    state $badDosFilename = join '|', map { quotemeta }
+                            qw(CON  PRN  AUX  NUL
+                               COM1 COM2 COM3 COM4 COM5 COM6 COM7 COM8 COM9
+                               LPT1 LPT2 LPT3 LPT4 LPT5 LPT6 LPT7 LPT8 LPT9
+                               ) ;
+    return "Portability Issue: '$1' is a reserved Windows device name"
+        if $filename =~ /^($badDosFilename)$/io ;
+
+    # Can't have the device name with an extension either
+    return "Portability Issue: '$1' is a reserved Windows device name"
+        if $filename =~ /^($badDosFilename)\./io ;
+
+    state $illegal_windows_chars = join '|', map { quotemeta } qw( < > : " | ? * );
+    return "Portability Issue: Windows filename cannot contain '$1'"
+        if  $filename =~ /($illegal_windows_chars)/io ;
+
+    return "Portability Issue: Null character '\\x00' is not allowed in a Windows or Linux filename"
+        if  $filename =~ /\x00/ ;
+
+    return sprintf "Portability Issue: Control character '\\x%02X' is not allowed in a Windows filename", ord($1)
+        if  $filename =~ /([\x00-\x1F])/ ;
+
+    return undef;
+}
+
 sub getOutputFilename
 {
     my $raw_filename = shift;
@@ -2352,6 +2433,13 @@ sub getOutputFilename
 
     if ($raw_filename eq '')
     {
+        if ($message eq 'Filename')
+        {
+            warning $FH->tell() ,
+                "Filename ''",
+                "Zero Length Filename" ;
+        }
+
         return '', '', 0;
     }
     elsif ($opt_Redact)
@@ -2406,6 +2494,23 @@ sub outputFilename
                     "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
                     # "Unicode Normalization  $NormaizedForm",
                     "Octets Written         [$filename][" . length($filename). "] [" . charDump2($filename) . "]";
+    }
+
+    if ($message eq 'Filename' && $opt_want_warning_mesages)
+    {
+        # Check for bad, unsafe & not portable filenames
+        my $v = validateFilename($decoded_filename);
+
+        if ($v)
+        {
+            my @v = ref $v eq 'ARRAY'
+                        ? @$v
+                        : $v;
+
+            warning $FH->tell() - length($raw_filename),
+                "Filename '$filename'",
+                @v
+        }
     }
 
     return $filename;
@@ -2589,6 +2694,10 @@ sub CentralHeader
         $cdEntry->filename($filename) ;
         $filename = outputFilename($filename, $LanguageEncodingFlag);
         $cdEntry->outputFilename($filename);
+
+        # APPNOTE 6.3.10, sec 4.3.8
+        warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
+            if $filename =~ m#/$# && $uncompressedSize ;
     }
 
     $cdEntry->centralHeaderOffset($cdEntryOffset) ;
@@ -3035,6 +3144,11 @@ sub DataDescriptor
         $localEntry->compressedSize($compressedSize) ;
         $localEntry->uncompressedSize($uncompressedSize) ;
     }
+
+    # APPNOTE 6.3.10, sec 4.3.8
+    my $filename = $localEntry->filename;
+    warning undef, "Directory '$filename' must not have a payload"
+        if  $filename =~ m#/$# && $uncompressedSize ;
 
     return {
         crc => $crc,
@@ -7068,17 +7182,20 @@ at hand to help understand the output from this program.
 =head2 Default Behaviour
 
 By default the program expects to be given a well-formed zip file.  It will
-navigate the Zip file by first parsing the zip central directory at the end of
-the file.  If the central directory is found, it will then walk sequentally
-through the zip records starting at the beginning of the file.
+navigate the Zip file by first parsing the zip central directory at the end
+of the file.  If the central directory is found, it will then walk
+sequentally through the zip records starting at the beginning of the file.
 See L<Advanced Analysis> for other processing options.
 
-If the program finds any structural problems with the zip file it will print a
-message at the point it finds the issue and/or a summary at the end of the
-output report. The set of error cases reported is a work in progress, so don't
-rely on this feature to find I<all> the possible errors in a zip file. If you
-have suggestions for use-cases where this could be enhanced please consider
-creating an enhancement request (see L<"SUPPORT">).
+If the program finds any structural or portability issues with the zip file
+it will print a message at the point it finds the issue and/or in a summary
+at the end of the output report. Whilst the set of issues that can be
+detected it exhaustive, don't assume that this program can find I<all> the
+possible issues in a zip file - there are likely edge conditions that need
+to be addressed.
+
+If you have suggestions for use-cases where this could be enhanced please
+consider creating an enhancement request (see L<"SUPPORT">).
 
 =head3 Date & Time fields
 
@@ -7121,13 +7238,13 @@ Display help
 
 =item C<--redact>
 
-Obscure filenames and payload data in the output. Handy for the use case where
-the zip files contains sensitive data that cannot be shared.
+Obscure filenames and payload data in the output. Handy for the use case
+where the zip files contains sensitive data that cannot be shared.
 
 =item C<--scan>
 
 Pessimistically scan the zip file loking for possible zip records. Can be
-error-prone. For very large zip files this option is very slow. Consider using
+error-prone. For very large zip files this option is slow. Consider using
 the C<--walk> option first. See L<"Advanced Analysis Options">
 
 =item C<--utc>
@@ -7164,14 +7281,15 @@ When this option is not specified the default the system encoding is used.
 
 =item C< --no-encoding>
 
-Disable all filename & comment encoding/decoding. Filenames/comments are processed as byte streams.
+Disable all filename & comment encoding/decoding. Filenames/comments are
+processed as byte streams.
 
 This option is not enabled by default.
 
 =item C<--output-encoding name>
 
-Use encoding "name" when writing filename/comments to the display.
-By default the system encoding will be used.
+Use encoding "name" when writing filename/comments to the display.  By
+default the system encoding will be used.
 
 =item C<--language-encoding>, C<--no-language-encoding>
 
@@ -7179,11 +7297,12 @@ Modern zip files set a metadata entry in zip files, called the "Language
 encoding flag", when they write filenames/comments encoded in UTF-8.
 
 Occasionally some applications set the "Language encoding flag" but write
-data that is not UTF-8 in the filename/comment fields of the zip file. This will
-usually result in garbled text being output for the filenames/comments.
+data that is not UTF-8 in the filename/comment fields of the zip file. This
+will usually result in garbled text being output for the
+filenames/comments.
 
-To deal with this use-case, set the C<--no-language-encoding> option and, if
-needed, set the C<--encoding name> option to encoding actually used.
+To deal with this use-case, set the C<--no-language-encoding> option and,
+if needed, set the C<--encoding name> option to encoding actually used.
 
 Default is C<--language-encoding>.
 
@@ -7201,8 +7320,8 @@ Display extra debugging info when a filename/comment encoding has changed.
 
 Enable/disable the output of all info/warning/error messages.
 
-Disabling messages means that no
-checks are carried out to check that the zip file is well-formed.
+Disabling messages means that no checks are carried out to check that the
+zip file is well-formed.
 
 Default is enabled.
 
@@ -7223,8 +7342,8 @@ in three columns.
 
 =item 1
 
-The offset, in hex, to the start of the field relative to the beginning of the
-file.
+The offset, in hex, to the start of the field relative to the beginning of
+the file.
 
 =item 2
 
@@ -7232,32 +7351,33 @@ The name of the field.
 
 =item 3
 
-Detailed information about the contents of the field. The format depends on the
-type of data:
+Detailed information about the contents of the field. The format depends on
+the type of data:
 
 =over 5
 
 =item * Numeric Values
 
-If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
-be displayed in both hex and decimal -- for example "C<002A (42)>".
+If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it
+will be displayed in both hex and decimal -- for example "C<002A (42)>".
 
 Note that Zip files store most numeric values in I<little-endian> encoding.
-(there area few rare instances where I<big-endian> is used). The value read from
-the zip file will have the I<endian> encoding removed before being displayed.
+(there area few rare instances where I<big-endian> is used). The value read
+from the zip file will have the I<endian> encoding removed before being
+displayed.
 
 Next, is an optional description of what the value means.
 
 =item * String
 
-If the field corresponds to a printable string, it will be output enclosed in
-single quotes.
+If the field corresponds to a printable string, it will be output enclosed
+in single quotes.
 
 =item * Binary Data
 
-The term I<Binary Data> is just a catch-all for all other metadata in the zip
-file. This data is displayed as a series of ascii-hex byte values in the same
-order they are stored in the zip file.
+The term I<Binary Data> is just a catch-all for all other metadata in the
+zip file. This data is displayed as a series of ascii-hex byte values in
+the same order they are stored in the zip file.
 
 =back
 
@@ -7330,20 +7450,20 @@ Running C<zipdetails> will gives this output
 
 =head2 Verbose Output
 
-If the C<-v> option is present, the metadata output is split into the following
-columns:
+If the C<-v> option is present, the metadata output is split into the
+following columns:
 
 =over 5
 
 =item 1
 
-The offset, in hex, to the start of the field relative to the beginning of the
-file.
+The offset, in hex, to the start of the field relative to the beginning of
+the file.
 
 =item 2
 
-The offset, in hex, to the end of the field relative to the beginning of the
-file.
+The offset, in hex, to the end of the field relative to the beginning of
+the file.
 
 =item 3
 
@@ -7364,8 +7484,8 @@ L<Default Output> for more details.
 
 =back
 
-Here is the same zip file, C<test.zip>, dumped using the C<zipdetails> C<-v>
-option:
+Here is the same zip file, C<test.zip>, dumped using the C<zipdetails>
+C<-v> option:
 
     $ zipdetails -v test.zip
 
@@ -7504,9 +7624,9 @@ the filename is stored in a character set that doesnt't match the system
 encoding. This mostly impacts legacy zip files that predate the
 introduction of Unicode.
 
-To deal with this issue you first need to know what encoding was used in the zip file. For
-example, if the filename is encoded in C<ISO-8859-1> you can display the
-filenames using the C<--encoding> option
+To deal with this issue you first need to know what encoding was used in
+the zip file. For example, if the filename is encoded in C<ISO-8859-1> you
+can display the filenames using the C<--encoding> option
 
     zipdetails --encoding ISO-8859-1 myfile.zip
 
@@ -7526,8 +7646,8 @@ The following zip file features are not supported by this program:
 
 Multi-part/Split/Spanned Zip Archives.
 
-This program cannot give an overall report on the combined parts of a multi-part
-zip file.
+This program cannot give an overall report on the combined parts of a
+multi-part zip file.
 
 The best you can do is run with either the C<--scan> or C<--walk> options
 against individual parts. Some will contains zipfile metadata which will be
@@ -7566,7 +7686,8 @@ Terminate with a generic message
 
 =back
 
-Which of the above is output is dependent in the severity of the corruption.
+Which of the above is output is dependent in the severity of the
+corruption.
 
 =back
 
@@ -7578,12 +7699,12 @@ Output some of the zip file metadata as a JSON document.
 
 =head2 Corrupt Zip files
 
-Although the detection and reporting of common corruption use-cases is present
-in C<zipdetails>, there are likely to be other edge cases that need to be
-supported.
+Although the detection and reporting of common corruption use-cases is
+present in C<zipdetails>, there are likely to be other edge cases that need
+to be supported.
 
-If you have a corrupt Zip file that isn't being processed properly,
-please report it (see  L<"SUPPORT">).
+If you have a corrupt Zip file that isn't being processed properly, please
+report it (see  L<"SUPPORT">).
 
 =head1 SUPPORT
 

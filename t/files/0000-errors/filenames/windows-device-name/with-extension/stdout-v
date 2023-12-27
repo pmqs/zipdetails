@@ -1,0 +1,63 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 24 86 7A 57 Last Mod Date/Time    577A8624 (1467647524) 'Sun Nov 26 16:49:08 2023'
+000E 0011 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+001A 001B 0002 07 00       Filename Length       0007 (7)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0024 0007 70 72 6E 2E Filename              'prn.txt'
+               74 78 74
+#
+# WARNING: Offset 0x1E: Filename 'prn.txt'
+#          Portability Issue: 'prn' is a reserved Windows device name
+#
+0025 002A 0006 4B 4C 4A 4E PAYLOAD               KLJN..
+               01 00
+
+002B 002E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+002F 002F 0001 14          Created Zip Spec      14 (20) '2.0'
+0030 0030 0001 03          Created OS            03 (3) 'Unix'
+0031 0031 0001 14          Extract Zip Spec      14 (20) '2.0'
+0032 0032 0001 00          Extract OS            00 (0) 'MS-DOS'
+0033 0034 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0035 0036 0002 08 00       Compression Method    0008 (8) 'Deflated'
+0037 003A 0004 24 86 7A 57 Last Mod Date/Time    577A8624 (1467647524) 'Sun Nov 26 16:49:08 2023'
+003B 003E 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+003F 0042 0004 06 00 00 00 Compressed Size       00000006 (6)
+0043 0046 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+0047 0048 0002 07 00       Filename Length       0007 (7)
+0049 004A 0002 00 00       Extra Length          0000 (0)
+004B 004C 0002 00 00       Comment Length        0000 (0)
+004D 004E 0002 00 00       Disk Start            0000 (0)
+004F 0050 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0051 0054 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0055 0058 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0059 005F 0007 70 72 6E 2E Filename              'prn.txt'
+               74 78 74
+#
+# WARNING: Offset 0x59: Filename 'prn.txt'
+#          Portability Issue: 'prn' is a reserved Windows device name
+#
+
+0060 0063 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0064 0065 0002 00 00       Number of this disk   0000 (0)
+0066 0067 0002 00 00       Central Dir Disk no   0000 (0)
+0068 0069 0002 01 00       Entries in this disk  0001 (1)
+006A 006B 0002 01 00       Total Entries         0001 (1)
+006C 006F 0004 35 00 00 00 Size of Central Dir   00000035 (53)
+0070 0073 0004 2B 00 00 00 Offset to Central Dir 0000002B (43)
+0074 0075 0002 00 00       Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

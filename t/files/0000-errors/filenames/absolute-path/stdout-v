@@ -1,0 +1,67 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 C2 82 7A 57 Last Mod Date/Time    577A82C2 (1467646658) 'Sun Nov 26 16:22:04 2023'
+000E 0011 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+001A 001B 0002 0E 00       Filename Length       000E (14)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 002B 000E 2F 61 62 73 Filename              '/absolute/path'
+               6F 6C 75 74
+               65 2F 70 61
+               74 68
+#
+# WARNING: Offset 0x1E: Filename '/absolute/path'
+#          Filename must not be an absolute path
+#
+002C 0031 0006 4B 4C 4A 4E PAYLOAD               KLJN..
+               01 00
+
+0032 0035 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0036 0036 0001 14          Created Zip Spec      14 (20) '2.0'
+0037 0037 0001 03          Created OS            03 (3) 'Unix'
+0038 0038 0001 14          Extract Zip Spec      14 (20) '2.0'
+0039 0039 0001 00          Extract OS            00 (0) 'MS-DOS'
+003A 003B 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+003C 003D 0002 08 00       Compression Method    0008 (8) 'Deflated'
+003E 0041 0004 C2 82 7A 57 Last Mod Date/Time    577A82C2 (1467646658) 'Sun Nov 26 16:22:04 2023'
+0042 0045 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+0046 0049 0004 06 00 00 00 Compressed Size       00000006 (6)
+004A 004D 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+004E 004F 0002 0E 00       Filename Length       000E (14)
+0050 0051 0002 00 00       Extra Length          0000 (0)
+0052 0053 0002 00 00       Comment Length        0000 (0)
+0054 0055 0002 00 00       Disk Start            0000 (0)
+0056 0057 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0058 005B 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+005C 005F 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0060 006D 000E 2F 61 62 73 Filename              '/absolute/path'
+               6F 6C 75 74
+               65 2F 70 61
+               74 68
+#
+# WARNING: Offset 0x60: Filename '/absolute/path'
+#          Filename must not be an absolute path
+#
+
+006E 0071 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0072 0073 0002 00 00       Number of this disk   0000 (0)
+0074 0075 0002 00 00       Central Dir Disk no   0000 (0)
+0076 0077 0002 01 00       Entries in this disk  0001 (1)
+0078 0079 0002 01 00       Total Entries         0001 (1)
+007A 007D 0004 3C 00 00 00 Size of Central Dir   0000003C (60)
+007E 0081 0004 32 00 00 00 Offset to Central Dir 00000032 (50)
+0082 0083 0002 00 00       Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

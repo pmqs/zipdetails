@@ -1,0 +1,62 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    577A851A (1467647258) 'Sun Nov 26 16:40:52 2023'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0011 (17)
+001C Extra Length          0000 (0)
+001E Filename              'backslash\in\path'
+#
+# WARNING: Offset 0x1E: Filename 'backslash\in\path'
+#          Backslash detected in filename
+#          Possible Windows path.
+#
+002F PAYLOAD               KLJN..
+
+0035 CENTRAL HEADER #1     02014B50 (33639248)
+0039 Created Zip Spec      14 (20) '2.0'
+003A Created OS            03 (3) 'Unix'
+003B Extract Zip Spec      14 (20) '2.0'
+003C Extract OS            00 (0) 'MS-DOS'
+003D General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+003F Compression Method    0008 (8) 'Deflated'
+0041 Last Mod Date/Time    577A851A (1467647258) 'Sun Nov 26 16:40:52 2023'
+0045 CRC                   ED82CD11 (3984772369)
+0049 Compressed Size       00000006 (6)
+004D Uncompressed Size     00000004 (4)
+0051 Filename Length       0011 (17)
+0053 Extra Length          0000 (0)
+0055 Comment Length        0000 (0)
+0057 Disk Start            0000 (0)
+0059 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+005B Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+005F Local Header Offset   00000000 (0)
+0063 Filename              'backslash\in\path'
+#
+# WARNING: Offset 0x63: Filename 'backslash\in\path'
+#          Backslash detected in filename
+#          Possible Windows path.
+#
+
+0074 END CENTRAL HEADER    06054B50 (101010256)
+0078 Number of this disk   0000 (0)
+007A Central Dir Disk no   0000 (0)
+007C Entries in this disk  0001 (1)
+007E Total Entries         0001 (1)
+0080 Size of Central Dir   0000003F (63)
+0084 Offset to Central Dir 00000035 (53)
+0088 Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

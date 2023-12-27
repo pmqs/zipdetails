@@ -1,0 +1,58 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    579B5A31 (1469798961) 'Wed Dec 27 11:17:34 2023'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0004 (4)
+001C Extra Length          0000 (0)
+001E Filename              'abc/'
+#
+# WARNING: Offset 0x1E: Directory 'abc/' must not have a payload
+#
+0022 PAYLOAD               KLJN..
+
+0028 CENTRAL HEADER #1     02014B50 (33639248)
+002C Created Zip Spec      14 (20) '2.0'
+002D Created OS            03 (3) 'Unix'
+002E Extract Zip Spec      14 (20) '2.0'
+002F Extract OS            00 (0) 'MS-DOS'
+0030 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0032 Compression Method    0008 (8) 'Deflated'
+0034 Last Mod Date/Time    579B5A31 (1469798961) 'Wed Dec 27 11:17:34 2023'
+0038 CRC                   ED82CD11 (3984772369)
+003C Compressed Size       00000006 (6)
+0040 Uncompressed Size     00000004 (4)
+0044 Filename Length       0004 (4)
+0046 Extra Length          0000 (0)
+0048 Comment Length        0000 (0)
+004A Disk Start            0000 (0)
+004C Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+004E Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0052 Local Header Offset   00000000 (0)
+0056 Filename              'abc/'
+#
+# WARNING: Offset 0x56: Directory 'abc/' must not have a payload
+#
+
+005A END CENTRAL HEADER    06054B50 (101010256)
+005E Number of this disk   0000 (0)
+0060 Central Dir Disk no   0000 (0)
+0062 Entries in this disk  0001 (1)
+0064 Total Entries         0001 (1)
+0066 Size of Central Dir   00000032 (50)
+006A Offset to Central Dir 00000028 (40)
+006E Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done
