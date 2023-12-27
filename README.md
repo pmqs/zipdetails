@@ -29,17 +29,20 @@ at hand to help understand the output from this program.
 ## Default Behaviour
 
 By default the program expects to be given a well-formed zip file.  It will
-navigate the Zip file by first parsing the zip central directory at the end of
-the file.  If the central directory is found, it will then walk sequentally
-through the zip records starting at the beginning of the file.
+navigate the Zip file by first parsing the zip central directory at the end
+of the file.  If the central directory is found, it will then walk
+sequentally through the zip records starting at the beginning of the file.
 See ["Advanced Analysis"](#advanced-analysis) for other processing options.
 
-If the program finds any structural problems with the zip file it will print a
-message at the point it finds the issue and/or a summary at the end of the
-output report. The set of error cases reported is a work in progress, so don't
-rely on this feature to find _all_ the possible errors in a zip file. If you
-have suggestions for use-cases where this could be enhanced please consider
-creating an enhancement request (see ["SUPPORT"](#support)).
+If the program finds any structural or portability issues with the zip file
+it will print a message at the point it finds the issue and/or in a summary
+at the end of the output report. Whilst the set of issues that can be
+detected it exhaustive, don't assume that this program can find _all_ the
+possible issues in a zip file - there are likely edge conditions that need
+to be addressed.
+
+If you have suggestions for use-cases where this could be enhanced please
+consider creating an enhancement request (see ["SUPPORT"](#support)).
 
 ### Date & Time fields
 
@@ -71,13 +74,13 @@ Options"](#filename-comment-encoding-options) for ways to control the encoding o
 
 - `--redact`
 
-    Obscure filenames and payload data in the output. Handy for the use case where
-    the zip files contains sensitive data that cannot be shared.
+    Obscure filenames and payload data in the output. Handy for the use case
+    where the zip files contains sensitive data that cannot be shared.
 
 - `--scan`
 
     Pessimistically scan the zip file loking for possible zip records. Can be
-    error-prone. For very large zip files this option is very slow. Consider using
+    error-prone. For very large zip files this option is slow. Consider using
     the `--walk` option first. See ["Advanced Analysis Options"](#advanced-analysis-options)
 
 - `--utc`
@@ -110,14 +113,15 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
 
 - ` --no-encoding`
 
-    Disable all filename & comment encoding/decoding. Filenames/comments are processed as byte streams.
+    Disable all filename & comment encoding/decoding. Filenames/comments are
+    processed as byte streams.
 
     This option is not enabled by default.
 
 - `--output-encoding name`
 
-    Use encoding "name" when writing filename/comments to the display.
-    By default the system encoding will be used.
+    Use encoding "name" when writing filename/comments to the display.  By
+    default the system encoding will be used.
 
 - `--language-encoding`, `--no-language-encoding`
 
@@ -125,11 +129,12 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
     encoding flag", when they write filenames/comments encoded in UTF-8.
 
     Occasionally some applications set the "Language encoding flag" but write
-    data that is not UTF-8 in the filename/comment fields of the zip file. This will
-    usually result in garbled text being output for the filenames/comments.
+    data that is not UTF-8 in the filename/comment fields of the zip file. This
+    will usually result in garbled text being output for the
+    filenames/comments.
 
-    To deal with this use-case, set the `--no-language-encoding` option and, if
-    needed, set the `--encoding name` option to encoding actually used.
+    To deal with this use-case, set the `--no-language-encoding` option and,
+    if needed, set the `--encoding name` option to encoding actually used.
 
     Default is `--language-encoding`.
 
@@ -143,8 +148,8 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
 
     Enable/disable the output of all info/warning/error messages.
 
-    Disabling messages means that no
-    checks are carried out to check that the zip file is well-formed.
+    Disabling messages means that no checks are carried out to check that the
+    zip file is well-formed.
 
     Default is enabled.
 
@@ -158,32 +163,33 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
 By default `zipdetails` will output each metadata field from the zip file
 in three columns.
 
-1. The offset, in hex, to the start of the field relative to the beginning of the
-file.
+1. The offset, in hex, to the start of the field relative to the beginning of
+the file.
 2. The name of the field.
-3. Detailed information about the contents of the field. The format depends on the
-type of data:
+3. Detailed information about the contents of the field. The format depends on
+the type of data:
     - Numeric Values
 
-        If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it will
-        be displayed in both hex and decimal -- for example "`002A (42)`".
+        If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it
+        will be displayed in both hex and decimal -- for example "`002A (42)`".
 
         Note that Zip files store most numeric values in _little-endian_ encoding.
-        (there area few rare instances where _big-endian_ is used). The value read from
-        the zip file will have the _endian_ encoding removed before being displayed.
+        (there area few rare instances where _big-endian_ is used). The value read
+        from the zip file will have the _endian_ encoding removed before being
+        displayed.
 
         Next, is an optional description of what the value means.
 
     - String
 
-        If the field corresponds to a printable string, it will be output enclosed in
-        single quotes.
+        If the field corresponds to a printable string, it will be output enclosed
+        in single quotes.
 
     - Binary Data
 
-        The term _Binary Data_ is just a catch-all for all other metadata in the zip
-        file. This data is displayed as a series of ascii-hex byte values in the same
-        order they are stored in the zip file.
+        The term _Binary Data_ is just a catch-all for all other metadata in the
+        zip file. This data is displayed as a series of ascii-hex byte values in
+        the same order they are stored in the zip file.
 
 For example, assuming you have a zip file, `test,zip`, with one entry
 
@@ -251,21 +257,21 @@ Running `zipdetails` will gives this output
 
 ## Verbose Output
 
-If the `-v` option is present, the metadata output is split into the following
-columns:
+If the `-v` option is present, the metadata output is split into the
+following columns:
 
-1. The offset, in hex, to the start of the field relative to the beginning of the
-file.
-2. The offset, in hex, to the end of the field relative to the beginning of the
-file.
+1. The offset, in hex, to the start of the field relative to the beginning of
+the file.
+2. The offset, in hex, to the end of the field relative to the beginning of
+the file.
 3. The length, in hex, of the field.
 4. A hex dump of the bytes in field in the order they are stored in the zip file.
 5. A textual description of the field.
 6. Information about the contents of the field. See the description in the
 ["Default Output"](#default-output) for more details.
 
-Here is the same zip file, `test.zip`, dumped using the `zipdetails` `-v`
-option:
+Here is the same zip file, `test.zip`, dumped using the `zipdetails`
+`-v` option:
 
     $ zipdetails -v test.zip
 
@@ -404,9 +410,9 @@ the filename is stored in a character set that doesnt't match the system
 encoding. This mostly impacts legacy zip files that predate the
 introduction of Unicode.
 
-To deal with this issue you first need to know what encoding was used in the zip file. For
-example, if the filename is encoded in `ISO-8859-1` you can display the
-filenames using the `--encoding` option
+To deal with this issue you first need to know what encoding was used in
+the zip file. For example, if the filename is encoded in `ISO-8859-1` you
+can display the filenames using the `--encoding` option
 
     zipdetails --encoding ISO-8859-1 myfile.zip
 
@@ -421,8 +427,8 @@ The following zip file features are not supported by this program:
 
 - Multi-part/Split/Spanned Zip Archives.
 
-    This program cannot give an overall report on the combined parts of a multi-part
-    zip file.
+    This program cannot give an overall report on the combined parts of a
+    multi-part zip file.
 
     The best you can do is run with either the `--scan` or `--walk` options
     against individual parts. Some will contains zipfile metadata which will be
@@ -444,7 +450,8 @@ The following zip file features are not supported by this program:
     - Display details of the corruption and terminate
     - Terminate with a generic message
 
-    Which of the above is output is dependent in the severity of the corruption.
+    Which of the above is output is dependent in the severity of the
+    corruption.
 
 # TODO
 
@@ -454,12 +461,12 @@ Output some of the zip file metadata as a JSON document.
 
 ## Corrupt Zip files
 
-Although the detection and reporting of common corruption use-cases is present
-in `zipdetails`, there are likely to be other edge cases that need to be
-supported.
+Although the detection and reporting of common corruption use-cases is
+present in `zipdetails`, there are likely to be other edge cases that need
+to be supported.
 
-If you have a corrupt Zip file that isn't being processed properly,
-please report it (see  ["SUPPORT"](#support)).
+If you have a corrupt Zip file that isn't being processed properly, please
+report it (see  ["SUPPORT"](#support)).
 
 # SUPPORT
 
