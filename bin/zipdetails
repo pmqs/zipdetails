@@ -2362,6 +2362,8 @@ sub validateFilename
 
     # TODO
     # - check length of filename
+    #   getconf NAME_MAX . and getconf PATH_MAX . on Linux
+    #
     # - check that there aren't uuper & lower case version of the same file
 
     # Start with APPNOTE restrictions
@@ -2411,7 +2413,7 @@ sub validateFilename
 
     state $illegal_windows_chars = join '|', map { quotemeta } qw( < > : " | ? * );
     return "Portability Issue: Windows filename cannot contain '$1'"
-        if  $filename =~ /($illegal_windows_chars)/io ;
+        if  $filename =~ /($illegal_windows_chars)/o ;
 
     return "Portability Issue: Null character '\\x00' is not allowed in a Windows or Linux filename"
         if  $filename =~ /\x00/ ;
