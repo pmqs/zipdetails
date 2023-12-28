@@ -27,8 +27,9 @@
 0041 0045 0005 41 42 43 44 Filename              'ABCDE'
                45
 #
-# WARNING: Offset 0x41: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
-#          Duplicate filename: 'abcde' at offset 0x0 (0)
+# WARNING: Offset 0x23: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Current Local Directory entry at offset 0x23 (35)
+#          Duplicate Local Directory entry for filename 'abcde' at offset 0x0 (0)
 #
 
 0046 0049 0004 50 4B 03 04 LOCAL HEADER #3       04034B50 (67324752)
@@ -45,8 +46,9 @@
 0064 0068 0005 41 62 43 64 Filename              'AbCdE'
                45
 #
-# WARNING: Offset 0x64: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
-#          Duplicate filename: 'abcde' at offset 0x0 (0)
+# WARNING: Offset 0x46: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Current Local Directory entry at offset 0x46 (70)
+#          Duplicate Local Directory entry for filename 'abcde' at offset 0x0 (0)
 #
 
 0069 006C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
@@ -97,8 +99,9 @@
 00CA 00CE 0005 41 42 43 44 Filename              'ABCDE'
                45
 #
-# WARNING: Offset 0xCA: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
-#          Duplicate filename: 'abcde' at offset 0x69 (105)
+# WARNING: Offset 0x9C: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Current Central Directory entry at offset 0x9C (156)
+#          Duplicate Central Directory entry for filename 'abcde' at offset 0x69 (105)
 #
 
 00CF 00D2 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
@@ -125,8 +128,9 @@
 00FD 0101 0005 41 62 43 64 Filename              'AbCdE'
                45
 #
-# WARNING: Offset 0xFD: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
-#          Duplicate filename: 'abcde' at offset 0x69 (105)
+# WARNING: Offset 0xCF: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Current Central Directory entry at offset 0xCF (207)
+#          Duplicate Central Directory entry for filename 'abcde' at offset 0x69 (105)
 #
 
 0102 0105 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)

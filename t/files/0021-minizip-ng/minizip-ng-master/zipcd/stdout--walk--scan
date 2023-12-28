@@ -78,8 +78,9 @@
 0730   Length              0008 (8)
 0732   Entries             0000000000000002 (2)
 #
-# ERROR: Offset 0x708: Duplicate Local Directory entry for filename '__cdcd__' at offset 0x708 (1800)
-#        Existing Local Directory entry is at offset 0x0 (0)
+# ERROR: Offset 0x708: Duplicate Local Directory entry for filename '__cdcd__'
+#        Current Local Directory entry at offset 0x708 (1800)
+#        Duplicate Local Directory entry at offset 0x0 (0)
 #
 073A PAYLOAD               ..fd.g.a...`.+T.........a=7......*..ONIN....Ra.gP`8...G..Ck...<.D.._...Ty8C.......&.9{..A..7.f...CP.b...w.....@....U....q........T...
                            ..].m.....y87.....}...%....z......=...

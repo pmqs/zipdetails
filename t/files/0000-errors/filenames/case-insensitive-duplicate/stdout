@@ -25,8 +25,9 @@
 003F Extra Length          0000 (0)
 0041 Filename              'ABCDE'
 #
-# WARNING: Offset 0x41: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
-#          Duplicate filename: 'abcde' at offset 0x0 (0)
+# WARNING: Offset 0x23: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Current Local Directory entry at offset 0x23 (35)
+#          Duplicate Local Directory entry for filename 'abcde' at offset 0x0 (0)
 #
 
 0046 LOCAL HEADER #3       04034B50 (67324752)
@@ -42,8 +43,9 @@
 0062 Extra Length          0000 (0)
 0064 Filename              'AbCdE'
 #
-# WARNING: Offset 0x64: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
-#          Duplicate filename: 'abcde' at offset 0x0 (0)
+# WARNING: Offset 0x46: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Current Local Directory entry at offset 0x46 (70)
+#          Duplicate Local Directory entry for filename 'abcde' at offset 0x0 (0)
 #
 
 0069 CENTRAL HEADER #1     02014B50 (33639248)
@@ -92,8 +94,9 @@
 00C6 Local Header Offset   00000023 (35)
 00CA Filename              'ABCDE'
 #
-# WARNING: Offset 0xCA: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
-#          Duplicate filename: 'abcde' at offset 0x69 (105)
+# WARNING: Offset 0x9C: Portability Issue: Found case-insensitive duplicate for filename 'ABCDE'
+#          Current Central Directory entry at offset 0x9C (156)
+#          Duplicate Central Directory entry for filename 'abcde' at offset 0x69 (105)
 #
 
 00CF CENTRAL HEADER #3     02014B50 (33639248)
@@ -119,8 +122,9 @@
 00F9 Local Header Offset   00000046 (70)
 00FD Filename              'AbCdE'
 #
-# WARNING: Offset 0xFD: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
-#          Duplicate filename: 'abcde' at offset 0x69 (105)
+# WARNING: Offset 0xCF: Portability Issue: Found case-insensitive duplicate for filename 'AbCdE'
+#          Current Central Directory entry at offset 0xCF (207)
+#          Duplicate Central Directory entry for filename 'abcde' at offset 0x69 (105)
 #
 
 0102 END CENTRAL HEADER    06054B50 (101010256)

@@ -94,6 +94,10 @@ use constant ZIP_EXTRA_SUBFIELD_MAX_SIZE    => ZIP_EXTRA_MAX_SIZE -
 
 use constant ZIP_EOCD_MIN_SIZE              => 22 ;
 
+
+use constant ZIP_LD_FILENAME_OFFSET         => 30;
+use constant ZIP_CD_FILENAME_OFFSET         => 46;
+
 my %ZIP_CompressionMethods =
     (
           0 => 'Stored',
@@ -1065,6 +1069,8 @@ if ($opt_scan || $opt_walk)
     my $lastSignature = 0;
     my $lastHeader = {};
 
+    $CentralDirectory->{alreadyScanned} = 1 ;
+
     my $output_encryptedCD = 0;
 
     reportPrefixData();
@@ -1203,6 +1209,8 @@ else
 
     fatal_tryWalk undef, "No Zip metadata found at end of file"
         if ! $CentralDirectory->exists() && ! $EOCD_Present ;
+
+    $CentralDirectory->{alreadyScanned} = 1 ;
 
     Nesting::clearStack();
 
@@ -1686,7 +1694,8 @@ sub dislayMessages
 
                 state $fields = [
                     # field name         offset    display name         stringify
-                    ['filename',            46, 'Filename',             undef, ],
+                    ['filename',            ZIP_CD_FILENAME_OFFSET,
+                                                'Filename',             undef, ],
                     ['extractVersion',       7, 'Extract Zip Spec',     sub { decimalHex0x($_[0]) . " " . decodeZipVer($_[0]) }, ],
                     ['generalPurposeFlags',  8, 'General Purpose Flag', \&decimalHex0x, ],
                     ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0x($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
@@ -2048,14 +2057,6 @@ sub LocalHeader
         $localEntry->filename($raw_filename) ;
         $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $localEntry->outputFilename($filename);
-        my $existing_filename = $LocalDirectory->normalize_filename($raw_filename);
-        if ($existing_filename)
-        {
-            my $offset = $LocalDirectory->{byName}{$existing_filename}->localHeaderOffset;
-            warning $FH->tell - $filenameLength,
-                    "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
-                    "Duplicate filename: '$existing_filename' at offset " . decimalHex0x($offset);
-        }
 
         # APPNOTE 6.3.10, sec 4.3.8
         warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
@@ -2702,15 +2703,6 @@ sub CentralHeader
         $cdEntry->filename($raw_filename) ;
         $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $cdEntry->outputFilename($filename);
-
-        my $existing_filename = $LocalDirectory->normalize_filename($raw_filename);
-        if ($existing_filename)
-        {
-            my $offset = $CentralDirectory->{byName}{$existing_filename}->centralHeaderOffset;
-            warning $FH->tell - $filenameLength,
-                    "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
-                    "Duplicate filename: '$existing_filename' at offset " . decimalHex0x($offset);
-        }
 
         # APPNOTE 6.3.10, sec 4.3.8
         warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
@@ -5481,12 +5473,12 @@ sub scanCentralDirectory
     my $cdIndex = 0;
     my $cdEntryOffset = 0;
 
-    while ($fh->read($buffer, 46) == 46  &&
+    while ($fh->read($buffer, ZIP_CD_FILENAME_OFFSET) == ZIP_CD_FILENAME_OFFSET  &&
            unpack("V", $buffer) == ZIP_CENTRAL_HDR_SIG) {
 
-        my $startHeader = $fh->tell() - 46;
+        my $startHeader = $fh->tell() - ZIP_CD_FILENAME_OFFSET;
 
-        my $cdEntryOffset = $fh->tell() - 46;
+        my $cdEntryOffset = $fh->tell() - ZIP_CD_FILENAME_OFFSET;
         $HeaderOffsetIndex->addOffsetNoPrefix($cdEntryOffset, ZIP_CENTRAL_HDR_SIG) ;
 
         ++ $cdIndex ;
@@ -5565,7 +5557,7 @@ sub scanCentralDirectory
         skip($fh, $comment_length ) ;
     }
 
-    $FH->seek($fh->tell() - 46, SEEK_SET);
+    $FH->seek($fh->tell() - ZIP_CD_FILENAME_OFFSET, SEEK_SET);
 
     # Check for Digital Signature
     $HeaderOffsetIndex->addOffset($fh->tell() - 4, ZIP_DIGITAL_SIGNATURE_SIG)
@@ -6225,6 +6217,7 @@ sub nibbles
                         'zip64'         => 0,
                         'encryptedCD'   => 0,
                         'minizip_secure' => 0,
+                        'alreadyScanned' => 0,
                      ) ;
 
         bless \%object, $class;
@@ -6253,22 +6246,38 @@ sub nibbles
             $ldEntry->addCdEntry($entry);
         }
 
-        # CD gets processed twice, so return if already processed
+        # only check for duplicate in real CD scan
+        if ($self->{alreadyScanned} && ! $entry->encapsulated )
+        {
+            my $existing = $self->{byName}{$filename} ;
+            if ($existing && $existing->centralHeaderOffset != $entry->centralHeaderOffset)
+            {
+                ::error $CentralDirectoryOffset,
+                        "Duplicate Central Directory entries for filename '$filename'",
+                        "Current Central Directory entry at offset " . ::decimalHex0x($CentralDirectoryOffset),
+                        "Duplicate Central Directory entry at offset " . ::decimalHex0x($self->{byName}{$filename}{centralHeaderOffset});
+
+                # not strictly illegal to have duplicate filename, so save this one
+            }
+            else
+            {
+                my $existingNormalizedEntry = $self->normalize_filename($entry, $filename);
+                if ($existingNormalizedEntry)
+                {
+                    ::warning $CentralDirectoryOffset,
+                            "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
+                            "Current Central Directory entry at offset " . ::decimalHex0x($CentralDirectoryOffset),
+                            "Duplicate Central Directory entry for filename '" . $existingNormalizedEntry->outputFilename . "' at offset " . ::decimalHex0x($existingNormalizedEntry->centralHeaderOffset);
+                }
+            }
+        }
+
+        # CD can get processed twice, so return if already processed
         return
             if $self->{byCentralOffset}{$CentralDirectoryOffset} ;
 
         if (! $entry->encapsulated )
         {
-            if (exists $self->{byName}{$filename} )
-            {
-                ::error $CentralDirectoryOffset,
-                        "Duplicate Central Directory entries for filename '$filename'",
-                        "New Central Directory entry is at offset " . ::decimalHex0x($CentralDirectoryOffset),
-                        "Existing Central Directory entry is at offset " . ::decimalHex0x($self->{byName}{$filename}{centralHeaderOffset});
-            }
-
-            # not strictly illegal to have duplicate filename, so save this one
-
             push @{ $self->{entries} }, $entry;
 
             $self->{byLocalOffset}{$localHeaderOffset} = $entry;
@@ -6367,17 +6376,19 @@ sub nibbles
         # with the same name when normalized to lower case
 
         my $self = shift ;
+        my $entry = shift;
         my $filename = shift;
 
         my $nFilename = lc $filename;
 
         my $lookup = $self->{normalized_filenames}{$nFilename};
-        if ($lookup && $lookup ne $filename)
+        # if ($lookup && $lookup ne $filename)
+        if ($lookup)
         {
-            return $self->{byName}{$lookup}{outputFilename}
+            return $lookup,
         }
 
-        $self->{normalized_filenames}{$nFilename} = $filename;
+        $self->{normalized_filenames}{$nFilename} = $entry;
 
         return undef;
     }
@@ -6488,9 +6499,22 @@ sub nibbles
 
         if ($existingEntry)
         {
-            ::error $localEntry->localHeaderOffset(),
-                    "Duplicate Local Directory entry for filename '$filename' at offset " . ::decimalHex0x($localEntry->localHeaderOffset) ,
-                    "Existing Local Directory entry is at offset " . ::decimalHex0x($existingEntry->localHeaderOffset)
+            ::error $localHeaderOffset,
+                    "Duplicate Local Directory entry for filename '$filename'",
+                    "Current Local Directory entry at offset " . ::decimalHex0x($localHeaderOffset),
+                    "Duplicate Local Directory entry at offset " . ::decimalHex0x($existingEntry->localHeaderOffset),
+        }
+        else
+        {
+
+            my ($existing_filename, $offset) = $self->normalize_filename($filename);
+            if ($existing_filename)
+            {
+                ::warning $localHeaderOffset,
+                        "Portability Issue: Found case-insensitive duplicate for filename '$filename'",
+                        "Current Local Directory entry at offset " . ::decimalHex0x($localHeaderOffset),
+                        "Duplicate Local Directory entry for filename '$existing_filename' at offset " . ::decimalHex0x($offset);
+            }
         }
 
         # keep nested local entries for zipbomb deteection
@@ -6609,12 +6633,13 @@ sub nibbles
         my $lookup = $self->{normalized_filenames}{$nFilename};
         if ($lookup && $lookup ne $filename)
         {
-            return $self->{byName}{$lookup}{outputFilename}
+            return $self->{byName}{$lookup}{outputFilename},
+                   $self->{byName}{$lookup}{localHeaderOffset}
         }
 
         $self->{normalized_filenames}{$nFilename} = $filename;
 
-        return undef;
+        return undef, undef;
     }
 }
 
