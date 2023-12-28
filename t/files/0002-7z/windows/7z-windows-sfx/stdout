@@ -1,0 +1,64 @@
+#
+# INFO: Offset 0x0: found 0x2F200 (193024) bytes before beginning of zipfile
+#
+
+00000 UNEXPECTED PADDING
+
+2F200 LOCAL HEADER #1       04034B50 (67324752)
+2F204 Extract Zip Spec      14 (20) '2.0'
+2F205 Extract OS            00 (0) 'MS-DOS'
+2F206 General Purpose Flag  0000 (0)
+      [Bits 1-2]            0 'Normal Compression'
+2F208 Compression Method    0008 (8) 'Deflated'
+2F20A Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+2F20E CRC                   F90EE7FF (4178503679)
+2F212 Compressed Size       0000010A (266)
+2F216 Uncompressed Size     000001BE (446)
+2F21A Filename Length       0009 (9)
+2F21C Extra Length          0000 (0)
+2F21E Filename              'lorem.txt'
+2F227 PAYLOAD
+
+2F331 CENTRAL HEADER #1     02014B50 (33639248)
+2F335 Created Zip Spec      3F (63) '6.3'
+2F336 Created OS            00 (0) 'MS-DOS'
+2F337 Extract Zip Spec      14 (20) '2.0'
+2F338 Extract OS            00 (0) 'MS-DOS'
+2F339 General Purpose Flag  0000 (0)
+      [Bits 1-2]            0 'Normal Compression'
+2F33B Compression Method    0008 (8) 'Deflated'
+2F33D Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+2F341 CRC                   F90EE7FF (4178503679)
+2F345 Compressed Size       0000010A (266)
+2F349 Uncompressed Size     000001BE (446)
+2F34D Filename Length       0009 (9)
+2F34F Extra Length          0024 (36)
+2F351 Comment Length        0000 (0)
+2F353 Disk Start            0000 (0)
+2F355 Int File Attributes   0000 (0)
+      [Bit 0]               0 'Binary Data'
+2F357 Ext File Attributes   00000020 (32)
+      [Bit 5]               Archive
+2F35B Local Header Offset   00000000 (0) [Actual Offset is 0002F200 (193024)]
+2F35F Filename              'lorem.txt'
+2F368 Extra ID #1           000A (10) 'NTFS FileTimes'
+2F36A   Length              0020 (32)
+2F36C   Reserved            00000000 (0)
+2F370   Tag1                0001 (1)
+2F372   Size1               0018 (24)
+2F374   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+2F37C   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+2F384   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+
+2F38C END CENTRAL HEADER    06054B50 (101010256)
+2F390 Number of this disk   0000 (0)
+2F392 Central Dir Disk no   0000 (0)
+2F394 Entries in this disk  0001 (1)
+2F396 Total Entries         0001 (1)
+2F398 Size of Central Dir   0000005B (91)
+2F39C Offset to Central Dir 00000131 (305) [Actual Offset is 0002F331 (193329)]
+2F3A0 Comment Length        0000 (0)
+#
+# Info Count: 1
+#
+# Done

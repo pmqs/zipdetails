@@ -1,0 +1,71 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 3F          Extract Zip Spec      3F (63) '6.3'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 02 00       General Purpose Flag  0002 (2)
+                           [Bit 1]               1 'LZMA EOS Marker Present'
+0008 0009 0002 0E 00       Compression Method    000E (14) 'LZMA'
+000A 000D 0004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0012 0015 0004 54 01 00 00 Compressed Size       00000154 (340)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+001A 001B 0002 09 00       Filename Length       0009 (9)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0027 0028 0002 17 01       LZMA Version          1701 '23.1'
+0029 002A 0002 05 00       LZMA Properties Size  0005 (5)
+002B 002B 0001 5D          LZMA Info             5D (93) '(Default)'
+                             PosStateBits        2
+                             LiteralPosStateBits 0
+                             LiteralContextBits  3
+002C 002F 0004 00 10 00 00 LZMA Dictionary Size  00001000 (4096)
+0030 017A 014B ...         PAYLOAD
+
+017B 017E 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+017F 017F 0001 3F          Created Zip Spec      3F (63) '6.3'
+0180 0180 0001 00          Created OS            00 (0) 'MS-DOS'
+0181 0181 0001 3F          Extract Zip Spec      3F (63) '6.3'
+0182 0182 0001 00          Extract OS            00 (0) 'MS-DOS'
+0183 0184 0002 02 00       General Purpose Flag  0002 (2)
+                           [Bit 1]               1 'LZMA EOS Marker Present'
+0185 0186 0002 0E 00       Compression Method    000E (14) 'LZMA'
+0187 018A 0004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+018B 018E 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+018F 0192 0004 54 01 00 00 Compressed Size       00000154 (340)
+0193 0196 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+0197 0198 0002 09 00       Filename Length       0009 (9)
+0199 019A 0002 24 00       Extra Length          0024 (36)
+019B 019C 0002 00 00       Comment Length        0000 (0)
+019D 019E 0002 00 00       Disk Start            0000 (0)
+019F 01A0 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+01A1 01A4 0004 20 00 00 00 Ext File Attributes   00000020 (32)
+                           [Bit 5]               Archive
+01A5 01A8 0004 00 00 00 00 Local Header Offset   00000000 (0)
+01A9 01B1 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+01B2 01B3 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+01B4 01B5 0002 20 00         Length              0020 (32)
+01B6 01B9 0004 00 00 00 00   Reserved            00000000 (0)
+01BA 01BB 0002 01 00         Tag1                0001 (1)
+01BC 01BD 0002 18 00         Size1               0018 (24)
+01BE 01C5 0008 3E 99 6C F4   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+               1E BA D9 01
+01C6 01CD 0008 00 00 00 00   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+01CE 01D5 0008 00 00 00 00   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+
+01D6 01D9 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01DA 01DB 0002 00 00       Number of this disk   0000 (0)
+01DC 01DD 0002 00 00       Central Dir Disk no   0000 (0)
+01DE 01DF 0002 01 00       Entries in this disk  0001 (1)
+01E0 01E1 0002 01 00       Total Entries         0001 (1)
+01E2 01E5 0004 5B 00 00 00 Size of Central Dir   0000005B (91)
+01E6 01E9 0004 7B 01 00 00 Offset to Central Dir 0000017B (379)
+01EA 01EB 0002 00 00       Comment Length        0000 (0)
+#
+# Done

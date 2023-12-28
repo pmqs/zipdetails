@@ -1,0 +1,54 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Date/Time    579CA74D (1469884237) 'Thu Dec 28 20:58:26 2023'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
+001A Filename Length       0008 (8)
+001C Extra Length          0000 (0)
+001E Filename              'somedir/'
+
+0026 CENTRAL HEADER #1     02014B50 (33639248)
+002A Created Zip Spec      3F (63) '6.3'
+002B Created OS            00 (0) 'MS-DOS'
+002C Extract Zip Spec      14 (20) '2.0'
+002D Extract OS            00 (0) 'MS-DOS'
+002E General Purpose Flag  0000 (0)
+0030 Compression Method    0000 (0) 'Stored'
+0032 Last Mod Date/Time    579CA74D (1469884237) 'Thu Dec 28 20:58:26 2023'
+0036 CRC                   00000000 (0)
+003A Compressed Size       00000000 (0)
+003E Uncompressed Size     00000000 (0)
+0042 Filename Length       0008 (8)
+0044 Extra Length          0024 (36)
+0046 Comment Length        0000 (0)
+0048 Disk Start            0000 (0)
+004A Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+004C Ext File Attributes   00000010 (16)
+     [Bit 4]               Directory
+0050 Local Header Offset   00000000 (0)
+0054 Filename              'somedir/'
+005C Extra ID #1           000A (10) 'NTFS FileTimes'
+005E   Length              0020 (32)
+0060   Reserved            00000000 (0)
+0064   Tag1                0001 (1)
+0066   Size1               0018 (24)
+0068   Mtime               01DA39D0991FF84E (133482707045840974) 'Thu Dec 28 20:58:24 2023 584097400ns'
+0070   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+0078   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+
+0080 END CENTRAL HEADER    06054B50 (101010256)
+0084 Number of this disk   0000 (0)
+0086 Central Dir Disk no   0000 (0)
+0088 Entries in this disk  0001 (1)
+008A Total Entries         0001 (1)
+008C Size of Central Dir   0000005A (90)
+0090 Offset to Central Dir 00000026 (38)
+0094 Comment Length        0000 (0)
+#
+# Done

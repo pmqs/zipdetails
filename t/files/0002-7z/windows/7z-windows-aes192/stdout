@@ -1,0 +1,72 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      33 (51) '5.1'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0001 (1)
+     [Bit  0]              1 'Encryption'
+0008 Compression Method    0063 (99) 'AES Encryption'
+000A Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000122 (290)
+0016 Uncompressed Size     000001BE (446)
+001A Filename Length       0009 (9)
+001C Extra Length          000B (11)
+001E Filename              'lorem.txt'
+0027 Extra ID #1           9901 (39169) 'AES Encryption'
+0029   Length              0007 (7)
+002B   Vendor Version      0002 (2) 'AE-2'
+002D   Vendor ID           4541 (17729) 'AE'
+002F   Encryption Strength 02 (2) '192-bit encryption key'
+0030   Compression Method  0008 (8) 'Deflated'
+0032 AES Salt              A8 AD B5 E2 24 EA 0B A6 7E BE B4 18
+003E AES Pwd Ver           62 52
+0040 PAYLOAD
+014A AES Auth              A3 98 90 6E 29 BC B8 0B 4F DE
+
+0154 CENTRAL HEADER #1     02014B50 (33639248)
+0158 Created Zip Spec      3F (63) '6.3'
+0159 Created OS            00 (0) 'MS-DOS'
+015A Extract Zip Spec      33 (51) '5.1'
+015B Extract OS            00 (0) 'MS-DOS'
+015C General Purpose Flag  0001 (1)
+     [Bit  0]              1 'Encryption'
+015E Compression Method    0063 (99) 'AES Encryption'
+0160 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+0164 CRC                   00000000 (0)
+0168 Compressed Size       00000122 (290)
+016C Uncompressed Size     000001BE (446)
+0170 Filename Length       0009 (9)
+0172 Extra Length          002F (47)
+0174 Comment Length        0000 (0)
+0176 Disk Start            0000 (0)
+0178 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+017A Ext File Attributes   00000020 (32)
+     [Bit 5]               Archive
+017E Local Header Offset   00000000 (0)
+0182 Filename              'lorem.txt'
+018B Extra ID #1           000A (10) 'NTFS FileTimes'
+018D   Length              0020 (32)
+018F   Reserved            00000000 (0)
+0193   Tag1                0001 (1)
+0195   Size1               0018 (24)
+0197   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+019F   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+01A7   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+01AF Extra ID #2           9901 (39169) 'AES Encryption'
+01B1   Length              0007 (7)
+01B3   Vendor Version      0002 (2) 'AE-2'
+01B5   Vendor ID           4541 (17729) 'AE'
+01B7   Encryption Strength 02 (2) '192-bit encryption key'
+01B8   Compression Method  0008 (8) 'Deflated'
+
+01BA END CENTRAL HEADER    06054B50 (101010256)
+01BE Number of this disk   0000 (0)
+01C0 Central Dir Disk no   0000 (0)
+01C2 Entries in this disk  0001 (1)
+01C4 Total Entries         0001 (1)
+01C6 Size of Central Dir   00000066 (102)
+01CA Offset to Central Dir 00000154 (340)
+01CE Comment Length        0000 (0)
+#
+# Done

@@ -1,0 +1,64 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      3F (63) '6.3'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0002 (2)
+     [Bit 1]               1 'LZMA EOS Marker Present'
+0008 Compression Method    000E (14) 'LZMA'
+000A Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E CRC                   F90EE7FF (4178503679)
+0012 Compressed Size       00000154 (340)
+0016 Uncompressed Size     000001BE (446)
+001A Filename Length       0009 (9)
+001C Extra Length          0000 (0)
+001E Filename              'lorem.txt'
+0027 LZMA Version          1701 '23.1'
+0029 LZMA Properties Size  0005 (5)
+002B LZMA Info             5D (93) '(Default)'
+       PosStateBits        2
+       LiteralPosStateBits 0
+       LiteralContextBits  3
+002C LZMA Dictionary Size  00001000 (4096)
+0030 PAYLOAD
+
+017B CENTRAL HEADER #1     02014B50 (33639248)
+017F Created Zip Spec      3F (63) '6.3'
+0180 Created OS            00 (0) 'MS-DOS'
+0181 Extract Zip Spec      3F (63) '6.3'
+0182 Extract OS            00 (0) 'MS-DOS'
+0183 General Purpose Flag  0002 (2)
+     [Bit 1]               1 'LZMA EOS Marker Present'
+0185 Compression Method    000E (14) 'LZMA'
+0187 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+018B CRC                   F90EE7FF (4178503679)
+018F Compressed Size       00000154 (340)
+0193 Uncompressed Size     000001BE (446)
+0197 Filename Length       0009 (9)
+0199 Extra Length          0024 (36)
+019B Comment Length        0000 (0)
+019D Disk Start            0000 (0)
+019F Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+01A1 Ext File Attributes   00000020 (32)
+     [Bit 5]               Archive
+01A5 Local Header Offset   00000000 (0)
+01A9 Filename              'lorem.txt'
+01B2 Extra ID #1           000A (10) 'NTFS FileTimes'
+01B4   Length              0020 (32)
+01B6   Reserved            00000000 (0)
+01BA   Tag1                0001 (1)
+01BC   Size1               0018 (24)
+01BE   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+01C6   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+01CE   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+
+01D6 END CENTRAL HEADER    06054B50 (101010256)
+01DA Number of this disk   0000 (0)
+01DC Central Dir Disk no   0000 (0)
+01DE Entries in this disk  0001 (1)
+01E0 Total Entries         0001 (1)
+01E2 Size of Central Dir   0000005B (91)
+01E6 Offset to Central Dir 0000017B (379)
+01EA Comment Length        0000 (0)
+#
+# Done

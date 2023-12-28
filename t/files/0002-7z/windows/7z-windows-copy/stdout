@@ -1,0 +1,55 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      0A (10) '1.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E CRC                   F90EE7FF (4178503679)
+0012 Compressed Size       000001BE (446)
+0016 Uncompressed Size     000001BE (446)
+001A Filename Length       0009 (9)
+001C Extra Length          0000 (0)
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+01E5 CENTRAL HEADER #1     02014B50 (33639248)
+01E9 Created Zip Spec      3F (63) '6.3'
+01EA Created OS            00 (0) 'MS-DOS'
+01EB Extract Zip Spec      0A (10) '1.0'
+01EC Extract OS            00 (0) 'MS-DOS'
+01ED General Purpose Flag  0000 (0)
+01EF Compression Method    0000 (0) 'Stored'
+01F1 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+01F5 CRC                   F90EE7FF (4178503679)
+01F9 Compressed Size       000001BE (446)
+01FD Uncompressed Size     000001BE (446)
+0201 Filename Length       0009 (9)
+0203 Extra Length          0024 (36)
+0205 Comment Length        0000 (0)
+0207 Disk Start            0000 (0)
+0209 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+020B Ext File Attributes   00000020 (32)
+     [Bit 5]               Archive
+020F Local Header Offset   00000000 (0)
+0213 Filename              'lorem.txt'
+021C Extra ID #1           000A (10) 'NTFS FileTimes'
+021E   Length              0020 (32)
+0220   Reserved            00000000 (0)
+0224   Tag1                0001 (1)
+0226   Size1               0018 (24)
+0228   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+0230   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+0238   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+
+0240 END CENTRAL HEADER    06054B50 (101010256)
+0244 Number of this disk   0000 (0)
+0246 Central Dir Disk no   0000 (0)
+0248 Entries in this disk  0001 (1)
+024A Total Entries         0001 (1)
+024C Size of Central Dir   0000005B (91)
+0250 Offset to Central Dir 000001E5 (485)
+0254 Comment Length        0000 (0)
+#
+# Done

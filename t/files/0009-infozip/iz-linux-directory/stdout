@@ -1,0 +1,71 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      0A (10) '1.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Last Mod Date/Time    579C9419 (1469879321) 'Thu Dec 28 18:32:50 2023'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
+001A Filename Length       0008 (8)
+001C Extra Length          001C (28)
+001E Filename              'somedir/'
+0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0028   Length              0009 (9)
+002A   Flags               03 (3) 'mod access'
+002B   Mod Time            658DBF51 (1703788369) 'Thu Dec 28 18:32:49 2023'
+002F   Access Time         658DBF51 (1703788369) 'Thu Dec 28 18:32:49 2023'
+0033 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0035   Length              000B (11)
+0037   Version             01 (1)
+0038   UID Size            04 (4)
+0039   UID                 000003E8 (1000)
+003D   GID Size            04 (4)
+003E   GID                 000003E8 (1000)
+
+0042 CENTRAL HEADER #1     02014B50 (33639248)
+0046 Created Zip Spec      1E (30) '3.0'
+0047 Created OS            03 (3) 'Unix'
+0048 Extract Zip Spec      0A (10) '1.0'
+0049 Extract OS            00 (0) 'MS-DOS'
+004A General Purpose Flag  0000 (0)
+004C Compression Method    0000 (0) 'Stored'
+004E Last Mod Date/Time    579C9419 (1469879321) 'Thu Dec 28 18:32:50 2023'
+0052 CRC                   00000000 (0)
+0056 Compressed Size       00000000 (0)
+005A Uncompressed Size     00000000 (0)
+005E Filename Length       0008 (8)
+0060 Extra Length          0018 (24)
+0062 Comment Length        0000 (0)
+0064 Disk Start            0000 (0)
+0066 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0068 Ext File Attributes   41FD0010 (1107099664)
+     [Bit 4]               Directory
+     [Bits 16-24]          01FD (509) 'Unix attrib: rwxrwxr-x'
+     [Bits 28-31]          04 (4) 'Directory'
+006C Local Header Offset   00000000 (0)
+0070 Filename              'somedir/'
+0078 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+007A   Length              0005 (5)
+007C   Flags               03 (3) 'mod access'
+007D   Mod Time            658DBF51 (1703788369) 'Thu Dec 28 18:32:49 2023'
+0081 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0083   Length              000B (11)
+0085   Version             01 (1)
+0086   UID Size            04 (4)
+0087   UID                 000003E8 (1000)
+008B   GID Size            04 (4)
+008C   GID                 000003E8 (1000)
+
+0090 END CENTRAL HEADER    06054B50 (101010256)
+0094 Number of this disk   0000 (0)
+0096 Central Dir Disk no   0000 (0)
+0098 Entries in this disk  0001 (1)
+009A Total Entries         0001 (1)
+009C Size of Central Dir   0000004E (78)
+00A0 Offset to Central Dir 00000042 (66)
+00A4 Comment Length        0000 (0)
+#
+# Done

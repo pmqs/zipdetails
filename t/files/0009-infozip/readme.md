@@ -20,6 +20,12 @@ create zip files as follows (assumes zip version 3.0)
 
     zip --force-zip64- - lorem.txt| cat >iz-linux-stream-nozip64.zip
 
+## Add a directory
+
+    mkdir somedir
+    zip iz-linux-directory.zip somedir
+    rmdir somedir
+
 ## InfoZip Bugs
 
 ### missing ZIP64 records

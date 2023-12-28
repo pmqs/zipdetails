@@ -1,0 +1,59 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 4D A7 9C 57 Last Mod Date/Time    579CA74D (1469884237) 'Thu Dec 28 20:58:26 2023'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+001A 001B 0002 08 00       Filename Length       0008 (8)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0025 0008 73 6F 6D 65 Filename              'somedir/'
+               64 69 72 2F
+
+0026 0029 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+002A 002A 0001 3F          Created Zip Spec      3F (63) '6.3'
+002B 002B 0001 00          Created OS            00 (0) 'MS-DOS'
+002C 002C 0001 14          Extract Zip Spec      14 (20) '2.0'
+002D 002D 0001 00          Extract OS            00 (0) 'MS-DOS'
+002E 002F 0002 00 00       General Purpose Flag  0000 (0)
+0030 0031 0002 00 00       Compression Method    0000 (0) 'Stored'
+0032 0035 0004 4D A7 9C 57 Last Mod Date/Time    579CA74D (1469884237) 'Thu Dec 28 20:58:26 2023'
+0036 0039 0004 00 00 00 00 CRC                   00000000 (0)
+003A 003D 0004 00 00 00 00 Compressed Size       00000000 (0)
+003E 0041 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+0042 0043 0002 08 00       Filename Length       0008 (8)
+0044 0045 0002 24 00       Extra Length          0024 (36)
+0046 0047 0002 00 00       Comment Length        0000 (0)
+0048 0049 0002 00 00       Disk Start            0000 (0)
+004A 004B 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+004C 004F 0004 10 00 00 00 Ext File Attributes   00000010 (16)
+                           [Bit 4]               Directory
+0050 0053 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0054 005B 0008 73 6F 6D 65 Filename              'somedir/'
+               64 69 72 2F
+005C 005D 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+005E 005F 0002 20 00         Length              0020 (32)
+0060 0063 0004 00 00 00 00   Reserved            00000000 (0)
+0064 0065 0002 01 00         Tag1                0001 (1)
+0066 0067 0002 18 00         Size1               0018 (24)
+0068 006F 0008 4E F8 1F 99   Mtime               01DA39D0991FF84E (133482707045840974) 'Thu Dec 28 20:58:24 2023 584097400ns'
+               D0 39 DA 01
+0070 0077 0008 00 00 00 00   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+0078 007F 0008 00 00 00 00   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+
+0080 0083 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0084 0085 0002 00 00       Number of this disk   0000 (0)
+0086 0087 0002 00 00       Central Dir Disk no   0000 (0)
+0088 0089 0002 01 00       Entries in this disk  0001 (1)
+008A 008B 0002 01 00       Total Entries         0001 (1)
+008C 008F 0004 5A 00 00 00 Size of Central Dir   0000005A (90)
+0090 0093 0004 26 00 00 00 Offset to Central Dir 00000026 (38)
+0094 0095 0002 00 00       Comment Length        0000 (0)
+#
+# Done

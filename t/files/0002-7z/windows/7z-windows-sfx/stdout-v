@@ -1,0 +1,71 @@
+#
+# INFO: Offset 0x0: found 0x2F200 (193024) bytes before beginning of zipfile
+#
+
+00000 2F1FF 2F200 ...         UNEXPECTED PADDING
+
+2F200 2F203 00004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+2F204 2F204 00001 14          Extract Zip Spec      14 (20) '2.0'
+2F205 2F205 00001 00          Extract OS            00 (0) 'MS-DOS'
+2F206 2F207 00002 00 00       General Purpose Flag  0000 (0)
+                              [Bits 1-2]            0 'Normal Compression'
+2F208 2F209 00002 08 00       Compression Method    0008 (8) 'Deflated'
+2F20A 2F20D 00004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+2F20E 2F211 00004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+2F212 2F215 00004 0A 01 00 00 Compressed Size       0000010A (266)
+2F216 2F219 00004 BE 01 00 00 Uncompressed Size     000001BE (446)
+2F21A 2F21B 00002 09 00       Filename Length       0009 (9)
+2F21C 2F21D 00002 00 00       Extra Length          0000 (0)
+2F21E 2F226 00009 6C 6F 72 65 Filename              'lorem.txt'
+                  6D 2E 74 78
+                  74
+2F227 2F330 0010A ...         PAYLOAD
+
+2F331 2F334 00004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+2F335 2F335 00001 3F          Created Zip Spec      3F (63) '6.3'
+2F336 2F336 00001 00          Created OS            00 (0) 'MS-DOS'
+2F337 2F337 00001 14          Extract Zip Spec      14 (20) '2.0'
+2F338 2F338 00001 00          Extract OS            00 (0) 'MS-DOS'
+2F339 2F33A 00002 00 00       General Purpose Flag  0000 (0)
+                              [Bits 1-2]            0 'Normal Compression'
+2F33B 2F33C 00002 08 00       Compression Method    0008 (8) 'Deflated'
+2F33D 2F340 00004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+2F341 2F344 00004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+2F345 2F348 00004 0A 01 00 00 Compressed Size       0000010A (266)
+2F349 2F34C 00004 BE 01 00 00 Uncompressed Size     000001BE (446)
+2F34D 2F34E 00002 09 00       Filename Length       0009 (9)
+2F34F 2F350 00002 24 00       Extra Length          0024 (36)
+2F351 2F352 00002 00 00       Comment Length        0000 (0)
+2F353 2F354 00002 00 00       Disk Start            0000 (0)
+2F355 2F356 00002 00 00       Int File Attributes   0000 (0)
+                              [Bit 0]               0 'Binary Data'
+2F357 2F35A 00004 20 00 00 00 Ext File Attributes   00000020 (32)
+                              [Bit 5]               Archive
+2F35B 2F35E 00004 00 00 00 00 Local Header Offset   00000000 (0) [Actual Offset is 0002F200 (193024)]
+2F35F 2F367 00009 6C 6F 72 65 Filename              'lorem.txt'
+                  6D 2E 74 78
+                  74
+2F368 2F369 00002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+2F36A 2F36B 00002 20 00         Length              0020 (32)
+2F36C 2F36F 00004 00 00 00 00   Reserved            00000000 (0)
+2F370 2F371 00002 01 00         Tag1                0001 (1)
+2F372 2F373 00002 18 00         Size1               0018 (24)
+2F374 2F37B 00008 3E 99 6C F4   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+                  1E BA D9 01
+2F37C 2F383 00008 00 00 00 00   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+                  00 00 00 00
+2F384 2F38B 00008 00 00 00 00   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+                  00 00 00 00
+
+2F38C 2F38F 00004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+2F390 2F391 00002 00 00       Number of this disk   0000 (0)
+2F392 2F393 00002 00 00       Central Dir Disk no   0000 (0)
+2F394 2F395 00002 01 00       Entries in this disk  0001 (1)
+2F396 2F397 00002 01 00       Total Entries         0001 (1)
+2F398 2F39B 00004 5B 00 00 00 Size of Central Dir   0000005B (91)
+2F39C 2F39F 00004 31 01 00 00 Offset to Central Dir 00000131 (305) [Actual Offset is 0002F331 (193329)]
+2F3A0 2F3A1 00002 00 00       Comment Length        0000 (0)
+#
+# Info Count: 1
+#
+# Done

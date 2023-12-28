@@ -10,6 +10,12 @@ pkzipc -add pkzip-default.zip lorem*.txt
 
 pkzipc -add -204 pkzip-204.zip lorem*.txt
 
+@REM Add a directory
+
+mkdir somedir
+pkzipc -add -dir pkzip-dir.zip somedir
+
+
 @REM Zip64
 
 @REM Create a file 64bit file

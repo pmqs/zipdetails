@@ -16,6 +16,11 @@ create zip files as follows
     7z a  7z-linux-lzma.zip lorem.txt -mm=lzma
     7z a  7z-linux-ppmd.zip lorem.txt -mm=ppmd
 
+Create a directory
+
+    mkdir somedir
+    7z a 7z-linux-directory.zip somedir
+    rmdif somedir
 
 # Notes
 

@@ -1,0 +1,59 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0001 (1)
+     [Bit  0]              1 'Encryption'
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E CRC                   F90EE7FF (4178503679)
+0012 Compressed Size       00000116 (278)
+0016 Uncompressed Size     000001BE (446)
+001A Filename Length       0009 (9)
+001C Extra Length          0000 (0)
+001E Filename              'lorem.txt'
+0027 PAYLOAD
+
+013D CENTRAL HEADER #1     02014B50 (33639248)
+0141 Created Zip Spec      3F (63) '6.3'
+0142 Created OS            00 (0) 'MS-DOS'
+0143 Extract Zip Spec      14 (20) '2.0'
+0144 Extract OS            00 (0) 'MS-DOS'
+0145 General Purpose Flag  0001 (1)
+     [Bit  0]              1 'Encryption'
+     [Bits 1-2]            0 'Normal Compression'
+0147 Compression Method    0008 (8) 'Deflated'
+0149 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+014D CRC                   F90EE7FF (4178503679)
+0151 Compressed Size       00000116 (278)
+0155 Uncompressed Size     000001BE (446)
+0159 Filename Length       0009 (9)
+015B Extra Length          0024 (36)
+015D Comment Length        0000 (0)
+015F Disk Start            0000 (0)
+0161 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0163 Ext File Attributes   00000020 (32)
+     [Bit 5]               Archive
+0167 Local Header Offset   00000000 (0)
+016B Filename              'lorem.txt'
+0174 Extra ID #1           000A (10) 'NTFS FileTimes'
+0176   Length              0020 (32)
+0178   Reserved            00000000 (0)
+017C   Tag1                0001 (1)
+017E   Size1               0018 (24)
+0180   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+0188   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+0190   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+
+0198 END CENTRAL HEADER    06054B50 (101010256)
+019C Number of this disk   0000 (0)
+019E Central Dir Disk no   0000 (0)
+01A0 Entries in this disk  0001 (1)
+01A2 Total Entries         0001 (1)
+01A4 Size of Central Dir   0000005B (91)
+01A8 Offset to Central Dir 0000013D (317)
+01AC Comment Length        0000 (0)
+#
+# Done

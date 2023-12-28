@@ -1,0 +1,62 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 3F          Extract Zip Spec      3F (63) '6.3'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 62 00       Compression Method    0062 (98) 'PPMd version I, Rev 1'
+000A 000D 0004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0012 0015 0004 06 01 00 00 Compressed Size       00000106 (262)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+001A 001B 0002 09 00       Filename Length       0009 (9)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0027 012C 0106 ...         PAYLOAD
+
+012D 0130 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0131 0131 0001 3F          Created Zip Spec      3F (63) '6.3'
+0132 0132 0001 00          Created OS            00 (0) 'MS-DOS'
+0133 0133 0001 3F          Extract Zip Spec      3F (63) '6.3'
+0134 0134 0001 00          Extract OS            00 (0) 'MS-DOS'
+0135 0136 0002 00 00       General Purpose Flag  0000 (0)
+0137 0138 0002 62 00       Compression Method    0062 (98) 'PPMd version I, Rev 1'
+0139 013C 0004 19 47 F3 56 Last Mod Date/Time    56F34719 (1458784025) 'Wed Jul 19 08:56:50 2023'
+013D 0140 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0141 0144 0004 06 01 00 00 Compressed Size       00000106 (262)
+0145 0148 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+0149 014A 0002 09 00       Filename Length       0009 (9)
+014B 014C 0002 24 00       Extra Length          0024 (36)
+014D 014E 0002 00 00       Comment Length        0000 (0)
+014F 0150 0002 00 00       Disk Start            0000 (0)
+0151 0152 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0153 0156 0004 20 00 00 00 Ext File Attributes   00000020 (32)
+                           [Bit 5]               Archive
+0157 015A 0004 00 00 00 00 Local Header Offset   00000000 (0)
+015B 0163 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0164 0165 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+0166 0167 0002 20 00         Length              0020 (32)
+0168 016B 0004 00 00 00 00   Reserved            00000000 (0)
+016C 016D 0002 01 00         Tag1                0001 (1)
+016E 016F 0002 18 00         Size1               0018 (24)
+0170 0177 0008 3E 99 6C F4   Mtime               01D9BA1EF46C993E (133342306096683326) 'Wed Jul 19 08:56:49 2023 668332600ns'
+               1E BA D9 01
+0178 017F 0008 00 00 00 00   Atime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+0180 0187 0008 00 00 00 00   Ctime               0000000000000000 (0) 'Mon Jan  1 00:00:00 1601 0ns'
+               00 00 00 00
+
+0188 018B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+018C 018D 0002 00 00       Number of this disk   0000 (0)
+018E 018F 0002 00 00       Central Dir Disk no   0000 (0)
+0190 0191 0002 01 00       Entries in this disk  0001 (1)
+0192 0193 0002 01 00       Total Entries         0001 (1)
+0194 0197 0004 5B 00 00 00 Size of Central Dir   0000005B (91)
+0198 019B 0004 2D 01 00 00 Offset to Central Dir 0000012D (301)
+019C 019D 0002 00 00       Comment Length        0000 (0)
+#
+# Done
