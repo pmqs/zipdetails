@@ -30,7 +30,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 210 * $tests_per_zip_full ;
+plan tests => 212 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;

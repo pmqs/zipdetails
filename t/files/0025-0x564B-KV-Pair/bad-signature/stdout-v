@@ -1,0 +1,82 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 4C 88 92 57 Last Mod Date/Time    5792884C (1469220940) 'Mon Dec 18 17:02:24 2023'
+000E 0011 0004 11 47 63 0C CRC                   0C634711 (207832849)
+0012 0015 0004 B7 01 00 00 Compressed Size       000001B7 (439)
+0016 0019 0004 F6 02 00 00 Uncompressed Size     000002F6 (758)
+001A 001B 0002 08 00       Filename Length       0008 (8)
+001C 001D 0002 2C 00       Extra Length          002C (44)
+001E 0025 0008 62 79 74 65 Filename              'byte.tif'
+               2E 74 69 66
+0026 0027 0002 4B 56       Extra ID #1           564B (22091) 'Key-Value Pairs [KV]'
+0028 0029 0002 28 00         Length              0028 (40)
+#
+# ERROR: Offset 0x2A: Extra Field 'Key-Value Pairs [KV]' (ID 0x564B): 'Signature' field not 'KeyValuePairs'
+#
+002A 0051 0028 4B 65 79 56   Extra Payload       4B 65 79 56 61 6C 75 65 50 6F 6F 72 73 01 0C 00
+               61 6C 75 65                       43 6F 6E 74 65 6E 74 2D 54 79 70 65 0A 00 69 6D
+               50 6F 6F 72                       61 67 65 2F 74 69 66 66
+               73 01 0C 00
+               43 6F 6E 74
+               65 6E 74 2D
+               54 79 70 65
+               0A 00 69 6D
+               61 67 65 2F
+               74 69 66 66
+0052 0208 01B7 ...         PAYLOAD
+
+0209 020C 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+020D 020D 0001 00          Created Zip Spec      00 (0) '0.0'
+020E 020E 0001 00          Created OS            00 (0) 'MS-DOS'
+020F 020F 0001 14          Extract Zip Spec      14 (20) '2.0'
+0210 0210 0001 00          Extract OS            00 (0) 'MS-DOS'
+0211 0212 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0213 0214 0002 08 00       Compression Method    0008 (8) 'Deflated'
+0215 0218 0004 4C 88 92 57 Last Mod Date/Time    5792884C (1469220940) 'Mon Dec 18 17:02:24 2023'
+0219 021C 0004 11 47 63 0C CRC                   0C634711 (207832849)
+021D 0220 0004 B7 01 00 00 Compressed Size       000001B7 (439)
+0221 0224 0004 F6 02 00 00 Uncompressed Size     000002F6 (758)
+0225 0226 0002 08 00       Filename Length       0008 (8)
+0227 0228 0002 2C 00       Extra Length          002C (44)
+0229 022A 0002 00 00       Comment Length        0000 (0)
+022B 022C 0002 00 00       Disk Start            0000 (0)
+022D 022E 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+022F 0232 0004 00 00 00 00 Ext File Attributes   00000000 (0)
+0233 0236 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0237 023E 0008 62 79 74 65 Filename              'byte.tif'
+               2E 74 69 66
+023F 0240 0002 4B 56       Extra ID #1           564B (22091) 'Key-Value Pairs [KV]'
+0241 0242 0002 28 00         Length              0028 (40)
+#
+# ERROR: Offset 0x243: Extra Field 'Key-Value Pairs [KV]' (ID 0x564B): 'Signature' field not 'KeyValuePairs'
+#
+0243 026A 0028 4B 65 79 56   Extra Payload       4B 65 79 56 61 6C 75 65 50 6F 6F 72 73 01 0C 00
+               61 6C 75 65                       43 6F 6E 74 65 6E 74 2D 54 79 70 65 0A 00 69 6D
+               50 6F 6F 72                       61 67 65 2F 74 69 66 66
+               73 01 0C 00
+               43 6F 6E 74
+               65 6E 74 2D
+               54 79 70 65
+               0A 00 69 6D
+               61 67 65 2F
+               74 69 66 66
+
+026B 026E 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+026F 0270 0002 00 00       Number of this disk   0000 (0)
+0271 0272 0002 00 00       Central Dir Disk no   0000 (0)
+0273 0274 0002 01 00       Entries in this disk  0001 (1)
+0275 0276 0002 01 00       Total Entries         0001 (1)
+0277 027A 0004 62 00 00 00 Size of Central Dir   00000062 (98)
+027B 027E 0004 09 02 00 00 Offset to Central Dir 00000209 (521)
+027F 0280 0002 00 00       Comment Length        0000 (0)
+#
+# Error Count: 2
+#
+# Done

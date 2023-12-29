@@ -1,0 +1,64 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    5792884C (1469220940) 'Mon Dec 18 17:02:24 2023'
+000E CRC                   0C634711 (207832849)
+0012 Compressed Size       000001B7 (439)
+0016 Uncompressed Size     000002F6 (758)
+001A Filename Length       0008 (8)
+001C Extra Length          002C (44)
+001E Filename              'byte.tif'
+0026 Extra ID #1           564B (22091) 'Key-Value Pairs [KV]'
+0028   Length              0028 (40)
+002A   Signature           'KeyValuePairs'
+0037   KV Count            01 (1)
+0038   Key size #1         000C (12)
+003A   Key #1              'Content-Type'
+0046   Value size #1       000A (10)
+0048   Value #1            'image/tiff'
+0052 PAYLOAD
+
+0209 CENTRAL HEADER #1     02014B50 (33639248)
+020D Created Zip Spec      00 (0) '0.0'
+020E Created OS            00 (0) 'MS-DOS'
+020F Extract Zip Spec      14 (20) '2.0'
+0210 Extract OS            00 (0) 'MS-DOS'
+0211 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0213 Compression Method    0008 (8) 'Deflated'
+0215 Last Mod Date/Time    5792884C (1469220940) 'Mon Dec 18 17:02:24 2023'
+0219 CRC                   0C634711 (207832849)
+021D Compressed Size       000001B7 (439)
+0221 Uncompressed Size     000002F6 (758)
+0225 Filename Length       0008 (8)
+0227 Extra Length          002C (44)
+0229 Comment Length        0000 (0)
+022B Disk Start            0000 (0)
+022D Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+022F Ext File Attributes   00000000 (0)
+0233 Local Header Offset   00000000 (0)
+0237 Filename              'byte.tif'
+023F Extra ID #1           564B (22091) 'Key-Value Pairs [KV]'
+0241   Length              0028 (40)
+0243   Signature           'KeyValuePairs'
+0250   KV Count            01 (1)
+0251   Key size #1         000C (12)
+0253   Key #1              'Content-Type'
+025F   Value size #1       000A (10)
+0261   Value #1            'image/tiff'
+
+026B END CENTRAL HEADER    06054B50 (101010256)
+026F Number of this disk   0000 (0)
+0271 Central Dir Disk no   0000 (0)
+0273 Entries in this disk  0001 (1)
+0275 Total Entries         0001 (1)
+0277 Size of Central Dir   00000062 (98)
+027B Offset to Central Dir 00000209 (521)
+027F Comment Length        0000 (0)
+#
+# Done
