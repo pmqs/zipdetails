@@ -2030,8 +2030,8 @@ sub LocalHeader
     my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
 
     my $crc              = out_V "CRC";
-    # warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
-    #     if $streaming && $crc != 0 ;
+    warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
+        if $streaming && $crc != 0 ;
 
     my $compressedSize   = out_V "Compressed Size";
     # warning $FH->tell(), "Compressed Size should be zero when streaming is enabled";
@@ -3102,7 +3102,7 @@ sub DataDescriptor
 
     # use delta to next header & payload length
     # deals with use case where the payload length < 32 bit
-    # will use a 32-bit value rather than th e64-bit value
+    # will use a 32-bit value rather than the 64-bit value
     if ($deltaToNext == 8 && $cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
