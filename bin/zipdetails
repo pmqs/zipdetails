@@ -3103,6 +3103,8 @@ sub DataDescriptor
     # use delta to next header & payload length
     # deals with use case where the payload length < 32 bit
     # will use a 32-bit value rather than the 64-bit value
+
+    # see if delta & payload size match
     if ($deltaToNext == 8 && $cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
@@ -3124,7 +3126,7 @@ sub DataDescriptor
         $uncompressedSize = out_Q "Uncompressed Size" ;
     }
 
-    # don't know delta to next header, so use payload lengths
+    # don't know delta to next header, so try matching payload lengths
     elsif ($cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
@@ -3145,6 +3147,36 @@ sub DataDescriptor
         $compressedSize   = out_Q "Compressed Size" ;
         $uncompressedSize = out_Q "Uncompressed Size" ;
     }
+
+    # payloads don't match, so try delta
+    elsif ($deltaToNext == 8 )
+    {
+        if ($localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 64-bit values, got 32-bit";
+        }
+
+        $compressedSize   = out_V "Compressed Size" ;
+        # compressed size is wrong
+        error $here, "'$sigName': Compressed Size " . decimalHex0x($compressedSize) . " doesn't match with payload size " . decimalHex0x($payloadLength);
+
+        $uncompressedSize = out_V "Uncompressed Size" ;
+    }
+    elsif ($deltaToNext == 16)
+    {
+        if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
+        {
+            error $here, "'$sigName': expected 32-bit values, got 64-bit";
+        }
+
+        $compressedSize   = out_Q "Compressed Size" ;
+        # compressed size is wrong
+        error $here, "'$sigName': Compressed size" . decimalHex0x($compressedSize) . " doesn't match with payload size " . decimalHex0x($payloadLength);
+
+        $uncompressedSize = out_Q "Uncompressed Size" ;
+    }
+
+    # TODO - neither payload size or delta to next signature match
 
     if ($localEntry)
     {
