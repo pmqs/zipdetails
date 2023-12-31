@@ -9,6 +9,9 @@
 0008 Compression Method    0008 (8) 'Deflated'
 000A Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 000E CRC                   F90EE7FF (4178503679)
+#
+# WARNING: Offset 0xE: CRC field should be zero when streaming is enabled
+#
 0012 Compressed Size       0000011A (282)
 0016 Uncompressed Size     000001BE (446)
 001A Filename Length       0009 (9)
@@ -78,5 +81,7 @@
 01C8 Size of Central Dir   0000004F (79)
 01CC Offset to Central Dir 0000016D (365)
 01D0 Comment Length        0000 (0)
+#
+# Warning Count: 1
 #
 # Done

@@ -8,6 +8,9 @@
 0008 0009 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
 000A 000D 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 000E 0011 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
+#
+# WARNING: Offset 0xE: CRC field should be zero when streaming is enabled
+#
 0012 0015 0004 54 1B 00 00 Compressed Size       00001B54 (6996)
 0016 0019 0004 0B 5A 00 00 Uncompressed Size     00005A0B (23051)
 001A 001B 0002 0A 00       Filename Length       000A (10)
@@ -239,6 +242,6 @@
 3F6B 3F6E 0004 49 3E 00 00 Offset to Central Dir 00003E49 (15945)
 3F6F 3F70 0002 00 00       Comment Length        0000 (0)
 #
-# Warning Count: 2
+# Warning Count: 3
 #
 # Done
