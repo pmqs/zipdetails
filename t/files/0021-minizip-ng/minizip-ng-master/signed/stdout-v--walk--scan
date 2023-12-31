@@ -6740,12 +6740,11 @@
 
 3AE27 3AE2A 00004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 3AE2B 3AE2E 00004 BA 7D 00 66 CRC                   66007DBA (1711308218)
-
-3AE2F 3AE36 00008 6C BD 00 00 UNEXPECTED PADDING    l....R..
-                  19 52 02 00
+3AE2F 3AE32 00004 6C BD 00 00 Compressed Size       0000BD6C (48492)
 #
-# INFO: Offset 0x3AE2F: 0x8 (8) Unexpected Padding bytes
+# ERROR: Offset 0x3AE2B: 'DATA DESCRIPTOR': Compressed Size 0xBD6C (48492) doesn't match with payload size 0xBD76 (48502)
 #
+3AE33 3AE36 00004 19 52 02 00 Uncompressed Size     00025219 (152089)
 
 3AE37 3AE3A 00004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 3AE3B 3AE3B 00001 3F          Created Zip Spec      3F (63) '6.3'
@@ -6811,12 +6810,11 @@
 
 3AED2 3AED5 00004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
 3AED6 3AED9 00004 0C 25 CB 74 CRC                   74CB250C (1959470348)
-
-3AEDA 3AEE1 00008 73 BE 00 00 UNEXPECTED PADDING    s...d...
-                  64 BE 00 00
+3AEDA 3AEDD 00004 73 BE 00 00 Compressed Size       0000BE73 (48755)
 #
-# INFO: Offset 0x3AEDA: 0x8 (8) Unexpected Padding bytes
+# ERROR: Offset 0x3AED6: 'DATA DESCRIPTOR': Compressed Size 0xBE73 (48755) doesn't match with payload size 0xBE21 (48673)
 #
+3AEDE 3AEE1 00004 64 BE 00 00 Uncompressed Size     0000BE64 (48740)
 
 3AEE2 3AEE5 00004 50 4B 03 04 LOCAL HEADER #18      04034B50 (67324752)
 3AEE6 3AEE6 00001 14          Extract Zip Spec      14 (20) '2.0'
@@ -25150,7 +25148,7 @@
 #
 # INFO: Zip file uses minizip-ng central directory encryption
 #
-# Error Count: 2
-# Info Count: 4
+# Error Count: 4
+# Info Count: 2
 #
 # Done

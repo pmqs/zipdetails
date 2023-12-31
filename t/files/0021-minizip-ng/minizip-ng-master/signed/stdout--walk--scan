@@ -1985,11 +1985,11 @@
 
 3AE27 DATA DESCRIPTOR       08074B50 (134695760)
 3AE2B CRC                   66007DBA (1711308218)
-
-3AE2F UNEXPECTED PADDING    l....R..
+3AE2F Compressed Size       0000BD6C (48492)
 #
-# INFO: Offset 0x3AE2F: 0x8 (8) Unexpected Padding bytes
+# ERROR: Offset 0x3AE2B: 'DATA DESCRIPTOR': Compressed Size 0xBD6C (48492) doesn't match with payload size 0xBD76 (48502)
 #
+3AE33 Uncompressed Size     00025219 (152089)
 
 3AE37 CENTRAL HEADER #1     02014B50 (33639248)
 3AE3B Created Zip Spec      3F (63) '6.3'
@@ -2044,11 +2044,11 @@
 
 3AED2 DATA DESCRIPTOR       08074B50 (134695760)
 3AED6 CRC                   74CB250C (1959470348)
-
-3AEDA UNEXPECTED PADDING    s...d...
+3AEDA Compressed Size       0000BE73 (48755)
 #
-# INFO: Offset 0x3AEDA: 0x8 (8) Unexpected Padding bytes
+# ERROR: Offset 0x3AED6: 'DATA DESCRIPTOR': Compressed Size 0xBE73 (48755) doesn't match with payload size 0xBE21 (48673)
 #
+3AEDE Uncompressed Size     0000BE64 (48740)
 
 3AEE2 LOCAL HEADER #18      04034B50 (67324752)
 3AEE6 Extract Zip Spec      14 (20) '2.0'
@@ -7472,7 +7472,7 @@
 #
 # INFO: Zip file uses minizip-ng central directory encryption
 #
-# Error Count: 2
-# Info Count: 4
+# Error Count: 4
+# Info Count: 2
 #
 # Done

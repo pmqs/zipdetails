@@ -121,11 +121,11 @@
 
 0230 DATA DESCRIPTOR       08074B50 (134695760)
 0234 CRC                   B0236139 (2955108665)
-
-0238 UNEXPECTED PADDING    ........
+0238 Compressed Size       00000208 (520)
 #
-# INFO: Offset 0x238: 0x8 (8) Unexpected Padding bytes
+# ERROR: Offset 0x234: 'DATA DESCRIPTOR': Compressed Size 0x208 (520) doesn't match with payload size 0x1E0 (480)
 #
+023C Uncompressed Size     00000208 (520)
 
 0240 CENTRAL HEADER #3     02014B50 (33639248)
 0244 Created Zip Spec      1E (30) '3.0'
@@ -179,7 +179,7 @@
 #  | CRC32  | 0x250 (592) | 0xB0236139 (2955108665) | 0x10 (16) | 0x0 (0) | 
 #  ------------------------------------------------------------------------
 #
-# Error Count: 2
-# Info Count: 3
+# Error Count: 3
+# Info Count: 2
 #
 # Done
