@@ -598,6 +598,14 @@ sub decimalHex0x
     sprintf("0x%0*X (%u)", $_[1] // 0, $_[0], $_[0])
 }
 
+sub decimalHex0xUndef
+{
+    return 'Unknown'
+        if ! defined $_[0];
+
+    return decimalHex0x @_;
+}
+
 sub out
 {
     my $data = shift;
@@ -1696,19 +1704,18 @@ sub dislayMessages
                     # field name         offset    display name         stringify
                     ['filename',            ZIP_CD_FILENAME_OFFSET,
                                                 'Filename',             undef, ],
-                    ['extractVersion',       7, 'Extract Zip Spec',     sub { decimalHex0x($_[0]) . " " . decodeZipVer($_[0]) }, ],
-                    ['generalPurposeFlags',  8, 'General Purpose Flag', \&decimalHex0x, ],
-                    ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0x($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
-                    ['lastModDateTime',     12, 'Last Mod Date/Time',   sub { decimalHex0x($_[0]) . " " . LastModTime($_[0]) }, ],
-                    ['crc32',               16, 'CRC32',                \&decimalHex0x, ],
-                    ['compressedSize',      20, 'Compressed Size',      \&decimalHex0x, ],
-                    ['uncompressedSize',    24, 'Uncompressed Size',    \&decimalHex0x, ],
+                    ['extractVersion',       7, 'Extract Zip Spec',     sub { decimalHex0xUndef($_[0]) . " " . decodeZipVer($_[0]) }, ],
+                    ['generalPurposeFlags',  8, 'General Purpose Flag', \&decimalHex0xUndef, ],
+                    ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0xUndef($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
+                    ['lastModDateTime',     12, 'Last Mod Date/Time',   sub { decimalHex0xUndef($_[0]) . " " . LastModTime($_[0]) }, ],
+                    ['crc32',               16, 'CRC32',                \&decimalHex0xUndef, ],
+                    ['compressedSize',      20, 'Compressed Size',      \&decimalHex0xUndef, ],
+                    ['uncompressedSize',    24, 'Uncompressed Size',    \&decimalHex0xUndef, ],
 
                 ] ;
 
                 my $table = new SimpleTable;
-                $table->addHeaderRow('Field ', 'Central', 'Central', 'Local', 'Local');
-                $table->addHeaderRow('Name', 'Offset', 'Value', 'Offset', 'Value');
+                $table->addHeaderRow('Field Name', 'Central Offset', 'Central Value', 'Local Offset', 'Local Value');
 
                 for my $data (@$fields)
                 {
@@ -1717,7 +1724,7 @@ sub dislayMessages
                     my $localValue = $localEntry->{$field} ;
                     my $centralValue = $centralEntry->{$field};
 
-                    if ($localValue ne $centralValue)
+                    if (($localValue // '-1') ne $centralValue)
                     {
                         if ($stringify)
                         {
@@ -1726,9 +1733,9 @@ sub dislayMessages
                         }
 
                         $table->addDataRow($name,
-                                            decimalHex0x($centralEntry->centralHeaderOffset() + $offset),
+                                            decimalHex0xUndef($centralEntry->centralHeaderOffset() + $offset),
                                             $centralValue,
-                                            decimalHex0x($localOffset+$offset),
+                                            decimalHex0xUndef($localOffset+$offset),
                                             $localValue);
                     }
                 }
@@ -3105,17 +3112,7 @@ sub DataDescriptor
     # will use a 32-bit value rather than the 64-bit value
 
     # see if delta & payload size match
-    if ($deltaToNext == 8 && $cl32 == $payloadLength)
-    {
-        if ($localEntry->zip64)
-        {
-            error $here, "'$sigName': expected 64-bit values, got 32-bit";
-        }
-
-        $compressedSize   = out_V "Compressed Size" ;
-        $uncompressedSize = out_V "Uncompressed Size" ;
-    }
-    elsif ($deltaToNext == 16 && $cl64 == $payloadLength)
+    if ($deltaToNext == 16 && $cl64 == $payloadLength)
     {
         if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
         {
@@ -3125,8 +3122,18 @@ sub DataDescriptor
         $compressedSize   = out_Q "Compressed Size" ;
         $uncompressedSize = out_Q "Uncompressed Size" ;
     }
+    elsif ($deltaToNext == 8 && $cl32 == $payloadLength)
+    {
+        if ($localEntry->zip64)
+        {
+            error $here, "'$sigName': expected 64-bit values, got 32-bit";
+        }
 
-    # don't know delta to next header, so try matching payload lengths
+        $compressedSize   = out_V "Compressed Size" ;
+        $uncompressedSize = out_V "Uncompressed Size" ;
+    }
+
+    # Try matching juast payload lengths
     elsif ($cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
@@ -3136,6 +3143,8 @@ sub DataDescriptor
 
         $compressedSize   = out_V "Compressed Size" ;
         $uncompressedSize = out_V "Uncompressed Size" ;
+
+        warning $here, "'$sigName': Zip Header not directly after Data Descriptor";
     }
     elsif ($cl64 == $payloadLength)
     {
@@ -3146,9 +3155,24 @@ sub DataDescriptor
 
         $compressedSize   = out_Q "Compressed Size" ;
         $uncompressedSize = out_Q "Uncompressed Size" ;
+
+        warning $here, "'$sigName': Zip Header not directly after Data Descriptor";
     }
 
     # payloads don't match, so try delta
+    elsif ($deltaToNext == 16)
+    {
+        if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
+        {
+            error $here, "'$sigName': expected 32-bit values, got 64-bit";
+        }
+
+        $compressedSize   = out_Q "Compressed Size" ;
+        # compressed size is wrong
+        error $here, "'$sigName': Compressed size" . decimalHex0x($compressedSize) . " doesn't match with payload size " . decimalHex0x($payloadLength);
+
+        $uncompressedSize = out_Q "Uncompressed Size" ;
+    }
     elsif ($deltaToNext == 8 )
     {
         if ($localEntry->zip64)
@@ -3162,18 +3186,11 @@ sub DataDescriptor
 
         $uncompressedSize = out_V "Uncompressed Size" ;
     }
-    elsif ($deltaToNext == 16)
+
+    # no payoad or delta match at all, so likely a false positive or data corruption
+    else
     {
-        if (! $localEntry->zip64 && ($centralEntry && ! $centralEntry->zip64))
-        {
-            error $here, "'$sigName': expected 32-bit values, got 64-bit";
-        }
-
-        $compressedSize   = out_Q "Compressed Size" ;
-        # compressed size is wrong
-        error $here, "'$sigName': Compressed size" . decimalHex0x($compressedSize) . " doesn't match with payload size " . decimalHex0x($payloadLength);
-
-        $uncompressedSize = out_Q "Uncompressed Size" ;
+        warning $here, "Cannot determine size of Data Descriptor record";
     }
 
     # TODO - neither payload size or delta to next signature match
