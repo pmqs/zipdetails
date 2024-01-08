@@ -2157,8 +2157,19 @@ sub LocalHeader
     $localEntry->payloadOffset($payloadOffset) ;
     $localEntry->offsetEnd($payloadOffset + $fullCompressedSize -1) ;
 
-    need $CDcompressedSize, 'PAYLOAD'
-        if $CDcompressedSize ;
+    if ($CDcompressedSize)
+    {
+        # check if enough left in file for the payload
+        my $available = $FILELEN - $FH->tell;
+        if ($available < $CDcompressedSize )
+        {
+            error $FH->tell,
+                  "file truncated while reading 'PAYLOAD'",
+                  "Expected " . decimalHex0x($CDcompressedSize) . " bytes, but only " . decimalHex0x($available) . " available" ;
+
+            $CDcompressedSize = $available;
+        }
+    }
 
     if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
     {
