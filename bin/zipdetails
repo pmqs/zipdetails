@@ -4209,6 +4209,12 @@ sub Ntfs2Unix
     # NTFS offset is 19DB1DED53E8000
 
     my $hex = Value_Q($v) ;
+
+    # Treat empty value as special case
+    # Could decode to 1 Jan 1601
+    return "$hex 'No Date/Time'"
+        if $v == 0;
+
     $v -= 0x19DB1DED53E8000 ;
     my $ns = ($v % 10000000) * 100;
     my $elapse = int ($v/10000000);
@@ -4241,6 +4247,9 @@ sub OpenVMS_DateTime
     my $ix = shift;
     my $tag = shift;
     my $size = shift;
+
+    # VMS epoch is 17 Nov 1858
+    # Offset to Unix Epoch is -0x7C95674C3DA5C0 (-35067168005400000)
 
     my ($data, $value) = read_Q();
 
@@ -4403,9 +4412,9 @@ sub getT
     my $time = shift ;
 
     if ($opt_utc)
-     { return scalar gmtime($time) }
+     { return scalar gmtime($time) // 'Unknown'}
     else
-     { return scalar localtime($time) }
+     { return scalar localtime($time) // 'Unknown' }
 }
 
 sub getTime
