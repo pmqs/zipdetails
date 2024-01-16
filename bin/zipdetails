@@ -318,7 +318,7 @@ my %Extras = (
       0x5a4c,  ['ZipArchive Unicode Filename [LZ]',                         undef],  # https://www.artpol-software.com/ZipArchive
       0x5a4d,  ['ZipArchive Offsets Array [MZ]',                            undef],  # https://www.artpol-software.com/ZipArchive
       0x6375,  ['Unicode Comment [uc]',                                     \&decode_uc,                    5, undef,  5, undef],
-      0x6542,  ['BeOS [Be]',                                                undef], # TODO
+      0x6542,  ['BeOS/Haiku [Be]',                                          undef], # TODO
       0x6854,  ['Theos [Th]',                                               undef],
       0x7075,  ['Unicode Path [up]',                                        \&decode_up,                    5, undef,   5, undef],
       0x756e,  ['ASi Unix [un]',                                            \&decode_ASi_Unix], # TODO
