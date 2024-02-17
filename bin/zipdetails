@@ -364,20 +364,31 @@ my %HashIDLookup  = (
 
 
 # Zip64EndCentralHeader version 2, Strong Encryption Header & DecryptionHeader
-my %AlgIdLookup = (
-        0x6601 => "DES",
-        0x6602 => "RC2 (version needed to extract < 5.2)",
-        0x6603 => "3DES 168",
-        0x6609 => "3DES 112",
-        0x660E => "AES 128",
-        0x660F => "AES 192",
-        0x6610 => "AES 256",
-        0x6702 => "RC2 (version needed to extract >= 5.2)",
-        0x6720 => "Blowfish",
-        0x6721 => "Twofish",
-        0x6801 => "RC4",
-        0xFFFF => "Unknown algorithm",
-    );
+sub AlgIdLookup
+{
+    my $id = shift ;
+
+    state $AlgIdLookup = {
+            # id       name   version to extract
+            0x6601 => ["DES", 50],
+            0x6602 => ["RC2 (version needed to extract < 5.2)", 51],
+            0x6603 => ["3DES 168", 50],
+            0x6609 => ["3DES 112", 50],
+            0x660E => ["AES 128", 51],
+            0x660F => ["AES 192", 51],
+            0x6610 => ["AES 256", 51],
+            0x6702 => ["RC2 (version needed to extract >= 5.2)", 52],
+            0x6720 => ["Blowfish", 63],
+            0x6721 => ["Twofish", 63],
+            0x6801 => ["RC4", 50],
+            0xFFFF => ["Unknown algorithm", 0],
+    };
+
+    my $match = $AlgIdLookup->{$id} // ['Unknown algorithm', 0];
+
+    return wantarray ? @$match
+                     : $match->[0] ;
+}
 
 # Zip64EndCentralHeader version 2, Strong Encryption Header & DecryptionHeader
 my %FlagsLookup = (
@@ -2076,9 +2087,10 @@ sub LocalHeader
     $localEntry->uncompressedSize($uncompressedSize) ;
     $localEntry->extractVersion($extractVer);
     $localEntry->generalPurposeFlags($gpFlag);
+    $localEntry->setEncryption($gpFlag);
     $localEntry->lastModDateTime($lastMod);
     $localEntry->crc32($crc) ;
-    $localEntry->zip64ExtraPresent($cdZip64) ;
+    # $localEntry->zip64ExtraPresent($cdZip64) ;
     $localEntry->zip64SizesPresent($zip64Sizes) ;
 
     $localEntry->compressedMethod($compressedMethod) ;
@@ -2187,7 +2199,7 @@ sub LocalHeader
     }
     elsif ($pk_encrypted)
     {
-        $CDcompressedSize -= DecryptionHeader();
+        $CDcompressedSize -= DecryptionHeader($localEntry);
     }
 
     if ($CDcompressedSize) {
@@ -2214,6 +2226,8 @@ sub LocalHeader
     push @Messages, @msg ;
 
     $LocalDirectory->addEntry($localEntry);
+
+    chkVersionNeededToExtract($localEntry, $localEntry->localHeaderOffset + 4);
 
     return {
                 'localHeader'   => 1,
@@ -2258,7 +2272,7 @@ sub findDigitalSignature
 sub displayEncryptedCD
 {
     # First thing in the encrypted CD is the Decryption Header
-    my $decryptHeaderSize = DecryptionHeader(1);
+    my $decryptHeaderSize = DecryptionHeader(undef, 1);
 
     # Check for digital signature record in the CD
     # It needs to be the very last thing in the CD
@@ -2291,6 +2305,7 @@ sub DecryptionHeader
     # VData     VSize-4  Password validation data
     # VCRC32    4 bytes  Standard ZIP CRC32 of password validation data
 
+    my $entry = shift ;
     my $central = shift ;
 
     if ($central)
@@ -2314,10 +2329,13 @@ sub DecryptionHeader
     my $Size = out_V "Size";
     $bytecount += $Size + 4;
 
-    out_v "Format";
-    out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
-    out_v "BitLen";
-    out_v "Flags", sub { $FlagsLookup{ $_[0] } // "Reserved for certificate processing" } ;
+             out_v "Format";
+    my $id = out_v "AlgId", \&AlgIdLookup ;
+             out_v "BitLen";
+             out_v "Flags", sub { $FlagsLookup{ $_[0] } // "Reserved for certificate processing" } ;
+
+    $entry->algID($id)
+        if $entry;
 
     my $ErdSize = out_v "ErdSize";
     outHexdump($ErdSize, "ErdData");
@@ -2735,6 +2753,7 @@ sub CentralHeader
     $cdEntry->zip64SizesPresent(undef) ; # $zip64Sizes;   ### FIX ME
     $cdEntry->extractVersion($extractVer);
     $cdEntry->generalPurposeFlags($gpFlag);
+    $cdEntry->setEncryption($gpFlag);
     $cdEntry->compressedMethod($compressedMethod) ;
     $cdEntry->lastModDateTime($lastMod);
     $cdEntry->crc32($crc) ;
@@ -2770,6 +2789,8 @@ sub CentralHeader
 
     $CentralDirectory->addEntry($cdEntry);
 
+    chkVersionNeededToExtract($cdEntry, $cdEntry->centralHeaderOffset + 6);
+
     return { 'encapsulated' => $cdEntry ? $cdEntry->encapsulated() : 0};
 }
 
@@ -2780,7 +2801,187 @@ sub decodeZipVer
     my $sHi = int($ver /10) ;
     my $sLo = $ver % 10 ;
 
-    "$sHi.$sLo";
+    wantarray
+        ? ("$sHi.$sLo", $ver)
+        :  "$sHi.$sLo";
+}
+
+sub decodeZipVerFull
+{
+    my $ver = shift ;
+    decimalHex0x($ver) . " '" . decodeZipVer($ver) . "'"
+}
+
+sub chkVersionNeededToExtract
+{
+    my $hdr = shift;
+    my $offset = shift;
+
+    # See sec 4.4.3.2 from APPNOTE
+    # For WinZip AES, the method is 99, weak encrypt bit set & extract version 2.0
+
+     my $have = $hdr->extractVersion ;
+
+    state $knownExtractValues = { map { $_ => decodeZipVerFull($_) }
+            10,
+            11,
+            20,
+            21,
+            25,
+            27,
+            45,
+            46,
+            50,
+            51,
+            52,
+            61,
+            62,
+            63,
+           };
+
+    my $currentMethod = $hdr->compressedMethod;
+    my $currentMethodName = getcompressionMethodName($currentMethod);
+
+    my $found = 'Value found is ' . decodeZipVerFull($have) ;
+    # Work from high to low
+
+    # 6.3 LZMA
+    # 6.3 PPMD -- TODO
+    if  ($currentMethod == ZIP_CM_LZMA || $currentMethod == ZIP_CM_PPMD)
+    {
+        return $have == 63
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{63} when 'Compression Method' is 0x0E (14)$currentMethodName",
+                               $found;
+    }
+
+
+    # 6.3 blowfish  -- TODO
+    # 6.3 twofish -- TODO
+
+    my $algID = $hdr->algID;
+
+    if ($hdr->pkStrongEncryption && ($algID == 0x6720 || $algID == 0x6721))
+    {
+        my ($name, $need) = AlgIdLookup($algID);
+
+        return $have == $need
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be " . decodeZipVerFull($need) . " when Strong Encryption Algorithm is $name",
+                            $found
+    }
+
+    # 6.2 Central directory encryption -- TODO
+    if ($hdr->cdEncrypted)
+    {
+        return $have == 62
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be '$knownExtractValues->{62} when Encrypted Central Dieactory present",
+                            $found
+    }
+
+    # 6.1 File is encrypted using non-OAEP key wrapping -- TODO
+    # 5.2 - File is encrypted using corrected RC2-64 encryption -- TODO
+    # 5.1 - File is encrypted using AES encryption -- TODO
+    # 5.1 - File is encrypted using corrected RC2 encryption -- TODO
+    # 5.0 - File is encrypted using DES -- TODO
+    # 5.0 - File is encrypted using 3DES -- TODO
+    # 5.0 - File is encrypted using original RC2 encryption --TODO
+    # 5.0 - File is encrypted using RC4 encryption  --TODO
+
+    if ($hdr->pkStrongEncryption)
+    {
+        my ($name, $need) = AlgIdLookup($algID);
+
+        return $have == $need
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be " . decodeZipVerFull($need) . " when Strong Encryption Algorithm is $name",
+                            $found
+    }
+
+
+
+    # 4.6 - File is compressed using BZIP2 compression
+    if ($currentMethod == ZIP_CM_BZIP2)
+    {
+        return $have == 46
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be '$knownExtractValues->{46} when 'Compression Method' is '$currentMethodName'",
+                            $found
+    }
+
+    # 4.5 - File uses ZIP64 format extensions --TODO
+    if ($hdr->zip64)
+    {
+        return $have == 45
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{45} when 'Zip64' is enabled",
+                            $found
+    }
+
+    # 2.7 - File is a patch data set -- TODO
+    if ($hdr->generalPurposeFlags & ZIP_GP_FLAG_PATCHED_MASK)
+    {
+        return $have == 27
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{27} for 'Patched Data Set",
+                            $found
+    }
+
+    # 2.5 - File is compressed using PKWARE DCL Implode
+    if ($currentMethod == 10)
+    {
+        return $have == 25
+            ? undef
+            : info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{25} when 'Compression Method' is '$currentMethodName'",
+                            $found
+    }
+
+    # 2.1 - File is compressed using Deflate64(tm)
+    if ($currentMethod == 9)
+    {
+        $have == 21
+            ? undef
+            : return info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{21} when 'Compression Method' is '$currentMethodName'",
+                            $found
+    }
+
+    # 2.0 - File is a folder (directory) --TODO
+    if ($hdr->isDirectory)
+    {
+        $have == 20
+            ? undef
+            : return info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{20} when filename is a directory",
+                            $found
+    }
+
+    # 2.0 - File is compressed using Deflate compression
+    if ($currentMethod == ZIP_CM_DEFLATE)
+    {
+        $have == 20
+            ? undef
+            : return info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{20} when 'Compression Method' is 0x08 (8)'$currentMethodName'",
+                            $found
+    }
+
+    # 2.0 - File is encrypted using traditional PKWARE encryption
+    if ($hdr->pkWeakEncryption)
+    {
+        $have == 20
+            ? undef
+            : return info $offset, "'Extract Zip Spec' value should be $knownExtractValues->{20} when weak encryption is enabled",
+                            $found
+    }
+
+    # 1.1 - File is a volume label -- TODO
+    # see APPNOTE 4.4.3.2 & 8.3.2
+
+    # 1.0 - Default value
+    # Do nothing
+
+    return info $offset, "Unknown 'Extract Zip Spec' value " . decimalHex0x($have),
+                "See section 'version needed to extract' in APPNOTE for valid values"
+        if ! $knownExtractValues->{$have};
 }
 
 sub decodeOS
@@ -2869,7 +3070,7 @@ sub Zip64EndCentralHeader
             if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
         out_Q "Compressed Size";
         out_Q "Uncompressed Size";
-        out_v "AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
+        out_v "AlgId", \&AlgIdLookup ;
         out_v "BitLen";
         out_v "Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
         out_v "HashID", sub { $HashIDLookup{ $_[0] } // "Unknown ID" } ;
@@ -5288,13 +5489,18 @@ sub decode_strong_encryption
     my $entry = shift;
 
     # TODO check for overflow is contents > $len
-    out_v "  Format";
-    out_v "  AlgId", sub { $AlgIdLookup{ $_[0] } // "Unknown algorithm" } ;
-    out_v "  BitLen";
-    out_v "  Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
+             out_v "  Format";
+    my $id = out_v "  AlgId", \&AlgIdLookup ;
+             out_v "  BitLen";
+             out_v "  Flags", sub { $FlagsLookup{ $_[0] } // "reserved for certificate processing" } ;
+
+
+    $entry->algID($id);
 
     # see APPNOTE 6.3.10, sec 7.4.2 for this part
     my $recipients = out_V "  Recipients";
+
+    # $entry->strongEncryptionAlgId($id);
 
     my $available = $len - 12;
 
@@ -5642,6 +5848,7 @@ sub scanCentralDirectory
         $cdEntry->uncompressedSize($uncompressedSize) ;
         $cdEntry->extractVersion($extractVer);
         $cdEntry->generalPurposeFlags($gpFlag);
+        $cdEntry->setEncryption($gpFlag);
         $cdEntry->filename($filename) ;
         $cdEntry->lastModDateTime($lastMod);
         $cdEntry->languageEncodingFlag($gpFlag & ZIP_GP_FLAG_LANGUAGE_ENCODING) ;
@@ -6230,6 +6437,7 @@ sub nibbles
                         'uncompressedSize'      => 0,
                         'filename'              => '',
                         'outputFilename'        => '',
+                        '_isDirectory'           => undef,
                         # inferred data
                         # 'InCentralDir'          => 0,
                         # 'zip64'                 => 0,
@@ -6251,6 +6459,12 @@ sub nibbles
                         'std_localHeaderOffset' => undef,
                         'std_diskNumber'        => undef,
 
+                        # Encryption
+                        'pkWeakEncryption'        => 0,
+                        'pkStrongEncryption'      => 0,
+                        'cdEncrypted'             => 0,
+                        'algID'                   => 0,
+
                         # AES
                         'aesStrength'             => 0,
                         'aesValid'                => 0,
@@ -6261,8 +6475,37 @@ sub nibbles
                      ) ;
 
         FieldsAndAccessors::Add($class, $self, \%fields) ;
-
         return $self;
+    }
+
+    sub isDirectory
+    {
+        my $self = shift ;
+
+        return $self->{_isDirectory}
+            if defined $self->{_isDirectory};
+
+        # check filename ends in "/"
+        # or the DOS directory bit is set
+        # or the OS-specific directory bit is set
+        $self->{_isDirectory} = 1
+            if $self->filename =~ m#/$#;
+
+        return $self->{_isDirectory} ;
+    }
+
+    sub setEncryption
+    {
+        my $self = shift ;
+        my $bitmask = shift;
+
+        if ($bitmask & ::ZIP_GP_FLAG_ENCRYPTED_CD)
+            { $self->{cdEncrypted} = 1 }
+        elsif ($bitmask & ::ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK)
+            { $self->{pkStrongEncryption} = 1 }
+        elsif ($bitmask & ::ZIP_GP_FLAG_ENCRYPTED_MASK)
+            { $self->{pkWeakEncryption} = 1 }
+
     }
 }
 
