@@ -1,6 +1,26 @@
 CHANGES
 -------
 
+4.000 18 February 2024
+
+ * Major rewrite
+ * Make code more robust when it encounters a corrupt zip file.
+   Should mean less bombing-out with an unhelpful error message.
+ * Added "--walk" option as a less expensive alternative to "--scan".
+ * Added suport for Reference & Ipaq8 compression methods
+ * Decode more extra fields
+ * Display end offset in verbose mode.
+ * Detect & display aspects of pkzip strong encryption
+ * Added filename verification for portability, safety and compliamce with APPNOTE.txt
+ * Decode & display more DOS file attributes
+ * Decode & display Unix file attributes
+ * Detect issues with corrupt extra entries.
+ * Added support for Zip64 End Central Header version 2
+ * Add support for SPannded Archive Marker
+ * Detect inconsistencies between central & local directory entries
+ * Add a number of options for dealing with filename encoding.
+
+
 2.108 22 July 2022
 
  * Add binmode when opening the zip file Keeps Windows happy

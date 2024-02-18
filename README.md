@@ -22,15 +22,15 @@ files. For each item of metadata within a zip file the program will output
 - an optional hex dump of the item.
 
 The program assumes a prior understanding of the internal structure of Zip
-files. You should have a copy of the Zip
-[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT) file
+files. You should have a copy of the zip file definition,
+[APPNOTE.TXT](https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT),
 at hand to help understand the output from this program.
 
 ## Default Behaviour
 
 By default the program expects to be given a well-formed zip file.  It will
-navigate the Zip file by first parsing the zip central directory at the end
-of the file.  If the central directory is found, it will then walk
+navigate the zip file by first parsing the zip `Central Directory` at the end
+of the file.  If the `Central Directory` is found, it will then walk
 sequentally through the zip records starting at the beginning of the file.
 See ["Advanced Analysis"](#advanced-analysis) for other processing options.
 
@@ -57,7 +57,7 @@ be determined `cp437` will be used.
 
 The exceptions are
 
-- when the _Language Encoding flag_ is set in the zip file, the
+- when the `Language Encoding Flag` is set in the zip file, the
 filename/comment fields are assumed to be encoded in UTF-8.
 - the definition for the metadata field implies UTF-8 charset encoding
 
@@ -128,7 +128,7 @@ See ["Filename Encoding Issues"](#filename-encoding-issues)
     Modern zip files set a metadata entry in zip files, called the "Language
     encoding flag", when they write filenames/comments encoded in UTF-8.
 
-    Occasionally some applications set the "Language encoding flag" but write
+    Occasionally some applications set the `Language Encoding Flag` but write
     data that is not UTF-8 in the filename/comment fields of the zip file. This
     will usually result in garbled text being output for the
     filenames/comments.
@@ -173,12 +173,12 @@ the type of data:
         If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it
         will be displayed in both hex and decimal -- for example "`002A (42)`".
 
-        Note that Zip files store most numeric values in _little-endian_ encoding.
+        Note that Zip files store most numeric values in _little-endian_ encoding
         (there area few rare instances where _big-endian_ is used). The value read
         from the zip file will have the _endian_ encoding removed before being
         displayed.
 
-        Next, is an optional description of what the value means.
+        Next, is an optional description of what the numeric value means.
 
     - String
 
@@ -332,12 +332,12 @@ Here is the same zip file, `test.zip`, dumped using the `zipdetails`
 ## Advanced Analysis
 
 If you have a corrupt or non-standard zip file, particulatly one where the
-central directory metadata at the end of the file is absent/incomplete, you
+`Central Directory` metadata at the end of the file is absent/incomplete, you
 can use either the `--walk` option or the `--scan` option to search for
 any zip metadata that is still present in the file.
 
 When either of these options is enabled, this program will bypass the
-initial step of reading the central directory at the end of the file and
+initial step of reading the `Central Directory` at the end of the file and
 simply scan the zip file sequentially from the start of the file looking
 for zip metedata records. Although this can be error prone, for the most
 part it will find any zip file metadata that is still present in the file.
@@ -394,18 +394,18 @@ was well. If not, you had to post-process the filenames after unzipping the
 zip file.
 
 Fast forward to the introduction of Unicode and UTF-8 encoding. The
-approach now used by all major zip implementations is to set the "Language
-encoding flag" (also known as "EFS") in the zip file metadata to signal
+approach now used by all major zip implementations is to set the `Language
+encoding flag` (also known as `EFS`) in the zip file metadata to signal
 that a filename/comment is encoded in UTF-8.
 
 To ensure maximum interoperability when sharing zip files store 7-bit
-filenames as-is in the zip file. For anything else the "EFS" bit needs to
-be set and the filename gets stored in UTF-8. Although this rule is kept to
+filenames as-is in the zip file. For anything else the `EFS` bit needs to
+be set and the filename is encoded in UTF-8. Although this rule is kept to
 for the most part, there are exceptions out in the wild.
 
 ### Dealing with Encoding Errors
 
-The most common filename encoding issue is where the EFS bit is not set and
+The most common filename encoding issue is where the `EFS` bit is not set and
 the filename is stored in a character set that doesnt't match the system
 encoding. This mostly impacts legacy zip files that predate the
 introduction of Unicode.
@@ -416,7 +416,7 @@ can display the filenames using the `--encoding` option
 
     zipdetails --encoding ISO-8859-1 myfile.zip
 
-A less common variation of this is where the EFS bit is set, signalling
+A less common variation of this is where the `EFS` bit is set, signalling
 that the filename will be encoded in UTF-8, but the filename is not encoded
 in UTF-8. To deal with this scenarion, use the `--no-language-encoding`
 option along with the `--encoding` option.
@@ -436,10 +436,10 @@ The following zip file features are not supported by this program:
 
 - Encrypted Central Directory
 
-    When pkzip _strong encryption_ is enabled in a zip file this program can
+    When pkzip _Strong Encryption_ is enabled in a zip file this program can
     still parse most of the metadata in the zip file. The exception is when the
-    Central Directory of a zip file is also encrypted. This program cannot
-    parse any metadata from an encrypted Central Directory.
+    `Central Directory` of a zip file is also encrypted. This program cannot
+    parse any metadata from an encrypted `Central Directory`.
 
 - Corrupt Zip files
 
@@ -455,13 +455,13 @@ The following zip file features are not supported by this program:
 
 # TODO
 
-## JSON Output
+## JSON/YML Output
 
-Output some of the zip file metadata as a JSON document.
+Output some of the zip file metadata as a JSON or YML document.
 
 ## Corrupt Zip files
 
-Although the detection and reporting of common corruption use-cases is
+Although the detection and reporting of most of the common corruption use-cases is
 present in `zipdetails`, there are likely to be other edge cases that need
 to be supported.
 
