@@ -571,9 +571,9 @@ sub compareBytesWithZipFile
     my $offset_to = 0;
     my $count = 0;
     my $padding = 0;
-    my @stdin = split "\n", $stdout;
+    my @stdout = split "\n", $stdout;
 
-    for (@stdin)
+    for (@stdout)
     {
         next if /^\s*$/ ;
 
@@ -585,6 +585,8 @@ sub compareBytesWithZipFile
         # say "LINE [$_]";
         if (/ ^ ( ( $hexValue ) \s+ ( $hexValue ) \s+ ( $hexValue ) ) ( (?: \s $hexByte ){1,4} )/x)
         {
+            my $line = $_;
+
             # Match this
             # 000000 000004 50 4B 03 04 LOCAL HEADER #1       04034B50
             # <=======================>
@@ -605,8 +607,12 @@ sub compareBytesWithZipFile
                 $count = hex($4) + 0 ;
             }
 
-            die "Offset-to $offset_to is wrong - should be " . ($offset + $count -1)
-                if $offset + $count - 1 != $offset_to;
+            my $expected_offset_to = $offset + ($count ? $count - 1 : 0 );
+            die "$line\n\tOffset-to $offset_to is wrong - should be $expected_offset_to"
+                if $expected_offset_to != $offset_to;
+
+            die "$line\n\tOffset-to $offset_to is less than offset-from $offset"
+                if $offset_to < $offset;
 
             my $valuesString = $5;
             $valuesString =~ s/\s+//g;

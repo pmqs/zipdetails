@@ -614,7 +614,7 @@ sub out
 
     my $size = length($data) ;
 
-    $ENDS_AT = offset($OFFSET + $size - 1) ;
+    $ENDS_AT = offset($OFFSET + ($size ? $size - 1 : 0)) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size) ;
     $CONTENT = hexDump($data);
@@ -634,7 +634,7 @@ sub out0
     my $text = shift;
     my $format = shift;
 
-    $ENDS_AT = offset($OFFSET + $size - 1) ;
+    $ENDS_AT = offset($OFFSET + ($size ? $size - 1 : 0)) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size) ;
     $CONTENT = '...';
@@ -672,7 +672,7 @@ sub out2
     my $format = shift;
 
     my $size = length($data) ;
-    $ENDS_AT = offset($OFFSET + $size - 1) ;
+    $ENDS_AT = offset($OFFSET + ($size ? $size - 1 : 0)) ;
     $OFF     = prOff($size);
     $LENGTH  = offset($size);
     $CONTENT = hexDump($data);
@@ -3093,7 +3093,7 @@ sub DataDescriptor
     # Ignore header payload if nested (assume 64-bit descriptor)
     if (Nesting::isNested( $here - 4, $here - 4 + 24 - 1))
     {
-        out "",  "Skipping nested payload";
+        out "",  "Skipping Nested Payload";
         return {};
     }
 
