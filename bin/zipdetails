@@ -1310,10 +1310,9 @@ else
 
 
             # check for an APK header directly before the first central header
-            if (Signatures::isCentralHeader($expectedSignature) && $START_APK && ! $processedAPK )
+            # Make sure not to miss a streaming data descriptor
+            if ($signature != ZIP_DATA_HDR_SIG && Signatures::isCentralHeader($expectedSignature) && $START_APK && ! $processedAPK )
             {
-                # my ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($FH, $here, 0) ;
-
                 seekTo($here+4);
                 # rewindRelative(4);
                 scanApkBlock();
@@ -5468,7 +5467,7 @@ sub chckForAPKSigningBlock
     # APK Signing Block comes directy before the Central directory
     # See https://source.android.com/security/apksigning/v2
 
-    # If offset less than
+    # If offset available is less than 44, it isn't an APK signing block
     #
     #   len1     8
     #   id       4
@@ -5488,13 +5487,16 @@ sub chckForAPKSigningBlock
     return (0, 0, '')
         if $buffer ne "APK Sig Block 42" ;
 
-    # Step 2 - read the two length fields
-    #          and check they are identical
+    # Step 2 - read the second length field
+    #          and check that it looks ok
     $buffer = readFromOffset($cdOffset - 16 - 8, 8);
     my $len2 = unpack("Q<", $buffer);
 
     return (0, 0, '')
-        if $len2 == 0 ;
+        if $len2 == 0 || $len2 > $FILELEN;
+
+    # Step 3 - read the first length field.
+    #          It should be identical to the second one.
 
     my $startApkOffset = $cdOffset -  8 - $len2 ;
 
@@ -5525,7 +5527,7 @@ sub scanApkBlock
     print "\n";
     out "", "APK SIGNING BLOCK";
 
-    scanApkPadding('');
+    scanApkPadding();
     out_Q "Block Length Copy #1";
     my $ix = 1;
 
@@ -5553,22 +5555,23 @@ sub scanApkBlock
 
 sub scanApkPadding
 {
-    my $bytes = shift ;
-
-    # padding
     my $here = $FH->tell();
-    my $got;
-    myRead($got, $APK - $here);
-    $got = $bytes . $got;
-    if ($got =~ /^(\x00+)($APK_LEN)?/)
+
+    return
+        if $here == $START_APK;
+
+    # found some padding
+
+    my $delta = $START_APK - $here;
+    my $padding = peekAtOffset($here, $delta);
+
+    if ($padding =~ /^\x00+$/)
     {
-        my $len = length $1 ;
-        seekTo($here - length($bytes));
-        outSomeData($len, "Null Padding");
+        outSomeData($delta, "Null Padding");
     }
     else
     {
-        seekTo($here);
+        outHexdump($delta, "Unexpected Padding");
     }
 }
 
@@ -5909,6 +5912,8 @@ sub findCentralDirectoryOffset
     return (0, 0)
         if  $totalEntries == 0 && $entriesOnThisDisk == 0;
 
+    # APK Signing Block is directly before the first CD entry
+    # Check if it is present
     ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($fh, $centralDirOffset, ZIP_EOCD_MIN_SIZE + $commentLength);
 
     return ($centralDirOffset, $centralDirSize) ;
