@@ -17,7 +17,7 @@
 002B   Extra Data          abc
 #
 # ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Change Time'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 002E PAYLOAD               abcde
 
@@ -49,7 +49,7 @@
 006E   Extra Data          abc
 #
 # ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 
 0071 END CENTRAL HEADER    06054B50 (101010256)

@@ -19,7 +19,7 @@
 002C 002E 0003 61 62 63      Bad Extra Data      abc
 #
 # ERROR: Offset 0x2C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'UID'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 002F 0033 0005 61 62 63 64 PAYLOAD               abcde
                65
@@ -54,7 +54,7 @@
 0070 0072 0003 61 62 63      Bad Extra Data      abc
 #
 # ERROR: Offset 0x70: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'UID'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 
 0073 0076 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)

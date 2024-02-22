@@ -18,7 +18,7 @@
 002C   UID                 64636261 (1684234849)
 #
 # ERROR: Offset 0x30: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 0x4 (4) bytes, got 0x0 (0) bytes
+#        Expected 0x4 (4) bytes, but only 0x0 (0) available
 #
 0030 PAYLOAD               abcde
 
@@ -51,7 +51,7 @@
 0071   UID                 64636261 (1684234849)
 #
 # ERROR: Offset 0x75: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): truncated reading 'GID Size'
-#        Expected 0x4 (4) bytes, got 0x0 (0) bytes
+#        Expected 0x4 (4) bytes, but only 0x0 (0) available
 #
 
 0075 END CENTRAL HEADER    06054B50 (101010256)

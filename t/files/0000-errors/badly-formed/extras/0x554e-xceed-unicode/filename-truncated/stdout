@@ -18,7 +18,7 @@
 0030   UTF16LE Filename    'freddy'
 #
 # ERROR: Offset 0x30: Extra Field 'Xceed unicode extra field [UN]' (ID 0x554E): Truncated reading 'UTF16LE Filename'
-#        Expected 0x10 (16) bytes, got 0xC (12) bytes
+#        Expected 0x10 (16) bytes, but only 0xC (12) available
 #
 003C PAYLOAD               abc
 
@@ -52,7 +52,7 @@
 0081   UTF16LE Filename    'freddy'
 #
 # ERROR: Offset 0x81: Extra Field 'Xceed unicode extra field [UN]' (ID 0x554E): Truncated reading 'UTF16LE Filename'
-#        Expected 0x10 (16) bytes, got 0xC (12) bytes
+#        Expected 0x10 (16) bytes, but only 0xC (12) available
 #
 
 008D END CENTRAL HEADER    06054B50 (101010256)

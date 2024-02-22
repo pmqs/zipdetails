@@ -2164,7 +2164,7 @@ sub LocalHeader
         {
             error $FH->tell,
                   "file truncated while reading 'PAYLOAD'",
-                  "Expected " . decimalHex0x($CDcompressedSize) . " bytes, but only " . decimalHex0x($available) . " available" ;
+                  expectedMessage($CDcompressedSize, $available);
 
             $CDcompressedSize = $available;
         }
@@ -3018,7 +3018,7 @@ sub EndCentralHeader
         {
             error $here,
                   "file truncated while reading 'Comment' field in '" . Signatures::name($signature) . "'",
-                  "Expected " . decimalHex0x($comment_length) . " bytes, but only " . decimalHex0x($available) . " available" ;
+                  expectedMessage($comment_length, $available);
             $comment_length = $available;
         }
 
@@ -3388,8 +3388,17 @@ sub myRead
     }
 
     my $len = length $$got;
-    fatal undef, "Truncated file (got $len, wanted $wantSize): $!"
+    # fatal undef, "Truncated file (got $len, wanted $wantSize): $!"
+    fatal undef, "Unexpected zip file truncation",
+                expectedMessage($wantSize, $len)
         if length $$got != $wantSize;
+}
+
+sub expectedMessage
+{
+    my $expected = shift;
+    my $got = shift;
+    return "Expected " . decimalHex0x($expected) . " bytes, but only " . decimalHex0x($got) . " available"
 }
 
 sub need
@@ -3407,14 +3416,16 @@ sub need
 
         if ($field)
         {
-            push @message, "file truncated while reading '$field' field in '$message'";
+            push @message, "Unexpected zip file truncation while reading '$field' field in '$message'";
         }
         else
         {
-            push @message, "file truncated while reading '$message'";
+            push @message, "Unexpected zip file truncation while reading '$message'";
         }
 
-        push @message, sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
+
+        push @message, expectedMessage($byteCount, $available);
+        # push @message, sprintf("Expected 0x%X bytes, but only 0x%X available", $byteCount, $available);
         push @message, "Try running with --walk' or '--scan' options"
             if ! $opt_scan && ! $opt_walk ;
 
@@ -3549,13 +3560,6 @@ sub checkOffsetValue
     $OFFSET = $keepOFFSET;
 
     return $offset + $PREFIX_DELTA;
-
-}
-
-sub fatal_truncated
-{
-    my $message = shift;
-    fatal_tryWalk(undef, "truncated file", $message, @_);
 
 }
 
@@ -4526,7 +4530,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) .  ": Truncated reading 'Mod Time'",
-                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+                    expectedMessage(4, $remaining);
                 return;
             }
 
@@ -4556,7 +4560,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Access Time'" ,
-                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+                    expectedMessage(4, $remaining);
 
                 return;
             }
@@ -4585,7 +4589,7 @@ sub decode_UT
 
                 error  $FH->tell() - $remaining,
                     extraFieldIdentifier($extraID) . ": Truncated reading 'Change Time'" ,
-                    "Expected " . decimalHex0x(4) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+                    expectedMessage(4, $remaining);
 
                 return;
             }
@@ -4919,7 +4923,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                 extraFieldIdentifier($extraID) . ": truncated reading 'UID'",
-                "Expected " . decimalHex0x($uidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
+                expectedMessage($uidSize, $available);
             return;
         }
 
@@ -4932,7 +4936,7 @@ sub decode_ux
     {
         error $FH->tell(),
                     extraFieldIdentifier($extraID) . ": truncated reading 'GID Size'",
-                    "Expected " . decimalHex0x($uidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
+                    expectedMessage($uidSize, $available);
         return ;
     }
 
@@ -4945,7 +4949,7 @@ sub decode_ux
             outSomeData($available, "  Bad Extra Data");
             error $FH->tell() - $available,
                         extraFieldIdentifier($extraID) . ": truncated reading 'GID'",
-                        "Expected " . decimalHex0x($gidSize) . " bytes, got " .  decimalHex0x($available) . " bytes";
+                        expectedMessage($gidSize, $available);
             return;
         }
 
@@ -5144,7 +5148,7 @@ sub decode_Xceed_unicode
 
             error $FH->tell() - $remaining,
                 extraFieldIdentifier($extraID) .  ": Truncated reading 'UTF16LE Filename'",
-                "Expected " . decimalHex0x($filenameLength) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+                expectedMessage($filenameLength, $remaining);
             return undef;
         }
 
@@ -5164,7 +5168,7 @@ sub decode_Xceed_unicode
 
             error $FH->tell() - $remaining,
                 extraFieldIdentifier($extraID) .  ": Truncated reading 'UTF16LE Comment'",
-                "Expected " . decimalHex0x($filenameLength) . " bytes, got " .  decimalHex0x($remaining) . " bytes";
+                expectedMessage($filenameLength, $remaining);
             return undef;
         }
 
@@ -5709,7 +5713,8 @@ sub offsetFromZip64
     #### Zip64 end of central directory locator
 
     # check enough bytes available for zip64 locator record
-    fatal_truncated "Cannot find signature for " .  Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) # 'Zip64 end of central directory locator': 0x07064b50"
+    fatal_tryWalk undef, "Cannot find signature for " .  Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG), # 'Zip64 end of central directory locator': 0x07064b50"
+                         "Possible truncated or corrupt zip file"
         if $here < ZIP64_END_CENTRAL_LOC_HDR_SIZE ;
 
     $fh->seek($here - ZIP64_END_CENTRAL_LOC_HDR_SIZE, SEEK_SET) ;

@@ -21,7 +21,7 @@
 002B 002D 0003 61 62 63      Extra Data          abc
 #
 # ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 002E 0032 0005 61 62 63 64 PAYLOAD               abcde
                65
@@ -58,7 +58,7 @@
 006E 0070 0003 61 62 63      Extra Data          abc
 #
 # ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
-#        Expected 0x4 (4) bytes, got 0x3 (3) bytes
+#        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 
 0071 0074 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)

@@ -21,7 +21,7 @@
                64 00 79 00
 #
 # ERROR: Offset 0x30: Extra Field 'Xceed unicode extra field [UN]' (ID 0x554E): Truncated reading 'UTF16LE Filename'
-#        Expected 0x10 (16) bytes, got 0xC (12) bytes
+#        Expected 0x10 (16) bytes, but only 0xC (12) available
 #
 003C 003E 0003 61 62 63    PAYLOAD               abc
 
@@ -58,7 +58,7 @@
                64 00 79 00
 #
 # ERROR: Offset 0x81: Extra Field 'Xceed unicode extra field [UN]' (ID 0x554E): Truncated reading 'UTF16LE Filename'
-#        Expected 0x10 (16) bytes, got 0xC (12) bytes
+#        Expected 0x10 (16) bytes, but only 0xC (12) available
 #
 
 008D 0090 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
