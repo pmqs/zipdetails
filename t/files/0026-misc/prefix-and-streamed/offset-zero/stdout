@@ -1,0 +1,64 @@
+#
+# INFO: Offset 0x0: found 0x5 (5) bytes before beginning of zipfile
+#
+
+0000 UNEXPECTED PADDING    abcd.
+
+0005 LOCAL HEADER #1       04034B50 (67324752)
+0009 Extract Zip Spec      14 (20) '2.0'
+000A Extract OS            00 (0) 'MS-DOS'
+000B General Purpose Flag  0008 (8)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+000D Compression Method    0008 (8) 'Deflated'
+000F Last Mod Date/Time    58566877 (1482057847) 'Thu Feb 22 13:03:46 2024'
+0013 CRC                   00000000 (0)
+0017 Compressed Size       00000000 (0)
+001B Uncompressed Size     00000000 (0)
+001F Filename Length       0004 (4)
+0021 Extra Length          0000 (0)
+0023 Filename              'fred'
+0027 PAYLOAD               KLJNI..
+
+002E DATA DESCRIPTOR       08074B50 (134695760)
+0032 CRC                   8587D865 (2240272485)
+0036 Compressed Size       00000007 (7)
+003A Uncompressed Size     00000005 (5)
+
+003E CENTRAL HEADER #1     02014B50 (33639248)
+0042 Created Zip Spec      14 (20) '2.0'
+0043 Created OS            03 (3) 'Unix'
+0044 Extract Zip Spec      14 (20) '2.0'
+0045 Extract OS            00 (0) 'MS-DOS'
+0046 General Purpose Flag  0008 (8)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit  3]              1 'Streamed'
+0048 Compression Method    0008 (8) 'Deflated'
+004A Last Mod Date/Time    58566877 (1482057847) 'Thu Feb 22 13:03:46 2024'
+004E CRC                   8587D865 (2240272485)
+0052 Compressed Size       00000007 (7)
+0056 Uncompressed Size     00000005 (5)
+005A Filename Length       0004 (4)
+005C Extra Length          0000 (0)
+005E Comment Length        0000 (0)
+0060 Disk Start            0000 (0)
+0062 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0064 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0068 Local Header Offset   00000000 (0) [Actual Offset is 00000005 (5)]
+006C Filename              'fred'
+
+0070 END CENTRAL HEADER    06054B50 (101010256)
+0074 Number of this disk   0000 (0)
+0076 Central Dir Disk no   0000 (0)
+0078 Entries in this disk  0001 (1)
+007A Total Entries         0001 (1)
+007C Size of Central Dir   00000032 (50)
+0080 Offset to Central Dir 00000039 (57) [Actual Offset is 0000003E (62)]
+0084 Comment Length        0000 (0)
+#
+# Info Count: 1
+#
+# Done

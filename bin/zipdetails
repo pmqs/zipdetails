@@ -6442,7 +6442,7 @@ sub nibbles
         my $offset = shift ;
 
         # TODO - what happens if none exists?
-        my $entry = $self->{byLocalOffset}{$offset} ;
+        my $entry = $self->{byLocalOffset}{$offset - $PREFIX_DELTA} ;
         return $entry ;
     }
 
@@ -6452,7 +6452,7 @@ sub nibbles
         my $offset = shift ;
 
         # TODO - what happens if none exists?
-        return $self->{byLocalOffset}{$offset} ;
+        return $self->{byLocalOffset}{$offset - $PREFIX_DELTA} ;
     }
 
     sub getNextLocalOffset
