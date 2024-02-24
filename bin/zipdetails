@@ -2170,6 +2170,11 @@ sub LocalHeader
         }
     }
 
+    # Next block can decrement the CDcompressedSize
+    # possiblty to zero. Need to remember if it started out
+    # as a non-zero value
+    my $haveCDcompressedSize = $CDcompressedSize;
+
     if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
     {
         $CDcompressedSize -= printAes($localEntry)
@@ -2189,7 +2194,7 @@ sub LocalHeader
         $CDcompressedSize -= DecryptionHeader();
     }
 
-    if ($CDcompressedSize) {
+    if ($haveCDcompressedSize) {
 
         if ($compressedMethod == 92 && $CDcompressedSize == 20) {
             # Payload for a Reference is the SHA-1 hash of the uncompressed content
