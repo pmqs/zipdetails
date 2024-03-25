@@ -1,0 +1,60 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0800 (2048)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Last Mod Date/Time    5879ADE9 (1484369385) 'Mon Mar 25 21:47:18 2024'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0005 (5)
+001C Extra Length          0000 (0)
+#
+# WARNING: Offset 0x1E: Could not decode 'utf8' Filename: UTF-8 "\xFA\x80\xA0\x89\xB6" does not map to Unicode
+#
+001E Filename              'ú ¶'
+0023 PAYLOAD               KLJN..
+
+0029 CENTRAL HEADER #1     02014B50 (33639248)
+002D Created Zip Spec      14 (20) '2.0'
+002E Created OS            03 (3) 'Unix'
+002F Extract Zip Spec      14 (20) '2.0'
+0030 Extract OS            00 (0) 'MS-DOS'
+0031 General Purpose Flag  0800 (2048)
+     [Bits 1-2]            0 'Normal Compression'
+     [Bit 11]              1 'Language Encoding'
+0033 Compression Method    0008 (8) 'Deflated'
+0035 Last Mod Date/Time    5879ADE9 (1484369385) 'Mon Mar 25 21:47:18 2024'
+0039 CRC                   ED82CD11 (3984772369)
+003D Compressed Size       00000006 (6)
+0041 Uncompressed Size     00000004 (4)
+0045 Filename Length       0005 (5)
+0047 Extra Length          0000 (0)
+0049 Comment Length        0000 (0)
+004B Disk Start            0000 (0)
+004D Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+004F Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0053 Local Header Offset   00000000 (0)
+#
+# WARNING: Offset 0x57: Could not decode 'utf8' Filename: UTF-8 "\xFA\x80\xA0\x89\xB6" does not map to Unicode
+#
+0057 Filename              'ú ¶'
+
+005C END CENTRAL HEADER    06054B50 (101010256)
+0060 Number of this disk   0000 (0)
+0062 Central Dir Disk no   0000 (0)
+0064 Entries in this disk  0001 (1)
+0066 Total Entries         0001 (1)
+0068 Size of Central Dir   00000033 (51)
+006C Offset to Central Dir 00000029 (41)
+0070 Comment Length        0000 (0)
+#
+# Warning Count: 2
+#
+# Done

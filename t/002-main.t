@@ -30,7 +30,7 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 214 * $tests_per_zip_full ;
+plan tests => 215 * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -148,8 +148,8 @@ for my $dir (sort keys %dirs)
 
         my %controlData = parseControl($dir);
 
-        # default options assume
-        my $options = '--encoding utf8 --output-encoding utf8';
+        # default options assume utf8
+        my $options = '--encoding utf-8-strict --output-encoding utf8';
 
         if (-e "$dir/options" )
         {
@@ -793,7 +793,7 @@ sub zapGolden
     my $locale_charset = getNativeLocale();
     $_[0] =~ s<^(#\s*System Default Encoding:\s*)('.+?')><$1'$locale_charset'>mg ;
 
-    # Encode changed from using utf8 to UTF-8 at some point
-    my $UTF = getUTF8String();
-    $_[0] =~ s<\S+ (\S+) does not map to Unicode><$UTF $1 does not map to Unicode>g ;
+    # # Encode changed from using utf8 to UTF-8 at some point
+    # my $UTF = getUTF8String();
+    # $_[0] =~ s<\S+ (\S+) does not map to Unicode><$UTF $1 does not map to Unicode>g ;
 }

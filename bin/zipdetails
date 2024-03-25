@@ -2427,18 +2427,29 @@ sub validateFilename
 
     # Portability (mostly with Windows)
 
-    # see https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
-    state $badDosFilename = join '|', map { quotemeta }
-                            qw(CON  PRN  AUX  NUL
-                               COM1 COM2 COM3 COM4 COM5 COM6 COM7 COM8 COM9
-                               LPT1 LPT2 LPT3 LPT4 LPT5 LPT6 LPT7 LPT8 LPT9
-                               ) ;
-    return "Portability Issue: '$1' is a reserved Windows device name"
-        if $filename =~ /^($badDosFilename)$/io ;
+    {
+        # see https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+        state $badDosFilename = join '|', map { quotemeta }
+                                qw(CON  PRN  AUX  NUL
+                                COM1 COM2 COM3 COM4 COM5 COM6 COM7 COM8 COM9
+                                LPT1 LPT2 LPT3 LPT4 LPT5 LPT6 LPT7 LPT8 LPT9
+                                ) ;
 
-    # Can't have the device name with an extension either
-    return "Portability Issue: '$1' is a reserved Windows device name"
-        if $filename =~ /^($badDosFilename)\./io ;
+        # if $filename contains any invalid codepoints, we will get a warning like this
+        #
+        #   Operation "pattern match (m//)" returns its argument for non-Unicode code point
+        #
+        # so silence it for now.
+
+        no warnings;
+
+        return "Portability Issue: '$1' is a reserved Windows device name"
+            if $filename =~ /^($badDosFilename)$/io ;
+
+        # Can't have the device name with an extension either
+        return "Portability Issue: '$1' is a reserved Windows device name"
+            if $filename =~ /^($badDosFilename)\./io ;
+    }
 
     state $illegal_windows_chars = join '|', map { quotemeta } qw( < > : " | ? * );
     return "Portability Issue: Windows filename cannot contain '$1'"
@@ -6957,7 +6968,8 @@ sub displayFileInfo
         # TODO - check for badly formed content
         if ($LanguageEncodingFlag && $opt_use_LanguageEncodingFlag)
         {
-            eval { $name = Encode::decode('utf8', $name, Encode::FB_CROAK ) } ;
+            # use "utf-8-strict" to catch invalid codepoints
+            eval { $name = Encode::decode('utf-8-strict', $name, Encode::FB_CROAK ) } ;
             ::warning $FH->tell() - length $name, "Could not decode 'utf8' $type: " . cleanEval $@
                 if $@ ;
         }
