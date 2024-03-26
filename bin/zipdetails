@@ -1723,7 +1723,7 @@ sub dislayMessages
                     my $localValue = $localEntry->{$field} ;
                     my $centralValue = $centralEntry->{$field};
 
-                    if (($localValue // '-1') ne $centralValue)
+                    if (($localValue // '-1') ne ($centralValue // '-2'))
                     {
                         if ($stringify)
                         {
@@ -2791,6 +2791,9 @@ sub CentralHeader
 sub decodeZipVer
 {
     my $ver = shift ;
+
+    return ""
+        if ! defined $ver;
 
     my $sHi = int($ver /10) ;
     my $sLo = $ver % 10 ;
