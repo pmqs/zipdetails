@@ -777,7 +777,7 @@ sub getUTF8String
     {
         use Encode;
         my $latin1 = "\x{61}\x{E5}\x{61}" ;
-        eval { my $name = Encode::decode('utf8', $latin1, Encode::FB_CROAK) };
+        eval { my $name = Encode::decode('utf-8-strict', $latin1, Encode::FB_CROAK) };
 
         $@ =~ /^(\S+) "\\xE5" does not map to Unicode/;
 
@@ -794,6 +794,6 @@ sub zapGolden
     $_[0] =~ s<^(#\s*System Default Encoding:\s*)('.+?')><$1'$locale_charset'>mg ;
 
     # # Encode changed from using utf8 to UTF-8 at some point
-    # my $UTF = getUTF8String();
-    # $_[0] =~ s<\S+ (\S+) does not map to Unicode><$UTF $1 does not map to Unicode>g ;
+    my $UTF = getUTF8String();
+    $_[0] =~ s<\S+ (\S+) does not map to Unicode><$UTF $1 does not map to Unicode>g ;
 }
