@@ -6970,7 +6970,7 @@ sub displayFileInfo
         {
             # use "utf-8-strict" to catch invalid codepoints
             eval { $name = Encode::decode('utf-8-strict', $name, Encode::FB_CROAK ) } ;
-            ::warning $FH->tell() - length $name, "Could not decode 'utf8' $type: " . cleanEval $@
+            ::warning $FH->tell() - length $name, "Could not decode 'UTF-8' $type: " . cleanEval $@
                 if $@ ;
         }
         else

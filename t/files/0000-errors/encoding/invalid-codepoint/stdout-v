@@ -13,7 +13,7 @@
 001A 001B 0002 01 00       Filename Length       0001 (1)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 #
-# WARNING: Offset 0x1E: Could not decode 'utf8' Filename: UTF-8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x1E: Could not decode 'UTF-8' Filename: UTF-8 "\xE5" does not map to Unicode
 #
 001E 001E 0001 E5          Filename              'å'
 001F 0024 0006 4B 4C 4A 4E PAYLOAD               KLJN..
@@ -43,7 +43,7 @@
                            [Bits 28-31]          08 (8) 'Regular File'
 004F 0052 0004 00 00 00 00 Local Header Offset   00000000 (0)
 #
-# WARNING: Offset 0x53: Could not decode 'utf8' Filename: UTF-8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x53: Could not decode 'UTF-8' Filename: UTF-8 "\xE5" does not map to Unicode
 #
 0053 0053 0001 E5          Filename              'å'
 

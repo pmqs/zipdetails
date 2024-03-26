@@ -784,7 +784,7 @@ sub getUTF8String
         $string = $1;
     }
 
-    # warn "GOTT [$Perl][$]][$string]\n";
+    # warn "GOT [$Perl][$]][$string]\n";
     return $string ;
 }
 

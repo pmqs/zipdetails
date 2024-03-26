@@ -1,7 +1,7 @@
 #
 # DEBUG: Debug Encoding Enabled
 #        System Default Encoding:                  'utf-8-strict'
-#        Encoding used when reading from zip file: 'utf8'
+#        Encoding used when reading from zip file: 'utf-8-strict'
 #        Encoding used for display output:         'utf8'
 #
 
@@ -18,7 +18,7 @@
 001A Filename Length       0003 (3)
 001C Extra Length          0000 (0)
 #
-# WARNING: Offset 0x1E: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x1E: Could not decode 'utf-8-strict' Filename: UTF-8 "\xE5" does not map to Unicode
 #
 001E Filename              'aåa'
 #
@@ -54,7 +54,7 @@
      [Bits 28-31]          08 (8) 'Regular File'
 0051 Local Header Offset   00000000 (0)
 #
-# WARNING: Offset 0x55: Could not decode 'utf8' Filename: utf8 "\xE5" does not map to Unicode
+# WARNING: Offset 0x55: Could not decode 'utf-8-strict' Filename: UTF-8 "\xE5" does not map to Unicode
 #
 0055 Filename              'aåa'
 #
