@@ -1,6 +1,48 @@
 CHANGES
 -------
 
+4.001 31 March 2024
+
+  * Add a few sanity tests for the CPAN distro
+    Sun Mar 31 10:51:44 2024 +0100
+    4bf6c4d06eb9ab4c2774a96d5fdfccd2bf9fdade
+
+  * #17 Extended Timestamp [UT] says Change Time, should be Creation Time
+    Sun Mar 31 09:58:19 2024 +0100
+    3677f980f35c326d42e3ab555a38f4991737e6ed
+
+  * #16 Uninitialized values warnings Fixes 
+    Tue Mar 26 15:36:18 2024 +0000
+    0d29138c22ee54f6643deb5e2f678aaadc014e76
+
+  * #15 Invalid unicode codepoint warning
+    Tue Mar 26 09:42:17 2024 +0000
+    5b20efa85a35a08ee4e0d930f0b0861ecbc9857d
+
+  * #15 Invalid unicode codepoint warning
+    Tue Mar 26 08:37:52 2024 +0000
+    79b2eab90162b6d910720a7bf152ab86d373cf1a
+
+  * #15 Invalid unicode codepoint warning
+    Mon Mar 25 23:14:14 2024 +0000
+    f52cb231ff62f1f738785269c242ba9487636854
+
+  * Fix use-case where special data before payload could decrement the compressed size to zero
+    Sat Feb 24 19:59:39 2024 +0000
+    adb9b9bec1e0f032e258ac0e406b4514fb6966ac
+
+  * Fix use-case where a streamed zip file has data before the start of the zip file
+    Thu Feb 22 17:22:05 2024 +0000
+    0afabd5c4a57c441f81d5a6fece36e84af7db4c6
+
+  * Rework file truncation messaging
+    Thu Feb 22 11:12:47 2024 +0000
+    4077b741a393e90b55a92853305e8884af21db03
+
+  * Rework code for APK Signing Block
+    Thu Feb 22 10:26:03 2024 +0000
+    144377ae41149f3c750545b86a87e4bf34e1e540
+
 4.001 21 February 2024
 
   * Don't ship t/02main.t  + test files with CPAN dist
