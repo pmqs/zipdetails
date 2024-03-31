@@ -5,9 +5,9 @@
 0006 0007 0002 00 00       General Purpose Flag  0000 (0)
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
 #
-# WARNING: Offset 0xE: 'Last Mod Date/Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
+# WARNING: Offset 0xE: 'Modification Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
 #
-000A 000D 0004 05 00 00 00 Last Mod Date/Time    00000005 (5) 'Invalid Date or Time'
+000A 000D 0004 05 00 00 00 Modification Time     00000005 (5) 'Invalid Date or Time'
 000E 0011 0004 9C 14 8A 0F CRC                   0F8A149C (260707484)
 0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
 0016 0019 0004 06 00 00 00 Uncompressed Size     00000006 (6)
@@ -24,7 +24,7 @@
 0034 0034 0001 00          Extract OS            00 (0) 'MS-DOS'
 0035 0036 0002 00 00       General Purpose Flag  0000 (0)
 0037 0038 0002 00 00       Compression Method    0000 (0) 'Stored'
-0039 003C 0004 3D 98 77 52 Last Mod Date/Time    5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+0039 003C 0004 3D 98 77 52 Modification Time     5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
 003D 0040 0004 E6 AF 1D 26 CRC                   261DAFE6 (639479782)
 0041 0044 0004 06 00 00 00 Compressed Size       00000006 (6)
 0045 0048 0004 06 00 00 00 Uncompressed Size     00000006 (6)
@@ -44,9 +44,9 @@
 0066 0067 0002 00 00       General Purpose Flag  0000 (0)
 0068 0069 0002 00 00       Compression Method    0000 (0) 'Stored'
 #
-# WARNING: Offset 0x6E: 'Last Mod Date/Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+# WARNING: Offset 0x6E: 'Modification Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
 #
-006A 006D 0004 04 00 00 00 Last Mod Date/Time    00000004 (4) 'Invalid Date or Time'
+006A 006D 0004 04 00 00 00 Modification Time     00000004 (4) 'Invalid Date or Time'
 006E 0071 0004 9C 14 8A 0F CRC                   0F8A149C (260707484)
 0072 0075 0004 06 00 00 00 Compressed Size       00000006 (6)
 0076 0079 0004 06 00 00 00 Uncompressed Size     00000006 (6)
@@ -71,7 +71,7 @@
 009E 009E 0001 00          Extract OS            00 (0) 'MS-DOS'
 009F 00A0 0002 00 00       General Purpose Flag  0000 (0)
 00A1 00A2 0002 00 00       Compression Method    0000 (0) 'Stored'
-00A3 00A6 0004 3D 98 77 52 Last Mod Date/Time    5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
+00A3 00A6 0004 3D 98 77 52 Modification Time     5277983D (1383569469) 'Tue Mar 23 19:01:58 2021'
 00A7 00AA 0004 E6 AF 1D 26 CRC                   261DAFE6 (639479782)
 00AB 00AE 0004 06 00 00 00 Compressed Size       00000006 (6)
 00AF 00B2 0004 06 00 00 00 Uncompressed Size     00000006 (6)
@@ -98,17 +98,17 @@
 00E0 00E3 0004 5E 00 00 00 Offset to Central Dir 0000005E (94)
 00E4 00E5 0002 00 00       Comment Length        0000 (0)
 #
-# WARNING: Offset 0xE6: 'Last Mod Date/Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
+# WARNING: Offset 0xE6: 'Modification Time' value 0x0005 (5)  decodes to '1980-18446744073709551615-00 00:00:10': not a valid DOS date/time
 #
-# WARNING: Offset 0xE6: 'Last Mod Date/Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
+# WARNING: Offset 0xE6: 'Modification Time' value 0x0004 (4)  decodes to '1980-18446744073709551615-00 00:00:08': not a valid DOS date/time
 #
 # ERROR: Found 1 Field Mismatch for Filename 'letters.txt'
 #
-#  ------------------------------------------------------------------------------------------------------------------------
-#  | Field Name         | Central Offset | Central Value                  | Local Offset | Local Value                    | 
-#  ------------------------------------------------------------------------------------------------------------------------
-#  | Last Mod Date/Time | 0x6A (106)     | 0x4 (4) 'Invalid Date or Time' | 0xC (12)     | 0x5 (5) 'Invalid Date or Time' | 
-#  ------------------------------------------------------------------------------------------------------------------------
+#  -----------------------------------------------------------------------------------------------------------------------
+#  | Field Name        | Central Offset | Central Value                  | Local Offset | Local Value                    | 
+#  -----------------------------------------------------------------------------------------------------------------------
+#  | Modification Time | 0x6A (106)     | 0x4 (4) 'Invalid Date or Time' | 0xC (12)     | 0x5 (5) 'Invalid Date or Time' | 
+#  -----------------------------------------------------------------------------------------------------------------------
 #
 # Error Count: 1
 # Warning Count: 4

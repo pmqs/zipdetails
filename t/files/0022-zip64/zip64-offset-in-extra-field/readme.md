@@ -12,7 +12,7 @@ Key point with this archive is the use of a Zip64 local header offset
 0151 0152 0002 00 00       General Purpose Flag  0000
                            [Bits 1-2]            0 'Normal Compression'
 0153 0154 0002 08 00       Compression Method    0008 'Deflated'
-0155 0158 0004 40 8B 81 55 Last Mod Time         55818B40 'Thu Dec  1 17:26:00 2022'
+0155 0158 0004 40 8B 81 55 Modification Time     55818B40 'Thu Dec  1 17:26:00 2022'
 0159 015C 0004 FF E7 0E F9 CRC                   F90EE7FF
 015D 0160 0004 0E 01 00 00 Compressed Length     0000010E
 0161 0164 0004 BE 01 00 00 Uncompressed Length   000001BE

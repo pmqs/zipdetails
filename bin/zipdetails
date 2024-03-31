@@ -1706,7 +1706,7 @@ sub dislayMessages
                     ['extractVersion',       7, 'Extract Zip Spec',     sub { decimalHex0xUndef($_[0]) . " " . decodeZipVer($_[0]) }, ],
                     ['generalPurposeFlags',  8, 'General Purpose Flag', \&decimalHex0xUndef, ],
                     ['compressedMethod',    10, 'Compression Method',   sub { decimalHex0xUndef($_[0]) . " " . getcompressionMethodName($_[0]) }, ],
-                    ['lastModDateTime',     12, 'Last Mod Date/Time',   sub { decimalHex0xUndef($_[0]) . " " . LastModTime($_[0]) }, ],
+                    ['lastModDateTime',     12, 'Modification Time',    sub { decimalHex0xUndef($_[0]) . " " . LastModTime($_[0]) }, ],
                     ['crc32',               16, 'CRC32',                \&decimalHex0xUndef, ],
                     ['compressedSize',      20, 'Compressed Size',      \&decimalHex0xUndef, ],
                     ['uncompressedSize',    24, 'Uncompressed Size',    \&decimalHex0xUndef, ],
@@ -2033,7 +2033,7 @@ sub LocalHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Modification Time", sub { LastModTime($_[0]) };
 
     my $crc              = out_V "CRC";
     warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
@@ -2593,7 +2593,7 @@ sub CentralHeader
     info $FH->tell() - 2, "Unknown 'Compression Method' ID " . decimalHex0x($compressedMethod, 2)
         if ! defined $ZIP_CompressionMethods{$compressedMethod} ;
 
-    my $lastMod = out_V "Last Mod Date/Time", sub { LastModTime($_[0]) };
+    my $lastMod = out_V "Modification Time", sub { LastModTime($_[0]) };
 
     my $crc                = out_V "CRC";
     my $compressedSize   = out_V "Compressed Size";
@@ -4485,7 +4485,7 @@ sub _dosToUnixTime
     or do
     {
         my $dosDecode = $year+1900 . sprintf "-%02u-%02u %02u:%02u:%02u", $mon, $mday, $hour, $min, $sec;
-        warning $FH->tell(), "'Last Mod Date/Time' value " . decimalHex0x($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
+        warning $FH->tell(), "'Modification Time' value " . decimalHex0x($dt, 4) .  "  decodes to '$dosDecode': not a valid DOS date/time" ;
         return undef
     };
 
@@ -4518,9 +4518,9 @@ sub decode_UT
 
     my $v = Value_C $flags;
     my @f ;
-    push @f, "mod"    if $flags & 1;
-    push @f, "access" if $flags & 2;
-    push @f, "change" if $flags & 4;
+    push @f, "Modification"    if $flags & 1;
+    push @f, "Access" if $flags & 2;
+    push @f, "Creation" if $flags & 4;
     $v .= " '" . join(' ', @f) . "'"
         if @f;
 
@@ -4535,27 +4535,27 @@ sub decode_UT
     {
         if ($remaining == 0 )
         {
-            # Central Dir only has mod time
-            error $FH->tell(), extraFieldIdentifier($extraID) . ": Missing field 'Mod Time'" ;
+            # Central Dir only has Modification Time
+            error $FH->tell(), extraFieldIdentifier($extraID) . ": Missing field 'Modification Time'" ;
             return;
         }
         else
         {
-            info $FH->tell(), extraFieldIdentifier($extraID) .  ": Unexpected 'Mod Time' present"
+            info $FH->tell(), extraFieldIdentifier($extraID) .  ": Unexpected 'Modification Time' present"
                 if ! ($flags & 1)  ;
 
             if ($remaining < 4)
             {
                 outSomeData $remaining, "  Extra Data";
                 error $FH->tell() - $remaining,
-                    extraFieldIdentifier($extraID) .  ": Truncated reading 'Mod Time'",
+                    extraFieldIdentifier($extraID) .  ": Truncated reading 'Modification Time'",
                     expectedMessage(4, $remaining);
                 return;
             }
 
             my ($data, $time) = read_V();
 
-            out2 $data, "Mod Time",    Value_V($time) . " " . getTime($time) ;
+            out2 $data, "Modification Time",    Value_V($time) . " " . getTime($time) ;
 
             $remaining -= 4 ;
         }
@@ -4595,11 +4595,11 @@ sub decode_UT
     {
         if ($remaining == 0 && $entry->inCentralDir)
         {
-            # Central Dir doesn't have change time
+            # Central Dir doesn't have creation time
         }
         else
         {
-            info $FH->tell(), extraFieldIdentifier($extraID) . ": Unexpected 'Change Time' present"
+            info $FH->tell(), extraFieldIdentifier($extraID) . ": Unexpected 'Creation Time' present"
                 if ! ($flags & 4) || $entry->inCentralDir ;
 
             if ($remaining < 4)
@@ -4607,7 +4607,7 @@ sub decode_UT
                 outSomeData $remaining, "  Extra Data";
 
                 error  $FH->tell() - $remaining,
-                    extraFieldIdentifier($extraID) . ": Truncated reading 'Change Time'" ,
+                    extraFieldIdentifier($extraID) . ": Truncated reading 'Creation Time'" ,
                     expectedMessage(4, $remaining);
 
                 return;
@@ -4615,7 +4615,7 @@ sub decode_UT
 
             my ($data, $time) = read_V();
 
-            out2 $data, "Change Time",    Value_V($time) . " " . getTime($time) ;
+            out2 $data, "Creation Time",    Value_V($time) . " " . getTime($time) ;
         }
     }
 }
@@ -4868,10 +4868,10 @@ sub decode_UX
     return if $len == 0 ;
 
     my ($data, $time) = read_V();
-    out2 $data, "Access Time",    Value_V($time) . " " . getTime($time) ;
+    out2 $data, "Access Time", Value_V($time) . " " . getTime($time) ;
 
     ($data, $time) = read_V();
-    out2 $data, "Mod Time",    Value_V($time) . " " . getTime($time) ;
+    out2 $data, "Modification Time", Value_V($time) . " " . getTime($time) ;
 
     if (! $inCentralHdr ) {
         out_v "  UID" ;
@@ -7648,7 +7648,7 @@ Running C<zipdetails> will gives this output
     0006 General Purpose Flag  0000 (0)
          [Bits 1-2]            0 'Normal Compression'
     0008 Compression Method    0008 (8) 'Deflated'
-    000A Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E CRC                   F90EE7FF (4178503679)
     0012 Compressed Size       0000010E (270)
     0016 Uncompressed Size     000001BE (446)
@@ -7665,7 +7665,7 @@ Running C<zipdetails> will gives this output
     013D General Purpose Flag  0000 (0)
          [Bits 1-2]            0 'Normal Compression'
     013F Compression Method    0008 (8) 'Deflated'
-    0141 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 CRC                   F90EE7FF (4178503679)
     0149 Compressed Size       0000010E (270)
     014D Uncompressed Size     000001BE (446)
@@ -7740,7 +7740,7 @@ C<-v> option:
     0006 0007 0002 00 00       General Purpose Flag  0000 (0)
                                [Bits 1-2]            0 'Normal Compression'
     0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    000A 000D 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A 000D 0004 72 A0 76 56 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
     0012 0015 0004 0E 01 00 00 Compressed Size       0000010E (270)
     0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -7759,7 +7759,7 @@ C<-v> option:
     013D 013E 0002 00 00       General Purpose Flag  0000 (0)
                                [Bits 1-2]            0 'Normal Compression'
     013F 0140 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    0141 0144 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 0144 0004 72 A0 76 56 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 0148 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
     0149 014C 0004 0E 01 00 00 Compressed Size       0000010E (270)
     014D 0150 0004 BE 01 00 00 Uncompressed Size     000001BE (446)

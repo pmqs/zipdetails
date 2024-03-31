@@ -54,7 +54,7 @@ Partial dump show streaming artefacts
          [Bits 1-2]            0 'Normal Compression'
          [Bit  3]              1 'Streamed'   <================
     0008 Compression Method    0008 'Deflated'
-    000A Last Mod Time         52988571 'Sat Apr 24 17:43:34 2021'
+    000A Modification Time     52988571 'Sat Apr 24 17:43:34 2021'
     000E CRC                   F90EE7FF
     0012 Compressed Length     0000011A
     0016 Uncompressed Length   000001BE
@@ -63,8 +63,8 @@ Partial dump show streaming artefacts
     001E Filename              'lorem.txt'
     0027 Extra ID #0001        5455 'UT: Extended Timestamp'
     0029   Length              0009
-    002B   Flags               '03 mod access'
-    002C   Mod Time            60843CA6 'Sat Apr 24 16:43:34 2021'
+    002B   Flags               '03 Modification Access'
+    002C   Modification Time   60843CA6 'Sat Apr 24 16:43:34 2021'
     0030   Access Time         62E7CDA3 'Mon Aug  1 13:57:07 2022'
     0034 Extra ID #0002        7875 'ux: Unix Extra Type 3'
     0036   Length              000B

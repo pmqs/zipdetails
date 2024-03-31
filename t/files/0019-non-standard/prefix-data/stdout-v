@@ -10,7 +10,7 @@
 000A 000B 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 000C 000D 0002 08 00       Compression Method    0008 (8) 'Deflated'
-000E 0011 0004 A5 54 62 55 Last Mod Date/Time    556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
+000E 0011 0004 A5 54 62 55 Modification Time     556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
 0012 0015 0004 36 C6 60 BB CRC                   BB60C636 (3143681590)
 0016 0019 0004 10 01 00 00 Compressed Size       00000110 (272)
 001A 001D 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
@@ -21,8 +21,8 @@
                78 74
 002C 002D 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 002E 002F 0002 09 00         Length              0009 (9)
-0030 0030 0001 03            Flags               03 (3) 'mod access'
-0031 0034 0004 55 48 62 63   Mod Time            63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
+0030 0030 0001 03            Flags               03 (3) 'Modification Access'
+0031 0034 0004 55 48 62 63   Modification Time   63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
 0035 0038 0004 55 48 62 63   Access Time         63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
 0039 003A 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 003B 003C 0002 0B 00         Length              000B (11)
@@ -39,7 +39,7 @@
 015E 015F 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 0160 0161 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0162 0165 0004 8C 54 62 55 Last Mod Date/Time    5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
+0162 0165 0004 8C 54 62 55 Modification Time     5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
 0166 0169 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 016A 016D 0004 0E 01 00 00 Compressed Size       0000010E (270)
 016E 0171 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -50,8 +50,8 @@
                74
 017F 0180 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0181 0182 0002 09 00         Length              0009 (9)
-0183 0183 0001 03            Flags               03 (3) 'mod access'
-0184 0187 0004 28 48 62 63   Mod Time            63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
+0183 0183 0001 03            Flags               03 (3) 'Modification Access'
+0184 0187 0004 28 48 62 63   Modification Time   63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
 0188 018B 0004 28 48 62 63   Access Time         63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
 018C 018D 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 018E 018F 0002 0B 00         Length              000B (11)
@@ -70,7 +70,7 @@
 02B1 02B2 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 02B3 02B4 0002 08 00       Compression Method    0008 (8) 'Deflated'
-02B5 02B8 0004 A5 54 62 55 Last Mod Date/Time    556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
+02B5 02B8 0004 A5 54 62 55 Modification Time     556254A5 (1432507557) 'Wed Nov  2 10:37:10 2022'
 02B9 02BC 0004 36 C6 60 BB CRC                   BB60C636 (3143681590)
 02BD 02C0 0004 10 01 00 00 Compressed Size       00000110 (272)
 02C1 02C4 0004 BF 01 00 00 Uncompressed Size     000001BF (447)
@@ -89,8 +89,8 @@
                78 74
 02E1 02E2 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 02E3 02E4 0002 05 00         Length              0005 (5)
-02E5 02E5 0001 03            Flags               03 (3) 'mod access'
-02E6 02E9 0004 55 48 62 63   Mod Time            63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
+02E5 02E5 0001 03            Flags               03 (3) 'Modification Access'
+02E6 02E9 0004 55 48 62 63   Modification Time   63624855 (1667385429) 'Wed Nov  2 10:37:09 2022'
 02EA 02EB 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 02EC 02ED 0002 0B 00         Length              000B (11)
 02EE 02EE 0001 01            Version             01 (1)
@@ -107,7 +107,7 @@
 0301 0302 0002 00 00       General Purpose Flag  0000 (0)
                            [Bits 1-2]            0 'Normal Compression'
 0303 0304 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0305 0308 0004 8C 54 62 55 Last Mod Date/Time    5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
+0305 0308 0004 8C 54 62 55 Modification Time     5562548C (1432507532) 'Wed Nov  2 10:36:24 2022'
 0309 030C 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 030D 0310 0004 0E 01 00 00 Compressed Size       0000010E (270)
 0311 0314 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -126,8 +126,8 @@
                74
 0330 0331 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0332 0333 0002 05 00         Length              0005 (5)
-0334 0334 0001 03            Flags               03 (3) 'mod access'
-0335 0338 0004 28 48 62 63   Mod Time            63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
+0334 0334 0001 03            Flags               03 (3) 'Modification Access'
+0335 0338 0004 28 48 62 63   Modification Time   63624828 (1667385384) 'Wed Nov  2 10:36:24 2022'
 0339 033A 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 033B 033C 0002 0B 00         Length              000B (11)
 033D 033D 0001 01            Version             01 (1)

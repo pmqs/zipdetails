@@ -6,7 +6,7 @@
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
 0008 Compression Method    0008 (8) 'Deflated'
-000A Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+000A Modification Time     52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 000E CRC                   00000000 (0)
 0012 Compressed Size       00000000 (0)
 0016 Uncompressed Size     000001BE (446)
@@ -15,8 +15,8 @@
 001E Filename              'lorem.txt'
 0027 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0029   Length              0009 (9)
-002B   Flags               03 (3) 'mod access'
-002C   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+002B   Flags               03 (3) 'Modification Access'
+002C   Modification Time   60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
 0030   Access Time         62E7CDA3 (1659358627) 'Mon Aug  1 12:57:07 2022'
 0034 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 0036   Length              000B (11)
@@ -41,7 +41,7 @@
      [Bits 1-2]            0 'Normal Compression'
      [Bit  3]              1 'Streamed'
 016B Compression Method    0008 (8) 'Deflated'
-016D Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+016D Modification Time     52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 0171 CRC                   F90EE7FF (4178503679)
 0175 Compressed Size       0000010E (270)
 0179 Uncompressed Size     000001BE (446)
@@ -58,8 +58,8 @@
 018F Filename              'lorem.txt'
 0198 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 019A   Length              0005 (5)
-019C   Flags               03 (3) 'mod access'
-019D   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+019C   Flags               03 (3) 'Modification Access'
+019D   Modification Time   60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
 01A1 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 01A3   Length              000B (11)
 01A5   Version             01 (1)

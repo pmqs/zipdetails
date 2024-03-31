@@ -4,7 +4,7 @@
 0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
 0006 0007 0002 00 00       General Purpose Flag  0000 (0)
 0008 0009 0002 0C 00       Compression Method    000C (12) 'BZIP2'
-000A 000D 0004 71 85 98 52 Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+000A 000D 0004 71 85 98 52 Modification Time     52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 0012 0015 0004 35 01 00 00 Compressed Size       00000135 (309)
 0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -15,8 +15,8 @@
                74
 0027 0028 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0029 002A 0002 09 00         Length              0009 (9)
-002B 002B 0001 03            Flags               03 (3) 'mod access'
-002C 002F 0004 A6 3C 84 60   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+002B 002B 0001 03            Flags               03 (3) 'Modification Access'
+002C 002F 0004 A6 3C 84 60   Modification Time   60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
 0030 0033 0004 E7 3D 84 60   Access Time         60843DE7 (1619279335) 'Sat Apr 24 15:48:55 2021'
 0034 0035 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 0036 0037 0002 0B 00         Length              000B (11)
@@ -34,7 +34,7 @@
 017F 017F 0001 00          Extract OS            00 (0) 'MS-DOS'
 0180 0181 0002 00 00       General Purpose Flag  0000 (0)
 0182 0183 0002 0C 00       Compression Method    000C (12) 'BZIP2'
-0184 0187 0004 71 85 98 52 Last Mod Date/Time    52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
+0184 0187 0004 71 85 98 52 Modification Time     52988571 (1385727345) 'Sat Apr 24 16:43:34 2021'
 0188 018B 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 018C 018F 0004 35 01 00 00 Compressed Size       00000135 (309)
 0190 0193 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -53,8 +53,8 @@
                74
 01AF 01B0 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 01B1 01B2 0002 05 00         Length              0005 (5)
-01B3 01B3 0001 03            Flags               03 (3) 'mod access'
-01B4 01B7 0004 A6 3C 84 60   Mod Time            60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
+01B3 01B3 0001 03            Flags               03 (3) 'Modification Access'
+01B4 01B7 0004 A6 3C 84 60   Modification Time   60843CA6 (1619279014) 'Sat Apr 24 15:43:34 2021'
 01B8 01B9 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 01BA 01BB 0002 0B 00         Length              000B (11)
 01BC 01BC 0001 01            Version             01 (1)

@@ -4,7 +4,7 @@
 0005 Extract OS            00 (0) 'MS-DOS'
 0006 General Purpose Flag  0000 (0)
 0008 Compression Method    0000 (0) 'Stored'
-000A Last Mod Date/Time    45889E90 (1166581392) 'Mon Dec  8 19:52:32 2014'
+000A Modification Time     45889E90 (1166581392) 'Mon Dec  8 19:52:32 2014'
 000E CRC                   F007732D (4027020077)
 0012 Compressed Size       00000003 (3)
 0016 Uncompressed Size     00000003 (3)
@@ -13,8 +13,8 @@
 001E Filename              'test'
 0022 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0024   Length              0009 (9)
-0026   Flags               03 (3) 'mod access'
-0027   Mod Time            5485F36F (1418064751) 'Mon Dec  8 18:52:31 2014'
+0026   Flags               03 (3) 'Modification Access'
+0027   Modification Time   5485F36F (1418064751) 'Mon Dec  8 18:52:31 2014'
 002B   Access Time         5485F38F (1418064783) 'Mon Dec  8 18:53:03 2014'
 002F Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 0031   Length              000B (11)
@@ -36,7 +36,7 @@
 0048 Extract OS            00 (0) 'MS-DOS'
 0049 General Purpose Flag  0000 (0)
 004B Compression Method    0000 (0) 'Stored'
-004D Last Mod Date/Time    45889E90 (1166581392) 'Mon Dec  8 19:52:32 2014'
+004D Modification Time     45889E90 (1166581392) 'Mon Dec  8 19:52:32 2014'
 0051 CRC                   F007732D (4027020077)
 0055 Compressed Size       00000003 (3)
 0059 Uncompressed Size     00000003 (3)
@@ -52,8 +52,8 @@
 006F Filename              'test'
 0073 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0075   Length              0005 (5)
-0077   Flags               03 (3) 'mod access'
-0078   Mod Time            5485F36F (1418064751) 'Mon Dec  8 18:52:31 2014'
+0077   Flags               03 (3) 'Modification Access'
+0078   Modification Time   5485F36F (1418064751) 'Mon Dec  8 18:52:31 2014'
 007C Extra ID #2           7854 (30804)
 #
 # INFO: Offset 0x7C: Unknown Extra ID 7854 (30804)

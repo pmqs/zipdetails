@@ -211,7 +211,7 @@ Running `zipdetails` will gives this output
     0006 General Purpose Flag  0000 (0)
          [Bits 1-2]            0 'Normal Compression'
     0008 Compression Method    0008 (8) 'Deflated'
-    000A Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E CRC                   F90EE7FF (4178503679)
     0012 Compressed Size       0000010E (270)
     0016 Uncompressed Size     000001BE (446)
@@ -228,7 +228,7 @@ Running `zipdetails` will gives this output
     013D General Purpose Flag  0000 (0)
          [Bits 1-2]            0 'Normal Compression'
     013F Compression Method    0008 (8) 'Deflated'
-    0141 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 CRC                   F90EE7FF (4178503679)
     0149 Compressed Size       0000010E (270)
     014D Uncompressed Size     000001BE (446)
@@ -281,7 +281,7 @@ Here is the same zip file, `test.zip`, dumped using the `zipdetails`
     0006 0007 0002 00 00       General Purpose Flag  0000 (0)
                                [Bits 1-2]            0 'Normal Compression'
     0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    000A 000D 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    000A 000D 0004 72 A0 76 56 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     000E 0011 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
     0012 0015 0004 0E 01 00 00 Compressed Size       0000010E (270)
     0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -300,7 +300,7 @@ Here is the same zip file, `test.zip`, dumped using the `zipdetails`
     013D 013E 0002 00 00       General Purpose Flag  0000 (0)
                                [Bits 1-2]            0 'Normal Compression'
     013F 0140 0002 08 00       Compression Method    0008 (8) 'Deflated'
-    0141 0144 0004 72 A0 76 56 Last Mod Date/Time    5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
+    0141 0144 0004 72 A0 76 56 Modification Time     5676A072 (1450614898) 'Wed Mar 22 20:03:36 2023'
     0145 0148 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
     0149 014C 0004 0E 01 00 00 Compressed Size       0000010E (270)
     014D 0150 0004 BE 01 00 00 Uncompressed Size     000001BE (446)

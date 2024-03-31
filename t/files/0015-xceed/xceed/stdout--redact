@@ -6,7 +6,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 0008 Compression Method    0008 (8) 'Deflated'
-000A Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+000A Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 000E CRC                   CCD3DAF9 (3436436217)
 0012 Compressed Size       0000005C (92)
 0016 Uncompressed Size     0000006F (111)
@@ -27,7 +27,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 00B9 Compression Method    0008 (8) 'Deflated'
-00BB Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+00BB Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 00BF CRC                   B69BF276 (3063673462)
 00C3 Compressed Size       0000005C (92)
 00C7 Uncompressed Size     0000006F (111)
@@ -36,10 +36,10 @@
 00CF Filename              'XXXXXXXXXXXXXXX'
 00DE Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 00E0   Length              000D (13)
-00E2   Flags               07 (7) 'mod access change'
-00E3   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00E2   Flags               07 (7) 'Modification Access Creation'
+00E3   Modification Time   6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 00E7   Access Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
-00EB   Change Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00EB   Creation Time       6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 00EF PAYLOAD               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 014B LOCAL HEADER #3       04034B50 (67324752)
@@ -49,7 +49,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 0153 Compression Method    0008 (8) 'Deflated'
-0155 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+0155 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 0159 CRC                   57034C5B (1459833947)
 015D Compressed Size       0000005C (92)
 0161 Uncompressed Size     0000006F (111)
@@ -67,7 +67,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 01DE Compression Method    0008 (8) 'Deflated'
-01E0 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+01E0 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 01E4 CRC                   57034C5B (1459833947)
 01E8 Compressed Size       0000005C (92)
 01EC Uncompressed Size     0000006F (111)
@@ -99,7 +99,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 026B Compression Method    0008 (8) 'Deflated'
-026D Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+026D Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 0271 CRC                   B69BF276 (3063673462)
 0275 Compressed Size       0000005C (92)
 0279 Uncompressed Size     0000006F (111)
@@ -114,8 +114,8 @@
 028F Filename              'XXXXXXXXXXXXXXX'
 029E Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 02A0   Length              0005 (5)
-02A2   Flags               07 (7) 'mod access change'
-02A3   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+02A2   Flags               07 (7) 'Modification Access Creation'
+02A3   Modification Time   6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 02A7 Comment               'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 02D3 CENTRAL HEADER #3     02014B50 (33639248)
@@ -127,7 +127,7 @@
      [Bits 1-2]            1 'Maximum Compression'
      [Bit 11]              1 'Language Encoding'
 02DD Compression Method    0008 (8) 'Deflated'
-02DF Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+02DF Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 02E3 CRC                   CCD3DAF9 (3436436217)
 02E7 Compressed Size       0000005C (92)
 02EB Uncompressed Size     0000006F (111)

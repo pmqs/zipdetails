@@ -7,7 +7,7 @@
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
-000A 000D 0004 00 00 00 00 Last Mod Date/Time    00000000 (0) 'No Date/Time'
+000A 000D 0004 00 00 00 00 Modification Time     00000000 (0) 'No Date/Time'
 000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
 0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
 0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
@@ -28,7 +28,7 @@
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
 01F7 01F8 0002 00 00       Compression Method    0000 (0) 'Stored'
-01F9 01FC 0004 2C BE 9D 55 Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
+01F9 01FC 0004 2C BE 9D 55 Modification Time     559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 01FD 0200 0004 00 00 00 00 CRC                   00000000 (0)
 0201 0204 0004 00 00 00 00 Compressed Size       00000000 (0)
 0205 0208 0004 5F 00 00 00 Uncompressed Size     0000005F (95)
@@ -51,7 +51,7 @@
                            [Bit 11]              1 'Language Encoding'
                            [Bit 13]              1 'Encrypted Central Dir'
 022B 022C 0002 00 00       Compression Method    0000 (0) 'Stored'
-022D 0230 0004 15 8A 99 55 Last Mod Date/Time    55998A15 (1436125717) 'Sun Dec 25 17:16:42 2022'
+022D 0230 0004 15 8A 99 55 Modification Time     55998A15 (1436125717) 'Sun Dec 25 17:16:42 2022'
 0231 0234 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
 0235 0238 0004 BE 01 00 00 Compressed Size       000001BE (446)
 0239 023C 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
@@ -96,7 +96,7 @@
                            [Bit  3]              1 'Streamed'
                            [Bit 11]              1 'Language Encoding'
 029A 029B 0002 00 00       Compression Method    0000 (0) 'Stored'
-029C 029F 0004 2C BE 9D 55 Last Mod Date/Time    559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
+029C 029F 0004 2C BE 9D 55 Modification Time     559DBE2C (1436401196) 'Thu Dec 29 23:49:24 2022'
 02A0 02A3 0004 D7 B9 39 AA CRC                   AA39B9D7 (2855909847)
 02A4 02A7 0004 5F 00 00 00 Compressed Size       0000005F (95)
 02A8 02AB 0004 5F 00 00 00 Uncompressed Size     0000005F (95)

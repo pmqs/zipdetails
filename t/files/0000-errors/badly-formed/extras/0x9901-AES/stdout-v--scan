@@ -6,7 +6,7 @@
                            [Bit  0]              1 'Encryption'
                            [Bit  3]              1 'Streamed'
 0008 0009 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
-000A 000D 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
+000A 000D 0004 00 A6 0C 3B Modification Time     3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 000E 0011 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
 #
 # WARNING: Offset 0xE: CRC field should be zero when streaming is enabled
@@ -20,8 +20,8 @@
                2E 63
 0028 0029 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 002A 002B 0002 05 00         Length              0005 (5)
-002C 002C 0001 01            Flags               01 (1) 'mod'
-002D 0030 0004 D0 70 83 4A   Mod Time            4A8370D0 (1250128080) 'Thu Aug 13 01:48:00 2009'
+002C 002C 0001 01            Flags               01 (1) 'Modification'
+002D 0030 0004 D0 70 83 4A   Modification Time   4A8370D0 (1250128080) 'Thu Aug 13 01:48:00 2009'
 0031 0032 0002 01 99       Extra ID #2           9901 (39169) 'AES Encryption'
 0033 0034 0002 07 00         Length              0007 (7)
 0035 0036 0002 00 00         Vendor Version      0000 (0) 'Unknown'
@@ -47,7 +47,7 @@
 1BA6 1BA7 0002 01 00       General Purpose Flag  0001 (1)
                            [Bit  0]              1 'Encryption'
 1BA8 1BA9 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
-1BAA 1BAD 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
+1BAA 1BAD 0004 00 A6 0C 3B Modification Time     3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 1BAE 1BB1 0004 D7 FA 7D E8 CRC                   E87DFAD7 (3900570327)
 1BB2 1BB5 0004 F3 21 00 00 Compressed Size       000021F3 (8691)
 1BB6 1BB9 0004 79 6A 00 00 Uncompressed Size     00006A79 (27257)
@@ -128,7 +128,7 @@
                            [Bit  0]              1 'Encryption'
                            [Bit  3]              1 'Streamed'
 3E53 3E54 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
-3E55 3E58 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
+3E55 3E58 0004 00 A6 0C 3B Modification Time     3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 3E59 3E5C 0004 10 FB E7 78 CRC                   78E7FB10 (2028469008)
 3E5D 3E60 0004 54 1B 00 00 Compressed Size       00001B54 (6996)
 3E61 3E64 0004 0B 5A 00 00 Uncompressed Size     00005A0B (23051)
@@ -146,8 +146,8 @@
                2E 63
 3E81 3E82 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 3E83 3E84 0002 05 00         Length              0005 (5)
-3E85 3E85 0001 01            Flags               01 (1) 'mod'
-3E86 3E89 0004 D0 70 83 4A   Mod Time            4A8370D0 (1250128080) 'Thu Aug 13 01:48:00 2009'
+3E85 3E85 0001 01            Flags               01 (1) 'Modification'
+3E86 3E89 0004 D0 70 83 4A   Modification Time   4A8370D0 (1250128080) 'Thu Aug 13 01:48:00 2009'
 3E8A 3E8B 0002 01 99       Extra ID #2           9901 (39169) 'AES Encryption'
 3E8C 3E8D 0002 07 00         Length              0007 (7)
 3E8E 3E8F 0002 01 00         Vendor Version      0001 (1) 'AE-1'
@@ -163,7 +163,7 @@
 3E9D 3E9E 0002 01 00       General Purpose Flag  0001 (1)
                            [Bit  0]              1 'Encryption'
 3E9F 3EA0 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
-3EA1 3EA4 0004 00 A6 0C 3B Last Mod Date/Time    3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
+3EA1 3EA4 0004 00 A6 0C 3B Modification Time     3B0CA600 (990684672) 'Wed Aug 12 20:48:00 2009'
 3EA5 3EA8 0004 D7 FA 7D E8 CRC                   E87DFAD7 (3900570327)
 3EA9 3EAC 0004 F3 21 00 00 Compressed Size       000021F3 (8691)
 3EAD 3EB0 0004 79 6A 00 00 Uncompressed Size     00006A79 (27257)

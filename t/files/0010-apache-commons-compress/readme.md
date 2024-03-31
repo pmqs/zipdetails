@@ -61,7 +61,7 @@ compressed & uncompressed lengths not FFFF
                           [Bits 1-2]            0 'Normal Compression'
                           [Bit 11]              1 'Language Encoding'
     0008 0002 08 00       Compression Method    0008 'Deflated'
-    000A 0004 68 81 8B 52 Last Mod Time         528B8168 'Sun Apr 11 15:11:16 2021'
+    000A 0004 68 81 8B 52 Modification Time     528B8168 'Sun Apr 11 15:11:16 2021'
     000E 0004 31 1B CD 8C CRC                   8CCD1B31
     0012 0004 11 00 00 00 Compressed Length     00000011
     0016 0004 0F 00 00 00 Uncompressed Length   0000000F
@@ -122,7 +122,7 @@ Code  creates CD record like this - issue is the disk start field is not FFFF
                           [Bits 1-2]            0 'Normal Compression'
                           [Bit 11]              1 'Language Encoding'
     00A2 0002 08 00       Compression Method    0008 'Deflated'
-    00A4 0004 68 81 8B 52 Last Mod Time         528B8168 'Sun Apr 11 15:11:16 2021'
+    00A4 0004 68 81 8B 52 Modification Time     528B8168 'Sun Apr 11 15:11:16 2021'
     00A8 0004 31 1B CD 8C CRC                   8CCD1B31
     00AC 0004 FF FF FF FF Compressed Length     FFFFFFFF
     00B0 0004 FF FF FF FF Uncompressed Length   FFFFFFFF

@@ -4,7 +4,7 @@
 0005 Extract OS            00 (0) 'MS-DOS'
 0006 General Purpose Flag  0000 (0)
 0008 Compression Method    0000 (0) 'Stored'
-000A Last Mod Date/Time    557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
+000A Modification Time     557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
 000E CRC                   8587D865 (2240272485)
 0012 Compressed Size       00000005 (5)
 0016 Uncompressed Size     00000005 (5)
@@ -13,9 +13,9 @@
 001E Filename              'filename'
 0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0028   Length              0001 (1)
-002A   Flags               01 (1) 'mod'
+002A   Flags               01 (1) 'Modification'
 #
-# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Modification Time'
 #
 002B PAYLOAD               abcde
 
@@ -26,7 +26,7 @@
 0037 Extract OS            00 (0) 'MS-DOS'
 0038 General Purpose Flag  0000 (0)
 003A Compression Method    0000 (0) 'Stored'
-003C Last Mod Date/Time    557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
+003C Modification Time     557269E0 (1433561568) 'Fri Nov 18 13:15:00 2022'
 0040 CRC                   8587D865 (2240272485)
 0044 Compressed Size       00000005 (5)
 0048 Uncompressed Size     00000005 (5)
@@ -43,9 +43,9 @@
 005E Filename              'filename'
 0066 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0068   Length              0001 (1)
-006A   Flags               01 (1) 'mod'
+006A   Flags               01 (1) 'Modification'
 #
-# ERROR: Offset 0x6B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Mod Time'
+# ERROR: Offset 0x6B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Missing field 'Modification Time'
 #
 
 006B END CENTRAL HEADER    06054B50 (101010256)

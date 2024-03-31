@@ -4,7 +4,7 @@
 0005 Extract OS            00 (0) 'MS-DOS'
 0006 General Purpose Flag  0000 (0)
 0008 Compression Method    0000 (0) 'Stored'
-000A Last Mod Date/Time    55724AAC (1433553580) 'Fri Nov 18 09:21:24 2022'
+000A Modification Time     55724AAC (1433553580) 'Fri Nov 18 09:21:24 2022'
 000E CRC                   8587D865 (2240272485)
 0012 Compressed Size       00000005 (5)
 0016 Uncompressed Size     00000005 (5)
@@ -13,10 +13,10 @@
 001E Filename              'filename'
 0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0028   Length              000D (13)
-002A   Flags               07 (7) 'mod access change'
-002B   Mod Time            64636261 (1684234849) 'Tue May 16 11:00:49 2023'
+002A   Flags               07 (7) 'Modification Access Creation'
+002B   Modification Time   64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 002F   Access Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
-0033   Change Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
+0033   Creation Time       64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 0037 PAYLOAD               abcde
 
 003C CENTRAL HEADER #1     02014B50 (33639248)
@@ -26,7 +26,7 @@
 0043 Extract OS            00 (0) 'MS-DOS'
 0044 General Purpose Flag  0000 (0)
 0046 Compression Method    0000 (0) 'Stored'
-0048 Last Mod Date/Time    55724AAC (1433553580) 'Fri Nov 18 09:21:24 2022'
+0048 Modification Time     55724AAC (1433553580) 'Fri Nov 18 09:21:24 2022'
 004C CRC                   8587D865 (2240272485)
 0050 Compressed Size       00000005 (5)
 0054 Uncompressed Size     00000005 (5)
@@ -43,16 +43,16 @@
 006A Filename              'filename'
 0072 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0074   Length              000D (13)
-0076   Flags               07 (7) 'mod access change'
-0077   Mod Time            64636261 (1684234849) 'Tue May 16 11:00:49 2023'
+0076   Flags               07 (7) 'Modification Access Creation'
+0077   Modification Time   64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
 # INFO: Offset 0x7B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
 #
 007B   Access Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 #
-# INFO: Offset 0x7F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Change Time' present
+# INFO: Offset 0x7F: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Creation Time' present
 #
-007F   Change Time         64636261 (1684234849) 'Tue May 16 11:00:49 2023'
+007F   Creation Time       64636261 (1684234849) 'Tue May 16 11:00:49 2023'
 
 0083 END CENTRAL HEADER    06054B50 (101010256)
 0087 Number of this disk   0000 (0)

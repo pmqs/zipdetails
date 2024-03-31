@@ -4,7 +4,7 @@
 0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
 0006 0007 0002 00 00       General Purpose Flag  0000 (0)
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
-000A 000D 0004 61 88 C1 50 Last Mod Date/Time    50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
+000A 000D 0004 61 88 C1 50 Modification Time     50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
 000E 0011 0004 12 13 05 72 CRC                   72051312 (1912935186)
 0012 0015 0004 FF FF FF FF Compressed Size       FFFFFFFF (4294967295)
 0016 0019 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
@@ -14,8 +14,8 @@
                2E 74 78 74
 0026 0027 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0028 0029 0002 09 00         Length              0009 (9)
-002A 002A 0001 03            Flags               03 (3) 'mod access'
-002B 002E 0004 B6 26 D5 5E   Mod Time            5ED526B6 (1591027382) 'Mon Jun  1 16:03:02 2020'
+002A 002A 0001 03            Flags               03 (3) 'Modification Access'
+002B 002E 0004 B6 26 D5 5E   Modification Time   5ED526B6 (1591027382) 'Mon Jun  1 16:03:02 2020'
 002F 0032 0004 B6 26 D5 5E   Access Time         5ED526B6 (1591027382) 'Mon Jun  1 16:03:02 2020'
 0033 0034 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 0035 0036 0002 0B 00         Length              000B (11)
@@ -42,7 +42,7 @@
 006C 006C 0001 00          Extract OS            00 (0) 'MS-DOS'
 006D 006E 0002 00 00       General Purpose Flag  0000 (0)
 006F 0070 0002 00 00       Compression Method    0000 (0) 'Stored'
-0071 0074 0004 61 88 C1 50 Last Mod Date/Time    50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
+0071 0074 0004 61 88 C1 50 Modification Time     50C18861 (1354860641) 'Mon Jun  1 17:03:02 2020'
 0075 0078 0004 12 13 05 72 CRC                   72051312 (1912935186)
 0079 007C 0004 0F 00 00 00 Compressed Size       0000000F (15)
 007D 0080 0004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
@@ -60,8 +60,8 @@
                2E 74 78 74
 009B 009C 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 009D 009E 0002 05 00         Length              0005 (5)
-009F 009F 0001 03            Flags               03 (3) 'mod access'
-00A0 00A3 0004 B6 26 D5 5E   Mod Time            5ED526B6 (1591027382) 'Mon Jun  1 16:03:02 2020'
+009F 009F 0001 03            Flags               03 (3) 'Modification Access'
+00A0 00A3 0004 B6 26 D5 5E   Modification Time   5ED526B6 (1591027382) 'Mon Jun  1 16:03:02 2020'
 00A4 00A5 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
 00A6 00A7 0002 0B 00         Length              000B (11)
 00A8 00A8 0001 01            Version             01 (1)

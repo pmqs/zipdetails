@@ -4,7 +4,7 @@
 0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
 0006 0007 0002 00 00       General Purpose Flag  0000 (0)
 0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
-000A 000D 0004 33 71 6B 55 Last Mod Date/Time    556B7133 (1433104691) 'Fri Nov 11 14:09:38 2022'
+000A 000D 0004 33 71 6B 55 Modification Time     556B7133 (1433104691) 'Fri Nov 11 14:09:38 2022'
 000E 0011 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
 0012 0015 0004 05 00 00 00 Compressed Size       00000005 (5)
 0016 0019 0004 05 00 00 00 Uncompressed Size     00000005 (5)
@@ -14,13 +14,13 @@
                6E 61 6D 65
 0026 0027 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0028 0029 0002 04 00         Length              0004 (4)
-002A 002A 0001 09            Flags               09 (9) 'mod'
+002A 002A 0001 09            Flags               09 (9) 'Modification'
 #
 # INFO: Offset 0x2A: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
 #
 002B 002D 0003 61 62 63      Extra Data          abc
 #
-# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
+# ERROR: Offset 0x2B: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Modification Time'
 #        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 002E 0032 0005 61 62 63 64 PAYLOAD               abcde
@@ -33,7 +33,7 @@
 003A 003A 0001 00          Extract OS            00 (0) 'MS-DOS'
 003B 003C 0002 00 00       General Purpose Flag  0000 (0)
 003D 003E 0002 00 00       Compression Method    0000 (0) 'Stored'
-003F 0042 0004 33 71 6B 55 Last Mod Date/Time    556B7133 (1433104691) 'Fri Nov 11 14:09:38 2022'
+003F 0042 0004 33 71 6B 55 Modification Time     556B7133 (1433104691) 'Fri Nov 11 14:09:38 2022'
 0043 0046 0004 65 D8 87 85 CRC                   8587D865 (2240272485)
 0047 004A 0004 05 00 00 00 Compressed Size       00000005 (5)
 004B 004E 0004 05 00 00 00 Uncompressed Size     00000005 (5)
@@ -51,13 +51,13 @@
                6E 61 6D 65
 0069 006A 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 006B 006C 0002 04 00         Length              0004 (4)
-006D 006D 0001 09            Flags               09 (9) 'mod'
+006D 006D 0001 09            Flags               09 (9) 'Modification'
 #
 # INFO: Offset 0x6D: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Reserved bits set in 'Flags' field
 #
 006E 0070 0003 61 62 63      Extra Data          abc
 #
-# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Mod Time'
+# ERROR: Offset 0x6E: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Truncated reading 'Modification Time'
 #        Expected 0x4 (4) bytes, but only 0x3 (3) available
 #
 

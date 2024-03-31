@@ -6,7 +6,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
-000A 000D 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+000A 000D 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 000E 0011 0004 F9 DA D3 CC CRC                   CCD3DAF9 (3436436217)
 0012 0015 0004 5C 00 00 00 Compressed Size       0000005C (92)
 0016 0019 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
@@ -59,7 +59,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 00B9 00BA 0002 08 00       Compression Method    0008 (8) 'Deflated'
-00BB 00BE 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+00BB 00BE 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 00BF 00C2 0004 76 F2 9B B6 CRC                   B69BF276 (3063673462)
 00C3 00C6 0004 5C 00 00 00 Compressed Size       0000005C (92)
 00C7 00CA 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
@@ -71,10 +71,10 @@
                74 78 74
 00DE 00DF 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 00E0 00E1 0002 0D 00         Length              000D (13)
-00E2 00E2 0001 07            Flags               07 (7) 'mod access change'
-00E3 00E6 0004 5B FF 61 65   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00E2 00E2 0001 07            Flags               07 (7) 'Modification Access Creation'
+00E3 00E6 0004 5B FF 61 65   Modification Time   6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 00E7 00EA 0004 5B FF 61 65   Access Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
-00EB 00EE 0004 5B FF 61 65   Change Time         6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+00EB 00EE 0004 5B FF 61 65   Creation Time       6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 00EF 014A 005C F3 48 CD C9 PAYLOAD               .H....Q(..,VH..IU...1 V.A.....^IE.../......&?n\..q.......A"...7O}...q....@..X4+<n\..q...&^..
                C9 D7 51 28
                C9 C8 2C 56
@@ -106,7 +106,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 0153 0154 0002 08 00       Compression Method    0008 (8) 'Deflated'
-0155 0158 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+0155 0158 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 0159 015C 0004 5B 4C 03 57 CRC                   57034C5B (1459833947)
 015D 0160 0004 5C 00 00 00 Compressed Size       0000005C (92)
 0161 0164 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
@@ -149,7 +149,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 01DE 01DF 0002 08 00       Compression Method    0008 (8) 'Deflated'
-01E0 01E3 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+01E0 01E3 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 01E4 01E7 0004 5B 4C 03 57 CRC                   57034C5B (1459833947)
 01E8 01EB 0004 5C 00 00 00 Compressed Size       0000005C (92)
 01EC 01EF 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
@@ -197,7 +197,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 026B 026C 0002 08 00       Compression Method    0008 (8) 'Deflated'
-026D 0270 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+026D 0270 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 0271 0274 0004 76 F2 9B B6 CRC                   B69BF276 (3063673462)
 0275 0278 0004 5C 00 00 00 Compressed Size       0000005C (92)
 0279 027C 0004 6F 00 00 00 Uncompressed Size     0000006F (111)
@@ -215,8 +215,8 @@
                74 78 74
 029E 029F 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 02A0 02A1 0002 05 00         Length              0005 (5)
-02A2 02A2 0001 07            Flags               07 (7) 'mod access change'
-02A3 02A6 0004 5B FF 61 65   Mod Time            6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
+02A2 02A2 0001 07            Flags               07 (7) 'Modification Access Creation'
+02A3 02A6 0004 5B FF 61 65   Modification Time   6561FF5B (1700921179) 'Sat Nov 25 14:06:19 2023'
 02A7 02D2 002C 54 68 69 73 Comment               'This is comment for file '\file_0x5455.txt'.'
                20 69 73 20
                63 6F 6D 6D
@@ -238,7 +238,7 @@
                            [Bits 1-2]            1 'Maximum Compression'
                            [Bit 11]              1 'Language Encoding'
 02DD 02DE 0002 08 00       Compression Method    0008 (8) 'Deflated'
-02DF 02E2 0004 C9 B8 79 57 Last Mod Date/Time    5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
+02DF 02E2 0004 C9 B8 79 57 Modification Time     5779B8C9 (1467594953) 'Sat Nov 25 23:06:18 2023'
 02E3 02E6 0004 F9 DA D3 CC CRC                   CCD3DAF9 (3436436217)
 02E7 02EA 0004 5C 00 00 00 Compressed Size       0000005C (92)
 02EB 02EE 0004 6F 00 00 00 Uncompressed Size     0000006F (111)

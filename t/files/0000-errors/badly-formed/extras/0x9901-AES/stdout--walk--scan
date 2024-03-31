@@ -6,7 +6,7 @@
      [Bit  0]              1 'Encryption'
      [Bit  3]              1 'Streamed'
 0008 Compression Method    0063 'AES Encryption'
-000A Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+000A Modification Time     3B0CA600 'Wed Aug 12 20:48:00 2009'
 000E CRC                   78E7FB10
 0012 Compressed Length     00001B54
 0016 Uncompressed Length   00005A0B
@@ -15,8 +15,8 @@
 001E Filename              'zipcloak.c'
 0028 Extra ID #0001        5455 'Extended Timestamp [UT]'
 002A   Length              0005
-002C   Flags               '01 mod'
-002D   Mod Time            4A8370D0 'Thu Aug 13 01:48:00 2009'
+002C   Flags               01 'Modification''
+002D   Modification Time   4A8370D0 'Thu Aug 13 01:48:00 2009'
 0031 Extra ID #0002        9901 'AES Encryption'
 0033   Length              0007
 0035   Vendor Version      0000 'Unknown'
@@ -39,7 +39,7 @@
 1BA6 General Purpose Flag  0001
      [Bit  0]              1 'Encryption'
 1BA8 Compression Method    0063 'AES Encryption'
-1BAA Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+1BAA Modification Time     3B0CA600 'Wed Aug 12 20:48:00 2009'
 1BAE CRC                   E87DFAD7
 1BB2 Compressed Length     000021F3
 1BB6 Uncompressed Length   00006A79
@@ -107,7 +107,7 @@
      [Bit  0]              1 'Encryption'
      [Bit  3]              1 'Streamed'
 3E53 Compression Method    0063 'AES Encryption'
-3E55 Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+3E55 Modification Time     3B0CA600 'Wed Aug 12 20:48:00 2009'
 3E59 CRC                   78E7FB10
 3E5D Compressed Length     00001B54
 3E61 Uncompressed Length   00005A0B
@@ -122,8 +122,8 @@
 3E77 Filename              'zipcloak.c'
 3E81 Extra ID #0001        5455 'Extended Timestamp [UT]'
 3E83   Length              0005
-3E85   Flags               '01 mod'
-3E86   Mod Time            4A8370D0 'Thu Aug 13 01:48:00 2009'
+3E85   Flags               01 'Modification''
+3E86   Modification Time   4A8370D0 'Thu Aug 13 01:48:00 2009'
 3E8A Extra ID #0002        9901 'AES Encryption'
 3E8C   Length              0007
 3E8E   Vendor Version      0001 'AE-1'
@@ -139,7 +139,7 @@
 3E9D General Purpose Flag  0001
      [Bit  0]              1 'Encryption'
 3E9F Compression Method    0063 'AES Encryption'
-3EA1 Last Mod Time         3B0CA600 'Wed Aug 12 20:48:00 2009'
+3EA1 Modification Time     3B0CA600 'Wed Aug 12 20:48:00 2009'
 3EA5 CRC                   E87DFAD7
 3EA9 Compressed Length     000021F3
 3EAD Uncompressed Length   00006A79

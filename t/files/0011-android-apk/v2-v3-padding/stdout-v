@@ -7,7 +7,7 @@
                               [Bit  3]              1 'Streamed'
                               [Bit 11]              1 'Language Encoding'
 00008 00009 00002 08 00       Compression Method    0008 (8) 'Deflated'
-0000A 0000D 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+0000A 0000D 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 0000E 00011 00004 85 60 11 ED CRC                   ED116085 (3977339013)
 #
 # WARNING: Offset 0xE: CRC field should be zero when streaming is enabled
@@ -31,7 +31,7 @@
 9D7EB 9D7EB 00001 00          Extract OS            00 (0) 'MS-DOS'
 9D7EC 9D7ED 00002 00 00       General Purpose Flag  0000 (0)
 9D7EE 9D7EF 00002 00 00       Compression Method    0000 (0) 'Stored'
-9D7F0 9D7F3 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9D7F0 9D7F3 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9D7F4 9D7F7 00004 12 FA 55 8B CRC                   8B55FA12 (2337667602)
 9D7F8 9D7FB 00004 35 00 00 00 Compressed Size       00000035 (53)
 9D7FC 9D7FF 00004 35 00 00 00 Uncompressed Size     00000035 (53)
@@ -67,7 +67,7 @@
 9D863 9D864 00002 00 00       General Purpose Flag  0000 (0)
                               [Bits 1-2]            0 'Normal Compression'
 9D865 9D866 00002 08 00       Compression Method    0008 (8) 'Deflated'
-9D867 9D86A 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9D867 9D86A 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9D86B 9D86E 00004 06 E5 80 D1 CRC                   D180E506 (3514885382)
 9D86F 9D872 00004 63 05 00 00 Compressed Size       00000563 (1379)
 9D873 9D876 00004 54 17 00 00 Uncompressed Size     00001754 (5972)
@@ -85,7 +85,7 @@
 9DDF6 9DDF6 00001 00          Extract OS            00 (0) 'MS-DOS'
 9DDF7 9DDF8 00002 00 00       General Purpose Flag  0000 (0)
 9DDF9 9DDFA 00002 00 00       Compression Method    0000 (0) 'Stored'
-9DDFB 9DDFE 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9DDFB 9DDFE 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9DDFF 9DE02 00004 07 90 69 5C CRC                   5C699007 (1550422023)
 9DE03 9DE06 00004 69 04 00 00 Compressed Size       00000469 (1129)
 9DE07 9DE0A 00004 69 04 00 00 Uncompressed Size     00000469 (1129)
@@ -110,7 +110,7 @@
 9E2AA 9E2AA 00001 00          Extract OS            00 (0) 'MS-DOS'
 9E2AB 9E2AC 00002 00 00       General Purpose Flag  0000 (0)
 9E2AD 9E2AE 00002 00 00       Compression Method    0000 (0) 'Stored'
-9E2AF 9E2B2 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9E2AF 9E2B2 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9E2B3 9E2B6 00004 2E 12 C9 CE CRC                   CEC9122E (3469283886)
 9E2B7 9E2BA 00004 61 06 00 00 Compressed Size       00000661 (1633)
 9E2BB 9E2BE 00004 61 06 00 00 Uncompressed Size     00000661 (1633)
@@ -135,7 +135,7 @@
 9E956 9E956 00001 00          Extract OS            00 (0) 'MS-DOS'
 9E957 9E958 00002 00 00       General Purpose Flag  0000 (0)
 9E959 9E95A 00002 00 00       Compression Method    0000 (0) 'Stored'
-9E95B 9E95E 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9E95B 9E95E 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9E95F 9E962 00004 EB 95 CC 20 CRC                   20CC95EB (550278635)
 9E963 9E966 00004 91 09 00 00 Compressed Size       00000991 (2449)
 9E967 9E96A 00004 91 09 00 00 Uncompressed Size     00000991 (2449)
@@ -164,7 +164,7 @@
 9F336 9F336 00001 00          Extract OS            00 (0) 'MS-DOS'
 9F337 9F338 00002 00 00       General Purpose Flag  0000 (0)
 9F339 9F33A 00002 00 00       Compression Method    0000 (0) 'Stored'
-9F33B 9F33E 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+9F33B 9F33E 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 9F33F 9F342 00004 5F A1 3A 59 CRC                   593AA15F (1497014623)
 9F343 9F346 00004 7B 0D 00 00 Compressed Size       00000D7B (3451)
 9F347 9F34A 00004 7B 0D 00 00 Uncompressed Size     00000D7B (3451)
@@ -193,7 +193,7 @@ A00FF A00FF 00001 00          Extract Zip Spec      00 (0) '0.0'
 A0100 A0100 00001 00          Extract OS            00 (0) 'MS-DOS'
 A0101 A0102 00002 00 00       General Purpose Flag  0000 (0)
 A0103 A0104 00002 00 00       Compression Method    0000 (0) 'Stored'
-A0105 A0108 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A0105 A0108 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A0109 A010C 00004 CE 80 04 D8 CRC                   D80480CE (3624173774)
 A010D A0110 00004 E1 13 00 00 Compressed Size       000013E1 (5089)
 A0111 A0114 00004 E1 13 00 00 Uncompressed Size     000013E1 (5089)
@@ -222,7 +222,7 @@ A1531 A1531 00001 00          Extract Zip Spec      00 (0) '0.0'
 A1532 A1532 00001 00          Extract OS            00 (0) 'MS-DOS'
 A1533 A1534 00002 00 00       General Purpose Flag  0000 (0)
 A1535 A1536 00002 00 00       Compression Method    0000 (0) 'Stored'
-A1537 A153A 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A1537 A153A 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A153B A153E 00004 B3 EE 85 BD CRC                   BD85EEB3 (3179671219)
 A153F A1542 00004 6C 07 00 00 Compressed Size       0000076C (1900)
 A1543 A1546 00004 6C 07 00 00 Uncompressed Size     0000076C (1900)
@@ -243,7 +243,7 @@ A1CCC A1CCC 00001 14          Extract Zip Spec      14 (20) '2.0'
 A1CCD A1CCD 00001 00          Extract OS            00 (0) 'MS-DOS'
 A1CCE A1CCF 00002 00 00       General Purpose Flag  0000 (0)
 A1CD0 A1CD1 00002 00 00       Compression Method    0000 (0) 'Stored'
-A1CD2 A1CD5 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A1CD2 A1CD5 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A1CD6 A1CD9 00004 66 3C 6C 04 CRC                   046C3C66 (74202214)
 A1CDA A1CDD 00004 7C 00 00 00 Compressed Size       0000007C (124)
 A1CDE A1CE1 00004 7C 00 00 00 Uncompressed Size     0000007C (124)
@@ -306,7 +306,7 @@ A1DAE A1DAF 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A1DB0 A1DB1 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A1DB2 A1DB5 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A1DB2 A1DB5 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A1DB6 A1DB9 00004 54 71 EC D8 CRC                   D8EC7154 (3639374164)
 A1DBA A1DBD 00004 18 02 00 00 Compressed Size       00000218 (536)
 A1DBE A1DC1 00004 17 04 00 00 Uncompressed Size     00000417 (1047)
@@ -325,7 +325,7 @@ A1FF4 A1FF5 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A1FF6 A1FF7 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A1FF8 A1FFB 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A1FF8 A1FFB 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A1FFC A1FFF 00004 3B 44 49 30 CRC                   3049443B (810107963)
 A2000 A2003 00004 D8 02 00 00 Compressed Size       000002D8 (728)
 A2004 A2007 00004 76 03 00 00 Uncompressed Size     00000376 (886)
@@ -345,7 +345,7 @@ A22FB A22FC 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A22FD A22FE 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A22FF A2302 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A22FF A2302 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A2303 A2306 00004 6A 81 9B D0 CRC                   D09B816A (3499852138)
 A2307 A230A 00004 E5 01 00 00 Compressed Size       000001E5 (485)
 A230B A230E 00004 C2 03 00 00 Uncompressed Size     000003C2 (962)
@@ -391,7 +391,7 @@ A4008 A4009 00002 08 08       General Purpose Flag  0808 (2056)
                               [Bit  3]              1 'Streamed'
                               [Bit 11]              1 'Language Encoding'
 A400A A400B 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A400C A400F 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A400C A400F 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4010 A4013 00004 85 60 11 ED CRC                   ED116085 (3977339013)
 A4014 A4017 00004 AD D7 09 00 Compressed Size       0009D7AD (645037)
 A4018 A401B 00004 C8 FF 17 00 Uncompressed Size     0017FFC8 (1572808)
@@ -414,7 +414,7 @@ A403F A403F 00001 0A          Extract Zip Spec      0A (10) '1.0'
 A4040 A4040 00001 00          Extract OS            00 (0) 'MS-DOS'
 A4041 A4042 00002 00 00       General Purpose Flag  0000 (0)
 A4043 A4044 00002 00 00       Compression Method    0000 (0) 'Stored'
-A4045 A4048 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4045 A4048 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4049 A404C 00004 12 FA 55 8B CRC                   8B55FA12 (2337667602)
 A404D A4050 00004 35 00 00 00 Compressed Size       00000035 (53)
 A4051 A4054 00004 35 00 00 00 Uncompressed Size     00000035 (53)
@@ -446,7 +446,7 @@ A4092 A4092 00001 00          Extract OS            00 (0) 'MS-DOS'
 A4093 A4094 00002 00 00       General Purpose Flag  0000 (0)
                               [Bits 1-2]            0 'Normal Compression'
 A4095 A4096 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A4097 A409A 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4097 A409A 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A409B A409E 00004 06 E5 80 D1 CRC                   D180E506 (3514885382)
 A409F A40A2 00004 63 05 00 00 Compressed Size       00000563 (1379)
 A40A3 A40A6 00004 54 17 00 00 Uncompressed Size     00001754 (5972)
@@ -471,7 +471,7 @@ A40D2 A40D2 00001 00          Extract Zip Spec      00 (0) '0.0'
 A40D3 A40D3 00001 00          Extract OS            00 (0) 'MS-DOS'
 A40D4 A40D5 00002 00 00       General Purpose Flag  0000 (0)
 A40D6 A40D7 00002 00 00       Compression Method    0000 (0) 'Stored'
-A40D8 A40DB 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A40D8 A40DB 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A40DC A40DF 00004 07 90 69 5C CRC                   5C699007 (1550422023)
 A40E0 A40E3 00004 69 04 00 00 Compressed Size       00000469 (1129)
 A40E4 A40E7 00004 69 04 00 00 Uncompressed Size     00000469 (1129)
@@ -503,7 +503,7 @@ A412D A412D 00001 00          Extract Zip Spec      00 (0) '0.0'
 A412E A412E 00001 00          Extract OS            00 (0) 'MS-DOS'
 A412F A4130 00002 00 00       General Purpose Flag  0000 (0)
 A4131 A4132 00002 00 00       Compression Method    0000 (0) 'Stored'
-A4133 A4136 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4133 A4136 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4137 A413A 00004 2E 12 C9 CE CRC                   CEC9122E (3469283886)
 A413B A413E 00004 61 06 00 00 Compressed Size       00000661 (1633)
 A413F A4142 00004 61 06 00 00 Uncompressed Size     00000661 (1633)
@@ -535,7 +535,7 @@ A4188 A4188 00001 00          Extract Zip Spec      00 (0) '0.0'
 A4189 A4189 00001 00          Extract OS            00 (0) 'MS-DOS'
 A418A A418B 00002 00 00       General Purpose Flag  0000 (0)
 A418C A418D 00002 00 00       Compression Method    0000 (0) 'Stored'
-A418E A4191 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A418E A4191 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4192 A4195 00004 EB 95 CC 20 CRC                   20CC95EB (550278635)
 A4196 A4199 00004 91 09 00 00 Compressed Size       00000991 (2449)
 A419A A419D 00004 91 09 00 00 Uncompressed Size     00000991 (2449)
@@ -567,7 +567,7 @@ A41E4 A41E4 00001 00          Extract Zip Spec      00 (0) '0.0'
 A41E5 A41E5 00001 00          Extract OS            00 (0) 'MS-DOS'
 A41E6 A41E7 00002 00 00       General Purpose Flag  0000 (0)
 A41E8 A41E9 00002 00 00       Compression Method    0000 (0) 'Stored'
-A41EA A41ED 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A41EA A41ED 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A41EE A41F1 00004 5F A1 3A 59 CRC                   593AA15F (1497014623)
 A41F2 A41F5 00004 7B 0D 00 00 Compressed Size       00000D7B (3451)
 A41F6 A41F9 00004 7B 0D 00 00 Uncompressed Size     00000D7B (3451)
@@ -599,7 +599,7 @@ A4241 A4241 00001 00          Extract Zip Spec      00 (0) '0.0'
 A4242 A4242 00001 00          Extract OS            00 (0) 'MS-DOS'
 A4243 A4244 00002 00 00       General Purpose Flag  0000 (0)
 A4245 A4246 00002 00 00       Compression Method    0000 (0) 'Stored'
-A4247 A424A 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4247 A424A 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A424B A424E 00004 CE 80 04 D8 CRC                   D80480CE (3624173774)
 A424F A4252 00004 E1 13 00 00 Compressed Size       000013E1 (5089)
 A4253 A4256 00004 E1 13 00 00 Uncompressed Size     000013E1 (5089)
@@ -631,7 +631,7 @@ A429F A429F 00001 00          Extract Zip Spec      00 (0) '0.0'
 A42A0 A42A0 00001 00          Extract OS            00 (0) 'MS-DOS'
 A42A1 A42A2 00002 00 00       General Purpose Flag  0000 (0)
 A42A3 A42A4 00002 00 00       Compression Method    0000 (0) 'Stored'
-A42A5 A42A8 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A42A5 A42A8 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A42A9 A42AC 00004 B3 EE 85 BD CRC                   BD85EEB3 (3179671219)
 A42AD A42B0 00004 6C 07 00 00 Compressed Size       0000076C (1900)
 A42B1 A42B4 00004 6C 07 00 00 Uncompressed Size     0000076C (1900)
@@ -655,7 +655,7 @@ A42DB A42DB 00001 14          Extract Zip Spec      14 (20) '2.0'
 A42DC A42DC 00001 00          Extract OS            00 (0) 'MS-DOS'
 A42DD A42DE 00002 00 00       General Purpose Flag  0000 (0)
 A42DF A42E0 00002 00 00       Compression Method    0000 (0) 'Stored'
-A42E1 A42E4 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A42E1 A42E4 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A42E5 A42E8 00004 66 3C 6C 04 CRC                   046C3C66 (74202214)
 A42E9 A42EC 00004 7C 00 00 00 Compressed Size       0000007C (124)
 A42ED A42F0 00004 7C 00 00 00 Uncompressed Size     0000007C (124)
@@ -695,7 +695,7 @@ A4351 A4352 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A4353 A4354 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A4355 A4358 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4355 A4358 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4359 A435C 00004 54 71 EC D8 CRC                   D8EC7154 (3639374164)
 A435D A4360 00004 18 02 00 00 Compressed Size       00000218 (536)
 A4361 A4364 00004 17 04 00 00 Uncompressed Size     00000417 (1047)
@@ -721,7 +721,7 @@ A438F A4390 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A4391 A4392 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A4393 A4396 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A4393 A4396 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A4397 A439A 00004 3B 44 49 30 CRC                   3049443B (810107963)
 A439B A439E 00004 D8 02 00 00 Compressed Size       000002D8 (728)
 A439F A43A2 00004 76 03 00 00 Uncompressed Size     00000376 (886)
@@ -748,7 +748,7 @@ A43CE A43CF 00002 00 08       General Purpose Flag  0800 (2048)
                               [Bits 1-2]            0 'Normal Compression'
                               [Bit 11]              1 'Language Encoding'
 A43D0 A43D1 00002 08 00       Compression Method    0008 (8) 'Deflated'
-A43D2 A43D5 00004 00 00 21 3C Last Mod Date/Time    3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
+A43D2 A43D5 00004 00 00 21 3C Modification Time     3C210000 (1008795648) 'Fri Jan  1 00:00:00 2010'
 A43D6 A43D9 00004 6A 81 9B D0 CRC                   D09B816A (3499852138)
 A43DA A43DD 00004 E5 01 00 00 Compressed Size       000001E5 (485)
 A43DE A43E1 00004 C2 03 00 00 Uncompressed Size     000003C2 (962)
