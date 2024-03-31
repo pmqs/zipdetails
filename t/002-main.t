@@ -30,7 +30,11 @@ use Fcntl qw(SEEK_SET);
 
 my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
-plan tests => 215 * $tests_per_zip_full ;
+
+my $test_count = 1 ;
+$test_count += 215 if -e 't/files';
+
+plan tests => $test_count * $tests_per_zip_full ;
 
 sub run;
 sub compareWithGolden;
@@ -104,7 +108,7 @@ find(
         sub { $dirs{$File::Find::dir} = $_
                  if /\.($exts)$/i && ! $skip_dirs{ $File::Find::dir };
              },
-             't/files'
+             't/sanity', -e 't/files' ? 't/files' : ()
     );
 
 for my $dir (sort keys %dirs)
