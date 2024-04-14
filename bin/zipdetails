@@ -29,7 +29,7 @@ use Encode;
 use Getopt::Long;
 use List::Util qw(min max);
 
-my $VERSION = '4.002' ;
+my $VERSION = '4.003' ;
 
 sub fatal_tryWalk;
 sub fatal_truncated ;
