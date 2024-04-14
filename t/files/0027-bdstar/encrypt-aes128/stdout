@@ -1,0 +1,106 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0009 (9)
+     [Bit  0]              1 'Encryption'
+     [Bit  3]              1 'Streamed'
+0008 Compression Method    0063 (99) 'AES Encryption'
+000A Modification Time     588EA5BC (1485743548) 'Sun Apr 14 20:45:56 2024'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     000001BE (446)
+001A Filename Length       0009 (9)
+001C Extra Length          002B (43)
+001E Filename              'lorem.txt'
+0027 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0029   Length              000D (13)
+002B   Flags               07 (7) 'Modification Access Creation'
+002C   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+0030   Access Time         661C32A8 (1713124008) 'Sun Apr 14 19:46:48 2024'
+0034   Creation Time       661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+0038 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+003A   Length              000B (11)
+003C   Version             01 (1)
+003D   UID Size            04 (4)
+003E   UID                 000003E8 (1000)
+0042   GID Size            04 (4)
+0043   GID                 000003E8 (1000)
+0047 Extra ID #3           9901 (39169) 'AES Encryption'
+0049   Length              0007 (7)
+004B   Vendor Version      0001 (1) 'AE-1'
+004D   Vendor ID           4541 (17729) 'AE'
+004F   Encryption Strength 01 (1) '128-bit encryption key'
+0050   Compression Method  0008 (8) 'Deflated'
+0052 AES Salt              FF F9 29 70 3C F9 98 4C
+005A AES Pwd Ver           97 FA
+005C PAYLOAD
+016A AES Auth              D6 4F 6B C9 30 41 64 EE 16 B9
+
+0174 DATA DESCRIPTOR       08074B50 (134695760)
+0178 CRC                   F90EE7FF (4178503679)
+017C Compressed Size       00000122 (290)
+0180 Uncompressed Size     000001BE (446)
+
+0184 CENTRAL HEADER #1     02014B50 (33639248)
+0188 Created Zip Spec      14 (20) '2.0'
+0189 Created OS            03 (3) 'Unix'
+018A Extract Zip Spec      14 (20) '2.0'
+018B Extract OS            00 (0) 'MS-DOS'
+018C General Purpose Flag  0009 (9)
+     [Bit  0]              1 'Encryption'
+     [Bit  3]              1 'Streamed'
+018E Compression Method    0063 (99) 'AES Encryption'
+0190 Modification Time     588EA5BC (1485743548) 'Sun Apr 14 20:45:56 2024'
+0194 CRC                   F90EE7FF (4178503679)
+0198 Compressed Size       00000122 (290)
+019C Uncompressed Size     000001BE (446)
+01A0 Filename Length       0009 (9)
+01A2 Extra Length          002B (43)
+01A4 Comment Length        0000 (0)
+01A6 Disk Start            0000 (0)
+01A8 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+01AA Ext File Attributes   81ED0000 (2179792896)
+     [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+     [Bits 28-31]          08 (8) 'Regular File'
+01AE Local Header Offset   00000000 (0)
+01B2 Filename              'lorem.txt'
+01BB Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+01BD   Length              000D (13)
+01BF   Flags               07 (7) 'Modification Access Creation'
+01C0   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+#
+# INFO: Offset 0x1C4: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
+01C4   Access Time         661C32A8 (1713124008) 'Sun Apr 14 19:46:48 2024'
+#
+# INFO: Offset 0x1C8: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Creation Time' present
+#
+01C8   Creation Time       661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+01CC Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+01CE   Length              000B (11)
+01D0   Version             01 (1)
+01D1   UID Size            04 (4)
+01D2   UID                 000003E8 (1000)
+01D6   GID Size            04 (4)
+01D7   GID                 000003E8 (1000)
+01DB Extra ID #3           9901 (39169) 'AES Encryption'
+01DD   Length              0007 (7)
+01DF   Vendor Version      0001 (1) 'AE-1'
+01E1   Vendor ID           4541 (17729) 'AE'
+01E3   Encryption Strength 01 (1) '128-bit encryption key'
+01E4   Compression Method  0008 (8) 'Deflated'
+
+01E6 END CENTRAL HEADER    06054B50 (101010256)
+01EA Number of this disk   0000 (0)
+01EC Central Dir Disk no   0000 (0)
+01EE Entries in this disk  0001 (1)
+01F0 Total Entries         0001 (1)
+01F2 Size of Central Dir   00000062 (98)
+01F6 Offset to Central Dir 00000184 (388)
+01FA Comment Length        0000 (0)
+#
+# Info Count: 2
+#
+# Done

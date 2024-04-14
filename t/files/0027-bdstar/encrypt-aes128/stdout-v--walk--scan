@@ -1,0 +1,110 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 09 00       General Purpose Flag  0009 (9)
+                           [Bit  0]              1 'Encryption'
+                           [Bit  3]              1 'Streamed'
+0008 0009 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
+000A 000D 0004 BC A5 8E 58 Modification Time     588EA5BC (1485743548) 'Sun Apr 14 20:45:56 2024'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+001A 001B 0002 09 00       Filename Length       0009 (9)
+001C 001D 0002 2B 00       Extra Length          002B (43)
+001E 0026 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+0027 0028 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0029 002A 0002 0D 00         Length              000D (13)
+002B 002B 0001 07            Flags               07 (7) 'Modification Access Creation'
+002C 002F 0004 74 32 1C 66   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+0030 0033 0004 A8 32 1C 66   Access Time         661C32A8 (1713124008) 'Sun Apr 14 19:46:48 2024'
+0034 0037 0004 74 32 1C 66   Creation Time       661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+0038 0039 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+003A 003B 0002 0B 00         Length              000B (11)
+003C 003C 0001 01            Version             01 (1)
+003D 003D 0001 04            UID Size            04 (4)
+003E 0041 0004 E8 03 00 00   UID                 000003E8 (1000)
+0042 0042 0001 04            GID Size            04 (4)
+0043 0046 0004 E8 03 00 00   GID                 000003E8 (1000)
+0047 0048 0002 01 99       Extra ID #3           9901 (39169) 'AES Encryption'
+0049 004A 0002 07 00         Length              0007 (7)
+004B 004C 0002 01 00         Vendor Version      0001 (1) 'AE-1'
+004D 004E 0002 41 45         Vendor ID           4541 (17729) 'AE'
+004F 004F 0001 01            Encryption Strength 01 (1) '128-bit encryption key'
+0050 0051 0002 08 00         Compression Method  0008 (8) 'Deflated'
+0052 0059 0008 FF F9 29 70 AES Salt              FF F9 29 70 3C F9 98 4C
+               3C F9 98 4C
+005A 005B 0002 97 FA       AES Pwd Ver           97 FA
+005C 0173 0118 ...         PAYLOAD
+
+0174 0177 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
+0178 017B 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+017C 017F 0004 22 01 00 00 Compressed Size       00000122 (290)
+0180 0183 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+
+0184 0187 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0188 0188 0001 14          Created Zip Spec      14 (20) '2.0'
+0189 0189 0001 03          Created OS            03 (3) 'Unix'
+018A 018A 0001 14          Extract Zip Spec      14 (20) '2.0'
+018B 018B 0001 00          Extract OS            00 (0) 'MS-DOS'
+018C 018D 0002 09 00       General Purpose Flag  0009 (9)
+                           [Bit  0]              1 'Encryption'
+                           [Bit  3]              1 'Streamed'
+018E 018F 0002 63 00       Compression Method    0063 (99) 'AES Encryption'
+0190 0193 0004 BC A5 8E 58 Modification Time     588EA5BC (1485743548) 'Sun Apr 14 20:45:56 2024'
+0194 0197 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0198 019B 0004 22 01 00 00 Compressed Size       00000122 (290)
+019C 019F 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+01A0 01A1 0002 09 00       Filename Length       0009 (9)
+01A2 01A3 0002 2B 00       Extra Length          002B (43)
+01A4 01A5 0002 00 00       Comment Length        0000 (0)
+01A6 01A7 0002 00 00       Disk Start            0000 (0)
+01A8 01A9 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+01AA 01AD 0004 00 00 ED 81 Ext File Attributes   81ED0000 (2179792896)
+                           [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 (8) 'Regular File'
+01AE 01B1 0004 00 00 00 00 Local Header Offset   00000000 (0)
+01B2 01BA 0009 6C 6F 72 65 Filename              'lorem.txt'
+               6D 2E 74 78
+               74
+01BB 01BC 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+01BD 01BE 0002 0D 00         Length              000D (13)
+01BF 01BF 0001 07            Flags               07 (7) 'Modification Access Creation'
+01C0 01C3 0004 74 32 1C 66   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+#
+# INFO: Offset 0x1C4: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
+01C4 01C7 0004 A8 32 1C 66   Access Time         661C32A8 (1713124008) 'Sun Apr 14 19:46:48 2024'
+#
+# INFO: Offset 0x1C8: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Creation Time' present
+#
+01C8 01CB 0004 74 32 1C 66   Creation Time       661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
+01CC 01CD 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+01CE 01CF 0002 0B 00         Length              000B (11)
+01D0 01D0 0001 01            Version             01 (1)
+01D1 01D1 0001 04            UID Size            04 (4)
+01D2 01D5 0004 E8 03 00 00   UID                 000003E8 (1000)
+01D6 01D6 0001 04            GID Size            04 (4)
+01D7 01DA 0004 E8 03 00 00   GID                 000003E8 (1000)
+01DB 01DC 0002 01 99       Extra ID #3           9901 (39169) 'AES Encryption'
+01DD 01DE 0002 07 00         Length              0007 (7)
+01DF 01E0 0002 01 00         Vendor Version      0001 (1) 'AE-1'
+01E1 01E2 0002 41 45         Vendor ID           4541 (17729) 'AE'
+01E3 01E3 0001 01            Encryption Strength 01 (1) '128-bit encryption key'
+01E4 01E5 0002 08 00         Compression Method  0008 (8) 'Deflated'
+
+01E6 01E9 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01EA 01EB 0002 00 00       Number of this disk   0000 (0)
+01EC 01ED 0002 00 00       Central Dir Disk no   0000 (0)
+01EE 01EF 0002 01 00       Entries in this disk  0001 (1)
+01F0 01F1 0002 01 00       Total Entries         0001 (1)
+01F2 01F5 0004 62 00 00 00 Size of Central Dir   00000062 (98)
+01F6 01F9 0004 84 01 00 00 Offset to Central Dir 00000184 (388)
+01FA 01FB 0002 00 00       Comment Length        0000 (0)
+#
+# Info Count: 2
+#
+# Done

@@ -1,0 +1,81 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Modification Time     588EA6C9 (1485743817) 'Sun Apr 14 20:54:18 2024'
+000E CRC                   00000000 (0)
+0012 Compressed Size       00000000 (0)
+0016 Uncompressed Size     00000000 (0)
+001A Filename Length       0004 (4)
+001C Extra Length          0020 (32)
+001E Filename              'dir/'
+0022 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0024   Length              000D (13)
+0026   Flags               07 (7) 'Modification Access Creation'
+0027   Modification Time   661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
+002B   Access Time         661C346C (1713124460) 'Sun Apr 14 19:54:20 2024'
+002F   Creation Time       661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
+0033 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0035   Length              000B (11)
+0037   Version             01 (1)
+0038   UID Size            04 (4)
+0039   UID                 000003E8 (1000)
+003D   GID Size            04 (4)
+003E   GID                 000003E8 (1000)
+
+0042 CENTRAL HEADER #1     02014B50 (33639248)
+0046 Created Zip Spec      14 (20) '2.0'
+0047 Created OS            03 (3) 'Unix'
+0048 Extract Zip Spec      14 (20) '2.0'
+0049 Extract OS            00 (0) 'MS-DOS'
+004A General Purpose Flag  0000 (0)
+004C Compression Method    0000 (0) 'Stored'
+004E Modification Time     588EA6C9 (1485743817) 'Sun Apr 14 20:54:18 2024'
+0052 CRC                   00000000 (0)
+0056 Compressed Size       00000000 (0)
+005A Uncompressed Size     00000000 (0)
+005E Filename Length       0004 (4)
+0060 Extra Length          0020 (32)
+0062 Comment Length        0000 (0)
+0064 Disk Start            0000 (0)
+0066 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0068 Ext File Attributes   41FD0000 (1107099648)
+     [Bits 16-24]          01FD (509) 'Unix attrib: rwxrwxr-x'
+     [Bits 28-31]          04 (4) 'Directory'
+006C Local Header Offset   00000000 (0)
+0070 Filename              'dir/'
+0074 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0076   Length              000D (13)
+0078   Flags               07 (7) 'Modification Access Creation'
+0079   Modification Time   661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
+#
+# INFO: Offset 0x7D: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
+007D   Access Time         661C346C (1713124460) 'Sun Apr 14 19:54:20 2024'
+#
+# INFO: Offset 0x81: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Creation Time' present
+#
+0081   Creation Time       661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
+0085 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0087   Length              000B (11)
+0089   Version             01 (1)
+008A   UID Size            04 (4)
+008B   UID                 000003E8 (1000)
+008F   GID Size            04 (4)
+0090   GID                 000003E8 (1000)
+
+0094 END CENTRAL HEADER    06054B50 (101010256)
+0098 Number of this disk   0000 (0)
+009A Central Dir Disk no   0000 (0)
+009C Entries in this disk  0001 (1)
+009E Total Entries         0001 (1)
+00A0 Size of Central Dir   00000052 (82)
+00A4 Offset to Central Dir 00000042 (66)
+00A8 Comment Length        0000 (0)
+#
+# Info Count: 2
+#
+# Done

@@ -1,0 +1,95 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 08 08       General Purpose Flag  0808 (2056)
+                           [Bits 1-2]            0 'Normal Compression'
+                           [Bit  3]              1 'Streamed'
+                           [Bit 11]              1 'Language Encoding'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 DB A8 8E 58 Modification Time     588EA8DB (1485744347) 'Sun Apr 14 21:06:54 2024'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+001A 001B 0002 05 00       Filename Length       0005 (5)
+001C 001D 0002 20 00       Extra Length          0020 (32)
+001E 0022 0005 43 61 66 C3 Filename              'Café'
+               A9
+0023 0024 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0025 0026 0002 0D 00         Length              000D (13)
+0027 0027 0001 07            Flags               07 (7) 'Modification Access Creation'
+0028 002B 0004 5E 37 1C 66   Modification Time   661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+002C 002F 0004 5E 37 1C 66   Access Time         661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+0030 0033 0004 5E 37 1C 66   Creation Time       661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+0034 0035 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+0036 0037 0002 0B 00         Length              000B (11)
+0038 0038 0001 01            Version             01 (1)
+0039 0039 0001 04            UID Size            04 (4)
+003A 003D 0004 E8 03 00 00   UID                 000003E8 (1000)
+003E 003E 0001 04            GID Size            04 (4)
+003F 0042 0004 E8 03 00 00   GID                 000003E8 (1000)
+0043 0150 010E ...         PAYLOAD
+
+0151 0154 0004 50 4B 07 08 DATA DESCRIPTOR       08074B50 (134695760)
+0155 0158 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0159 015C 0004 0E 01 00 00 Compressed Size       0000010E (270)
+015D 0160 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+
+0161 0164 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0165 0165 0001 14          Created Zip Spec      14 (20) '2.0'
+0166 0166 0001 03          Created OS            03 (3) 'Unix'
+0167 0167 0001 14          Extract Zip Spec      14 (20) '2.0'
+0168 0168 0001 00          Extract OS            00 (0) 'MS-DOS'
+0169 016A 0002 08 08       General Purpose Flag  0808 (2056)
+                           [Bits 1-2]            0 'Normal Compression'
+                           [Bit  3]              1 'Streamed'
+                           [Bit 11]              1 'Language Encoding'
+016B 016C 0002 08 00       Compression Method    0008 (8) 'Deflated'
+016D 0170 0004 DB A8 8E 58 Modification Time     588EA8DB (1485744347) 'Sun Apr 14 21:06:54 2024'
+0171 0174 0004 FF E7 0E F9 CRC                   F90EE7FF (4178503679)
+0175 0178 0004 0E 01 00 00 Compressed Size       0000010E (270)
+0179 017C 0004 BE 01 00 00 Uncompressed Size     000001BE (446)
+017D 017E 0002 05 00       Filename Length       0005 (5)
+017F 0180 0002 20 00       Extra Length          0020 (32)
+0181 0182 0002 00 00       Comment Length        0000 (0)
+0183 0184 0002 00 00       Disk Start            0000 (0)
+0185 0186 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0187 018A 0004 00 00 ED 81 Ext File Attributes   81ED0000 (2179792896)
+                           [Bits 16-24]          01ED (493) 'Unix attrib: rwxr-xr-x'
+                           [Bits 28-31]          08 (8) 'Regular File'
+018B 018E 0004 00 00 00 00 Local Header Offset   00000000 (0)
+018F 0193 0005 43 61 66 C3 Filename              'Café'
+               A9
+0194 0195 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0196 0197 0002 0D 00         Length              000D (13)
+0198 0198 0001 07            Flags               07 (7) 'Modification Access Creation'
+0199 019C 0004 5E 37 1C 66   Modification Time   661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+#
+# INFO: Offset 0x19D: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present
+#
+019D 01A0 0004 5E 37 1C 66   Access Time         661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+#
+# INFO: Offset 0x1A1: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Creation Time' present
+#
+01A1 01A4 0004 5E 37 1C 66   Creation Time       661C375E (1713125214) 'Sun Apr 14 20:06:54 2024'
+01A5 01A6 0002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+01A7 01A8 0002 0B 00         Length              000B (11)
+01A9 01A9 0001 01            Version             01 (1)
+01AA 01AA 0001 04            UID Size            04 (4)
+01AB 01AE 0004 E8 03 00 00   UID                 000003E8 (1000)
+01AF 01AF 0001 04            GID Size            04 (4)
+01B0 01B3 0004 E8 03 00 00   GID                 000003E8 (1000)
+
+01B4 01B7 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01B8 01B9 0002 00 00       Number of this disk   0000 (0)
+01BA 01BB 0002 00 00       Central Dir Disk no   0000 (0)
+01BC 01BD 0002 01 00       Entries in this disk  0001 (1)
+01BE 01BF 0002 01 00       Total Entries         0001 (1)
+01C0 01C3 0004 53 00 00 00 Size of Central Dir   00000053 (83)
+01C4 01C7 0004 61 01 00 00 Offset to Central Dir 00000161 (353)
+01C8 01C9 0002 00 00       Comment Length        0000 (0)
+#
+# Info Count: 2
+#
+# Done
