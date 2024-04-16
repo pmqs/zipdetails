@@ -1424,7 +1424,7 @@ exit $exit_status_code ;
 sub dislayMessages
 {
 
-    # Compare Central & LOcal for discrepencies
+    # Compare Central & Local for discrepencies
 
     if ($CentralDirectory->isMiniZipEncrypted)
     {
