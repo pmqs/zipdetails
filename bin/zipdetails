@@ -2624,30 +2624,28 @@ sub CentralHeader
         # See https://learn.microsoft.com/en-us/windows/win32/fileio/file-attribute-constants
         # and https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-smb/65e0c225-5925-44b0-8104-6b91339c709f
 
-        out1 "[Bit 0]",  "Read-Only"
-            if $dos_attrib & 0x0001 ;
-        out1 "[Bit 1]",  "Hidden"
-            if $dos_attrib & 0x0002 ;
-        out1 "[Bit 2]",  "System"
-            if $dos_attrib & 0x0004 ;
-        out1 "[Bit 3]",  "Label"
-            if $dos_attrib & 0x0008 ;
-        out1 "[Bit 4]",  "Directory"
-            if $dos_attrib & 0x0010 ;
-        out1 "[Bit 5]",  "Archive"
-            if $dos_attrib & 0x0020 ;
-        out1 "[Bit 6]",  "Device"
-            if $dos_attrib & 0x0040 ;
-        out1 "[Bit 7]",  "Normal" # Exe?
-            if $dos_attrib & 0x0080 ;
-        out1 "[Bit 8]",  "Offline"
-            if $dos_attrib & 0x0100 ;
-        out1 "[Bit 9]",  "Not Indexed"
-            if $dos_attrib & 0x0200 ;
-        out1 "[Bit 10]",  "Encrypted"
-            if $dos_attrib & 0x0400 ;
-        out1 "[Bits 11-15]",  Value_v($dos_attrib & 0xf800) . " 'Unknown DOS attrib'"
-            if $dos_attrib & 0xf800 ;
+        out1 "[Bit 0]",  "Read-Only"     if $dos_attrib & 0x0001 ;
+        out1 "[Bit 1]",  "Hidden"        if $dos_attrib & 0x0002 ;
+        out1 "[Bit 2]",  "System"        if $dos_attrib & 0x0004 ;
+        out1 "[Bit 3]",  "Label"         if $dos_attrib & 0x0008 ;
+        out1 "[Bit 4]",  "Directory"     if $dos_attrib & 0x0010 ;
+        out1 "[Bit 5]",  "Archive"       if $dos_attrib & 0x0020 ;
+        out1 "[Bit 6]",  "Device"        if $dos_attrib & 0x0040 ;
+        out1 "[Bit 7]",  "Normal"        if $dos_attrib & 0x0080 ;
+        out1 "[Bit 8]",  "Temporary"     if $dos_attrib & 0x0100 ;
+        out1 "[Bit 9]",  "Sparse"        if $dos_attrib & 0x0200 ;
+        out1 "[Bit 10]", "Reparse Point" if $dos_attrib & 0x0400 ;
+        out1 "[Bit 11]", "Compressed"    if $dos_attrib & 0x0800 ;
+
+        out1 "[Bit 12]", "Offline"       if $dos_attrib & 0x1000 ;
+        out1 "[Bit 13]", "Not Indexed"   if $dos_attrib & 0x2000 ;
+
+        # Zip files created on Mac seem to set this bit. Not clear why.
+        out1 "[Bit 14]", "Possible Mac Flag"   if $dos_attrib & 0x4000 ;
+
+        # p7Zip & 7z set this bit to flag that the high 16-bits are Unix attributes
+        out1 "[Bit 15]", "Possible p7zip/7z Unix Flag"   if $dos_attrib & 0x8000 ;
+
     }
 
     my $native_attrib = ($ext_file_attrib >> 16 ) &  0xFFFF;

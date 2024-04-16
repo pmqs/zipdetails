@@ -31,7 +31,7 @@
      [Bit 0]               0 'Binary Data'
 004C Ext File Attributes   41FD8010 (1107132432)
      [Bit 4]               Directory
-     [Bits 11-15]          8000 (32768) 'Unknown DOS attrib'
+     [Bit 15]              Possible p7zip/7z Unix Flag
      [Bits 16-24]          01FD (509) 'Unix attrib: rwxrwxr-x'
      [Bits 28-31]          04 (4) 'Directory'
 0050 Local Header Offset   00000000 (0)
