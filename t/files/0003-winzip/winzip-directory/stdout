@@ -41,6 +41,9 @@
 0068   Mtime               01DA39CEDAFC3960 (133482699560860000) 'Thu Dec 28 20:45:56 2023 86000000ns'
 0070   Atime               01DA39CEDAFC3960 (133482699560860000) 'Thu Dec 28 20:45:56 2023 86000000ns'
 0078   Ctime               01DA39CEDAFC3960 (133482699560860000) 'Thu Dec 28 20:45:56 2023 86000000ns'
+#
+# WARNING: Offset 0x2C: 'Extract Zip Spec' is '1.0'. Need value >= '2.0' for Directory 'somedir/'
+#
 
 0080 END CENTRAL HEADER    06054B50 (101010256)
 0084 Number of this disk   0000 (0)
@@ -50,5 +53,7 @@
 008C Size of Central Dir   0000005A (90)
 0090 Offset to Central Dir 00000026 (38)
 0094 Comment Length        0000 (0)
+#
+# Warning Count: 1
 #
 # Done

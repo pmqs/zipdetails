@@ -41,7 +41,11 @@
 0052 Local Header Offset   00000000 (0)
 0056 Filename              'abc/'
 #
-# WARNING: Offset 0x56: Directory 'abc/' must not have a payload
+# INFO: Offset 0x4E: DOS Directory flag not set in 'External Attributes' for Directory 'abc/'
+#
+# INFO: Offset 0x4E: Unix Directory flag not set in 'External Attributes' for Directory 'abc/'
+#
+# ERROR: Offset 0x40: Directory 'abc/' must not have a payload
 #
 
 005A END CENTRAL HEADER    06054B50 (101010256)
@@ -53,6 +57,8 @@
 006A Offset to Central Dir 00000028 (40)
 006E Comment Length        0000 (0)
 #
-# Warning Count: 2
+# Error Count: 1
+# Warning Count: 1
+# Info Count: 2
 #
 # Done

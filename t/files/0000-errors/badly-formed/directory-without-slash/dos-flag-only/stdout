@@ -10,7 +10,7 @@
 0016 Uncompressed Size     00000000 (0)
 001A Filename Length       0008 (8)
 001C Extra Length          001C (28)
-001E Filename              'somedir/'
+001E Filename              'somedire'
 0026 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0028   Length              0009 (9)
 002A   Flags               03 (3) 'Modification Access'
@@ -41,12 +41,11 @@
 0064 Disk Start            0000 (0)
 0066 Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
-0068 Ext File Attributes   41FD0010 (1107099664)
+0068 Ext File Attributes   01FD0010 (33357840)
      [Bit 4]               Directory
      [Bits 16-24]          01FD (509) 'Unix attrib: rwxrwxr-x'
-     [Bits 28-31]          04 (4) 'Directory'
 006C Local Header Offset   00000000 (0)
-0070 Filename              'somedir/'
+0070 Filename              'somedire'
 0078 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 007A   Length              0005 (5)
 007C   Flags               03 (3) 'Modification Access'
@@ -59,7 +58,10 @@
 008B   GID Size            04 (4)
 008C   GID                 000003E8 (1000)
 #
-# WARNING: Offset 0x48: 'Extract Zip Spec' is '1.0'. Need value >= '2.0' for Directory 'somedir/'
+# ERROR: Offset 0x70: Directory 'somedire' must end in a '/'
+#        'External Attributes' flag this as a directory
+#
+# WARNING: Offset 0x48: 'Extract Zip Spec' is '1.0'. Need value >= '2.0' for Directory 'somedire'
 #
 
 0090 END CENTRAL HEADER    06054B50 (101010256)
@@ -71,6 +73,7 @@
 00A0 Offset to Central Dir 00000042 (66)
 00A4 Comment Length        0000 (0)
 #
+# Error Count: 1
 # Warning Count: 1
 #
 # Done

@@ -66,6 +66,9 @@
 008B 008E 0004 E8 03 00 00   UID                 000003E8 (1000)
 008F 008F 0001 04            GID Size            04 (4)
 0090 0093 0004 E8 03 00 00   GID                 000003E8 (1000)
+#
+# INFO: Offset 0x68: DOS Directory flag not set in 'External Attributes' for Directory 'dir/'
+#
 
 0094 0097 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
 0098 0099 0002 00 00       Number of this disk   0000 (0)
@@ -76,6 +79,6 @@
 00A4 00A7 0004 42 00 00 00 Offset to Central Dir 00000042 (66)
 00A8 00A9 0002 00 00       Comment Length        0000 (0)
 #
-# Info Count: 2
+# Info Count: 3
 #
 # Done

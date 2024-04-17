@@ -93,6 +93,11 @@
 00F4   SizDev              00000000 (0)
 00F8   UID                 0000 (0)
 00FA   GID                 0000 (0)
+#
+# INFO: Offset 0xD2: DOS Directory flag not set in 'External Attributes' for Directory '证明及协议/'
+#
+# INFO: Offset 0xC0: Directory '证明及协议/' has compressed payload that uncompresses to nothing
+#
 
 00FC CENTRAL HEADER #2     02014B50 (33639248)
 0100 Created Zip Spec      14 (20) '2.0'
@@ -135,5 +140,7 @@
 0160 Size of Central Dir   000000A8 (168)
 0164 Offset to Central Dir 000000AC (172)
 0168 Comment Length        0000 (0)
+#
+# Info Count: 2
 #
 # Done

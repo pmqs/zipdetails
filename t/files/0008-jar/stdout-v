@@ -114,6 +114,11 @@
                2F
 0124 0125 0002 FE CA       Extra ID #1           CAFE (51966) 'Java Executable'
 0126 0127 0002 00 00         Length              0000 (0)
+#
+# INFO: Offset 0x113: DOS Directory flag not set in 'External Attributes' for Directory 'META-INF/'
+#
+# INFO: Offset 0x101: Directory 'META-INF/' has compressed payload that uncompresses to nothing
+#
 
 0128 012B 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
 012C 012C 0001 14          Created Zip Spec      14 (20) '2.0'
@@ -175,5 +180,7 @@
 01A8 01AB 0004 AF 00 00 00 Size of Central Dir   000000AF (175)
 01AC 01AF 0004 ED 00 00 00 Offset to Central Dir 000000ED (237)
 01B0 01B1 0002 00 00       Comment Length        0000 (0)
+#
+# Info Count: 2
 #
 # Done

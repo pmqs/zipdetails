@@ -2384,6 +2384,94 @@ sub redactFilename
     return $filename;
 }
 
+sub validateDirectory
+{
+    # Check that Directries are stored correctly
+    #
+    # 1. Filename MUST end with a "/"
+    #    see APPNOTE 6.3.10, sec 4.3.8
+    # 2. Uncompressed size == 0
+    #    see APPNOTE 6.3.10, sec 4.3.8
+    # 3. warn if compressed size > 0 and Uncompressed size == 0
+    # 4. check for presence of DOS directory attrib in External Attributes
+    # 5. Check for Unix  extrnal attribute S_IFDIR
+
+    my $offset = shift ;
+    my $filename = shift ;
+    my $extractVersion = shift;
+    my $versionMadeBy = shift;
+    my $compressedSize = shift;
+    my $uncompressedSize = shift;
+    my $externalAttributes = shift;
+
+    my $dosAttributes = $externalAttributes & 0xFFFF;
+    my $otherAttributes = ($externalAttributes >> 16 ) &  0xFFFF;
+
+    my $probablyDirectory = 0;
+    my $filenameOK = 0;
+    my $attributesSet = 0;
+    my $dosAttributeSet = 0;
+    my $unixAttributeSet = 0;
+
+    if ($filename =~ m#/$#)
+    {
+        # filename claims it is a directory.
+        $probablyDirectory = 1;
+        $filenameOK = 1;
+    }
+
+    if ($dosAttributes & 0x0010) # ATTR_DIRECTORY
+    {
+        $probablyDirectory = 1;
+        $attributesSet = 1 ;
+        $dosAttributeSet = 1 ;
+    }
+
+    if ($versionMadeBy == 3 && $otherAttributes & 0x4000) # Unix & S_IFDIR
+    {
+        $probablyDirectory = 1;
+        $attributesSet = 1;
+        $unixAttributeSet = 1;
+    }
+
+    return
+        unless $probablyDirectory ;
+
+    error $offset + CentralDirectoryEntry::Offset_Filename(),
+            "Directory '$filename' must end in a '/'",
+            "'External Attributes' flag this as a directory"
+        if ! $filenameOK && $uncompressedSize == 0;
+
+    info $offset + CentralDirectoryEntry::Offset_ExternalAttributes(),
+            "DOS Directory flag not set in 'External Attributes' for Directory '$filename'"
+        if $filenameOK && ! $dosAttributeSet;
+
+    info $offset + CentralDirectoryEntry::Offset_ExternalAttributes(),
+            "Unix Directory flag not set in 'External Attributes' for Directory '$filename'"
+        if $filenameOK && $versionMadeBy == 3 && ! $unixAttributeSet;
+
+    if ($uncompressedSize != 0)
+    {
+        # APPNOTE 6.3.10, sec 4.3.8
+        error $offset + CentralDirectoryEntry::Offset_UncompressedSize(),
+                "Directory '$filename' must not have a payload"
+    }
+    elsif ($compressedSize != 0)
+    {
+
+        info $offset + CentralDirectoryEntry::Offset_CompressedSize(),
+                "Directory '$filename' has compressed payload that uncompresses to nothing"
+    }
+
+    if ($extractVersion < 20)
+    {
+        # APPNOTE 6.3.10, sec 4.4.3.2
+        my $got = decodeZipVer($extractVersion);
+        warning $offset + CentralDirectoryEntry::Offset_VersionNeededToExtract(),
+                "'Extract Zip Spec' is '$got'. Need value >= '2.0' for Directory '$filename'"
+    }
+}
+
 sub validateFilename
 {
     my $filename = shift ;
@@ -2734,10 +2822,6 @@ sub CentralHeader
         $cdEntry->filename($raw_filename) ;
         $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $cdEntry->outputFilename($filename);
-
-        # APPNOTE 6.3.10, sec 4.3.8
-        warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
-            if $filename =~ m#/$# && $uncompressedSize ;
     }
 
     $cdEntry->centralHeaderOffset($cdEntryOffset) ;
@@ -2767,6 +2851,8 @@ sub CentralHeader
 
     # $cdEntry->endCentralHeaderOffset($FH->tell() - 1);
 
+    # Can only validate for directory after zip64 data is read
+    validateDirectory($cdEntryOffset, $filename, $extractVer, $made_by, $compressedSize,  $uncompressedSize, $ext_file_attrib);
 
     if ($comment_length)
     {
@@ -6320,6 +6406,24 @@ sub nibbles
     package CentralDirectoryEntry;
 
     use parent -norequire , 'LocalCentralEntryBase' ;
+
+    use constant Offset_VersionMadeBy           => 4;
+    use constant Offset_VersionNeededToExtract  => 6;
+    use constant Offset_GeneralPurposeFlags     => 8;
+    use constant Offset_CompressionMethod       => 10;
+    use constant Offset_ModificationTime        => 12;
+    use constant Offset_ModificationDate        => 14;
+    use constant Offset_CRC32                   => 16;
+    use constant Offset_CompressedSize          => 20;
+    use constant Offset_UncompressedSize        => 24;
+    use constant Offset_FilenameLength          => 28;
+    use constant Offset_ExtraFieldLength        => 30;
+    use constant Offset_FileCommentLength       => 32;
+    use constant Offset_DiskNumber              => 34;
+    use constant Offset_InternalAttributes      => 36;
+    use constant Offset_ExternalAttributes      => 38;
+    use constant Offset_RelativeOffsetToLocal   => 42;
+    use constant Offset_Filename                => 46;
 
     sub new
     {

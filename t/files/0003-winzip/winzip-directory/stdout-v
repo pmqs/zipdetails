@@ -46,6 +46,9 @@
                CE 39 DA 01
 0078 007F 0008 60 39 FC DA   Ctime               01DA39CEDAFC3960 (133482699560860000) 'Thu Dec 28 20:45:56 2023 86000000ns'
                CE 39 DA 01
+#
+# WARNING: Offset 0x2C: 'Extract Zip Spec' is '1.0'. Need value >= '2.0' for Directory 'somedir/'
+#
 
 0080 0083 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
 0084 0085 0002 00 00       Number of this disk   0000 (0)
@@ -55,5 +58,7 @@
 008C 008F 0004 5A 00 00 00 Size of Central Dir   0000005A (90)
 0090 0093 0004 26 00 00 00 Offset to Central Dir 00000026 (38)
 0094 0095 0002 00 00       Comment Length        0000 (0)
+#
+# Warning Count: 1
 #
 # Done
