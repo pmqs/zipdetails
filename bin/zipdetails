@@ -2810,7 +2810,7 @@ sub CentralHeader
     if ($locHeaderOffset != MAX32)
     {
         my $commonMessage = "'Local Header Offset' field in '" . Signatures::name($signature) .  "' is invalid";
-        $locHeaderOffset = checkOffsetValue($locHeaderOffset, $startRecordOffset, 0, $commonMessage, $startRecordOffset + 42, ZIP_LOCAL_HDR_SIG) ;
+        $locHeaderOffset = checkOffsetValue($locHeaderOffset, $startRecordOffset, 0, $commonMessage, $startRecordOffset + CentralDirectoryEntry::Offset_RelativeOffsetToLocal(), ZIP_LOCAL_HDR_SIG) ;
     }
 
     my $filename = '';
@@ -5739,7 +5739,9 @@ sub scanCentralDirectory
             # 3. value at offset is not a CD record signature
 
             my $commonMessage = "'Local Header Offset' field in '" . Signatures::name(ZIP_CENTRAL_HDR_SIG) . "' is invalid";
-            checkOffsetValue($locHeaderOffset, $startHeader, 0, $commonMessage, $startHeader + 42, ZIP_LOCAL_HDR_SIG, 1) ;
+            checkOffsetValue($locHeaderOffset, $startHeader, 0, $commonMessage,
+                $startHeader + CentralDirectoryEntry::Offset_RelativeOffsetToLocal(),
+                ZIP_LOCAL_HDR_SIG, 1) ;
         }
 
         $fh->read(my $filename, $filename_length) ;
@@ -6653,6 +6655,18 @@ sub nibbles
 
     use parent -norequire , 'LocalCentralEntryBase' ;
 
+    use constant Offset_VersionNeededToExtract  => 4;
+    use constant Offset_GeneralPurposeFlags     => 6;
+    use constant Offset_CompressionMethod       => 8;
+    use constant Offset_ModificationTime        => 10;
+    use constant Offset_ModificationDate        => 12;
+    use constant Offset_CRC32                   => 14;
+    use constant Offset_CompressedSize          => 18;
+    use constant Offset_UncompressedSize        => 22;
+    use constant Offset_FilenameLength          => 26;
+    use constant Offset_ExtraFieldLength        => 27;
+    use constant Offset_Filename                => 30;
+
     sub new
     {
         my $class = shift ;
@@ -6749,7 +6763,7 @@ sub nibbles
 
         my $existingEntry = $self->{byName}{$filename} ;
 
-        my $endSurfaceArea = $payloadOffset + ($localEntry->compressedSize //0)  ;
+        my $endSurfaceArea = $payloadOffset + ($localEntry->compressedSize // 0)  ;
 
         if ($existingEntry)
         {
