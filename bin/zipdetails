@@ -2063,10 +2063,6 @@ sub LocalHeader
         $localEntry->filename($raw_filename) ;
         $filename = outputFilename($raw_filename, $LanguageEncodingFlag);
         $localEntry->outputFilename($filename);
-
-        # APPNOTE 6.3.10, sec 4.3.8
-        warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
-            if ! $streaming && $filename =~ m#/$# && $uncompressedSize ;
     }
 
     $localEntry->localHeaderOffset($locHeaderOffset) ;
@@ -2093,6 +2089,10 @@ sub LocalHeader
         need $extraLength, Signatures::name($signature), 'Extra';
         walkExtra($extraLength, $localEntry);
     }
+
+    # APPNOTE 6.3.10, sec 4.3.8
+    warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
+        if ! $streaming && $filename =~ m#/$# && $localEntry->uncompressedSize ;
 
     my @msg ;
     # if ($cdZip64 && ! $ZIP64)
@@ -2852,7 +2852,8 @@ sub CentralHeader
     # $cdEntry->endCentralHeaderOffset($FH->tell() - 1);
 
     # Can only validate for directory after zip64 data is read
-    validateDirectory($cdEntryOffset, $filename, $extractVer, $made_by, $compressedSize,  $uncompressedSize, $ext_file_attrib);
+    validateDirectory($cdEntryOffset, $filename, $extractVer, $made_by,
+        $cdEntry->compressedSize, $cdEntry->uncompressedSize, $ext_file_attrib);
 
     if ($comment_length)
     {
