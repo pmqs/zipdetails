@@ -1,6 +1,36 @@
 CHANGES
 -------
 
+4.003 27 April 2024
+
+  * #19 More fixes for directory processing
+    Thu Apr 25 22:27:29 2024 +0100
+    68a3fdf7a09a234707de7f088a58819c6ded35ca
+
+  * Add more offset constants
+    Wed Apr 17 14:14:02 2024 +0100
+    f02ffd1cc234a73196b0439eb9b323cfb2fcbcc1
+
+  * #19 Add extra test for directories
+    Wed Apr 17 13:38:36 2024 +0100
+    ef60982745567abfc1496df102a95e319c710f12
+
+  * fix typo
+    Tue Apr 16 10:12:33 2024 +0100
+    24b267576f1dd1796abadd08ea9e5d6e437f2b44
+
+  * #18 Fix  decoding of DOS attributes in External Attributes field
+    Tue Apr 16 09:52:40 2024 +0100
+    19e1c38f6e445d86a725dca12185532f42f17233
+
+  * Bump version to 4.003
+    Sun Apr 14 21:53:54 2024 +0100
+    f4ac21d2affb0d2f47f14aa5960c18e3b97f0e9d
+
+  * Add tests for bsdtar (libarchive)
+    Sun Apr 14 21:53:22 2024 +0100
+    8656ff871eb22799ca24383d78d00656153e471f
+
 4.002 31 March 2024
 
   * Add a few sanity tests for the CPAN distro
