@@ -2038,8 +2038,17 @@ sub LocalHeader
     my $lastMod = out_V "Modification Time", sub { LastModTime($_[0]) };
 
     my $crc              = out_V "CRC";
+
+    # Weak encryption if
+    # * encrypt flag (bit 0) set in General Purpose Flags
+    # * strong encrypt (bit ) not set in General Purpose Flags
+    # * not using AES encryption (compression method 99)
+    my $weakEncryption = ($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == ZIP_GP_FLAG_ENCRYPTED_MASK &&
+                         $compressedMethod != 99;
+    # Weak encryption uses the CRC value even when streaming is in play.
+    # This conflicts with appnote 6.3.10 section 4.4.4
     warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
-        if $streaming && $crc != 0 ;
+        if $streaming && $crc != 0 && ! $weakEncryption;
 
     my $compressedSize   = out_V "Compressed Size";
     # warning $FH->tell(), "Compressed Size should be zero when streaming is enabled";
