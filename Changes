@@ -1,6 +1,24 @@
 CHANGES
 -------
 
+4.004 30 April 2024
+
+  * #20 weak encryption + streaming does not set local CRC value to zero
+    Tue Apr 30 10:41:48 2024 +0100
+    7952c1c46282ebd54f80736cd3da659c0d430f3e
+
+  * typo - 0027 test directory should be 0027-bsdtar
+    Tue Apr 30 10:18:15 2024 +0100
+    274f75cd8a695e28662e11caf2bcf64c075d3fd1
+
+  * Add placeholders for Info-ZIP extra fields 0x4850 (PH) and 0x6C78 (xl)
+    Tue Apr 30 09:32:56 2024 +0100
+    8d57a64d72d28ac36964651ad695618ae34c60da
+
+  * Update version to 4.004
+    Sat Apr 27 09:19:06 2024 +0100
+    42bca1f777277e9b2fe33f6dfc7c9dc8a685b808
+
 4.003 27 April 2024
 
   * #19 More fixes for directory processing
