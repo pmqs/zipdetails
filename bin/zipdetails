@@ -304,6 +304,7 @@ my %Extras = (
       0x4690,  ['POSZIP 4690',                                              undef],
       0x4704,  ['VM/CMS',                                                   undef],
       0x470f,  ['MVS',                                                      undef],
+      0x4850,  ['Info-ZIP PHold [PH]',                                      undef],
       0x4854,  ['Theos [TH]',                                               undef],
       0x4b46,  ['FWKCS MD5 [FK]',                                           undef],
       0x4c41,  ['OS/2 access control list [AL]',                            undef],
@@ -320,6 +321,7 @@ my %Extras = (
       0x6375,  ['Unicode Comment [uc]',                                     \&decode_uc,                    5, undef,  5, undef],
       0x6542,  ['BeOS/Haiku [Be]',                                          undef], # TODO
       0x6854,  ['Theos [Th]',                                               undef],
+      0x6C78,  ['Inzo-ZIP Stream [xl]',                                     undef], # TODO
       0x7075,  ['Unicode Path [up]',                                        \&decode_up,                    5, undef,   5, undef],
       0x756e,  ['ASi Unix [un]',                                            \&decode_ASi_Unix], # TODO
       0x7441,  ['AtheOS [At]',                                              undef],
