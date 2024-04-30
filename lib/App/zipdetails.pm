@@ -1,6 +1,6 @@
 package App::zipdetails;
 
-our $VERSION = '4.004' ;
+our $VERSION = '4.005' ;
 
 =head1 NAME
 
