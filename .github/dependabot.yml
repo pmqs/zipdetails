@@ -4,6 +4,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-    branches:
-      - "main"
-      - "develop"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "develop"
