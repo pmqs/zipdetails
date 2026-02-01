@@ -4,6 +4,161 @@ on:
   workflow_dispatch:
   push:
   pull_request:
+  schedule:
+    - cron: '01 01 * * 6'    # Run every Saturday
+
+jobs:
+
+
+  list-windows-default:
+    name: perl versions for windows default
+    runs-on: windows-latest
+    steps:
+      - uses: shogo82148/actions-setup-perl@v1
+      - id: set-matrix
+        name: list available perl versions
+        shell: perl {0}
+        run: |
+          use Actions::Core;
+
+          print "Default Version available\n";
+          my @default_versions = perl_versions();
+          for my $v (@default_versions) {
+            print "\t$v\n";
+          }
+          # Don't want anything less then 5.12
+          my $vers = join "|", map { quotemeta $_ } qw( 5.6. 5.8. 5.10. );
+          @versions = grep { ! /^$vers/ } @versions;
+
+          set_output(matrix => {perl => [@default_versions],    distribution => ['default'] });
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+
+  list-windows-strawberry:
+    name: perl version for windows strawberry
+    runs-on: windows-latest
+    steps:
+      - uses: shogo82148/actions-setup-perl@v1
+      - id: set-matrix
+        name: list available perl versions
+        shell: perl {0}
+        run: |
+          use Actions::Core;
+
+          print "Strawberry Version available\n";
+          my @strawberry_versions = perl_versions();
+          for my $v (@strawberry_versions) {
+            print "\t$v\n";
+          }
+
+          # Don't want anything less then 5.12
+          my $vers = join "|", map { quotemeta $_ } qw( 5.6. 5.8. 5.10. );
+          @strawberry_versions = grep { ! /^$vers/ } @strawberry_versions;
+
+          set_output(matrix => {perl => [@strawberry_versions], distribution => ['strawberry'] });
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+  run-windows-default:
+    name: Perl ${{ matrix.perl }} on '${{ matrix.distribution }}'
+    runs-on: windows-latest
+    needs: list-windows-default
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.list-windows-default.outputs.matrix )}}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+          distribution: ${{ matrix.distribution }}
+
+      - name: Force regeneration of README.md
+        run: |
+          sleep 2
+          touch .github/badges
+
+      - name: Perl version
+        run: perl -V
+
+      - name: Install dependencies
+        run: cpanm --installdeps --notest .
+
+      - name: chcp output
+        run: chcp
+
+      - name: Help output
+        run: perl bin/zipdetails --help
+
+      - name: Build
+        run: perl Makefile.PL
+
+      - name: cat Makefile
+        run: cat Makefile
+
+      - name: Build
+        run: make
+
+      - name: Test
+        run: make test TEST_VERBOSE=1
+
+
+  run-windows-strawberry:
+    name: Perl ${{ matrix.perl }} on '${{ matrix.distribution }}'
+    runs-on: windows-latest
+    needs: list-windows-strawberry
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.list-windows-strawberry.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+          distribution: ${{ matrix.distribution }}
+
+      - name: Force regeneration of README.md
+        run: |
+          sleep 2
+          touch .github/badges
+
+      - name: Perl version
+        run: perl -V
+
+      - name: Install dependencies
+        run: cpanm --installdeps --notest .
+
+      - name: chcp output
+        run: chcp
+
+      - name: Help output
+        run: perl bin/zipdetails --help
+
+      - name: Build
+        run: perl Makefile.PL
+
+      - name: cat Makefile
+        run: cat Makefile
+
+      - name: Build
+        run: make
+
+      - name: Test
+        run: make test TEST_VERBOSE=1
+
+
+
+name: Windows build
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
 
 jobs:
   build:

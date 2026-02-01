@@ -4,6 +4,81 @@ on:
   workflow_dispatch:
   push:
   pull_request:
+  schedule:
+    - cron: '01 01 * * 6'    # Run every Saturday
+
+jobs:
+
+  list:
+    name: list available perl versions
+    runs-on: macos-latest
+    steps:
+      - uses: shogo82148/actions-setup-perl@v1
+      - id: set-matrix
+        name: list available perl versions
+        shell: perl {0}
+        run: |
+          use Actions::Core;
+
+          print "Version available\n";
+          my @versions = perl_versions();
+          for my $v (@versions) {
+            print "\t$v\n";
+          }
+          # Don't want anything less then 5.12
+          my $vers = join "|", map { quotemeta $_ } qw( 5.6. 5.8. 5.10. );
+          @versions = grep { ! /^$vers/ } @versions;
+          set_output(matrix => {perl => [@versions]});
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+  run:
+    runs-on: macos-latest
+    needs: list
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.list.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup perl
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: ${{ matrix.perl }}
+
+      - name: Force regeneration of README.md
+        run: |
+          sleep 2
+          touch .github/badges
+
+      - name: Perl version
+        run: perl -V
+
+      - name: Install dependencies
+        run: cpanm --quiet --installdeps --notest .
+
+      - name: Help output
+        run: perl bin/zipdetails --help
+
+      - name: Configure
+        run: perl Makefile.PL
+
+      - name: cat Makefile
+        run: cat Makefile
+
+      - name: Build
+        run: make
+
+      - name: Test
+        run: make test TEST_VERBOSE=1 ZIPDETAILS_TEST_DIFF=1
+
+
+name: Macos build
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
 
 jobs:
   build:
