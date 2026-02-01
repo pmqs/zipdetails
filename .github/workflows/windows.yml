@@ -28,7 +28,7 @@ jobs:
           }
           # Don't want anything less then 5.12
           my $vers = join "|", map { quotemeta $_ } qw( 5.6. 5.8. 5.10. );
-          @versions = grep { ! /^$vers/ } @versions;
+          @default_versions = grep { ! /^$vers/ } @default_versions;
 
           set_output(matrix => {perl => [@default_versions],    distribution => ['default'] });
     outputs:
