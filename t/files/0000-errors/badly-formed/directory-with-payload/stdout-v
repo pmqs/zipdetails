@@ -12,9 +12,6 @@
 001A 001B 0002 04 00       Filename Length       0004 (4)
 001C 001D 0002 00 00       Extra Length          0000 (0)
 001E 0021 0004 61 62 63 2F Filename              'abc/'
-#
-# WARNING: Offset 0x1E: Directory 'abc/' must not have a payload
-#
 0022 0027 0006 4B 4C 4A 4E PAYLOAD               KLJN..
                01 00
 
@@ -59,7 +56,6 @@
 006E 006F 0002 00 00       Comment Length        0000 (0)
 #
 # Error Count: 1
-# Warning Count: 1
 # Info Count: 2
 #
 # Done

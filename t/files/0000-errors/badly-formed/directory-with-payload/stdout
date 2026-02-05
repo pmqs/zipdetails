@@ -12,9 +12,6 @@
 001A Filename Length       0004 (4)
 001C Extra Length          0000 (0)
 001E Filename              'abc/'
-#
-# WARNING: Offset 0x1E: Directory 'abc/' must not have a payload
-#
 0022 PAYLOAD               KLJN..
 
 0028 CENTRAL HEADER #1     02014B50 (33639248)
@@ -58,7 +55,6 @@
 006E Comment Length        0000 (0)
 #
 # Error Count: 1
-# Warning Count: 1
 # Info Count: 2
 #
 # Done

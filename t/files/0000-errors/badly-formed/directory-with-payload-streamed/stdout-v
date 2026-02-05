@@ -20,9 +20,6 @@
 002C 002F 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
 0030 0033 0004 06 00 00 00 Compressed Size       00000006 (6)
 0034 0037 0004 04 00 00 00 Uncompressed Size     00000004 (4)
-#
-# WARNING: Directory 'abc/' must not have a payload
-#
 
 0038 003B 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
 003C 003C 0001 14          Created Zip Spec      14 (20) '2.0'
@@ -66,7 +63,6 @@
 007E 007F 0002 00 00       Comment Length        0000 (0)
 #
 # Error Count: 1
-# Warning Count: 1
 # Info Count: 2
 #
 # Done
