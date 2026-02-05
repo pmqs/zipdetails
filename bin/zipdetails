@@ -53,7 +53,9 @@ use constant ZIP_CM_IMPLODE                    => 6 ;
 use constant ZIP_CM_DEFLATE                    => 8 ;
 use constant ZIP_CM_BZIP2                      => 12 ;
 use constant ZIP_CM_LZMA                       => 14 ;
+use constant ZIP_CM_REFERENCE                  => 92 ;
 use constant ZIP_CM_PPMD                       => 98 ;
+use constant ZIP_CM_AES                        => 99 ; # Not really c compression method
 
 # General Purpose Flag
 use constant ZIP_GP_FLAG_ENCRYPTED_MASK        => (1 << 0) ;
@@ -2064,7 +2066,7 @@ sub LocalHeader
     # * strong encrypt (bit ) not set in General Purpose Flags
     # * not using AES encryption (compression method 99)
     my $weakEncryption = ($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == ZIP_GP_FLAG_ENCRYPTED_MASK &&
-                         $compressedMethod != 99;
+                         $compressedMethod != ZIP_CM_AES;
     # Weak encryption uses the CRC value even when streaming is in play.
     # This conflicts with appnote 6.3.10 section 4.4.4
     warning $FH->tell() - 4, "CRC field should be zero when streaming is enabled"
@@ -2149,7 +2151,7 @@ sub LocalHeader
 
 
     my $minizip_encrypted = $localEntry->minizip_secure;
-    my $pk_encrypted      = ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK) && $compressedMethod != 99 && ! $minizip_encrypted;
+    my $pk_encrypted      = ($gpFlag & ZIP_GP_FLAG_STRONG_ENCRYPTED_MASK) && $compressedMethod != ZIP_CM_AES && ! $minizip_encrypted;
 
     # Detecting PK strong encryption from a local header is a bit convoluted.
     # Cannot just use ZIP_GP_FLAG_ENCRYPTED_CD because minizip also uses this bit.
@@ -2208,7 +2210,7 @@ sub LocalHeader
     # as a non-zero value
     my $haveCDcompressedSize = $CDcompressedSize;
 
-    if ($compressedMethod == 99 && $localEntry->aesValid) # AES Encryption
+    if ($compressedMethod == ZIP_CM_AES && $localEntry->aesValid) # AES Encryption
     {
         $CDcompressedSize -= printAes($localEntry)
     }
@@ -2229,12 +2231,12 @@ sub LocalHeader
 
     if ($haveCDcompressedSize) {
 
-        if ($compressedMethod == 92 && $CDcompressedSize == 20) {
+        if ($compressedMethod == ZIP_CM_REFERENCE && $CDcompressedSize == 20) {
             # Payload for a Reference is the SHA-1 hash of the uncompressed content
             myRead(my $sha1, 20);
             out $sha1, "PAYLOAD",  "SHA-1 Hash: " . hexDump($sha1);
         }
-        elsif ($compressedMethod == 99 && $localEntry->aesValid ) {
+        elsif ($compressedMethod == ZIP_CM_AES && $localEntry->aesValid ) {
             outSomeData($CDcompressedSize, "PAYLOAD", $opt_Redact) ;
             my $auth ;
             myRead($auth, 10);
