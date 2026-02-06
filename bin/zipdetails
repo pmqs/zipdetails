@@ -4230,9 +4230,12 @@ sub walk_Zip64_in_CD
         return;
     }
 
-    my $assumeAllFieldsPresent = (length($zip64Extended) == 28) ;
+    # The order of the fields in the zip64 extended
+    # information record is fixed, but the fields MUST
+    # only appear if the corresponding Local or Central
+    # directory record field is set to 0xFFFF or 0xFFFFFFFF.
 
-    if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedSize )
+    if (full32 $entry->std_uncompressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -4249,7 +4252,7 @@ sub walk_Zip64_in_CD
             if $display;
     }
 
-    if ($assumeAllFieldsPresent || full32 $entry->std_compressedSize)
+    if (full32 $entry->std_compressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -4267,7 +4270,7 @@ sub walk_Zip64_in_CD
             if $display;
     }
 
-    if ($assumeAllFieldsPresent || full32 $entry->std_localHeaderOffset)
+    if (full32 $entry->std_localHeaderOffset)
     {
         if (length $zip64Extended < 8)
         {
@@ -4289,7 +4292,7 @@ sub walk_Zip64_in_CD
         $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
     }
 
-    if ($assumeAllFieldsPresent || full16 $entry->std_diskNumber)
+    if (full16 $entry->std_diskNumber)
     {
         if (length $zip64Extended < 4)
         {
@@ -4301,7 +4304,6 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 4;
 
-        my $here = $FH->tell();
         my $data = substr($zip64Extended, 0, 4, "") ;
         $entry->diskNumber(unpack "v", $data);
         out2 $data, "Disk Number", Value_V($entry->diskNumber)
