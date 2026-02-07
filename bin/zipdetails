@@ -4248,16 +4248,12 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
         my $data = substr $zip64Extended, 0, 8, "";
-        my $value = unpack "Q<", $data;
-        if (full32 $entry->std_compressedSize)
+        $entry->uncompressedSize(unpack "Q<", $data);
+        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
+            if $display;
+        if (! full32 $entry->std_compressedSize)
         {
-            $entry->uncompressedSize($value);
-            out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
-                if $display;
-        }
-        else
-        {
-            info $data, "Uncompressed Size " . Value_V($value) . " is not used since uncompressedSize is not set to 0xFFFFFFFF"
+            info $data, "Uncompressed Size " . Value_V($entry->uncompressedSize) . " is not used since uncompressedSize is not set to 0xFFFFFFFF"
                 if $display;
         }
     }
@@ -4275,16 +4271,12 @@ sub walk_Zip64_in_CD
         $fieldOffset += 8;
 
         my $data = substr $zip64Extended, 0, 8, "";
-        my $value = unpack "Q<", $data;
-        if (full32 $entry->std_compressedSize)
+        $entry->compressedSize(unpack "Q<", $data);
+        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
+            if $display;
+        if (! full32 $entry->std_compressedSize)
         {
-            $entry->compressedSize($value);
-            out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
-                if $display;
-        }
-        else
-        {
-            info $data, "Compressed Size " . Value_V($value) . " is not used since compressedSize is not set to 0xFFFFFFFF"
+            info $data, "Compressed Size " . Value_V($entry->compressedSize) . " is not used since compressedSize is not set to 0xFFFFFFFF"
                 if $display;
         }
     }
@@ -4302,19 +4294,15 @@ sub walk_Zip64_in_CD
         $fieldOffset += 8;
 
         my $data = substr $zip64Extended, 0, 8, "";
-        my $value = unpack "Q<", $data;
-        if (full32 $entry->std_localHeaderOffset)
-        {
-            $entry->localHeaderOffset($value);
-            out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
-                if $display;
+        $entry->localHeaderOffset(unpack "Q<", $data);
+        out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
+            if $display;
 
-            my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
-            $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
-        }
-        else
+        my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
+        $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
+        if (! full32 $entry->std_localHeaderOffset)
         {
-            info $data, "Offset to Local Dir " . Value_V($value) . " is not used since first localHeaderOffset is not set to 0xFFFFFFFF"
+            info $data, "Offset to Local Dir " . Value_V($entry->localHeaderOffset) . " is not used since first localHeaderOffset is not set to 0xFFFFFFFF"
                 if $display;
         }
     }
@@ -4332,17 +4320,13 @@ sub walk_Zip64_in_CD
         $fieldOffset += 4;
 
         my $data = substr $zip64Extended, 0, 4, "";
-        my $value = unpack "v", $data;
-        if (full16 $entry->std_diskNumber)
+        $entry->diskNumber(unpack "v", $data);
+        out2 $data, "Disk Number", Value_V($entry->diskNumber)
+            if $display;
+        $entry->zip64_diskNumberPresent(1);
+        if (! full16 $entry->std_diskNumber)
         {
-            $entry->diskNumber($value);
-            out2 $data, "Disk Number", Value_V($entry->diskNumber)
-                if $display;
-            $entry->zip64_diskNumberPresent(1);
-        }
-        else
-        {
-            info $data, "Disk Number " . Value_V($value) . " is not used since first diskNumber is not set to 0xFFFF"
+            info $data, "Disk Number " . Value_V($entry->diskNumber) . " is not used since first diskNumber is not set to 0xFFFF"
                 if $display;
         }
     }
