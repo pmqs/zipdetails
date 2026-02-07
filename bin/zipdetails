@@ -2427,12 +2427,13 @@ sub validateDirectory
     #    see APPNOTE 6.3.10, sec 4.3.8
     # 2. Uncompressed size == 0
     #    see APPNOTE 6.3.10, sec 4.3.8
-    # 3. warn if compressed size > 0 and Uncompressed size == 0
-    # 4. check for presence of DOS directory attrib in External Attributes
+    # 3. Warn if compressed size > 0 and Uncompressed size == 0
+    # 4. Check for presence of DOS directory attrib in External Attributes
     # 5. Check for Unix  extrnal attribute S_IFDIR
     #
     # Edge condition is a Windows directory symlink
-    # Check for presence of
+    # In this case a payload is expected.
+    # TODO - decode the payload to get the target of the symlink
 
     my $offset = shift ;
     my $filename = shift ;
