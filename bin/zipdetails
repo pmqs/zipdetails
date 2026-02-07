@@ -4157,6 +4157,11 @@ sub walk_Zip64_in_LD
         $entry->uncompressedSize(unpack "Q<", $data);
         out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
             if $display;
+        if (! full32 $entry->std_uncompressedSize)
+        {
+            info $data, "Uncompressed Size should not be present in the ZIP64 extra field. Corresponding uncompressedSize from local header is not set to 0xFFFFFFFF, value is " . Value_V($entry->uncompressedSize)
+                if $display;
+        }
     }
 
     if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_compressedSize)
@@ -4175,6 +4180,11 @@ sub walk_Zip64_in_LD
         $entry->compressedSize( unpack "Q<", $data);
         out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
             if $display;
+        if (! full32 $entry->std_compressedSize)
+        {
+            info $data, "Compressed Size should not be present in the ZIP64 extra field. Corresponding compressedSize from local header is not set to 0xFFFFFFFF, value is " . Value_V($entry->compressedSize)
+                if $display;
+        }
     }
 
     # Zip64 in local header should not have localHeaderOffset or disk number
@@ -4188,6 +4198,11 @@ sub walk_Zip64_in_LD
         my $localHeaderOffset = unpack "Q<", $data;
         out2 $data, "Offset to Local Dir", Value_Q($localHeaderOffset)
             if $display;
+        if (! full32 $entry->std_localHeaderOffset)
+        {
+            info $data, "Offset to Local Dir should not be present in the ZIP64 extra field. Value is " . Value_V($entry->localHeaderOffset)
+                if $display;
+        }
     }
 
     if ($assumeAllFieldsPresent)
@@ -4198,6 +4213,11 @@ sub walk_Zip64_in_LD
         my $diskNumber = unpack "v", $data;
         out2 $data, "Disk Number", Value_V($diskNumber)
             if $display;
+        if (! full16 $entry->std_diskNumber)
+        {
+            info $data, "Disk Number should not be present in the ZIP64 extra field. Value is " . Value_V($entry->diskNumber)
+                if $display;
+        }
     }
 
     if (length $zip64Extended)
@@ -4247,11 +4267,11 @@ sub walk_Zip64_in_CD
         }
 
         $fieldOffset += 8;
-        my $data = substr $zip64Extended, 0, 8, "";
+        my $data = substr($zip64Extended, 0, 8, "");
         $entry->uncompressedSize(unpack "Q<", $data);
         out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
             if $display;
-        if (! full32 $entry->std_compressedSize)
+        if (! full32 $entry->std_uncompressedSize)
         {
             info $data, "Uncompressed Size should not be present in the ZIP64 extra field. Corresponding uncompressedSize from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->uncompressedSize)
                 if $display;
@@ -4270,7 +4290,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $data = substr $zip64Extended, 0, 8, "";
+        my $data = substr($zip64Extended, 0, 8, "");
         $entry->compressedSize(unpack "Q<", $data);
         out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
             if $display;
@@ -4293,7 +4313,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $data = substr $zip64Extended, 0, 8, "";
+        my $data = substr($zip64Extended, 0, 8, "");
         $entry->localHeaderOffset(unpack "Q<", $data);
         out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
             if $display;
@@ -4319,7 +4339,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 4;
 
-        my $data = substr $zip64Extended, 0, 4, "";
+        my $data = substr($zip64Extended, 0, 4, "");
         $entry->diskNumber(unpack "v", $data);
         out2 $data, "Disk Number", Value_V($entry->diskNumber)
             if $display;
