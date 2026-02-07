@@ -4253,7 +4253,7 @@ sub walk_Zip64_in_CD
             if $display;
         if (! full32 $entry->std_compressedSize)
         {
-            info $data, "Uncompressed Size " . Value_V($entry->uncompressedSize) . " is not used since uncompressedSize is not set to 0xFFFFFFFF"
+            info $data, "Uncompressed Size should not be present in the ZIP64 extra field. Corresponding uncompressedSize from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->uncompressedSize)
                 if $display;
         }
     }
@@ -4276,7 +4276,7 @@ sub walk_Zip64_in_CD
             if $display;
         if (! full32 $entry->std_compressedSize)
         {
-            info $data, "Compressed Size " . Value_V($entry->compressedSize) . " is not used since compressedSize is not set to 0xFFFFFFFF"
+            info $data, "Compressed Size should not be present in the ZIP64 extra field. Corresponding compressedSize from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->compressedSize)
                 if $display;
         }
     }
@@ -4302,7 +4302,7 @@ sub walk_Zip64_in_CD
         $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
         if (! full32 $entry->std_localHeaderOffset)
         {
-            info $data, "Offset to Local Dir " . Value_V($entry->localHeaderOffset) . " is not used since first localHeaderOffset is not set to 0xFFFFFFFF"
+            info $data, "Offset to Local Dir should not be present in the ZIP64 extra field. Corresponding localHeaderOffset from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->localHeaderOffset)
                 if $display;
         }
     }
@@ -4326,7 +4326,7 @@ sub walk_Zip64_in_CD
         $entry->zip64_diskNumberPresent(1);
         if (! full16 $entry->std_diskNumber)
         {
-            info $data, "Disk Number " . Value_V($entry->diskNumber) . " is not used since first diskNumber is not set to 0xFFFF"
+            info $data, "Disk Number should not be present in the ZIP64 extra field. Corresponding diskNumber from central header is not set to 0xFFFF, value is " . Value_V($entry->diskNumber)
                 if $display;
         }
     }
