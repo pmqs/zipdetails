@@ -2495,7 +2495,7 @@ sub validateDirectory
         {
             # APPNOTE 6.3.10, sec 4.3.8
             error $offset + CentralDirectoryEntry::Offset_UncompressedSize(),
-                    "Directory '$filename' must not have a payload"
+                    "Directory '$filename' must not have a payload. Uncompressed size is " . decimalHex0x($uncompressedSize)
         }
         elsif ($compressedSize != 0)
         {
