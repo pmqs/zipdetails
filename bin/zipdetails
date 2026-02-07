@@ -4234,8 +4234,9 @@ sub walk_Zip64_in_CD
     # information record is fixed, but the fields MUST
     # only appear if the corresponding Local or Central
     # directory record field is set to 0xFFFF or 0xFFFFFFFF.
+    my $assumeAllFieldsPresent = (length($zip64Extended) == 28);
 
-    if (full32 $entry->std_uncompressedSize)
+    if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -4246,13 +4247,22 @@ sub walk_Zip64_in_CD
         }
 
         $fieldOffset += 8;
-        my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->uncompressedSize(unpack "Q<", $data);
-        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
-            if $display;
+        my $data = substr $zip64Extended, 0, 8, "";
+        my $value = unpack "Q<", $data;
+        if (full32 $entry->std_compressedSize)
+        {
+            $entry->uncompressedSize($value);
+            out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
+                if $display;
+        }
+        else
+        {
+            info $data, "Uncompressed Size " . Value_V($value) . " is not used since uncompressedSize is not set to 0xFFFFFFFF"
+                if $display;
+        }
     }
 
-    if (full32 $entry->std_compressedSize)
+    if ($assumeAllFieldsPresent || full32 $entry->std_compressedSize)
     {
         if (length $zip64Extended < 8)
         {
@@ -4264,13 +4274,22 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->compressedSize(unpack "Q<", $data);
-        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
-            if $display;
+        my $data = substr $zip64Extended, 0, 8, "";
+        my $value = unpack "Q<", $data;
+        if (full32 $entry->std_compressedSize)
+        {
+            $entry->compressedSize($value);
+            out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
+                if $display;
+        }
+        else
+        {
+            info $data, "Compressed Size " . Value_V($value) . " is not used since compressedSize is not set to 0xFFFFFFFF"
+                if $display;
+        }
     }
 
-    if (full32 $entry->std_localHeaderOffset)
+    if ($assumeAllFieldsPresent || full32 $entry->std_localHeaderOffset)
     {
         if (length $zip64Extended < 8)
         {
@@ -4282,21 +4301,29 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $here = $FH->tell();
-        my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->localHeaderOffset(unpack "Q<", $data);
-        out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
-            if $display;
+        my $data = substr $zip64Extended, 0, 8, "";
+        my $value = unpack "Q<", $data;
+        if (full32 $entry->std_localHeaderOffset)
+        {
+            $entry->localHeaderOffset($value);
+            out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
+                if $display;
 
-        my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
-        $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
+            my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
+            $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
+        }
+        else
+        {
+            info $data, "Offset to Local Dir " . Value_V($value) . " is not used since first localHeaderOffset is not set to 0xFFFFFFFF"
+                if $display;
+        }
     }
 
-    if (full16 $entry->std_diskNumber)
+    if ($assumeAllFieldsPresent || full16 $entry->std_diskNumber)
     {
         if (length $zip64Extended < 4)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(4) . " bytes for 'Disk Number': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) . ": Expected " . decimalHex0x(4) . " bytes for 'Disk Number': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -4304,11 +4331,20 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 4;
 
-        my $data = substr($zip64Extended, 0, 4, "") ;
-        $entry->diskNumber(unpack "v", $data);
-        out2 $data, "Disk Number", Value_V($entry->diskNumber)
-            if $display;
-        $entry->zip64_diskNumberPresent(1);
+        my $data = substr $zip64Extended, 0, 4, "";
+        my $value = unpack "v", $data;
+        if (full16 $entry->std_diskNumber)
+        {
+            $entry->diskNumber($value);
+            out2 $data, "Disk Number", Value_V($entry->diskNumber)
+                if $display;
+            $entry->zip64_diskNumberPresent(1);
+        }
+        else
+        {
+            info $data, "Disk Number " . Value_V($value) . " is not used since first diskNumber is not set to 0xFFFF"
+                if $display;
+        }
     }
 
     if (length $zip64Extended)
