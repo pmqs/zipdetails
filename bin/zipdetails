@@ -4267,7 +4267,7 @@ sub walk_Zip64_in_CD
         }
 
         $fieldOffset += 8;
-        my $data = substr($zip64Extended, 0, 8, "");
+        my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->uncompressedSize(unpack "Q<", $data);
         out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
             if $display;
@@ -4290,7 +4290,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $data = substr($zip64Extended, 0, 8, "");
+        my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->compressedSize(unpack "Q<", $data);
         out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
             if $display;
@@ -4313,7 +4313,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 8;
 
-        my $data = substr($zip64Extended, 0, 8, "");
+        my $data = substr($zip64Extended, 0, 8, "") ;
         $entry->localHeaderOffset(unpack "Q<", $data);
         out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
             if $display;
@@ -4339,7 +4339,7 @@ sub walk_Zip64_in_CD
 
         $fieldOffset += 4;
 
-        my $data = substr($zip64Extended, 0, 4, "");
+        my $data = substr($zip64Extended, 0, 4, "") ;
         $entry->diskNumber(unpack "v", $data);
         out2 $data, "Disk Number", Value_V($entry->diskNumber)
             if $display;
