@@ -46,7 +46,8 @@
 008F Int File Attributes   0000 (0)
      [Bit 0]               0 'Binary Data'
 0091 Ext File Attributes   81A40000 (2175008768)
-     [Bits 24-31]          81A4 (33188) 'Unknown attributes for OS ID 0'
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
 0095 Local Header Offset   FFFFFFFF (4294967295)
 0099 Filename              'test/10.txt'
 00A4 Extra ID #1           0001 (1) 'ZIP64'

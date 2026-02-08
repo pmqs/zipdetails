@@ -1,0 +1,226 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 AA 74 47 5C Modification Time     5C4774AA (1548186794) 'Sat Feb  7 14:37:20 2026'
+000E 0011 0004 FC 2F 6F 46 CRC                   466F2FFC (1181691900)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 06 00 00 00 Uncompressed Size     00000006 (6)
+001A 001B 0002 05 00       Filename Length       0005 (5)
+001C 001D 0002 6E 00       Extra Length          006E (110)
+001E 0022 0005 73 6C 69 6E Filename              'slink'
+               6B
+0023 0024 0002 53 44       Extra ID #1           4453 (17491) 'Windows NT security descriptor [SD]'
+0025 0026 0002 59 00         Length              0059 (89)
+0027 002A 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
+002B 002B 0001 00            Version             00 (0)
+002C 002D 0002 08 00         CType               0008 (8) 'Deflated'
+002E 0031 0004 9F AD 3A E6   CRC                 E63AAD9F (3862605215)
+0032 007F 004E 63 64 60 69   Extra Payload       63 64 60 69 11 61 60 60 30 60 80 00 1F 20 66 64
+               11 61 60 60                       05 33 59 45 81 44 E8 D3 5B 93 3C 72 6D D7 D6 DD
+               30 60 80 00                       34 53 79 C9 8C 5F 8E 89 21 82 81 19 24 2B A0 C2
+               1F 20 66 64                       F0 9F 51 1E AF 5A 06 01 09 88 1A 26 88 1A 05 20
+               05 33 59 45                       A1 00 62 0B 88 40 C4 19 21 E2 42 40 02 00
+               81 44 E8 D3
+               5B 93 3C 72
+               6D D7 D6 DD
+               34 53 79 C9
+               8C 5F 8E 89
+               21 82 81 19
+               24 2B A0 C2
+               F0 9F 51 1E
+               AF 5A 06 01
+               09 88 1A 26
+               88 1A 05 20
+               A1 00 62 0B
+               88 40 C4 19
+               21 E2 42 40
+               02 00
+0080 0081 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
+0082 0083 0002 0D 00         Length              000D (13)
+0084 0084 0001 07            Flags               07 (7) 'Modification Access Creation'
+0085 0088 0004 20 4E 87 69   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
+0089 008C 0004 20 4E 87 69   Access Time         69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
+008D 0090 0004 20 4E 87 69   Creation Time       69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
+0091 0096 0006 74 61 72 67 PAYLOAD               target
+               65 74
+
+0097 009A 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+009B 009B 0001 14          Extract Zip Spec      14 (20) '2.0'
+009C 009C 0001 00          Extract OS            00 (0) 'MS-DOS'
+009D 009E 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+009F 00A0 0002 00 00       Compression Method    0000 (0) 'Stored'
+00A1 00A4 0004 F3 74 47 5C Modification Time     5C4774F3 (1548186867) 'Sat Feb  7 14:39:38 2026'
+00A5 00A8 0004 00 00 00 00 CRC                   00000000 (0)
+00A9 00AC 0004 00 00 00 00 Compressed Size       00000000 (0)
+00AD 00B0 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+00B1 00B2 0002 09 00       Filename Length       0009 (9)
+00B3 00B4 0002 6E 00       Extra Length          006E (110)
+00B5 00BD 0009 73 6C 69 6E Filename              'slinkdir/'
+               6B 64 69 72
+               2F
+00BE 00BF 0002 53 44       Extra ID #1           4453 (17491) 'Windows NT security descriptor [SD]'
+00C0 00C1 0002 59 00         Length              0059 (89)
+00C2 00C5 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
+00C6 00C6 0001 00            Version             00 (0)
+00C7 00C8 0002 08 00         CType               0008 (8) 'Deflated'
+00C9 00CC 0004 C8 A9 53 50   CRC                 5053A9C8 (1347660232)
+00CD 011A 004E 63 64 60 69   Extra Payload       63 64 60 69 11 61 60 60 30 60 80 00 1F 20 66 64
+               11 61 60 60                       05 33 59 45 81 44 E8 D3 5B 93 3C 72 6D D7 D6 DD
+               30 60 80 00                       34 53 79 C9 8C 5F 8E 89 21 82 81 19 24 2B AC C2
+               1F 20 66 64                       F0 9F 51 1E AF 5A 06 61 09 88 1A 26 88 1A 05 20
+               05 33 59 45                       A1 00 62 0B 8B 40 C4 19 21 E2 42 40 02 00
+               81 44 E8 D3
+               5B 93 3C 72
+               6D D7 D6 DD
+               34 53 79 C9
+               8C 5F 8E 89
+               21 82 81 19
+               24 2B AC C2
+               F0 9F 51 1E
+               AF 5A 06 61
+               09 88 1A 26
+               88 1A 05 20
+               A1 00 62 0B
+               8B 40 C4 19
+               21 E2 42 40
+               02 00
+011B 011C 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
+011D 011E 0002 0D 00         Length              000D (13)
+011F 011F 0001 07            Flags               07 (7) 'Modification Access Creation'
+0120 0123 0004 A9 4E 87 69   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
+0124 0127 0004 A9 4E 87 69   Access Time         69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
+0128 012B 0004 A9 4E 87 69   Creation Time       69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
+
+012C 012F 0004 50 4B 03 04 LOCAL HEADER #3       04034B50 (67324752)
+0130 0130 0001 14          Extract Zip Spec      14 (20) '2.0'
+0131 0131 0001 00          Extract OS            00 (0) 'MS-DOS'
+0132 0133 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+0134 0135 0002 00 00       Compression Method    0000 (0) 'Stored'
+0136 0139 0004 00 00 21 00 Modification Time     00210000 (2162688) 'Tue Jan  1 00:00:00 1980'
+013A 013D 0004 FC 2F 6F 46 CRC                   466F2FFC (1181691900)
+013E 0141 0004 06 00 00 00 Compressed Size       00000006 (6)
+0142 0145 0004 06 00 00 00 Uncompressed Size     00000006 (6)
+0146 0147 0002 06 00       Filename Length       0006 (6)
+0148 0149 0002 11 00       Extra Length          0011 (17)
+014A 014F 0006 6C 69 6E 6B Filename              'linkd/'
+               64 2F
+0150 0151 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0152 0153 0002 0D 00         Length              000D (13)
+0154 0154 0001 07            Flags               07 (7) 'Modification Access Creation'
+0155 0158 0004 00 A6 CE 12   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
+0159 015C 0004 00 A6 CE 12   Access Time         12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
+015D 0160 0004 00 A6 CE 12   Creation Time       12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
+0161 0166 0006 74 61 72 67 PAYLOAD               target
+               65 74
+
+0167 016A 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+016B 016B 0001 1F          Created Zip Spec      1F (31) '3.1'
+016C 016C 0001 00          Created OS            00 (0) 'MS-DOS'
+016D 016D 0001 14          Extract Zip Spec      14 (20) '2.0'
+016E 016E 0001 00          Extract OS            00 (0) 'MS-DOS'
+016F 0170 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+0171 0172 0002 00 00       Compression Method    0000 (0) 'Stored'
+0173 0176 0004 AA 74 47 5C Modification Time     5C4774AA (1548186794) 'Sat Feb  7 14:37:20 2026'
+0177 017A 0004 FC 2F 6F 46 CRC                   466F2FFC (1181691900)
+017B 017E 0004 06 00 00 00 Compressed Size       00000006 (6)
+017F 0182 0004 06 00 00 00 Uncompressed Size     00000006 (6)
+0183 0184 0002 05 00       Filename Length       0005 (5)
+0185 0186 0002 11 00       Extra Length          0011 (17)
+0187 0188 0002 00 00       Comment Length        0000 (0)
+0189 018A 0002 00 00       Disk Start            0000 (0)
+018B 018C 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+018D 0190 0004 20 00 FF A1 Ext File Attributes   A1FF0020 (2717843488)
+                           [Bit 5]               Archive
+                           [Bits 16-24]          01FF (511) 'Unix attrib: rwxrwxrwx'
+                           [Bits 28-31]          0A (10) 'Symbolic Link'
+0191 0194 0004 00 00 00 00 Local Header Offset   00000000 (0)
+0195 0199 0005 73 6C 69 6E Filename              'slink'
+               6B
+019A 019B 0002 53 44       Extra ID #1           4453 (17491) 'Windows NT security descriptor [SD]'
+019C 019D 0002 04 00         Length              0004 (4)
+019E 01A1 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
+01A2 01A3 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
+01A4 01A5 0002 05 00         Length              0005 (5)
+01A6 01A6 0001 07            Flags               07 (7) 'Modification Access Creation'
+01A7 01AA 0004 20 4E 87 69   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
+
+01AB 01AE 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+01AF 01AF 0001 1F          Created Zip Spec      1F (31) '3.1'
+01B0 01B0 0001 00          Created OS            00 (0) 'MS-DOS'
+01B1 01B1 0001 14          Extract Zip Spec      14 (20) '2.0'
+01B2 01B2 0001 00          Extract OS            00 (0) 'MS-DOS'
+01B3 01B4 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+01B5 01B6 0002 00 00       Compression Method    0000 (0) 'Stored'
+01B7 01BA 0004 F3 74 47 5C Modification Time     5C4774F3 (1548186867) 'Sat Feb  7 14:39:38 2026'
+01BB 01BE 0004 00 00 00 00 CRC                   00000000 (0)
+01BF 01C2 0004 00 00 00 00 Compressed Size       00000000 (0)
+01C3 01C6 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+01C7 01C8 0002 09 00       Filename Length       0009 (9)
+01C9 01CA 0002 11 00       Extra Length          0011 (17)
+01CB 01CC 0002 00 00       Comment Length        0000 (0)
+01CD 01CE 0002 00 00       Disk Start            0000 (0)
+01CF 01D0 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+01D1 01D4 0004 10 00 00 00 Ext File Attributes   00000010 (16)
+                           [Bit 4]               Directory
+01D5 01D8 0004 97 00 00 00 Local Header Offset   00000097 (151)
+01D9 01E1 0009 73 6C 69 6E Filename              'slinkdir/'
+               6B 64 69 72
+               2F
+01E2 01E3 0002 53 44       Extra ID #1           4453 (17491) 'Windows NT security descriptor [SD]'
+01E4 01E5 0002 04 00         Length              0004 (4)
+01E6 01E9 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
+01EA 01EB 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
+01EC 01ED 0002 05 00         Length              0005 (5)
+01EE 01EE 0001 07            Flags               07 (7) 'Modification Access Creation'
+01EF 01F2 0004 A9 4E 87 69   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
+
+01F3 01F6 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
+01F7 01F7 0001 1F          Created Zip Spec      1F (31) '3.1'
+01F8 01F8 0001 00          Created OS            00 (0) 'MS-DOS'
+01F9 01F9 0001 14          Extract Zip Spec      14 (20) '2.0'
+01FA 01FA 0001 00          Extract OS            00 (0) 'MS-DOS'
+01FB 01FC 0002 00 08       General Purpose Flag  0800 (2048)
+                           [Bit 11]              1 'Language Encoding'
+01FD 01FE 0002 00 00       Compression Method    0000 (0) 'Stored'
+01FF 0202 0004 00 00 21 00 Modification Time     00210000 (2162688) 'Tue Jan  1 00:00:00 1980'
+0203 0206 0004 FC 2F 6F 46 CRC                   466F2FFC (1181691900)
+0207 020A 0004 06 00 00 00 Compressed Size       00000006 (6)
+020B 020E 0004 06 00 00 00 Uncompressed Size     00000006 (6)
+020F 0210 0002 06 00       Filename Length       0006 (6)
+0211 0212 0002 09 00       Extra Length          0009 (9)
+0213 0214 0002 00 00       Comment Length        0000 (0)
+0215 0216 0002 00 00       Disk Start            0000 (0)
+0217 0218 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0219 021C 0004 10 00 FF A1 Ext File Attributes   A1FF0010 (2717843472)
+                           [Bit 4]               Directory
+                           [Bits 16-24]          01FF (511) 'Unix attrib: rwxrwxrwx'
+                           [Bits 28-31]          0A (10) 'Symbolic Link'
+021D 0220 0004 2C 01 00 00 Local Header Offset   0000012C (300)
+0221 0226 0006 6C 69 6E 6B Filename              'linkd/'
+               64 2F
+0227 0228 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+0229 022A 0002 05 00         Length              0005 (5)
+022B 022B 0001 07            Flags               07 (7) 'Modification Access Creation'
+022C 022F 0004 00 A6 CE 12   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
+
+0230 0233 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+0234 0235 0002 00 00       Number of this disk   0000 (0)
+0236 0237 0002 00 00       Central Dir Disk no   0000 (0)
+0238 0239 0002 03 00       Entries in this disk  0003 (3)
+023A 023B 0002 03 00       Total Entries         0003 (3)
+023C 023F 0004 C9 00 00 00 Size of Central Dir   000000C9 (201)
+0240 0243 0004 67 01 00 00 Offset to Central Dir 00000167 (359)
+0244 0245 0002 00 00       Comment Length        0000 (0)
+#
+# Done

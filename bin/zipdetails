@@ -88,7 +88,7 @@ use constant ZIP_SINGLE_SEGMENT_MARKER         => 0x30304b50; # APPNOTE 6.3.10, 
 use constant WIN_FILE_ATTRIBUTE_READONLY            => 0x0001;
 use constant WIN_FILE_ATTRIBUTE_HIDDEN              => 0x0002;
 use constant WIN_FILE_ATTRIBUTE_SYSTEM              => 0x0004;
-use constant WIN_FILE_ATTRIBUTE_LABEL               => 0x0008;
+use constant WIN_FILE_ATTRIBUTE_LABEL               => 0x0008; # Unused?
 use constant WIN_FILE_ATTRIBUTE_DIRECTORY           => 0x0010;
 use constant WIN_FILE_ATTRIBUTE_ARCHIVE             => 0x0020;
 use constant WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK       => 0x0040; # Not DEVICE
@@ -2488,8 +2488,10 @@ sub validateDirectory
             "Unix Directory flag not set in 'External Attributes' for Directory '$filename'"
         if $filenameOK && $versionMadeBy == 3 && ! $unixDirectoryAttributeSet;
 
-    # Windows symlink directories will have a payload, so check for that now
-    if (! ($dosAttributes && $dosAttributes & WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK_MASK))
+    # Windows symlink directories will have a payload, so check for that now.
+    # Windows attributes can sometimes be missing so check for unix directory bit + symlink bit
+    use constant UNIX_SYMLINK_DIRECTORY => 0x4000 | 0xA0000;
+    if (! ($dosAttributes & WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK_MASK || $otherAttributes & UNIX_SYMLINK_DIRECTORY == UNIX_SYMLINK_DIRECTORY))
     {
         if ($uncompressedSize != 0)
         {
@@ -2756,7 +2758,7 @@ sub CentralHeader
         out1 "[Bit 0]",  "Read-Only"     if $dos_attrib & WIN_FILE_ATTRIBUTE_READONLY ;
         out1 "[Bit 1]",  "Hidden"        if $dos_attrib & WIN_FILE_ATTRIBUTE_HIDDEN ;
         out1 "[Bit 2]",  "System"        if $dos_attrib & WIN_FILE_ATTRIBUTE_SYSTEM ;
-        out1 "[Bit 3]",  "Label"         if $dos_attrib & WIN_FILE_ATTRIBUTE_LABEL ;
+        out1 "[Bit 3]",  "Unused"        if $dos_attrib & WIN_FILE_ATTRIBUTE_LABEL ; # bit not used
         out1 "[Bit 4]",  "Directory"     if $dos_attrib & WIN_FILE_ATTRIBUTE_DIRECTORY ;
         out1 "[Bit 5]",  "Archive"       if $dos_attrib & WIN_FILE_ATTRIBUTE_ARCHIVE ;
         out1 "[Bit 6]",  "Symbolic Link" if $dos_attrib & WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK ;
@@ -2765,7 +2767,6 @@ sub CentralHeader
         out1 "[Bit 9]",  "Sparse"        if $dos_attrib & WIN_FILE_ATTRIBUTE_SPARSE_FILE ;
         out1 "[Bit 10]", "Reparse Point" if $dos_attrib & WIN_FILE_ATTRIBUTE_REPARSE_POINT ;
         out1 "[Bit 11]", "Compressed"    if $dos_attrib & WIN_FILE_ATTRIBUTE_COMPRESSED ;
-
         out1 "[Bit 12]", "Offline"       if $dos_attrib & WIN_FILE_ATTRIBUTE_OFFLINE ;
         out1 "[Bit 13]", "Not Indexed"   if $dos_attrib & WIN_FILE_ATTRIBUTE_NOT_CONTENT_INDEXED ;
 
@@ -2779,9 +2780,9 @@ sub CentralHeader
 
     my $native_attrib = ($ext_file_attrib >> 16 ) &  0xFFFF;
 
-    if ($made_by == 3) # Unix
+    # Some wiindows zip file (created OS  == 0), have th eUnix attributes populated.
+    if ($made_by == 3 || $made_by == 0) # Unix
     {
-
         state $mask = {
                 0   => '---',
                 1   => '--x',

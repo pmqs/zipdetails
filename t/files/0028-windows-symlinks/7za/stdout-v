@@ -1,0 +1,172 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+0008 0009 0002 00 00       Compression Method    0000 (0) 'Stored'
+000A 000D 0004 0D B7 47 5C Modification Time     5C47B70D (1548203789) 'Sat Feb  7 22:56:26 2026'
+000E 0011 0004 00 00 00 00 CRC                   00000000 (0)
+0012 0015 0004 00 00 00 00 Compressed Size       00000000 (0)
+0016 0019 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+001A 001B 0002 06 00       Filename Length       0006 (6)
+001C 001D 0002 00 00       Extra Length          0000 (0)
+001E 0023 0006 6C 69 6E 6B Filename              'linkd/'
+               64 2F
+
+0024 0027 0004 50 4B 03 04 LOCAL HEADER #2       04034B50 (67324752)
+0028 0028 0001 14          Extract Zip Spec      14 (20) '2.0'
+0029 0029 0001 00          Extract OS            00 (0) 'MS-DOS'
+002A 002B 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+002C 002D 0002 08 00       Compression Method    0008 (8) 'Deflated'
+002E 0031 0004 EE 74 47 5C Modification Time     5C4774EE (1548186862) 'Sat Feb  7 14:39:28 2026'
+0032 0035 0004 17 83 42 2C CRC                   2C428317 (742556439)
+0036 0039 0004 25 00 00 00 Compressed Size       00000025 (37)
+003A 003D 0004 2C 00 00 00 Uncompressed Size     0000002C (44)
+003E 003F 0002 05 00       Filename Length       0005 (5)
+0040 0041 0002 00 00       Extra Length          0000 (0)
+0042 0046 0005 73 6C 69 6E Filename              'slink'
+               6B
+0047 006B 0025 4D C6 B1 09 PAYLOAD               M....0...K..Y,E...rT.......`j~...8_.n
+               00 30 08 05
+               D1 4B EF 18
+               59 2C 45 B0
+               17 07 72 54
+               BF 9D 1C 1C
+               CF A0 2E 60
+               6A 7E F4 E4
+               11 38 5F DA
+               6E
+
+006C 006F 0004 50 4B 03 04 LOCAL HEADER #3       04034B50 (67324752)
+0070 0070 0001 14          Extract Zip Spec      14 (20) '2.0'
+0071 0071 0001 00          Extract OS            00 (0) 'MS-DOS'
+0072 0073 0002 00 00       General Purpose Flag  0000 (0)
+0074 0075 0002 00 00       Compression Method    0000 (0) 'Stored'
+0076 0079 0004 FA 74 47 5C Modification Time     5C4774FA (1548186874) 'Sat Feb  7 14:39:52 2026'
+007A 007D 0004 00 00 00 00 CRC                   00000000 (0)
+007E 0081 0004 00 00 00 00 Compressed Size       00000000 (0)
+0082 0085 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+0086 0087 0002 09 00       Filename Length       0009 (9)
+0088 0089 0002 00 00       Extra Length          0000 (0)
+008A 0092 0009 73 6C 69 6E Filename              'slinkdir/'
+               6B 64 69 72
+               2F
+
+0093 0096 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0097 0097 0001 3F          Created Zip Spec      3F (63) '6.3'
+0098 0098 0001 00          Created OS            00 (0) 'MS-DOS'
+0099 0099 0001 14          Extract Zip Spec      14 (20) '2.0'
+009A 009A 0001 00          Extract OS            00 (0) 'MS-DOS'
+009B 009C 0002 00 00       General Purpose Flag  0000 (0)
+009D 009E 0002 00 00       Compression Method    0000 (0) 'Stored'
+009F 00A2 0004 0D B7 47 5C Modification Time     5C47B70D (1548203789) 'Sat Feb  7 22:56:26 2026'
+00A3 00A6 0004 00 00 00 00 CRC                   00000000 (0)
+00A7 00AA 0004 00 00 00 00 Compressed Size       00000000 (0)
+00AB 00AE 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+00AF 00B0 0002 06 00       Filename Length       0006 (6)
+00B1 00B2 0002 24 00       Extra Length          0024 (36)
+00B3 00B4 0002 00 00       Comment Length        0000 (0)
+00B5 00B6 0002 00 00       Disk Start            0000 (0)
+00B7 00B8 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+00B9 00BC 0004 10 04 00 00 Ext File Attributes   00000410 (1040)
+                           [Bit 4]               Directory
+                           [Bit 10]              Reparse Point
+00BD 00C0 0004 00 00 00 00 Local Header Offset   00000000 (0)
+00C1 00C6 0006 6C 69 6E 6B Filename              'linkd/'
+               64 2F
+00C7 00C8 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+00C9 00CA 0002 20 00         Length              0020 (32)
+00CB 00CE 0004 00 00 00 00   Reserved            00000000 (0)
+00CF 00D0 0002 01 00         Tag1                0001 (1)
+00D1 00D2 0002 18 00         Size1               0018 (24)
+00D3 00DA 0008 54 CC 8F FC   Mtime               01DC9884FC8FCC54 (134149785854659668) 'Sat Feb  7 22:56:25 2026 465966800ns'
+               84 98 DC 01
+00DB 00E2 0008 00 00 00 00   Atime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+00E3 00EA 0008 00 00 00 00   Ctime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+
+00EB 00EE 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
+00EF 00EF 0001 3F          Created Zip Spec      3F (63) '6.3'
+00F0 00F0 0001 00          Created OS            00 (0) 'MS-DOS'
+00F1 00F1 0001 14          Extract Zip Spec      14 (20) '2.0'
+00F2 00F2 0001 00          Extract OS            00 (0) 'MS-DOS'
+00F3 00F4 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+00F5 00F6 0002 08 00       Compression Method    0008 (8) 'Deflated'
+00F7 00FA 0004 EE 74 47 5C Modification Time     5C4774EE (1548186862) 'Sat Feb  7 14:39:28 2026'
+00FB 00FE 0004 17 83 42 2C CRC                   2C428317 (742556439)
+00FF 0102 0004 25 00 00 00 Compressed Size       00000025 (37)
+0103 0106 0004 2C 00 00 00 Uncompressed Size     0000002C (44)
+0107 0108 0002 05 00       Filename Length       0005 (5)
+0109 010A 0002 24 00       Extra Length          0024 (36)
+010B 010C 0002 00 00       Comment Length        0000 (0)
+010D 010E 0002 00 00       Disk Start            0000 (0)
+010F 0110 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0111 0114 0004 20 04 00 00 Ext File Attributes   00000420 (1056)
+                           [Bit 5]               Archive
+                           [Bit 10]              Reparse Point
+0115 0118 0004 24 00 00 00 Local Header Offset   00000024 (36)
+0119 011D 0005 73 6C 69 6E Filename              'slink'
+               6B
+011E 011F 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+0120 0121 0002 20 00         Length              0020 (32)
+0122 0125 0004 00 00 00 00   Reserved            00000000 (0)
+0126 0127 0002 01 00         Tag1                0001 (1)
+0128 0129 0002 18 00         Size1               0018 (24)
+012A 0131 0008 AC 63 0E 8F   Mtime               01DC983F8F0E63AC (134149487664718764) 'Sat Feb  7 14:39:26 2026 471876400ns'
+               3F 98 DC 01
+0132 0139 0008 00 00 00 00   Atime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+013A 0141 0008 00 00 00 00   Ctime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+
+0142 0145 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
+0146 0146 0001 3F          Created Zip Spec      3F (63) '6.3'
+0147 0147 0001 00          Created OS            00 (0) 'MS-DOS'
+0148 0148 0001 14          Extract Zip Spec      14 (20) '2.0'
+0149 0149 0001 00          Extract OS            00 (0) 'MS-DOS'
+014A 014B 0002 00 00       General Purpose Flag  0000 (0)
+014C 014D 0002 00 00       Compression Method    0000 (0) 'Stored'
+014E 0151 0004 FA 74 47 5C Modification Time     5C4774FA (1548186874) 'Sat Feb  7 14:39:52 2026'
+0152 0155 0004 00 00 00 00 CRC                   00000000 (0)
+0156 0159 0004 00 00 00 00 Compressed Size       00000000 (0)
+015A 015D 0004 00 00 00 00 Uncompressed Size     00000000 (0)
+015E 015F 0002 09 00       Filename Length       0009 (9)
+0160 0161 0002 24 00       Extra Length          0024 (36)
+0162 0163 0002 00 00       Comment Length        0000 (0)
+0164 0165 0002 00 00       Disk Start            0000 (0)
+0166 0167 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0168 016B 0004 10 04 00 00 Ext File Attributes   00000410 (1040)
+                           [Bit 4]               Directory
+                           [Bit 10]              Reparse Point
+016C 016F 0004 6C 00 00 00 Local Header Offset   0000006C (108)
+0170 0178 0009 73 6C 69 6E Filename              'slinkdir/'
+               6B 64 69 72
+               2F
+0179 017A 0002 0A 00       Extra ID #1           000A (10) 'NTFS FileTimes'
+017B 017C 0002 20 00         Length              0020 (32)
+017D 0180 0004 00 00 00 00   Reserved            00000000 (0)
+0181 0182 0002 01 00         Tag1                0001 (1)
+0183 0184 0002 18 00         Size1               0018 (24)
+0185 018C 0008 A7 EC D6 9D   Mtime               01DC983F9DD6ECA7 (134149487912742055) 'Sat Feb  7 14:39:51 2026 274205500ns'
+               3F 98 DC 01
+018D 0194 0008 00 00 00 00   Atime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+0195 019C 0008 00 00 00 00   Ctime               0000000000000000 (0) 'No Date/Time'
+               00 00 00 00
+
+019D 01A0 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+01A1 01A2 0002 00 00       Number of this disk   0000 (0)
+01A3 01A4 0002 00 00       Central Dir Disk no   0000 (0)
+01A5 01A6 0002 03 00       Entries in this disk  0003 (3)
+01A7 01A8 0002 03 00       Total Entries         0003 (3)
+01A9 01AC 0004 0A 01 00 00 Size of Central Dir   0000010A (266)
+01AD 01B0 0004 93 00 00 00 Offset to Central Dir 00000093 (147)
+01B1 01B2 0002 00 00       Comment Length        0000 (0)
+#
+# Done

@@ -55,7 +55,8 @@
 008F 0090 0002 00 00       Int File Attributes   0000 (0)
                            [Bit 0]               0 'Binary Data'
 0091 0094 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
-                           [Bits 24-31]          81A4 (33188) 'Unknown attributes for OS ID 0'
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
 0095 0098 0004 FF FF FF FF Local Header Offset   FFFFFFFF (4294967295)
 0099 00A3 000B 74 65 73 74 Filename              'test/10.txt'
                2F 31 30 2E
