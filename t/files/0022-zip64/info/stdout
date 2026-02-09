@@ -1,0 +1,92 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+0008 Compression Method    0000 (0) 'Stored'
+000A Modification Time     5C49AF24 (1548332836) 'Mon Feb  9 21:57:08 2026'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000004 (4)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0005 (5)
+001C Extra Length          0020 (32)
+001E Filename              'entry'
+0023 Extra ID #1           0001 (1) 'ZIP64'
+0025   Length              001C (28)
+0027   Uncompressed Size   0000000000000004 (4)
+#
+# INFO: Offset 0x3B: 'Uncompressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x4 (4)
+#
+002F   Compressed Size     0000000000000004 (4)
+#
+# INFO: Offset 0x3B: 'Compressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x4 (4)
+#
+0037   Offset to Local Dir 0000000000000000 (0)
+#
+# INFO: Offset 0x3B: Offset to Local Dir should not be present in the ZIP64 extra field for the Local Header.
+#
+003F   Disk Number         00000000 (0)
+#
+# INFO: Offset 0x3F: Disk Number should not be present in the ZIP64 extra field for the Local Header.
+#
+0043 PAYLOAD               abcd
+
+0047 CENTRAL HEADER #1     02014B50 (33639248)
+004B Created Zip Spec      14 (20) '2.0'
+004C Created OS            03 (3) 'Unix'
+004D Extract Zip Spec      14 (20) '2.0'
+004E Extract OS            00 (0) 'MS-DOS'
+004F General Purpose Flag  0000 (0)
+0051 Compression Method    0000 (0) 'Stored'
+0053 Modification Time     5C49AF24 (1548332836) 'Mon Feb  9 21:57:08 2026'
+0057 CRC                   ED82CD11 (3984772369)
+005B Compressed Size       00000004 (4)
+005F Uncompressed Size     00000004 (4)
+0063 Filename Length       0005 (5)
+0065 Extra Length          0020 (32)
+0067 Comment Length        0000 (0)
+0069 Disk Start            0000 (0)
+006B Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+006D Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0071 Local Header Offset   00000000 (0)
+0075 Filename              'entry'
+007A Extra ID #1           0001 (1) 'ZIP64'
+007C   Length              001C (28)
+007E   Uncompressed Size   0000000000000004 (4)
+#
+# INFO: Offset 0x92: 'Uncompressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x4 (4)
+#
+0086   Compressed Size     0000000000000004 (4)
+#
+# INFO: Offset 0x92: 'Compressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x4 (4)
+#
+008E   Offset to Local Dir 0000000000000000 (0)
+#
+# INFO: Offset 0x92: 'Offset to Local Dir' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x0 (0)
+#
+0096   Disk Number         00000000 (0)
+#
+# INFO: Offset 0x96: 'Disk Number' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFF, value is 0x0 (0)
+#
+
+009A END CENTRAL HEADER    06054B50 (101010256)
+009E Number of this disk   0000 (0)
+00A0 Central Dir Disk no   0000 (0)
+00A2 Entries in this disk  0001 (1)
+00A4 Total Entries         0001 (1)
+00A6 Size of Central Dir   00000053 (83)
+00AA Offset to Central Dir 00000047 (71)
+00AE Comment Length        0000 (0)
+#
+# Info Count: 8
+#
+# Done

@@ -16,7 +16,15 @@
 002A Extra ID #1           0001 (1) 'ZIP64'
 002C   Length              0010 (16)
 002E   Uncompressed Size   000000000000000F (15)
+#
+# INFO: Offset 0x36: 'Uncompressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0xF (15)
+#
 0036   Compressed Size     0000000000000011 (17)
+#
+# INFO: Offset 0x36: 'Compressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0x11 (17)
+#
 003E Extra ID #2           A11E (41246) 'Data Stream Alignment'
 0040   Length              003E (62)
 0042   Alignment           0040 (64)
@@ -44,7 +52,15 @@
 00B9 Extra ID #1           0001 (1) 'ZIP64'
 00BB   Length              0010 (16)
 00BD   Uncompressed Size   000000000000000D (13)
+#
+# INFO: Offset 0xC5: 'Uncompressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0xD (13)
+#
 00C5   Compressed Size     000000000000000D (13)
+#
+# INFO: Offset 0xC5: 'Compressed Size' should not be present in the ZIP64 extra field.
+#       Corresponding field from Central Header is not set to 0xFFFFFFFF, value is 0xD (13)
+#
 00CD Extra ID #2           A11E (41246) 'Data Stream Alignment'
 00CF   Length              000F (15)
 00D1   Alignment           8020 (32800)
@@ -116,5 +132,7 @@
 0177 Size of Central Dir   0000007E (126)
 017B Offset to Central Dir 000000ED (237)
 017F Comment Length        0000 (0)
+#
+# Info Count: 4
 #
 # Done

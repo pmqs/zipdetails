@@ -1165,7 +1165,7 @@ if ($opt_scan || $opt_walk)
             }
             elsif (Signatures::isCentralHeader($s) && $foundCentralHeader == 0)
             {
-                # check for an APK header directly before the first central header
+                # check for an APK header directly before the first Central Header
                 $foundCentralHeader = 1;
 
                 ($START_APK, $APK, $APK_LEN) = chckForAPKSigningBlock($FH, $here, 0) ;
@@ -1333,7 +1333,7 @@ else
             # If get here then $here is less than $expectedOffset
 
 
-            # check for an APK header directly before the first central header
+            # check for an APK header directly before the first Central Header
             # Make sure not to miss a streaming data descriptor
             if ($signature != ZIP_DATA_HDR_SIG && Signatures::isCentralHeader($expectedSignature) && $START_APK && ! $processedAPK )
             {
@@ -1549,7 +1549,7 @@ sub dislayMessages
                               grep {
                                       $_->entryType == ZIP_CENTRAL_HDR_SIG &&
                                     ! $_->encapsulated && # not encapsulated
-                                      $_->ldEntry && # central header has a local sibling
+                                      $_->ldEntry && # Central Header has a local sibling
                                       $_->ldEntry->childrenCount && # local entry has embedded entries
                                     ! Nesting::childrenInCentralDir($_->ldEntry)
                                    }
@@ -1707,10 +1707,10 @@ sub dislayMessages
             }
         }
 
-        # Check if contents of local headers match with central headers
+        # Check if contents of local headers match with Central Headers
         #
-        # When central header encryption is used the local header values are masked (see APPNOTE 6.3.10, sec 4)
-        # In this usecase the central header will appear to be absent
+        # When Central Header encryption is used the local header values are masked (see APPNOTE 6.3.10, sec 4)
+        # In this usecase the Central Header will appear to be absent
         #
         # key fields
         #    filename, compressed/uncompessed lengths, crc, compression method
@@ -2123,7 +2123,7 @@ sub LocalHeader
         walkExtra($extraLength, $localEntry);
     }
 
-    # Defer test for directory payload until central header processing.
+    # Defer test for directory payload until Central Header processing.
     # Need to have external file attributes to deal with sme edge conditions.
     # # APPNOTE 6.3.10, sec 4.3.8
     # warning $FH->tell - $filenameLength, "Directory '$filename' must not have a payload"
@@ -4175,31 +4175,35 @@ sub walk_Zip64_in_LD
     if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_uncompressedSize )
     {
         # TODO defer a warning if in local header & central/local don't have std_uncompressedSizeset to 0xffffffff
+        my $fieldName = 'Uncompressed Size';
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Uncompressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
         }
 
         $fieldOffset += 8;
+
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->uncompressedSize(unpack "Q<", $data);
-        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
+        my $value = unpack "Q<", $data;
+        out2 $data, "$fieldName", Value_Q($value)
             if $display;
-        if (! full32 $entry->std_uncompressedSize)
+        if ($display && !$entry->streamed && ! full32 $entry->std_uncompressedSize)
         {
-            info $data, "Uncompressed Size should not be present in the ZIP64 extra field. Corresponding uncompressedSize from local header is not set to 0xFFFFFFFF, value is " . Value_V($entry->uncompressedSize)
-                if $display;
+            info $FH->tell() - 8, "'$fieldName' should not be present in the ZIP64 extra field.",
+                                  "Corresponding field from Central Header is not set to 0xFFFFFFFF, value is " . decimalHex0x($entry->std_uncompressedSize)
         }
+        $entry->uncompressedSize($value);
     }
 
     if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_compressedSize)
     {
+        my $fieldName = 'Compressed Size';
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Compressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -4208,14 +4212,15 @@ sub walk_Zip64_in_LD
         $fieldOffset += 8;
 
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->compressedSize( unpack "Q<", $data);
-        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
+        my $value = unpack "Q<", $data;
+        out2 $data, "$fieldName", Value_Q($value)
             if $display;
-        if (! full32 $entry->std_compressedSize)
+        if ($display && !$entry->streamed && ! full32 $entry->std_compressedSize)
         {
-            info $data, "Compressed Size should not be present in the ZIP64 extra field. Corresponding compressedSize from local header is not set to 0xFFFFFFFF, value is " . Value_V($entry->compressedSize)
-                if $display;
+            info $FH->tell() - 8, "'$fieldName' should not be present in the ZIP64 extra field.",
+                                  "Corresponding field from Central Header is not set to 0xFFFFFFFF, value is " . decimalHex0x($entry->std_compressedSize)
         }
+        $entry->compressedSize($value);
     }
 
     # Zip64 in local header should not have localHeaderOffset or disk number
@@ -4225,14 +4230,14 @@ sub walk_Zip64_in_LD
     {
         $fieldOffset += 8;
 
+        my $fieldName = 'Offset to Local Dir';
         my $data = substr($zip64Extended, 0, 8, "") ;
-        my $localHeaderOffset = unpack "Q<", $data;
-        out2 $data, "Offset to Local Dir", Value_Q($localHeaderOffset)
+        my $value = unpack "Q<", $data;
+        out2 $data, "$fieldName", Value_Q($value)
             if $display;
-        if (! full32 $entry->std_localHeaderOffset)
+        if ($display && !$entry->streamed && ! full32 $entry->std_localHeaderOffset)
         {
-            info $data, "Offset to Local Dir should not be present in the ZIP64 extra field. Value is " . Value_V($entry->localHeaderOffset)
-                if $display;
+            info $FH->tell() - 8, "$fieldName should not be present in the ZIP64 extra field for the Local Header."
         }
     }
 
@@ -4240,14 +4245,15 @@ sub walk_Zip64_in_LD
     {
         $fieldOffset += 4;
 
+        my $fieldName = 'Disk Number';
         my $data = substr($zip64Extended, 0, 4, "") ;
-        my $diskNumber = unpack "v", $data;
-        out2 $data, "Disk Number", Value_V($diskNumber)
+        my $value = unpack "V", $data;
+        my $diskNumber = $value;
+        out2 $data, "$fieldName", Value_V($diskNumber)
             if $display;
-        if (! full16 $entry->std_diskNumber)
+        if ($display && !$entry->streamed && ! full16 $entry->std_diskNumber)
         {
-            info $data, "Disk Number should not be present in the ZIP64 extra field. Value is " . Value_V($entry->diskNumber)
-                if $display;
+            info $FH->tell() - 4, "$fieldName should not be present in the ZIP64 extra field for the Local Header."
         }
     }
 
@@ -4289,31 +4295,35 @@ sub walk_Zip64_in_CD
 
     if ($assumeAllFieldsPresent || full32 $entry->std_uncompressedSize)
     {
+        my $fieldName ="Uncompressed Size" ;
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Uncompressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
         }
 
         $fieldOffset += 8;
+
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->uncompressedSize(unpack "Q<", $data);
-        out2 $data, "Uncompressed Size", Value_Q($entry->uncompressedSize)
+        my $value = unpack "Q<", $data;
+        out2 $data, "$fieldName", Value_Q($value)
             if $display;
-        if (! full32 $entry->std_uncompressedSize)
+        if ($display && !$entry->streamed && ! full32 $entry->std_uncompressedSize)
         {
-            info $data, "Uncompressed Size should not be present in the ZIP64 extra field. Corresponding uncompressedSize from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->uncompressedSize)
-                if $display;
+            info $FH->tell() - 8,  "'$fieldName' should not be present in the ZIP64 extra field.",
+                                   "Corresponding field from Central Header is not set to 0xFFFFFFFF, value is " . decimalHex0x($entry->uncompressedSize);
         }
+        $entry->uncompressedSize($value);
     }
 
     if ($assumeAllFieldsPresent || full32 $entry->std_compressedSize)
     {
+        my $fieldName ="Compressed Size" ;
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Compressed Size': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -4322,21 +4332,23 @@ sub walk_Zip64_in_CD
         $fieldOffset += 8;
 
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->compressedSize(unpack "Q<", $data);
-        out2 $data, "Compressed Size", Value_Q($entry->compressedSize)
+        my $value = unpack "Q<", $data;
+        out2 $data, "$fieldName", Value_Q($value)
             if $display;
-        if (! full32 $entry->std_compressedSize)
+        if ($display && !$entry->streamed && ! full32 $entry->std_compressedSize)
         {
-            info $data, "Compressed Size should not be present in the ZIP64 extra field. Corresponding compressedSize from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->compressedSize)
-                if $display;
+            info $FH->tell() - 8, "'$fieldName' should not be present in the ZIP64 extra field.",
+                                  "Corresponding field from Central Header is not set to 0xFFFFFFFF, value is " . decimalHex0x($entry->compressedSize);
         }
+        $entry->compressedSize($value);
     }
 
     if ($assumeAllFieldsPresent || full32 $entry->std_localHeaderOffset)
     {
+        my $fieldName = "Offset to Local Dir";
         if (length $zip64Extended < 8)
         {
-            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for 'Offset to Local Dir': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) .  ": Expected " . decimalHex0x(8) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -4345,24 +4357,27 @@ sub walk_Zip64_in_CD
         $fieldOffset += 8;
 
         my $data = substr($zip64Extended, 0, 8, "") ;
-        $entry->localHeaderOffset(unpack "Q<", $data);
-        out2 $data, "Offset to Local Dir", Value_Q($entry->localHeaderOffset)
+        my $value = unpack("Q<", $data);
+        out2 $data, $fieldName, Value_Q($value)
             if $display;
 
-        my $commonMessage = "'Offset to Local Dir' field in 'Zip64 Extra Field' is invalid";
-        $entry->localHeaderOffset(checkOffsetValue($entry->localHeaderOffset, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) );
-        if (! full32 $entry->std_localHeaderOffset)
+        my $commonMessage = "'$fieldName' field in 'Zip64 Extra Field' is invalid";
+        $value = checkOffsetValue($value, $fieldStart, 0, $commonMessage, $fieldStart, ZIP_LOCAL_HDR_SIG, 0) ;
+
+        if ($display && !$entry->streamed && ! full32 $entry->std_localHeaderOffset)
         {
-            info $data, "Offset to Local Dir should not be present in the ZIP64 extra field. Corresponding localHeaderOffset from central header is not set to 0xFFFFFFFF, value is " . Value_V($entry->localHeaderOffset)
-                if $display;
+            info $FH->tell() - 8, "'$fieldName' should not be present in the ZIP64 extra field.",
+                                  "Corresponding field from Central Header is not set to 0xFFFFFFFF, value is " . decimalHex0x($value);
         }
+        $entry->localHeaderOffset($value);
     }
 
     if ($assumeAllFieldsPresent || full16 $entry->std_diskNumber)
     {
+        my $fieldName = 'Disk Number';
         if (length $zip64Extended < 4)
         {
-            my $message = extraFieldIdentifier($extraID) . ": Expected " . decimalHex0x(4) . " bytes for 'Disk Number': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
+            my $message = extraFieldIdentifier($extraID) . ": Expected " . decimalHex0x(4) . " bytes for '$fieldName': only " . decimalHex0x(length $zip64Extended)  . " bytes present";
             error $fieldOffset, $message;
             out2 $zip64Extended, $message;
             return;
@@ -4371,15 +4386,16 @@ sub walk_Zip64_in_CD
         $fieldOffset += 4;
 
         my $data = substr($zip64Extended, 0, 4, "") ;
-        $entry->diskNumber(unpack "v", $data);
-        out2 $data, "Disk Number", Value_V($entry->diskNumber)
+        my $value = unpack "V", $data;
+        out2 $data, "$fieldName", Value_V($value)
             if $display;
-        $entry->zip64_diskNumberPresent(1);
-        if (! full16 $entry->std_diskNumber)
+        if ($display && !$entry->streamed && ! full16 $entry->std_diskNumber)
         {
-            info $data, "Disk Number should not be present in the ZIP64 extra field. Corresponding diskNumber from central header is not set to 0xFFFF, value is " . Value_V($entry->diskNumber)
-                if $display;
+            info $FH->tell() - 4, "'$fieldName' should not be present in the ZIP64 extra field.",
+                                  "Corresponding field from Central Header is not set to 0xFFFF, value is " . decimalHex0x($entry->diskNumber);
         }
+        $entry->zip64_diskNumberPresent(1);
+        $entry->diskNumber($value);
     }
 
     if (length $zip64Extended)
