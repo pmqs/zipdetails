@@ -7,12 +7,12 @@ use feature 'say';
 
 my $value = shift;
 
-# allow value to be hpassed as 0x1234, or 1234
+# allow value to be passed as 0x1234, or 1234
 $value = eval "$value + 0";
 
 my $unix = _dosToUnixTime($value) ;
-say _dosToUnixTime($value) // "UNKNOWN";
-say scalar gmtime($unix)
+say "Unix Elapsed   : " . _dosToUnixTime($value) // "UNKNOWN";
+say "Unix Printable : " . scalar gmtime($unix)
     if defined $unix;;
 
 
@@ -20,8 +20,7 @@ sub _dosToUnixTime
 {
     my $dt = shift;
 
-    # Mozilla xpi files have empty datetime
-    # This is not a valid Dos datetime value
+    # Some zip files have an empty datetime
     return 0 if $dt == 0 ;
 
     my $year = ( ( $dt >> 25 ) & 0x7f ) + 80;
