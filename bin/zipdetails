@@ -483,7 +483,7 @@ sub setupFormat
     my $rightColumn = "^" . ("<" x 132);
 
     # Fill mode can split on space or newline chars
-    # Spliting on hyphen works differently from Perl 5.20 onwards
+    # Splitting on hyphen works differently from Perl 5.20 onwards
     $: = " \n";
 
     my $fmt ;
@@ -1013,9 +1013,9 @@ my $opt_scan = 0;
 my $opt_walk = 0;
 my $opt_Redact = 0;
 my $opt_utc = 0;
-my $opt_want_info_mesages = 1;
-my $opt_want_warning_mesages = 1;
-my $opt_want_error_mesages = 1;
+my $opt_want_info_messages = 1;
+my $opt_want_warning_messages = 1;
+my $opt_want_error_messages = 1;
 my $opt_want_message_exit_status = 0;
 my $exit_status_code = 0;
 my $opt_help =0;
@@ -1043,9 +1043,9 @@ GetOptions("h|help"     => \$opt_help,
            "exit-bitmask!"      => \$opt_want_message_exit_status,
            "messages!"          => sub {
                                             my ($opt_name, $opt_value) = @_;
-                                            $opt_want_info_mesages =
-                                            $opt_want_warning_mesages =
-                                            $opt_want_error_mesages = $opt_value;
+                                            $opt_want_info_messages =
+                                            $opt_want_warning_messages =
+                                            $opt_want_error_messages = $opt_value;
                                        },
     )
   or exit 255 ;
@@ -1136,7 +1136,7 @@ if ($opt_scan || $opt_walk)
             }
             elsif ($lastSignature == ZIP_LOCAL_HDR_SIG && $lastHeader->{'streamed'} )
             {
-                # Check for size of possibe malformed Data Descriptor before outputting payload
+                # Check for size of possible malformed Data Descriptor before outputting payload
                 if (! $lastHeader->{'gotDataDescriptorSize'})
                 {
                     my $hdrSize = checkForBadlyFormedDataDescriptor($lastHeader, $delta) ;
@@ -1440,15 +1440,15 @@ else
 }
 
 
-dislayMessages()
-    if $opt_want_error_mesages ;
+displayMessages()
+    if $opt_want_error_messages ;
 
 exit $exit_status_code ;
 
-sub dislayMessages
+sub displayMessages
 {
 
-    # Compare Central & Local for discrepencies
+    # Compare Central & Local for discrepancies
 
     if ($CentralDirectory->isMiniZipEncrypted)
     {
@@ -1713,7 +1713,7 @@ sub dislayMessages
         # In this usecase the Central Header will appear to be absent
         #
         # key fields
-        #    filename, compressed/uncompessed lengths, crc, compression method
+        #    filename, compressed/uncompressed lengths, crc, compression method
         {
             for my $centralEntry ( sort { $a->centralHeaderOffset() <=> $b->centralHeaderOffset() } values %cleanCentralEntries )
             {
@@ -1887,7 +1887,7 @@ sub BadlyFormedDataDescriptor
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
-            error $FH->tell(), "Missimg $sigName Signature";
+            error $FH->tell(), "Missing $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
             $localEntry->compressedSize(   out_V "Compressed Size");
             $localEntry->uncompressedSize( out_V "Uncompressed Size");
@@ -1909,7 +1909,7 @@ sub BadlyFormedDataDescriptor
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
-            error $FH->tell(), "Missimg $sigName Signature";
+            error $FH->tell(), "Missing $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
             $localEntry->compressedSize(   out_Q "Compressed Size");
             $localEntry->uncompressedSize( out_Q "Uncompressed Size");
@@ -1940,7 +1940,7 @@ sub BadlyFormedDataDescriptor
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
-            error $FH->tell(), "Missimg $sigName Signature";
+            error $FH->tell(), "Missing $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
             $localEntry->compressedSize(   out_V "Compressed Size");
             $localEntry->uncompressedSize( out_V "Uncompressed Size");
@@ -1965,7 +1965,7 @@ sub BadlyFormedDataDescriptor
             print "\n";
             out1 "Missing $sigName Signature", Value_V(ZIP_DATA_HDR_SIG);
 
-            error $FH->tell(), "Missimg $sigName Signature";
+            error $FH->tell(), "Missing $sigName Signature";
             $localEntry->crc32(              out_V "CRC");
             $localEntry->compressedSize(   out_Q "Compressed Size");
             $localEntry->uncompressedSize( out_Q "Uncompressed Size");
@@ -2158,7 +2158,7 @@ sub LocalHeader
     # so jump through some hoops
     #     extract ver is >= 5.0'
     #     all the encryption flags are set in gpflags
-    #     TODO - add zero lengths for crc, compresssed & uncompressed
+    #     TODO - add zero lengths for crc, compressed & uncompressed
 
     if (($gpFlag & ZIP_GP_FLAG_ALL_ENCRYPT) == ZIP_GP_FLAG_ALL_ENCRYPT  && $extractVer >= 0x32  )
     {
@@ -2206,7 +2206,7 @@ sub LocalHeader
     }
 
     # Next block can decrement the CDcompressedSize
-    # possiblty to zero. Need to remember if it started out
+    # possibly to zero. Need to remember if it started out
     # as a non-zero value
     my $haveCDcompressedSize = $CDcompressedSize;
 
@@ -2282,7 +2282,7 @@ sub findDigitalSignature
     my $ix = index($data, Pack_ZIP_DIGITAL_SIGNATURE_SIG);
     if ($ix > -1)
     {
-        # check size of signature meaans it is directly after the encrypted CD
+        # check size of signature means it is directly after the encrypted CD
         my $sigSize = unpack "v", substr($data, $ix+4, 2);
         if ($ix + 4 + 2 + $sigSize == $cdSize)
         {
@@ -2401,7 +2401,7 @@ sub redactData
 {
     my $data = shift;
 
-    # Redact everything apart from directory seperators
+    # Redact everything apart from directory separators
     $data =~ s(.)(X)g
         if $opt_Redact;
 
@@ -2412,7 +2412,7 @@ sub redactFilename
 {
     my $filename = shift;
 
-    # Redact everything apart from directory seperators
+    # Redact everything apart from directory separators
     $filename =~ s(.)(X)g
         if $opt_Redact;
 
@@ -2421,7 +2421,7 @@ sub redactFilename
 
 sub validateDirectory
 {
-    # Check that Directries are stored correctly
+    # Check that Directories are stored correctly
     #
     # 1. Filename MUST end with a "/"
     #    see APPNOTE 6.3.10, sec 4.3.8
@@ -2429,7 +2429,7 @@ sub validateDirectory
     #    see APPNOTE 6.3.10, sec 4.3.8
     # 3. Warn if compressed size > 0 and Uncompressed size == 0
     # 4. Check for presence of DOS directory attrib in External Attributes
-    # 5. Check for Unix  extrnal attribute S_IFDIR
+    # 5. Check for Unix  external attribute S_IFDIR
     #
     # Edge condition is a Windows directory symlink
     # In this case a payload is expected.
@@ -2502,7 +2502,7 @@ sub validateDirectory
         elsif ($compressedSize != 0)
         {
             info $offset + CentralDirectoryEntry::Offset_CompressedSize(),
-                    "Directory '$filename' has compressed payload that uncompresses to nothing"
+                    "Directory '$filename' has compressed payload that uncompress to nothing"
         }
     }
 
@@ -2531,7 +2531,7 @@ sub validateFilename
     # APPNOTE 6.3.10, sec 4.4.17.1
     #
     # No absolute path
-    # No backslash delimeters
+    # No backslash delimiters
     # No drive letters
 
     return "Filename must not be an absolute path"
@@ -2650,26 +2650,26 @@ sub outputFilename
             if $modified ;
 
         # use Unicode::Normalize;
-        # my $NormaizedForm ;
+        # my $NormalizedForm ;
         # if (defined $decoded_filename)
         # {
-        #     $NormaizedForm .= Unicode::Normalize::checkNFD  $decoded_filename ? 'NFD ' : '';
-        #     $NormaizedForm .= Unicode::Normalize::checkNFC  $decoded_filename ? 'NFC ' : '';
-        #     $NormaizedForm .= Unicode::Normalize::checkNFKD $decoded_filename ? 'NFKD ' : '';
-        #     $NormaizedForm .= Unicode::Normalize::checkNFKC $decoded_filename ? 'NFKC ' : '';
-        #     $NormaizedForm .= Unicode::Normalize::checkFCD  $decoded_filename ? 'FCD ' : '';
-        #     $NormaizedForm .= Unicode::Normalize::checkFCC  $decoded_filename ? 'FCC ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkNFD  $decoded_filename ? 'NFD ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkNFC  $decoded_filename ? 'NFC ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkNFKD $decoded_filename ? 'NFKD ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkNFKC $decoded_filename ? 'NFKC ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkFCD  $decoded_filename ? 'FCD ' : '';
+        #     $NormalizedForm .= Unicode::Normalize::checkFCC  $decoded_filename ? 'FCC ' : '';
         # }
 
         debug $FH->tell() - length($raw_filename),
                     "Encoding Debug for $message",
                     "Octets Read from File  [$raw_filename][" . length($raw_filename). "] [" . charDump2($raw_filename) . "]",
                     "Via Unicode Codepoints [$decoded_filename][" . length($decoded_filename) . "] [" . charDump($decoded_filename) . "]",
-                    # "Unicode Normalization  $NormaizedForm",
+                    # "Unicode Normalization  $NormalizedForm",
                     "Octets Written         [$filename][" . length($filename). "] [" . charDump2($filename) . "]";
     }
 
-    if ($message eq 'Filename' && $opt_want_warning_mesages)
+    if ($message eq 'Filename' && $opt_want_warning_messages)
     {
         # Check for bad, unsafe & not portable filenames
         my $v = validateFilename($decoded_filename);
@@ -2780,7 +2780,7 @@ sub CentralHeader
 
     my $native_attrib = ($ext_file_attrib >> 16 ) &  0xFFFF;
 
-    # Some wiindows zip file (created OS  == 0), have th eUnix attributes populated.
+    # Some Windows zip file (created OS  == 0), have th eUnix attributes populated.
     if ($made_by == 3 || $made_by == 0) # Unix
     {
         state $mask = {
@@ -3289,7 +3289,7 @@ sub DataDescriptor
         $uncompressedSize = out_V "Uncompressed Size" ;
     }
 
-    # Try matching juast payload lengths
+    # Try matching just payload lengths
     elsif ($cl32 == $payloadLength)
     {
         if ($localEntry->zip64)
@@ -3343,7 +3343,7 @@ sub DataDescriptor
         $uncompressedSize = out_V "Uncompressed Size" ;
     }
 
-    # no payoad or delta match at all, so likely a false positive or data corruption
+    # no payload or delta match at all, so likely a false positive or data corruption
     else
     {
         warning $here, "Cannot determine size of Data Descriptor record";
@@ -3797,7 +3797,7 @@ sub warning
     no warnings 'utf8';
 
     return
-        unless $opt_want_warning_mesages ;
+        unless $opt_want_warning_messages ;
 
     say "#"
         unless $lastWasMessage ++ ;
@@ -3828,7 +3828,7 @@ sub error
     no warnings 'utf8';
 
     return
-        unless $opt_want_error_mesages ;
+        unless $opt_want_error_messages ;
 
     say "#"
         unless $lastWasMessage ++ ;
@@ -3909,7 +3909,7 @@ sub info
     no warnings 'utf8';
 
     return
-        unless $opt_want_info_mesages ;
+        unless $opt_want_info_messages ;
 
     say "#"
         unless $lastWasMessage ++ ;
@@ -4103,7 +4103,7 @@ sub testExtraLimits
         {
             if ($size < $min || $size > $max)
             {
-                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be betweem %s and %s, got %s", extraFieldIdentifier($lookID), decimalHex0x($min), decimalHex0x($max), decimalHex0x($size);
+                error $FH->tell() -2, sprintf "%s: 'Length' field invalid: value must be between %s and %s, got %s", extraFieldIdentifier($lookID), decimalHex0x($min), decimalHex0x($max), decimalHex0x($size);
                 outSomeData $size, "  Extra Payload" if $size ;
                 return 0;
             }
