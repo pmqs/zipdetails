@@ -85,24 +85,27 @@ use constant ZIP_ARCHIVE_EXTRA_DATA_RECORD_SIG => 0x08064b50;
 use constant ZIP_SINGLE_SEGMENT_MARKER         => 0x30304b50; # APPNOTE 6.3.10, sec 8.5.4
 
 # Windows file attributes -- see https://learn.microsoft.com/en-us/windows/win32/fileio/file-attribute-constants
-use constant WIN_FILE_ATTRIBUTE_READONLY            => 0x0001;
-use constant WIN_FILE_ATTRIBUTE_HIDDEN              => 0x0002;
-use constant WIN_FILE_ATTRIBUTE_SYSTEM              => 0x0004;
-use constant WIN_FILE_ATTRIBUTE_LABEL               => 0x0008; # Unused?
-use constant WIN_FILE_ATTRIBUTE_DIRECTORY           => 0x0010;
-use constant WIN_FILE_ATTRIBUTE_ARCHIVE             => 0x0020;
-use constant WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK       => 0x0040; # Not DEVICE
-use constant WIN_FILE_ATTRIBUTE_EXECUTABLE          => 0x0080; # Not NORMAL
-use constant WIN_FILE_ATTRIBUTE_TEMPORARY           => 0x0100;
-use constant WIN_FILE_ATTRIBUTE_SPARSE_FILE         => 0x0200;
-use constant WIN_FILE_ATTRIBUTE_REPARSE_POINT       => 0x0400;
-use constant WIN_FILE_ATTRIBUTE_COMPRESSED          => 0x0800;
-use constant WIN_FILE_ATTRIBUTE_OFFLINE             => 0x1000;
-use constant WIN_FILE_ATTRIBUTE_NOT_CONTENT_INDEXED => 0x2000;
-use constant WIN_FILE_ATTRIBUTE_ENCRYPTED           => 0x4000;
+use constant WIN_FILE_ATTRIBUTE_READONLY                => 0x0001;
+use constant WIN_FILE_ATTRIBUTE_HIDDEN                  => 0x0002;
+use constant WIN_FILE_ATTRIBUTE_SYSTEM                  => 0x0004;
+use constant WIN_FILE_ATTRIBUTE_LABEL                   => 0x0008; # Unused?
+use constant WIN_FILE_ATTRIBUTE_DIRECTORY               => 0x0010;
+use constant WIN_FILE_ATTRIBUTE_ARCHIVE                 => 0x0020;
+use constant WIN_FILE_ATTRIBUTE_DEVICE_OR_SYMBOLIC_LINK => 0x0040; # Not clear if this is used for a symbolic link. Needs a real use case to verify.
+use constant WIN_FILE_ATTRIBUTE_NORMAL_OR_EXECUTABLE    => 0x0080; # Not clear if this is used for a executable. Needs a real use case to verify.
+use constant WIN_FILE_ATTRIBUTE_TEMPORARY               => 0x0100;
+use constant WIN_FILE_ATTRIBUTE_SPARSE_FILE             => 0x0200;
+use constant WIN_FILE_ATTRIBUTE_REPARSE_POINT           => 0x0400;
+use constant WIN_FILE_ATTRIBUTE_COMPRESSED              => 0x0800;
+use constant WIN_FILE_ATTRIBUTE_OFFLINE                 => 0x1000;
+use constant WIN_FILE_ATTRIBUTE_NOT_CONTENT_INDEXED     => 0x2000;
+use constant WIN_FILE_ATTRIBUTE_ENCRYPTED               => 0x4000;
 
 # Windows symlink covers multiple bits
-use constant WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK_MASK  => WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK | WIN_FILE_ATTRIBUTE_REPARSE_POINT;
+use constant WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK_MASK  => WIN_FILE_ATTRIBUTE_REPARSE_POINT;
+
+# The Symbolic Link Mask may become this if I can find a real use case.
+# use constant WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK_MASK  => WIN_FILE_ATTRIBUTE_DEVICE_OR_SYMBOLIC_LINK | WIN_FILE_ATTRIBUTE_REPARSE_POINT;
 
 # Extra sizes
 use constant ZIP_EXTRA_HEADER_SIZE          => 2 ;
@@ -2761,8 +2764,8 @@ sub CentralHeader
         out1 "[Bit 3]",  "Unused"        if $dos_attrib & WIN_FILE_ATTRIBUTE_LABEL ; # bit not used
         out1 "[Bit 4]",  "Directory"     if $dos_attrib & WIN_FILE_ATTRIBUTE_DIRECTORY ;
         out1 "[Bit 5]",  "Archive"       if $dos_attrib & WIN_FILE_ATTRIBUTE_ARCHIVE ;
-        out1 "[Bit 6]",  "Symbolic Link" if $dos_attrib & WIN_FILE_ATTRIBUTE_SYMBOLIC_LINK ;
-        out1 "[Bit 7]",  "Executable"    if $dos_attrib & WIN_FILE_ATTRIBUTE_EXECUTABLE ;
+        out1 "[Bit 6]",  "Device/Symbolic Link" if $dos_attrib & WIN_FILE_ATTRIBUTE_DEVICE_OR_SYMBOLIC_LINK ; # Tentative use of Symbolic Link.
+        out1 "[Bit 7]",  "Normal/Executable"    if $dos_attrib & WIN_FILE_ATTRIBUTE_NORMAL_OR_EXECUTABLE ; # Tentative use of Executable
         out1 "[Bit 8]",  "Temporary"     if $dos_attrib & WIN_FILE_ATTRIBUTE_TEMPORARY ;
         out1 "[Bit 9]",  "Sparse"        if $dos_attrib & WIN_FILE_ATTRIBUTE_SPARSE_FILE ;
         out1 "[Bit 10]", "Reparse Point" if $dos_attrib & WIN_FILE_ATTRIBUTE_REPARSE_POINT ;
