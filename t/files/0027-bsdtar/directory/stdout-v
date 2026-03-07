@@ -13,7 +13,7 @@
 001E 0021 0004 64 69 72 2F Filename              'dir/'
 0022 0023 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0024 0025 0002 0D 00         Length              000D (13)
-0026 0026 0001 07            Flags               07 (7) 'Modification Access Creation'
+0026 0026 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 0027 002A 0004 6B 34 1C 66   Modification Time   661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
 002B 002E 0004 6C 34 1C 66   Access Time         661C346C (1713124460) 'Sun Apr 14 19:54:20 2024'
 002F 0032 0004 6B 34 1C 66   Creation Time       661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
@@ -49,7 +49,7 @@
 0070 0073 0004 64 69 72 2F Filename              'dir/'
 0074 0075 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0076 0077 0002 0D 00         Length              000D (13)
-0078 0078 0001 07            Flags               07 (7) 'Modification Access Creation'
+0078 0078 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 0079 007C 0004 6B 34 1C 66   Modification Time   661C346B (1713124459) 'Sun Apr 14 19:54:19 2024'
 #
 # INFO: Offset 0x7D: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present

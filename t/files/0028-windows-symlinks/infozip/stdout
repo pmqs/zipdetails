@@ -25,7 +25,7 @@
                            A1 00 62 0B 88 40 C4 19 21 E2 42 40 02 00
 0080 Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 0082   Length              000D (13)
-0084   Flags               07 (7) 'Modification Access Creation'
+0084   Flags               07 (7) 'Modification & Access & Creation'
 0085   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 0089   Access Time         69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 008D   Creation Time       69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
@@ -57,7 +57,7 @@
                            A1 00 62 0B 8B 40 C4 19 21 E2 42 40 02 00
 011B Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 011D   Length              000D (13)
-011F   Flags               07 (7) 'Modification Access Creation'
+011F   Flags               07 (7) 'Modification & Access & Creation'
 0120   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 0124   Access Time         69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 0128   Creation Time       69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
@@ -77,7 +77,7 @@
 014A Filename              'linkd/'
 0150 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0152   Length              000D (13)
-0154   Flags               07 (7) 'Modification Access Creation'
+0154   Flags               07 (7) 'Modification & Access & Creation'
 0155   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 0159   Access Time         12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 015D   Creation Time       12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
@@ -112,7 +112,7 @@
 019E   Uncompressed Size   000000A4 (164)
 01A2 Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 01A4   Length              0005 (5)
-01A6   Flags               07 (7) 'Modification Access Creation'
+01A6   Flags               07 (7) 'Modification & Access & Creation'
 01A7   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 
 01AB CENTRAL HEADER #2     02014B50 (33639248)
@@ -142,7 +142,7 @@
 01E6   Uncompressed Size   000000A4 (164)
 01EA Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 01EC   Length              0005 (5)
-01EE   Flags               07 (7) 'Modification Access Creation'
+01EE   Flags               07 (7) 'Modification & Access & Creation'
 01EF   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 
 01F3 CENTRAL HEADER #3     02014B50 (33639248)
@@ -171,7 +171,7 @@
 0221 Filename              'linkd/'
 0227 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0229   Length              0005 (5)
-022B   Flags               07 (7) 'Modification Access Creation'
+022B   Flags               07 (7) 'Modification & Access & Creation'
 022C   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 
 0230 END CENTRAL HEADER    06054B50 (101010256)
