@@ -4711,7 +4711,7 @@ sub decode_UT
     push @f, "Modification"    if $flags & 1;
     push @f, "Access" if $flags & 2;
     push @f, "Creation" if $flags & 4;
-    $v .= " '" . join(' ', @f) . "'"
+    $v .= " '" . join(' & ', @f) . "'"
         if @f;
 
     out $data, "  Flags", $v;
