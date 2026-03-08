@@ -1,6 +1,156 @@
 CHANGES
 -------
 
+4.005 8 March 2026
+
+  * feat: add & symbol (#29)
+    Sun Mar 8 09:09:48 2026 +0000
+    0962571182db4f63e8bae146d202d5f06ecdd767
+
+  * Update Windows file attributes to show Device & Normal
+    Wed Feb 18 14:58:57 2026 +0000
+    3049918920fd7d1b7916e0a6a56683daf1d86848
+
+  * Disable Strawberry Perl builds for now
+    Tue Feb 17 22:31:02 2026 +0000
+    b641a5b97747d272643612e4e7c8e970985ffc19
+
+  * Fix typos in comments and error messages across multiple files
+    Tue Feb 17 22:25:45 2026 +0000
+    1cbb2791830bc43b32ed4cdc7fc7d7f86028d001
+
+  * Add a readme file for the utility scripts directory
+    Tue Feb 17 15:57:17 2026 +0000
+    d6cf3e42ba7602c131ba0b35e350452e73f00371
+
+  * Add winstat.py utility script to dump Windows file attributes and symlink details
+    Tue Feb 17 15:56:55 2026 +0000
+    8a0dd135d48b37a9c721d806707859e88c0929fb
+
+  * Improve output formatting in dostime utility script
+    Tue Feb 17 15:55:58 2026 +0000
+    1dd8d2e87b134ee885cf6ff703824b91d0da1c9b
+
+  * sync with develop branch
+    Mon Feb 9 22:17:56 2026 +0000
+    01ecc67385521c0bcded33885f4d5eed6108de30
+
+  * Fixes for #28
+    Mon Feb 9 22:05:05 2026 +0000
+    a820350e760630d9d3ff16c5a19146821ffe6676
+
+  * Check for presence of unexpected entries in the ZIP64 extra field (#28)
+    Mon Feb 9 10:46:33 2026 +0000
+    c8f8902f03c321264680a3a01c9d641fb4fd3536
+
+  * Another edge condition where it is valid for a directory to have a payload. #27
+    Sun Feb 8 22:35:54 2026 +0000
+    bcd2fdf6366c9dd97413abb8bfe0fc56fe399b01
+
+  * Update message where a directory has a payload
+    Sat Feb 7 14:34:30 2026 +0000
+    e8fcb381732fe4e7c4d70f48576a71cef3aeda66
+
+  * Update the comment for directory detection
+    Sat Feb 7 14:21:12 2026 +0000
+    d121b84c0380c7fc9ad8d41acaab9f0c74c7444a
+
+  * Add symbolic constants for Reference & AES compression methods
+    Thu Feb 5 12:00:19 2026 +0000
+    5fe50b0e64230570f6bb88d998e8572bafa138dc
+
+  * Update copyright year to 2026
+    Thu Feb 5 11:22:14 2026 +0000
+    8c9e1dda6a126062b845167069db97e8df347429
+
+  * * First change to deal with windows directory symlinks. Fixes #27 * Fix some incorrectly named Windows file attributes
+    Thu Feb 5 11:19:26 2026 +0000
+    6ff43e0b1583e1d67d93164cf58cc02efefc9bc0
+
+  * Fix typo in Perl  version detection code.
+    Sun Feb 1 17:22:50 2026 +0000
+    7dfccdd9001f5ac83ac18eb5d2228dc7db64bb66
+
+  * Fix typos in workflow
+    Sun Feb 1 17:13:41 2026 +0000
+    e4ef649c01537d0222db52930e5a3834237dc948
+
+  * Get workflow to automate & use all available versions of perl.
+    Sun Feb 1 17:11:35 2026 +0000
+    8023bf08a21f0eddf8d50e5fe8166f9e89ebba93
+
+  * Refactor dependabot configuration for GitHub Actions to separate target branches
+    Fri Jan 30 10:42:32 2026 +0000
+    f7da666e4247bf888f2ab425824350269d8888da
+
+  * Merge pull request #25 from pmqs/dependabot/github_actions/main/actions/checkout-6
+    Fri Jan 30 10:27:03 2026 +0000
+    84e84cf0c784590e2c4376b7343c3edd81c8929d
+
+  * Merge pull request #26 from pmqs/dependabot/github_actions/develop/actions/checkout-6
+    Fri Jan 30 10:25:12 2026 +0000
+    9cea049b8a817d4aabdfb54d0fb056b511be11a9
+
+  * Bump actions/checkout from 5 to 6
+    Fri Jan 30 10:19:49 2026 +0000
+    8b1efd076faa6191be4b81851f730ec3fc0ea2d8
+
+  * Bump actions/checkout from 4 to 6
+    Fri Jan 30 10:19:46 2026 +0000
+    fb18e4b715205b4ec137a954f384d44b0e863e42
+
+  * Update Dependabot schedule for GitHub Actions
+    Fri Jan 30 10:18:22 2026 +0000
+    ce746dc6917ee94e73a06ed58a727298b95b8ab0
+
+  * Change schedule interval to 'develop' for GitHub Actions
+    Fri Jan 30 10:13:28 2026 +0000
+    b4a99ad31a6cea69e17819fc207d7a30571fea7b
+
+  * Fix formatting in dependabot.yml branches section
+    Fri Jan 30 10:08:26 2026 +0000
+    2b245c3eb28944a4cd406a117b1dd0e4e2ab6410
+
+  * Modify Dependabot config for GitHub Actions updates
+    Fri Jan 30 10:07:12 2026 +0000
+    903fd4aa94806afcff944058e4e60c2460a879ca
+
+  * Add "develop" branch to dependabot schedule
+    Fri Jan 30 10:03:56 2026 +0000
+    bf02fa5397143fc98833cd02d2308aee581709e0
+
+  * Update actions/checkout to v5
+    Sun Sep 7 15:43:51 2025 +0100
+    bde604ed9eb8d85978b7fd662fee12bff0de69b3
+
+  * remove branch name from dependabot
+    Sun Sep 7 14:50:37 2025 +0100
+    99e797ed5e39fa358d7234940f0a43cde845831d
+
+  * Get dependabot to run against the develop branch
+    Thu Sep 4 17:49:32 2025 +0100
+    4d0254033e04228c74a083045e710fbeb930f8c0
+
+  * Add dependabot.yml to police the workflow files
+    Thu Sep 4 17:30:50 2025 +0100
+    7896b2cd42c316f2c6dd428189320aa43a39e37c
+
+  * Add perl 5.42 to workflow files
+    Thu Sep 4 17:30:17 2025 +0100
+    976c75fe0208d3e8b014e1a9ef539376a968c9a4
+
+  * Add perl 5.40 to workflow
+    Sat Jun 15 22:46:09 2024 +0100
+    66f376c946e4cbefe7b587461434b91476f8f2f9
+
+  * Fix naming of extra header 0x6C78: Extended Local File Header
+    Tue May 14 17:24:58 2024 +0100
+    23d66932c3faf8f827b7f38695b0e1d280b92b78
+
+  * version 4.005
+    Tue Apr 30 14:19:52 2024 +0100
+    882745aa42cff181597a451a8f137d095703cbfb
+
 4.004 30 April 2024
 
   * #20 weak encryption + streaming does not set local CRC value to zero
