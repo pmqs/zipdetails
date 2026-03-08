@@ -5086,7 +5086,7 @@ sub decodeLitteEndian
 
     if (length $value == 8)
     {
-        return unpackValueQ ($value)
+        return unpackValue_Q ($value)
     }
     elsif (length $value == 4)
     {
