@@ -17,7 +17,7 @@
                74
 0027 0028 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0029 002A 0002 0D 00         Length              000D (13)
-002B 002B 0001 07            Flags               07 (7) 'Modification Access Creation'
+002B 002B 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 002C 002F 0004 74 32 1C 66   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
 0030 0033 0004 A8 32 1C 66   Access Time         661C32A8 (1713124008) 'Sun Apr 14 19:46:48 2024'
 0034 0037 0004 74 32 1C 66   Creation Time       661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
@@ -77,7 +77,7 @@
                74
 01C3 01C4 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 01C5 01C6 0002 0D 00         Length              000D (13)
-01C7 01C7 0001 07            Flags               07 (7) 'Modification Access Creation'
+01C7 01C7 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 01C8 01CB 0004 74 32 1C 66   Modification Time   661C3274 (1713123956) 'Sun Apr 14 19:45:56 2024'
 #
 # INFO: Offset 0x1CC: Extra Field 'Extended Timestamp [UT]' (ID 0x5455): Unexpected 'Access Time' present

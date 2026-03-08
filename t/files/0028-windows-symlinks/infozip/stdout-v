@@ -41,7 +41,7 @@
                02 00
 0080 0081 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 0082 0083 0002 0D 00         Length              000D (13)
-0084 0084 0001 07            Flags               07 (7) 'Modification Access Creation'
+0084 0084 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 0085 0088 0004 20 4E 87 69   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 0089 008C 0004 20 4E 87 69   Access Time         69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 008D 0090 0004 20 4E 87 69   Creation Time       69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
@@ -91,7 +91,7 @@
                02 00
 011B 011C 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 011D 011E 0002 0D 00         Length              000D (13)
-011F 011F 0001 07            Flags               07 (7) 'Modification Access Creation'
+011F 011F 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 0120 0123 0004 A9 4E 87 69   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 0124 0127 0004 A9 4E 87 69   Access Time         69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 0128 012B 0004 A9 4E 87 69   Creation Time       69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
@@ -112,7 +112,7 @@
                64 2F
 0150 0151 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0152 0153 0002 0D 00         Length              000D (13)
-0154 0154 0001 07            Flags               07 (7) 'Modification Access Creation'
+0154 0154 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 0155 0158 0004 00 A6 CE 12   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 0159 015C 0004 00 A6 CE 12   Access Time         12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 015D 0160 0004 00 A6 CE 12   Creation Time       12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
@@ -149,7 +149,7 @@
 019E 01A1 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
 01A2 01A3 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 01A4 01A5 0002 05 00         Length              0005 (5)
-01A6 01A6 0001 07            Flags               07 (7) 'Modification Access Creation'
+01A6 01A6 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 01A7 01AA 0004 20 4E 87 69   Modification Time   69874E20 (1770475040) 'Sat Feb  7 14:37:20 2026'
 
 01AB 01AE 0004 50 4B 01 02 CENTRAL HEADER #2     02014B50 (33639248)
@@ -181,7 +181,7 @@
 01E6 01E9 0004 A4 00 00 00   Uncompressed Size   000000A4 (164)
 01EA 01EB 0002 55 54       Extra ID #2           5455 (21589) 'Extended Timestamp [UT]'
 01EC 01ED 0002 05 00         Length              0005 (5)
-01EE 01EE 0001 07            Flags               07 (7) 'Modification Access Creation'
+01EE 01EE 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 01EF 01F2 0004 A9 4E 87 69   Modification Time   69874EA9 (1770475177) 'Sat Feb  7 14:39:37 2026'
 
 01F3 01F6 0004 50 4B 01 02 CENTRAL HEADER #3     02014B50 (33639248)
@@ -211,7 +211,7 @@
                64 2F
 0227 0228 0002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
 0229 022A 0002 05 00         Length              0005 (5)
-022B 022B 0001 07            Flags               07 (7) 'Modification Access Creation'
+022B 022B 0001 07            Flags               07 (7) 'Modification & Access & Creation'
 022C 022F 0004 00 A6 CE 12   Modification Time   12CEA600 (315532800) 'Tue Jan  1 00:00:00 1980'
 
 0230 0233 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)

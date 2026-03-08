@@ -63,7 +63,7 @@ Partial dump show streaming artefacts
     001E Filename              'lorem.txt'
     0027 Extra ID #0001        5455 'UT: Extended Timestamp'
     0029   Length              0009
-    002B   Flags               '03 Modification Access'
+    002B   Flags               '03 Modification & Access'
     002C   Modification Time   60843CA6 'Sat Apr 24 16:43:34 2021'
     0030   Access Time         62E7CDA3 'Mon Aug  1 13:57:07 2022'
     0034 Extra ID #0002        7875 'ux: Unix Extra Type 3'
