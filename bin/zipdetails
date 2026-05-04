@@ -4179,7 +4179,7 @@ sub walk_Zip64_in_LD
 
     if ($assumeLengthsPresent || $assumeAllFieldsPresent || full32 $entry->std_uncompressedSize )
     {
-        # TODO defer a warning if in local header & central/local don't have std_uncompressedSizeset to 0xffffffff
+        # TODO defer a warning if in local header & central/local don't have std_uncompressedSize set to 0xffffffff
         my $fieldName = 'Uncompressed Size';
         if (length $zip64Extended < 8)
         {
