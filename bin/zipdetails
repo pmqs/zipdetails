@@ -118,7 +118,7 @@ use constant ZIP_EXTRA_SUBFIELD_MAX_SIZE    => ZIP_EXTRA_MAX_SIZE -
                                                ZIP_EXTRA_SUBFIELD_HEADER_SIZE;
 
 use constant ZIP_EOCD_MIN_SIZE              => 22 ;
-
+use constant ZIP_CENTRAL_HDR_MIN_SIZE       => 46 ;
 
 use constant ZIP_LD_FILENAME_OFFSET         => 30;
 use constant ZIP_CD_FILENAME_OFFSET         => 46;
@@ -5622,6 +5622,9 @@ sub peekAtOffset
     my $offset = shift;
     my $len = shift;
 
+    return undef
+        if $offset + $len > $FILELEN;
+
     my $here = $FH->tell();
 
     seekTo($offset) ;
@@ -5631,7 +5634,7 @@ sub peekAtOffset
     seekTo($here);
 
     length $buffer == $len
-        or return '';
+        or return undef;
 
     return $buffer;
 }
@@ -6103,7 +6106,39 @@ sub findCentralDirectoryOffset
     if (needZip64EOCDLocator($diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize) &&
         ! emptyArchive($here, $diskNumber, $cdDiskNumber, $entriesOnThisDisk, $totalEntries, $centralDirOffset, $centralDirSize))
     {
+        # Possible/probable that need a zip64 record
+        # Must have if -- centralDirOffset > 0xFFFFFFFF or centralDirSize
+
+        my $want_zip64 = 0;
+
+        # Edge condition where centralDirOffset is exactly full32, but archive isn't a zip64 file
+        # Check if offset to central header is full32 and the central signature is not present
+        if (full32($centralDirOffset))
+        {
+            my $value = peekAtOffset($centralDirOffset, 4);
+            $want_zip64 = 1
+                if defined $value && unpack( "V",  $value) != ZIP_CENTRAL_HDR_SIG ;
+        }
+
+        # Already past point of no return?
+        $want_zip64 = 1
+            if $here > MAX32 + ZIP_EOCD_MIN_SIZE + ZIP_CENTRAL_HDR_MIN_SIZE;
+
+        # may look like there should be a zip64 entry, but not always the case
+        {
+            my $gotSig = peekAtOffset($here - ZIP64_END_CENTRAL_LOC_HDR_SIZE, 4) ;
+            if (defined $gotSig && unpack("V", $gotSig) != ZIP64_END_CENTRAL_LOC_HDR_SIG)
+            {
+                warning $$here - ZIP64_END_CENTRAL_LOC_HDR_SIZE - 4, sprintf("Expected signature for " . Signatures::nameAndHex(ZIP64_END_CENTRAL_LOC_HDR_SIG) . " not found, got 0x%X", $gotSig);
+            }
+            else
+            {
+                $want_zip64 = 1;
+            }
+        }
+
         ($centralDirOffset, $centralDirSize) = offsetFromZip64($fh, $here, ZIP_EOCD_MIN_SIZE + $commentLength + $trailingBytes)
+            if $want_zip64;
     }
     elsif ($is64bit)
     {
