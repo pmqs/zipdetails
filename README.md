@@ -331,7 +331,7 @@ Here is the same zip file, `test.zip`, dumped using the `zipdetails`
 
 ## Advanced Analysis
 
-If you have a corrupt or non-standard zip file, particularly one where the
+If you have a corrupt or non-standard zip file, particulatly one where the
 `Central Directory` metadata at the end of the file is absent/incomplete, you
 can use either the `--walk` option or the `--scan` option to search for
 any zip metadata that is still present in the file.
@@ -351,7 +351,7 @@ series of 4-byte signatures to flag the start of a each of the metadata
 records it uses. When the `--walk` or the `--scan` option is enabled both
 work identically by scanning the file from the beginning looking for any
 the of these valid 4-byte metadata signatures. When a 4-byte signature is
-found both options will blindly assume that it has found a valid metadata
+found both options will blindly assume that it has found a vald metadata
 record and display it.
 
 ### `--walk`
@@ -364,8 +364,8 @@ the record it has just output.
 
 The `--scan` option is pessimistic and assumes the 4-byte signature
 sequence may have been a false-positive, so before starting the scan for
-the next record, it will rewind to the location in the file directly after
-the 4-byte sequence it just processed. This means it will rescan data that
+the next resord, it will rewind to the location in the file directly after
+the 4-byte sequecce it just processed. This means it will rescan data that
 has already been processed.  For very large zip files the `--scan` option
 can be really really slow, so trying the `--walk` option first.
 
@@ -406,7 +406,7 @@ for the most part, there are exceptions out in the wild.
 ### Dealing with Encoding Errors
 
 The most common filename encoding issue is where the `EFS` bit is not set and
-the filename is stored in a character set that doesn't match the system
+the filename is stored in a character set that doesnt't match the system
 encoding. This mostly impacts legacy zip files that predate the
 introduction of Unicode.
 
