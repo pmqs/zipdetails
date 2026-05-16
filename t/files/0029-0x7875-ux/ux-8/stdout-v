@@ -1,0 +1,69 @@
+
+0000 0003 0004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+0004 0004 0001 14          Extract Zip Spec      14 (20) '2.0'
+0005 0005 0001 00          Extract OS            00 (0) 'MS-DOS'
+0006 0007 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0008 0009 0002 08 00       Compression Method    0008 (8) 'Deflated'
+000A 000D 0004 67 5F B0 5C Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+000E 0011 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+0012 0015 0004 06 00 00 00 Compressed Size       00000006 (6)
+0016 0019 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+001A 001B 0002 04 00       Filename Length       0004 (4)
+001C 001D 0002 17 00       Extra Length          0017 (23)
+001E 0021 0004 74 65 73 74 Filename              'test'
+0022 0023 0002 75 78       Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0024 0025 0002 13 00         Length              0013 (19)
+0026 0026 0001 01            Version             01 (1)
+0027 0027 0001 08            UID Size            08 (8)
+0028 002F 0008 34 12 00 00   UID                 0000000000001234 (4660)
+               00 00 00 00
+0030 0030 0001 08            GID Size            08 (8)
+0031 0038 0008 56 24 00 00   GID                 0000000000002456 (9302)
+               00 00 00 00
+0039 003E 0006 4B 4C 4A 4E PAYLOAD               KLJN..
+               01 00
+
+003F 0042 0004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+0043 0043 0001 14          Created Zip Spec      14 (20) '2.0'
+0044 0044 0001 03          Created OS            03 (3) 'Unix'
+0045 0045 0001 14          Extract Zip Spec      14 (20) '2.0'
+0046 0046 0001 00          Extract OS            00 (0) 'MS-DOS'
+0047 0048 0002 00 00       General Purpose Flag  0000 (0)
+                           [Bits 1-2]            0 'Normal Compression'
+0049 004A 0002 08 00       Compression Method    0008 (8) 'Deflated'
+004B 004E 0004 67 5F B0 5C Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+004F 0052 0004 11 CD 82 ED CRC                   ED82CD11 (3984772369)
+0053 0056 0004 06 00 00 00 Compressed Size       00000006 (6)
+0057 005A 0004 04 00 00 00 Uncompressed Size     00000004 (4)
+005B 005C 0002 04 00       Filename Length       0004 (4)
+005D 005E 0002 17 00       Extra Length          0017 (23)
+005F 0060 0002 00 00       Comment Length        0000 (0)
+0061 0062 0002 00 00       Disk Start            0000 (0)
+0063 0064 0002 00 00       Int File Attributes   0000 (0)
+                           [Bit 0]               0 'Binary Data'
+0065 0068 0004 00 00 A4 81 Ext File Attributes   81A40000 (2175008768)
+                           [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+                           [Bits 28-31]          08 (8) 'Regular File'
+0069 006C 0004 00 00 00 00 Local Header Offset   00000000 (0)
+006D 0070 0004 74 65 73 74 Filename              'test'
+0071 0072 0002 75 78       Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0073 0074 0002 13 00         Length              0013 (19)
+0075 0075 0001 01            Version             01 (1)
+0076 0076 0001 08            UID Size            08 (8)
+0077 007E 0008 34 12 00 00   UID                 0000000000001234 (4660)
+               00 00 00 00
+007F 007F 0001 08            GID Size            08 (8)
+0080 0087 0008 56 24 00 00   GID                 0000000000002456 (9302)
+               00 00 00 00
+
+0088 008B 0004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+008C 008D 0002 00 00       Number of this disk   0000 (0)
+008E 008F 0002 00 00       Central Dir Disk no   0000 (0)
+0090 0091 0002 01 00       Entries in this disk  0001 (1)
+0092 0093 0002 01 00       Total Entries         0001 (1)
+0094 0097 0004 49 00 00 00 Size of Central Dir   00000049 (73)
+0098 009B 0004 3F 00 00 00 Offset to Central Dir 0000003F (63)
+009C 009D 0002 00 00       Comment Length        0000 (0)
+#
+# Done

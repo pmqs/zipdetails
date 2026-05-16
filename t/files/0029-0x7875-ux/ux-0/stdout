@@ -1,0 +1,74 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0004 (4)
+001C Extra Length          0007 (7)
+001E Filename              'test'
+0022 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0024   Length              0003 (3)
+0026   Version             01 (1)
+0027   UID Size            00 (0)
+#
+# INFO: Offset 0x27: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'UID Size' should not be zero
+#
+0028   GID Size            00 (0)
+#
+# INFO: Offset 0x28: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'GID Size' should not be zero
+#
+0029 PAYLOAD               KLJN..
+
+002F CENTRAL HEADER #1     02014B50 (33639248)
+0033 Created Zip Spec      14 (20) '2.0'
+0034 Created OS            03 (3) 'Unix'
+0035 Extract Zip Spec      14 (20) '2.0'
+0036 Extract OS            00 (0) 'MS-DOS'
+0037 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0039 Compression Method    0008 (8) 'Deflated'
+003B Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+003F CRC                   ED82CD11 (3984772369)
+0043 Compressed Size       00000006 (6)
+0047 Uncompressed Size     00000004 (4)
+004B Filename Length       0004 (4)
+004D Extra Length          0007 (7)
+004F Comment Length        0000 (0)
+0051 Disk Start            0000 (0)
+0053 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0055 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0059 Local Header Offset   00000000 (0)
+005D Filename              'test'
+0061 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0063   Length              0003 (3)
+0065   Version             01 (1)
+0066   UID Size            00 (0)
+#
+# INFO: Offset 0x66: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'UID Size' should not be zero
+#
+0067   GID Size            00 (0)
+#
+# INFO: Offset 0x67: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'GID Size' should not be zero
+#
+
+0068 END CENTRAL HEADER    06054B50 (101010256)
+006C Number of this disk   0000 (0)
+006E Central Dir Disk no   0000 (0)
+0070 Entries in this disk  0001 (1)
+0072 Total Entries         0001 (1)
+0074 Size of Central Dir   00000039 (57)
+0078 Offset to Central Dir 0000002F (47)
+007C Comment Length        0000 (0)
+#
+# Info Count: 4
+#
+# Done

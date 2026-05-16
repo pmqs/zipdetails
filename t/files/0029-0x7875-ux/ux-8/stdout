@@ -1,0 +1,64 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0004 (4)
+001C Extra Length          0017 (23)
+001E Filename              'test'
+0022 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0024   Length              0013 (19)
+0026   Version             01 (1)
+0027   UID Size            08 (8)
+0028   UID                 0000000000001234 (4660)
+0030   GID Size            08 (8)
+0031   GID                 0000000000002456 (9302)
+0039 PAYLOAD               KLJN..
+
+003F CENTRAL HEADER #1     02014B50 (33639248)
+0043 Created Zip Spec      14 (20) '2.0'
+0044 Created OS            03 (3) 'Unix'
+0045 Extract Zip Spec      14 (20) '2.0'
+0046 Extract OS            00 (0) 'MS-DOS'
+0047 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0049 Compression Method    0008 (8) 'Deflated'
+004B Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+004F CRC                   ED82CD11 (3984772369)
+0053 Compressed Size       00000006 (6)
+0057 Uncompressed Size     00000004 (4)
+005B Filename Length       0004 (4)
+005D Extra Length          0017 (23)
+005F Comment Length        0000 (0)
+0061 Disk Start            0000 (0)
+0063 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0065 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0069 Local Header Offset   00000000 (0)
+006D Filename              'test'
+0071 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0073   Length              0013 (19)
+0075   Version             01 (1)
+0076   UID Size            08 (8)
+0077   UID                 0000000000001234 (4660)
+007F   GID Size            08 (8)
+0080   GID                 0000000000002456 (9302)
+
+0088 END CENTRAL HEADER    06054B50 (101010256)
+008C Number of this disk   0000 (0)
+008E Central Dir Disk no   0000 (0)
+0090 Entries in this disk  0001 (1)
+0092 Total Entries         0001 (1)
+0094 Size of Central Dir   00000049 (73)
+0098 Offset to Central Dir 0000003F (63)
+009C Comment Length        0000 (0)
+#
+# Done

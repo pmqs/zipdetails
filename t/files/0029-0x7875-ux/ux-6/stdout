@@ -1,0 +1,78 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0004 (4)
+001C Extra Length          0013 (19)
+001E Filename              'test'
+0022 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0024   Length              000F (15)
+0026   Version             01 (1)
+0027   UID Size            06 (6)
+0028   UID                 Invalid UID Value: 06 06 06 06 06 06
+#
+# INFO: Offset 0x28: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): UID value is not a valid value
+#
+002E   GID Size            06 (6)
+002F   GID                 Invalid GID Value: 06 06 06 06 06 06
+#
+# INFO: Offset 0x2F: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875):  GID value is not a valid value
+#
+0035 PAYLOAD               KLJN..
+
+003B CENTRAL HEADER #1     02014B50 (33639248)
+003F Created Zip Spec      14 (20) '2.0'
+0040 Created OS            03 (3) 'Unix'
+0041 Extract Zip Spec      14 (20) '2.0'
+0042 Extract OS            00 (0) 'MS-DOS'
+0043 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0045 Compression Method    0008 (8) 'Deflated'
+0047 Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+004B CRC                   ED82CD11 (3984772369)
+004F Compressed Size       00000006 (6)
+0053 Uncompressed Size     00000004 (4)
+0057 Filename Length       0004 (4)
+0059 Extra Length          0013 (19)
+005B Comment Length        0000 (0)
+005D Disk Start            0000 (0)
+005F Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0061 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0065 Local Header Offset   00000000 (0)
+0069 Filename              'test'
+006D Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+006F   Length              000F (15)
+0071   Version             01 (1)
+0072   UID Size            06 (6)
+0073   UID                 Invalid UID Value: 06 06 06 06 06 06
+#
+# INFO: Offset 0x73: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): UID value is not a valid value
+#
+0079   GID Size            06 (6)
+007A   GID                 Invalid GID Value: 06 06 06 06 06 06
+#
+# INFO: Offset 0x7A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875):  GID value is not a valid value
+#
+
+0080 END CENTRAL HEADER    06054B50 (101010256)
+0084 Number of this disk   0000 (0)
+0086 Central Dir Disk no   0000 (0)
+0088 Entries in this disk  0001 (1)
+008A Total Entries         0001 (1)
+008C Size of Central Dir   00000045 (69)
+0090 Offset to Central Dir 0000003B (59)
+0094 Comment Length        0000 (0)
+#
+# Info Count: 4
+#
+# Done

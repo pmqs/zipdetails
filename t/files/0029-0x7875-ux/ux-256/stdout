@@ -1,0 +1,98 @@
+
+0000 LOCAL HEADER #1       04034B50 (67324752)
+0004 Extract Zip Spec      14 (20) '2.0'
+0005 Extract OS            00 (0) 'MS-DOS'
+0006 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0008 Compression Method    0008 (8) 'Deflated'
+000A Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+000E CRC                   ED82CD11 (3984772369)
+0012 Compressed Size       00000006 (6)
+0016 Uncompressed Size     00000004 (4)
+001A Filename Length       0004 (4)
+001C Extra Length          0205 (517)
+001E Filename              'test'
+0022 Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0024   Length              0201 (513)
+0026   Version             01 (1)
+0027   UID Size            FF (255)
+0028   UID                 Invalid UID Value: FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+#
+# INFO: Offset 0x28: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): UID value is not a valid value
+#
+0127   GID Size            FF (255)
+0128   GID                 Invalid GID Value: FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+#
+# INFO: Offset 0x128: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875):  GID value is not a valid value
+#
+0227 PAYLOAD               KLJN..
+
+022D CENTRAL HEADER #1     02014B50 (33639248)
+0231 Created Zip Spec      14 (20) '2.0'
+0232 Created OS            03 (3) 'Unix'
+0233 Extract Zip Spec      14 (20) '2.0'
+0234 Extract OS            00 (0) 'MS-DOS'
+0235 General Purpose Flag  0000 (0)
+     [Bits 1-2]            0 'Normal Compression'
+0237 Compression Method    0008 (8) 'Deflated'
+0239 Modification Time     5CB05F67 (1555062631) 'Sat May 16 11:59:14 2026'
+023D CRC                   ED82CD11 (3984772369)
+0241 Compressed Size       00000006 (6)
+0245 Uncompressed Size     00000004 (4)
+0249 Filename Length       0004 (4)
+024B Extra Length          0205 (517)
+024D Comment Length        0000 (0)
+024F Disk Start            0000 (0)
+0251 Int File Attributes   0000 (0)
+     [Bit 0]               0 'Binary Data'
+0253 Ext File Attributes   81A40000 (2175008768)
+     [Bits 16-24]          01A4 (420) 'Unix attrib: rw-r--r--'
+     [Bits 28-31]          08 (8) 'Regular File'
+0257 Local Header Offset   00000000 (0)
+025B Filename              'test'
+025F Extra ID #1           7875 (30837) 'Unix Extra type 3 [ux]'
+0261   Length              0201 (513)
+0263   Version             01 (1)
+0264   UID Size            FF (255)
+0265   UID                 Invalid UID Value: FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+#
+# INFO: Offset 0x265: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): UID value is not a valid value
+#
+0364   GID Size            FF (255)
+0365   GID                 Invalid GID Value: FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+                           FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
+#
+# INFO: Offset 0x365: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875):  GID value is not a valid value
+#
+
+0464 END CENTRAL HEADER    06054B50 (101010256)
+0468 Number of this disk   0000 (0)
+046A Central Dir Disk no   0000 (0)
+046C Entries in this disk  0001 (1)
+046E Total Entries         0001 (1)
+0470 Size of Central Dir   00000237 (567)
+0474 Offset to Central Dir 0000022D (557)
+0478 Comment Length        0000 (0)
+#
+# Info Count: 4
+#
+# Done

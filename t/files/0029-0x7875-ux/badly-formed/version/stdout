@@ -18,7 +18,13 @@
 # INFO: Offset 0x2A: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 (1), got 0x2 (2)
 #
 002B   UID Size            00 (0)
+#
+# INFO: Offset 0x2B: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'UID Size' should not be zero
+#
 002C   GID Size            00 (0)
+#
+# INFO: Offset 0x2C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'GID Size' should not be zero
+#
 002D PAYLOAD               abcde
 
 0032 CENTRAL HEADER #1     02014B50 (33639248)
@@ -50,7 +56,13 @@
 # INFO: Offset 0x6C: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'Version' should be 0x1 (1), got 0x3 (3)
 #
 006D   UID Size            00 (0)
+#
+# INFO: Offset 0x6D: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'UID Size' should not be zero
+#
 006E   GID Size            00 (0)
+#
+# INFO: Offset 0x6E: Extra Field 'Unix Extra type 3 [ux]' (ID 0x7875): 'GID Size' should not be zero
+#
 
 006F END CENTRAL HEADER    06054B50 (101010256)
 0073 Number of this disk   0000 (0)
@@ -61,6 +73,6 @@
 007F Offset to Central Dir 00000032 (50)
 0083 Comment Length        0000 (0)
 #
-# Info Count: 2
+# Info Count: 6
 #
 # Done

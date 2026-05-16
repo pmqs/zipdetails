@@ -5080,6 +5080,14 @@ sub decode_Ux
     out_v "  GID";
 }
 
+sub canDecodeLittleEndian
+{
+    my $value = shift;
+
+    state $valid = { 0 => 1, 1 => 1, 2 => 1, 4 => 2, 8 => 1} ;
+    return $valid->{$value};
+}
+
 sub decodeLittleEndian
 {
     my $value = shift ;
@@ -5137,8 +5145,20 @@ sub decode_ux
         }
 
         myRead(my $data, $uidSize);
-        out2 $data, "UID", decodeLittleEndian($data);
+        if (canDecodeLittleEndian($uidSize))
+        {
+            out2 $data, "UID", decodeLittleEndian($data);
+        }
+        else
+        {
+            out2 $data, "UID", "Invalid UID Value: " . hexDump($data);
+            info $FH->tell() - $uidSize, extraFieldIdentifier($extraID) . ": UID value is not a valid value"
+        }
         $available -= $uidSize ;
+    }
+    else
+    {
+        info $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'UID Size' should not be zero"
     }
 
     if ($available < 1)
@@ -5163,8 +5183,20 @@ sub decode_ux
         }
 
         myRead(my $data, $gidSize);
-        out2 $data, "GID", decodeLittleEndian($data);
+        if (canDecodeLittleEndian($gidSize))
+        {
+            out2 $data, "GID", decodeLittleEndian($data);
+        }
+        else
+        {
+            out2 $data, "GID", "Invalid GID Value: " .hexDump($data);
+            info $FH->tell() - $gidSize, extraFieldIdentifier($extraID) . ":  GID value is not a valid value"
+        }
         $available -= $gidSize ;
+    }
+    else
+    {
+        info $FH->tell() - 1, extraFieldIdentifier($extraID) . ": 'GID Size' should not be zero"
     }
 
 }
