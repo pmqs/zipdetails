@@ -1,6 +1,44 @@
 CHANGES
 -------
 
+4.006 16 May 2026
+
+  * Set version to 4.006
+    Sat May 16 12:59:34 2026 +0100
+    0f88dfafb1706eae649708957763bec87fa88440
+
+  * Add tests for decode_ux #32
+    Sat May 16 12:57:27 2026 +0100
+    36215e38d64cdcac09561b399ec6c55373625300
+
+  * Fix some spelling mistakes
+    Sat May 16 11:11:45 2026 +0100
+    1739aef4dfd7e3044616879f723a430d00a7b4b6
+
+  * fix: correct unpackValueQ -> unpackValue_Q typo in decodeLitteEndian
+    Sat May 16 11:10:22 2026 +0100
+    42da886f43ebd2a8c613ad431208b8df20c9cc22
+
+  * Beef up logic for Zip64 EOCD detection
+    Tue May 5 12:39:46 2026 +0100
+    e3ae65f8da15a706478a5c85b3637fc3d4252c59
+
+  * Fix typo
+    Mon May 4 22:35:41 2026 +0100
+    14904f9e98c1e75f7a80b6468b153e90cadfde1d
+
+  * fix: typos in comment
+    Mon May 4 22:03:09 2026 +0100
+    fbda9e9bcfa1043fa7ac8050fa6fa9485efb5aea
+
+  * Update Changes for version 4.005
+    Mon May 4 21:59:00 2026 +0100
+    08b6db9f8dbf4d8e3121cf085ca36342f4defe27
+
+  * Reword method 7 to Tokenized and 20 to include both ipag8 and Zstandard
+    Sun Mar 22 13:05:43 2026 +0000
+    3d816f5be126d321ddcc1e50146ad6e9a704240a
+
 4.005 8 March 2026
 
   * feat: add & symbol (#29)
