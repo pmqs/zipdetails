@@ -31,7 +31,7 @@ at hand to help understand the output from this program.
 By default the program expects to be given a well-formed zip file.  It will
 navigate the zip file by first parsing the zip `Central Directory` at the end
 of the file.  If the `Central Directory` is found, it will then walk
-sequentally through the zip records starting at the beginning of the file.
+sequentially through the zip records starting at the beginning of the file.
 See ["Advanced Analysis"](#advanced-analysis) for other processing options.
 
 If the program finds any structural or portability issues with the zip file
@@ -52,7 +52,7 @@ Date/time fields found in zip files are displayed in local time. Use the
 ### Filenames & Comments
 
 Filenames and comments are decoded/encoded using the default system
-encoding of the host running `zipdetails`. When the sytem encoding cannot
+encoding of the host running `zipdetails`. When the system encoding cannot
 be determined `cp437` will be used.
 
 The exceptions are
@@ -79,7 +79,7 @@ Options"](#filename-comment-encoding-options) for ways to control the encoding o
 
 - `--scan`
 
-    Pessimistically scan the zip file loking for possible zip records. Can be
+    Pessimistically scan the zip file looking for possible zip records. Can be
     error-prone. For very large zip files this option is slow. Consider using
     the `--walk` option first. See ["Advanced Analysis Options"](#advanced-analysis-options)
 
@@ -331,7 +331,7 @@ Here is the same zip file, `test.zip`, dumped using the `zipdetails`
 
 ## Advanced Analysis
 
-If you have a corrupt or non-standard zip file, particulatly one where the
+If you have a corrupt or non-standard zip file, particularly one where the
 `Central Directory` metadata at the end of the file is absent/incomplete, you
 can use either the `--walk` option or the `--scan` option to search for
 any zip metadata that is still present in the file.
@@ -339,7 +339,7 @@ any zip metadata that is still present in the file.
 When either of these options is enabled, this program will bypass the
 initial step of reading the `Central Directory` at the end of the file and
 simply scan the zip file sequentially from the start of the file looking
-for zip metedata records. Although this can be error prone, for the most
+for zip metadata records. Although this can be error prone, for the most
 part it will find any zip file metadata that is still present in the file.
 
 The difference between the two options is how aggressive the sequential
@@ -351,23 +351,23 @@ series of 4-byte signatures to flag the start of a each of the metadata
 records it uses. When the `--walk` or the `--scan` option is enabled both
 work identically by scanning the file from the beginning looking for any
 the of these valid 4-byte metadata signatures. When a 4-byte signature is
-found both options will blindly assume that it has found a vald metadata
+found both options will blindly assume that it has found a valid metadata
 record and display it.
 
 ### `--walk`
 
 The `--walk` option optimistically assumes that it has found a real zip
-metatada record and so starts the scan for the next record directly after
+metadata record and so starts the scan for the next record directly after
 the record it has just output.
 
 ### `--scan`
 
 The `--scan` option is pessimistic and assumes the 4-byte signature
 sequence may have been a false-positive, so before starting the scan for
-the next resord, it will rewind to the location in the file directly after
-the 4-byte sequecce it just processed. This means it will rescan data that
-has already been processed.  For very lage zip files the `--scan` option
-can be really realy slow, so trying the `--walk` option first.
+the next record, it will rewind to the location in the file directly after
+the 4-byte sequence it just processed. This means it will rescan data that
+has already been processed.  For very large zip files the `--scan` option
+can be really really slow, so trying the `--walk` option first.
 
 **Important Note**: If the zip file being processed contains one or more
 nested zip files, and the outer zip file uses the `STORE` compression
@@ -406,7 +406,7 @@ for the most part, there are exceptions out in the wild.
 ### Dealing with Encoding Errors
 
 The most common filename encoding issue is where the `EFS` bit is not set and
-the filename is stored in a character set that doesnt't match the system
+the filename is stored in a character set that doesn't match the system
 encoding. This mostly impacts legacy zip files that predate the
 introduction of Unicode.
 
@@ -418,7 +418,7 @@ can display the filenames using the `--encoding` option
 
 A less common variation of this is where the `EFS` bit is set, signalling
 that the filename will be encoded in UTF-8, but the filename is not encoded
-in UTF-8. To deal with this scenarion, use the `--no-language-encoding`
+in UTF-8. To deal with this scenario, use the `--no-language-encoding`
 option along with the `--encoding` option.
 
 # LIMITATIONS
