@@ -2419,7 +2419,7 @@ sub redactFilename
     $filename =~ s(.)(X)g
         if $opt_Redact;
 
-    return $filename;
+    return wantarray ? ($filename, $filename, 0)  : $filename;
 }
 
 sub validateDirectory
