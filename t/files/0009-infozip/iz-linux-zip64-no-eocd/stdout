@@ -1,0 +1,87 @@
+
+000000 LOCAL HEADER #1       04034B50 (67324752)
+000004 Extract Zip Spec      2D (45) '4.5'
+000005 Extract OS            00 (0) 'MS-DOS'
+000006 General Purpose Flag  0000 (0)
+       [Bits 1-2]            0 'Normal Compression'
+000008 Compression Method    0008 (8) 'Deflated'
+00000A Modification Time     5CEE6DF5 (1559129589) 'Tue Jul 14 13:47:42 2026'
+00000E CRC                   193838C3 (423114947)
+000012 Compressed Size       FFFFFFFF (4294967295)
+000016 Uncompressed Size     FFFFFFFF (4294967295)
+00001A Filename Length       0007 (7)
+00001C Extra Length          0030 (48)
+00001E Filename              'tmp/big'
+000025 Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+000027   Length              0009 (9)
+000029   Flags               03 (3) 'Modification & Access'
+00002A   Modification Time   6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+00002E   Access Time         6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+000032 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+000034   Length              000B (11)
+000036   Version             01 (1)
+000037   UID Size            04 (4)
+000038   UID                 000003E8 (1000)
+00003C   GID Size            04 (4)
+00003D   GID                 000003E8 (1000)
+000041 Extra ID #3           0001 (1) 'ZIP64'
+000043   Length              0010 (16)
+000045   Uncompressed Size   0000000140000000 (5368709120)
+00004D   Compressed Size     00000000004F8050 (5210192)
+000055 PAYLOAD
+
+4F80A5 CENTRAL HEADER #1     02014B50 (33639248)
+4F80A9 Created Zip Spec      1E (30) '3.0'
+4F80AA Created OS            03 (3) 'Unix'
+4F80AB Extract Zip Spec      2D (45) '4.5'
+4F80AC Extract OS            00 (0) 'MS-DOS'
+4F80AD General Purpose Flag  0000 (0)
+       [Bits 1-2]            0 'Normal Compression'
+4F80AF Compression Method    0008 (8) 'Deflated'
+4F80B1 Modification Time     5CEE6DF5 (1559129589) 'Tue Jul 14 13:47:42 2026'
+4F80B5 CRC                   193838C3 (423114947)
+4F80B9 Compressed Size       004F8050 (5210192)
+4F80BD Uncompressed Size     FFFFFFFF (4294967295)
+4F80C1 Filename Length       0007 (7)
+4F80C3 Extra Length          0024 (36)
+4F80C5 Comment Length        0000 (0)
+4F80C7 Disk Start            0000 (0)
+4F80C9 Int File Attributes   0000 (0)
+       [Bit 0]               0 'Binary Data'
+4F80CB Ext File Attributes   81B40000 (2176057344)
+       [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+       [Bits 28-31]          08 (8) 'Regular File'
+4F80CF Local Header Offset   00000000 (0)
+4F80D3 Filename              'tmp/big'
+4F80DA Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+4F80DC   Length              0005 (5)
+4F80DE   Flags               03 (3) 'Modification & Access'
+4F80DF   Modification Time   6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+4F80E3 Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+4F80E5   Length              000B (11)
+4F80E7   Version             01 (1)
+4F80E8   UID Size            04 (4)
+4F80E9   UID                 000003E8 (1000)
+4F80ED   GID Size            04 (4)
+4F80EE   GID                 000003E8 (1000)
+4F80F2 Extra ID #3           0001 (1) 'ZIP64'
+4F80F4   Length              0008 (8)
+4F80F6   Uncompressed Size   0000000140000000 (5368709120)
+
+4F80FE UNEXPECTED PADDING    PK..,.........-.........................Y.........O.....PK........O.........
+#
+# INFO: Offset 0x4F80FE: 0x4C (76) Unexpected Padding bytes
+#
+
+4F814A END CENTRAL HEADER    06054B50 (101010256)
+4F814E Number of this disk   0000 (0)
+4F8150 Central Dir Disk no   0000 (0)
+4F8152 Entries in this disk  0001 (1)
+4F8154 Total Entries         0001 (1)
+4F8156 Size of Central Dir   00000059 (89)
+4F815A Offset to Central Dir 004F80A5 (5210277)
+4F815E Comment Length        0000 (0)
+#
+# Info Count: 1
+#
+# Done

@@ -32,7 +32,7 @@ my $tests_per_zip = 6  ;
 my $tests_per_zip_full = $tests_per_zip * 2 * 3 * 2 ;
 
 my $test_count = 1 ;
-$test_count += 240 if -e 't/files';
+$test_count += 241 if -e 't/files';
 
 plan tests => $test_count * $tests_per_zip_full ;
 
@@ -139,7 +139,6 @@ for my $dir (sort keys %dirs)
 
             $zipfile = $tempdir . '/' . $z;
             $zipfile =~ s/\.zst$//;
-
             system("$ZSTD -d -q -o $zipfile $HERE/$dir/$z") == 0
                 or die "cannot unzstd: $!\n";
 

@@ -82,6 +82,35 @@ Partial dump show streaming artefacts
 
 https://sourceforge.net/p/infozip/bugs/69/
 
+### ZIP64 archive with incorrect `Offset to Central Hdr` value
+
+```
+$ truncate -s $(( 5 * 1024 * 1024 * 1024 )) /tmp/big
+
+$ zip /tmp/big.zip /tmp/big
+```
+
+The Offset to Central Dir should be FFFFFFFF
+```
+4F814A 4F814D 000004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+4F814E 4F814F 000002 00 00       Number of this disk   0000 (0)
+4F8150 4F8151 000002 00 00       Central Dir Disk no   0000 (0)
+4F8152 4F8153 000002 01 00       Entries in this disk  0001 (1)
+4F8154 4F8155 000002 01 00       Total Entries         0001 (1)
+4F8156 4F8159 000004 59 00 00 00 Size of Central Dir   00000059 (89)
+4F815A 4F815D 000004 A5 80 4F 00 Offset to Central Dir 004F80A5 (5210277)
+4F815E 4F815F 000002 00 00       Comment Length        0000 (0)
+```
+
+The Zip64 headers are present, but currently not decoded properly.
+```
+4F80FE 4F8149 00004C 50 4B 06 06 UNEXPECTED PADDING    PK..,.........-.........................Y.........O.....PK........O.........
+                     2C 00 00 00
+                     00 00 00 00
+                     1F 03 2D 00
+                     00 00 00 00
+```
+
 # TODO
 
 * UTF8?

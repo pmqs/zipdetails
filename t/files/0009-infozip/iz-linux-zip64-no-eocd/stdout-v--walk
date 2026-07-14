@@ -1,0 +1,111 @@
+
+000000 000003 000004 50 4B 03 04 LOCAL HEADER #1       04034B50 (67324752)
+000004 000004 000001 2D          Extract Zip Spec      2D (45) '4.5'
+000005 000005 000001 00          Extract OS            00 (0) 'MS-DOS'
+000006 000007 000002 00 00       General Purpose Flag  0000 (0)
+                                 [Bits 1-2]            0 'Normal Compression'
+000008 000009 000002 08 00       Compression Method    0008 (8) 'Deflated'
+00000A 00000D 000004 F5 6D EE 5C Modification Time     5CEE6DF5 (1559129589) 'Tue Jul 14 13:47:42 2026'
+00000E 000011 000004 C3 38 38 19 CRC                   193838C3 (423114947)
+000012 000015 000004 FF FF FF FF Compressed Size       FFFFFFFF (4294967295)
+000016 000019 000004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
+00001A 00001B 000002 07 00       Filename Length       0007 (7)
+00001C 00001D 000002 30 00       Extra Length          0030 (48)
+00001E 000024 000007 74 6D 70 2F Filename              'tmp/big'
+                     62 69 67
+000025 000026 000002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+000027 000028 000002 09 00         Length              0009 (9)
+000029 000029 000001 03            Flags               03 (3) 'Modification & Access'
+00002A 00002D 000004 EE 2F 56 6A   Modification Time   6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+00002E 000031 000004 EE 2F 56 6A   Access Time         6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+000032 000033 000002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+000034 000035 000002 0B 00         Length              000B (11)
+000036 000036 000001 01            Version             01 (1)
+000037 000037 000001 04            UID Size            04 (4)
+000038 00003B 000004 E8 03 00 00   UID                 000003E8 (1000)
+00003C 00003C 000001 04            GID Size            04 (4)
+00003D 000040 000004 E8 03 00 00   GID                 000003E8 (1000)
+000041 000042 000002 01 00       Extra ID #3           0001 (1) 'ZIP64'
+000043 000044 000002 10 00         Length              0010 (16)
+000045 00004C 000008 00 00 00 40   Uncompressed Size   0000000140000000 (5368709120)
+                     01 00 00 00
+00004D 000054 000008 50 80 4F 00   Compressed Size     00000000004F8050 (5210192)
+                     00 00 00 00
+000055 4F80A4 4F8050 ...         PAYLOAD
+
+4F80A5 4F80A8 000004 50 4B 01 02 CENTRAL HEADER #1     02014B50 (33639248)
+4F80A9 4F80A9 000001 1E          Created Zip Spec      1E (30) '3.0'
+4F80AA 4F80AA 000001 03          Created OS            03 (3) 'Unix'
+4F80AB 4F80AB 000001 2D          Extract Zip Spec      2D (45) '4.5'
+4F80AC 4F80AC 000001 00          Extract OS            00 (0) 'MS-DOS'
+4F80AD 4F80AE 000002 00 00       General Purpose Flag  0000 (0)
+                                 [Bits 1-2]            0 'Normal Compression'
+4F80AF 4F80B0 000002 08 00       Compression Method    0008 (8) 'Deflated'
+4F80B1 4F80B4 000004 F5 6D EE 5C Modification Time     5CEE6DF5 (1559129589) 'Tue Jul 14 13:47:42 2026'
+4F80B5 4F80B8 000004 C3 38 38 19 CRC                   193838C3 (423114947)
+4F80B9 4F80BC 000004 50 80 4F 00 Compressed Size       004F8050 (5210192)
+4F80BD 4F80C0 000004 FF FF FF FF Uncompressed Size     FFFFFFFF (4294967295)
+4F80C1 4F80C2 000002 07 00       Filename Length       0007 (7)
+4F80C3 4F80C4 000002 24 00       Extra Length          0024 (36)
+4F80C5 4F80C6 000002 00 00       Comment Length        0000 (0)
+4F80C7 4F80C8 000002 00 00       Disk Start            0000 (0)
+4F80C9 4F80CA 000002 00 00       Int File Attributes   0000 (0)
+                                 [Bit 0]               0 'Binary Data'
+4F80CB 4F80CE 000004 00 00 B4 81 Ext File Attributes   81B40000 (2176057344)
+                                 [Bits 16-24]          01B4 (436) 'Unix attrib: rw-rw-r--'
+                                 [Bits 28-31]          08 (8) 'Regular File'
+4F80CF 4F80D2 000004 00 00 00 00 Local Header Offset   00000000 (0)
+4F80D3 4F80D9 000007 74 6D 70 2F Filename              'tmp/big'
+                     62 69 67
+4F80DA 4F80DB 000002 55 54       Extra ID #1           5455 (21589) 'Extended Timestamp [UT]'
+4F80DC 4F80DD 000002 05 00         Length              0005 (5)
+4F80DE 4F80DE 000001 03            Flags               03 (3) 'Modification & Access'
+4F80DF 4F80E2 000004 EE 2F 56 6A   Modification Time   6A562FEE (1784033262) 'Tue Jul 14 12:47:42 2026'
+4F80E3 4F80E4 000002 75 78       Extra ID #2           7875 (30837) 'Unix Extra type 3 [ux]'
+4F80E5 4F80E6 000002 0B 00         Length              000B (11)
+4F80E7 4F80E7 000001 01            Version             01 (1)
+4F80E8 4F80E8 000001 04            UID Size            04 (4)
+4F80E9 4F80EC 000004 E8 03 00 00   UID                 000003E8 (1000)
+4F80ED 4F80ED 000001 04            GID Size            04 (4)
+4F80EE 4F80F1 000004 E8 03 00 00   GID                 000003E8 (1000)
+4F80F2 4F80F3 000002 01 00       Extra ID #3           0001 (1) 'ZIP64'
+4F80F4 4F80F5 000002 08 00         Length              0008 (8)
+4F80F6 4F80FD 000008 00 00 00 40   Uncompressed Size   0000000140000000 (5368709120)
+                     01 00 00 00
+
+4F80FE 4F8101 000004 50 4B 06 06 ZIP64 END CENTRAL DIR 06064B50 (101075792)
+                                 RECORD
+4F8102 4F8109 000008 2C 00 00 00 Size of record        000000000000002C (44)
+                     00 00 00 00
+4F810A 4F810A 000001 1E          Created Zip Spec      1E (30) '3.0'
+4F810B 4F810B 000001 03          Created OS            03 (3) 'Unix'
+4F810C 4F810C 000001 2D          Extract Zip Spec      2D (45) '4.5'
+4F810D 4F810D 000001 00          Extract OS            00 (0) 'MS-DOS'
+4F810E 4F8111 000004 00 00 00 00 Number of this disk   00000000 (0)
+4F8112 4F8115 000004 00 00 00 00 Central Dir Disk no   00000000 (0)
+4F8116 4F811D 000008 01 00 00 00 Entries in this disk  0000000000000001 (1)
+                     00 00 00 00
+4F811E 4F8125 000008 01 00 00 00 Total Entries         0000000000000001 (1)
+                     00 00 00 00
+4F8126 4F812D 000008 59 00 00 00 Size of Central Dir   0000000000000059 (89)
+                     00 00 00 00
+4F812E 4F8135 000008 A5 80 4F 00 Offset to Central dir 00000000004F80A5 (5210277)
+                     00 00 00 00
+
+4F8136 4F8139 000004 50 4B 06 07 ZIP64 END CENTRAL DIR 07064B50 (117853008)
+                                 LOCATOR
+4F813A 4F813D 000004 00 00 00 00 Central Dir Disk no   00000000 (0)
+4F813E 4F8145 000008 FE 80 4F 00 Offset to Zip64 EOCD  00000000004F80FE (5210366)
+                     00 00 00 00
+4F8146 4F8149 000004 01 00 00 00 Total no of Disks     00000001 (1)
+
+4F814A 4F814D 000004 50 4B 05 06 END CENTRAL HEADER    06054B50 (101010256)
+4F814E 4F814F 000002 00 00       Number of this disk   0000 (0)
+4F8150 4F8151 000002 00 00       Central Dir Disk no   0000 (0)
+4F8152 4F8153 000002 01 00       Entries in this disk  0001 (1)
+4F8154 4F8155 000002 01 00       Total Entries         0001 (1)
+4F8156 4F8159 000004 59 00 00 00 Size of Central Dir   00000059 (89)
+4F815A 4F815D 000004 A5 80 4F 00 Offset to Central Dir 004F80A5 (5210277)
+4F815E 4F815F 000002 00 00       Comment Length        0000 (0)
+#
+# Done
