@@ -7895,8 +7895,8 @@ the type of data:
 If the field contains an 8-bit, 16-bit, 32-bit or 64-bit numeric value, it
 will be displayed in both hex and decimal -- for example "C<002A (42)>".
 
-Note that Zip files store most numeric values in I<little-endian> encoding
-(there area few rare instances where I<big-endian> is used). The value read
+Note that Zip files store most numeric values in I<little-endian> encoding, although
+there are a few exceptions where I<big-endian> encoding is used. The value read
 from the zip file will have the I<endian> encoding removed before being
 displayed.
 
