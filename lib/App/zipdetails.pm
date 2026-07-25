@@ -13,7 +13,7 @@ This is a stub module, see F<bin/zipdetails> for details of the app.
 
 =head1 AUTHOR
 
-Paul Marquess F<pmqs@cpan.org>.
+Paul Marquess F<pmqs@outlook.com>.
 
 =head1 COPYRIGHT
 

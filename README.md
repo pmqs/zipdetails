@@ -491,7 +491,7 @@ file.
 
 # AUTHOR
 
-Paul Marquess `pmqs@cpan.org`.
+Paul Marquess `pmqs@outlook.com`.
 
 # COPYRIGHT
 

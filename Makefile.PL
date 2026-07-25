@@ -34,7 +34,7 @@ my %WriteMakefileArgs = (
                         },
 
     ABSTRACT        => 'Display details about the internal structure of Zip files',
-    AUTHOR          => 'Paul Marquess <pmqs@cpan.org>',
+    AUTHOR          => 'Paul Marquess <pmqs@outlook.com>',
     LICENSE         => 'perl',
     EXE_FILES       => ['bin/zipdetails'],
 
