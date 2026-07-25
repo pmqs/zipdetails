@@ -68,10 +68,31 @@
 4F80F4   Length              0008 (8)
 4F80F6   Uncompressed Size   0000000140000000 (5368709120)
 
-4F80FE UNEXPECTED PADDING    PK..,.........-.........................Y.........O.....PK........O.........
+4F80FE ZIP64 END CENTRAL DIR 06064B50 (101075792)
+       RECORD
 #
-# INFO: Offset 0x4F80FE: 0x4C (76) Unexpected Padding bytes
+# WARNING: Offset 0x4F80FE: Orphan ZIP64 END CENTRAL DIR RECORD: End Central Header fields have no 0xFFFF or 0xFFFFFFFF values.
 #
+4F8102 Size of record        000000000000002C (44)
+4F810A Created Zip Spec      1E (30) '3.0'
+4F810B Created OS            03 (3) 'Unix'
+4F810C Extract Zip Spec      2D (45) '4.5'
+4F810D Extract OS            00 (0) 'MS-DOS'
+4F810E Number of this disk   00000000 (0)
+4F8112 Central Dir Disk no   00000000 (0)
+4F8116 Entries in this disk  0000000000000001 (1)
+4F811E Total Entries         0000000000000001 (1)
+4F8126 Size of Central Dir   0000000000000059 (89)
+4F812E Offset to Central dir 00000000004F80A5 (5210277)
+
+4F8136 ZIP64 END CENTRAL DIR 07064B50 (117853008)
+       LOCATOR
+#
+# WARNING: Offset 0x4F8136: Orphan ZIP64 END CENTRAL DIR LOCATOR: End Central Header fields have no 0xFFFF or 0xFFFFFFFF values.
+#
+4F813A Central Dir Disk no   00000000 (0)
+4F813E Offset to Zip64 EOCD  00000000004F80FE (5210366)
+4F8146 Total no of Disks     00000001 (1)
 
 4F814A END CENTRAL HEADER    06054B50 (101010256)
 4F814E Number of this disk   0000 (0)
@@ -82,6 +103,6 @@
 4F815A Offset to Central Dir 004F80A5 (5210277)
 4F815E Comment Length        0000 (0)
 #
-# Info Count: 1
+# Warning Count: 2
 #
 # Done
