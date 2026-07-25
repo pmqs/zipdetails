@@ -1,6 +1,32 @@
 CHANGES
 -------
 
+4.009 24 July 2026
+
+  * Set version to 4.009
+    Sat Jul 25 16:40:48 2026 +0100
+    04b284247ec177ecfae8bd1a543020c90b8d09a9
+
+  * update email address
+    Sat Jul 25 16:33:22 2026 +0100
+    6faded069b6b63d7253285f18dfc87b1d4ab1f51
+
+  * zip64 EOCD and EOCD locator show as "unexpected padding" Fixes #38
+    Sat Jul 25 16:31:51 2026 +0100
+    234b317680ba7908be89a03b81ed7e9cf95cbf35
+
+  * Add test file for info-zip creating orphan zip64 eocd headers
+    Tue Jul 14 17:21:15 2026 +0100
+    b32ccf9373da7ec22e27346d1f8944ef7cedc702
+
+  * Fix typo and rework little/big endian description
+    Tue Jul 14 13:43:07 2026 +0100
+    8fed810db1c6484ea2a4b37d98f29e34852bc2a6
+
+  * Bump actions/checkout from 6 to 7
+    Fri Jul 3 12:58:23 2026 +0100
+    9ff81b866ad61ca2fd197653e0a3f4da6381c29d
+
 4.008 16 June 2026
 
   * Update reference to INfo-zip extrafld file
